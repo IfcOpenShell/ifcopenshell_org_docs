@@ -1,0 +1,39 @@
+:py:mod:`ifcpatch.recipes.TessellateElements`
+=============================================
+
+.. py:module:: ifcpatch.recipes.TessellateElements
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcBeam', force_faceted_brep: bool = False)
+
+
+   
+   Convert element body representations to tessellations or faceted breps
+
+   Some software have bugs that result in incorrect geometry being
+   imported for more complex representation types, such as CSGs. This
+   patch converts elements matching your query into a tessellation (or
+   faceted brep for IFC2X3) which is generally supported by all
+   implementations. Note that styles and shape aspects are not preserved.
+
+   See example bug: https://github.com/Autodesk/revit-ifc/issues/707
+
+   :param query: Query string to filter out elements to convert, defaults to "IfcBeam"
+   :type query: str
+   :param force_faceted_brep: Force using IfcFacetedBreps instead of IfcPolygonalFaceSets,
+       defaults to `False`
+   :type force_faceted_brep: bool
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "TessellateElements", "arguments": ["IfcBeam", False]})
+
+   .. py:method:: patch()
+
+
+

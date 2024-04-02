@@ -1,0 +1,48 @@
+:py:mod:`ifcopenshell.util.resource`
+====================================
+
+.. py:module:: ifcopenshell.util.resource
+
+
+Module Contents
+---------------
+
+.. py:function:: get_cost(resource)
+
+
+.. py:function:: get_nested_resources(resource)
+
+
+.. py:function:: get_parametric_resource_products(resource)
+
+
+.. py:function:: get_parent_cost(resource)
+
+
+.. py:function:: get_parent_productivity(resource)
+
+
+.. py:function:: get_productivity(resource, should_inherit=True)
+
+
+.. py:function:: get_quantity(resource)
+
+
+.. py:function:: get_quantity_produced(productivity)
+
+
+.. py:function:: get_quantity_produced_name(productivity)
+
+
+.. py:function:: get_resource_required_work(resource)
+
+
+.. py:function:: get_task_assignments(resource)
+
+
+.. py:function:: get_total_quantity_produced(resource, quantity_name_in_process)
+
+
+.. py:function:: get_unit_consumed(productivity)
+
+

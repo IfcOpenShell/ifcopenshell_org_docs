@@ -1,0 +1,34 @@
+:py:mod:`ifcopenshell.api.style.remove_styled_representation`
+=============================================================
+
+.. py:module:: ifcopenshell.api.style.remove_styled_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, representation=None)
+
+
+   
+   Removes a styled representation
+
+   Styled representations are typically associated with materials. This
+   removes the representation but not the underlying styles.
+
+   :param representation: The IfcStyledRepresentation to remove.
+   :type representation: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Remove a styled representation
+       ifcopenshell.api.run("style.remove_styled_representation", model, representation=representation)
+
+   .. py:method:: execute()
+
+
+

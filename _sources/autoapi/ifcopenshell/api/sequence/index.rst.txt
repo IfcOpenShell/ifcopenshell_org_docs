@@ -1,0 +1,53 @@
+:py:mod:`ifcopenshell.api.sequence`
+===================================
+
+.. py:module:: ifcopenshell.api.sequence
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_task/index.rst
+   add_task_time/index.rst
+   add_time_period/index.rst
+   add_work_calendar/index.rst
+   add_work_plan/index.rst
+   add_work_schedule/index.rst
+   add_work_time/index.rst
+   assign_lag_time/index.rst
+   assign_process/index.rst
+   assign_product/index.rst
+   assign_recurrence_pattern/index.rst
+   assign_sequence/index.rst
+   assign_workplan/index.rst
+   calculate_task_duration/index.rst
+   cascade_schedule/index.rst
+   create_baseline/index.rst
+   duplicate_task/index.rst
+   edit_lag_time/index.rst
+   edit_recurrence_pattern/index.rst
+   edit_sequence/index.rst
+   edit_task/index.rst
+   edit_task_time/index.rst
+   edit_work_calendar/index.rst
+   edit_work_plan/index.rst
+   edit_work_schedule/index.rst
+   edit_work_time/index.rst
+   get_related_products/index.rst
+   recalculate_schedule/index.rst
+   remove_task/index.rst
+   remove_time_period/index.rst
+   remove_work_calendar/index.rst
+   remove_work_plan/index.rst
+   remove_work_schedule/index.rst
+   remove_work_time/index.rst
+   unassign_lag_time/index.rst
+   unassign_process/index.rst
+   unassign_product/index.rst
+   unassign_recurrence_pattern/index.rst
+   unassign_sequence/index.rst
+
+

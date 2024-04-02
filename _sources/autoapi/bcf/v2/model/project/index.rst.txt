@@ -1,0 +1,37 @@
+:py:mod:`bcf.v2.model.project`
+==============================
+
+.. py:module:: bcf.v2.model.project
+
+
+Module Contents
+---------------
+
+.. py:class:: Project
+
+
+   .. py:attribute:: name
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: project_id
+      :type: str
+
+      
+
+
+.. py:class:: ProjectExtension
+
+
+   .. py:attribute:: extension_schema
+      :type: str
+
+      
+
+   .. py:attribute:: project
+      :type: Optional[Project]
+
+      
+
+

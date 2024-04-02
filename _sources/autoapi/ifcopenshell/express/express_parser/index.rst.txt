@@ -1,0 +1,16 @@
+:py:mod:`ifcopenshell.express.express_parser`
+=============================================
+
+.. py:module:: ifcopenshell.express.express_parser
+
+
+Module Contents
+---------------
+
+.. py:function:: parse(fn)
+
+
+.. py:data:: m
+
+   
+

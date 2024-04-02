@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.grid`
+===============================
+
+.. py:module:: ifcopenshell.api.grid
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   create_axis_curve/index.rst
+   create_grid_axis/index.rst
+   remove_grid_axis/index.rst
+
+

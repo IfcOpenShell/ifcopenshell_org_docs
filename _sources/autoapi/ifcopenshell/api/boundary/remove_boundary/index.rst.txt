@@ -1,0 +1,36 @@
+:py:mod:`ifcopenshell.api.boundary.remove_boundary`
+===================================================
+
+.. py:module:: ifcopenshell.api.boundary.remove_boundary
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, boundary=None)
+
+
+   
+   Removes a space boundary
+
+   The relating space or related building element is untouched. Only the
+   boundary and its connection geometry is removed.
+
+   :param boundary: The IfcRelSpaceBoundary you want to remove.
+   :type boundary: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+       # A boring boundary with no geometry. Note that this boundary is
+       # invalid and does not relate to any space or building element.
+       boundary = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcRelSpaceBoundary")
+
+       # Let's remove it!
+       ifcopenshell.api.run("boundary.remove_boundary", model, boundary=boundary)
+
+   .. py:method:: execute()
+
+
+

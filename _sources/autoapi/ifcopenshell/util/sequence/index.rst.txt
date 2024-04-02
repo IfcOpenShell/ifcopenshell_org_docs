@@ -1,0 +1,104 @@
+:py:mod:`ifcopenshell.util.sequence`
+====================================
+
+.. py:module:: ifcopenshell.util.sequence
+
+
+Module Contents
+---------------
+
+.. py:function:: count_working_days(start, finish, calendar)
+
+
+.. py:function:: derive_calendar(task)
+
+
+.. py:function:: derive_date(task, attribute_name, date=None, is_earliest=False, is_latest=False)
+
+
+.. py:function:: get_all_nested_tasks(task)
+
+
+.. py:function:: get_calendar(task)
+
+
+.. py:function:: get_direct_task_outputs(task)
+
+
+.. py:function:: get_nested_tasks(task)
+
+
+.. py:function:: get_parent_task(task)
+
+
+.. py:function:: get_recent_working_day(start, duration_type, calendar)
+
+
+.. py:function:: get_root_tasks(work_schedule)
+
+
+.. py:function:: get_root_tasks_ids(work_schedule)
+
+
+.. py:function:: get_sequence_assignment(task, sequence='successor')
+
+
+.. py:function:: get_soonest_working_day(start, duration_type, calendar)
+
+
+.. py:function:: get_start_or_finish_date(start, duration, duration_type, calendar, date_type='FINISH')
+
+
+.. py:function:: get_task_inputs(task, is_deep=False)
+
+
+.. py:function:: get_task_outputs(task, is_deep=False)
+
+
+.. py:function:: get_task_resources(task, is_deep=False)
+
+
+.. py:function:: get_task_work_schedule(task)
+
+
+.. py:function:: get_tasks_for_product(product, schedule=None)
+
+   Get all tasks assigned to or referenced by the given product.
+
+   Args:
+       product: An object that is assigned tasks or references tasks.
+       schedule: An optional string representing the schedule name to filter tasks by.
+
+   Returns:
+       A tuple of two lists:
+       - The first list contains all tasks assigned to the product.
+       - The second list contains all tasks referenced by the product that are part of the given schedule.
+
+
+.. py:function:: get_work_schedule_tasks(work_schedule)
+
+
+.. py:function:: guess_date_range(work_schedule)
+
+
+.. py:function:: has_task_inputs(task)
+
+
+.. py:function:: has_task_outputs(task)
+
+
+.. py:function:: is_calendar_applicable(day, calendar)
+
+
+.. py:function:: is_day_in_work_time(day, work_time)
+
+
+.. py:function:: is_work_time_applicable_to_day(work_time, day)
+
+
+.. py:function:: is_working_day(day, calendar)
+
+
+.. py:function:: offset_date(start, duration, duration_type, calendar)
+
+

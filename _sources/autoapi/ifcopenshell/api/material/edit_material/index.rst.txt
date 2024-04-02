@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.material.edit_material`
+=================================================
+
+.. py:module:: ifcopenshell.api.material.edit_material
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, material=None, attributes=None)
+
+
+   
+   Edits the attributes of an IfcMaterial
+
+   .. py:method:: execute()
+
+
+

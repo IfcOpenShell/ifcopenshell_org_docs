@@ -1,0 +1,84 @@
+:py:mod:`bcf.xml_parser`
+========================
+
+.. py:module:: bcf.xml_parser
+
+.. autoapi-nested-parse::
+
+   XML Parser and Serializer factories.
+
+
+
+Module Contents
+---------------
+
+.. py:class:: AbstractXmlParserSerializer
+
+
+   Bases: :py:obj:`Protocol`
+
+   XML Parser and serializer wrapper.
+
+   .. py:method:: parse(xml: bytes, clazz: Type[T]) -> T
+
+      Parse an XML file to an object.
+
+      Args:
+          xml: The XML file as bytes.
+          clazz: The class to parse to.
+
+
+   .. py:method:: serialize(obj: T, ns_map: Optional[dict[str, str]] = None) -> str
+
+      Serialize an object to XML.
+
+      Args:
+          obj: The object to serialize.
+          ns_map: The namespace map to use.
+
+      Returns:
+          The XML as string.
+
+
+
+.. py:class:: XmlParserSerializer
+
+
+   XML Parser and serializer wrapper.
+
+   .. py:method:: parse(xml: bytes, clazz: Type[T]) -> T
+
+      Parse an XML file to an object.
+
+      Args:
+          xml: The XML file as bytes.
+          clazz: The class to parse to.
+
+
+   .. py:method:: serialize(obj: T, ns_map: Optional[dict[str, str]] = None) -> str
+
+      Serialize an object to XML.
+
+      Args:
+          obj: The object to serialize.
+          ns_map: The namespace map to use.
+
+      Returns:
+          The XML as string.
+
+
+
+.. py:function:: build_serializer(context: Optional[xsdata.formats.dataclass.context.XmlContext] = None) -> xsdata.formats.dataclass.serializers.XmlSerializer
+
+   Return a serializer for an XML file.
+
+
+.. py:function:: build_xml_parser(context: Optional[xsdata.formats.dataclass.context.XmlContext] = None) -> xsdata.formats.dataclass.parsers.XmlParser
+
+   Return a parser for an XML file.
+
+
+.. py:data:: T
+
+   
+

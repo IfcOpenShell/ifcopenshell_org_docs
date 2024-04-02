@@ -1,0 +1,41 @@
+:py:mod:`ifctester.__main__`
+============================
+
+.. py:module:: ifctester.__main__
+
+
+Module Contents
+---------------
+
+.. py:data:: args
+
+   
+
+.. py:data:: engine
+
+   
+
+.. py:data:: ifc
+
+   
+
+.. py:data:: parser
+
+   
+
+.. py:data:: specs
+
+   
+
+.. py:data:: start
+
+   
+
+.. py:data:: start
+
+   
+
+.. py:data:: start
+
+   
+

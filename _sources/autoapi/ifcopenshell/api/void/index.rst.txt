@@ -1,0 +1,18 @@
+:py:mod:`ifcopenshell.api.void`
+===============================
+
+.. py:module:: ifcopenshell.api.void
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_filling/index.rst
+   add_opening/index.rst
+   remove_filling/index.rst
+   remove_opening/index.rst
+
+

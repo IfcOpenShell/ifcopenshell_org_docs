@@ -1,0 +1,26 @@
+:py:mod:`ifcopenshell.api.structural.remove_structural_connection_condition`
+============================================================================
+
+.. py:module:: ifcopenshell.api.structural.remove_structural_connection_condition
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, relation=None)
+
+
+   
+   Removes a relationship between a connection and a condition
+
+   The condition and the member itself is preserved.
+
+   :param relation: The IfcRelConnectsStructuralMember to remove.
+   :type relation: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   .. py:method:: execute()
+
+
+

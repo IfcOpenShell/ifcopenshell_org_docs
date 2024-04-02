@@ -1,0 +1,43 @@
+:py:mod:`ifcopenshell.geom.occ_utils`
+=====================================
+
+.. py:module:: ifcopenshell.geom.occ_utils
+
+
+Module Contents
+---------------
+
+.. py:function:: create_shape_from_serialization(brep_object)
+
+
+.. py:function:: display_shape(shape, clr=None, viewer_handle=None)
+
+
+.. py:function:: get_bounding_box_center(bbox)
+
+
+.. py:function:: initialize_display()
+
+
+.. py:function:: serialize_shape(shape)
+
+
+.. py:function:: set_shape_transparency(ais, t, update_viewer=True)
+
+
+.. py:function:: yield_subshapes(shape)
+
+
+.. py:data:: DEFAULT_STYLES
+
+   
+
+.. py:data:: USE_OCCT_HANDLE
+   :value: False
+
+   
+
+.. py:data:: shape_tuple
+
+   
+

@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.structural.remove_structural_load_group`
+==================================================================
+
+.. py:module:: ifcopenshell.api.structural.remove_structural_load_group
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, load_group=None)
+
+
+   
+   Removes a structural load group
+
+   :param load_group: The IfcStructuralLoadGroup to remove.
+   :type load_group: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   .. py:method:: execute()
+
+
+

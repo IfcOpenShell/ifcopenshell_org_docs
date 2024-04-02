@@ -1,0 +1,37 @@
+:py:mod:`ifcopenshell.api.unit.remove_unit`
+===========================================
+
+.. py:module:: ifcopenshell.api.unit.remove_unit
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, unit=None)
+
+
+   
+   Remove a unit
+
+   Be very careful when a unit is removed, as it may mean that previously
+   defined quantities in the model completely lose their meaning.
+
+   :param unit: The unit element to remove
+   :type unit: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # What?
+       unit = ifcopenshell.api.run("unit.add_context_dependent_unit", model, name="HANDFULS")
+
+       # Yeah maybe not.
+       ifcopenshell.api.run("unit.remove_unit", model, unit=unit)
+
+   .. py:method:: execute()
+
+
+

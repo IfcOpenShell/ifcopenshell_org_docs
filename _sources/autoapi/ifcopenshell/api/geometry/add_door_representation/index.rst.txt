@@ -1,0 +1,37 @@
+:py:mod:`ifcopenshell.api.geometry.add_door_representation`
+===========================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_door_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   
+   units in settings expected to be in ifc project units
+
+   .. py:method:: convert_si_to_unit(value)
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: create_ifc_box(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: mathutils.Vector, position: mathutils.Vector = V(0, 0, 0).freeze())
+
+
+.. py:function:: create_ifc_door_lining(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: mathutils.Vector, thickness: list, position: mathutils.Vector = V(0, 0, 0).freeze())
+
+   `thickness` of the profile is defined as list in the following order: `(SIDE, TOP)`
+
+   `thickness` can be also defined just as 1 float value.
+
+
+.. py:data:: SUPPORTED_DOOR_TYPES
+   :value: ('SINGLE_SWING_LEFT', 'SINGLE_SWING_RIGHT', 'DOUBLE_SWING_RIGHT', 'DOUBLE_SWING_LEFT',...
+
+   
+

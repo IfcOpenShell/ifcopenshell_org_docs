@@ -1,0 +1,16 @@
+:py:mod:`ifcopenshell.api.geometry.disconnect_element`
+======================================================
+
+.. py:module:: ifcopenshell.api.geometry.disconnect_element
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   .. py:method:: execute()
+
+
+

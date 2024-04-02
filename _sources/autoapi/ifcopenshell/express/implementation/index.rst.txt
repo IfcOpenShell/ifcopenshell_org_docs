@@ -1,0 +1,22 @@
+:py:mod:`ifcopenshell.express.implementation`
+=============================================
+
+.. py:module:: ifcopenshell.express.implementation
+
+
+Module Contents
+---------------
+
+.. py:class:: Implementation(mapping)
+
+
+   Bases: :py:obj:`codegen.Base`
+
+   .. py:method:: __repr__()
+
+
+
+.. py:data:: Generator
+
+   
+

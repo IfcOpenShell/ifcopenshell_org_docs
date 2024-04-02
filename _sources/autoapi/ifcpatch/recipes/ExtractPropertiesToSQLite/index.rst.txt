@@ -1,0 +1,29 @@
+:py:mod:`ifcpatch.recipes.ExtractPropertiesToSQLite`
+====================================================
+
+.. py:module:: ifcpatch.recipes.ExtractPropertiesToSQLite
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src, file, logger)
+
+
+   
+   Extracts properties and relationships from a IFC-SPF model to SQLite.
+
+   This is a lossy extraction which simplifies popular properties to key
+   value pairs.
+
+   Example:
+
+   .. code:: python
+
+       result = ifcpatch.execute({"input": fn, "file": model, "recipe": "ExtractPropertiesToSQLite"})
+       ifcpatch.write(result, "output.sqlite")
+
+   .. py:method:: patch()
+
+
+

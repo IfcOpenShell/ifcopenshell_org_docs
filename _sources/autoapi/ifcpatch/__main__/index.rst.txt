@@ -1,0 +1,21 @@
+:py:mod:`ifcpatch.__main__`
+===========================
+
+.. py:module:: ifcpatch.__main__
+
+
+Module Contents
+---------------
+
+.. py:data:: args
+
+   
+
+.. py:data:: output
+
+   
+
+.. py:data:: parser
+
+   
+

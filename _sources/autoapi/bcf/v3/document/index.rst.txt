@@ -1,0 +1,38 @@
+:py:mod:`bcf.v3.document`
+=========================
+
+.. py:module:: bcf.v3.document
+
+.. autoapi-nested-parse::
+
+   BCF XML V3 Documents handler.
+
+
+
+Module Contents
+---------------
+
+.. py:class:: DocumentsHandler(definition: bcf.v3.model.DocumentInfo, documents: Optional[dict[str, bytes]] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None)
+
+
+   BCF documents handler.
+
+   .. py:method:: load(zip_file: zipfile.ZipFile, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[DocumentsHandler]
+      :classmethod:
+
+      Loads the documents from the given zip file directory.
+
+      Args:
+          zip_path: The directory path inside the zip file.
+          xml_handler: The xml parser/serializer to use.
+
+      Returns:
+          The documents handler.
+
+
+   .. py:method:: save(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
+
+      Save the documents to the zip file.
+
+
+

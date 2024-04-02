@@ -1,0 +1,37 @@
+:py:mod:`ifcopenshell.api.sequence.remove_work_plan`
+====================================================
+
+.. py:module:: ifcopenshell.api.sequence.remove_work_plan
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, work_plan=None)
+
+
+   
+   Removes a work plan
+
+   Note that schedules that are grouped under the work plan are not
+   removed.
+
+   :param work_plan: The IfcWorkPlan to remove.
+   :type work_plan: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # This will hold all our construction schedules
+       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+
+       # And remove it immediately
+       ifcopenshell.api.run("sequence.remove_work_plan", model, work_plan=work_plan)
+
+   .. py:method:: execute()
+
+
+

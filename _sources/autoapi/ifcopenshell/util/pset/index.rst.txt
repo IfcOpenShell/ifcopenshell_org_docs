@@ -1,0 +1,48 @@
+:py:mod:`ifcopenshell.util.pset`
+================================
+
+.. py:module:: ifcopenshell.util.pset
+
+
+Module Contents
+---------------
+
+.. py:class:: PsetQto(schema: str, templates=None)
+
+
+   .. py:attribute:: templates_path
+
+      
+
+   .. py:method:: get_applicable(ifc_class='', predefined_type='', pset_only=False, qto_only=False) -> List[ifcopenshell.entity_instance.entity_instance]
+
+
+   .. py:method:: get_applicable_names(ifc_class: str, predefined_type='', pset_only=False, qto_only=False) -> List[str]
+
+      Return names instead of objects for other use eg. enum
+
+
+   .. py:method:: get_by_name(name: str) -> Optional[ifcopenshell.entity_instance.entity_instance]
+
+
+   .. py:method:: is_applicable(entity: ifcopenshell.entity_instance.entity_instance, applicables: str, predefined_type='', template_type='NOTDEFINED') -> bool
+
+      applicables can have multiple possible patterns :
+      IfcBoilerType                               (IfcClass)
+      IfcBoilerType/STEAM                         (IfcClass/PREDEFINEDTYPE)
+      IfcBoilerType[PerformanceHistory]           (IfcClass[PerformanceHistory])
+      IfcBoilerType/STEAM[PerformanceHistory]     (IfcClass/PREDEFINEDTYPE[PerformanceHistory])
+
+
+   .. py:method:: is_templated(name: str) -> bool
+
+
+
+.. py:function:: get_template(schema: str) -> PsetQto
+
+
+.. py:data:: templates
+   :type: dict[str, PsetQto]
+
+   
+

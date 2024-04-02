@@ -1,0 +1,20 @@
+:py:mod:`ifcopenshell.api.group`
+================================
+
+.. py:module:: ifcopenshell.api.group
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_group/index.rst
+   assign_group/index.rst
+   edit_group/index.rst
+   remove_group/index.rst
+   unassign_group/index.rst
+   update_group_products/index.rst
+
+

@@ -1,0 +1,35 @@
+:py:mod:`ifcpatch.recipes.ConvertLengthUnit`
+============================================
+
+.. py:module:: ifcpatch.recipes.ConvertLengthUnit
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, unit: str = 'METERS')
+
+
+   
+   Converts the length unit of a model to the specified unit
+
+   Allowed metric units include METERS, MILLIMETERS, CENTIMETERS, etc.
+   Allowed imperial units include INCHES, FEET, MILES.
+
+   :param unit: The name of the desired unit, defaults to "METERS"
+   :type unit: str
+
+   Example:
+
+   .. code:: python
+
+       # Convert to millimeters
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ConvertLengthUnit", "arguments": ["MILLIMETERS"]})
+
+       # Convert to feet
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ConvertLengthUnit", "arguments": ["FEET"]})
+
+   .. py:method:: patch()
+
+
+

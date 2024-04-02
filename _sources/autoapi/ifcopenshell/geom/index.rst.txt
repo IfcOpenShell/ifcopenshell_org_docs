@@ -1,0 +1,33 @@
+:py:mod:`ifcopenshell.geom`
+===========================
+
+.. py:module:: ifcopenshell.geom
+
+.. autoapi-nested-parse::
+
+   Geometry processing and analysis
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   app/index.rst
+   code_editor_pane/index.rst
+   main/index.rst
+   occ_utils/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: _has_occ()
+
+
+.. py:data:: has_occ
+
+   
+

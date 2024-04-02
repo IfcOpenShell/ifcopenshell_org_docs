@@ -1,0 +1,33 @@
+:py:mod:`ifcopenshell.api.profile.remove_profile`
+=================================================
+
+.. py:module:: ifcopenshell.api.profile.remove_profile
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, profile=None)
+
+
+   
+   Removes a profile
+
+   :param profile: The IfcProfileDef to remove.
+   :type profile: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       circle = ifcopenshell.api.run("profile.add_parameterized_profile", model,
+           ifc_class="IfcCircleProfileDef")
+       circle = 1.
+       ifcopenshell.api.run("profile.remove_profile", model, profile=circle)
+
+   .. py:method:: execute()
+
+
+

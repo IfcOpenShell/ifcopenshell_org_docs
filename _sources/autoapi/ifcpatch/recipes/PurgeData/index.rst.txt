@@ -1,0 +1,45 @@
+:py:mod:`ifcpatch.recipes.PurgeData`
+====================================
+
+.. py:module:: ifcpatch.recipes.PurgeData
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger)
+
+
+   
+   Purge IFC properties, relationships, and other data
+
+   In some rare cases (i.e. "resetting" a model or for security purposes)
+   you may need to purge all relationships and data within a model but
+   retain the ability to view the geometry in a model. This patch purges
+   the following relationships:
+
+   - STEP comments, which may include software export metadata
+   - Header data, which may include filenames
+   - Owner, person, organisation, and application data
+   - Addresses
+   - Rooted names
+   - Tags (that reference original software)
+   - Properties and quantities
+   - Materials
+   - Styles (e.g. colours)
+   - External references like classifications, documents, libraries
+   - Types
+   - Groups (such as model groups or search groups) and systems
+   - Profile names
+
+   Example:
+
+   .. code:: python
+
+       # Watch the world burn
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "PurgeData", "arguments": []})
+
+   .. py:method:: patch()
+
+
+

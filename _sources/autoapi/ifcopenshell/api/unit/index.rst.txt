@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.unit`
+===============================
+
+.. py:module:: ifcopenshell.api.unit
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_context_dependent_unit/index.rst
+   add_conversion_based_unit/index.rst
+   add_monetary_unit/index.rst
+   add_si_unit/index.rst
+   assign_unit/index.rst
+   edit_derived_unit/index.rst
+   edit_monetary_unit/index.rst
+   edit_named_unit/index.rst
+   remove_unit/index.rst
+   unassign_unit/index.rst
+
+

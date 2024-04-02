@@ -1,0 +1,20 @@
+:py:mod:`ifcopenshell.api.resource.calculate_resource_usage`
+============================================================
+
+.. py:module:: ifcopenshell.api.resource.calculate_resource_usage
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, resource=None)
+
+
+   
+   Calculates the number of resources required to perform scheduled work on a task.
+           
+
+   .. py:method:: execute()
+
+
+

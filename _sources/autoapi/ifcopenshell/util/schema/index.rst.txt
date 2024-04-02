@@ -1,0 +1,75 @@
+:py:mod:`ifcopenshell.util.schema`
+==================================
+
+.. py:module:: ifcopenshell.util.schema
+
+
+Module Contents
+---------------
+
+.. py:class:: BatchReassignClass(file: ifcopenshell.file)
+
+
+   .. py:method:: purge() -> None
+
+
+   .. py:method:: reassign(element: ifcopenshell.entity_instance, new_class: str) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: unbatch()
+
+
+
+.. py:class:: Migrator
+
+
+   .. py:method:: find_equivalent_attribute(new_element, attribute, element, attributes_mapping, reverse_mapping=False)
+
+
+   .. py:method:: generate_default_value(attribute, new_file)
+
+
+   .. py:method:: migrate(element: ifcopenshell.entity_instance, new_file: ifcopenshell.file) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: migrate_attribute(attribute, element, new_file: ifcopenshell.file, new_element, new_element_schema)
+
+
+   .. py:method:: migrate_attributes(element, new_file, new_element, new_element_schema)
+
+
+   .. py:method:: migrate_class(element, new_file)
+
+
+
+.. py:function:: get_fallback_schema(version: str) -> str
+
+   fallback to the schema version we do have docs and mapping for,
+   needed to support IFC versions like 4X3_RC1, 4X1 etc
+
+
+.. py:function:: get_subtypes(entity)
+
+
+.. py:function:: is_a(entity: ifcopenshell.entity_instance, ifc_class: str) -> bool
+
+
+.. py:function:: reassign_class(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, new_class: str) -> ifcopenshell.entity_instance
+
+   Attempts to change the class (entity name) of `element` to `new_class` by
+   removing element and recreating a similar instance of type `new_class`
+   with the same id.
+
+   In certain cases it may affect the structure of inversely related instances:
+   - Multiple occurrences of reassigned instance within the same aggregate
+     (such as start and end-point of polyline)
+   - Occurrences of reassigned instance within an ordered aggregate
+     (such as IfcRelNests)
+
+   It's unlikely that this affects real-world usage of this function.
+
+
+.. py:data:: cwd
+
+   
+

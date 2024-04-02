@@ -1,0 +1,57 @@
+:py:mod:`ifcopenshell.express.rule_executor`
+============================================
+
+.. py:module:: ifcopenshell.express.rule_executor
+
+
+Module Contents
+---------------
+
+.. py:exception:: error
+
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+   .. py:attribute:: instance
+      :type: ifcopenshell.entity_instance
+
+      
+
+   .. py:attribute:: rule_definition
+      :type: str
+
+      
+
+   .. py:attribute:: rule_name
+      :type: str
+
+      
+
+   .. py:attribute:: violation
+      :type: str
+
+      
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+
+.. py:function:: fix_type(v)
+
+
+.. py:function:: reverse_compile(s)
+
+
+.. py:function:: run(f, logger)
+
+
+.. py:data:: filenames
+
+   
+

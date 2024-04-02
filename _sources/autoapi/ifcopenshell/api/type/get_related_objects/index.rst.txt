@@ -1,0 +1,30 @@
+:py:mod:`ifcopenshell.api.type.get_related_objects`
+===================================================
+
+.. py:module:: ifcopenshell.api.type.get_related_objects
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, related_object=None, relating_type=None)
+
+
+   
+   Gets all the related occurrences of a type
+
+   Do not use this function. It will be removed. Use
+   ifcopenshell.util.element.get_type or
+   ifcopenshell.util.element.get_types instead.
+
+   :param related_object: The IfcElement occurrence.
+   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :param relating_type: The IfcElementType type.
+   :type relating_type: ifcopenshell.entity_instance.entity_instance
+   :return: A list of occurrences of the type.
+   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+
+   .. py:method:: execute()
+
+
+

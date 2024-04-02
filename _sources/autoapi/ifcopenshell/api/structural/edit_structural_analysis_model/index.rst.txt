@@ -1,0 +1,29 @@
+:py:mod:`ifcopenshell.api.structural.edit_structural_analysis_model`
+====================================================================
+
+.. py:module:: ifcopenshell.api.structural.edit_structural_analysis_model
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, structural_analysis_model=None, attributes=None)
+
+
+   
+   Edits the attributes of an IfcStructuralAnalysisModel
+
+   For more information about the attributes and data types of an
+   IfcStructuralAnalysisModel, consult the IFC documentation.
+
+   :param structural_analysis_model: The IfcStructuralAnalysisModel entity you want to edit
+   :type structural_analysis_model: ifcopenshell.entity_instance.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict, optional
+   :return: None
+   :rtype: None
+
+   .. py:method:: execute()
+
+
+

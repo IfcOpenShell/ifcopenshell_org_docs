@@ -1,0 +1,34 @@
+:py:mod:`ifcopenshell.util.ifc4x3dev_scrape_data_for_docs`
+==========================================================
+
+.. py:module:: ifcopenshell.util.ifc4x3dev_scrape_data_for_docs
+
+
+Module Contents
+---------------
+
+.. py:function:: get_attributes_json(resource)
+
+
+.. py:function:: get_attributes_keep_md(resource, builder)
+
+
+.. py:function:: get_definition_from_md(resource, mdc)
+
+
+.. py:function:: get_description_json(resource)
+
+
+.. py:function:: get_predefined_type_values_json(resource)
+
+
+.. py:function:: get_type_values(resource, mdc)
+
+
+.. py:function:: save_entities_data(entities)
+
+
+.. py:data:: schema
+
+   
+

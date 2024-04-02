@@ -1,0 +1,108 @@
+:py:mod:`ifcopenshell.api`
+==========================
+
+.. py:module:: ifcopenshell.api
+
+.. autoapi-nested-parse::
+
+   High level user-oriented IFC authoring capabilities
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   aggregate/index.rst
+   attribute/index.rst
+   boundary/index.rst
+   classification/index.rst
+   constraint/index.rst
+   context/index.rst
+   control/index.rst
+   cost/index.rst
+   document/index.rst
+   drawing/index.rst
+   geometry/index.rst
+   georeference/index.rst
+   grid/index.rst
+   group/index.rst
+   layer/index.rst
+   library/index.rst
+   material/index.rst
+   nest/index.rst
+   owner/index.rst
+   profile/index.rst
+   project/index.rst
+   pset/index.rst
+   pset_template/index.rst
+   resource/index.rst
+   root/index.rst
+   sequence/index.rst
+   spatial/index.rst
+   structural/index.rst
+   style/index.rst
+   system/index.rst
+   type/index.rst
+   unit/index.rst
+   void/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_post_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Add a post listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: add_pre_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Add a pre listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: extract_docs(module, usecase)
+
+
+.. py:function:: remove_all_listeners()
+
+
+.. py:function:: remove_post_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Remove a post listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: remove_pre_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Remove a pre listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: run(usecase_path: str, ifc_file: ifcopenshell.file = None, should_run_listeners=True, **settings) -> Any
+
+
+.. py:data:: post_listeners
+
+   
+
+.. py:data:: pre_listeners
+
+   
+

@@ -1,0 +1,34 @@
+:py:mod:`ifcpatch.recipes.OffsetStoreyElevations`
+=================================================
+
+.. py:module:: ifcpatch.recipes.OffsetStoreyElevations
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src, file, logger, z=None)
+
+
+   
+   Offset building storeys by a particular Z value
+
+   All objects placed relative to the storeys will also be shifted.
+
+   :param z: The Z value in project length units to offset storeys by.
+   :type z: float
+
+   Example:
+
+   .. code:: python
+
+       # Shift all storeys up by 42 units
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "OffsetStoreyElevations", "arguments": [42]})
+
+   .. py:method:: find_decomposed_ifc_class(element, ifc_class)
+
+
+   .. py:method:: patch()
+
+
+

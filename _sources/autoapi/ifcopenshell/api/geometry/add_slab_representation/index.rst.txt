@@ -1,0 +1,25 @@
+:py:mod:`ifcopenshell.api.geometry.add_slab_representation`
+===========================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_slab_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   .. py:method:: apply_clippings(first_operand)
+
+
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: create_item()
+
+
+   .. py:method:: execute()
+
+
+

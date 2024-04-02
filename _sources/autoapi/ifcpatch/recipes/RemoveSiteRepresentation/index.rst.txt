@@ -1,0 +1,30 @@
+:py:mod:`ifcpatch.recipes.RemoveSiteRepresentation`
+===================================================
+
+.. py:module:: ifcpatch.recipes.RemoveSiteRepresentation
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src, file, logger)
+
+
+   
+   Removes any 3D geometry associated with a site or multiple sites
+
+   If no sites or no site geometry is present, nothing happens.
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "RemoveSiteRepresentation", "arguments": []})
+
+   .. py:method:: find_decomposed_ifc_class(element, ifc_class)
+
+
+   .. py:method:: patch()
+
+
+

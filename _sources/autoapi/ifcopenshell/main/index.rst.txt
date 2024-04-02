@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.main`
+===========================
+
+.. py:module:: ifcopenshell.main
+
+
+Module Contents
+---------------
+
+.. py:data:: get_log
+
+   
+
+.. py:data:: version
+
+   
+

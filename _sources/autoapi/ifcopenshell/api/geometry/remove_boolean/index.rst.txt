@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.geometry.remove_boolean`
+==================================================
+
+.. py:module:: ifcopenshell.api.geometry.remove_boolean
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: get_representation(item)
+
+
+

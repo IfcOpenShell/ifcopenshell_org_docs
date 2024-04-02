@@ -1,0 +1,174 @@
+:py:mod:`ifcopenshell.draw`
+===========================
+
+.. py:module:: ifcopenshell.draw
+
+.. autoapi-nested-parse::
+
+   2D drawing generation and serialisation
+
+
+
+Module Contents
+---------------
+
+.. py:class:: draw_settings
+
+
+   .. py:attribute:: auto_elevation
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: auto_floorplan
+      :type: bool
+      :value: True
+
+      
+
+   .. py:attribute:: auto_section
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: cache
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: cells
+      :type: bool
+      :value: True
+
+      
+
+   .. py:attribute:: css
+      :type: bool
+      :value: True
+
+      
+
+   .. py:attribute:: door_arcs
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: drawing_guid
+      :type: str
+      :value: ''
+
+      
+
+   .. py:attribute:: exclude_entities
+      :type: str
+      :value: 'IfcOpeningElement'
+
+      
+
+   .. py:attribute:: height
+      :type: float
+      :value: 420.0
+
+      
+
+   .. py:attribute:: include_curves
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: include_entities
+      :type: str
+      :value: ''
+
+      
+
+   .. py:attribute:: include_projection
+      :type: bool
+      :value: True
+
+      
+
+   .. py:attribute:: merge_cells
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: prefilter
+      :type: bool
+      :value: True
+
+      
+
+   .. py:attribute:: profile_threshold
+      :type: int
+
+      
+
+   .. py:attribute:: scale
+      :type: float
+
+      
+
+   .. py:attribute:: space_areas
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: space_names
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: storey_heights
+      :type: str
+      :value: 'none'
+
+      
+
+   .. py:attribute:: subtract_before_hlr
+      :type: bool
+      :value: False
+
+      
+
+   .. py:attribute:: unify_inputs
+      :type: bool
+      :value: True
+
+      
+
+   .. py:attribute:: width
+      :type: float
+      :value: 297.0
+
+      
+
+
+.. py:function:: main(settings, files, iterators=None, merge_projection=True, progress_function=DO_NOTHING)
+
+
+.. py:data:: DO_NOTHING
+
+   
+
+.. py:data:: W
+
+   
+
+.. py:data:: WHITE
+
+   
+
+.. py:data:: times
+   :value: []
+
+   
+

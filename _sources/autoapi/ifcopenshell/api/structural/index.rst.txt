@@ -1,0 +1,35 @@
+:py:mod:`ifcopenshell.api.structural`
+=====================================
+
+.. py:module:: ifcopenshell.api.structural
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_structural_activity/index.rst
+   add_structural_analysis_model/index.rst
+   add_structural_boundary_condition/index.rst
+   add_structural_load/index.rst
+   add_structural_load_case/index.rst
+   add_structural_load_group/index.rst
+   add_structural_member_connection/index.rst
+   assign_structural_analysis_model/index.rst
+   edit_structural_analysis_model/index.rst
+   edit_structural_boundary_condition/index.rst
+   edit_structural_connection_cs/index.rst
+   edit_structural_item_axis/index.rst
+   edit_structural_load/index.rst
+   edit_structural_load_case/index.rst
+   remove_structural_analysis_model/index.rst
+   remove_structural_boundary_condition/index.rst
+   remove_structural_connection_condition/index.rst
+   remove_structural_load/index.rst
+   remove_structural_load_case/index.rst
+   remove_structural_load_group/index.rst
+   unassign_structural_analysis_model/index.rst
+
+

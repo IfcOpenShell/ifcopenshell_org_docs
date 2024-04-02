@@ -1,0 +1,16 @@
+:py:mod:`ifcopenshell.api.geometry.add_footprint_representation`
+================================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_footprint_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   .. py:method:: execute()
+
+
+

@@ -1,0 +1,18 @@
+:py:mod:`ifctester`
+===================
+
+.. py:module:: ifctester
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   __main__/index.rst
+   facet/index.rst
+   ids/index.rst
+   reporter/index.rst
+
+

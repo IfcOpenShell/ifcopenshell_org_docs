@@ -1,0 +1,59 @@
+:py:mod:`ifcopenshell.util.representation`
+==========================================
+
+.. py:module:: ifcopenshell.util.representation
+
+
+Module Contents
+---------------
+
+.. py:class:: ResolvedItemDict
+
+
+   Bases: :py:obj:`TypedDict`
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+   .. py:attribute:: item
+      :type: ifcopenshell.entity_instance
+
+      
+
+   .. py:attribute:: matrix
+      :type: numpy.array
+
+      
+
+
+.. py:function:: get_context(ifc_file: ifcopenshell.file, context: str, subcontext: Optional[str] = None, target_view: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
+
+
+.. py:function:: get_representation(element: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, str], subcontext: Optional[str] = None, target_view: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
+
+
+.. py:function:: is_representation_of_context(representation: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, str], subcontext: Optional[str] = None, target_view: Optional[str] = None) -> bool
+
+
+.. py:function:: resolve_items(representation: ifcopenshell.entity_instance, matrix: Optional[numpy.array] = None) -> list[ResolvedItemDict]
+
+
+.. py:function:: resolve_representation(representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Resolve possibly mapped representation.
+
+   :param representation: IfcRepresentation
+   :type representation: ifcopenshell.entity_instance.entity_instance
+   :return: Representation resolved from mappings
+   :rtype: ifcopenshell.entity_instance.entity_instance
+
+

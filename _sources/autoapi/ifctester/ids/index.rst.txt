@@ -1,0 +1,67 @@
+:py:mod:`ifctester.ids`
+=======================
+
+.. py:module:: ifctester.ids
+
+
+Module Contents
+---------------
+
+.. py:class:: Ids(title: Optional[str] = 'Untitled', copyright=None, version=None, description=None, author=None, date=None, purpose=None, milestone=None)
+
+
+   .. py:method:: asdict()
+
+
+   .. py:method:: parse(data)
+
+
+   .. py:method:: to_string()
+
+
+   .. py:method:: to_xml(filepath='output.xml')
+
+
+   .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False, filepath: Optional[str] = None) -> None
+
+
+
+.. py:class:: Specification(name='Unnamed', minOccurs=0, maxOccurs='unbounded', ifcVersion=['IFC2X3', 'IFC4'], identifier=None, description=None, instructions=None)
+
+
+   .. py:method:: asdict()
+
+
+   .. py:method:: get_usage() -> ifctester.facet.Cardinality
+
+
+   .. py:method:: parse(ids_dict)
+
+
+   .. py:method:: parse_clause(clause)
+
+
+   .. py:method:: reset_status()
+
+
+   .. py:method:: set_usage(usage: ifctester.facet.Cardinality) -> None
+
+
+   .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False) -> None
+
+
+
+.. py:function:: get_schema()
+
+
+.. py:function:: open(filepath, validate=False)
+
+
+.. py:data:: cwd
+
+   
+
+.. py:data:: schema
+
+   
+

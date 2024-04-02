@@ -1,0 +1,36 @@
+:py:mod:`ifcopenshell.api.geometry`
+===================================
+
+.. py:module:: ifcopenshell.api.geometry
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_axis_representation/index.rst
+   add_boolean/index.rst
+   add_door_representation/index.rst
+   add_footprint_representation/index.rst
+   add_mesh_representation/index.rst
+   add_profile_representation/index.rst
+   add_railing_representation/index.rst
+   add_representation/index.rst
+   add_slab_representation/index.rst
+   add_wall_representation/index.rst
+   add_window_representation/index.rst
+   assign_representation/index.rst
+   connect_element/index.rst
+   connect_path/index.rst
+   create_2pt_wall/index.rst
+   disconnect_element/index.rst
+   disconnect_path/index.rst
+   edit_object_placement/index.rst
+   map_representation/index.rst
+   remove_boolean/index.rst
+   remove_representation/index.rst
+   unassign_representation/index.rst
+
+

@@ -1,0 +1,18 @@
+:py:mod:`ifcopenshell.api.type`
+===============================
+
+.. py:module:: ifcopenshell.api.type
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   assign_type/index.rst
+   get_related_objects/index.rst
+   map_type_representations/index.rst
+   unassign_type/index.rst
+
+

@@ -1,0 +1,214 @@
+:py:mod:`ifcopenshell.geom.app`
+===============================
+
+.. py:module:: ifcopenshell.geom.app
+
+
+Module Contents
+---------------
+
+.. py:class:: application(settings=None)
+
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QApplication`
+
+   A pythonOCC, PyQt based IfcOpenShell application
+   with two tree views and a graphical 3d view
+
+   .. py:class:: abstract_treeview
+
+
+      Bases: :py:obj:`PyQt5.QtWidgets.QTreeWidget`
+
+      Base class for the two treeview controls
+
+      .. py:attribute:: instanceDisplayModeChanged
+
+         
+
+      .. py:attribute:: instanceSelected
+
+         
+
+      .. py:attribute:: instanceVisibilityChanged
+
+         
+
+      .. py:method:: clicked_(index)
+
+
+      .. py:method:: contextMenuEvent(event)
+
+
+      .. py:method:: get_children(inst)
+
+
+      .. py:method:: select(product)
+
+
+
+   .. py:class:: decomposition_treeview
+
+
+      Bases: :py:obj:`abstract_treeview`
+
+      Treeview with typical IFC decomposition relationships
+
+      .. py:attribute:: ATTRIBUTES
+         :value: ['Entity', 'GlobalId', 'Name']
+
+         
+
+      .. py:method:: load_file(f, **kwargs)
+
+
+      .. py:method:: parent(instance)
+
+
+
+   .. py:class:: property_table
+
+
+      Bases: :py:obj:`PyQt5.QtWidgets.QWidget`
+
+      .. py:method:: load_file(f, **kwargs)
+
+
+      .. py:method:: select(product)
+
+
+
+   .. py:class:: type_treeview
+
+
+      Bases: :py:obj:`abstract_treeview`
+
+      Treeview with typical IFC decomposition relationships
+
+      .. py:attribute:: ATTRIBUTES
+         :value: ['Name']
+
+         
+
+      .. py:method:: load_file(f, **kwargs)
+
+
+
+   .. py:class:: viewer(widget)
+
+
+      Bases: :py:obj:`OCC.Display.pyqt5Display.qtViewer3d`
+
+      .. py:attribute:: instanceSelected
+
+         
+
+      .. py:method:: HandleSelection(X, Y)
+
+
+      .. py:method:: finished(file_shapes)
+
+
+      .. py:method:: initialize()
+
+
+      .. py:method:: load_file(f, setting=None)
+
+
+      .. py:method:: select(product)
+
+
+      .. py:method:: toggle(product_or_products, fn)
+
+
+      .. py:method:: toggle_visibility(product_or_products, flag)
+
+
+      .. py:method:: toggle_wireframe(product_or_products, flag)
+
+
+
+   .. py:class:: window
+
+
+      Bases: :py:obj:`PyQt5.QtWidgets.QMainWindow`
+
+      .. py:attribute:: TITLE
+         :value: 'IfcOpenShell IFC viewer'
+
+         
+
+      .. py:attribute:: window_closed
+
+         
+
+      .. py:method:: add_menu_item(menu, label, callback, icon=None, shortcut=None)
+
+
+      .. py:method:: closeEvent(*args)
+
+
+
+   .. py:method:: browse()
+
+
+   .. py:method:: change_displaymode(tree, inst, flag)
+
+
+   .. py:method:: change_visibility(tree, inst, flag)
+
+
+   .. py:method:: clear()
+
+
+   .. py:method:: load(fn)
+
+
+   .. py:method:: makeSelectionHandler(component)
+
+
+   .. py:method:: start()
+
+
+
+.. py:class:: configuration
+
+
+   Bases: :py:obj:`object`
+
+   .. py:method:: options(s)
+
+
+
+.. py:class:: geometry_creation_signals
+
+
+   Bases: :py:obj:`pyqode.qt.QtCore.QObject`
+
+   .. py:attribute:: completed
+
+      
+
+   .. py:attribute:: progress
+
+      
+
+
+.. py:class:: geometry_creation_thread(signals, settings, f)
+
+
+   Bases: :py:obj:`pyqode.qt.QtCore.QThread`
+
+   .. py:method:: run()
+
+
+
+.. py:data:: QString
+
+   
+
+.. py:data:: USE_OCCT_HANDLE
+   :value: False
+
+   
+

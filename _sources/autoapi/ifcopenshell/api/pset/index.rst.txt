@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.pset`
+===============================
+
+.. py:module:: ifcopenshell.api.pset
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_pset/index.rst
+   add_qto/index.rst
+   edit_pset/index.rst
+   edit_qto/index.rst
+   remove_pset/index.rst
+
+

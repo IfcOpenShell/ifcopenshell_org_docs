@@ -1,0 +1,34 @@
+:py:mod:`ifcpatch.recipes.ConvertNestToAggregate`
+=================================================
+
+.. py:module:: ifcpatch.recipes.ConvertNestToAggregate
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src, file, logger)
+
+
+   
+   Convert nesting relationships to aggregate relationships
+
+   Some software like Revit won't load nested children elements because
+   they (incorrectly) don't consider it to be part of the spatial tree.
+   For example, 12D software will use nesting.
+
+   This patch converts all nest relationships into aggregate
+   relationships.
+
+   See bug: https://github.com/Autodesk/revit-ifc/issues/706
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ConvertNestToAggregate", "arguments": []})
+
+   .. py:method:: patch()
+
+
+

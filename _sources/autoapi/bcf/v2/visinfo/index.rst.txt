@@ -1,0 +1,161 @@
+:py:mod:`bcf.v2.visinfo`
+========================
+
+.. py:module:: bcf.v2.visinfo
+
+
+Module Contents
+---------------
+
+.. py:class:: VisualizationInfoHandler(visualization_info: bcf.v2.model.VisualizationInfo, snapshot: Optional[bytes] = None, bitmaps: Optional[dict[str, bytes]] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None)
+
+
+   Handle the VisualizationInfo and related objects.
+
+   .. py:property:: guid
+      :type: str
+
+      Return the GUID of the visualization info.
+
+
+   .. py:method:: _load_bitmaps(topic_dir: zipfile.Path, visinfo: Optional[bcf.v2.model.VisualizationInfo]) -> dict[str, bytes]
+      :staticmethod:
+
+
+   .. py:method:: _load_snapshot(topic_dir: zipfile.Path, vp_snapshot: Optional[str]) -> Optional[bytes]
+      :staticmethod:
+
+
+   .. py:method:: _load_visinfo(topic_dir: zipfile.Path, vp_name: Optional[str], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[bcf.v2.model.VisualizationInfo]
+      :staticmethod:
+
+
+   .. py:method:: _save_bitmaps(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str) -> None
+
+
+   .. py:method:: _save_snapshot(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str, filename: Optional[str]) -> None
+
+
+   .. py:method:: _save_visinfo(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str, vp_name: str) -> None
+
+
+   .. py:method:: create_from_point_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> VisualizationInfoHandler
+      :classmethod:
+
+      Create a new VisualizationInfoHandler object from an IFC element.
+
+      Args:
+          position: target point coordinates.
+          *guids: One or more IFC element GUID.
+          xml_handler: The XML handler to use.
+
+      Returns:
+          The VisualizationInfoHandler object.
+
+
+   .. py:method:: create_new(element: ifcopenshell.entity_instance, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> VisualizationInfoHandler
+      :classmethod:
+
+      Create a new VisualizationInfoHandler object from an IFC element.
+
+      Args:
+          element: The IFC element to point at.
+          xml_handler: The XML handler to use.
+
+      Returns:
+          The VisualizationInfoHandler object.
+
+
+   .. py:method:: from_topic_viewpoints(topic_dir: zipfile.Path, vps: Iterable[bcf.v2.model.ViewPoint], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> dict[str, VisualizationInfoHandler]
+      :classmethod:
+
+      Create VisualizationInfoHandler objects of a Topic's ViewPoints.
+
+
+   .. py:method:: load(topic_dir: zipfile.Path, vpt: bcf.v2.model.ViewPoint, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[VisualizationInfoHandler]
+      :classmethod:
+
+      Load the VisualizationInfo and related objects from a BCF zip file.
+
+      Args:
+          topic_dir: The directory in the BCF zip file to load from.
+          vpt: The ViewPoint to load.
+          xml_handler: The XML handler to use to parse the VisualizationInfo.
+
+      Returns:
+          The VisualizationInfoHandler object.
+
+
+   .. py:method:: save(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str, vpt: bcf.v2.model.ViewPoint) -> None
+
+      Save the VisualizationInfo and related objects to a BCF zip file.
+
+      Args:
+          bcf_zip: The BCF zip file to save to.
+          topic_dir: The directory in the BCF zip file to save to.
+          vpt: The ViewPoint to save.
+
+
+
+.. py:function:: build_camera(elem_placement: numpy.typing.NDArray[numpy.float_]) -> bcf.v2.model.PerspectiveCamera
+
+   Return a BCF camera for an IFC element placement matrix.
+
+   Args:
+       elem_placement: The IFC element placement as a rototranslation matrix.
+
+   Returns:
+       The BCF camera definition.
+
+
+.. py:function:: build_camera_from_vectors(camera_position: numpy.typing.NDArray[numpy.float_], camera_dir: numpy.typing.NDArray[numpy.float_], camera_up: numpy.typing.NDArray[numpy.float_]) -> bcf.v2.model.PerspectiveCamera
+
+   Return a BCF camera for an IFC element placement matrix.
+
+   Args:
+       camera_position: camera position array
+       camera_dir: camera direction versor
+       camera_up_vector: camera up versor
+
+   Returns:
+       The BCF camera definition.
+
+
+.. py:function:: build_components(*guids: str) -> bcf.v2.model.Components
+
+   Return the BCF components from an IFC element GUID.
+
+   Args:
+       *guids: One or more IFC element GUID.
+
+   Returns:
+       The BCF components definition.
+
+
+.. py:function:: build_viewpoint(element: ifcopenshell.entity_instance) -> bcf.v2.model.VisualizationInfo
+
+   Return a BCF viewpoint of an IFC element.
+
+   This function is cached to speedudp the creation of multiple BCF topics regarding the same element.
+
+   Args:
+       element: The IFC element to point at.
+
+   Returns:
+       The BCF viewpoint definition.
+
+
+.. py:function:: build_viewpoint_from_position_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str) -> bcf.v2.model.VisualizationInfo
+
+   Return a BCF viewpoint of an IFC element.
+
+   This function is cached to speedudp the creation of multiple BCF topics regarding the same element.
+
+   Args:
+       position: target point coordinates.
+       *guids: One or more IFC element GUID.
+
+   Returns:
+       The BCF viewpoint definition.
+
+

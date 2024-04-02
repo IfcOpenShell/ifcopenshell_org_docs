@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.drawing`
+==================================
+
+.. py:module:: ifcopenshell.api.drawing
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   assign_product/index.rst
+   edit_text_literal/index.rst
+   unassign_product/index.rst
+
+

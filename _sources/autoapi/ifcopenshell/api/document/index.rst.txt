@@ -1,0 +1,22 @@
+:py:mod:`ifcopenshell.api.document`
+===================================
+
+.. py:module:: ifcopenshell.api.document
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_information/index.rst
+   add_reference/index.rst
+   assign_document/index.rst
+   edit_information/index.rst
+   edit_reference/index.rst
+   remove_information/index.rst
+   remove_reference/index.rst
+   unassign_document/index.rst
+
+

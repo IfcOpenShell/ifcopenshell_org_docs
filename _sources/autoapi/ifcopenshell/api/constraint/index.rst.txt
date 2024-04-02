@@ -1,0 +1,23 @@
+:py:mod:`ifcopenshell.api.constraint`
+=====================================
+
+.. py:module:: ifcopenshell.api.constraint
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_metric/index.rst
+   add_metric_reference/index.rst
+   add_objective/index.rst
+   assign_constraint/index.rst
+   edit_metric/index.rst
+   edit_objective/index.rst
+   remove_constraint/index.rst
+   remove_metric/index.rst
+   unassign_constraint/index.rst
+
+

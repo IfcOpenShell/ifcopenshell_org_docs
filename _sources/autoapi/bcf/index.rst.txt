@@ -1,0 +1,28 @@
+:py:mod:`bcf`
+=============
+
+.. py:module:: bcf
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   v2/index.rst
+   v3/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bcfxml/index.rst
+   geometry/index.rst
+   inmemory_zipfile/index.rst
+   xml_parser/index.rst
+
+

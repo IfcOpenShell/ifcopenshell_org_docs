@@ -1,0 +1,154 @@
+:py:mod:`bcf.v2.topic`
+======================
+
+.. py:module:: bcf.v2.topic
+
+.. autoapi-nested-parse::
+
+   BCF XML V2 Topic handler.
+
+
+
+Module Contents
+---------------
+
+.. py:class:: TopicHandler(topic_dir: Optional[zipfile.Path] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None)
+
+
+   BCF Topic and related objects handler.
+
+   .. py:property:: bim_snippet
+      :type: Optional[bytes]
+
+
+   .. py:property:: comments
+      :type: list[bcf.v2.model.Comment]
+
+      Return the comments of the topic.
+
+
+   .. py:property:: document_references
+      :type: dict[str, bytes]
+
+
+   .. py:property:: guid
+      :type: str
+
+      Return the GUID of the topic.
+
+
+   .. py:property:: header
+      :type: Optional[bcf.v2.model.Header]
+
+      Return the header of the topic.
+
+
+   .. py:property:: markup
+      :type: Optional[bcf.v2.model.Markup]
+
+
+   .. py:property:: reference_files
+      :type: dict[str, bytes]
+
+
+   .. py:property:: topic
+      :type: bcf.v2.model.Topic
+
+      Return the Topic object.
+
+
+   .. py:property:: viewpoints
+      :type: dict[str, bcf.v2.visinfo.VisualizationInfoHandler]
+
+
+   .. py:method:: __eq__(other: object) -> bool | NoReturn
+
+      Return self==value.
+
+
+   .. py:method:: _load_bim_snippet() -> Optional[bytes]
+
+
+   .. py:method:: _load_viewpoints() -> dict[str, bcf.v2.visinfo.VisualizationInfoHandler]
+
+
+   .. py:method:: _save_bim_snippet(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
+
+
+   .. py:method:: _save_document_references(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
+
+
+   .. py:method:: _save_reference_files(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
+
+
+   .. py:method:: _save_viewpoints(destination_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str) -> None
+
+
+   .. py:method:: _save_xml(destination_zip: bcf.inmemory_zipfile.ZipFileInterface, item: Any, target: str) -> None
+
+
+   .. py:method:: add_viewpoint(element: ifcopenshell.entity_instance) -> None
+
+      Add a viewpoint pointed at the placement of an IFC element to the topic.
+
+      Args:
+          element: The IFC element.
+
+
+   .. py:method:: add_viewpoint_from_point_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str) -> None
+
+      Add a viewpoint pointing at an XYZ point in space
+
+      Args:
+          position: the XYZ point in space
+          guids: one or more element GlobalIds.
+
+
+   .. py:method:: add_visinfo_handler(new_viewpoint: bcf.v2.visinfo.VisualizationInfoHandler) -> None
+
+
+   .. py:method:: create_new(title: str, description: str, author: str, topic_type: str = '', topic_status: str = '', xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> TopicHandler
+      :classmethod:
+
+      Create a new BCF topic.
+
+      Args:
+          title: The title of the topic.
+          description: The description of the topic.
+          author: The author of the topic.
+          topic_type: The type of the topic.
+          topic_status: The status of the topic.
+          xml_handler: The XML parser/serializer to use.
+
+      Returns:
+          The BCF topic definition.
+
+
+   .. py:method:: extract_file(entity, outfile: Optional[pathlib.Path] = None) -> pathlib.Path
+
+      Extracts an element with a file into a temporary directory
+
+      These include header files, bim snippets, document references, and
+      viewpoint bitmaps. External reference are not downloaded. Instead, the
+      URI reference is returned.
+
+      :param entity: The entity with a file reference to extract
+      :type entity: bcf.v2.model.HeaderFile,bcf.v2.model.BimSnippet,bcf.v2.model.TopicDocumentReference
+      :param outfile: If provided, save the header file to that location.
+          Otherwise, a temporary directory is created and the filename is
+          derived from the header's original filename.
+      :type outfile: pathlib.Path,optional
+      :return: The filepath of the extracted file. It may be a URL if the
+          header file is external.
+      :rtype: Path
+
+
+   .. py:method:: save(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
+
+      Save the topic to a BCF zip file.
+
+      Args:
+          bcf_zip: The BCF zip file to save to.
+
+
+

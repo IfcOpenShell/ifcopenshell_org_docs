@@ -1,0 +1,40 @@
+:py:mod:`ifcpatch.recipes.SetRefElevation`
+==========================================
+
+.. py:module:: ifcpatch.recipes.SetRefElevation
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src, file, logger, elevation=0)
+
+
+   
+   Sets the reference elevation of all IfcSites
+
+   To completely reference model coordinates, a reference elevation should
+   be specified on the IfcSite. This is often omitted or not possible by
+   proprietary BIM applications. This patch lets you set the reference
+   elevation attribute explicitly.
+
+   Note that this does not physically shift the Z coordinates of anything.
+   The reference elevation is simply a numerical attribute.
+
+   :param elevation: The elevation to set.
+   :type elevation: float
+
+   Example:
+
+   .. code:: python
+
+       # All IfcSites will have their reference elevation set to 42.
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "SetRefElevation", "arguments": [42]})
+
+   .. py:method:: find_decomposed_ifc_class(element, ifc_class)
+
+
+   .. py:method:: patch()
+
+
+

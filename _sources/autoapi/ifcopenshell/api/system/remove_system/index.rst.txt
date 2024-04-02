@@ -1,0 +1,36 @@
+:py:mod:`ifcopenshell.api.system.remove_system`
+===============================================
+
+.. py:module:: ifcopenshell.api.system.remove_system
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, system=None)
+
+
+   
+   Removes a distribution system
+
+   All the distribution elements within the system are retained.
+
+   :param system: The IfcSystem to remove.
+   :type system: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+       # Delete it.
+       ifcopenshell.api.run("system.remove_system", model, system=system)
+
+   .. py:method:: execute()
+
+
+

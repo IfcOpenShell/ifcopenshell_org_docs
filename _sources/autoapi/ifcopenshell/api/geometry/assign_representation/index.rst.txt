@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.geometry.assign_representation`
+=========================================================
+
+.. py:module:: ifcopenshell.api.geometry.assign_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   .. py:method:: assign_product_representation(product, representation)
+
+
+   .. py:method:: execute()
+
+
+

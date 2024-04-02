@@ -1,0 +1,45 @@
+:py:mod:`ifcopenshell.api.style.remove_style`
+=============================================
+
+.. py:module:: ifcopenshell.api.style.remove_style
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, style=None)
+
+
+   
+   Removes a presentation style
+
+   All of the presentation items of the style will also be removed.
+
+   :param style: The IfcPresentationStyle to remove.
+   :type style: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Create a new surface style
+       style = ifcopenshell.api.run("style.add_style", model)
+
+       # Not anymore!
+       ifcopenshell.api.run("style.remove_style", model, style=style)
+
+   .. py:method:: execute()
+
+
+   .. py:method:: purge_material_definition_representations(styled_representation)
+
+
+   .. py:method:: purge_styled_items(style)
+
+
+   .. py:method:: purge_styled_representations(styled_item)
+
+
+

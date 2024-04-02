@@ -1,0 +1,53 @@
+:py:mod:`bcf.v2.model`
+======================
+
+.. py:module:: bcf.v2.model
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   markup/index.rst
+   project/index.rst
+   version/index.rst
+   visinfo/index.rst
+
+
+Package Contents
+----------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

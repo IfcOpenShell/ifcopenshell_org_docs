@@ -1,0 +1,40 @@
+:py:mod:`ifcopenshell.api.sequence.remove_work_schedule`
+========================================================
+
+.. py:module:: ifcopenshell.api.sequence.remove_work_schedule
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, work_schedule=None)
+
+
+   
+   Removes a work schedule
+
+   All tasks in the work schedule are also removed recursively.
+
+   :param work_schedule: The IfcWorkSchedule to remove.
+   :type work_schedule: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # This will hold all our construction schedules
+       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+
+       # Let's imagine this is one of our schedules in our work plan.
+       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model,
+           name="Construction Schedule A", work_plan=work_plan)
+
+       # And remove it immediately
+       ifcopenshell.api.run("sequence.remove_work_schedule", model, work_schedule=schedule)
+
+   .. py:method:: execute()
+
+
+

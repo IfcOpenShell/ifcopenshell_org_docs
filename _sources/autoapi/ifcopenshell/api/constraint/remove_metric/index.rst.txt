@@ -1,0 +1,40 @@
+:py:mod:`ifcopenshell.api.constraint.remove_metric`
+===================================================
+
+.. py:module:: ifcopenshell.api.constraint.remove_metric
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, metric=None)
+
+
+   
+   Remove a metric benchmark
+
+   Removes a metric benchmark and all of its associations to any products
+   and objectives.
+
+   :param metric: The IfcMetric you want to remove.
+   :type metric: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       objective = ifcopenshell.api.run("constraint.add_objective", model)
+       metric = ifcopenshell.api.run("constraint.add_metric", model,
+           objective=objective)
+       ifcopenshell.api.run("constraint.remove_metric", model,
+           metric=metric)
+
+   .. py:method:: delete_reference(reference)
+
+
+   .. py:method:: execute()
+
+
+

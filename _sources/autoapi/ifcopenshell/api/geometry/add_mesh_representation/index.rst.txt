@@ -1,0 +1,28 @@
+:py:mod:`ifcopenshell.api.geometry.add_mesh_representation`
+===========================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_mesh_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file: ifcopenshell.file, **settings)
+
+
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: create_faceted_brep()
+
+
+   .. py:method:: create_mesh_representation()
+
+
+   .. py:method:: create_polygonal_face_set()
+
+
+   .. py:method:: execute()
+
+
+

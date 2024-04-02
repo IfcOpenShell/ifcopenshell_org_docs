@@ -1,0 +1,20 @@
+:py:mod:`ifcopenshell.api.pset_template`
+========================================
+
+.. py:module:: ifcopenshell.api.pset_template
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_prop_template/index.rst
+   add_pset_template/index.rst
+   edit_prop_template/index.rst
+   edit_pset_template/index.rst
+   remove_prop_template/index.rst
+   remove_pset_template/index.rst
+
+

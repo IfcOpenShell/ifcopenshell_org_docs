@@ -1,0 +1,27 @@
+:py:mod:`ifcopenshell.util.constraint`
+======================================
+
+.. py:module:: ifcopenshell.util.constraint
+
+
+Module Contents
+---------------
+
+.. py:function:: get_constraints(product)
+
+
+.. py:function:: get_metric_constraints(resource, attribute)
+
+
+.. py:function:: get_metric_reference(metric, is_deep=True)
+
+
+.. py:function:: get_metrics(constraint)
+
+
+.. py:function:: is_attribute_locked(product, attribute)
+
+
+.. py:function:: is_hard_constraint(metric)
+
+

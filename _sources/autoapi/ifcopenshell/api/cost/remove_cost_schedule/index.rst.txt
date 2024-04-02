@@ -1,0 +1,35 @@
+:py:mod:`ifcopenshell.api.cost.remove_cost_schedule`
+====================================================
+
+.. py:module:: ifcopenshell.api.cost.remove_cost_schedule
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, cost_schedule=None)
+
+
+   
+   Removes a cost schedule
+
+   All associated relationships with the cost schedule are also removed,
+   including all cost items.
+
+   :param cost_schedule: The IfcCostSchedule entity you want to remove
+   :type cost_schedule: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       schedule = ifcopenshell.api.run("cost.add_cost_schedule", model)
+       item = ifcopenshell.api.run("cost.add_cost_item", model, cost_schedule=schedule)
+       ifcopenshell.api.run("cost.remove_cost_schedule", model, cost_schedule=schedule)
+
+   .. py:method:: execute()
+
+
+

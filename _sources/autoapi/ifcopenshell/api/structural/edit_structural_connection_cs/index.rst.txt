@@ -1,0 +1,30 @@
+:py:mod:`ifcopenshell.api.structural.edit_structural_connection_cs`
+===================================================================
+
+.. py:module:: ifcopenshell.api.structural.edit_structural_connection_cs
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, structural_item=None, axis=None, ref_direction=None)
+
+
+   
+   Edits the coordinate system of a structural connection
+
+   :param structural_item: The IfcStructuralItem you want to modify.
+   :type structural_item: ifcopenshell.entity_instance.entity_instance
+   :param axis: The unit Z axis vector defined as a list of 3 floats.
+       Defaults to [0., 0., 1.].
+   :type axis: list[float]
+   :param ref_direction: The unit X axis vector defined as a list of 3
+       floats. Defaults to [1., 0., 0.].
+   :type ref_direction: list[float]
+   :return: None
+   :rtype: None
+
+   .. py:method:: execute()
+
+
+

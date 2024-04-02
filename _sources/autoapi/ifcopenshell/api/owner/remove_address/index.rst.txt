@@ -1,0 +1,38 @@
+:py:mod:`ifcopenshell.api.owner.remove_address`
+===============================================
+
+.. py:module:: ifcopenshell.api.owner.remove_address
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, address=None)
+
+
+   
+   Removes an address
+
+   Naturally, any organisations or people using that address will have the
+   relationship removed.
+
+   :param address: The IfcAddress to remove.
+   :type address: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.run("owner.add_organisation", model)
+       address = ifcopenshell.api.run("owner.add_address", model,
+           assigned_object=organisation, ifc_class="IfcPostalAddress")
+
+       # Change our mind and delete it
+       ifcopenshell.api.run("owner.remove_address", model, address=address)
+
+   .. py:method:: execute()
+
+
+

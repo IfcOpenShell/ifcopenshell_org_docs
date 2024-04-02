@@ -1,0 +1,20 @@
+:py:mod:`ifcopenshell.api.classification`
+=========================================
+
+.. py:module:: ifcopenshell.api.classification
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_classification/index.rst
+   add_reference/index.rst
+   edit_classification/index.rst
+   edit_reference/index.rst
+   remove_classification/index.rst
+   remove_reference/index.rst
+
+

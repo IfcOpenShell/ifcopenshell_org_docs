@@ -1,0 +1,32 @@
+:py:mod:`ifcpatch.recipes.Migrate`
+==================================
+
+.. py:module:: ifcpatch.recipes.Migrate
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, schema: str = 'IFC4')
+
+
+   
+   Migrate from one IFC version to another
+
+   Note that this is experimental and will try to preserve as much data as
+   possible. Upgrading to IFC4 is more stable than downgrading to IFC2X3.
+
+   :param schema: The schema identifier of the IFC version to migrate to.
+   :type schema: str
+
+   Example:
+
+   .. code:: python
+
+       # Upgrade an IFC2X3 model to IFC4
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "Migrate", "arguments": ["IFC4"]})
+
+   .. py:method:: patch()
+
+
+

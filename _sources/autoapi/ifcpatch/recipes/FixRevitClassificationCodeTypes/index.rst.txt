@@ -1,0 +1,30 @@
+:py:mod:`ifcpatch.recipes.FixRevitClassificationCodeTypes`
+==========================================================
+
+.. py:module:: ifcpatch.recipes.FixRevitClassificationCodeTypes
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src, file, logger)
+
+
+   
+   Reassigns occurrence classifications to types
+
+   Revit has a bug (see https://github.com/Autodesk/revit-ifc/issues/691)
+   where it assigns classification codes to occurrences instead of types.
+   Almost always, this is not what you want. This patch reassigns all
+   classifications to their respective types.
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "FixRevitClassificationCodeTypes"})
+
+   .. py:method:: patch()
+
+
+

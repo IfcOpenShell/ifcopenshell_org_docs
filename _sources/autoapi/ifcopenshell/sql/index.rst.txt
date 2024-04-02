@@ -1,0 +1,256 @@
+:py:mod:`ifcopenshell.sql`
+==========================
+
+.. py:module:: ifcopenshell.sql
+
+
+Module Contents
+---------------
+
+.. py:class:: sqlite(filepath)
+
+
+   Bases: :py:obj:`ifcopenshell.file.file`
+
+   Base class for containing IFC files.
+
+   Class has instance methods for filtering by element Id, Type, etc.
+   Instantiated objects can be subscripted by Id or Guid
+
+   Example:
+
+   .. code:: python
+
+       ifc_file = ifcopenshell.open(file_path)
+       products = ifc_file.by_type("IfcProduct")
+       print(products[0].id(), products[0].GlobalId) # 122 2XQ$n5SLP5MBLyL442paFx
+       print(products[0] == ifc_file[122] == ifc_file["2XQ$n5SLP5MBLyL442paFx"]) # True
+
+   Create a new blank IFC model
+
+   This IFC model does not have any entities in it yet. See the
+   ``create_entity`` function for how to create new entities. All data is
+   stored in memory. If you wish to write the IFC model to disk, see the
+   ``write`` function.
+
+   :param f: The underlying IfcOpenShell file object to be wrapped. This
+       is an internal implementation detail and should generally be left
+       as None by users.
+   :param schema: Which IFC schema to use, chosen from "IFC2X3", "IFC4",
+       or "IFC4X3". These refer to the ISO approved versions of IFC.
+       Defaults to "IFC4" if not specified, which is currently recommended
+       for all new projects.
+   :type schema: string
+   :param schema_version: If you want to specify an exact version of IFC
+       that may not be an ISO approved version, use this argument instead
+       of ``schema``. IFC versions on technical.buildingsmart.org are
+       described using 4 integers representing the major, minor, addendum,
+       and corrigendum number. For example, (4, 0, 2, 1) refers to IFC4
+       ADD2 TC1, which is the official version approved by ISO when people
+       refer to "IFC4". Generally you should not use this argument unless
+       you are testing non-ISO IFC releases.
+   :type schema_version: tuple[int]
+
+   Example:
+
+   .. code:: python
+
+       # Create a new IFC4 model, create a wall, then save it to an IFC-SPF file.
+       model = ifcopenshell.file()
+       model.create_entity("IfcWall")
+       model.write("/path/to/model.ifc")
+
+       # Create a new IFC4X3 model
+       model = ifcopenshell.file(schema="IFC4X3")
+
+       # A poweruser testing out a particular version of IFC4X3
+       model = ifcopenshell.file(schema_version=(4, 3, 0, 1))
+
+   .. py:method:: by_id(id)
+
+      Return an IFC entity instance filtered by IFC ID.
+
+      :param id: STEP numerical identifier
+      :type id: int
+
+      :raises RuntimeError: If `id` is not found.
+
+      :returns: An ifcopenshell.entity_instance.entity_instance
+      :rtype: ifcopenshell.entity_instance.entity_instance
+
+
+   .. py:method:: by_type(type, include_subtypes=True)
+
+      Return IFC objects filtered by IFC Type and wrapped with the entity_instance class.
+
+      If an IFC type class has subclasses, all entities of those subclasses are also returned.
+
+      :param type: The case insensitive type of IFC class to return.
+      :type type: string
+      :param include_subtypes: Whether or not to return subtypes of the IFC class
+      :type include_subtypes: bool
+      :returns: A list of ifcopenshell.entity_instance.entity_instance objects
+      :rtype: list
+
+
+   .. py:method:: clear_cache()
+
+
+   .. py:method:: create_entity(type, *args, **kawrgs)
+
+      Create a new IFC entity in the file.
+
+      :param type: Case insensitive name of the IFC class
+      :type type: string
+      :param args: The positional arguments of the IFC class
+      :param kwargs: The keyword arguments of the IFC class
+      :returns: An entity instance
+      :rtype: ifcopenshell.entity_instance.entity_instance
+
+      Example:
+
+      .. code:: python
+
+          f = ifcopenshell.file()
+          f.create_entity("IfcPerson")
+          # >>> #1=IfcPerson($,$,$,$,$,$,$,$)
+          f.create_entity("IfcPerson", "Foobar")
+          # >>> #2=IfcPerson('Foobar',$,$,$,$,$,$,$)
+          f.create_entity("IfcPerson", Identification="Foobar")
+          # >>> #3=IfcPerson('Foobar',$,$,$,$,$,$,$)
+
+
+   .. py:method:: get_geometry(ids: list[int]) -> dict[str, dict]
+
+
+   .. py:method:: get_inverse(inst, allow_duplicate=False, with_attribute_indices=False)
+
+      Return a list of entities that reference this entity
+
+      :param inst: The entity instance to get inverse relationships
+      :type inst: ifcopenshell.entity_instance.entity_instance
+      :param allow_duplicate: Returns a `list` when True, `set` when False
+      :param with_attribute_indices: Returns pairs of <i, idx>
+         where i[idx] is inst or contains inst. Requires allow_duplicate=True
+      :returns: A list of ifcopenshell.entity_instance.entity_instance objects
+      :rtype: list
+
+
+   .. py:method:: is_entity_list(attribute)
+
+
+   .. py:method:: preprocess_schema()
+
+
+   .. py:method:: traverse(inst, max_levels=None, breadth_first=False)
+
+      Get a list of all referenced instances for a particular instance including itself
+
+      :param inst: The entity instance to get all sub instances
+      :type inst: ifcopenshell.entity_instance.entity_instance
+      :param max_levels: How far deep to recursively fetch sub instances. None or -1 means infinite.
+      :type max_levels: None|int
+      :param breadth_first: Whether to use breadth-first search, the default is depth-first.
+      :type max_levels: bool
+      :returns: A list of ifcopenshell.entity_instance.entity_instance objects
+      :rtype: list
+
+
+
+.. py:class:: sqlite_entity(id, ifc_class, file=None)
+
+
+   Bases: :py:obj:`ifcopenshell.entity_instance.entity_instance`
+
+   Base class for all IFC objects.
+
+   An instantiated entity_instance will have methods of Python and the IFC class itself.
+
+   Example:
+
+   .. code:: python
+
+       ifc_file = ifcopenshell.open(file_path)
+       products = ifc_file.by_type("IfcProduct")
+       print(products[0].__class__)
+       >>> <class 'ifcopenshell.entity_instance.entity_instance'>
+       print(products[0].Representation)
+       >>> #423=IfcProductDefinitionShape($,$,(#409,#421))
+
+   .. py:method:: __del__()
+
+      #2471 while the precise chain of action is unclear, creating
+      instance references prevents file gc, even with all instance
+      refs deleted. This is a work-around for that.
+
+
+   .. py:method:: __eq__(other)
+
+      Return self==value.
+
+
+   .. py:method:: __getattr__(name)
+
+
+   .. py:method:: __getitem__(key)
+
+
+   .. py:method:: __hash__()
+
+      Return hash(self).
+
+
+   .. py:method:: __setattr__(key, value)
+
+      Implement setattr(self, name, value).
+
+
+   .. py:method:: get_info(include_identifier=True, recursive=False, return_type=dict, ignore=(), scalar_only=False)
+
+      Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
+
+      :param include_identifier: Whether or not to include the STEP numerical identifier
+      :type include_identifier: bool
+      :param recursive: Whether or not to convert referenced IFC elements into dictionaries too. All attributes also apply recursively
+      :type recursive: bool
+      :param return_type: The return data type to be casted into
+      :type return_type: dict|list|other
+      :param ignore: A list of attribute names to ignore
+      :type ignore: set|list
+      :param scalar_only: Filters out all values that are IFC instances
+      :type scalar_only: bool
+      :returns: A dictionary of properties and their corresponding values
+      :rtype: dict
+
+      Example:
+
+      .. code:: python
+
+          ifc_file = ifcopenshell.open(file_path)
+          products = ifc_file.by_type("IfcProduct")
+          obj_info = products[0].get_info()
+          print(obj_info.keys())
+          >>> dict_keys(['Description', 'Name', 'BuildingAddress', 'LongName', 'GlobalId', 'ObjectPlacement', 'OwnerHistory', 'ObjectType',
+          >>> ...'ElevationOfTerrain', 'CompositionType', 'id', 'Representation', 'type', 'ElevationOfRefHeight'])
+
+
+   .. py:method:: id()
+
+      Return the STEP numerical identifier
+
+      :rtype: int
+
+
+   .. py:method:: unserialise_value(value)
+
+
+
+.. py:class:: sqlite_wrapper(id, ifc_class, file)
+
+
+   .. py:method:: __repr__()
+
+      Return repr(self).
+
+
+

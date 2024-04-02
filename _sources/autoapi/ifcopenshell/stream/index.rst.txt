@@ -1,0 +1,51 @@
+:py:mod:`ifcopenshell.stream`
+=============================
+
+.. py:module:: ifcopenshell.stream
+
+
+Module Contents
+---------------
+
+.. py:class:: StreamTransformer
+
+
+   Bases: :py:obj:`lark.Transformer`
+
+   .. py:method:: arg(items)
+
+
+   .. py:method:: args(items)
+
+
+   .. py:method:: derived(items)
+
+
+   .. py:method:: enum(items)
+
+
+   .. py:method:: float(items)
+
+
+   .. py:method:: ifcint(items)
+
+
+   .. py:method:: inline_type(items)
+
+
+   .. py:method:: list(items)
+
+
+   .. py:method:: null(items)
+
+
+   .. py:method:: reference(items)
+
+
+   .. py:method:: start(items)
+
+
+   .. py:method:: string(items)
+
+
+

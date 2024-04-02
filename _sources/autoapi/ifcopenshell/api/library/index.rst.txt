@@ -1,0 +1,22 @@
+:py:mod:`ifcopenshell.api.library`
+==================================
+
+.. py:module:: ifcopenshell.api.library
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_library/index.rst
+   add_reference/index.rst
+   assign_reference/index.rst
+   edit_library/index.rst
+   edit_reference/index.rst
+   remove_library/index.rst
+   remove_reference/index.rst
+   unassign_reference/index.rst
+
+

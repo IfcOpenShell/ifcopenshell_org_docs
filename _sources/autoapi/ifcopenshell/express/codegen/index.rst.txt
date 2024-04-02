@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.express.codegen`
+======================================
+
+.. py:module:: ifcopenshell.express.codegen
+
+
+Module Contents
+---------------
+
+.. py:class:: Base
+
+
+   Bases: :py:obj:`object`
+
+   A base class for all code generation classes. Currently only working around
+   some python 2/3 incompatibilities in terms of unicode file handling.
+
+   .. py:method:: emit()
+
+
+
+.. py:function:: indent(n, s)
+
+

@@ -1,0 +1,57 @@
+:py:mod:`bcf.bcfxml`
+====================
+
+.. py:module:: bcf.bcfxml
+
+.. autoapi-nested-parse::
+
+   BCF - BCF Python library
+   Copyright (C) 2021 Prabhat Singh <singh01prabhat@gmail.com>
+   Copyright (C) 2022 Andrea Ghensi <andrea.ghensi@gmail.com>
+
+   This file is part of BCF.
+
+   BCF is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   BCF is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with BCF.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+Module Contents
+---------------
+
+.. py:function:: _get_version(filepath: Union[str, pathlib.Path], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> str
+
+   Returns the version of the BCF file.
+
+   Args:
+       filepath: The path to the BCF file.
+       xml_handler: The XML handler. If none is given, XmlParserSerializer is used.
+
+   Returns:
+       The version of the BCF file.
+
+
+.. py:function:: load(filepath: pathlib.Path, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[Union[bcf.v2.bcfxml.BcfXml, bcf.v3.bcfxml.BcfXml]]
+
+   Load a BCF file.
+
+   Args:
+       filepath: The path to the BCF file.
+
+   Returns:
+       The loaded BCF file.
+
+   Raises:
+       ValueError: If the BCF version is not supported.
+
+

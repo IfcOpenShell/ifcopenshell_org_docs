@@ -1,0 +1,46 @@
+:py:mod:`ifcopenshell.util.fm`
+==============================
+
+.. py:module:: ifcopenshell.util.fm
+
+
+Module Contents
+---------------
+
+.. py:function:: get_cobie_components(ifc_file)
+
+
+.. py:function:: get_cobie_types(ifc_file)
+
+
+.. py:function:: get_fmhem_classes(schema='IFC4')
+
+
+.. py:function:: get_fmhem_types(ifc_file)
+
+
+.. py:data:: cobie_component_classes
+   :value: ['IfcBuildingElementProxy', 'IfcChimney', 'IfcCovering', 'IfcDoor', 'IfcShadingDevice',...
+
+   
+
+.. py:data:: cobie_type_classes
+   :value: ['IfcDoorStyle', 'IfcBuildingElementProxyType', 'IfcChimneyType', 'IfcCoveringType',...
+
+   
+
+.. py:data:: fmhem_classes_ifc2x3
+   :value: ['IfcDoorStyle', 'IfcWindowStyle', 'IfcShadingDeviceType', 'IfcDistributionControlElementType',...
+
+   
+
+.. py:data:: fmhem_classes_ifc4
+   :value: ['IfcDoorType', 'IfcWindowType', 'IfcShadingDeviceType', 'IfcDistributionControlElementType',...
+
+   
+
+.. py:data:: fmhem_excluded_classes
+   :value: ['IfcCooledBeamType', 'IfcBurnerType', 'IfcCoilType', 'IfcLampType']
+
+   
+

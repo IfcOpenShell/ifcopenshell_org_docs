@@ -1,0 +1,247 @@
+:py:mod:`ifcopenshell.util.selector`
+====================================
+
+.. py:module:: ifcopenshell.util.selector
+
+
+Module Contents
+---------------
+
+.. py:class:: FacetTransformer(ifc_file: ifcopenshell.file, elements: Optional[set[ifcopenshell.entity_instance]] = None)
+
+
+   Bases: :py:obj:`lark.Transformer`
+
+   .. py:method:: attribute(args)
+
+
+   .. py:method:: classification(args)
+
+
+   .. py:method:: compare(element_value, comparison, value)
+
+
+   .. py:method:: comparison(args)
+
+
+   .. py:method:: entity(args)
+
+
+   .. py:method:: facet_list(args)
+
+
+   .. py:method:: get_container_tree(container)
+
+
+   .. py:method:: get_results()
+
+
+   .. py:method:: group(args)
+
+
+   .. py:method:: instance(args)
+
+
+   .. py:method:: keys(args)
+
+
+   .. py:method:: location(args)
+
+
+   .. py:method:: material(args)
+
+
+   .. py:method:: prop(args)
+
+
+   .. py:method:: property(args)
+
+
+   .. py:method:: pset(args)
+
+
+   .. py:method:: query(args)
+
+
+   .. py:method:: type(args)
+
+
+   .. py:method:: value(args)
+
+
+
+.. py:class:: FormatTransformer
+
+
+   Bases: :py:obj:`lark.Transformer`
+
+   .. py:method:: ESCAPED_STRING(args)
+
+
+   .. py:method:: NUMBER(args)
+
+
+   .. py:method:: concat(args)
+
+
+   .. py:method:: format_length(args)
+
+
+   .. py:method:: function(args)
+
+
+   .. py:method:: imperial_length(args)
+
+
+   .. py:method:: lower(args)
+
+
+   .. py:method:: metric_length(args)
+
+
+   .. py:method:: round(args)
+
+
+   .. py:method:: start(args)
+
+
+   .. py:method:: substr(args)
+
+
+   .. py:method:: title(args)
+
+
+   .. py:method:: upper(args)
+
+
+
+.. py:class:: GetElementTransformer
+
+
+   Bases: :py:obj:`lark.Transformer`
+
+   .. py:method:: ESCAPED_STRING(args)
+
+
+   .. py:method:: key(args)
+
+
+   .. py:method:: keys(args)
+
+
+   .. py:method:: quoted_string(args)
+
+
+   .. py:method:: regex_string(args)
+
+
+   .. py:method:: start(args)
+
+
+   .. py:method:: unquoted_string(args)
+
+
+
+.. py:class:: Selector
+
+
+   .. py:method:: filter_element(element, element_value, comparison, value, is_regex=False)
+      :classmethod:
+
+
+   .. py:method:: filter_elements(elements, filter_rule)
+      :classmethod:
+
+
+   .. py:method:: get_class_selector(class_selector)
+      :classmethod:
+
+
+   .. py:method:: get_element_value(element: ifcopenshell.entity_instance, keys: list[str]) -> Any
+      :classmethod:
+
+
+   .. py:method:: get_group(group)
+      :classmethod:
+
+
+   .. py:method:: get_guid_selector(guid_selector)
+      :classmethod:
+
+
+   .. py:method:: get_query(query)
+      :classmethod:
+
+
+   .. py:method:: get_selector(selector)
+      :classmethod:
+
+
+   .. py:method:: parse(ifc_file: ifcopenshell.file, query: str, elements: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
+      :classmethod:
+
+
+   .. py:method:: parse_filter_query(filter_query)
+      :classmethod:
+
+
+   .. py:method:: parse_inverse_relationship(elements, inverse_relationship)
+      :classmethod:
+
+
+
+.. py:function:: filter_elements(ifc_file: ifcopenshell.file, query: str, elements: Optional[set[ifcopenshell.entity_instance]] = None, edit_in_place=False) -> set[ifcopenshell.entity_instance]
+
+   Filter elements based on the provided `query`.
+
+   :param ifc_file: The IFC file object
+   :type ifc_file: ifcopenshell.file.file
+   :param query: Query to execute
+   :type query: str
+   :param elements: Base set of IFC elements for the query.
+       If provided, new elements found for the current query will be added to `elements`.
+       Elements explicitly excluded in the `query` will also be excluded from `elements`
+   :type elements: set[ifcopenshell.entity_instance.entity_instance], optional
+   :param edit_in_place: If `True`, mutate the provided `elements` in place. Defaults to `False`
+   :type edit_in_place: bool
+   :return: Set of filtered elements
+   :rtype: set[ifcopenshell.entity_instance.entity_instance]
+
+   Example:
+
+   .. code:: python
+
+       # Select all walls in the file.
+       elements = ifcopenshell.util.selector.filter_elements(ifc_file, "IfcWall, IfcSlab")
+
+       # Add doors to the elements too.
+       elements = ifcopenshell.util.selector.filter_elements(ifc_file, "IfcDoor", elements)
+
+       # Changed our mind, exclude the slabs.
+       elements = ifcopenshell.util.selector.filter_elements(ifc_file, "! IfcSlab", elements)
+
+       # {#1=IfcWall(...), #2=IfcDoor(...)}
+       print(elements)
+
+
+.. py:function:: format(query)
+
+
+.. py:function:: get_element_value(element: ifcopenshell.entity_instance, query: str) -> Any
+
+
+.. py:function:: set_element_value(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, query: Union[str, list[str]], value: Optional[str]) -> Union[ifcopenshell.entity_instance, None]
+
+
+.. py:data:: filter_elements_grammar
+
+   
+
+.. py:data:: format_grammar
+
+   
+
+.. py:data:: get_element_grammar
+
+   
+

@@ -1,0 +1,38 @@
+:py:mod:`ifcopenshell.api.material`
+===================================
+
+.. py:module:: ifcopenshell.api.material
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_constituent/index.rst
+   add_layer/index.rst
+   add_list_item/index.rst
+   add_material/index.rst
+   add_material_set/index.rst
+   add_profile/index.rst
+   assign_material/index.rst
+   assign_profile/index.rst
+   copy_material/index.rst
+   edit_assigned_material/index.rst
+   edit_constituent/index.rst
+   edit_layer/index.rst
+   edit_layer_usage/index.rst
+   edit_material/index.rst
+   edit_profile/index.rst
+   edit_profile_usage/index.rst
+   remove_constituent/index.rst
+   remove_layer/index.rst
+   remove_list_item/index.rst
+   remove_material/index.rst
+   remove_material_set/index.rst
+   remove_profile/index.rst
+   reorder_set_item/index.rst
+   unassign_material/index.rst
+
+

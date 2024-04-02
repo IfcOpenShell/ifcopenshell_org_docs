@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.geometry.create_2pt_wall`
+===================================================
+
+.. py:module:: ifcopenshell.api.geometry.create_2pt_wall
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, element=None, context=None, p1=None, p2=None, elevation=None, height=None, thickness=None, is_si=True)
+
+
+   .. py:method:: convert_unit_to_si(co)
+
+
+   .. py:method:: execute()
+
+
+

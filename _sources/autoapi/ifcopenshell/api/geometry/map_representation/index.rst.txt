@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.geometry.map_representation`
+======================================================
+
+.. py:module:: ifcopenshell.api.geometry.map_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: get_mapping_source()
+
+
+

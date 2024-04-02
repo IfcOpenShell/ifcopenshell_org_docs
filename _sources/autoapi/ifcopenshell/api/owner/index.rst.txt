@@ -1,0 +1,38 @@
+:py:mod:`ifcopenshell.api.owner`
+================================
+
+.. py:module:: ifcopenshell.api.owner
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_actor/index.rst
+   add_address/index.rst
+   add_application/index.rst
+   add_organisation/index.rst
+   add_person/index.rst
+   add_person_and_organisation/index.rst
+   add_role/index.rst
+   assign_actor/index.rst
+   create_owner_history/index.rst
+   edit_actor/index.rst
+   edit_address/index.rst
+   edit_organisation/index.rst
+   edit_person/index.rst
+   edit_role/index.rst
+   remove_actor/index.rst
+   remove_address/index.rst
+   remove_application/index.rst
+   remove_organisation/index.rst
+   remove_person/index.rst
+   remove_person_and_organisation/index.rst
+   remove_role/index.rst
+   settings/index.rst
+   unassign_actor/index.rst
+   update_owner_history/index.rst
+
+

@@ -1,0 +1,27 @@
+:py:mod:`ifcopenshell.api.structural.assign_structural_analysis_model`
+======================================================================
+
+.. py:module:: ifcopenshell.api.structural.assign_structural_analysis_model
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, product=None, structural_analysis_model=None)
+
+
+   
+   Assigns a load or structural member to an analysis model
+
+   :param product: The structural element that is part of the analysis.
+   :type product: ifcopenshell.entity_instance.entity_instance
+   :param structural_analysis_model: The IfcStructuralAnalysisModel that
+       the structural element is related to.
+   :type structural_analysis_model: ifcopenshell.entity_instance.entity_instance
+   :return: The IfcRelAssignsToGroup relationship
+   :rtype: ifcopenshell.entity_instance.entity_instance
+
+   .. py:method:: execute()
+
+
+

@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.layer`
+================================
+
+.. py:module:: ifcopenshell.api.layer
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_layer/index.rst
+   assign_layer/index.rst
+   edit_layer/index.rst
+   remove_layer/index.rst
+   unassign_layer/index.rst
+
+

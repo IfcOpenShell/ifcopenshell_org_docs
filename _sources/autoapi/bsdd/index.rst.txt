@@ -1,0 +1,16 @@
+:py:mod:`bsdd`
+==============
+
+.. py:module:: bsdd
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   __about__/index.rst
+   bsdd/index.rst
+
+

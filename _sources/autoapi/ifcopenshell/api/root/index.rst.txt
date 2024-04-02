@@ -1,0 +1,18 @@
+:py:mod:`ifcopenshell.api.root`
+===============================
+
+.. py:module:: ifcopenshell.api.root
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   copy_class/index.rst
+   create_entity/index.rst
+   reassign_class/index.rst
+   remove_product/index.rst
+
+

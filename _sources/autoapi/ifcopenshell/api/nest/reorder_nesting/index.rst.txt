@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.nest.reorder_nesting`
+===============================================
+
+.. py:module:: ifcopenshell.api.nest.reorder_nesting
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, item=None, old_index=0, new_index=0)
+
+
+   
+   Reorders an item in a nesting set
+
+   .. py:method:: execute()
+
+
+

@@ -1,0 +1,32 @@
+:py:mod:`ifcopenshell.settings`
+===============================
+
+.. py:module:: ifcopenshell.settings
+
+.. autoapi-nested-parse::
+
+   When true return inverses without an aggregate specifier as a single
+   element or None. Example:
+
+   >>> import ifcopenshell
+   >>> f = ifcopenshell.file(schema='ifc2x3')
+   >>> f.createIfcGroup()
+   #1=IfcGroup($,$,$,$,$)
+   >>> f.createIfcRelAssignsToGroup(RelatingGroup=f[1])
+   #2=IfcRelAssignsToGroup($,$,$,$,$,$,#1)
+   >>> f[1].IsGroupedBy
+   (#2=IfcRelAssignsToGroup($,$,$,$,$,$,#1),)
+   >>> ifcopenshell.settings.unpack_non_aggregate_inverses = True
+   >>> f[1].IsGroupedBy
+   #2=IfcRelAssignsToGroup($,$,$,$,$,$,#1)
+
+
+
+Module Contents
+---------------
+
+.. py:data:: unpack_non_aggregate_inverses
+   :value: False
+
+   
+

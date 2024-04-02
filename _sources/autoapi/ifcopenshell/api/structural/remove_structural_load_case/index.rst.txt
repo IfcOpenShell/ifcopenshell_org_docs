@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.structural.remove_structural_load_case`
+=================================================================
+
+.. py:module:: ifcopenshell.api.structural.remove_structural_load_case
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, load_case=None)
+
+
+   
+   Removes a structural load case
+
+   :param load_case: The IfcStructuralLoadCase to remove.
+   :type load_case: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   .. py:method:: execute()
+
+
+

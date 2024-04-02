@@ -1,0 +1,630 @@
+:py:mod:`ifcopenshell.express.templates`
+========================================
+
+.. py:module:: ifcopenshell.express.templates
+
+
+Module Contents
+---------------
+
+.. py:function:: multi_line_comment(li)
+
+
+.. py:data:: array_type
+   :value: 'std::vector< %(instance_type)s > /*[%(lower)s:%(upper)s]*/'
+
+   
+
+.. py:data:: cast_function
+   :value: '%(schema_name)s::%(class_name)s::operator %(return_type)s() const { %(body)s }'
+
+   
+
+.. py:data:: const_function
+   :value: '%(return_type)s %(schema_name)s::%(class_name)s::%(name)s(%(arguments)s) const { %(body)s }'
+
+   
+
+.. py:data:: constructor
+   :value: '%(schema_name)s::%(class_name)s::%(class_name)s(%(arguments)s) { %(body)s }'
+
+   
+
+.. py:data:: constructor_single_initlist
+   :value: '%(schema_name)s::%(class_name)s::%(class_name)s(%(arguments)s) :...'
+
+   
+
+.. py:data:: constructor_stmt
+
+   
+
+.. py:data:: constructor_stmt_array
+
+   
+
+.. py:data:: constructor_stmt_derived
+
+   
+
+.. py:data:: constructor_stmt_enum
+
+   
+
+.. py:data:: constructor_stmt_optional
+   :value: ' if (%(name)s) {%(stmt)s } else { IfcWrite::IfcWriteArgument* attr = new...'
+
+   
+
+.. py:data:: derived_field_statement
+   :value: '    {std::set<int> idxs; %(statements)sderived_map[Type::%(type)s] = idxs;}'
+
+   
+
+.. py:data:: derived_field_statement_attrs
+   :value: 'idxs.insert(%d); '
+
+   
+
+.. py:data:: entity
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """%(documentation)s
+        class IFC_PARSE_API %(name)s : %(superclass)s {
+        public:
+        %(attributes)s    %(inverse)s    virtual const IfcParse::entity& declaration() const;
+            static const IfcParse::entity& Class();
+            %(name)s (IfcEntityInstanceData* e);
+            %(name)s (%(constructor_arguments)s);
+            typedef aggregate_of< %(name)s > list;
+        };
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: entity_descriptor
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """    current = entity_descriptor_map[Type::%(type)s] = new IfcEntityDescriptor(Type::%(type)s,%(parent_statement)s);
+        %(entity_descriptor_attributes)s"""
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: entity_descriptor_attribute_with_entity
+   :value: '    current->add("%(name)s",%(optional)s,%(type)s,Type::%(entity_name)s);'
+
+   
+
+.. py:data:: entity_descriptor_attribute_without_entity
+   :value: '    current->add("%(name)s",%(optional)s,%(type)s);'
+
+   
+
+.. py:data:: entity_descriptor_parent
+   :value: 'entity_descriptor_map.find(Type::%(type)s)->second'
+
+   
+
+.. py:data:: entity_implementation
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """// Function implementations for %(name)s
+        %(attributes)s
+        %(inverse)s
+        const IfcParse::entity& %(schema_name)s::%(name)s::declaration() const { return *%(schema_name_upper)s_%(name)s_type; }
+        const IfcParse::entity& %(schema_name)s::%(name)s::Class() { return *%(schema_name_upper)s_%(name)s_type; }
+        %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData* e) : %(superclass)s { if (!e) return; if (e->type() != %(schema_name_upper)s_%(name)s_type) throw IfcException("Unable to find keyword in schema"); data_ = e; }
+        %(schema_name)s::%(name)s::%(name)s(%(constructor_arguments)s) : %(superclass)s {data_ = new IfcEntityInstanceData(%(schema_name_upper)s_%(name)s_type); %(constructor_implementation)s }
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: enum_from_string_stmt
+   :value: '    if (s == "%(value)s") return ::%(schema_name)s::%(name)s::%(short_name)s_%(value)s;'
+
+   
+
+.. py:data:: enum_header
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """
+        #ifndef %(schema_name_upper)sENUM_H
+        #define %(schema_name_upper)sENUM_H
+        
+        #include "../ifcparse/ifc_parse_api.h"
+        
+        #include <string>
+        #include <boost/optional.hpp>
+        
+        #endif
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: enumeration
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """class IFC_PARSE_API %(name)s : public IfcUtil::IfcBaseType {
+        %(documentation)s
+        public:
+            typedef enum {%(values)s} Value;
+            static const char* ToString(Value v);
+            static Value FromString(const std::string& s);
+        
+            virtual const IfcParse::enumeration_type& declaration() const;
+            static const IfcParse::enumeration_type& Class();
+            %(name)s (IfcEntityInstanceData* e);
+            %(name)s (Value v);
+            %(name)s (const std::string& v);
+            operator Value() const;
+        };
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: enumeration_descriptor
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """    values.clear(); values.reserve(128);
+        %(enumeration_descriptor_values)s
+            enumeration_descriptor_map[Type::%(type)s] = new IfcEnumerationDescriptor(Type::%(type)s, values);"""
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: enumeration_descriptor_value
+   :value: '    values.push_back("%(name)s");'
+
+   
+
+.. py:data:: enumeration_function
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """
+        const IfcParse::enumeration_type& %(schema_name)s::%(name)s::declaration() const { return *%(schema_name_upper)s_%(name)s_type; }
+        const IfcParse::enumeration_type& %(schema_name)s::%(name)s::Class() { return *%(schema_name_upper)s_%(name)s_type; }
+        
+        %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData* e) {
+            data_ = e;
+        }
+        
+        %(schema_name)s::%(name)s::%(name)s(Value v) {
+            data_ = new IfcEntityInstanceData(%(schema_name_upper)s_%(name)s_type);
+            IfcWrite::IfcWriteArgument* attr = new IfcWrite::IfcWriteArgument();
+            attr->set(IfcWrite::IfcWriteArgument::EnumerationReference(v,ToString(v)));
+            data_->setArgument(0,attr);
+        }
+        
+        %(schema_name)s::%(name)s::%(name)s(const std::string& v) {
+            data_ = new IfcEntityInstanceData(%(schema_name_upper)s_%(name)s_type);
+            IfcWrite::IfcWriteArgument* attr = new IfcWrite::IfcWriteArgument();
+            attr->set(IfcWrite::IfcWriteArgument::EnumerationReference(FromString(v),ToString(FromString(v))));
+            data_->setArgument(0,attr);
+        }
+        
+        const char* %(schema_name)s::%(name)s::ToString(Value v) {
+            if ( v < 0 || v >= %(max_id)d ) throw IfcException("Unable to find keyword in schema");
+            const char* names[] = { %(values)s };
+            return names[v];
+        }
+        
+        %(schema_name)s::%(name)s::Value %(schema_name)s::%(name)s::FromString(const std::string& s) {
+        %(from_string_statements)s
+            throw IfcException("Unable to find keyword in schema: " + s);
+        }
+        
+        %(schema_name)s::%(name)s::operator %(schema_name)s::%(name)s::Value() const {
+            return FromString((std::string) *data_->getArgument(0));
+        }
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: function
+   :value: '%(return_type)s %(schema_name)s::%(class_name)s::%(name)s(%(arguments)s) { %(body)s }'
+
+   
+
+.. py:data:: get_attr_stmt
+   :value: '%(null_check)s %(non_optional_type)s v = *data_->getArgument(%(index)d); return v;'
+
+   
+
+.. py:data:: get_attr_stmt_array
+   :value: '%(null_check)s aggregate_of_instance::ptr es = *data_->getArgument(%(index)d); return es->as<...'
+
+   
+
+.. py:data:: get_attr_stmt_entity
+   :value: '%(null_check)s return...'
+
+   
+
+.. py:data:: get_attr_stmt_enum
+   :value: '%(null_check)s return %(non_optional_type)s::FromString(*data_->getArgument(%(index)d));'
+
+   
+
+.. py:data:: get_attr_stmt_nested_array
+   :value: '%(null_check)s aggregate_of_aggregate_of_instance::ptr es = *data_->getArgument(%(index)d);...'
+
+   
+
+.. py:data:: get_inverse
+   :value: 'return data_->getInverse(%(schema_name_upper)s_%(type)s_type, %(index)d)->as<%(type)s>();'
+
+   
+
+.. py:data:: header
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """
+        #ifndef %(schema_name_upper)s_H
+        #define %(schema_name_upper)s_H
+        
+        #include <string>
+        #include <vector>
+        
+        #include <boost/optional.hpp>
+        
+        #include "../ifcparse/ifc_parse_api.h"
+        
+        #include "../ifcparse/aggregate_of_instance.h"
+        #include "../ifcparse/IfcBaseClass.h"
+        #include "../ifcparse/IfcSchema.h"
+        #include "../ifcparse/IfcException.h"
+        #include "../ifcparse/Argument.h"
+        
+        struct %(schema_name)s {
+        
+        IFC_PARSE_API static const IfcParse::schema_definition& get_schema();
+        
+        IFC_PARSE_API static void clear_schema();
+        
+        static const char* const Identifier;
+        
+        // Forward definitions
+        %(forward_definitions)s
+        
+        %(declarations)s
+        
+        %(class_definitions)s
+        };
+        
+        #endif
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: implementation
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """
+        #include "../ifcparse/%(schema_name)s.h"
+        #include "../ifcparse/IfcSchema.h"
+        #include "../ifcparse/IfcException.h"
+        #include "../ifcparse/IfcWrite.h"
+        
+        #include <map>
+        
+        const char* const %(schema_name)s::Identifier = "%(schema_name_upper)s";
+        
+        using namespace IfcParse;
+        using namespace IfcWrite;
+        
+        // External definitions
+        %(external_definitions)s
+        
+        %(enumeration_functions)s
+        
+        %(simple_type_impl)s
+        
+        %(entity_implementations)s
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: inverse_attr
+   :value: 'aggregate_of< %(entity)s >::ptr %(name)s() const; // INVERSE %(entity)s::%(attribute)s'
+
+   
+
+.. py:data:: inverse_implementation
+   :value: '    inverse_map[Type::%(type)s].insert(std::make_pair("%(name)s",...'
+
+   
+
+.. py:data:: lb_header
+   :value: ''
+
+   
+
+.. py:data:: lb_implementation
+   :value: ''
+
+   
+
+.. py:data:: list_list_type
+   :value: 'aggregate_of_aggregate_of< %(instance_type)s >::ptr'
+
+   
+
+.. py:data:: list_type
+   :value: 'aggregate_of< %(instance_type)s >::ptr'
+
+   
+
+.. py:data:: nested_array_type
+   :value: 'std::vector< std::vector< %(instance_type)s > >'
+
+   
+
+.. py:data:: optional_attr_stmt
+   :value: 'return !data_->getArgument(%(index)d)->isNull();'
+
+   
+
+.. py:data:: optional_attribute_description
+   :value: '/// Whether the optional attribute %s is defined for this %s'
+
+   
+
+.. py:data:: parent_type_stmt
+   :value: '    if(v==%(name)s%(padding)s) { return %(parent)s; }'
+
+   
+
+.. py:data:: parent_type_test
+   :value: ' || %s::is(v)'
+
+   
+
+.. py:data:: schema_entity_stmt
+   :value: '        case Type::%(name)s: return new %(name)s(e); break;'
+
+   
+
+.. py:data:: select
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """%(documentation)s
+        class IFC_PARSE_API %(name)s : public virtual IfcUtil::IfcBaseInterface {
+        public:
+            static const IfcParse::select_type& Class();
+            typedef aggregate_of< %(name)s > list;
+        };
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: select_function
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """
+        const IfcParse::select_type& %(schema_name)s::%(name)s::Class() { return *%(schema_name_upper)s_%(name)s_type; }
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: set_attr_stmt
+
+   
+
+.. py:data:: set_attr_stmt_array
+
+   
+
+.. py:data:: set_attr_stmt_enum
+   :value: '{IfcWrite::IfcWriteArgument* attr = new...'
+
+   
+
+.. py:data:: simpletype
+   :value: Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: python
+
+        """%(documentation)s
+        class IFC_PARSE_API %(name)s : %(superclass)s {
+        public:
+            virtual const IfcParse::type_declaration& declaration() const;
+            static const IfcParse::type_declaration& Class();
+            explicit %(name)s (IfcEntityInstanceData* e);
+            %(name)s (%(type)s v);
+            operator %(type)s() const;
+        };
+        """
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: simpletype_impl_argument
+   :value: 'return data_->getArgument(i);'
+
+   
+
+.. py:data:: simpletype_impl_argument_type
+   :value: 'if (i == 0) { return %(attr_type)s; } else { throw...'
+
+   
+
+.. py:data:: simpletype_impl_cast
+   :value: 'return *data_->getArgument(0);'
+
+   
+
+.. py:data:: simpletype_impl_cast_templated
+   :value: 'aggregate_of_instance::ptr es = *data_->getArgument(0); return es->as< %(underlying_type)s >();'
+
+   
+
+.. py:data:: simpletype_impl_class
+   :value: 'return *%(schema_name_upper)s_%(class_name)s_type;'
+
+   
+
+.. py:data:: simpletype_impl_comment
+   :value: '// Function implementations for %(name)s'
+
+   
+
+.. py:data:: simpletype_impl_constructor
+
+   
+
+.. py:data:: simpletype_impl_constructor_templated
+   :value: 'data_ = new IfcEntityInstanceData(%(schema_name_upper)s_%(class_name)s_type);...'
+
+   
+
+.. py:data:: simpletype_impl_declaration
+   :value: 'return *%(schema_name_upper)s_%(class_name)s_type;'
+
+   
+
+.. py:data:: simpletype_impl_explicit_constructor
+   :value: 'data_ = e;'
+
+   
+
+.. py:data:: simpletype_impl_is_with_supertype
+   :value: 'return v == %(class_name)s_type || %(superclass)s::is(v);'
+
+   
+
+.. py:data:: simpletype_impl_is_without_supertype
+   :value: 'return v == %(class_name)s_type;'
+
+   
+
+.. py:data:: simpletype_impl_type
+   :value: 'return *%(schema_name_upper)s_%(class_name)s_type;'
+
+   
+
+.. py:data:: string_map_statement
+   :value: '    string_map["%(uppercase_name)s"%(padding)s] = Type::%(name)s;'
+
+   
+
+.. py:data:: untyped_list
+   :value: 'aggregate_of_instance::ptr'
+
+   
+

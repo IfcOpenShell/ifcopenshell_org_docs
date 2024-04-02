@@ -1,0 +1,33 @@
+:py:mod:`ifcopenshell.api.cost`
+===============================
+
+.. py:module:: ifcopenshell.api.cost
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_cost_item/index.rst
+   add_cost_item_quantity/index.rst
+   add_cost_schedule/index.rst
+   add_cost_value/index.rst
+   assign_cost_item_quantity/index.rst
+   assign_cost_value/index.rst
+   calculate_cost_item_resource_value/index.rst
+   copy_cost_item/index.rst
+   copy_cost_item_values/index.rst
+   edit_cost_item/index.rst
+   edit_cost_item_quantity/index.rst
+   edit_cost_schedule/index.rst
+   edit_cost_value/index.rst
+   edit_cost_value_formula/index.rst
+   remove_cost_item/index.rst
+   remove_cost_item_quantity/index.rst
+   remove_cost_schedule/index.rst
+   remove_cost_value/index.rst
+   unassign_cost_item_quantity/index.rst
+
+

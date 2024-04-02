@@ -1,0 +1,130 @@
+:py:mod:`ifcopenshell.validate`
+===============================
+
+.. py:module:: ifcopenshell.validate
+
+.. autoapi-nested-parse::
+
+   Data validation module
+
+
+
+Module Contents
+---------------
+
+.. py:exception:: ValidationError(message, attribute=None)
+
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:class:: json_logger
+
+
+   .. py:method:: __getattr__(level)
+
+
+   .. py:method:: log(level, message, *args)
+
+
+   .. py:method:: set_state(key, value)
+
+
+
+.. py:function:: annotate_inst_attr_pos(inst, pos)
+
+
+.. py:function:: assert_valid(attr_type, val, schema, no_throw=False, attr=None)
+
+
+.. py:function:: assert_valid_inverse(attr, val, schema)
+
+
+.. py:function:: format(val)
+
+
+.. py:function:: get_entity_attributes(schema, entity)
+
+
+.. py:function:: get_select_members(schema, ty)
+
+
+.. py:function:: log_internal_cpp_errors(filename, logger)
+
+
+.. py:function:: validate(f, logger, express_rules=False)
+
+   For an IFC population model `f` (or filepath to such a file) validate whether the entity attribute values are correctly supplied. As this
+   is a function that is applied after a file has been parsed, certain types of errors in syntax, duplicate
+   numeric identifiers or invalidate entity names are not caught by this function. Some of these might have been
+   logged and can be retrieved by calling `ifcopenshell.get_log()`. A verification of the type, entity and global
+   WHERE rules is also not implemented.
+
+   For every entity instance in the model, it is checked that the entity is not abstract that every attribute value
+   is of the correct type and that the inverse attributes are of the correct cardinality.
+
+   Express simple types are checked for their valuation type. For select types it is asserted that the value conforms
+   to one of the leaves. For enumerations it is checked that the value is indeed on of the items. For aggregations it
+   is checked that the elements and the cardinality conforms. Type declarations (IfcInteger which is an integer) are
+   unpacked until one of the above cases is reached.
+
+   It is recommended to supply the path to the file, so that internal C++ errors reported during the parse stage
+   are also captured.
+
+
+.. py:data:: aggregation_type
+
+   
+
+.. py:data:: attribute
+
+   
+
+.. py:data:: entity_attribute_map
+
+   
+
+.. py:data:: entity_type
+
+   
+
+.. py:data:: enumeration_type
+
+   
+
+.. py:data:: filenames
+
+   
+
+.. py:data:: log_entry_type
+
+   
+
+.. py:data:: named_type
+
+   
+
+.. py:data:: select_members_cache
+
+   
+
+.. py:data:: select_type
+
+   
+
+.. py:data:: simple_type
+
+   
+
+.. py:data:: simple_type_python_mapping
+
+   
+
+.. py:data:: type_declaration
+
+   
+

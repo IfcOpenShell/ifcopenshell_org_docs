@@ -1,0 +1,15 @@
+:py:mod:`ifcopenshell.api.attribute`
+====================================
+
+.. py:module:: ifcopenshell.api.attribute
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   edit_attributes/index.rst
+
+

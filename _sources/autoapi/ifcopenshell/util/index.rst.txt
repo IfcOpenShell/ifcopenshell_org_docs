@@ -1,0 +1,45 @@
+:py:mod:`ifcopenshell.util`
+===========================
+
+.. py:module:: ifcopenshell.util
+
+.. autoapi-nested-parse::
+
+   Utility functions for common IFC queries
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   attribute/index.rst
+   brick/index.rst
+   classification/index.rst
+   constraint/index.rst
+   cost/index.rst
+   data/index.rst
+   date/index.rst
+   doc/index.rst
+   element/index.rst
+   file/index.rst
+   fm/index.rst
+   generate_pset_templates/index.rst
+   geolocation/index.rst
+   ifc4x3dev_scrape_data_for_docs/index.rst
+   placement/index.rst
+   pset/index.rst
+   representation/index.rst
+   resource/index.rst
+   schema/index.rst
+   selector/index.rst
+   sequence/index.rst
+   shape/index.rst
+   shape_builder/index.rst
+   system/index.rst
+   type/index.rst
+   unit/index.rst
+
+

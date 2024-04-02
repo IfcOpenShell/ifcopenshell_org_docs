@@ -1,0 +1,18 @@
+:py:mod:`ifcopenshell.api.nest`
+===============================
+
+.. py:module:: ifcopenshell.api.nest
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   assign_object/index.rst
+   change_nest/index.rst
+   reorder_nesting/index.rst
+   unassign_object/index.rst
+
+

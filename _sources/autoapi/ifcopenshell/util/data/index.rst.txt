@@ -1,0 +1,59 @@
+:py:mod:`ifcopenshell.util.data`
+================================
+
+.. py:module:: ifcopenshell.util.data
+
+
+Module Contents
+---------------
+
+.. py:class:: Clipping
+
+
+   .. py:attribute:: location
+      :type: tuple[float, float, float]
+
+      
+
+   .. py:attribute:: normal
+      :type: tuple[float, float, float]
+
+      
+
+   .. py:attribute:: operand_type
+      :type: str
+      :value: 'IfcHalfSpaceSolid'
+
+      
+
+   .. py:attribute:: type
+      :type: str
+      :value: 'IfcBooleanClippingResult'
+
+      
+
+   .. py:method:: apply(ifc_file: ifcopenshell.file, first_operand: ifcopenshell.entity_instance, unit_scale: float) -> ifcopenshell.entity_instance
+
+      Applies the clipping data as an IfcBooleanClippingResult to an operand
+
+      :param ifc_file: The model to create the entities in
+      :param first_operand: The representation item to apply the boolean clipping to.
+      :param unit_scale: The unit scale value to convert from the Clipping's SI units to project units
+      :return: An IfcBooleanClippingResult which uses an IfcHalfSpaceSolid to clip the first operand
+
+
+   .. py:method:: parse(raw_data: Any) -> Union[ifcopenshell.entity_instance, Clipping, None]
+      :classmethod:
+
+      Parse various formats into a clipping object
+
+      `raw_data` can be either:
+
+      - IfcBooleanResult IFC entity
+      - `Clipping` instance
+      - dictionary to define `Clipping` - either `location` and `normal`
+          or a `matrix` where XY plane is the clipping boundary and +Z is removed.
+          `matrix` method will be soon to be deprecated completely.
+
+
+

@@ -1,0 +1,18 @@
+:py:mod:`ifcopenshell.api.project`
+==================================
+
+.. py:module:: ifcopenshell.api.project
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   append_asset/index.rst
+   assign_declaration/index.rst
+   create_file/index.rst
+   unassign_declaration/index.rst
+
+

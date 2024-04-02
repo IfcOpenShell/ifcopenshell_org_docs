@@ -1,0 +1,46 @@
+:py:mod:`ifcopenshell.api.geometry.add_window_representation`
+=============================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_window_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   
+   units in settings expected to be in ifc project units
+
+   .. py:method:: convert_si_to_unit(value)
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: create_ifc_window(builder, lining_size: mathutils.Vector, lining_thickness: list, lining_to_panel_offset_x, lining_to_panel_offset_y_full, frame_size: mathutils.Vector, frame_thickness, glass_thickness, position: mathutils.Vector, x_offsets: list = None)
+
+   `lining_thickness` and `x_offsets` are expected to be defined as a list,
+   similarly to `create_ifc_window_frame_simple` `thickness` argument
+
+
+.. py:function:: create_ifc_window_frame_simple(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: mathutils.Vector, thickness: list, position: mathutils.Vector = V(0, 0, 0).freeze())
+
+   `thickness` of the profile is defined as list in the following order:
+   `(LEFT, TOP, RIGHT, BOTTOM)`
+
+   `thickness` can be also defined just as 1 float value.
+
+
+.. py:function:: window_l_shape_check(lining_to_panel_offset_y_full, lining_depth, lining_to_panel_offset_x: list, lining_thickness: list)
+
+   `lining_thickness` and `lining_to_panel_offset_x` expected to be defined as a list,
+   similarly to `create_ifc_window_frame_simple` `thickness` argument
+
+
+.. py:data:: DEFAULT_PANEL_SCHEMAS
+
+   
+

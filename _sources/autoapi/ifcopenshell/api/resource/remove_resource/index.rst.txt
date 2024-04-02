@@ -1,0 +1,29 @@
+:py:mod:`ifcopenshell.api.resource.remove_resource`
+===================================================
+
+.. py:module:: ifcopenshell.api.resource.remove_resource
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, resource=None)
+
+
+   
+   Removes a resource and all relationships
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.run("resource.add_resource", model, ifc_class="IfcCrewResource")
+
+       # Fire our crew
+       ifcopenshell.api.run("resource.remove_resource", model, resource=crew)
+
+   .. py:method:: execute()
+
+
+

@@ -1,0 +1,30 @@
+:py:mod:`ifcopenshell.guid`
+===========================
+
+.. py:module:: ifcopenshell.guid
+
+.. autoapi-nested-parse::
+
+   Reads and writes encoded GlobalIds
+
+
+
+Module Contents
+---------------
+
+.. py:function:: compress(g)
+
+
+.. py:function:: expand(g)
+
+
+.. py:function:: new()
+
+
+.. py:function:: split(g)
+
+
+.. py:data:: chars
+
+   
+

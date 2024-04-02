@@ -1,0 +1,26 @@
+:py:mod:`ifcopenshell.api.resource`
+===================================
+
+.. py:module:: ifcopenshell.api.resource
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_resource/index.rst
+   add_resource_quantity/index.rst
+   add_resource_time/index.rst
+   assign_resource/index.rst
+   calculate_resource_usage/index.rst
+   calculate_resource_work/index.rst
+   edit_resource/index.rst
+   edit_resource_quantity/index.rst
+   edit_resource_time/index.rst
+   remove_resource/index.rst
+   remove_resource_quantity/index.rst
+   unassign_resource/index.rst
+
+

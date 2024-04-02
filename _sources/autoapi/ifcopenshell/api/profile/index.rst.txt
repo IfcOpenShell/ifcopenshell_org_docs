@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.profile`
+==================================
+
+.. py:module:: ifcopenshell.api.profile
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_arbitrary_profile/index.rst
+   add_arbitrary_profile_with_voids/index.rst
+   add_parameterized_profile/index.rst
+   edit_profile/index.rst
+   remove_profile/index.rst
+
+

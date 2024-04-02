@@ -1,0 +1,40 @@
+:py:mod:`ifcopenshell.api.profile.edit_profile`
+===============================================
+
+.. py:module:: ifcopenshell.api.profile.edit_profile
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, profile=None, attributes=None)
+
+
+   
+   Edits the attributes of an IfcProfileDef
+
+   For more information about the attributes and data types of an
+   IfcProfileDef, consult the IFC documentation.
+
+   :param profile: The IfcProfileDef entity you want to edit
+   :type profile: ifcopenshell.entity_instance.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict, optional
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       circle = ifcopenshell.api.run("profile.add_parameterized_profile", model,
+           ifc_class="IfcCircleProfileDef")
+       circle = 1.
+
+       ifcopenshell.api.run("profile.edit_profile", model,
+           profile=circle, attributes={"ProfileName": "1000mm Dia"})
+
+   .. py:method:: execute()
+
+
+

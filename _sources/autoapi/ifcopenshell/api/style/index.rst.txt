@@ -1,0 +1,26 @@
+:py:mod:`ifcopenshell.api.style`
+================================
+
+.. py:module:: ifcopenshell.api.style
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_style/index.rst
+   add_surface_style/index.rst
+   add_surface_textures/index.rst
+   assign_material_style/index.rst
+   assign_representation_styles/index.rst
+   edit_presentation_style/index.rst
+   edit_surface_style/index.rst
+   remove_style/index.rst
+   remove_styled_representation/index.rst
+   remove_surface_style/index.rst
+   unassign_material_style/index.rst
+   unassign_representation_styles/index.rst
+
+

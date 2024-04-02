@@ -1,0 +1,26 @@
+:py:mod:`ifcopenshell.api.system`
+=================================
+
+.. py:module:: ifcopenshell.api.system
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_port/index.rst
+   add_system/index.rst
+   assign_flow_control/index.rst
+   assign_port/index.rst
+   assign_system/index.rst
+   connect_port/index.rst
+   disconnect_port/index.rst
+   edit_system/index.rst
+   remove_system/index.rst
+   unassign_flow_control/index.rst
+   unassign_port/index.rst
+   unassign_system/index.rst
+
+

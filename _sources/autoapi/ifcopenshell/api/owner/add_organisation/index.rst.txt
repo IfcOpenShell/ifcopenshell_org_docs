@@ -1,0 +1,40 @@
+:py:mod:`ifcopenshell.api.owner.add_organisation`
+=================================================
+
+.. py:module:: ifcopenshell.api.owner.add_organisation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, identification='APTR', name='Aperture Science')
+
+
+   
+   Adds a new organisation
+
+   Organisations are the main way to identify manufacturers, suppliers, and
+   other actors who do not have a single representative or must not have
+   any personally identifiable information.
+
+   :param identification: The short code identifying the organisation.
+       Sometimes used in drawing naming schemes. Otherise used as a
+       canonicalised way of computers to identify the organisation. Like
+       their stock name.
+   :type identification: str, optional
+   :param name: The legal name of the organisation
+   :type name: str, optional
+   :return: The newly created IfcOrganization
+   :rtype: ifcopenshell.entity_instance.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+           identification="AWB", name="Architects Without Ballpens")
+
+   .. py:method:: execute()
+
+
+

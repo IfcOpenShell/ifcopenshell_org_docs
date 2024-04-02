@@ -1,0 +1,37 @@
+:py:mod:`ifcopenshell.util.system`
+==================================
+
+.. py:module:: ifcopenshell.util.system
+
+
+Module Contents
+---------------
+
+.. py:function:: get_connected_from(element, flow_direction=None)
+
+
+.. py:function:: get_connected_port(port)
+
+
+.. py:function:: get_connected_to(element, flow_direction=None)
+
+
+.. py:function:: get_element_systems(element)
+
+
+.. py:function:: get_port_element(port)
+
+
+.. py:function:: get_ports(element, flow_direction=None)
+
+
+.. py:function:: get_system_elements(system)
+
+
+.. py:function:: is_assignable(product, system) -> bool
+
+
+.. py:data:: group_types
+
+   
+

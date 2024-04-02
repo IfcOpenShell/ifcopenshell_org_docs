@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.spatial`
+==================================
+
+.. py:module:: ifcopenshell.api.spatial
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   assign_container/index.rst
+   dereference_structure/index.rst
+   reference_structure/index.rst
+   remove_container/index.rst
+   unassign_container/index.rst
+
+

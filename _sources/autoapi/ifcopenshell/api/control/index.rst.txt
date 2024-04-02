@@ -1,0 +1,16 @@
+:py:mod:`ifcopenshell.api.control`
+==================================
+
+.. py:module:: ifcopenshell.api.control
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   assign_control/index.rst
+   unassign_control/index.rst
+
+

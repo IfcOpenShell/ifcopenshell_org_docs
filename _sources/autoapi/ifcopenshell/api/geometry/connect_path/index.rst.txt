@@ -1,0 +1,16 @@
+:py:mod:`ifcopenshell.api.geometry.connect_path`
+================================================
+
+.. py:module:: ifcopenshell.api.geometry.connect_path
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   .. py:method:: execute()
+
+
+

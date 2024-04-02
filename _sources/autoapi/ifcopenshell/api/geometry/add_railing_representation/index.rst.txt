@@ -1,0 +1,37 @@
+:py:mod:`ifcopenshell.api.geometry.add_railing_representation`
+==============================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_railing_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, **settings)
+
+
+   
+   units in settings expected to be in ifc project units
+
+   `railing_path` is a list of point coordinates for the railing path,
+   coordinates are expected to be at the top of the railing, not at the center
+
+   `railing_path` is expected to be a list of Vector objects
+
+   .. py:method:: convert_si_to_unit(value)
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: path_si_to_units(path)
+
+      converts list of vectors from SI to ifc project units
+
+
+
+.. py:function:: mm(x)
+
+   mm to meters shortcut for readability
+
+

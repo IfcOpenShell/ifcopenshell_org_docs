@@ -1,0 +1,33 @@
+:py:mod:`ifcopenshell.api.boundary.copy_boundary`
+=================================================
+
+.. py:module:: ifcopenshell.api.boundary.copy_boundary
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, boundary=None)
+
+
+   
+   Copies a space boundary
+
+   :param boundary: The IfcRelSpaceBoundary you want to copy.
+   :type boundary: ifcopenshell.entity_instance.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+       # A boring boundary with no geometry. Note that this boundary is
+       # invalid and does not relate to any space or building element.
+       boundary = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcRelSpaceBoundary")
+
+       # And now we have two
+       boundary_copy = ifcopenshell.api.run("boundary.copy_boundary", model, boundary=boundary)
+
+   .. py:method:: execute()
+
+
+

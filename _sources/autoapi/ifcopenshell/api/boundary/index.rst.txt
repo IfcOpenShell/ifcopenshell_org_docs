@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.boundary`
+===================================
+
+.. py:module:: ifcopenshell.api.boundary
+
+.. autoapi-nested-parse::
+
+   Boundaries are primarily used for representing virtual interfaces between
+   spaces for energy analysis.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   assign_connection_geometry/index.rst
+   copy_boundary/index.rst
+   edit_attributes/index.rst
+   remove_boundary/index.rst
+
+

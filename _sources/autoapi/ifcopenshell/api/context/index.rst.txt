@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.context`
+==================================
+
+.. py:module:: ifcopenshell.api.context
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_context/index.rst
+   edit_context/index.rst
+   remove_context/index.rst
+
+

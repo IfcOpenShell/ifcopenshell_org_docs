@@ -1,0 +1,36 @@
+:py:mod:`ifcopenshell.api.material.copy_material`
+=================================================
+
+.. py:module:: ifcopenshell.api.material.copy_material
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file, material=None)
+
+
+   
+   Copies a material
+
+   All material psets and styles are copied. The copied material is not
+   associated to any elements.
+
+   :param material: The IfcMaterial to copy
+   :type material: ifcopenshell.entity_instance.entity_instance
+   :return: The new copy of the material
+   :rtype: ifcopenshell.entity_instance.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       concrete = ifcopenshell.api.run("material.add_material", model, name="CON01", category="concrete")
+
+       # Let's duplicate the concrete material
+       concrete_copy = ifcopenshell.api.run("material.copy_material", model, material=concrete)
+
+   .. py:method:: execute()
+
+
+

@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.georeference`
+=======================================
+
+.. py:module:: ifcopenshell.api.georeference
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_georeferencing/index.rst
+   edit_georeferencing/index.rst
+   remove_georeferencing/index.rst
+
+

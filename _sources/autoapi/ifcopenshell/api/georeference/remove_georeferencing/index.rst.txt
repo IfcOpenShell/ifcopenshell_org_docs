@@ -1,0 +1,31 @@
+:py:mod:`ifcopenshell.api.georeference.remove_georeferencing`
+=============================================================
+
+.. py:module:: ifcopenshell.api.georeference.remove_georeferencing
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase(file)
+
+
+   
+   Remove georeferencing data
+
+   All georeferencing parameters such as projected CRS and map conversion
+   data will be lost.
+
+   :return: None
+   :rtype: None
+
+   Example:
+
+       ifcopenshell.api.run("georeference.add_georeferencing", model)
+       # Let's change our mind
+       ifcopenshell.api.run("georeference.remove_georeferencing", model)
+
+   .. py:method:: execute()
+
+
+
