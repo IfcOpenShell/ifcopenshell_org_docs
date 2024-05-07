@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, recurrence_pattern=None)
+.. py:function:: unassign_recurrence_pattern(file, recurrence_pattern=None) -> None
 
-
-   
    Unassigns a recurrence pattern
 
    Note that a recurring task time must have a recurrence pattern, so if
-   you remove it, be sure to clean up after yourself.
+   you remove it, be sure to clean up after your
 
    :param recurrence_pattern: The IfcRecurrencePattern to remove.
-   :type recurrence_pattern: ifcopenshell.entity_instance.entity_instance
+   :type recurrence_pattern: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -38,8 +36,5 @@ Module Contents
 
        # Change our mind, let's just maintain it whenever we feel like it.
        ifcopenshell.api.run("sequence.unassign_recurrence_pattern", recurrence_pattern=pattern)
-
-   .. py:method:: execute()
-
 
 

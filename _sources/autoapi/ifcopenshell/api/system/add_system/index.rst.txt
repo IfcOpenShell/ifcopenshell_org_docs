@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, ifc_class='IfcDistributionSystem')
+.. py:function:: add_system(file: ifcopenshell.file, ifc_class: str = 'IfcDistributionSystem') -> ifcopenshell.entity_instance
 
-
-   
    Add a new distribution system
 
    A distribution system is a group of distribution elements, like ducts,
@@ -25,7 +23,7 @@ Module Contents
        IfcSystem.
    :type ifc_class: str
    :return: The newly created IfcSystem.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -33,8 +31,5 @@ Module Contents
 
        # A completely empty distribution system
        system = ifcopenshell.api.run("system.add_system", model)
-
-   .. py:method:: execute()
-
 
 

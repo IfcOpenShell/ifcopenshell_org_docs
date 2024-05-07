@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, cost_item=None, physical_quantity=None)
+.. py:function:: remove_cost_item_quantity(file, cost_item=None, physical_quantity=None) -> None
 
-
-   
    Removes a quantity assigned to a cost item
 
    If the quantity is part of a product (e.g. wall), then the quantity will
@@ -18,9 +16,9 @@ Module Contents
    removed.
 
    :param cost_item: The IfcCostItem that the quantity is assigned to
-   :type cost_item: ifcopenshell.entity_instance.entity_instance
+   :type cost_item: ifcopenshell.entity_instance
    :param physical_quantity: The IfcPhysicalQuantity to remove
-   :type physical_quantity: ifcopenshell.entity_instance.entity_instance
+   :type physical_quantity: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -35,8 +33,5 @@ Module Contents
        # Let's change our mind and delete it
        ifcopenshell.api.run("cost.remove_cost_item", model,
            cost_item=item, physical_quantity=quantity)
-
-   .. py:method:: execute()
-
 
 

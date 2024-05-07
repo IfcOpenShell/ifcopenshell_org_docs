@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, element=None)
+.. py:function:: remove_filling(file, element=None) -> None
 
-
-   
    Remove a filling relationship
 
    If an element is filling an opening, this removes the relationship such
@@ -18,7 +16,7 @@ Module Contents
    fills the opening.
 
    :param element: The element filling an opening.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -41,8 +39,5 @@ Module Contents
 
        # Not anymore!
        ifcopenshell.api.run("void.remove_filling", model, element=door)
-
-   .. py:method:: execute()
-
 
 

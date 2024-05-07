@@ -7,18 +7,16 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_process=None, related_object=None)
+.. py:function:: unassign_process(file, relating_process=None, related_object=None) -> None
 
-
-   
    Unassigns a process and object relationship
 
    See ifcopenshell.api.sequence.assign_process for details.
 
    :param relating_process: The IfcTask in the relationship.
-   :type relating_process: ifcopenshell.entity_instance.entity_instance
+   :type relating_process: ifcopenshell.entity_instance
    :param related_object: The related object.
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :type related_object: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -43,8 +41,5 @@ Module Contents
 
        # Change our mind.
        ifcopenshell.api.run("sequence.unassign_process", model, relating_process=task, related_object=wall)
-
-   .. py:method:: execute()
-
 
 

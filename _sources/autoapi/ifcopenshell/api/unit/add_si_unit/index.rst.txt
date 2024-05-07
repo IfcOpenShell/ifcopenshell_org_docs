@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, unit_type='LENGTHUNIT', prefix=None)
+.. py:function:: add_si_unit(file: ifcopenshell.file, unit_type: str = 'LENGTHUNIT', prefix: Optional[str] = None) -> ifcopenshell.entity_instance
 
-
-   
    Add a new SI unit
 
    The supported types are ABSORBEDDOSEUNIT, AMOUNTOFSUBSTANCEUNIT,
@@ -33,7 +31,7 @@ Module Contents
        prefix.
    :type prefix: str,optional
    :return: The newly created IfcSIUnit
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -45,8 +43,5 @@ Module Contents
 
        # Make it our default units, if we are doing a metric building
        ifcopenshell.api.run("unit.assign_unit", model, units=[length, area])
-
-   .. py:method:: execute()
-
 
 

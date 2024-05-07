@@ -7,61 +7,61 @@
 Module Contents
 ---------------
 
-.. py:function:: count_working_days(start, finish, calendar)
+.. py:function:: count_working_days(start, finish, calendar: ifcopenshell.entity_instance) -> int
 
 
-.. py:function:: derive_calendar(task)
+.. py:function:: derive_calendar(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
 
 .. py:function:: derive_date(task, attribute_name, date=None, is_earliest=False, is_latest=False)
 
 
-.. py:function:: get_all_nested_tasks(task)
+.. py:function:: get_all_nested_tasks(task: ifcopenshell.entity_instance) -> Iterator[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_calendar(task)
+.. py:function:: get_calendar(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
 
-.. py:function:: get_direct_task_outputs(task)
+.. py:function:: get_direct_task_outputs(task: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_nested_tasks(task)
+.. py:function:: get_nested_tasks(task: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_parent_task(task)
+.. py:function:: get_parent_task(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
 
-.. py:function:: get_recent_working_day(start, duration_type, calendar)
+.. py:function:: get_recent_working_day(start, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance)
 
 
-.. py:function:: get_root_tasks(work_schedule)
+.. py:function:: get_root_tasks(work_schedule: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_root_tasks_ids(work_schedule)
+.. py:function:: get_root_tasks_ids(work_schedule: ifcopenshell.entity_instance) -> list[int]
 
 
-.. py:function:: get_sequence_assignment(task, sequence='successor')
+.. py:function:: get_sequence_assignment(task: ifcopenshell.entity_instance, sequence='successor')
 
 
-.. py:function:: get_soonest_working_day(start, duration_type, calendar)
+.. py:function:: get_soonest_working_day(start, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance)
 
 
-.. py:function:: get_start_or_finish_date(start, duration, duration_type, calendar, date_type='FINISH')
+.. py:function:: get_start_or_finish_date(start, duration, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance, date_type: Literal[START, FINISH] = 'FINISH')
 
 
-.. py:function:: get_task_inputs(task, is_deep=False)
+.. py:function:: get_task_inputs(task: ifcopenshell.entity_instance, is_deep=False)
 
 
-.. py:function:: get_task_outputs(task, is_deep=False)
+.. py:function:: get_task_outputs(task: ifcopenshell.entity_instance, is_deep=False)
 
 
-.. py:function:: get_task_resources(task, is_deep=False)
+.. py:function:: get_task_resources(task: ifcopenshell.entity_instance, is_deep=False)
 
 
-.. py:function:: get_task_work_schedule(task)
+.. py:function:: get_task_work_schedule(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
 
-.. py:function:: get_tasks_for_product(product, schedule=None)
+.. py:function:: get_tasks_for_product(product: ifcopenshell.entity_instance, schedule: Optional[ifcopenshell.entity_instance] = None) -> tuple[list[ifcopenshell.entity_instance], list[ifcopenshell.entity_instance]]
 
    Get all tasks assigned to or referenced by the given product.
 
@@ -75,30 +75,38 @@ Module Contents
        - The second list contains all tasks referenced by the product that are part of the given schedule.
 
 
-.. py:function:: get_work_schedule_tasks(work_schedule)
+.. py:function:: get_work_schedule_tasks(work_schedule: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
 
-.. py:function:: guess_date_range(work_schedule)
+.. py:function:: guess_date_range(work_schedule: ifcopenshell.entity_instance)
 
 
-.. py:function:: has_task_inputs(task)
+.. py:function:: has_task_inputs(task: ifcopenshell.entity_instance) -> bool
 
 
-.. py:function:: has_task_outputs(task)
+.. py:function:: has_task_outputs(task: ifcopenshell.entity_instance) -> bool
 
 
-.. py:function:: is_calendar_applicable(day, calendar)
+.. py:function:: is_calendar_applicable(day, calendar: ifcopenshell.entity_instance) -> bool
 
 
-.. py:function:: is_day_in_work_time(day, work_time)
+.. py:function:: is_day_in_work_time(day, work_time: ifcopenshell.entity_instance) -> bool
 
 
-.. py:function:: is_work_time_applicable_to_day(work_time, day)
+.. py:function:: is_work_time_applicable_to_day(work_time: ifcopenshell.entity_instance, day) -> bool
 
 
-.. py:function:: is_working_day(day, calendar)
+.. py:function:: is_working_day(day, calendar: ifcopenshell.entity_instance) -> bool
 
 
-.. py:function:: offset_date(start, duration, duration_type, calendar)
+.. py:function:: offset_date(start, duration, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance)
 
+
+.. py:data:: DURATION_TYPE
+
+   
+
+.. py:data:: RECURRENCE_TYPE
+
+   
 

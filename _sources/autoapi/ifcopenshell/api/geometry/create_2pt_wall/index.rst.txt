@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, element=None, context=None, p1=None, p2=None, elevation=None, height=None, thickness=None, is_si=True)
+.. py:class:: Usecase
 
 
    .. py:method:: convert_unit_to_si(co)
@@ -15,5 +15,8 @@ Module Contents
 
    .. py:method:: execute()
 
+
+
+.. py:function:: create_2pt_wall(file, element=None, context=None, p1=None, p2=None, elevation=None, height=None, thickness=None, is_si=True) -> None
 
 

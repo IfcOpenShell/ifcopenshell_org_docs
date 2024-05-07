@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, library=None)
+.. py:function:: remove_library(file, library=None) -> None
 
-
-   
    Removes a library
 
    All references along with their relationships will also be removed. Any
    products which have relationships to this library will not be removed.
 
    :param library: The IfcLibraryInformation entity you want to remove
-   :type library: ifcopenshell.entity_instance.entity_instance
+   :type library: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -27,8 +25,5 @@ Module Contents
 
        library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
        ifcopenshell.api.run("library.remove_library", model, library=library)
-
-   .. py:method:: execute()
-
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_product=None, related_object=None)
+.. py:function:: assign_product(file, relating_product=None, related_object=None) -> None
 
-
-   
    Associates a product and an object, typically for annotation
 
    Warning: this is an experimental API.
@@ -31,12 +29,12 @@ Module Contents
    in 3D.
 
    :param relating_product: The IfcProduct the object is related to
-   :type relating_product: ifcopenshell.entity_instance.entity_instance
+   :type relating_product: ifcopenshell.entity_instance
    :param related_object: The object (typically IfcAnnotation) that the
        product is related to
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :type related_object: ifcopenshell.entity_instance
    :return: The created IfcRelAssignsToProduct relationship
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -46,8 +44,5 @@ Module Contents
        annotation = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcAnnotation")
        ifcopenshell.api.run("drawing.assign_product", model,
            relating_product=furniture, related_object=annotation)
-
-   .. py:method:: execute()
-
 
 

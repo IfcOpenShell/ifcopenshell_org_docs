@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, element=None)
+.. py:function:: update_owner_history(file: ifcopenshell.file, element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
    Updates the owner that is assigned to an object
 
    This ensures that the owner is tracked to have modified the object last,
@@ -19,9 +17,9 @@ Module Contents
 
    :param element: The IfcRoot element to update the ownership details on
        when a change is made.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The updated IfcOwnerHistory element.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -42,8 +40,5 @@ Module Contents
        # applied. There is no need to run any owner.update_owner_history
        # API calls either.
        ifcopenshell.api.run("attribute.edit_attributes", model, product=space, attributes={"Name": "Lobby"})
-
-   .. py:method:: execute()
-
 
 

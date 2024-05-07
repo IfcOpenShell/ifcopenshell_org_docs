@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, constituent_set=None, material=None)
+.. py:function:: add_constituent(file, constituent_set=None, material=None) -> None
 
-
-   
    Adds a new constituent to a constituent set
 
    A constituent describes how a portion of an object is made out of a
@@ -30,11 +28,11 @@ Module Contents
        constituent is part of. The constituent set represents a group of
        constituents. See ifcopenshell.api.material.add_material_set for
        information on how to add a constituent set.
-   :type constituent_set: ifcopenshell.entity_instance.entity_instance
+   :type constituent_set: ifcopenshell.entity_instance
    :param material: The IfcMaterial that the constituent is made out of.
-   :type material: ifcopenshell.entity_instance.entity_instance
+   :type material: ifcopenshell.entity_instance
    :return: The newly created IfcMaterialConstituent
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -70,9 +68,6 @@ Module Contents
        # our window too, but to keep this example simple, geometry is
        # optional and it is enough to say that this window is made out of
        # aluminium and glass.
-       ifcopenshell.api.run("material.assign_material", model, product=window_type, material=material_set)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("material.assign_material", model, products=[window_type], material=material_set)
 
 

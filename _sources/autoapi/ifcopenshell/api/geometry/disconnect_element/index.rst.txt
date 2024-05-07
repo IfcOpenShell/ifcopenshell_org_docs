@@ -7,10 +7,6 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
-
-
-   .. py:method:: execute()
-
+.. py:function:: disconnect_element(file, **usecase_settings) -> None
 
 

@@ -3,16 +3,16 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ifcopenshell.util.file" href="../file/index.html" /><link rel="prev" title="ifcopenshell.util.doc" href="../doc/index.html" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ifcopenshell.util.fm" href="../fm/index.html" /><link rel="prev" title="ifcopenshell.util.doc" href="../doc/index.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>ifcopenshell.util.element - IfcOpenShell 0.7.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=a40f3a19" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c85da206" />
     
     
 
@@ -29,7 +29,10 @@
   --color-background-border: #cfd0cb;
   --color-foreground-primary: #2e3436;
   --color-sidebar-item-background--hover: #f7f7f6;
+  --color-link: #39b54a;
+  --color-link--visited: #39b54a;
   --color-link--hover: #d98014;
+  --color-link--visited--hover: #d98014;
   --font-stack: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   
   }
@@ -44,7 +47,10 @@
   --color-background-border: #2e3436;
   --color-foreground-primary: #eeeeec;
   --color-sidebar-item-background--hover: #2e3436;
+  --color-link: #39b54a;
+  --color-link--visited: #39b54a;
   --color-link--hover: #d98014;
+  --color-link--visited--hover: #d98014;
   --font-stack: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   
     }
@@ -59,7 +65,10 @@
   --color-background-border: #2e3436;
   --color-foreground-primary: #eeeeec;
   --color-sidebar-item-background--hover: #2e3436;
+  --color-link: #39b54a;
+  --color-link--visited: #39b54a;
   --color-link--hover: #d98014;
+  --color-link--visited--hover: #d98014;
   --font-stack: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   
       }
@@ -99,7 +108,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -114,7 +123,7 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
@@ -122,7 +131,7 @@
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
       <path d="M13 12h5" />
@@ -130,6 +139,60 @@
       <path d="M13 18h1" />
       <path d="M13 9h4" />
       <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
 </svg>
@@ -142,6 +205,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -160,7 +225,8 @@
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
           <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
@@ -563,7 +629,6 @@
 <li class="toctree-l5"><a class="reference internal" href="../../api/spatial/assign_container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.assign_container</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/spatial/dereference_structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.dereference_structure</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/spatial/reference_structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.reference_structure</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../api/spatial/remove_container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.remove_container</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/spatial/unassign_container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.unassign_container</span></code></a></li>
 </ul>
 </li>
@@ -684,7 +749,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../date/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.date</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../doc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.doc</span></code></a></li>
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.element</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.file</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../fm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.fm</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../generate_pset_templates/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.generate_pset_templates</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../geolocation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.geolocation</span></code></a></li>
@@ -708,7 +772,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../entity_instance/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.entity_instance</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.file</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.guid</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../main/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.main</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../settings/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.settings</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../sql/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.sql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../stream/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.stream</span></code></a></li>
@@ -755,7 +818,6 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../bsdd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-50" name="toctree-checkbox-50" role="switch" type="checkbox"/><label for="toctree-checkbox-50"><div class="visually-hidden">Toggle navigation of bsdd</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../bsdd/__about__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd.__about__</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../bsdd/bsdd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd.bsdd</span></code></a></li>
 </ul>
 </li>
@@ -794,11 +856,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../ifcpatch/recipes/TessellateElements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcpatch.recipes.TessellateElements</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../ifcpatch/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcpatch.__main__</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifctester/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-53" name="toctree-checkbox-53" role="switch" type="checkbox"/><label for="toctree-checkbox-53"><div class="visually-hidden">Toggle navigation of ifctester</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../ifctester/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.__main__</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ifctester/facet/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.facet</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ifctester/ids/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.ids</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ifctester/reporter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.reporter</span></code></a></li>
@@ -826,19 +886,21 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="edit-this-page">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.7.0/src/ifcopenshell-python/docs/autoapi/ifcopenshell/util/element/index.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
   <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/edit/v0.7.0/src/ifcopenshell-python/docs/autoapi/ifcopenshell/util/element/index.rst" title="Edit this page">
-    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-    </svg>
+    <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
 </div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
@@ -848,14 +910,14 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="module-ifcopenshell.util.element">
-<span id="ifcopenshell-util-element"></span><h1><a class="reference internal" href="#module-ifcopenshell.util.element" title="ifcopenshell.util.element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.element</span></code></a><a class="headerlink" href="#module-ifcopenshell.util.element" title="Link to this heading">#</a></h1>
+<span id="ifcopenshell-util-element"></span><h1><a class="reference internal" href="#module-ifcopenshell.util.element" title="ifcopenshell.util.element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.element</span></code></a><a class="headerlink" href="#module-ifcopenshell.util.element" title="Link to this heading">¶</a></h1>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.batch_remove_deep2">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">batch_remove_deep2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.batch_remove_deep2" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">batch_remove_deep2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.batch_remove_deep2" title="Link to this definition">¶</a></dt>
 <dd><p>Enable batch removal after running remove_deep2 using serialisation</p>
 <p>See #944 and #3226. Removing elements in an IFC graph is slow as a lot of
 mappings need to be edited. In larger models (&gt;100MB) and when removing
@@ -868,7 +930,7 @@ method will have to refetch elements from the reloaded IFC and cannot rely
 on existing variables in memory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file object</p>
+<dd class="field-odd"><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file object</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -891,41 +953,41 @@ on existing variables in memory.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.copy">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.copy" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.util.element.copy" title="Link to this definition">¶</a></dt>
 <dd><p>Copy a single element. Any referenced elements are not copied.</p>
 <p>GlobalIds are regenerated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file object</p></li>
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element to copy</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file object</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element to copy</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The newly copied element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.copy_deep">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">copy_deep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copied_entities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.copy_deep" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">copy_deep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copied_entities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.util.element.copy_deep" title="Link to this definition">¶</a></dt>
 <dd><p>Recursively copy an element and all of its directly related subelements.</p>
 <p>GlobalIds are regenerated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file object</p></li>
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element to copy</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file object</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element to copy</p></li>
 <li><p><strong>exclude</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>,</em><em>optional</em>) – An optional list of strings of IFC class names to not copy.
 If any of the subelement is this class, it will not be copied and the
 original instance will be referenced.</p></li>
 <li><p><strong>exclude_callback</strong> (<em>function</em><em>,</em><em>optional</em>) – A callback to determine whether or not to exclude
 an entity or not. Returns True to exclude and False to exclude.</p></li>
-<li><p><strong>copied_entities</strong> (<em>dict</em><em>[</em><em>int:ifcopenshell.entity_instance.entity_instance</em><em>]</em><em>, </em><em>optional</em>) – A dictionary of IDs as keys and entities as values
+<li><p><strong>copied_entities</strong> (<em>dict</em><em>[</em><em>int:ifcopenshell.entity_instance</em><em>]</em><em>, </em><em>optional</em>) – A dictionary of IDs as keys and entities as values
 to reuse when coming across the same entity twice. This can typically
 be left as None.</p></li>
 </ul>
@@ -934,24 +996,24 @@ be left as None.</p></li>
 <dd class="field-even"><p>The newly copied element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_aggregate">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_aggregate" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_aggregate" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the aggregate parent of an element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The aggregate of the element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -963,7 +1025,7 @@ be left as None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_components">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ports</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_components" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_ports</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_components" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the components of an element that have an nest relationship.</p>
 <p>For nested ports, see ifcopenshell.util.system.</p>
 <dl class="field-list simple">
@@ -977,7 +1039,7 @@ be left as None.</p></li>
 <dd class="field-even"><p>The components of the element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -989,12 +1051,12 @@ be left as None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_container">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_container</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_get_direct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifc_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_container" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_container</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_get_direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifc_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_container" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the spatial structure container of an element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element</p></li>
 <li><p><strong>should_get_direct</strong> (<em>bool</em>) – If True, a result is only returned if the element
 is directly contained in a spatial structure element. If False, an
 indirect spatial container may be returned, such as if an element is a
@@ -1008,7 +1070,7 @@ example, you may be after the storey, not a space.</p></li>
 <dd class="field-even"><p>The direct or indirect container of the element or None.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1020,19 +1082,19 @@ example, you may be after the storey, not a space.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_decomposition">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_decomposition" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_decomposition" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves all subelements of an element based on the spatial decomposition
 hierarchy. This includes all subspaces and elements contained in subspaces,
 parts of an aggreate, all openings, and all fills of any openings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The decomposition of the element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1044,42 +1106,42 @@ parts of an aggreate, all openings, and all fills of any openings.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_elements_by_layer">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_layer" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_layer" title="Link to this definition">¶</a></dt>
 <dd><p>Get all the elements that are used by a presentation layer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file</p></li>
-<li><p><strong>layer</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IfcPresentationLayerAssignment layer</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file</p></li>
+<li><p><strong>layer</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcPresentationLayerAssignment layer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The elements using the geometric representation</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_elements_by_material">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_material" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_material" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the elements related to a material.</p>
 <p>This includes elements using the material as part of a material set or set
 usage.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file</p></li>
-<li><p><strong>material</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC Material entity</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file</p></li>
+<li><p><strong>material</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC Material entity</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of elements using the to the material</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1091,20 +1153,20 @@ usage.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_elements_by_representation">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_representation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">representation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_representation" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_representation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">representation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_representation" title="Link to this definition">¶</a></dt>
 <dd><p>Gets all elements using a geometric representation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file</p></li>
-<li><p><strong>representation</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IfcShapeRepresentation representation</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file</p></li>
+<li><p><strong>representation</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcShapeRepresentation representation</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The elements using the geometric representation</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1116,20 +1178,20 @@ usage.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_elements_by_style">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_style" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_elements_by_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_elements_by_style" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the elements whose geometric representation uses a style</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file</p></li>
-<li><p><strong>style</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IfcPresentationStyle entity</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file</p></li>
+<li><p><strong>style</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcPresentationStyle entity</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The elements related to the style</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1141,17 +1203,17 @@ usage.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_grouped_by">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_grouped_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_grouped_by" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_grouped_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_grouped_by" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves all subelements of an element based on the group.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>All subelements of the group</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1162,23 +1224,45 @@ usage.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.util.element.get_groups">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_groups" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the groups of an element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> – The IFC element</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of IfcGroups element is assigned to.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wall</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcWall&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_groups</span><span class="p">(</span><span class="n">element</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_layers">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_layers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_layers" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_layers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_layers" title="Link to this definition">¶</a></dt>
 <dd><p>Get the CAD layers that an element is part of</p>
 <p>An element may have portions or all of its geometry assigned to a
 traditional CAD presentation layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file object</p></li>
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element to interrogate</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file object</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element to interrogate</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of IfcPresentationLayerAssignment</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1190,14 +1274,14 @@ traditional CAD presentation layer.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_material">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_skip_usage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_material" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_skip_usage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_material" title="Link to this definition">¶</a></dt>
 <dd><p>Gets the material of the element</p>
 <p>The material may be a single material, material set (layered, profiled, or
 constituent), or a material set usage.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The element to get the material of.</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The element to get the material of.</p></li>
 <li><p><strong>should_skip_usage</strong> (<em>bool</em>) – If set to True, if the material is a material set
 usage, the material set itself will be returned. Useful if you don’t
 care about occurrence usage parameters. If False, the usage will be
@@ -1207,10 +1291,10 @@ types will be considered.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The associated material of the element.</p>
+<dd class="field-even"><p>The associated material of the element or <cite>None</cite>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../express/bootstrap/index.html#ifcopenshell.express.bootstrap.Union" title="ifcopenshell.express.bootstrap.Union">Union</a>[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>, None]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1222,14 +1306,14 @@ types will be considered.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_materials">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_materials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_materials" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_materials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_materials" title="Link to this definition">¶</a></dt>
 <dd><p>Gets individual materials of an element</p>
 <p>If the element has a material set, the individual materials of that set are
 returned as a list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The element to get the materials of.</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The element to get the materials of.</p></li>
 <li><p><strong>should_inherit</strong> – If True, any inherited materials from associated
 types will be considered.</p></li>
 </ul>
@@ -1238,7 +1322,7 @@ types will be considered.</p></li>
 <dd class="field-even"><p>The associated materials of the element.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1250,17 +1334,17 @@ types will be considered.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_nest">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_nest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_nest" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_nest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_nest" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the nest parent of an element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The nested whole of the element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1272,17 +1356,17 @@ types will be considered.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_parts">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_parts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_parts" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_parts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_parts" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the parts of an element that have an aggregation relationship.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The parts of the element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1294,7 +1378,7 @@ types will be considered.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_predefined_type">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_predefined_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_predefined_type" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_predefined_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_predefined_type" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the PrefefinedType attribute of an element.</p>
 <p>If the predefined type is user defined, the custom type (such as object
 type, element type, or process type depending on the class) is returned
@@ -1302,7 +1386,7 @@ instead.  Predefined types from the associated type element are also
 considered first.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC Element entity</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC Element entity</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The predefined type of the element</p>
@@ -1320,22 +1404,32 @@ considered first.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_properties">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_properties" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">False</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_properties" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_property">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_property" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">False</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_property" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_property_definition">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_property_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_property_definition" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_property_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_property_definition" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_property_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_property_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd><p>if prop name is not provided in <cite>prop</cite>, will return dict of all available properties
+otherwise will return the value of the specified <cite>prop</cite>.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_pset">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_pset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psets_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtos_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_pset" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_pset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psets_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtos_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_pset" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieve a single property set or single property</p>
 <p>This is more efficient than ifcopenshell.util.element.get_psets if you know
 exactly which property set and property you are after.</p>
@@ -1344,7 +1438,7 @@ occurrence, not the type’s pset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC Element entity</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC Element entity</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The name of the pset</p></li>
 <li><p><strong>prop</strong> (<em>str</em><em>,</em><em>optional</em>) – The name of the property</p></li>
 <li><p><strong>psets_only</strong> (<em>bool</em><em>,</em><em>optional</em>) – Default as False. Set to true if only property sets are needed.</p></li>
@@ -1357,11 +1451,11 @@ occurrence, not the type’s pset.</p>
 property is specified.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict[str, Any]</p>
+<dd class="field-odd"><p><a class="reference internal" href="../../express/bootstrap/index.html#ifcopenshell.express.bootstrap.Union" title="ifcopenshell.express.bootstrap.Union">Union</a>[Any, dict[str, Any]]</p>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcWall&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">ifc_file</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcWall&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">psets_and_qtos</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_pset</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">&quot;Pset_WallCommon&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1369,17 +1463,18 @@ property is specified.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_psets">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_psets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psets_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtos_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_psets" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_psets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psets_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtos_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_inherit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_psets" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieve property sets, their related properties’ names &amp; values and ids.</p>
 <p>If should_inherit is true, the pset “id” only refers to the ID of the
 occurrence, not the type’s pset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC Element entity</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC Element entity</p></li>
 <li><p><strong>psets_only</strong> (<em>bool</em><em>,</em><em>optional</em>) – Default as False. Set to true if only property sets are needed.</p></li>
 <li><p><strong>qtos_only</strong> (<em>bool</em><em>,</em><em>optional</em>) – Default as False. Set to true if only quantities are needed.</p></li>
 <li><p><strong>should_inherit</strong> (<em>bool</em><em>,</em><em>optional</em>) – Default as True. Set to false if you don’t want to inherit property sets from the Type.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>,</em><em>optional</em>) – More detailed prop values, defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1390,7 +1485,7 @@ occurrence, not the type’s pset.</p>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcWall&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">ifc_file</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcWall&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">psets</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_psets</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">psets_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">qsets</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_psets</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">qtos_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">psets_and_qtos</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_psets</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -1400,30 +1495,56 @@ occurrence, not the type’s pset.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_quantities">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_quantities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_quantities" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_quantities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">False</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_quantities" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_quantities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_quantity">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_quantity" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">False</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_quantity" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.util.element.get_referenced_elements">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_referenced_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_referenced_elements" title="Link to this definition">¶</a></dt>
+<dd><p>Get all elements with assigned <cite>reference</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reference</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – IfcExternalReference subtype reference</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The elements with assigned <cite>reference</cite></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reference</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcClassificationReference&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_referenced_elements</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_referenced_structures">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_referenced_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_referenced_structures" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_referenced_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_referenced_structures" title="Link to this definition">¶</a></dt>
 <dd><p>Retreives a list of referenced spatial elements</p>
 <p>Typically useful for multistorey elements, such as columns or facade
 elements, or elements that span multiple spaces or in-between spaces, such
 as stairs, doors, etc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The IFC element</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IFC element</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of IfcSpatialElement</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1435,17 +1556,17 @@ as stairs, doors, etc.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_shape_aspects">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_shape_aspects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_shape_aspects" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_shape_aspects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_shape_aspects" title="Link to this definition">¶</a></dt>
 <dd><p>Gets element shape aspects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The element to get the shape aspects of.</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The element to get the shape aspects of.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The associated shape aspects of the element.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1456,19 +1577,41 @@ as stairs, doors, etc.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.util.element.get_structure_referenced_elements">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_structure_referenced_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_structure_referenced_elements" title="Link to this definition">¶</a></dt>
+<dd><p>Retreives a set of elements referenced by a structure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>structure</strong> – IfcSpatialElement</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A set of referenced elements, IfcSpatialReferenceSelect</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcBuildingStorey&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ifcopenshell</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">get_structure_referenced_elements</span><span class="p">(</span><span class="n">element</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_styles">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_styles" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_styles" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the styles used in an element’s representation.</p>
 <p>Styles may be retreived from the material or the body representation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The element to get the styles of.</p>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The element to get the styles of.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of surface styles</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1480,20 +1623,20 @@ as stairs, doors, etc.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_type">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_type" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_type" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the construction type element of an element occurrence</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>element</strong> – The element occurrence</p>
 </dd>
 <dt class="field-even">Type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-even"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The related type element</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a></p>
+<dd class="field-even"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1505,17 +1648,17 @@ as stairs, doors, etc.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.get_types">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_types" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">get_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.util.element.get_types" title="Link to this definition">¶</a></dt>
 <dd><p>Get all the occurrences of a type element</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>type</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The type element</p>
+<dd class="field-odd"><p><strong>type</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The type element</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of occurrences of that type</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance">ifcopenshell.entity_instance.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1527,19 +1670,19 @@ as stairs, doors, etc.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.has_element_reference">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">has_element_reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.has_element_reference" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">has_element_reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.has_element_reference" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.remove_deep">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">remove_deep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.remove_deep" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">remove_deep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.remove_deep" title="Link to this definition">¶</a></dt>
 <dd><p>Recursively purges a subgraph safely.</p>
 <p>Do not use, use remove_deep2() instead.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.remove_deep2">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">remove_deep2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">also_consider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_not_delete</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.remove_deep2" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">remove_deep2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">also_consider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_not_delete</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.remove_deep2" title="Link to this definition">¶</a></dt>
 <dd><p>Recursively purges a subgraph safely, starting at an element</p>
 <p>This should always be used instead of remove_deep. See #1812. The start
 element must have no inverses. The subgraph to be purged is calculated using
@@ -1561,10 +1704,10 @@ subgraph but are protected from deletion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file object</p></li>
-<li><p><strong>also_consider</strong> (<em>list</em><em>[</em><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a><em>]</em><em>, </em><em>optional</em>) – elements to also consider as a part of a subgraph</p></li>
-<li><p><strong>do_not_delete</strong> (<em>list</em><em>[</em><a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a><em>]</em><em>, </em><em>optional</em>) – elements to protect from deletion</p></li>
-<li><p><strong>element</strong> (<a class="reference internal" href="../../entity_instance/index.html#ifcopenshell.entity_instance.entity_instance" title="ifcopenshell.entity_instance.entity_instance"><em>ifcopenshell.entity_instance.entity_instance</em></a>) – The starting element that defines the subgraph</p></li>
+<li><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file object</p></li>
+<li><p><strong>also_consider</strong> (<em>list</em><em>[</em><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>]</em><em>, </em><em>optional</em>) – elements to also consider as a part of a subgraph</p></li>
+<li><p><strong>do_not_delete</strong> (<em>list</em><em>[</em><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>]</em><em>, </em><em>optional</em>) – elements to protect from deletion</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The starting element that defines the subgraph</p></li>
 </ul>
 </dd>
 </dl>
@@ -1572,26 +1715,36 @@ subgraph but are protected from deletion.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.replace_attribute">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">replace_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.replace_attribute" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">replace_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.replace_attribute" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.util.element.unbatch_remove_deep2">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">unbatch_remove_deep2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.file</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.unbatch_remove_deep2" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">unbatch_remove_deep2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.file</span></span></span><a class="headerlink" href="#ifcopenshell.util.element.unbatch_remove_deep2" title="Link to this definition">¶</a></dt>
 <dd><p>Finish removing elements batched from remove_deep2 using string replacement</p>
 <p>See documentation for batch_remove_deep2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ifc_file</strong> (<a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><em>ifcopenshell.file.file</em></a>) – The IFC file object</p>
+<dd class="field-odd"><p><strong>ifc_file</strong> (<em>ifcopenshell.file</em>) – The IFC file object</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A newly loaded file with the elements removed.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file">ifcopenshell.file.file</a></p>
+<dd class="field-odd"><p>ifcopenshell.file</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ifcopenshell.util.element.REFERENCE_TYPES">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">REFERENCE_TYPES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ReferenceData</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifcopenshell.util.element.REFERENCE_TYPES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ifcopenshell.util.element.ReferenceData">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.util.element.</span></span><span class="sig-name descname"><span class="pre">ReferenceData</span></span><a class="headerlink" href="#ifcopenshell.util.element.ReferenceData" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </section>
 </section>
@@ -1601,12 +1754,12 @@ subgraph but are protected from deletion.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../file/index.html">
+          <a class="next-page" href="../fm/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.file</span></code></div>
+                <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.fm</span></code></div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -1675,6 +1828,7 @@ subgraph but are protected from deletion.</p>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_elements_by_representation"><code class="docutils literal notranslate"><span class="pre">get_elements_by_representation()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_elements_by_style"><code class="docutils literal notranslate"><span class="pre">get_elements_by_style()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_grouped_by"><code class="docutils literal notranslate"><span class="pre">get_grouped_by()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.util.element.get_groups"><code class="docutils literal notranslate"><span class="pre">get_groups()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_layers"><code class="docutils literal notranslate"><span class="pre">get_layers()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_material"><code class="docutils literal notranslate"><span class="pre">get_material()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_materials"><code class="docutils literal notranslate"><span class="pre">get_materials()</span></code></a></li>
@@ -1688,8 +1842,10 @@ subgraph but are protected from deletion.</p>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_psets"><code class="docutils literal notranslate"><span class="pre">get_psets()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_quantities"><code class="docutils literal notranslate"><span class="pre">get_quantities()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_quantity"><code class="docutils literal notranslate"><span class="pre">get_quantity()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.util.element.get_referenced_elements"><code class="docutils literal notranslate"><span class="pre">get_referenced_elements()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_referenced_structures"><code class="docutils literal notranslate"><span class="pre">get_referenced_structures()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_shape_aspects"><code class="docutils literal notranslate"><span class="pre">get_shape_aspects()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.util.element.get_structure_referenced_elements"><code class="docutils literal notranslate"><span class="pre">get_structure_referenced_elements()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_styles"><code class="docutils literal notranslate"><span class="pre">get_styles()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_type"><code class="docutils literal notranslate"><span class="pre">get_type()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.get_types"><code class="docutils literal notranslate"><span class="pre">get_types()</span></code></a></li>
@@ -1698,6 +1854,8 @@ subgraph but are protected from deletion.</p>
 <li><a class="reference internal" href="#ifcopenshell.util.element.remove_deep2"><code class="docutils literal notranslate"><span class="pre">remove_deep2()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.replace_attribute"><code class="docutils literal notranslate"><span class="pre">replace_attribute()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.util.element.unbatch_remove_deep2"><code class="docutils literal notranslate"><span class="pre">unbatch_remove_deep2()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.util.element.REFERENCE_TYPES"><code class="docutils literal notranslate"><span class="pre">REFERENCE_TYPES</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.util.element.ReferenceData"><code class="docutils literal notranslate"><span class="pre">ReferenceData</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1712,9 +1870,9 @@ subgraph but are protected from deletion.</p>
     </aside>
   </div>
 </div><script src="../../../../_static/documentation_options.js?v=fe7df9b0"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../../../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     </body>

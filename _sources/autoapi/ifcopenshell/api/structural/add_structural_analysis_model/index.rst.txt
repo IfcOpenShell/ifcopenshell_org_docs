@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file)
+.. py:function:: add_structural_analysis_model(file) -> None
 
-
-   
    Add a new structural analysis model
 
    A structural analysis model is a group of all the loads, reactions,
@@ -20,7 +18,7 @@ Module Contents
    A 3D analytical model is assumed.
 
    :return: The newly created IfcStructuralAnalysisModel
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -28,8 +26,5 @@ Module Contents
 
        # Create a fresh blank structural analysis
        analysis = ifcopenshell.api.run("structural.add_structural_analysis_model", model)
-
-   .. py:method:: execute()
-
 
 

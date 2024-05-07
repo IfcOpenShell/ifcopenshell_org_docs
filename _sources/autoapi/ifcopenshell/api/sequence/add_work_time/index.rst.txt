@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, work_calendar=None, time_type='WorkingTimes')
+.. py:function:: add_work_time(file, work_calendar=None, time_type='WorkingTimes') -> None
 
-
-   
    Add either working times or holiday times to a calendar
 
    A calendar defines when work occurs by defining working times and
@@ -23,12 +21,12 @@ Module Contents
 
    :param work_calendar: The IfcWorkCalendar to add the work or holiday
        time definition to.
-   :type work_calendar: ifcopenshell.entity_instance.entity_instance
+   :type work_calendar: ifcopenshell.entity_instance
    :param time_type: Either WorkingTimes or ExceptionTimes, depending on
        what you want to define.
    :type time_type: str
    :return: The newly created IfcWorkTime
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -60,8 +58,5 @@ Module Contents
        # The holiday is every 1st of January
        ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
            recurrence_pattern=pattern, attributes={"DayComponent": [1], "MonthComponent": [1]})
-
-   .. py:method:: execute()
-
 
 

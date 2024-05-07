@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, cost_item=None, cost_rate=None)
+.. py:function:: assign_cost_value(file, cost_item=None, cost_rate=None) -> None
 
-
-   
    Assigns a cost value to a cost item from a schedule of rates
 
    Instead of assigning cost values from scratch for each cost item in a
@@ -25,9 +23,9 @@ Module Contents
    rates as a "template" to quickly populate your rates from.
 
    :param cost_item: The IfcCostItem that you want to copy the values to
-   :type cost_item: ifcopenshell.entity_instance.entity_instance
+   :type cost_item: ifcopenshell.entity_instance
    :param cost_rate: The IfcCostItem that you want to copy the values from
-   :type cost_rate: ifcopenshell.entity_instance.entity_instance
+   :type cost_rate: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -49,8 +47,5 @@ Module Contents
 
        # Now the cost item has the same rate as the one from the schedule of rate's item
        ifcopenshell.api.run("cost.assign_cost_value", model, cost_item=item, cost_rate=rate)
-
-   .. py:method:: execute()
-
 
 

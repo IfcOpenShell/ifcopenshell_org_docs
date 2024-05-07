@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, opening=None)
+.. py:function:: remove_opening(file: ifcopenshell.entity_instance, opening: ifcopenshell.entity_instance) -> None
 
-
-   
    Remove an opening
 
    Fillings are retained as orphans. Voided elements remain. Openings
@@ -18,7 +16,7 @@ Module Contents
    removed, the opening is also removed.
 
    :param opening: The IfcOpeningElement to remove.
-   :type opening: ifcopenshell.entity_instance.entity_instance
+   :type opening: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -33,8 +31,5 @@ Module Contents
 
        # Remove it. This brings us back to a valid model.
        ifcopenshell.api.run("void.remove_opening", model, opening=opening)
-
-   .. py:method:: execute()
-
 
 

@@ -7,22 +7,20 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_product=None, related_object=None)
+.. py:function:: get_related_products(file, relating_product=None, related_object=None) -> None
 
-
-   
    Gets the related products being output by a task
 
    This API function will be removed in the future and migrated to a
    utility module.
 
    :param relating_product: One of the products already output by the task.
-   :type relating_product: ifcopenshell.entity_instance.entity_instance
+   :type relating_product: ifcopenshell.entity_instance
    :param related_object: The IfcTask that you want to get all the related
        products for.
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :type related_object: ifcopenshell.entity_instance
    :return: A set of IfcProducts output by the IfcTask.
-   :rtype: set[ifcopenshell.entity_instance.entity_instance]
+   :rtype: set[ifcopenshell.entity_instance]
 
    Example:
 
@@ -45,8 +43,5 @@ Module Contents
 
        # This will give us a set with that wall in it.
        products = ifcopenshell.api.run("sequence.get_related_products", model, related_object=task)
-
-   .. py:method:: execute()
-
 
 

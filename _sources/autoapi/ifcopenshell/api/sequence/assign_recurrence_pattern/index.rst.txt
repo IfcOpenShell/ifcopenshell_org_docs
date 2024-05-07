@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, parent=None, recurrence_type='WEEKLY')
+.. py:function:: assign_recurrence_pattern(file, parent=None, recurrence_type='WEEKLY') -> None
 
-
-   
    Define a time to recur at a particular interval
 
    There are two scenarios where you might want to define a recurring time
@@ -52,11 +50,11 @@ Module Contents
    :param parent: Either an IfcTaskTimeRecurring if you are defining a
        recurring schedule for a task, or IfcWorkTime if you are defining a
        recurring pattern for a workdays or holidays in a calendar.
-   :type parent: ifcopenshell.entity_instance.entity_instance
+   :type parent: ifcopenshell.entity_instance
    :param recurrence_type: One of the types of recurrences.
    :type recurrence_type: str
    :return: The newly created IfcRecurrencePattern
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -94,8 +92,5 @@ Module Contents
        # Specifically, the maintenance task must occur every 6 months
        ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
            recurrence_pattern=pattern, attributes={"DayComponent": [1], "Interval": 6})
-
-   .. py:method:: execute()
-
 
 

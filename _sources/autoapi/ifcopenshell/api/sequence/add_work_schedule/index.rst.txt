@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name='Unnamed', predefined_type='NOTDEFINED', object_type=None, start_time=None, work_plan=None)
+.. py:function:: add_work_schedule(file, name='Unnamed', predefined_type='NOTDEFINED', object_type=None, start_time=None, work_plan=None) -> None
 
-
-   
    Add a new work schedule
 
    A work schedule is a group of tasks, where the tasks are typically
@@ -30,9 +28,9 @@ Module Contents
        provided, the schedule will not be grouped in a work plan and would
        exist as a top level schedule in the project. This is not
        recommended.
-   :type work_plan: ifcopenshell.entity_instance.entity_instance,optional
+   :type work_plan: ifcopenshell.entity_instance,optional
    :return: The newly created IfcWorkSchedule
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -53,8 +51,5 @@ Module Contents
            work_schedule=schedule, name="Design", identification="B")
        construction = ifcopenshell.api.run("sequence.add_task", model,
            work_schedule=schedule, name="Construction", identification="C")
-
-   .. py:method:: execute()
-
 
 

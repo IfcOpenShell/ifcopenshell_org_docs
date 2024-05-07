@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, resource=None)
+.. py:function:: remove_resource_quantity(file, resource=None) -> None
 
-
-   
    Removes the base quantity of a resource
 
    Example:
@@ -31,8 +29,5 @@ Module Contents
        # Let's say we only want to store the resource but no quantities,
        # let's clean up our mess and remove the quantity.
        ifcopenshell.api.run("resource.remove_resource_quantity", model, resource=labour)
-
-   .. py:method:: execute()
-
 
 

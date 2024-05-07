@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, role=None)
+.. py:function:: remove_role(file, role=None) -> None
 
-
-   
    Removes a role
 
    People and organisations using the role will be untouched. This may
    leave some of them without roles.
 
    :param role: The IfcActorRole to remove.
-   :type role: ifcopenshell.entity_instance.entity_instance
+   :type role: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -31,8 +29,5 @@ Module Contents
 
        # After running this, the organisation will have no role again
        ifcopenshell.api.run("owner.remove_role", model, role=role)
-
-   .. py:method:: execute()
-
 
 

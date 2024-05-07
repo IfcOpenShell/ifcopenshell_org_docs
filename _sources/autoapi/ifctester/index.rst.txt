@@ -10,9 +10,15 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   __main__/index.rst
    facet/index.rst
    ids/index.rst
    reporter/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: open(filepath: str, validate: Literal[False] = False) -> Ids
+                 open(filepath: str, validate: Literal[True]) -> None
 
 

@@ -53,23 +53,6 @@ Module Contents
       :type: dict[str, bcf.v3.visinfo.VisualizationInfoHandler]
 
 
-   .. py:method:: __eq__(other: object) -> bool | NoReturn
-
-      Return self==value.
-
-
-   .. py:method:: _load_bim_snippet() -> Optional[bytes]
-
-
-   .. py:method:: _save_bim_snippet(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
-
-
-   .. py:method:: _save_viewpoints(destination_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str) -> None
-
-
-   .. py:method:: _save_xml(destination_zip: bcf.inmemory_zipfile.ZipFileInterface, item: Any, target: str) -> None
-
-
    .. py:method:: add_viewpoint(element: ifcopenshell.entity_instance) -> None
 
       Add a viewpoint tergeting an IFC element to the topic.

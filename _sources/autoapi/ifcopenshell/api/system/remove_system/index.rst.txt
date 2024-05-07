@@ -7,16 +7,14 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, system=None)
+.. py:function:: remove_system(file, system=None) -> None
 
-
-   
    Removes a distribution system
 
    All the distribution elements within the system are retained.
 
    :param system: The IfcSystem to remove.
-   :type system: ifcopenshell.entity_instance.entity_instance
+   :type system: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -29,8 +27,5 @@ Module Contents
 
        # Delete it.
        ifcopenshell.api.run("system.remove_system", model, system=system)
-
-   .. py:method:: execute()
-
 
 

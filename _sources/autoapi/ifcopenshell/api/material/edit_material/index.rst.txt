@@ -7,13 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, material=None, attributes=None)
+.. py:function:: edit_material(file, material=None, attributes=None) -> None
 
-
-   
    Edits the attributes of an IfcMaterial
-
-   .. py:method:: execute()
-
 
 

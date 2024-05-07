@@ -15,9 +15,6 @@ Module Contents
 
       
 
-   .. py:method:: __call__(u)
-
-
 
 .. py:class:: line
 
@@ -32,21 +29,12 @@ Module Contents
 
       
 
-   .. py:method:: __call__(u)
-
-
 
 .. py:class:: piecewise(fns)
 
 
-   .. py:method:: __call__(u)
-
-
 
 .. py:class:: trimmed_curve(fn, length)
-
-
-   .. py:method:: __call__(u)
 
 
 

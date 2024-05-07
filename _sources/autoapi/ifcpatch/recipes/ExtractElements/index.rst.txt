@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src, file, logger, query: str = 'IfcWall')
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcWall')
 
 
    

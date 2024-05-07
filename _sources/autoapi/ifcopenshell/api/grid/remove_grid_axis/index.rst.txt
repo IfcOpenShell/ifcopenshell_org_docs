@@ -7,14 +7,12 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, axis=None)
+.. py:function:: remove_grid_axis(file, axis=None) -> None
 
-
-   
    Removes a grid axis from a grid
 
    :param axis: The IfcGridAxis you want to remove.
-   :type axis: ifcopenshell.entity_instance.entity_instance
+   :type axis: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -33,8 +31,5 @@ Module Contents
 
        # Let's remove it!
        ifcopenshell.api.run("grid.remove_grid_axis", model, axis=axis_2)
-
-   .. py:method:: execute()
-
 
 

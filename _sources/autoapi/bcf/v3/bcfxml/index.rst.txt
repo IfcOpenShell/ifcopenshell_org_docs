@@ -53,47 +53,6 @@ Module Contents
       Bcf Version.
 
 
-   .. py:method:: __del__() -> None
-
-
-   .. py:method:: __enter__() -> BcfXml
-
-
-   .. py:method:: __eq__(other: object) -> bool | NoReturn
-
-      Return self==value.
-
-
-   .. py:method:: __exit__(*args: Any) -> None
-
-
-   .. py:method:: _load_topics() -> None
-
-
-   .. py:method:: _load_zip_file() -> Optional[zipfile.ZipFile]
-
-
-   .. py:method:: _save_documents(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
-
-
-   .. py:method:: _save_extensions(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
-
-
-   .. py:method:: _save_project(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
-
-
-   .. py:method:: _save_topics(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
-
-
-   .. py:method:: _save_version(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
-
-
-   .. py:method:: _save_xml(destination_zip: bcf.inmemory_zipfile.ZipFileInterface, inner_file: str, xml_obj: Any) -> None
-
-
-   .. py:method:: _smart_save_xml(destination_zip: bcf.inmemory_zipfile.ZipFileInterface, item: Any, target: str) -> None
-
-
    .. py:method:: add_comment(_topic: bcf.v3.model.Topic, _comment: Optional[bcf.v3.model.Comment] = None) -> None
 
       Deprecated method.

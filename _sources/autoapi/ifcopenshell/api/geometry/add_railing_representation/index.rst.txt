@@ -7,16 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
-
-   
-   units in settings expected to be in ifc project units
-
-   `railing_path` is a list of point coordinates for the railing path,
-   coordinates are expected to be at the top of the railing, not at the center
-
-   `railing_path` is expected to be a list of Vector objects
 
    .. py:method:: convert_si_to_unit(value)
 
@@ -28,6 +20,16 @@ Module Contents
 
       converts list of vectors from SI to ifc project units
 
+
+
+.. py:function:: add_railing_representation(file, **usecase_settings) -> None
+
+   units in usecase_settings expected to be in ifc project units
+
+   `railing_path` is a list of point coordinates for the railing path,
+   coordinates are expected to be at the top of the railing, not at the center
+
+   `railing_path` is expected to be a list of Vector objects
 
 
 .. py:function:: mm(x)

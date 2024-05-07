@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, identification='HSeldon', family_name='Seldon', given_name='Hari')
+.. py:function:: add_person(file: ifcopenshell.entity_instance, identification: str = 'HSeldon', family_name: str = 'Seldon', given_name: str = 'Hari') -> None
 
-
-   
    Adds a new person
 
    Persons are used to identify a legal or liable representative of an
@@ -24,7 +22,7 @@ Module Contents
    :param given_name: The given name
    :type given_name: str, optional
    :return: The newly created IfcPerson
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -32,8 +30,5 @@ Module Contents
 
        ifcopenshell.api.run("owner.add_person", model,
            identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
-
-   .. py:method:: execute()
-
 
 

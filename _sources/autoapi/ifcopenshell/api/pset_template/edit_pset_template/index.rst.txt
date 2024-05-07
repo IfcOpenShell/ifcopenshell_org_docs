@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, pset_template=None, attributes=None)
+.. py:function:: edit_pset_template(file, pset_template=None, attributes=None) -> None
 
-
-   
    Edits the attributes of an IfcPropertySetTemplate
 
    For more information about the attributes and data types of an
    IfcPropertySetTemplate, consult the IFC documentation.
 
    :param pset_template: The IfcPropertySetTemplate entity you want to edit
-   :type pset_template: ifcopenshell.entity_instance.entity_instance
+   :type pset_template: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
    :type attributes: dict, optional
    :return: None
@@ -33,8 +31,5 @@ Module Contents
        # Let's fix it to prefix with our company code instead.
        ifcopenshell.api.run("pset_template.edit_pset_template", model,
            pset_template=template, attributes={"Name": "ABC_RiskFactors"})
-
-   .. py:method:: execute()
-
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name='Unnamed', predefined_type='NOTDEFINED')
+.. py:function:: add_work_calendar(file, name='Unnamed', predefined_type='NOTDEFINED') -> None
 
-
-   
    Add a work calendar
 
    A work calendar defines when work is allowed to occur and when the
@@ -31,7 +29,7 @@ Module Contents
        specifically define shifts, such as FIRSTSHIFT, SECONDSHIFT, or
        THIRDSHIFT. Leave as NOTDEFINED for basic calendar usage.
    :return: The newly created IfcWorkCalendar
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -66,8 +64,5 @@ Module Contents
        # subtasks underneath the construction work task will also inherit
        # this calendar by default (though you can override them).
        ifcopenshell.api.run("control.assign_control", model, relating_control=calendar, related_object=task)
-
-   .. py:method:: execute()
-
 
 

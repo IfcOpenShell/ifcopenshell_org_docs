@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name=None, predefined_type='NOTDEFINED')
+.. py:function:: add_cost_schedule(file, name=None, predefined_type='NOTDEFINED') -> None
 
-
-   
    Add a new cost schedule
 
    A cost schedule is a group of cost items which typically represent a
@@ -31,7 +29,7 @@ Module Contents
        IfcCostScheduleTypeEnum
    :type predefined_type: str, optional
    :return: The newly created IfcCostSchedule entity
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -40,8 +38,5 @@ Module Contents
        schedule = ifcopenshell.api.run("cost.add_cost_schedule", model)
        # Now that we have a cost schedule, we may add cost items to it
        item = ifcopenshell.api.run("cost.add_cost_item", model, cost_schedule=schedule)
-
-   .. py:method:: execute()
-
 
 

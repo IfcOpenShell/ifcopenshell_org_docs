@@ -54,7 +54,8 @@ Module Contents
 .. py:function:: get_schema()
 
 
-.. py:function:: open(filepath, validate=False)
+.. py:function:: open(filepath: str, validate: Literal[False] = False) -> Ids
+                 open(filepath: str, validate: Literal[True]) -> None
 
 
 .. py:data:: cwd

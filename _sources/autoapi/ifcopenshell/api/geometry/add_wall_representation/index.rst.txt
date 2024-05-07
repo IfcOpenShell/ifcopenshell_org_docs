@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
 
    .. py:method:: apply_booleans(first_operand)
@@ -24,5 +24,8 @@ Module Contents
 
    .. py:method:: execute()
 
+
+
+.. py:function:: add_wall_representation(file, **usecase_settings) -> None
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file)
+.. py:function:: create_owner_history(file: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
    Creates a new owner history indicating an element was added
 
    Any object in IFC with a unique ID and name (such as physical products,
@@ -47,8 +45,9 @@ Module Contents
    are writing your own advanced scripts and want to take advantage of the
    easier ownership tracking.
 
-   :return: The newly created IfcOwnerHistory element.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :return: The newly created IfcOwnerHistory element or `None` if it's
+       not IFC2X3 and user or application is not found in the current project.
+   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -83,8 +82,5 @@ Module Contents
        # running this code on the IfcSpace element:
        # element.OwnerHistory = ifcopenshell.api.run("owner.create_owner_history", model)
        space = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcSpace")
-
-   .. py:method:: execute()
-
 
 

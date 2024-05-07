@@ -7,10 +7,30 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: copy_direct_attributes(to_element)
+
+
+   .. py:method:: copy_indirect_attributes(from_element, to_element)
+
+
+   .. py:method:: copy_object_placements(element)
+
+
+   .. py:method:: copy_psets(element)
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: remove_representations(element)
+
+
+
+.. py:function:: copy_class(file, product=None) -> None
+
    Copies a product
 
    The following relationships are also duplicated:
@@ -38,9 +58,9 @@ Module Contents
      connections are still valid.
 
    :param product: The IfcProduct to copy.
-   :type param: ifcopenshell.entity_instance.entity_instance
+   :type param: ifcopenshell.entity_instance
    :return: The copied product
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -51,23 +71,5 @@ Module Contents
 
        # And now we have two
        wall_copy = ifcopenshell.api.run("root.copy_class", model, product=wall)
-
-   .. py:method:: copy_direct_attributes(to_element)
-
-
-   .. py:method:: copy_indirect_attributes(from_element, to_element)
-
-
-   .. py:method:: copy_object_placements(element)
-
-
-   .. py:method:: copy_psets(element)
-
-
-   .. py:method:: execute()
-
-
-   .. py:method:: remove_representations(element)
-
 
 

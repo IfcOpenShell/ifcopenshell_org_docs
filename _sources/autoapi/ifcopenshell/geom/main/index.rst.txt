@@ -12,9 +12,6 @@ Module Contents
 
    Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.Iterator`
 
-   .. py:method:: __iter__()
-
-
 
 .. py:class:: serializers
 

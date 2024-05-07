@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, work_calendar=None)
+.. py:function:: remove_work_calendar(file, work_calendar=None) -> None
 
-
-   
    Removes a work calendar
 
    All relationships are also removed, such as if a task is set to use that
    calendar.
 
    :param work_calendar: The IfcWorkCalendar to remove
-   :type work_calendar: ifcopenshell.entity_instance.entity_instance
+   :type work_calendar: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -30,8 +28,5 @@ Module Contents
 
        # And remove it immediately
        ifcopenshell.api.run("sequence.remove_work_calendar", model, work_calendar=calendar)
-
-   .. py:method:: execute()
-
 
 

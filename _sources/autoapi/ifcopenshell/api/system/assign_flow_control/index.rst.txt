@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_flow_element=None, related_flow_control=None)
+.. py:function:: assign_flow_control(file, relating_flow_element=None, related_flow_control=None) -> None
 
-
-   
    Assigns to the flow element control element that either sense or control
    some aspect of the flow element.
 
@@ -18,12 +16,12 @@ Module Contents
 
    :param related_flow_control: IfcDistributionControlElement
        which may be used to impart control on the flow element
-   :type related_flow_control: ifcopenshell.entity_instance.entity_instance
+   :type related_flow_control: ifcopenshell.entity_instance
    :param relating_flow_element: The IfcDistributionFlowElement that is being controlled / sensed
-   :type relating_flow_element: ifcopenshell.entity_instance.entity_instance
+   :type relating_flow_element: ifcopenshell.entity_instance
    :return: Matching or newly created IfcRelFlowControlElements. If control
        is already assigned to some other element method will return None.
-   :rtype: ifcopenshell.entity_instance.entity_instance, None
+   :rtype: ifcopenshell.entity_instance, None
 
    Example:
 
@@ -35,8 +33,5 @@ Module Contents
            "system.assign_flow_control", model,
            related_flow_control=flow_control, relating_flow_element=flow_element
        )
-
-   .. py:method:: execute()
-
 
 

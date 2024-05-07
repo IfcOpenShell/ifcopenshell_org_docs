@@ -7,16 +7,14 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, information=None)
+.. py:function:: remove_information(file, information=None) -> None
 
-
-   
    Removes a document information
 
    All references and associations are also removed.
 
    :param information: The IfcDocumentInformation to remove
-   :type information: ifcopenshell.entity_instance.entity_instance
+   :type information: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -28,8 +26,5 @@ Module Contents
        document = ifcopenshell.api.run("document.add_information", model)
        # ... and remove it!
        ifcopenshell.api.run("document.remove_information", model, information=document)
-
-   .. py:method:: execute()
-
 
 

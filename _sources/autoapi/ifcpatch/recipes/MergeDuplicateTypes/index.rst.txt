@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src, file, logger, attribute='Tag')
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, attribute: str = 'Tag')
 
 
    
@@ -47,7 +47,7 @@ Module Contents
        # Explicitly say we want to merge based on the Name attribute
        ifcpatch.execute({"file": model, "recipe": "MergeDuplicateTypes", "arguments": ["Name"]})
 
-   .. py:method:: assign_type(related_object, relating_type)
+   .. py:method:: assign_type(related_objects: list[ifcopenshell.entity_instance], relating_type: ifcopenshell.entity_instance) -> None
 
 
    .. py:method:: patch()

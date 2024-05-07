@@ -7,11 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, document=None)
+.. py:function:: assign_document(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], document: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
-   Assigns a document to a product
+   Assigns a document to a list of products
 
    An object may be assigned to zero, one, or multiple documents. Almost
    any object or property may be assigned to a document, though typically
@@ -22,15 +20,17 @@ Module Contents
    consistent with other external relationships (such as classification
    systems or libraries).
 
-   :param product: The object to associate the document to. This could be
+   :param product: The list of objects to associate the document to. This could be
        almost any sensible object in IFC.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type product: list[ifcopenshell.entity_instance]
    :param document: The IfcDocumentReference to associate to, or
        alternatively an IfcDocumentInformation, though this is not
        recommended.
-   :type document: ifcopenshell.entity_instance.entity_instance
+   :type document: ifcopenshell.entity_instance
    :return: The IfcRelAssociatesDocument relationship
-   :rtype: ifcopenshell.entity_instance.entity_instance
+       or `None` if `products` was an empty list or all products were
+       already assigned to the `document`.
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -44,12 +44,6 @@ Module Contents
        reference = ifcopenshell.api.run("document.add_reference", model, information=document)
 
        # Let's imagine storey represents an IfcBuildingStorey for the ground floor
-       ifcopenshell.api.run("document.assign_document", model, product=storey, document=reference)
-
-   .. py:method:: execute()
-
-
-   .. py:method:: get_document_rel()
-
+       ifcopenshell.api.run("document.assign_document", model, products=[storey], document=reference)
 
 

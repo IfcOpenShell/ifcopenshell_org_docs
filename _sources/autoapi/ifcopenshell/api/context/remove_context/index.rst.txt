@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, context=None)
+.. py:function:: remove_context(file: ifcopenshell.entity_instance, context: ifcopenshell.entity_instance) -> None
 
-
-   
    Removes an IfcGeometricRepresentationContext
 
    Any representation geometry that is assigned to the context is also
    removed. If a context is removed, then any subcontexts are also removed.
 
    :param context: The IfcGeometricRepresentationContext entity to remove
-   :type context: ifcopenshell.entity_instance.entity_instance
+   :type context: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -33,8 +31,5 @@ Module Contents
 
        # Let's just get rid of it completely
        ifcopenshell.api.run("context.remove_context", model, context=body)
-
-   .. py:method:: execute()
-
 
 

@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src, file, logger, only_duplicates=False)
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, only_duplicates=False)
 
 
    

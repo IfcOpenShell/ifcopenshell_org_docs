@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, cost_item=None)
+.. py:function:: calculate_cost_item_resource_value(file, cost_item=None) -> None
 
-
-   
    Calculates the total cost of all resources associated with a cost item
 
    A cost item may have construction resources (e.g. equipment, material,
@@ -71,8 +69,5 @@ Module Contents
 
        # (42 * 200) + 50000 = 58400 is our calculated cost
        ifcopenshell.api.run("cost.calculate_cost_item_resource_value", model, cost_item=item)
-
-   .. py:method:: execute()
-
 
 

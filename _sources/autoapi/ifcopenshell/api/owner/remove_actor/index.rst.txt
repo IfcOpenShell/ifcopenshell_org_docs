@@ -7,14 +7,12 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, actor=None)
+.. py:function:: remove_actor(file, actor=None) -> None
 
-
-   
    Removes an actor
 
    :param actor: The IfcActor to remove.
-   :type actor: ifcopenshell.entity_instance.entity_instance
+   :type actor: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -33,8 +31,5 @@ Module Contents
 
        # Actually we need ballpens on this project
        ifcopenshell.api.run("owner.remove_actor", model, actor=actor)
-
-   .. py:method:: execute()
-
 
 

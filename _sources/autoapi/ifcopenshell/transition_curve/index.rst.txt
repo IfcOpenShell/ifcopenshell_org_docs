@@ -94,27 +94,6 @@ Module Contents
 
       
 
-   .. py:method:: _calc_biquadratic_parabola_point(lpt, L, R, ccw)
-
-
-   .. py:method:: _calc_bloss_curve_point(lpt, L, R, ccw)
-
-
-   .. py:method:: _calc_clothoid_curve_point(lpt, L, R, ccw)
-
-
-   .. py:method:: _calc_cosine_curve_point(lpt, L, R, ccw)
-
-
-   .. py:method:: _calc_cubic_parabola_point(lpt, L, R, ccw)
-
-
-   .. py:method:: _calc_sine_curve_point(lpt, L, R, ccw)
-
-
-   .. py:method:: _calc_transition_curve_point(lpt, L, R, ccw, trans_type)
-
-
    .. py:method:: to_wire(stroking_interval=5.0)
 
       convert IfcTransitionSegment2D to OCC wire

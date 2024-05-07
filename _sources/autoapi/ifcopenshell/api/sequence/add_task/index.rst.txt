@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, work_schedule=None, parent_task=None, name=None, description=None, identification=None, predefined_type='NOTDEFINED')
+.. py:function:: add_task(file, work_schedule=None, parent_task=None, name=None, description=None, identification=None, predefined_type='NOTDEFINED') -> None
 
-
-   
    Adds a new task
 
    Tasks are typically used for two purposes: construction scheduling and
@@ -47,11 +45,11 @@ Module Contents
    :param work_schedule: The work schedule to group the task in, if the
        task is to be a top-level or root task. This is mutually exclusive
        with the parent_task parameter.
-   :type work_schedule: ifcopenshell.entity_instance.entity_instance
+   :type work_schedule: ifcopenshell.entity_instance
    :param parent_task: The parent task, if the task is to be a subtask or
        child task. This is mutually exclusive with the work_schedule
        parameter.
-   :type parent_task: ifcopenshell.entity_instance.entity_instance
+   :type parent_task: ifcopenshell.entity_instance
    :param name: The name of the task.
    :type name: str,optional
    :param description: The description of the task.
@@ -63,7 +61,7 @@ Module Contents
        IFC documentation for IfcTaskTypeEnum for more information.
    :type predefined_type: str
    :return: The newly created IfcTask
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -116,8 +114,5 @@ Module Contents
            description="Open the isolator switch.")
        ifcopenshell.api.run("sequence.add_task", model, parent_task=cleaning, identification="3",
            description="Setup the water pressure by tapping to a water supply and connecting to a ...")
-
-   .. py:method:: execute()
-
 
 

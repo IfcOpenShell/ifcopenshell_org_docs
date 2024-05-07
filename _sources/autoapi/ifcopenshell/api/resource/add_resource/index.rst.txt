@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, parent_resource=None, ifc_class='IfcCrewResource', name=None, predefined_type='NOTDEFINED')
+.. py:function:: add_resource(file, parent_resource=None, ifc_class='IfcCrewResource', name=None, predefined_type='NOTDEFINED') -> None
 
-
-   
    Add a new construction resource
 
    Construction resources may be managed and connected to cost schedules
@@ -33,7 +31,7 @@ Module Contents
 
    :param parent_resource: If this is a child resource (typically to a crew
        resource), then nominate the parent IfcConstructionResource here.
-   :type parent_resource: ifcopenshell.entity_instance.entity_instance
+   :type parent_resource: ifcopenshell.entity_instance
    :param ifc_class: The class of resource chosen from
        IfcConstructionEquipmentResource, IfcConstructionMaterialResource,
        IfcConstructionProductResource, IfcCrewResource, IfcLaborResource,
@@ -46,7 +44,7 @@ Module Contents
    :type predefined_type: str,optional
    :return: The newly created resource depending on the nominated IFC
        class.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -57,8 +55,5 @@ Module Contents
 
        # Add some labour to our crew.
        ifcopenshell.api.run("resource.add_resource", model, parent_resource=crew, ifc_class="IfcLaborResource")
-
-   .. py:method:: execute()
-
 
 

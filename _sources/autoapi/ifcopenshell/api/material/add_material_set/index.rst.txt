@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name='Unnamed', set_type='IfcMaterialConstituentSet')
+.. py:function:: add_material_set(file, name='Unnamed', set_type='IfcMaterialConstituentSet') -> None
 
-
-   
    Adds a new material set
 
    IFC allows you to state that objects are made out of multiple materials.
@@ -56,7 +54,7 @@ Module Contents
        IfcMaterialConstituentSet.
    :type set_type: str, optional
    :return: The newly created material set element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -92,9 +90,6 @@ Module Contents
        ifcopenshell.api.run("material.edit_layer", model, layer=layer, attributes={"LayerThickness": 13})
 
        # Great! Let's assign our material set to our wall type.
-       ifcopenshell.api.run("material.assign_material", model, product=wall_type, material=material_set)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("material.assign_material", model, products=[wall_type], material=material_set)
 
 

@@ -7,14 +7,12 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, boundary=None)
+.. py:function:: copy_boundary(file, boundary=None) -> None
 
-
-   
    Copies a space boundary
 
    :param boundary: The IfcRelSpaceBoundary you want to copy.
-   :type boundary: ifcopenshell.entity_instance.entity_instance
+   :type boundary: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -26,8 +24,5 @@ Module Contents
 
        # And now we have two
        boundary_copy = ifcopenshell.api.run("boundary.copy_boundary", model, boundary=boundary)
-
-   .. py:method:: execute()
-
 
 

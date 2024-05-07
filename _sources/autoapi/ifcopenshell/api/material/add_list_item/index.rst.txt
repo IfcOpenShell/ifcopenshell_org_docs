@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, material_list=None, material=None)
+.. py:function:: add_list_item(file, material_list=None, material=None) -> None
 
-
-   
    Adds a new material in a list of materials
 
    In IFC2X3, if you wanted an object to have multiple materials (i.e. a
@@ -29,9 +27,9 @@ Module Contents
 
    :param material_list: The IfcMaterialList the material should be added
        to.
-   :type material_list: ifcopenshell.entity_instance.entity_instance
+   :type material_list: ifcopenshell.entity_instance
    :param material: The IfcMaterial to add to the list
-   :type material: ifcopenshell.entity_instance.entity_instance
+   :type material: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -67,9 +65,6 @@ Module Contents
        # our window too, but to keep this example simple, geometry is
        # optional and it is enough to say that this window is made out of
        # aluminium and glass.
-       ifcopenshell.api.run("material.assign_material", model, product=window_type, material=material_set)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("material.assign_material", model, products=[window_type], material=material_set)
 
 

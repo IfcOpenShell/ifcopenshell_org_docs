@@ -24,3 +24,410 @@ Submodules
    unassign_system/index.rst
 
 
+Package Contents
+----------------
+
+.. py:function:: add_port(file, element=None) -> None
+
+   Adds a new distribution port to an element
+
+   A distribution port represents a connection point on an element, where
+   a distribution element may be connected to another distribution element.
+   For example, a duct segment will typically have two ports, one at either
+   end, because you can attach another segment or fitting to either end of
+   the duct segment.
+
+   This will both add a distribution port and automatically assign it to a
+   distribution element.
+
+   :param element: The IfcDistributionElement you want to add a
+       distribution port to.
+   :type element: ifcopenshell.entity_instance
+   :return: The newly created IfcDistributionPort
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Create a duct
+       duct = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+
+       # Create 2 ports, one for either end.
+       port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+
+
+.. py:function:: add_system(file: ifcopenshell.file, ifc_class: str = 'IfcDistributionSystem') -> ifcopenshell.entity_instance
+
+   Add a new distribution system
+
+   A distribution system is a group of distribution elements, like ducts,
+   pipes, pumps, filters, fans, and so on that distribute a medium (air,
+   liquid, or electricity) throughout a facility. Systems may be
+   hierarchical, with larger systems composed of smaller subsystems.
+
+   :param ifc_class: The type of system, chosen from IfcDistributionSystem
+       for mechanical, electrical, communications, plumbing, fire, or
+       security systems. Alternatively you may choose IfcBuildingSystem for
+       specialised building facade systems or similar. For IFC2X3, choose
+       IfcSystem.
+   :type ifc_class: str
+   :return: The newly created IfcSystem.
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+
+.. py:function:: assign_flow_control(file, relating_flow_element=None, related_flow_control=None) -> None
+
+   Assigns to the flow element control element that either sense or control
+   some aspect of the flow element.
+
+   Note that control can be assigned only to the one flow element.
+
+   :param related_flow_control: IfcDistributionControlElement
+       which may be used to impart control on the flow element
+   :type related_flow_control: ifcopenshell.entity_instance
+   :param relating_flow_element: The IfcDistributionFlowElement that is being controlled / sensed
+   :type relating_flow_element: ifcopenshell.entity_instance
+   :return: Matching or newly created IfcRelFlowControlElements. If control
+       is already assigned to some other element method will return None.
+   :rtype: ifcopenshell.entity_instance, None
+
+   Example:
+
+   .. code:: python
+
+       flow_element = model.createIfcFlowSegment()
+       flow_control = model.createIfcController()
+       relation = ifcopenshell.api.run(
+           "system.assign_flow_control", model,
+           related_flow_control=flow_control, relating_flow_element=flow_element
+       )
+
+
+.. py:function:: assign_port(file, element=None, port=None) -> None
+
+   Assigns a port to an element
+
+   If you have an orphaned port, you may assign it to a distribution
+   element using this function. Ports should typically not be orphaned, but
+   it may be useful when patching up models.
+
+   :param element: The IfcDistributionElement to assign the port to.
+   :type element: ifcopenshell.entity_instance
+   :param port: The IfcDistributionPort you want to assign.
+   :type port: ifcopenshell.entity_instance
+   :return: The IfcRelNests relationship, or the
+       IfcRelConnectsPortToElement for IFC2X3.
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Create a duct
+       duct = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+
+       # Create 2 ports, one for either end.
+       port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+
+       # Unassign one port for some weird reason.
+       ifcopenshell.api.run("system.unassign_port", model, element=duct, port=port1)
+
+       # Reassign it back
+       ifcopenshell.api.run("system.assign_port", model, element=duct, port=port1)
+
+
+.. py:function:: assign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
+
+   Assigns distribution elements to a system
+
+   Note that it is not necessary to assign distribution ports to a system.
+
+   :param products: The list of IfcDistributionElements to assign to the system.
+   :type products: list[ifcopenshell.entity_instance]
+   :param system: The IfcSystem you want to assign the element to.
+   :type system: ifcopenshell.entity_instance
+   :return: The IfcRelAssignsToGroup relationship
+       or `None` if `products` was empty list.
+   :rtype: [ifcopenshell.entity_instance, None]
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+       # Create a duct
+       duct = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+
+       # This duct is part of the system
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+
+
+.. py:function:: connect_port(file, port1=None, port2=None, direction='NOTDEFINED', element=None) -> None
+
+   Connects two ports together
+
+   A distribution element (e.g. a duct) may be connected to another
+   distribution element (e.g. a fitting) by connecting a port at one of the
+   duct to a port at the same end of the fitting.
+
+   Ports may only have one connection, so you cannot have multiple things
+   connected to the same port. Nor can you have incompatible port
+   connections, such as an electrical port connected to an airflow port.
+
+   Port connectivity may be explicit or implicit. Explicit connections are
+   where the port connectivity is described for every single distribution
+   element in detail. For example, a duct segment would have port
+   connections to a duct fitting, which would have port connections to
+   another duct segment, all the way from a fan to an air terminal exactly
+   as constructed on site. Implicit connections only consider the key
+   distribution control elements (e.g. the fan and the terminal) and ignore
+   all of the details of the duct segments and fittings in between.
+   Generally, explicit connectivity is preferred for later detailed design,
+   and implicit connectivity is preferred for early phase design.
+
+   :param port1: The port of the first distribution element to connect.
+   :type port1: ifcopenshell.entity_instance
+   :param port2: The port of the second distribution element to connect.
+   :type port2: ifcopenshell.entity_instance
+   :param direction: The directionality of distribution flow through the
+       port connection. NOTDEFINED means that the direction has not yet
+       been determined. This is useful during preliminary system design.
+       SOURCE means that the flow is from the first element to the second
+       element. SINK means that the flow is from the second element to the
+       first element. SOURCEANDSINK means that flow is bi-directional
+       between the first and second element.  SOURCEANDSINK is a relatively
+       rare scenario.
+   :type direction: str
+   :param element: Optionally set an element through which the port
+       connectivity is made, such as a segment or fitting. This is only to
+       be used for implicit port connectivity where the segments and
+       fittings are less important.
+   :type element: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+       # Create a duct and a 90 degree bend fitting
+       duct = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+       fitting = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctFitting", predefined_type="BEND")
+
+       # The duct and fitting is part of the system
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+       ifcopenshell.api.run("system.assign_system", model, products=[fitting], system=system)
+
+       # Create 2 ports, one for either end of both the duct and fitting.
+       duct_port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       duct_port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       fitting_port1 = ifcopenshell.api.run("system.add_port", model, element=fitting)
+       fitting_port2 = ifcopenshell.api.run("system.add_port", model, element=fitting)
+
+       # Connect the duct and fitting together. At this point, we have not
+       # yet determined the direction of the flow, so we leave direction as
+       # NOTDEFINED.
+       ifcopenshell.api.run("system.connect_port", model, port1=duct_port2, port2=fitting_port1)
+
+
+.. py:function:: disconnect_port(file, port=None) -> None
+
+   Disconnects a port from any other port
+
+   A port may only be connected to one other port, so the other port is not
+   needed to be specified.
+
+   :param port: The IfcDistributionPort to disconnect.
+   :type port: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+       # Create a duct and a 90 degree bend fitting
+       duct = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+       fitting = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctFitting", predefined_type="BEND")
+
+       # The duct and fitting is part of the system
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+       ifcopenshell.api.run("system.assign_system", model, products=[fitting], system=system)
+
+       # Create 2 ports, one for either end of both the duct and fitting.
+       duct_port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       duct_port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       fitting_port1 = ifcopenshell.api.run("system.add_port", model, element=fitting)
+       fitting_port2 = ifcopenshell.api.run("system.add_port", model, element=fitting)
+
+       # Connect the duct and fitting together. At this point, we have not
+       # yet determined the direction of the flow, so we leave direction as
+       # NOTDEFINED.
+       ifcopenshell.api.run("system.connect_port", model, port1=duct_port2, port2=fitting_port1)
+
+       # Disconnect the port. note we could've equally disconnected
+       # fitting_port1 instead of duct_port2
+       ifcopenshell.api.run("system.disconnect_port", model, port=duct_port2)
+
+
+.. py:function:: edit_system(file, system=None, attributes=None) -> None
+
+   Edits the attributes of an IfcSystem
+
+   For more information about the attributes and data types of an
+   IfcSystem, consult the IFC documentation.
+
+   :param system: The IfcSystem entity you want to edit
+   :type system: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict, optional
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+       # Change the name of the system to "HW" for Hot Water
+       ifcopenshell.api.run("system.edit_system", model, system=system, attributes={"Name": "HW"})
+
+
+.. py:function:: remove_system(file, system=None) -> None
+
+   Removes a distribution system
+
+   All the distribution elements within the system are retained.
+
+   :param system: The IfcSystem to remove.
+   :type system: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+       # Delete it.
+       ifcopenshell.api.run("system.remove_system", model, system=system)
+
+
+.. py:function:: unassign_flow_control(file, relating_flow_element=None, related_flow_control=None) -> None
+
+   Unassigns flow control element from the flow element.
+
+   :param related_flow_control: IfcDistributionControlElement controling the
+       flow element
+   :type related_flow_control: ifcopenshell.entity_instance
+   :param relating_flow_element: The IfcDistributionFlowElement that is being controlled
+   :type relating_flow_element: ifcopenshell.entity_instance
+   :return: If the control still is related to other objects, the
+       IfcRelFlowControlElements is returned, otherwise None.
+   :rtype: ifcopenshell.entity_instance, None
+
+   Example:
+
+   .. code:: python
+
+       # assign control to the flow element
+       flow_element = file.createIfcFlowSegment()
+       flow_control = file.createIfcController()
+       relation = ifcopenshell.api.run(
+           "system.assign_flow_control", file,
+           relating_control=flow_control, related_object=flow_element
+       )
+
+       # und unassign it
+       ifcopenshell.api.run("system.unassign_flow_control", file,
+           relating_control=flow_control, related_object=flow_element
+       )
+
+
+.. py:function:: unassign_port(file, element=None, port=None) -> None
+
+   Unassigns a port to an element
+
+   Ports are typically always assigned to a distribution element, but in
+   some edge cases you may want to unassign the port to create an orphaned
+   port for cleaning or patchin purposes.
+
+   :param element: The IfcDistributionElement to unassign the port from.
+   :type element: ifcopenshell.entity_instance
+   :param port: The IfcDistributionPort you want to unassign.
+   :type port: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Create a duct
+       duct = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+
+       # Create 2 ports, one for either end.
+       port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+
+       # Unassign one port for some weird reason.
+       ifcopenshell.api.run("system.unassign_port", model, element=duct, port=port1)
+
+
+.. py:function:: unassign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
+
+   Unassigns list of products from a system
+
+   :param products: The list of IfcDistributionElements to unassign from the system.
+   :type products: list[ifcopenshell.entity_instance]
+   :param system: The IfcSystem you want to unassign the element from.
+   :type system: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.run("system.add_system", model)
+
+       # Create a duct
+       duct = ifcopenshell.api.run("root.create_entity", model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+
+       # This duct is part of the system
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+
+       # Not anymore!
+       ifcopenshell.api.run("system.unassign_system", model, products=[duct], system=system)
+
+

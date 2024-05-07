@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, pset_template=None, name='NewProperty', description=None, template_type='P_SINGLEVALUE', primary_measure_type='IfcLabel')
+.. py:function:: add_prop_template(file, pset_template=None, name='NewProperty', description=None, template_type='P_SINGLEVALUE', primary_measure_type='IfcLabel') -> None
 
-
-   
    Adds new property templates to a property set template
 
    Assuming you first have a property set template, this allows you to add
@@ -23,7 +21,7 @@ Module Contents
    Types of properties and quantities include:
 
    * P_SINGLEVALUE - a single value, the most common type of property.
-   * P_ENUMERATEDVALUE     - the property value may one or more values chosen
+   * P_ENUMERATEDVALUE - the property value may one or more values chosen
        from a preset list of values.
    * P_BOUNDEDVALUE - the property has a minimum, maximum, and set value.
    * P_LISTVALUE - the property has a list of values.
@@ -39,7 +37,7 @@ Module Contents
 
    :param pset_template: The property set template to add the property
        template to.
-   :type pset_template: ifcopenshell.entity_instance.entity_instance
+   :type pset_template: ifcopenshell.entity_instance
    :param name: The name of the property
    :type name: str,optional
    :param description: A few words describing what the property stores.
@@ -48,7 +46,7 @@ Module Contents
        IFC documentation for the full list of data types.
    :param primary_measure_type: str,optional
    :return: The newly created IfcSimplePropertyTemplate.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -66,8 +64,5 @@ Module Contents
        ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template,
            name="ChemicalType", description="The class of chemical spillage.",
            primary_measure_type="IfcLabel")
-
-   .. py:method:: execute()
-
 
 

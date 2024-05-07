@@ -52,8 +52,8 @@ Module Contents
    Resolve possibly mapped representation.
 
    :param representation: IfcRepresentation
-   :type representation: ifcopenshell.entity_instance.entity_instance
+   :type representation: ifcopenshell.entity_instance
    :return: Representation resolved from mappings
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
 

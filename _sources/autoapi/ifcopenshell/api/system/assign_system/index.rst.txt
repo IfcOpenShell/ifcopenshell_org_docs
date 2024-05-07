@@ -7,20 +7,19 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, system=None)
+.. py:function:: assign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
 
-
-   
-   Assigns a distribution element to a system
+   Assigns distribution elements to a system
 
    Note that it is not necessary to assign distribution ports to a system.
 
-   :param product: The IfcDistributionElement to assign to the system.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :param products: The list of IfcDistributionElements to assign to the system.
+   :type products: list[ifcopenshell.entity_instance]
    :param system: The IfcSystem you want to assign the element to.
-   :type system: ifcopenshell.entity_instance.entity_instance
+   :type system: ifcopenshell.entity_instance
    :return: The IfcRelAssignsToGroup relationship
-   :rtype: ifcopenshell.entity_instance.entity_instance
+       or `None` if `products` was empty list.
+   :rtype: [ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -34,9 +33,6 @@ Module Contents
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # This duct is part of the system
-       ifcopenshell.api.run("system.assign_system", model, product=duct, system=system)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
 
 

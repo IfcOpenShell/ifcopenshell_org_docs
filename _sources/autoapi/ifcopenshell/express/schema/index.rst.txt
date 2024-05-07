@@ -24,26 +24,6 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:method:: __contains__(key)
-
-      True if the dictionary has the specified key, else False.
-
-
-   .. py:method:: __delitem__(key)
-
-      Delete self[key].
-
-
-   .. py:method:: __getitem__(key)
-
-      x.__getitem__(y) <==> x[y]
-
-
-   .. py:method:: __setitem__(key, value)
-
-      Set self[key] to value.
-
-
    .. py:method:: get(key, *args, **kwargs)
 
       Return the value for key if key is in the dictionary, else default.
@@ -68,27 +48,8 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:method:: __eq__(other)
-
-      Return self==value.
-
-
-   .. py:method:: __hash__()
-
-      Return hash(self).
-
-
 
 .. py:class:: Schema(parsetree)
-
-
-   .. py:method:: __getitem__(key)
-
-
-   .. py:method:: __iter__()
-
-
-   .. py:method:: __len__()
 
 
    .. py:method:: is_entity(v)

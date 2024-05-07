@@ -7,11 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None)
+.. py:function:: unassign_object(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance]) -> None
 
-
-   
-   Unassigns a product from its aggregate
+   Unassigns products from their aggregate
 
    A product (i.e. a smaller part of a whole) may be aggregated into zero
    or one larger space or element. This function will remove that
@@ -25,12 +23,11 @@ Module Contents
    If the product is not part of an aggregation relationship, nothing will
    happen.
 
-   :param product: The part of the aggregate, typically an IfcElement or
+   :param products: The list of parts of the aggregate, typically of IfcElements or
        IfcSpatialStructureElement subclass
-   :type product: ifcopenshell.entity_instance.entity_instance
-   :return: The IfcRelAggregate relationship instance, only returned if the
-       whole still contains any other parts.
-   :rtype: ifcopenshell.entity_instance.entity_instance, None
+   :type product: list[ifcopenshell.entity_instance]
+   :return: None
+   :rtype: None
 
    Example:
 
@@ -39,14 +36,11 @@ Module Contents
        element = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcSite")
        subelement1 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcBuilding")
        subelement2 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcBuilding")
-       ifcopenshell.api.run("aggregate.assign_object", model, product=subelement1, relating_object=element)
-       ifcopenshell.api.run("aggregate.assign_object", model, product=subelement2, relating_object=element)
-       # The relationship is returned as element still has subelement2
-       rel = ifcopenshell.api.run("aggregate.unassign_object", model, product=subelement1)
-       # Nothing is returned, as element is now empty
-       ifcopenshell.api.run("aggregate.unassign_object", model, product=subelement2)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[subelement1], relating_object=element)
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[subelement2], relating_object=element)
+       # nothing is returned
+       ifcopenshell.api.run("aggregate.unassign_object", model, products=[subelement1])
+       # nothing is returned, relationship is removed
+       ifcopenshell.api.run("aggregate.unassign_object", model, products=[subelement2])
 
 

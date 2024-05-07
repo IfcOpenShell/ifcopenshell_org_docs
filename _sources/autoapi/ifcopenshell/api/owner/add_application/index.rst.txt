@@ -7,10 +7,18 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, application_developer=None, version=None, application_full_name='IfcOpenShell', application_identifier='IfcOpenShell')
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: create_application_organisation()
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: add_application(file, application_developer=None, version=None, application_full_name='IfcOpenShell', application_identifier='IfcOpenShell') -> None
+
    Adds a new application
 
    IFC data may be associated with an authoring application to identify
@@ -22,7 +30,7 @@ Module Contents
    :param application_developer: The IfcOrganization responsible for
        creating the application. Defaults to generating an IfcOpenShell
        organisation if none is provided.
-   :type application_developer: ifcopenshell.entity_instance.entity_instance, optional
+   :type application_developer: ifcopenshell.entity_instance, optional
    :param version: The version of the application. Defaults to the
        ifcopenshell.version data if not specified.
    :type version: str, optional
@@ -37,11 +45,5 @@ Module Contents
    .. code:: python
 
        application = ifcopenshell.api.run("owner.add_application", model)
-
-   .. py:method:: create_application_organisation()
-
-
-   .. py:method:: execute()
-
 
 

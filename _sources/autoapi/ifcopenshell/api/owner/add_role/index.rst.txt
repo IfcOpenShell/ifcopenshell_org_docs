@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, assigned_object=None, role='ARCHITECT')
+.. py:function:: add_role(file, assigned_object=None, role='ARCHITECT') -> None
 
-
-   
    Adds and assigns a new role
 
    People and organisations must play one or more roles on a project. Roles
@@ -23,12 +21,12 @@ Module Contents
 
    :param assigned_object: The IfcPerson or IfcOrganization the role should
        be assigned to.
-   :type assigned_object: ifcopenshell.entity_instance.entity_instance
+   :type assigned_object: ifcopenshell.entity_instance
    :param role: The type of role, taken from the IFC documentation for
        IfcActorRole, or a custom name.
    :type role: str, optional
    :return: The newly created IfcActorRole
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -37,8 +35,5 @@ Module Contents
        organisation = ifcopenshell.api.run("owner.add_organisation", model,
            identification="AWB", name="Architects Without Ballpens")
        ifcopenshell.api.run("owner.add_role", model, assigned_object=organisation, role="ARCHITECT")
-
-   .. py:method:: execute()
-
 
 

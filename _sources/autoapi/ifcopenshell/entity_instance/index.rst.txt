@@ -10,110 +10,55 @@ Module Contents
 .. py:class:: entity_instance(e, file=None)
 
 
-   Bases: :py:obj:`object`
+   Represents an entity (wall, slab, property, etc) of an IFC model
 
-   Base class for all IFC objects.
+   An IFC model consists of entities. Examples of entities include walls,
+   slabs, doors and so on. Entities can also be non-physical things, like
+   properties, systems, construction tasks, colours, geometry, and more.
 
-   An instantiated entity_instance will have methods of Python and the IFC class itself.
+   Entities are defined through an **IFC Class**. There are hundreds of **IFC
+   Classes** defined as part of the ISO standard by the buildingSMART
+   International organisation. The **IFC Class** defines the attributes of an
+   entity, as well as the data types and whether or not an attribute is
+   mandatory or optional.
+
+   IfcOpenShell's API dynamically implements the IFC schema. You will not find
+   documentation about available **IFC Classes**, or what attributes they
+   have.  Please consult the buildingSMART official documentation or start
+   reading :doc:`/introduction/introduction_to_ifc`.
+
+   In addition to the Python methods you see documented here, an instantiated
+   entity_instance will have attributes defined by its IFC class. For example,
+   an entity instance which is an IfcWall class will have a ``Name``
+   attribute, and an IfcColourRgb will have a ``Red`` attribute. Please
+   consult the buildingSMART official documentation.
 
    Example:
 
    .. code:: python
 
-       ifc_file = ifcopenshell.open(file_path)
-       products = ifc_file.by_type("IfcProduct")
-       print(products[0].__class__)
-       >>> <class 'ifcopenshell.entity_instance.entity_instance'>
-       print(products[0].Representation)
-       >>> #423=IfcProductDefinitionShape($,$,(#409,#421))
+       model = ifcopenshell.open(file_path)
+       walls = model.by_type("IfcWall")
+       wall = walls[0]
+
+       print(wall) # #38=IFCWALL('2MEinnTPbCMwLOgceaQZFu',$,$,'My Wall',$,#52,#47,$,$);
+       print(wall.is_a()) # IfcWall
+
+       # Note: the `Name` attribute is dynamic, based on the IFC class.
+       print(wall.Name) # My Wall
+
+       # Attributes are ordered and may also be accessed via index.
+       print(wall[3]) # My Wall
+
+       print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
 
    .. py:property:: file
 
-
-   .. py:attribute:: __dict__
-
-      
-
-   .. py:attribute:: __ge__
-
-      
-
-   .. py:attribute:: __gt__
-
-      
-
-   .. py:attribute:: __le__
-
-      
-
-   .. py:attribute:: __lt__
-
-      
-
-   .. py:attribute:: __rge__
-
-      
-
-   .. py:attribute:: __rgt__
-
-      
-
-   .. py:attribute:: __rle__
-
-      
-
-   .. py:attribute:: __rlt__
-
-      
 
    .. py:attribute:: wrapped_data
       :type: ifcopenshell.ifcopenshell_wrapper.entity_instance
 
       
-
-   .. py:method:: __del__()
-
-      #2471 while the precise chain of action is unclear, creating
-      instance references prevents file gc, even with all instance
-      refs deleted. This is a work-around for that.
-
-
-   .. py:method:: __dir__()
-
-      Default dir() implementation.
-
-
-   .. py:method:: __eq__(other)
-
-      Return self==value.
-
-
-   .. py:method:: __getattr__(name)
-
-
-   .. py:method:: __getitem__(key: int) -> Any
-
-
-   .. py:method:: __hash__()
-
-      Return hash(self).
-
-
-   .. py:method:: __len__()
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
-   .. py:method:: __setattr__(key: str, value: Any) -> None
-
-      Implement setattr(self, name, value).
-
-
-   .. py:method:: __setitem__(idx: int, value: T) -> T
-
 
    .. py:method:: attribute_name(attr_idx: int) -> str
 
@@ -218,16 +163,22 @@ Module Contents
       :rtype: int
 
 
-   .. py:method:: is_a(*args) -> Union[str, bool]
+   .. py:method:: is_a() -> str
+                  is_a(ifc_class: str) -> bool
+                  is_a(with_schema: bool) -> str
 
       Return the IFC class name of an instance, or checks if an instance belongs to a class.
 
       The check will also return true if a parent class name is provided.
 
       :param args: If specified, is a case insensitive IFC class name to check
-      :type args: string
+          or if specified as a boolean then will define whether
+          returned IFC class name should include schema name
+          (e.g. "IFC4.IfcWall" if `True` and "IfcWall" if `False`).
+          If omitted will act as `False`.
+      :type args: Union[str, bool]
       :returns: Either the name of the class, or a boolean if it passes the check
-      :rtype: string|bool
+      :rtype: Union[str, bool]
 
       Example:
 
@@ -266,32 +217,36 @@ Module Contents
    .. py:method:: walk(f: Callable[[Any], bool], g: Callable[[Any], Any], value: Any) -> Any
       :staticmethod:
 
-       Applies transformation to `value` based on a given condition.
-       If value is a nested structure (e.g., a list or a tuple) will apply transformation to it's elements.
-      .
+      Applies a transformation to `value` based on a given condition.
 
-       :param f: A callable that takes a single argument and returns a boolean value. It represents the condition
-       :type f: Callable
-       :param g: A callable that takes a single argument and returns a transformed value. It represents the transformation
-       :type g: Callable
-       :param value: Any object, the input value to be processed
-       :type value: Any
-       :return: Transformed value
-       :rtype: Any
+      If value is a nested structure (e.g., a list or a tuple) will apply
+      transformation to it's elements.
 
-       Example:
+      :param f: A callable that takes a single argument and returns a boolean
+          value. It represents the condition.
+      :type f: Callable
+      :param g: A callable that takes a single argument and returns a
+          transformed value. It represents the transformation.
+      :type g: Callable
+      :param value: Any object, the input value to be processed
+      :type value: Any
+      :return: Transformed value
+      :rtype: Any
 
-       .. code:: python
+      Example:
 
-           # Define condition and transformation functions
-           condition = lambda v: v == old
-           transform = lambda v: new
+      .. code:: python
 
-           # Usage example
-           attribute_value = element.RelatedElements
-           print(old in attribute_value, new in attribute_value) # True, False
-           result = element.walk(condition, transform, element.RelatedElements)
-           print(old in attribute_value, new in attribute_value) # False, True
+          # Define condition and transformation functions
+          condition = lambda v: v == old
+          transform = lambda v: new
+          
+          # Usage example
+          attribute_value = element.RelatedElements
+          print(old in attribute_value, new in attribute_value) # True, False
+
+          result = element.walk(condition, transform, element.RelatedElements)
+          print(old in attribute_value, new in attribute_value) # False, True
 
 
    .. py:method:: wrap_value(v, file)
@@ -299,7 +254,7 @@ Module Contents
 
 
 
-.. py:function:: register_schema_attributes(schema)
+.. py:function:: register_schema_attributes(schema: ifcopenshell.ifcopenshell_wrapper.schema_definition) -> None
 
 
 .. py:function:: set_derived_attribute(*args)
@@ -309,10 +264,6 @@ Module Contents
 
 
 .. py:data:: T
-
-   
-
-.. py:data:: _method_dict
 
    
 

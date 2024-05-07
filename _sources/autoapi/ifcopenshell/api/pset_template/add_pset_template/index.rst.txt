@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name='New_Pset', template_type='PSET_TYPEDRIVENOVERRIDE', applicable_entity='IfcObject,IfcTypeObject')
+.. py:function:: add_pset_template(file, name='New_Pset', template_type='PSET_TYPEDRIVENOVERRIDE', applicable_entity='IfcObject,IfcTypeObject') -> None
 
-
-   
    Adds a new property set template
 
    This creates a new template for property sets. A template defines what
@@ -68,7 +66,7 @@ Module Contents
        property set may be assigned to any type.
    :type applicable_entity: str,optional
    :return: The newly created IfcPropertySetTemplate
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -83,8 +81,5 @@ Module Contents
        ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template,
            name="HighVoltage", description="Whether there is a risk of high voltage.",
            primary_measure_type="IfcBoolean")
-
-   .. py:method:: execute()
-
 
 

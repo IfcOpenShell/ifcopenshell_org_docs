@@ -7,11 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, item=None, layer=None)
+.. py:function:: assign_layer(file: ifcopenshell.file, items: list[ifcopenshell.entity_instance], layer: ifcopenshell.entity_instance) -> None
 
-
-   
-   Assigns a representation item to a layer
+   Assigns representation items to a layer
 
    In IFC, instead of objects being assigned to layers, representation
    items are assigned to layers. Representation items are portions of the
@@ -20,12 +18,12 @@ Module Contents
    its frame) assigned to one layer, and another portion (e.g. the glazing
    panels) assigned to another layer.
 
-   :param item: The IfcRepresentationItem to assign to the layer. This
-       should be one of the items in the object's IfcShapeRepresentation.
-   :type item: ifcopenshell.entity_instance.entity_instance
+   :param items: The list of IfcRepresentationItems to assign to the layer. This
+       should be the items from the object's IfcShapeRepresentation.
+   :type items: list[ifcopenshell.entity_instance]
    :param layer: The IfcPresentationLayerAssignment layer to assign the
        item to.
-   :type layer: ifcopenshell.entity_instance.entity_instance
+   :type layer: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -52,9 +50,6 @@ Module Contents
 
        # And assign our wall representation item (in this example, there is
        # only one item) to the layer.
-       ifcopenshell.api.run("layer.assign_layer", model, item=representation.Items[0], layer=layer)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("layer.assign_layer", model, items=[representation.Items[0]], layer=layer)
 
 

@@ -7,23 +7,28 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, constraint=None)
+.. py:class:: Usecase
 
 
-   
-   Unassigns a constraint to a product
+   .. py:method:: execute()
+
+
+   .. py:method:: get_constraint_rels() -> list[ifcopenshell.entity_instance]
+
+
+
+.. py:function:: unassign_constraint(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], constraint: ifcopenshell.entity_instance) -> None
+
+   Unassigns a constraint from a list of products
 
    The constraint will not be deleted and is available to be assigned to
    other products.
 
-   :param product: The product the constraint applies to.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :param products: The list of products the constraint applies to.
+   :type products: list[ifcopenshell.entity_instance]
    :param constraint: The IfcObjective constraint
-   :type constraint: ifcopenshell.entity_instance.entity_instance
+   :type constraint: ifcopenshell.entity_instance
    :return: None
    :rtype: None
-
-   .. py:method:: execute()
-
 
 

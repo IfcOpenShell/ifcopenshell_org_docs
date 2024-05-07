@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_process=None, related_process=None, sequence_type='FINISH_START')
+.. py:function:: assign_sequence(file, relating_process=None, related_process=None, sequence_type='FINISH_START') -> None
 
-
-   
    Assign a sequential relationship between tasks
 
    Tasks in construction sequencing typically have sequence relationships
@@ -34,13 +32,13 @@ Module Contents
    predecessor and successor tasks in the planning profession.
 
    :param relating_process: The previous / predecessor task.
-   :type relating_process: ifcopenshell.entity_instance.entity_instance
+   :type relating_process: ifcopenshell.entity_instance
    :param related_process: The next / successor task.
-   :type related_process: ifcopenshell.entity_instance.entity_instance
+   :type related_process: ifcopenshell.entity_instance
    :param sequence_type: Choose from FINISH_START, FINISH_FINISH,
        START_START, or START_FINISH.
    :return: The newly created IfcRelSequence
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -70,7 +68,7 @@ Module Contents
        ifcopenshell.api.run("sequence.edit_task_time", model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
-       # Now the pour itself. It'll only take 1 day.
+       # Now the pour it It'll only take 1 day.
        pour = ifcopenshell.api.run("sequence.add_task", model,
            parent_task=construction, name="Reinforcement", identification="C.3")
        time = ifcopenshell.api.run("sequence.add_task_time", model, task=pour)
@@ -91,8 +89,5 @@ Module Contents
        # update the reinforcement date to be 2000-01-03 and the pour date
        # to be 2000-01-05.
        ifcopenshell.api.run("sequence.cascade_schedule", model, task=formwork)
-
-   .. py:method:: execute()
-
 
 

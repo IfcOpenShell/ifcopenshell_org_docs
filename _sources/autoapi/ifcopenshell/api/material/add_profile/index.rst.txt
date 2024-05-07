@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, profile_set=None, material=None, profile=None)
+.. py:function:: add_profile(file: ifcopenshell.file, profile_set: ifcopenshell.entity_instance, material: Optional[ifcopenshell.entity_instance] = None, profile: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
-
-   
    Add a new profile item to a profile set
 
    A profile item in a profile set represents an extruded 2D profile curve
@@ -31,14 +29,14 @@ Module Contents
        profile set represents a group of profile items. See
        ifcopenshell.api.material.add_material_set for more information on
        how to add a profile set.
-   :type profile_set: ifcopenshell.entity_instance.entity_instance
+   :type profile_set: ifcopenshell.entity_instance
    :param material: The IfcMaterial that the profile item is made out of.
-   :type material: ifcopenshell.entity_instance.entity_instance
+   :type material: ifcopenshell.entity_instance, optional
    :param profile: The IfcProfileDef that represents the 2D cross section
        of the the profile item.
-   :type profile: ifcopenshell.entity_instance.entity_instance
+   :type profile: ifcopenshell.entity_instance, optional
    :return: The newly created IfcMaterialProfile
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -59,7 +57,7 @@ Module Contents
 
        # Create an I-beam profile curve. Notice how we name our profiles
        # based on standardised steel profile names.
-       hea100 = self.file.create_entity(
+       hea100 = file.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA100", ProfileType="AREA",
            OverallWidth=100, OverallDepth=96, WebThickness=5, FlangeThickness=8, FilletRadius=12,
        )
@@ -71,9 +69,6 @@ Module Contents
            profile_set=material_set, material=steel, profile=hea100)
 
        # Great! Let's assign our material set to our beam type.
-       ifcopenshell.api.run("material.assign_material", model, product=beam_type, material=material_set)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("material.assign_material", model, products=[beam_type], material=material_set)
 
 

@@ -7,10 +7,30 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, task=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: cascade_task(task, is_first_task=False, task_sequence=None)
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: get_calendar(task)
+
+
+   .. py:method:: get_lag_time_days(lag_time)
+
+
+   .. py:method:: get_task_time_attribute(task, attribute)
+
+
+   .. py:method:: offset_date(date, days, duration_type, calendar)
+
+
+
+.. py:function:: cascade_schedule(file, task=None) -> None
+
    Cascades start and end dates of tasks based on durations
 
    Given a start task with a start date and duration, the end date, and the
@@ -30,7 +50,7 @@ Module Contents
    be equivalent to be Tuesday 8am, for instance.
 
    :param task: The start task to begin cascading from.
-   :type task: ifcopenshell.entity_instance.entity_instance
+   :type task: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -89,23 +109,5 @@ Module Contents
 
        # Calculate the critical path and floats.
        ifcopenshell.api.run("sequence.recalculate_schedule", model, work_schedule=schedule)
-
-   .. py:method:: cascade_task(task, is_first_task=False, task_sequence=None)
-
-
-   .. py:method:: execute()
-
-
-   .. py:method:: get_calendar(task)
-
-
-   .. py:method:: get_lag_time_days(lag_time)
-
-
-   .. py:method:: get_task_time_attribute(task, attribute)
-
-
-   .. py:method:: offset_date(date, days, duration_type, calendar)
-
 
 

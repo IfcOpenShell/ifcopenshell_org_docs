@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, parent=None)
+.. py:function:: add_information(file, parent=None) -> None
 
-
-   
    Adds a new document information to the project
 
    An IFC document information is a document associated with the project.
@@ -23,9 +21,9 @@ Module Contents
    is considered the latest version and the children are older revisions.
 
    :param parent: The parent document, if necessary.
-   :type parent: ifcopenshell.entity_instance.entity_instance, optional
+   :type parent: ifcopenshell.entity_instance, optional
    :return: The newly created IfcDocumentInformation entity
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -42,8 +40,5 @@ Module Contents
            information=document,
            attributes={"Identification": "A-GA-6100", "Name": "Overall Plan",
            "Location": "A-GA-6100 - Overall Plan.pdf"})
-
-   .. py:method:: execute()
-
 
 

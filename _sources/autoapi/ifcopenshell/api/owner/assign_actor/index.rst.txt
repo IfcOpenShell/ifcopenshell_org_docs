@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_actor=None, related_object=None)
+.. py:function:: assign_actor(file, relating_actor=None, related_object=None) -> None
 
-
-   
    Assigns an actor to an object
 
    An actor may be assigned to objects which implies that the actor is
@@ -30,11 +28,11 @@ Module Contents
        ifcopenshell.api.resource.assign_resource.
 
    :param relating_actor: The IfcActor who is responsible for the object.
-   :type relating_actor: ifcopenshell.entity_instance.entity_instance
+   :type relating_actor: ifcopenshell.entity_instance
    :param related_object: The object the actor is responsible for.
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :type related_object: ifcopenshell.entity_instance
    :return: The newly created IfcRelAssignsToActor relationship.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -60,8 +58,5 @@ Module Contents
        # Make the manufacturer responsible for that pump type.
        ifcopenshell.api.run("owner.assign_actor", model,
            relating_actor=manufacturer, related_object=pump_type)
-
-   .. py:method:: execute()
-
 
 

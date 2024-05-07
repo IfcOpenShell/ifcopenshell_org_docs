@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, material_set=None, old_index=0, new_index=0)
+.. py:function:: reorder_set_item(file, material_set=None, old_index=0, new_index=0) -> None
 
-
-   
    Reorders an item in a material set
 
    In some material sets, the order have meaning, like in a layer set. In
@@ -18,7 +16,7 @@ Module Contents
 
    :param material_set: The IfcMaterialSet which you want to reorder an
        item in.
-   :type material_set: ifcopenshell.entity_instance.entity_instance
+   :type material_set: ifcopenshell.entity_instance
    :param old_index: The index of the item you want to move. This starts
        counting from 0.
    :type old_index: int
@@ -46,8 +44,5 @@ Module Contents
        # is just for fun.
        ifcopenshell.api.run("material.reorder_set_item", model,
            material_set=material_set, old_index=0, new_index=1)
-
-   .. py:method:: execute()
-
 
 

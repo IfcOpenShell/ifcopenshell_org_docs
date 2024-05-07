@@ -7,16 +7,14 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, reference=None)
+.. py:function:: remove_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance) -> None
 
-
-   
    Remove a document reference
 
    All associations with objects are removed.
 
    :param reference: The IfcDocumentReference to remove
-   :type reference: ifcopenshell.entity_instance.entity_instance
+   :type reference: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -27,8 +25,5 @@ Module Contents
        document = ifcopenshell.api.run("document.add_information", model)
        reference = ifcopenshell.api.run("document.add_reference", model, information=document)
        ifcopenshell.api.run("document.remove_reference", model, reference=reference)
-
-   .. py:method:: execute()
-
 
 

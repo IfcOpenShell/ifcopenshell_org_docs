@@ -58,47 +58,12 @@ Module Contents
 .. py:class:: codegen_rule(pattern, fn)
 
 
-   .. py:method:: __call__(graph, node)
-
-
    .. py:method:: apply(G)
       :staticmethod:
 
 
 
 .. py:class:: context(graph, rules)
-
-
-   .. py:method:: __eq__(other)
-
-      Return self==value.
-
-
-   .. py:method:: __getattr__(k)
-
-
-   .. py:method:: __getitem__(k)
-
-
-   .. py:method:: __hash__()
-
-      Return hash(self).
-
-
-   .. py:method:: __iter__()
-
-
-   .. py:method:: __len__()
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
-   .. py:method:: __str__()
-
-      Return str(self).
 
 
    .. py:method:: branch(i)

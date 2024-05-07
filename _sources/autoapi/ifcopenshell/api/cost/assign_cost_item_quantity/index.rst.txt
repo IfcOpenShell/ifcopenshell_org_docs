@@ -7,10 +7,27 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, cost_item=None, products=None, prop_name='')
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: add_quantity_from_qto(qto)
+
+
+   .. py:method:: add_quantity_from_related_object(element)
+
+
+   .. py:method:: assign_cost_control(related_object, cost_item)
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: update_cost_item_count()
+
+
+
+.. py:function:: assign_cost_item_quantity(file, cost_item=None, products=None, prop_name='') -> None
+
    Adds a cost item quantity that is parametrically connected to a product
 
    A cost item may have its subtotal calculated by multiplying a unit value
@@ -30,9 +47,9 @@ Module Contents
    ifcopenshell.api.control.assign_control.
 
    :param cost_item: The IfcCostItem to assign parametric quantities to
-   :type cost_item: ifcopenshell.entity_instance.entity_instance
+   :type cost_item: ifcopenshell.entity_instance
    :param products: The IfcObjects to assign parametric quantities to
-   :type products: list[ifcopenshell.entity_instance.entity_instance]
+   :type products: list[ifcopenshell.entity_instance]
    :param prop_name: The name of the quantity. If this is not specified,
        then it is assumed that there is no calculated quantity, and the
        number of objects are counted instead.
@@ -65,20 +82,5 @@ Module Contents
        # item.
        ifcopenshell.api.run("cost.assign_cost_item_quantity", model,
            cost_item=item, products=[slab], prop_name="NetVolume")
-
-   .. py:method:: add_quantity_from_qto(qto)
-
-
-   .. py:method:: add_quantity_from_related_object(element)
-
-
-   .. py:method:: assign_cost_control(related_object, cost_item)
-
-
-   .. py:method:: execute()
-
-
-   .. py:method:: update_cost_item_count()
-
 
 

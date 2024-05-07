@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, constraint=None)
+.. py:function:: remove_constraint(file, constraint=None) -> None
 
-
-   
    Remove a constraint (typically an objective)
 
    Removes a constraint definition and all of its associations to any
@@ -19,7 +17,7 @@ Module Contents
    unclear.
 
    :param constraint: The IfcObjective you want to remove.
-   :type constraint: ifcopenshell.entity_instance.entity_instance
+   :type constraint: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -30,8 +28,5 @@ Module Contents
        objective = ifcopenshell.api.run("constraint.add_objective", model)
        ifcopenshell.api.run("constraint.remove_constraint", model,
            constraint=objective)
-
-   .. py:method:: execute()
-
 
 

@@ -7,10 +7,6 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
-
-
-   .. py:method:: execute()
-
+.. py:function:: add_footprint_representation(file, **usecase_settings) -> None
 
 

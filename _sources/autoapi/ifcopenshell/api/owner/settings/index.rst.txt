@@ -25,9 +25,9 @@ Module Contents
    IfcApplication. See ifcopenshell.api.owner.create_owner_history for details.
 
    :param ifc: The IFC file object that is being edited.
-   :type ifc: ifcopenshell.file.file
+   :type ifc: ifcopenshell.file
    :return: The IfcApplication with metadata of the authoring software.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
 
 .. py:function:: get_user(ifc: ifcopenshell.file) -> Union[ifcopenshell.entity_instance, None]
@@ -38,9 +38,9 @@ Module Contents
    IfcApplication. See ifcopenshell.api.owner.create_owner_history for details.
 
    :param ifc: The IFC file object that is being edited.
-   :type ifc: ifcopenshell.file.file
+   :type ifc: ifcopenshell.file
    :return: The IfcPersonAndOrganization with metadata of the authoring user.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
 
 .. py:function:: restore()

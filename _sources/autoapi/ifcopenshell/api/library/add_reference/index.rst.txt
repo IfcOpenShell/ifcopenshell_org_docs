@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, library=None)
+.. py:function:: add_reference(file: ifcopenshell.file, library: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-
-   
    Adds a new reference to a library
 
    A library represents an external data source, such as a database,
@@ -26,9 +24,9 @@ Module Contents
    library's references.
 
    :param library: The IfcLibraryInformation element to add a reference to
-   :type library: ifcopenshell.entity_instance.entity_instance
+   :type library: ifcopenshell.entity_instance
    :return: The newly created IfcLibraryReference element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -40,8 +38,5 @@ Module Contents
        reference = ifcopenshell.api.run("library.add_reference", model, library=library)
        ifcopenshell.api.run("library.edit_reference", model,
            reference=reference, attributes={"Identification": "http://example.org/digitaltwin#AHU01"})
-
-   .. py:method:: execute()
-
 
 

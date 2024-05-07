@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, application=None)
+.. py:function:: remove_application(file, application=None) -> None
 
-
-   
    Removes an application
 
    Warning: removing an application may invalidate ownership histories.
    Check whether or not the application is used anywhere prior to removal.
 
    :param address: The IfcApplication to remove.
-   :type address: ifcopenshell.entity_instance.entity_instance
+   :type address: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -27,8 +25,5 @@ Module Contents
 
        application = ifcopenshell.api.run("owner.add_application", model)
        ifcopenshell.api.run("owner.remove_address", model, application=application)
-
-   .. py:method:: execute()
-
 
 

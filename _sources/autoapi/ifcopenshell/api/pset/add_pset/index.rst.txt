@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, name=None)
+.. py:function:: add_pset(file, product=None, name=None) -> None
 
-
-   
    Adds a new property set to a product
 
    Products, such as physical objects or types in IFC may have properties
@@ -43,7 +41,7 @@ Module Contents
    data, rather than arbitrary metadata.
 
    :param product: The IfcObject that you want to assign a property set to.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type product: ifcopenshell.entity_instance
    :param name: The name of the property set. Property sets that are
        standardised by buildingSMART typically have a prefix of "Pset_",
        like "Pset_WallCommon". If you create your own, you must not use
@@ -51,7 +49,7 @@ Module Contents
        your project, company, or local government requirement.
    :type name: str
    :return: The newly created IfcPropertySet
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -67,8 +65,5 @@ Module Contents
 
        # Add a fire rating property standardised by buildingSMART.
        ifcopenshell.api.run("pset.edit_pset", model, pset=pset, properties={"FireRating": "2HR"})
-
-   .. py:method:: execute()
-
 
 

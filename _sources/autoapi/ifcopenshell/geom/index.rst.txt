@@ -7,6 +7,14 @@
 
    Geometry processing and analysis
 
+   IFC may define geometry explicitly (such as meshes) or implicitly (such as
+   parametric extrusions). This module provides methods to extract geometric
+   definitions in IFC into explicitly tessellated triangles or OpenCASCADE Breps
+   for further processing.
+
+   This is typically needed when writing software to visualise or analyse
+   geometry. See also :mod:`ifcopenshell.util.shape` for deriving quantities.
+
 
 
 Submodules
@@ -23,9 +31,6 @@ Submodules
 
 Package Contents
 ----------------
-
-.. py:function:: _has_occ()
-
 
 .. py:data:: has_occ
 

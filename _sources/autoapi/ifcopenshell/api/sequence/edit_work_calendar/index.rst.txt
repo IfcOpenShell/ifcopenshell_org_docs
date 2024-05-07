@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, work_calendar=None, attributes=None)
+.. py:function:: edit_work_calendar(file, work_calendar=None, attributes=None) -> None
 
-
-   
    Edits the attributes of an IfcWorkCalendar
 
    For more information about the attributes and data types of an
    IfcWorkCalendar, consult the IFC documentation.
 
    :param work_calendar: The IfcWorkCalendar entity you want to edit
-   :type work_calendar: ifcopenshell.entity_instance.entity_instance
+   :type work_calendar: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
    :type attributes: dict, optional
    :return: None
@@ -33,8 +31,5 @@ Module Contents
        # Let's give it a description
        ifcopenshell.api.run("sequence.edit_work_calendar", model,
            work_calendar=calendar, attributes={"Description": "Monday to Friday 8 hour days"})
-
-   .. py:method:: execute()
-
 
 

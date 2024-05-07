@@ -7,20 +7,18 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_control=None, related_object=None)
+.. py:function:: unassign_control(file, relating_control=None, related_object=None) -> None
 
-
-   
    Unassigns a planning control or constraint to an object
 
    :param relating_control: The IfcControl entity that is creating the
        control or constraint
-   :type relating_control: ifcopenshell.entity_instance.entity_instance
+   :type relating_control: ifcopenshell.entity_instance
    :param related_object: The IfcObjectDefinition that is being controlled
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :type related_object: ifcopenshell.entity_instance
    :return: If the control still is related to other objects, the
        IfcRelAssignsToControl is returned, otherwise None.
-   :rtype: ifcopenshell.entity_instance.entity_instance, None
+   :rtype: ifcopenshell.entity_instance, None
 
    Example:
 
@@ -37,8 +35,5 @@ Module Contents
        # And now let's change our mind
        ifcopenshell.api.run("control.unassign_control", model,
            relating_control=cost_item, related_object=wall)
-
-   .. py:method:: execute()
-
 
 

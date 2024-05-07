@@ -10,10 +10,10 @@ Module Contents
 .. py:class:: IfcCsv
 
 
-   .. py:method:: Import(ifc_file, table, attributes=None, delimiter=',', null='-', empty='', bool_true='YES', bool_false='NO')
+   .. py:method:: Import(ifc_file: ifcopenshell.file, table: str, attributes: Optional[list[Union[str, None]]] = None, delimiter: str = ',', null: str = '-', empty: str = '', bool_true: str = 'YES', bool_false: str = 'NO') -> None
 
 
-   .. py:method:: export(ifc_file, elements, attributes, headers=None, output=None, format=None, should_preserve_existing=False, include_global_id=True, delimiter=',', null='-', empty='', bool_true='YES', bool_false='NO', concat=', ', sort=None, groups=None, summaries=None, formatting=None)
+   .. py:method:: export(ifc_file: ifcopenshell.file, elements: ifcopenshell.entity_instance, attributes, headers=None, output=None, format=None, should_preserve_existing: bool = False, include_global_id: bool = True, delimiter: str = ',', null: str = '-', empty: str = '', bool_true: str = 'YES', bool_false: str = 'NO', concat: str = ', ', sort=None, groups=None, summaries=None, formatting=None)
 
 
    .. py:method:: export_csv(output: str, delimiter: Optional[str] = None) -> None

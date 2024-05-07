@@ -7,18 +7,13 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, load_case=None)
+.. py:function:: remove_structural_load_case(file, load_case=None) -> None
 
-
-   
    Removes a structural load case
 
    :param load_case: The IfcStructuralLoadCase to remove.
-   :type load_case: ifcopenshell.entity_instance.entity_instance
+   :type load_case: ifcopenshell.entity_instance
    :return: None
    :rtype: None
-
-   .. py:method:: execute()
-
 
 

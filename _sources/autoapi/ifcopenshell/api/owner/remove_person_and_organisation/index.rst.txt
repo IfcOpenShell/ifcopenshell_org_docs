@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, person_and_organisation=None)
+.. py:function:: remove_person_and_organisation(file, person_and_organisation=None) -> None
 
-
-   
    Removes a person and organisation
 
    Note that the underlying person and organisation is not removed, only
    the "person and organisation" group.
 
    :param person_and_organisation: The IfcPersonAndOrganization to remove.
-   :type person_and_organisation: ifcopenshell.entity_instance.entity_instance
+   :type person_and_organisation: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -34,8 +32,5 @@ Module Contents
            person=person, organisation=organisation)
 
        ifcopenshell.api.run("owner.remove_person_and_organisation", model, person_and_organisation=user)
-
-   .. py:method:: execute()
-
 
 

@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
 
    .. py:method:: execute()
@@ -24,5 +24,8 @@ Module Contents
 
    .. py:method:: unassign_type_representation()
 
+
+
+.. py:function:: unassign_representation(file, **usecase_settings) -> None
 
 

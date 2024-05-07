@@ -7,10 +7,33 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, port1=None, port2=None, direction='NOTDEFINED', element=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: execute()
+
+
+   .. py:method:: purge_connected_from()
+
+
+   .. py:method:: purge_connected_to()
+
+
+   .. py:method:: purge_existing_connections_to_other_ports()
+
+
+   .. py:method:: set_connected_from()
+
+
+   .. py:method:: set_connected_to()
+
+
+   .. py:method:: set_realising_element()
+
+
+
+.. py:function:: connect_port(file, port1=None, port2=None, direction='NOTDEFINED', element=None) -> None
+
    Connects two ports together
 
    A distribution element (e.g. a duct) may be connected to another
@@ -33,9 +56,9 @@ Module Contents
    and implicit connectivity is preferred for early phase design.
 
    :param port1: The port of the first distribution element to connect.
-   :type port1: ifcopenshell.entity_instance.entity_instance
+   :type port1: ifcopenshell.entity_instance
    :param port2: The port of the second distribution element to connect.
-   :type port2: ifcopenshell.entity_instance.entity_instance
+   :type port2: ifcopenshell.entity_instance
    :param direction: The directionality of distribution flow through the
        port connection. NOTDEFINED means that the direction has not yet
        been determined. This is useful during preliminary system design.
@@ -49,7 +72,7 @@ Module Contents
        connectivity is made, such as a segment or fitting. This is only to
        be used for implicit port connectivity where the segments and
        fittings are less important.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
 
    Example:
 
@@ -65,8 +88,8 @@ Module Contents
            ifc_class="IfcDuctFitting", predefined_type="BEND")
 
        # The duct and fitting is part of the system
-       ifcopenshell.api.run("system.assign_system", model, product=duct, system=system)
-       ifcopenshell.api.run("system.assign_system", model, product=fitting, system=system)
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+       ifcopenshell.api.run("system.assign_system", model, products=[fitting], system=system)
 
        # Create 2 ports, one for either end of both the duct and fitting.
        duct_port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
@@ -78,26 +101,5 @@ Module Contents
        # yet determined the direction of the flow, so we leave direction as
        # NOTDEFINED.
        ifcopenshell.api.run("system.connect_port", model, port1=duct_port2, port2=fitting_port1)
-
-   .. py:method:: execute()
-
-
-   .. py:method:: purge_connected_from()
-
-
-   .. py:method:: purge_connected_to()
-
-
-   .. py:method:: purge_existing_connections_to_other_ports()
-
-
-   .. py:method:: set_connected_from()
-
-
-   .. py:method:: set_connected_to()
-
-
-   .. py:method:: set_realising_element()
-
 
 

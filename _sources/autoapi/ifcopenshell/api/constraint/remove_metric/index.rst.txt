@@ -7,17 +7,25 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, metric=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: delete_reference(reference)
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: remove_metric(file, metric=None) -> None
+
    Remove a metric benchmark
 
    Removes a metric benchmark and all of its associations to any products
    and objectives.
 
    :param metric: The IfcMetric you want to remove.
-   :type metric: ifcopenshell.entity_instance.entity_instance
+   :type metric: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -30,11 +38,5 @@ Module Contents
            objective=objective)
        ifcopenshell.api.run("constraint.remove_metric", model,
            metric=metric)
-
-   .. py:method:: delete_reference(reference)
-
-
-   .. py:method:: execute()
-
 
 

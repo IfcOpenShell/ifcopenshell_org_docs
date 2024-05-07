@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, material_list=None, material_index=0)
+.. py:function:: remove_list_item(file, material_list=None, material_index=0) -> None
 
-
-   
    Removes an item in an material list
 
    Note that it is invalid to have zero items in a list, so you should leave
@@ -18,7 +16,7 @@ Module Contents
 
    :param material_list: The IfcMaterialList entity you want to remove an
        item from.
-   :type material_list: ifcopenshell.entity_instance.entity_instance
+   :type material_list: ifcopenshell.entity_instance
    :param material_index: The index of the material you want to remove from
        the list. Starts counting at 0. Defaults to 0.
    :type material_index: int, optional
@@ -42,8 +40,5 @@ Module Contents
 
        # Let's remove the glass
        ifcopenshell.api.run("material.remove_list_item", model, material_list=material_set, material_index=1)
-
-   .. py:method:: execute()
-
 
 

@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
 
    .. py:method:: apply_clippings(first_operand)
@@ -21,5 +21,8 @@ Module Contents
 
    .. py:method:: execute()
 
+
+
+.. py:function:: add_slab_representation(file, **usecase_settings) -> None
 
 

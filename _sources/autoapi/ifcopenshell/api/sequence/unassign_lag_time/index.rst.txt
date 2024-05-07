@@ -7,16 +7,14 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, rel_sequence=None)
+.. py:function:: unassign_lag_time(file, rel_sequence=None) -> None
 
-
-   
    Removes any lag time in a sequence
 
    The schedule is cascaded afterwards.
 
    :param rel_sequence: The sequence to remove the lag time from.
-   :type rel_sequence: ifcopenshell.entity_instance.entity_instance
+   :type rel_sequence: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -47,8 +45,5 @@ Module Contents
 
        # What if you didn't?
        ifcopenshell.api.run("sequence.unassign_lag_time", model, rel_sequence=sequence)
-
-   .. py:method:: execute()
-
 
 

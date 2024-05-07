@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name=None, category=None)
+.. py:function:: add_material(file, name=None, category=None) -> None
 
-
-   
    Adds a new material
 
    A material in IFC represents a physical material, such as timber, steel,
@@ -45,7 +43,7 @@ Module Contents
    :param category: The category of the material.
    :type category: str, optional
    :return: The newly created IfcMaterial
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -60,9 +58,6 @@ Module Contents
 
        # Assign the concrete material to that bench. Note that no colour
        # "Style" has been specified.
-       ifcopenshell.api.run("material.assign_material", model, product=concrete_bench, material=concrete)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("material.assign_material", model, products=[concrete_bench], material=concrete)
 
 

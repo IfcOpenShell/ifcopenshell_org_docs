@@ -7,23 +7,23 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, reference=None)
+.. py:function:: assign_reference(file: ifcopenshell.file, products: ifcopenshell.entity_instance, reference: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
-   Associates a product with a library reference
+   Associates a list products with a library reference
 
    A product may be associated with zero, one, or many references across
    multiple libraries. See ifcopenshell.api.library.add_reference for more
    detail about how references work.
 
-   :param product: The IfcProduct you want to associate with the reference
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :param products: The list of IfcProducts you want to associate with the reference
+   :type products: list[ifcopenshell.entity_instance]
    :param reference: The IfcLibraryReference you want the product to be
        associated with.
-   :type reference: ifcopenshell.entity_instance.entity_instance
+   :type reference: ifcopenshell.entity_instance
    :return: The IfcRelAssociatesLibrary relationship entity
-   :rtype: ifcopenshell.entity_instance.entity_instance
+       or `None` if `products` was an empty list or all products were
+       already assigned to the `reference`.
+   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -41,12 +41,6 @@ Module Contents
            ifc_class="IfcUnitaryEquipment", predefined_type="AIRHANDLER")
 
        # And now assign the IFC model's AHU with its Brickschema counterpart
-       ifcopenshell.api.run("library.assign_reference", model, reference=reference, product=ahu)
-
-   .. py:method:: execute()
-
-
-   .. py:method:: get_ifc2x3_rels()
-
+       ifcopenshell.api.run("library.assign_reference", model, reference=reference, products=[ahu])
 
 

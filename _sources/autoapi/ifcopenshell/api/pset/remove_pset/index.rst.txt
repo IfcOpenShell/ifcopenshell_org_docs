@@ -7,18 +7,16 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, pset=None)
+.. py:function:: remove_pset(file, product=None, pset=None) -> None
 
-
-   
    Removes a property set from a product
 
    All properties that are part of this property set are also removed.
 
    :param product: The IfcObject to remove the property set from.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type product: ifcopenshell.entity_instance
    :param pset: The IfcPropertySet or IfcElementQuantity to remove.
-   :type pset: ifcopenshell.entity_instance.entity_instance
+   :type pset: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -32,8 +30,5 @@ Module Contents
 
        # Remove it!
        ifcopenshell.api.run("pset.remove_pset", model, product=wall_type, pset=pset)
-
-   .. py:method:: execute()
-
 
 

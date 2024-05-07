@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None)
+.. py:function:: remove_product(file: ifcopenshell.file, product: ifcopenshell.entity_instance) -> None
 
-
-   
    Removes a product
 
    This is effectively a smart delete function that not only removes a
@@ -31,7 +29,7 @@ Module Contents
    naturally, the materials, types, containers, etc themselves remain).
 
    :param product: The element to remove.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type product: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -44,8 +42,5 @@ Module Contents
 
        # No we don't.
        ifcopenshell.api.run("root.remove_product", model, product=wall)
-
-   .. py:method:: execute()
-
 
 

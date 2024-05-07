@@ -23,12 +23,6 @@ Module Contents
       :type: bytes
 
 
-   .. py:method:: __enter__() -> InMemoryZipFile
-
-
-   .. py:method:: __exit__(exc_type: Any, exc_value: Any, traceback: Any) -> None
-
-
    .. py:method:: write_to_file(filename: str | bytes | os.PathLike[str] | os.PathLike[bytes] | int) -> None
 
       Writes the in-memory zip to a file.

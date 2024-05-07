@@ -7,14 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, resource=None)
+.. py:function:: calculate_resource_usage(file, resource=None) -> None
 
-
-   
    Calculates the number of resources required to perform scheduled work on a task.
-           
-
-   .. py:method:: execute()
-
 
 

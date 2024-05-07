@@ -21,10 +21,10 @@ Module Contents
 
    .. code:: python
 
-       ifc_file = ifcopenshell.open(file_path)
-       products = ifc_file.by_type("IfcProduct")
+       model = ifcopenshell.open(file_path)
+       products = model.by_type("IfcProduct")
        print(products[0].id(), products[0].GlobalId) # 122 2XQ$n5SLP5MBLyL442paFx
-       print(products[0] == ifc_file[122] == ifc_file["2XQ$n5SLP5MBLyL442paFx"]) # True
+       print(products[0] == model[122] == model["2XQ$n5SLP5MBLyL442paFx"]) # True
 
    Create a new blank IFC model
 
@@ -49,7 +49,7 @@ Module Contents
        ADD2 TC1, which is the official version approved by ISO when people
        refer to "IFC4". Generally you should not use this argument unless
        you are testing non-ISO IFC releases.
-   :type schema_version: tuple[int]
+   :type schema_version: tuple[int, int, int, int]
 
    Example:
 
@@ -75,8 +75,8 @@ Module Contents
 
       :raises RuntimeError: If `id` is not found.
 
-      :returns: An ifcopenshell.entity_instance.entity_instance
-      :rtype: ifcopenshell.entity_instance.entity_instance
+      :returns: An ifcopenshell.entity_instance
+      :rtype: ifcopenshell.entity_instance
 
 
    .. py:method:: by_type(type, include_subtypes=True)
@@ -89,8 +89,11 @@ Module Contents
       :type type: string
       :param include_subtypes: Whether or not to return subtypes of the IFC class
       :type include_subtypes: bool
-      :returns: A list of ifcopenshell.entity_instance.entity_instance objects
-      :rtype: list
+
+      :raises RuntimeError: If `type` is not found in IFC schema.
+
+      :returns: A list of ifcopenshell.entity_instance objects
+      :rtype: list[ifcopenshell.entity_instance]
 
 
    .. py:method:: clear_cache()
@@ -105,7 +108,7 @@ Module Contents
       :param args: The positional arguments of the IFC class
       :param kwargs: The keyword arguments of the IFC class
       :returns: An entity instance
-      :rtype: ifcopenshell.entity_instance.entity_instance
+      :rtype: ifcopenshell.entity_instance
 
       Example:
 
@@ -128,12 +131,12 @@ Module Contents
       Return a list of entities that reference this entity
 
       :param inst: The entity instance to get inverse relationships
-      :type inst: ifcopenshell.entity_instance.entity_instance
+      :type inst: ifcopenshell.entity_instance
       :param allow_duplicate: Returns a `list` when True, `set` when False
       :param with_attribute_indices: Returns pairs of <i, idx>
          where i[idx] is inst or contains inst. Requires allow_duplicate=True
-      :returns: A list of ifcopenshell.entity_instance.entity_instance objects
-      :rtype: list
+      :returns: A list of ifcopenshell.entity_instance objects
+      :rtype: list[ifcopenshell.entity_instance]
 
 
    .. py:method:: is_entity_list(attribute)
@@ -147,13 +150,13 @@ Module Contents
       Get a list of all referenced instances for a particular instance including itself
 
       :param inst: The entity instance to get all sub instances
-      :type inst: ifcopenshell.entity_instance.entity_instance
+      :type inst: ifcopenshell.entity_instance
       :param max_levels: How far deep to recursively fetch sub instances. None or -1 means infinite.
       :type max_levels: None|int
       :param breadth_first: Whether to use breadth-first search, the default is depth-first.
       :type max_levels: bool
-      :returns: A list of ifcopenshell.entity_instance.entity_instance objects
-      :rtype: list
+      :returns: A list of ifcopenshell.entity_instance objects
+      :rtype: list[ifcopenshell.entity_instance]
 
 
 
@@ -162,48 +165,47 @@ Module Contents
 
    Bases: :py:obj:`ifcopenshell.entity_instance.entity_instance`
 
-   Base class for all IFC objects.
+   Represents an entity (wall, slab, property, etc) of an IFC model
 
-   An instantiated entity_instance will have methods of Python and the IFC class itself.
+   An IFC model consists of entities. Examples of entities include walls,
+   slabs, doors and so on. Entities can also be non-physical things, like
+   properties, systems, construction tasks, colours, geometry, and more.
+
+   Entities are defined through an **IFC Class**. There are hundreds of **IFC
+   Classes** defined as part of the ISO standard by the buildingSMART
+   International organisation. The **IFC Class** defines the attributes of an
+   entity, as well as the data types and whether or not an attribute is
+   mandatory or optional.
+
+   IfcOpenShell's API dynamically implements the IFC schema. You will not find
+   documentation about available **IFC Classes**, or what attributes they
+   have.  Please consult the buildingSMART official documentation or start
+   reading :doc:`/introduction/introduction_to_ifc`.
+
+   In addition to the Python methods you see documented here, an instantiated
+   entity_instance will have attributes defined by its IFC class. For example,
+   an entity instance which is an IfcWall class will have a ``Name``
+   attribute, and an IfcColourRgb will have a ``Red`` attribute. Please
+   consult the buildingSMART official documentation.
 
    Example:
 
    .. code:: python
 
-       ifc_file = ifcopenshell.open(file_path)
-       products = ifc_file.by_type("IfcProduct")
-       print(products[0].__class__)
-       >>> <class 'ifcopenshell.entity_instance.entity_instance'>
-       print(products[0].Representation)
-       >>> #423=IfcProductDefinitionShape($,$,(#409,#421))
+       model = ifcopenshell.open(file_path)
+       walls = model.by_type("IfcWall")
+       wall = walls[0]
 
-   .. py:method:: __del__()
+       print(wall) # #38=IFCWALL('2MEinnTPbCMwLOgceaQZFu',$,$,'My Wall',$,#52,#47,$,$);
+       print(wall.is_a()) # IfcWall
 
-      #2471 while the precise chain of action is unclear, creating
-      instance references prevents file gc, even with all instance
-      refs deleted. This is a work-around for that.
+       # Note: the `Name` attribute is dynamic, based on the IFC class.
+       print(wall.Name) # My Wall
 
+       # Attributes are ordered and may also be accessed via index.
+       print(wall[3]) # My Wall
 
-   .. py:method:: __eq__(other)
-
-      Return self==value.
-
-
-   .. py:method:: __getattr__(name)
-
-
-   .. py:method:: __getitem__(key)
-
-
-   .. py:method:: __hash__()
-
-      Return hash(self).
-
-
-   .. py:method:: __setattr__(key, value)
-
-      Implement setattr(self, name, value).
-
+       print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
 
    .. py:method:: get_info(include_identifier=True, recursive=False, return_type=dict, ignore=(), scalar_only=False)
 
@@ -246,11 +248,6 @@ Module Contents
 
 
 .. py:class:: sqlite_wrapper(id, ifc_class, file)
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
 
 
 

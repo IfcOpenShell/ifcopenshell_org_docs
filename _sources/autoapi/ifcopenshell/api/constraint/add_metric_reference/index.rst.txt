@@ -7,14 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, metric=None, reference_path=None)
+.. py:function:: add_metric_reference(file, metric=None, reference_path=None) -> None
 
-
-   
-   Adds a chain of references to a metric. The reference path is a string of the form "attribute.attribute.attribute" 
+   Adds a chain of references to a metric. The reference path is a string of the form "attribute.attribute.attribute"
    Used to reference a value of an attribute of an instance through a metric objective entity.
-
-   .. py:method:: execute()
-
 
 

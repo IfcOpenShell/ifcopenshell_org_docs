@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, unit=None)
+.. py:function:: remove_unit(file, unit=None) -> None
 
-
-   
    Remove a unit
 
    Be very careful when a unit is removed, as it may mean that previously
    defined quantities in the model completely lose their meaning.
 
    :param unit: The unit element to remove
-   :type unit: ifcopenshell.entity_instance.entity_instance
+   :type unit: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -30,8 +28,5 @@ Module Contents
 
        # Yeah maybe not.
        ifcopenshell.api.run("unit.remove_unit", model, unit=unit)
-
-   .. py:method:: execute()
-
 
 

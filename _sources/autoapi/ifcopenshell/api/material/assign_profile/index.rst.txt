@@ -7,10 +7,18 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, material_profile=None, profile=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: change_profile(element)
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: assign_profile(file, material_profile=None, profile=None) -> None
+
    Changes the profile curve of a material profile item in a profile set
 
    In addition to changing the profile curve, it will also change the
@@ -19,9 +27,9 @@ Module Contents
    :param material_profile: The IfcMaterialProfile to change the profile
        curve of. See ifcopenshell.api.material.add_profile to see how to
        create profiles.
-   :type material_profile: ifcopenshell.entity_instance.entity_instance
+   :type material_profile: ifcopenshell.entity_instance
    :param profile: The IfcProfileDef to set the profile item's curve to.
-   :type profile: ifcopenshell.entity_instance.entity_instance
+   :type profile: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -44,7 +52,7 @@ Module Contents
 
        # Create an I-beam profile curve. Notice how we name our profiles
        # based on standardised steel profile names.
-       hea100 = self.file.create_entity(
+       hea100 = usecase.file.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA100", ProfileType="AREA",
            OverallWidth=100, OverallDepth=96, WebThickness=5, FlangeThickness=8, FilletRadius=12,
        )
@@ -56,12 +64,12 @@ Module Contents
            profile_set=material_set, material=steel, profile=hea100)
 
        # Great! Let's assign our material set to our beam type.
-       ifcopenshell.api.run("material.assign_material", model, product=beam_type, material=material_set)
+       ifcopenshell.api.run("material.assign_material", model, products=[beam_type], material=material_set)
 
        # Let's create an occurrence of this beam.
        beam = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcBeam", name="B1.01")
        ifcopenshell.api.run("material.assign_material", model,
-           product=beam, type="IfcMaterialProfileSetUsage")
+           products=[beam], type="IfcMaterialProfileSetUsage")
 
        # Let's give a 1000mm long beam body representation.
        body = ifcopenshell.api.run("geometry.add_profile_representation",
@@ -72,16 +80,10 @@ Module Contents
        # Now let's change the profile to a HEA200 standard profile instead.
        # This will automatically change the body representation that we
        # just added as well to a HEA200 profile.
-       hea200 = self.file.create_entity(
+       hea200 = usecase.file.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA200", ProfileType="AREA",
            OverallWidth=200, OverallDepth=190, WebThickness=6.5, FlangeThickness=10, FilletRadius=18,
        )
        ifcopenshell.api.run("material.assign_profile", model, material_profile=profile_item, profile=hea200)
-
-   .. py:method:: change_profile(element)
-
-
-   .. py:method:: execute()
-
 
 

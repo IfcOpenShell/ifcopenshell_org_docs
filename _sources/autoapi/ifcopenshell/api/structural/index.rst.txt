@@ -33,3 +33,344 @@ Submodules
    unassign_structural_analysis_model/index.rst
 
 
+Package Contents
+----------------
+
+.. py:function:: add_structural_activity(file, ifc_class='IfcStructuralPlanarAction', predefined_type='CONST', global_or_local='GLOBAL_COORDS', applied_load=None, structural_member=None) -> None
+
+   Adds a new structural activity
+
+   A structural activity is either a structural action or a reaction. It
+   may be applied to a point, a curve, or a planar surface, and may be a
+   constant load, linear, etc.
+
+   The activity must be defined using an applied load, and associated with
+   a structural member.
+
+   :param ifc_class: Choose from any subtype of IfcStructuralActivity.
+   :type ifc_class: str
+   :param predefined_type: View the IFC documentation for what valid
+       predefined types may be chosen.
+   :type predefined_type: str
+   :param global_or_local: The location coordinates of the load is always
+       defined locally relative to the structural member the activity is
+       assigned to. However, the directions of the applied load may either
+       be specified globally or locally depending on how this argument is
+       set. Choose from GLOBAL_COORDS or LOCAL_COORDS.
+   :type global_or_local: str
+   :param applied_load: The IfcStructuralLoad that is applied in this
+       activity.
+   :type applied_load: ifcopenshell.entity_instance
+   :param structural_member: The IfcStructuralMember that the load is
+       applied to.
+   :type structural_member: ifcopenshell.entity_instance
+   :return: The newly created entity based on the ifc_class
+   :rtype: ifcopenshell.entity_instance
+
+
+.. py:function:: add_structural_analysis_model(file) -> None
+
+   Add a new structural analysis model
+
+   A structural analysis model is a group of all the loads, reactions,
+   structural members, and structural connections required to describe a
+   structural analysis model.
+
+   A 3D analytical model is assumed.
+
+   :return: The newly created IfcStructuralAnalysisModel
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Create a fresh blank structural analysis
+       analysis = ifcopenshell.api.run("structural.add_structural_analysis_model", model)
+
+
+.. py:function:: add_structural_boundary_condition(file, name=None, connection=None, ifc_class='IfcBoundaryNodeCondition') -> None
+
+   Adds a new structural boundary condition to a structural connection
+
+   The type of boundary condition depends on the connection. Point
+   connections will have a node condition, curve connections will have an
+   edge condition, and surface connections will have a face condition.
+
+   :param name: The name of the boundary condition.
+   :type name: str,optional
+   :param connection: The IfcStructuralConnection to apply the boundary
+       condition to. This will determine the type of condition that is
+       created. If no connection is supplied, an orphan boundary condition
+       will be created using the ifc_class that you specify.
+   :type connection: ifcopenshell.entity_instance,optional
+   :param ifc_class: The class of IfcBoundaryCondition to create, only
+       relevant if you do not specify a connection and want to create an
+       orphaned boundary condition.
+   :type ifc_class: str,optional
+   :return: The newly created IfcBoundaryCondition
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       ifcopenshell.api.run("structural.add_structural_boundary_condition", model, connection=connection)
+
+
+.. py:function:: add_structural_load(file, name=None, ifc_class='IfcStructuralLoadLinearForce') -> None
+
+   Adds a new structural load
+
+   Structural loads may be actions or reactions. A simple load might be a
+   static and be linear, planar, or a single point. Alternatively, loads
+   may be defined as a configuration of multiple loads.
+
+   :param name: The name of the load
+   :type name: str,optional
+   :param ifc_class: The subtype of IfcStructuralLoad to create. Consult
+       the IFC documentation to see all the types of loads.
+   :type ifc_class: str
+   :return: The newly created load entity, depending on the ifc_class
+       specified.
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Create a simple linear load
+       ifcopenshell.api.run("structural.add_structural_load", model)
+
+
+.. py:function:: add_structural_load_case(file, name='Unnamed', action_type='NOTDEFINED', action_source='NOTDEFINED') -> None
+
+   Adds a new load case, which is a collection of related load groups
+
+   :param name: The name of the load case
+   :type name: str
+   :param action_type: Choose from EXTRAORDINARY_A, PERMANENT_G,
+       or VARIABLE_Q, taken from the Eurocode standard.
+   :type action_type: str
+   :param action_source: The source of the load case, such as DEAD_LOAD_G,
+       LIVE_LOAD_Q, TRANSPORT, ICE, etc. For the full list consult
+       IfcActionSourceTypeEnum in the IFC documentation.
+   :type action_source: str
+   :return: The new IfcStructuralLoadCase
+   :rtype: ifcopenshell.entity_instance
+
+
+.. py:function:: add_structural_load_group(file, name='Unnamed', action_type='NOTDEFINED', action_source='NOTDEFINED') -> None
+
+   Adds a new load group, which is a collection of related loads
+
+   :param name: The name of the load group
+   :type name: str
+   :param action_type: Choose from EXTRAORDINARY_A, PERMANENT_G,
+       or VARIABLE_Q, taken from the Eurocode standard.
+   :type action_type: str
+   :param action_source: The source of the load case, such as DEAD_LOAD_G,
+       LIVE_LOAD_Q, TRANSPORT, ICE, etc. For the full list consult
+       IfcActionSourceTypeEnum in the IFC documentation.
+   :type action_source: str
+   :return: The new IfcStructuralLoadCase
+   :rtype: ifcopenshell.entity_instance
+
+
+.. py:function:: add_structural_member_connection(file, relating_structural_member=None, related_structural_connection=None) -> None
+
+   Relates a structural member and a structural connection
+
+   :param relating_structural_member: The IfcStructuralMember to have a
+       connection added to it.
+   :type relating_structural_member: ifcopenshell.entity_instance
+   :param related_structural_connection: The IfcStructuralConnection to add
+       to the IfcStructuralMember.
+   :type related_structural_connection: ifcopenshell.entity_instance
+   :return: The IfcRelConnectsStructuralMember relationship
+   :rtype: ifcopenshell.entity_instance
+
+
+.. py:function:: assign_structural_analysis_model(file, product=None, structural_analysis_model=None) -> None
+
+   Assigns a load or structural member to an analysis model
+
+   :param product: The structural element that is part of the analysis.
+   :type product: ifcopenshell.entity_instance
+   :param structural_analysis_model: The IfcStructuralAnalysisModel that
+       the structural element is related to.
+   :type structural_analysis_model: ifcopenshell.entity_instance
+   :return: The IfcRelAssignsToGroup relationship
+   :rtype: ifcopenshell.entity_instance
+
+
+.. py:function:: edit_structural_analysis_model(file, structural_analysis_model=None, attributes=None) -> None
+
+   Edits the attributes of an IfcStructuralAnalysisModel
+
+   For more information about the attributes and data types of an
+   IfcStructuralAnalysisModel, consult the IFC documentation.
+
+   :param structural_analysis_model: The IfcStructuralAnalysisModel entity you want to edit
+   :type structural_analysis_model: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict, optional
+   :return: None
+   :rtype: None
+
+
+.. py:function:: edit_structural_boundary_condition(file, condition=None, attributes=None) -> None
+
+   Edits the attributes of an IfcBoundaryCondition
+
+   For more information about the attributes and data types of an
+   IfcBoundaryCondition, consult the IFC documentation.
+
+   :param condition: The IfcBoundaryCondition entity you want to edit
+   :type condition: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict, optional
+   :return: None
+   :rtype: None
+
+
+.. py:function:: edit_structural_connection_cs(file, structural_item=None, axis=None, ref_direction=None) -> None
+
+   Edits the coordinate system of a structural connection
+
+   :param structural_item: The IfcStructuralItem you want to modify.
+   :type structural_item: ifcopenshell.entity_instance
+   :param axis: The unit Z axis vector defined as a list of 3 floats.
+       Defaults to [0., 0., 1.].
+   :type axis: list[float]
+   :param ref_direction: The unit X axis vector defined as a list of 3
+       floats. Defaults to [1., 0., 0.].
+   :type ref_direction: list[float]
+   :return: None
+   :rtype: None
+
+
+.. py:function:: edit_structural_item_axis(file, structural_item=None, axis=None) -> None
+
+   Edits the coordinate system of a structural connection
+
+   :param structural_item: The IfcStructuralItem you want to modify.
+   :type structural_item: ifcopenshell.entity_instance
+   :param axis: The unit Z axis vector defined as a list of 3 floats.
+       Defaults to [0., 0., 1.].
+   :type axis: list[float]
+   :return: None
+   :rtype: None
+
+
+.. py:function:: edit_structural_load(file, structural_load=None, attributes=None) -> None
+
+   Edits the attributes of an IfcStructuralLoad
+
+   For more information about the attributes and data types of an
+   IfcStructuralLoad, consult the IFC documentation.
+
+   :param structural_load: The IfcStructuralLoad entity you want to edit
+   :type structural_load: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict, optional
+   :return: None
+   :rtype: None
+
+
+.. py:function:: edit_structural_load_case(file, load_case=None, attributes=None) -> None
+
+   Edits the attributes of an IfcStructuralLoadCase
+
+   For more information about the attributes and data types of an
+   IfcStructuralLoadCase, consult the IFC documentation.
+
+   :param load_case: The IfcStructuralLoadCase entity you want to edit
+   :type load_case: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict, optional
+   :return: None
+   :rtype: None
+
+
+.. py:function:: remove_structural_analysis_model(file, structural_analysis_model=None) -> None
+
+   Removes an analysis model
+
+   Note that the contents of an analysis model are currently preserved.
+
+   :param structural_analysis_model: The IfcStructuralAnalysisModel to
+       remove.
+   :type structural_analysis_model: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+
+.. py:function:: remove_structural_boundary_condition(file, connection=None, boundary_condition=None) -> None
+
+   Removes a condition from a connection, or an orphased boundary condition
+
+   :param connection: The IfcStructuralConnection to remove the condition
+       from. If omitted, it is assumed to be an orphaned condition.
+   :type connection: ifcopenshell.entity_instance,optional
+   :param boundary_condition: The IfcBoundaryCondition to remove.
+   :type boundary_condition: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+
+.. py:function:: remove_structural_connection_condition(file, relation=None) -> None
+
+   Removes a relationship between a connection and a condition
+
+   The condition and the member itself is preserved.
+
+   :param relation: The IfcRelConnectsStructuralMember to remove.
+   :type relation: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+
+.. py:function:: remove_structural_load(file, structural_load=None) -> None
+
+   Removes a structural load
+
+   :param structural_load: The IfcStructuralLoad to remove.
+   :type structural_load: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+
+.. py:function:: remove_structural_load_case(file, load_case=None) -> None
+
+   Removes a structural load case
+
+   :param load_case: The IfcStructuralLoadCase to remove.
+   :type load_case: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+
+.. py:function:: remove_structural_load_group(file, load_group=None) -> None
+
+   Removes a structural load group
+
+   :param load_group: The IfcStructuralLoadGroup to remove.
+   :type load_group: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+
+.. py:function:: unassign_structural_analysis_model(file, product=None, structural_analysis_model=None) -> None
+
+   Removes a relationship between a structural element and the analysis model
+
+   :param product: The structural element that is part of the analysis.
+   :type product: ifcopenshell.entity_instance
+   :param structural_analysis_model: The IfcStructuralAnalysisModel that
+       the structural element is related to.
+   :type structural_analysis_model: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+

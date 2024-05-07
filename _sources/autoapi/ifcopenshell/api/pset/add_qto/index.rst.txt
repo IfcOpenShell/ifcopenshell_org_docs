@@ -7,10 +7,18 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, name=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: create_qto()
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: add_qto(file, product=None, name=None) -> None
+
    Adds a new quantity set to a product
 
    Products, such as physical objects or types in IFC may have quantities
@@ -38,7 +46,7 @@ Module Contents
    metadata, rather than quantification data.
 
    :param product: The IfcObject that you want to assign a quantity set to.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type product: ifcopenshell.entity_instance
    :param name: The name of the quantity set. Quantity sets that are
        standardised by buildingSMART typically have a prefix of "Qto_",
        like "Qto_WallBaseQuantities". If you create your own, you must not
@@ -46,7 +54,7 @@ Module Contents
        to your project, company, or local government requirement.
    :type name: str
    :return: The newly created IfcElementQuantity
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -64,11 +72,5 @@ Module Contents
        # allows quantity take-off to occur, even though no geometry has
        # even been modelled!
        ifcopenshell.api.run("pset.edit_qto", model, qto=qto, properties={"NetSideArea": 4.2})
-
-   .. py:method:: create_qto()
-
-
-   .. py:method:: execute()
-
 
 

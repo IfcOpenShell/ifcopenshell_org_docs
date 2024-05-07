@@ -725,9 +725,6 @@ Module Contents
    .. py:method:: Unit(version='v1')
 
 
-   .. py:method:: _get_deprecated(endpoint, params=None, is_auth_required=False)
-
-
    .. py:method:: get(endpoint, params=None, is_auth_required=False)
 
 

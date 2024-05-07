@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, work_plan=None)
+.. py:function:: remove_work_plan(file, work_plan=None) -> None
 
-
-   
    Removes a work plan
 
    Note that schedules that are grouped under the work plan are not
    removed.
 
    :param work_plan: The IfcWorkPlan to remove.
-   :type work_plan: ifcopenshell.entity_instance.entity_instance
+   :type work_plan: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -30,8 +28,5 @@ Module Contents
 
        # And remove it immediately
        ifcopenshell.api.run("sequence.remove_work_plan", model, work_plan=work_plan)
-
-   .. py:method:: execute()
-
 
 

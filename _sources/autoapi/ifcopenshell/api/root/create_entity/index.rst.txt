@@ -7,10 +7,21 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, ifc_class='IfcBuildingElementProxy', predefined_type=None, name=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: execute()
+
+
+   .. py:method:: handle_2x3_defaults(element)
+
+
+   .. py:method:: handle_4_defaults(element)
+
+
+
+.. py:function:: create_entity(file: ifcopenshell.file, ifc_class: str = 'IfcBuildingElementProxy', predefined_type: Optional[str] = None, name: Optional[str] = None) -> ifcopenshell.entity_instance
+
    Create a new rooted product
 
    This is a critical function used to create almost any rooted product or
@@ -34,7 +45,7 @@ Module Contents
    :param name: The name of the new element.
    :type name: str,optional
    :return: The newly created element based on the specified IFC class.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -51,14 +62,5 @@ Module Contents
 
        # We have a wall type.
        ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWallType")
-
-   .. py:method:: execute()
-
-
-   .. py:method:: handle_2x3_defaults(element)
-
-
-   .. py:method:: handle_4_defaults(element)
-
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, task=None, is_recurring=False)
+.. py:function:: add_task_time(file, task=None, is_recurring=False) -> None
 
-
-   
    Adds a task time to a task
 
    Some tasks, such as activities within a work breakdown structure or
@@ -19,11 +17,11 @@ Module Contents
    (especially for maintenance tasks).
 
    :param task: The task to add time data to.
-   :type task: ifcopenshell.entity_instance.entity_instance
+   :type task: ifcopenshell.entity_instance
    :param is_recurring: Whether or not the time should recur.
    :type is_recurring: bool
    :return: The newly created IfcTaskTime.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -50,8 +48,5 @@ Module Contents
        # no calendar has been specified, so we are working 24/7. Yikes!
        ifcopenshell.api.run("sequence.edit_task_time", model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
-
-   .. py:method:: execute()
-
 
 

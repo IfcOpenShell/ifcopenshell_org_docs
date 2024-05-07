@@ -7,16 +7,14 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, work_schedule=None)
+.. py:function:: remove_work_schedule(file, work_schedule=None) -> None
 
-
-   
    Removes a work schedule
 
    All tasks in the work schedule are also removed recursively.
 
    :param work_schedule: The IfcWorkSchedule to remove.
-   :type work_schedule: ifcopenshell.entity_instance.entity_instance
+   :type work_schedule: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -33,8 +31,5 @@ Module Contents
 
        # And remove it immediately
        ifcopenshell.api.run("sequence.remove_work_schedule", model, work_schedule=schedule)
-
-   .. py:method:: execute()
-
 
 

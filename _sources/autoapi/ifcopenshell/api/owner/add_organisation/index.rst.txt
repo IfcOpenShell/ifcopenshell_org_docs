@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, identification='APTR', name='Aperture Science')
+.. py:function:: add_organisation(file: ifcopenshell.file, identification: str = 'APTR', name: str = 'Aperture Science') -> ifcopenshell.entity_instance
 
-
-   
    Adds a new organisation
 
    Organisations are the main way to identify manufacturers, suppliers, and
@@ -25,7 +23,7 @@ Module Contents
    :param name: The legal name of the organisation
    :type name: str, optional
    :return: The newly created IfcOrganization
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -33,8 +31,5 @@ Module Contents
 
        organisation = ifcopenshell.api.run("owner.add_organisation", model,
            identification="AWB", name="Architects Without Ballpens")
-
-   .. py:method:: execute()
-
 
 

@@ -12,9 +12,6 @@ Module Contents
 
    Bases: :py:obj:`Facet`
 
-   .. py:method:: __call__(inst: ifcopenshell.entity_instance, logger: Optional[logging.Logger] = None) -> AttributeResult
-
-
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
@@ -33,9 +30,6 @@ Module Contents
 
    Bases: :py:obj:`Facet`
 
-   .. py:method:: __call__(inst: ifcopenshell.entity_instance, logger: Optional[logging.Logger] = None) -> ClassificationResult
-
-
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
@@ -53,9 +47,6 @@ Module Contents
 
 
    Bases: :py:obj:`Facet`
-
-   .. py:method:: __call__(inst: ifcopenshell.entity_instance, logger: Optional[logging.Logger] = None) -> EntityResult
-
 
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
 
@@ -78,10 +69,6 @@ Module Contents
 
       
 
-   .. py:method:: __call__(inst: ifcopenshell.entity_instance, logger: Optional[logging.Logger] = None) -> Result
-      :abstractmethod:
-
-
    .. py:method:: asdict(clause_type: str) -> dict[str, Any]
 
 
@@ -97,17 +84,42 @@ Module Contents
    .. py:method:: to_ids_value(parameter: Union[str, Restriction, list]) -> dict[str, Any]
 
 
-   .. py:method:: to_string(clause_type: str, specification: Optional[ifctester.ids.Specification] = None, requirement: Optional[Facet] = None)
+   .. py:method:: to_string(clause_type: str, specification: Optional[ifctester.ids.Specification] = None, requirement: Optional[Facet] = None) -> str
 
+
+
+.. py:class:: FacetFailure
+
+
+   Bases: :py:obj:`TypedDict`
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+   .. py:attribute:: element
+      :type: ifcopenshell.entity_instance
+
+      
+
+   .. py:attribute:: reason
+      :type: str
+
+      
 
 
 .. py:class:: Material(value=None, uri=None, cardinality: Cardinality = 'required', instructions=None)
 
 
    Bases: :py:obj:`Facet`
-
-   .. py:method:: __call__(inst: ifcopenshell.entity_instance, logger: Optional[logging.Logger] = None) -> MaterialResult
-
 
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
@@ -126,9 +138,6 @@ Module Contents
 
 
    Bases: :py:obj:`Facet`
-
-   .. py:method:: __call__(inst: ifcopenshell.entity_instance, logger: Optional[logging.Logger] = None) -> PartOfResult
-
 
    .. py:method:: asdict(clause_type: str) -> dict[str, Any]
 
@@ -166,9 +175,6 @@ Module Contents
 
    Bases: :py:obj:`Facet`
 
-   .. py:method:: __call__(inst: ifcopenshell.entity_instance, logger: Optional[logging.Logger] = None) -> PropertyResult
-
-
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
@@ -188,16 +194,6 @@ Module Contents
 .. py:class:: Restriction(options=None, base='string')
 
 
-   .. py:method:: __eq__(other)
-
-      Return self==value.
-
-
-   .. py:method:: __str__()
-
-      Return str(self).
-
-
    .. py:method:: asdict() -> dict[str, Any]
 
 
@@ -206,14 +202,6 @@ Module Contents
 
 
 .. py:class:: Result(is_pass, reason=None)
-
-
-   .. py:method:: __bool__()
-
-
-   .. py:method:: __str__()
-
-      Return str(self).
 
 
    .. py:method:: to_string()

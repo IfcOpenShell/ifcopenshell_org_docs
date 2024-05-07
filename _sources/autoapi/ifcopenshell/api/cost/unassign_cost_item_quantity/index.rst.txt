@@ -7,10 +7,18 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, cost_item=None, products=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: execute()
+
+
+   .. py:method:: update_cost_item_count()
+
+
+
+.. py:function:: unassign_cost_item_quantity(file, cost_item=None, products=None) -> None
+
    Removes quantities of a cost item that are calculated on products
 
    A cost item may have quantities that are parametrically calculated on
@@ -19,10 +27,10 @@ Module Contents
    have any impact on the cost item.
 
    :param cost_item: The IfcCostItem to remove quantities from
-   :type cost_item: ifcopenshell.entity_instance.entity_instance
+   :type cost_item: ifcopenshell.entity_instance
    :param products: A list of IfcProducts that may have parametrically
        connected quantities to the cost item
-   :type products: list[ifcopenshell.entity_instance.entity_instance]
+   :type products: list[ifcopenshell.entity_instance]
    :return: None
    :rtype: None
 
@@ -55,11 +63,5 @@ Module Contents
        # Let's change our mind and remove the parametric connection
        ifcopenshell.api.run("cost.unassign_cost_item_quantity", model,
            cost_item=item, products=[slab])
-
-   .. py:method:: execute()
-
-
-   .. py:method:: update_cost_item_count()
-
 
 

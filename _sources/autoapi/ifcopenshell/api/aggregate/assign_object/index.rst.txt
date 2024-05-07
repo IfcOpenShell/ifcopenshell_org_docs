@@ -7,11 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, relating_object=None)
+.. py:function:: assign_object(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], relating_object: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
-   Assigns an object as an aggregate to a product
+   Assigns object as an aggregate to the products
 
    All physical IFC model elements must be part of a hierarchical tree
    called the "spatial decomposition", where large things are made up of
@@ -42,14 +40,15 @@ Module Contents
    its parent in the spatial hierarchy. If your product has a placement,
    its placement will be recalculated to follow this convention.
 
-   :param product: The part of the aggregate, typically an IfcElement or
+   :param products: The list of parts of the aggregate, typically of IfcElement or
        IfcSpatialStructureElement subclass
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type product: list[ifcopenshell.entity_instance]
    :param relating_object: The whole of the aggregate, typically an
        IfcElement or IfcSpatialStructureElement subclass
-   :type relating_object: ifcopenshell.entity_instance.entity_instance
+   :type relating_object: ifcopenshell.entity_instance
    :return: The IfcRelAggregate relationship instance
-   :rtype: ifcopenshell.entity_instance.entity_instance
+       or `None` if `products` was empty list.
+   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -60,12 +59,9 @@ Module Contents
        subelement = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcBuilding")
 
        # The project contains a site (note that project aggregation is a special case in IFC)
-       ifcopenshell.api.run("aggregate.assign_object", model, product=element, relating_object=project)
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[element], relating_object=project)
 
        # The site has a building
-       ifcopenshell.api.run("aggregate.assign_object", model, product=subelement, relating_object=element)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[subelement], relating_object=element)
 
 

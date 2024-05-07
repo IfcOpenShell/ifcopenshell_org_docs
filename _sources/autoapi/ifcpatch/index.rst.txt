@@ -8,25 +8,13 @@ Subpackages
 -----------
 .. toctree::
    :titlesonly:
-   :maxdepth: 3
+   :maxdepth: 1
 
    recipes/index.rst
 
 
-Submodules
-----------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   __main__/index.rst
-
-
 Package Contents
 ----------------
-
-.. py:function:: _extract_docs(cls, method_name, boilerplate_args)
-
 
 .. py:function:: execute(args: dict) -> Union[ifcopenshell.file, str]
 

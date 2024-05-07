@@ -17,7 +17,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_area_vf(vertices: numpy.ndarray[VECTOR_3D], faces: numpy.ndarray[Iterable[int]]) -> float
+.. py:function:: get_area_vf(vertices: numpy.typing.NDArray[numpy.float64], faces: numpy.typing.NDArray[numpy.int32]) -> float
 
    Calculates the surface area given a list of vertices and triangulated faces
 
@@ -29,7 +29,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_bbox(vertices: Iterable[VECTOR_3D]) -> tuple[numpy.ndarray[float]]
+.. py:function:: get_bbox(vertices: Iterable[VECTOR_3D]) -> tuple[numpy.typing.NDArray[numpy.float64], numpy.typing.NDArray[numpy.float64]]
 
    Gets the bounding box of vertices
 
@@ -42,7 +42,7 @@ Module Contents
    :rtype: tuple[np.array[float]]
 
 
-.. py:function:: get_bbox_centroid(geometry) -> tuple[float]
+.. py:function:: get_bbox_centroid(geometry) -> tuple[float, float, float]
 
    Calculates the bounding box centroid of the geometry
 
@@ -51,7 +51,7 @@ Module Contents
    :param geometry: Geometry output calculated by IfcOpenShell
    :type geometry: geometry
    :return: A tuple representing the XYZ centroid
-   :rtype: tuple[float]
+   :rtype: tuple[float, float, float]
 
 
 .. py:function:: get_bottom_elevation(geometry) -> float
@@ -64,7 +64,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_edges(geometry) -> numpy.ndarray[numpy.ndarray[int]]
+.. py:function:: get_edges(geometry) -> numpy.typing.NDArray[numpy.int32]
 
    Get all the edges as a numpy array
 
@@ -80,7 +80,7 @@ Module Contents
    :rtype: np.array[np.array[int]]
 
 
-.. py:function:: get_element_bbox_centroid(element: ifcopenshell.entity_instance, geometry) -> tuple[float]
+.. py:function:: get_element_bbox_centroid(element: ifcopenshell.entity_instance, geometry) -> numpy.typing.NDArray[numpy.float64]
 
    Calculates the element's bounding box centroid
 
@@ -88,11 +88,11 @@ Module Contents
    is more efficient to use ``get_shape_bbox_centroid``.
 
    :param element: The element occurrence
-   :type: ifcopenshell.entity_instance.entity_instance
+   :type: ifcopenshell.entity_instance
    :param geometry: Geometry output calculated by IfcOpenShell
    :type geometry: geometry
    :return: A tuple representing the XYZ centroid
-   :rtype: tuple[float]
+   :rtype: npt.NDArray[np.float64]
 
 
 .. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry) -> float
@@ -103,7 +103,7 @@ Module Contents
    ``get_shape_bottom_elevation``.
 
    :param element: The element occurrence
-   :type: ifcopenshell.entity_instance.entity_instance
+   :type: ifcopenshell.entity_instance
    :param geometry: Geometry output calculated by IfcOpenShell
    :type geometry: geometry
    :return: The Z value
@@ -118,14 +118,14 @@ Module Contents
    ``get_shape_top_elevation``.
 
    :param element: The element occurrence
-   :type: ifcopenshell.entity_instance.entity_instance
+   :type: ifcopenshell.entity_instance
    :param geometry: Geometry output calculated by IfcOpenShell
    :type geometry: geometry
    :return: The Z value
    :rtype: float
 
 
-.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry) -> numpy.ndarray[numpy.ndarray[float]]
+.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry) -> numpy.typing.NDArray[numpy.float64]
 
    Get the element's vertices as a numpy array
 
@@ -135,7 +135,7 @@ Module Contents
    Results are a nested numpy array e.g. [[v1x, v1y, v1z], [v2x, v2y, v2z], ...]
 
    :param element: The element occurrence
-   :type: ifcopenshell.entity_instance.entity_instance
+   :type: ifcopenshell.entity_instance
    :param geometry: Geometry output calculated by IfcOpenShell
    :type geometry: geometry
    :return: A numpy array listing all the vertices. Each vertex is a numpy array with XYZ coordinates.
@@ -147,12 +147,12 @@ Module Contents
    Gets all extruded area solids used to define an element's model body geometry
 
    :param element: The element occurrence
-   :type: ifcopenshell.entity_instance.entity_instance
+   :type: ifcopenshell.entity_instance
    :return: A list of extrusion representation items
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_faces(geometry) -> numpy.ndarray[numpy.ndarray[int]]
+.. py:function:: get_faces(geometry) -> numpy.typing.NDArray[numpy.int32]
 
    Get all the faces as a numpy array
 
@@ -227,12 +227,12 @@ Module Contents
    solid extrusions. This is useful for later doing 2D take-off from profiles.
 
    :param element: The element occurrence
-   :type: ifcopenshell.entity_instance.entity_instance
+   :type: ifcopenshell.entity_instance
    :return: A list of profiles
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_shape_bbox_centroid(shape, geometry) -> tuple[float]
+.. py:function:: get_shape_bbox_centroid(shape, geometry) -> numpy.typing.NDArray[numpy.float64]
 
    Calculates the shape's bounding box centroid
 
@@ -244,7 +244,7 @@ Module Contents
    :param geometry: Geometry output calculated by IfcOpenShell
    :type geometry: geometry
    :return: A tuple representing the XYZ centroid
-   :rtype: tuple[float]
+   :rtype: npt.NDArray[np.float64]
 
 
 .. py:function:: get_shape_bottom_elevation(shape, geometry) -> float
@@ -262,14 +262,14 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_shape_matrix(shape) -> numpy.ndarray
+.. py:function:: get_shape_matrix(shape) -> MatrixType
 
    Formats the transformation matrix of a shape as a 4x4 numpy array
 
    :param shape: Shape output calculated by IfcOpenShell
    :type shape: shape
    :return: A 4x4 numpy array representing the transformation matrix
-   :rtype: np.array
+   :rtype: MatrixType
 
 
 .. py:function:: get_shape_top_elevation(shape, geometry) -> float
@@ -287,7 +287,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_shape_vertices(shape, geometry) -> numpy.ndarray[numpy.ndarray[float]]
+.. py:function:: get_shape_vertices(shape, geometry) -> numpy.typing.NDArray[numpy.float64]
 
    Get the shape's vertices as a numpy array
 
@@ -338,7 +338,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_vertices(geometry) -> numpy.ndarray[numpy.ndarray[float]]
+.. py:function:: get_vertices(geometry) -> numpy.typing.NDArray[numpy.float64]
 
    Get all the vertices as a numpy array
 
@@ -411,6 +411,11 @@ Module Contents
 .. py:data:: AXIS_LITERAL
 
    
+
+.. py:data:: MatrixType
+
+   `npt.NDArray[np.float64]`
+
 
 .. py:data:: VECTOR_3D
 

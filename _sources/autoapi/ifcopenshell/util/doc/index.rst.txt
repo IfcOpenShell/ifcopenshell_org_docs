@@ -86,7 +86,7 @@ Module Contents
 .. py:function:: get_property_set_doc(version, pset)
 
 
-.. py:function:: get_schema_by_name(version: str)
+.. py:function:: get_schema_by_name(version: str) -> ifcopenshell.ifcopenshell_wrapper.schema_definition
 
 
 .. py:function:: get_type_doc(version, ifc_type)
@@ -121,6 +121,11 @@ Module Contents
    
 
 .. py:data:: SCHEMA_FILES
+   :type: dict[SUPPORTED_SCHEMA, dict]
+
+   
+
+.. py:data:: SUPPORTED_SCHEMA
 
    
 
@@ -133,6 +138,7 @@ Module Contents
    
 
 .. py:data:: schema_by_name
+   :type: dict[SUPPORTED_SCHEMA, Optional[ifcopenshell.ifcopenshell_wrapper.schema_definition]]
 
    
 

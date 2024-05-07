@@ -29,18 +29,6 @@
 Module Contents
 ---------------
 
-.. py:function:: _get_version(filepath: Union[str, pathlib.Path], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> str
-
-   Returns the version of the BCF file.
-
-   Args:
-       filepath: The path to the BCF file.
-       xml_handler: The XML handler. If none is given, XmlParserSerializer is used.
-
-   Returns:
-       The version of the BCF file.
-
-
 .. py:function:: load(filepath: pathlib.Path, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[Union[bcf.v2.bcfxml.BcfXml, bcf.v3.bcfxml.BcfXml]]
 
    Load a BCF file.

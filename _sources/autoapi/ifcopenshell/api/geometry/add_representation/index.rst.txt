@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
 
    .. py:method:: convert_si_to_unit(co)
@@ -19,7 +19,7 @@ Module Contents
    .. py:method:: create_annotation3d_representation()
 
 
-   .. py:method:: create_annotation_fill_areas(is_2d=False)
+   .. py:method:: create_annotation_fill_areas(is_2d=False) -> list[ifcopenshell.entity_instance]
 
 
    .. py:method:: create_arbitrary_extrusion_representation()
@@ -40,7 +40,7 @@ Module Contents
    .. py:method:: create_cartesian_point(x, y, z=None)
 
 
-   .. py:method:: create_cartesian_point_list_from_vertices(vertices, is_2d=False)
+   .. py:method:: create_cartesian_point_list_from_vertices(vertices: list[bpy.types.MeshVertex], is_2d=False)
 
 
    .. py:method:: create_circle_extrusion_representation()
@@ -55,13 +55,13 @@ Module Contents
    .. py:method:: create_curve_bounded_planes(is_2d=False)
 
 
-   .. py:method:: create_curve_from_polygon(points, polygon, is_2d=False)
+   .. py:method:: create_curve_from_polygon(points: ifcopenshell.entity_instance, polygon: bpy.types.MeshPolygon, is_2d=False) -> ifcopenshell.entity_instance
 
 
    .. py:method:: create_curve_from_polygon_ifc2x3(polygon, is_2d=False)
 
 
-   .. py:method:: create_curves(should_exclude_faces=False, is_2d=False)
+   .. py:method:: create_curves(should_exclude_faces=False, is_2d=False, ignore_non_loose_edges=False)
 
 
    .. py:method:: create_curves_from_curve(is_2d=False, curve_object_data=None)
@@ -73,7 +73,7 @@ Module Contents
    .. py:method:: create_curves_from_mesh(should_exclude_faces=False, is_2d=False)
 
 
-   .. py:method:: create_curves_from_mesh_ifc2x3(should_exclude_faces=False, is_2d=False)
+   .. py:method:: create_curves_from_mesh_ifc2x3(should_exclude_faces=False, is_2d=False) -> list[ifcopenshell.entity_instance]
 
 
    .. py:method:: create_edge()
@@ -162,6 +162,9 @@ Module Contents
 
    .. py:method:: should_triangulate_face(face, threshold=EPSILON)
 
+
+
+.. py:function:: add_representation(file: ifcopenshell.file, **usecase_settings) -> ifcopenshell.entity_instance
 
 
 .. py:data:: EPSILON

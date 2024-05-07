@@ -10,8 +10,6 @@ Module Contents
 .. py:class:: StdoutRedirector(widget)
 
 
-   Bases: :py:obj:`object`
-
    A class for redirecting stdout to this Text widget.
 
    .. py:method:: write(myStr)

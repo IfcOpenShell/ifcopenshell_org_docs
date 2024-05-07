@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, objective=None)
+.. py:function:: add_metric(file, objective=None) -> None
 
-
-   
    Add a new metric benchmark
 
    Qualitative constraints may have a series of quantitative benchmarks
@@ -19,9 +17,9 @@ Module Contents
    to meet the objective of the constraint.
 
    :param objective: The IfcObjective that this metric is a benchmark of.
-   :type objective: ifcopenshell.entity_instance.entity_instance
+   :type objective: ifcopenshell.entity_instance
    :return: The newly created IfcMetric entity
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -30,8 +28,5 @@ Module Contents
        objective = ifcopenshell.api.run("constraint.add_objective", model)
        metric = ifcopenshell.api.run("constraint.add_metric", model,
            objective=objective)
-
-   .. py:method:: execute()
-
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, resource=None)
+.. py:function:: add_resource_time(file, resource=None) -> None
 
-
-   
    Adds the time that a resource is used for
 
    For labour and equipment resources, the total duration that the resource
@@ -19,9 +17,9 @@ Module Contents
    be used to calculate other parameters like resource utilisation.
 
    :param resource: The IfcConstructionResource to record time for.
-   :type resource: ifcopenshell.entity_instance.entity_instance
+   :type resource: ifcopenshell.entity_instance
    :return: The newly created IfcResourceTime
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -46,8 +44,5 @@ Module Contents
        time = ifcopenshell.api.run("resource.add_resource_time", model, resource=labour)
        ifcopenshell.api.run("resource.edit_resource_time", model,
            resource_time=time, attributes={"ScheduleWork": "PT16H"})
-
-   .. py:method:: execute()
-
 
 

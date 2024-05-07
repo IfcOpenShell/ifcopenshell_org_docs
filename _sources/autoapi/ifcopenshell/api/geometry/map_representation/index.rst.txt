@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
 
    .. py:method:: execute()
@@ -15,5 +15,8 @@ Module Contents
 
    .. py:method:: get_mapping_source()
 
+
+
+.. py:function:: map_representation(file, **usecase_settings) -> None
 
 

@@ -7,18 +7,16 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, reference=None, product=None)
+.. py:function:: unassign_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> None
 
-
-   
-   Unassigns a product from a reference
+   Unassigns a product of products from a reference
 
    If the product isn't assigned to the reference, nothing will happen.
 
    :param reference: The IfcLibraryReference to unassign from
-   :type reference: ifcopenshell.entity_instance.entity_instance
-   :param product: A IfcProduct element to unassign from the reference
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type reference: ifcopenshell.entity_instance
+   :param products: A list of IfcProduct elements to unassign from the reference
+   :type products: list[ifcopenshell.entity_instance]
    :return: None
    :rtype: None
 
@@ -38,12 +36,9 @@ Module Contents
            ifc_class="IfcUnitaryEquipment", predefined_type="AIRHANDLER")
 
        # And now assign the IFC model's AHU with its Brickschema counterpart
-       ifcopenshell.api.run("library.assign_reference", model, reference=reference, product=ahu)
+       ifcopenshell.api.run("library.assign_reference", model, reference=reference, products=[ahu])
 
        # Let's change our mind and unassign it.
-       ifcopenshell.api.run("library.unassign_reference", model, reference=reference, product=ahu)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("library.unassign_reference", model, reference=reference, products=[ahu])
 
 

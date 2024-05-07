@@ -7,17 +7,19 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
-
-   
-   units in settings expected to be in ifc project units
 
    .. py:method:: convert_si_to_unit(value)
 
 
    .. py:method:: execute()
 
+
+
+.. py:function:: add_window_representation(file, **usecase_settings) -> None
+
+   units in usecase_settings expected to be in ifc project units
 
 
 .. py:function:: create_ifc_window(builder, lining_size: mathutils.Vector, lining_thickness: list, lining_to_panel_offset_x, lining_to_panel_offset_y_full, frame_size: mathutils.Vector, frame_thickness, glass_thickness, position: mathutils.Vector, x_offsets: list = None)

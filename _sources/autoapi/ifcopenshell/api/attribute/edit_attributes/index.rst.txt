@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, attributes=None)
+.. py:function:: edit_attributes(file, product=None, attributes=None) -> None
 
-
-   
    Edit the attributes of a product
 
    All IFC entities have attributes. Normally they can be edited directly,
@@ -20,7 +18,7 @@ Module Contents
 
    :param product: The product you want to edit. This may be any rooted IFC
        entity.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :type product: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
    :type attributes: dict, optional
    :return: None
@@ -33,8 +31,5 @@ Module Contents
        element = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
        ifcopenshell.api.run("attribute.edit_attributes", model,
            product=element, attributes={"Name": "Waldo"})
-
-   .. py:method:: execute()
-
 
 

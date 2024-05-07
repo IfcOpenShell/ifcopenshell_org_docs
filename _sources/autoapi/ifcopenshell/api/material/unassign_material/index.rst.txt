@@ -7,11 +7,22 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None)
+.. py:class:: Usecase
 
 
-   
-   Removes any material relationship with a product
+   .. py:method:: execute()
+
+
+   .. py:method:: remove_material_usages_from_types() -> None
+
+
+   .. py:method:: unassign_materials() -> None
+
+
+
+.. py:function:: unassign_material(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance]) -> None
+
+   Removes any material relationship with the list of products
 
    A product can only have one material assigned to it, which is why it is
    not necessary to specify the material to unassign. The material is not
@@ -19,8 +30,8 @@ Module Contents
 
    If the product does not have a material, nothing happens.
 
-   :param product: The IfcProduct that may or may not have a material
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :param products: The list IfcProducts that may or may not have a material
+   :type product: list[ifcopenshell.entity_instance]
    :return: None
    :rtype: None
 
@@ -33,14 +44,11 @@ Module Contents
        # Let's imagine a concrete bench made out of concrete.
        bench_type = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcFurnitureType")
        ifcopenshell.api.run("material.assign_material", model,
-           product=bench_type, type="IfcMaterial", material=concrete)
+           products=[bench_type], type="IfcMaterial", material=concrete)
 
        # Let's change our mind and remove the concrete assignment. The
        # concrete material still exists, but the bench is no longer made
        # out of concrete now.
-       ifcopenshell.api.run("material.unassign_material", model, product=bench_type)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("material.unassign_material", model, products=[bench_type])
 
 

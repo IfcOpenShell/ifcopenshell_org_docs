@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
 
    .. py:method:: convert_si_to_unit(co)
@@ -33,5 +33,8 @@ Module Contents
 
    .. py:method:: execute()
 
+
+
+.. py:function:: add_boolean(file, **usecase_settings) -> None
 
 

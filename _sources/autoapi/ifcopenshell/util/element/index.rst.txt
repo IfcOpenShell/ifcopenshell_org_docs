@@ -23,7 +23,7 @@ Module Contents
    on existing variables in memory.
 
    :param ifc_file: The IFC file object
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :rtype: None
 
    Example:
@@ -49,23 +49,23 @@ Module Contents
    GlobalIds are regenerated.
 
    :param ifc_file: The IFC file object
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param element: The IFC element to copy
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The newly copied element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
 
-.. py:function:: copy_deep(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, exclude: Optional[List[str]] = None, exclude_callback: Optional[Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+.. py:function:: copy_deep(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, exclude: Optional[list[str]] = None, exclude_callback: Optional[Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
 
    Recursively copy an element and all of its directly related subelements.
 
    GlobalIds are regenerated.
 
    :param ifc_file: The IFC file object
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param element: The IFC element to copy
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :param exclude: An optional list of strings of IFC class names to not copy.
        If any of the subelement is this class, it will not be copied and the
        original instance will be referenced.
@@ -76,9 +76,9 @@ Module Contents
    :param copied_entities: A dictionary of IDs as keys and entities as values
        to reuse when coming across the same entity twice. This can typically
        be left as None.
-   :type copied_entities: dict[int:ifcopenshell.entity_instance.entity_instance], optional
+   :type copied_entities: dict[int:ifcopenshell.entity_instance], optional
    :return: The newly copied element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
 
 .. py:function:: get_aggregate(element: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -86,9 +86,9 @@ Module Contents
    Retrieves the aggregate parent of an element.
 
    :param element: The IFC element
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The aggregate of the element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -98,7 +98,7 @@ Module Contents
        aggregate = ifcopenshell.util.element.get_aggregate(element)
 
 
-.. py:function:: get_components(element: ifcopenshell.entity_instance, include_ports=False) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_components(element: ifcopenshell.entity_instance, include_ports=False) -> list[ifcopenshell.entity_instance]
 
    Retrieves the components of an element that have an nest relationship.
 
@@ -108,7 +108,7 @@ Module Contents
    :param include_ports: Default as False. Set to true if you also want to get ports.
    :type include_ports: bool,optional
    :return: The components of the element
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -118,12 +118,12 @@ Module Contents
        components = ifcopenshell.util.element.get_components(element)
 
 
-.. py:function:: get_container(element: ifcopenshell.entity_instance, should_get_direct=False, ifc_class: Optional[str] = None) -> ifcopenshell.entity_instance
+.. py:function:: get_container(element: ifcopenshell.entity_instance, should_get_direct: bool = False, ifc_class: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Retrieves the spatial structure container of an element.
 
    :param element: The IFC element
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :param should_get_direct: If True, a result is only returned if the element
        is directly contained in a spatial structure element. If False, an
        indirect spatial container may be returned, such as if an element is a
@@ -134,7 +134,7 @@ Module Contents
        example, you may be after the storey, not a space.
    :type ifc_class: str, optional
    :return: The direct or indirect container of the element or None.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -144,16 +144,16 @@ Module Contents
        container = ifcopenshell.util.element.get_container(element)
 
 
-.. py:function:: get_decomposition(element: ifcopenshell.entity_instance, is_recursive=True) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_decomposition(element: ifcopenshell.entity_instance, is_recursive=True) -> list[ifcopenshell.entity_instance]
 
    Retrieves all subelements of an element based on the spatial decomposition
    hierarchy. This includes all subspaces and elements contained in subspaces,
    parts of an aggreate, all openings, and all fills of any openings.
 
    :param element: The IFC element
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The decomposition of the element
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -163,19 +163,19 @@ Module Contents
        decomposition = ifcopenshell.util.element.get_decomposition(element)
 
 
-.. py:function:: get_elements_by_layer(ifc_file: ifcopenshell.file, layer: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_elements_by_layer(ifc_file: ifcopenshell.file, layer: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Get all the elements that are used by a presentation layer
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param layer: The IfcPresentationLayerAssignment layer
-   :type layer: ifcopenshell.entity_instance.entity_instance
+   :type layer: ifcopenshell.entity_instance
    :return: The elements using the geometric representation
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_elements_by_material(ifc_file: ifcopenshell.file, material: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_elements_by_material(ifc_file: ifcopenshell.file, material: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Retrieves the elements related to a material.
 
@@ -183,11 +183,11 @@ Module Contents
    usage.
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param material: The IFC Material entity
-   :type material: ifcopenshell.entity_instance.entity_instance
+   :type material: ifcopenshell.entity_instance
    :return: A list of elements using the to the material
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -197,16 +197,16 @@ Module Contents
        elements = ifcopenshell.util.element.get_elements_by_material(file, material)
 
 
-.. py:function:: get_elements_by_representation(ifc_file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_elements_by_representation(ifc_file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Gets all elements using a geometric representation
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param representation: The IfcShapeRepresentation representation
-   :type representation: ifcopenshell.entity_instance.entity_instance
+   :type representation: ifcopenshell.entity_instance
    :return: The elements using the geometric representation
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -216,16 +216,16 @@ Module Contents
        elements = ifcopenshell.util.element.get_elements_by_representation(file, representation)
 
 
-.. py:function:: get_elements_by_style(ifc_file: ifcopenshell.file, style: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_elements_by_style(ifc_file: ifcopenshell.file, style: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Retrieves the elements whose geometric representation uses a style
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param style: The IfcPresentationStyle entity
-   :type style: ifcopenshell.entity_instance.entity_instance
+   :type style: ifcopenshell.entity_instance
    :return: The elements related to the style
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -235,14 +235,14 @@ Module Contents
        elements = ifcopenshell.util.element.get_elements_by_style(file, style)
 
 
-.. py:function:: get_grouped_by(element: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_grouped_by(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Retrieves all subelements of an element based on the group.
 
    :param element: The IFC element
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: All subelements of the group
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -252,7 +252,23 @@ Module Contents
        subelements = ifcopenshell.util.element.get_grouped_by(element)
 
 
-.. py:function:: get_layers(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_groups(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+   Retrieves the groups of an element.
+
+   :param element: The IFC element
+   :return: List of IfcGroups element is assigned to.
+   :rtype: list[ifcopenshell.entity_instance]
+
+   Example:
+
+   .. code:: python
+
+       wall = file.by_type("IfcWall")[0]
+       group = ifcopenshell.util.element.get_groups(element)[0]
+
+
+.. py:function:: get_layers(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Get the CAD layers that an element is part of
 
@@ -260,11 +276,11 @@ Module Contents
    traditional CAD presentation layer.
 
    :param ifc_file: The IFC file object
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param element: The IFC element to interrogate
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: A list of IfcPresentationLayerAssignment
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -274,7 +290,7 @@ Module Contents
        layers = ifcopenshell.util.element.get_layers(element)
 
 
-.. py:function:: get_material(element: ifcopenshell.entity_instance, should_skip_usage=False, should_inherit=True) -> ifcopenshell.entity_instance
+.. py:function:: get_material(element: ifcopenshell.entity_instance, should_skip_usage=False, should_inherit=True) -> Union[ifcopenshell.entity_instance, None]
 
    Gets the material of the element
 
@@ -282,7 +298,7 @@ Module Contents
    constituent), or a material set usage.
 
    :param element: The element to get the material of.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :param should_skip_usage: If set to True, if the material is a material set
        usage, the material set itself will be returned. Useful if you don't
        care about occurrence usage parameters. If False, the usage will be
@@ -291,8 +307,8 @@ Module Contents
    :param should_inherit: If True, any inherited materials from associated
        types will be considered.
    :type should_inherit: bool
-   :return: The associated material of the element.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :return: The associated material of the element or `None`.
+   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -302,7 +318,7 @@ Module Contents
        material = ifcopenshell.util.element.get_material(element)
 
 
-.. py:function:: get_materials(element: ifcopenshell.entity_instance, should_inherit=True) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_materials(element: ifcopenshell.entity_instance, should_inherit: bool = True) -> list[ifcopenshell.entity_instance]
 
    Gets individual materials of an element
 
@@ -310,11 +326,11 @@ Module Contents
    returned as a list.
 
    :param element: The element to get the materials of.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :param should_inherit: If True, any inherited materials from associated
        types will be considered.
    :return: The associated materials of the element.
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -329,9 +345,9 @@ Module Contents
    Retrieves the nest parent of an element.
 
    :param element: The IFC element
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The nested whole of the element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -341,14 +357,14 @@ Module Contents
        aggregate = ifcopenshell.util.element.get_nest(element)
 
 
-.. py:function:: get_parts(element: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_parts(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Retrieves the parts of an element that have an aggregation relationship.
 
    :param element: The IFC element
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The parts of the element
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -368,7 +384,7 @@ Module Contents
    considered first.
 
    :param element: The IFC Element entity
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The predefined type of the element
    :rtype: str
 
@@ -380,16 +396,23 @@ Module Contents
        predefined_type = ifcopenshell.util.element.get_predefined_type(element)
 
 
-.. py:function:: get_properties(properties: list[ifcopenshell.entity_instance], verbose=False) -> dict[str, dict[str, Any]]
+.. py:function:: get_properties(properties: list[ifcopenshell.entity_instance], verbose: Literal[False] = False) -> dict[str, Any]
+                 get_properties(properties: list[ifcopenshell.entity_instance], verbose: Literal[True]) -> dict[str, dict[str, Any]]
 
 
-.. py:function:: get_property(properties: list[ifcopenshell.entity_instance], name: str, verbose=False) -> Union[Any, dict[str, Any]]
+.. py:function:: get_property(properties: list[ifcopenshell.entity_instance], name: str, verbose: Literal[False] = False) -> Any
+                 get_property(properties: list[ifcopenshell.entity_instance], name: str, verbose: Literal[True]) -> dict[str, Any]
 
 
-.. py:function:: get_property_definition(definition: ifcopenshell.entity_instance, prop: Optional[str] = None, verbose=False) -> Union[Any, dict[str, Any]]
+.. py:function:: get_property_definition(definition: Optional[ifcopenshell.entity_instance], prop: None = None, verbose=False) -> dict[str, Any]
+                 get_property_definition(definition: Optional[ifcopenshell.entity_instance], prop: str, verbose=False) -> Any
+                 get_property_definition(definition: None, prop: None = None, verbose: bool = False) -> None
+
+   if prop name is not provided in `prop`, will return dict of all available properties
+   otherwise will return the value of the specified `prop`.
 
 
-.. py:function:: get_pset(element: ifcopenshell.entity_instance, name: str, prop: Optional[str] = None, psets_only=False, qtos_only=False, should_inherit=True, verbose=False) -> Union[Any, dict[str, Any]]
+.. py:function:: get_pset(element: ifcopenshell.entity_instance, name: str, prop: Optional[str] = None, psets_only: bool = False, qtos_only: bool = False, should_inherit: bool = True, verbose: bool = False) -> Union[Any, dict[str, Any]]
 
    Retrieve a single property set or single property
 
@@ -400,7 +423,7 @@ Module Contents
    occurrence, not the type's pset.
 
    :param element: The IFC Element entity
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :param name: The name of the pset
    :type name: str
    :param prop: The name of the property
@@ -413,13 +436,13 @@ Module Contents
    :type should_inherit: bool,optional
    :return: A dictionary of property names and values, or a single value if a
        property is specified.
-   :rtype: dict[str, Any]
+   :rtype: Union[Any, dict[str, Any]]
 
    Example:
 
    .. code:: python
 
-       element = ifcopenshell.by_type("IfcWall")[0]
+       element = ifc_file.by_type("IfcWall")[0]
        psets_and_qtos = ifcopenshell.util.element.get_pset(element, "Pset_WallCommon")
 
 
@@ -431,13 +454,15 @@ Module Contents
    occurrence, not the type's pset.
 
    :param element: The IFC Element entity
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :param psets_only: Default as False. Set to true if only property sets are needed.
    :type psets_only: bool,optional
    :param qtos_only: Default as False. Set to true if only quantities are needed.
    :type qtos_only: bool,optional
    :param should_inherit: Default as True. Set to false if you don't want to inherit property sets from the Type.
    :type should_inherit: bool,optional
+   :param verbose: More detailed prop values, defaults to False.
+   :type verbose: bool,optional
    :return: Key, value pair of psets' names and their properties' names & values
    :rtype: dict[str, dict[str, Any]]
 
@@ -445,19 +470,38 @@ Module Contents
 
    .. code:: python
 
-       element = ifcopenshell.by_type("IfcWall")[0]
+       element = ifc_file.by_type("IfcWall")[0]
        psets = ifcopenshell.util.element.get_psets(element, psets_only=True)
        qsets = ifcopenshell.util.element.get_psets(element, qtos_only=True)
        psets_and_qtos = ifcopenshell.util.element.get_psets(element)
 
 
-.. py:function:: get_quantities(quantities: list[ifcopenshell.entity_instance], verbose=False) -> dict[str, dict[str, Any]]
+.. py:function:: get_quantities(quantities: list[ifcopenshell.entity_instance], verbose: Literal[False] = False) -> dict[str, Any]
+                 get_quantities(quantities: list[ifcopenshell.entity_instance], verbose: Literal[True]) -> dict[str, dict[str, Any]]
 
 
-.. py:function:: get_quantity(quantities: list[ifcopenshell.entity_instance], name: str, verbose=False) -> Union[Any, dict[str, Any]]
+.. py:function:: get_quantity(quantities: list[ifcopenshell.entity_instance], name: str, verbose: Literal[False] = False) -> Any
+                 get_quantity(quantities: list[ifcopenshell.entity_instance], name: str, verbose: Literal[True]) -> dict[str, Any]
 
 
-.. py:function:: get_referenced_structures(element: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_referenced_elements(reference: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
+
+   Get all elements with assigned `reference`
+
+   :param reference: IfcExternalReference subtype reference
+   :type reference: ifcopenshell.entity_instance
+   :return: The elements with assigned `reference`
+   :rtype: set[ifcopenshell.entity_instance]
+
+   Example:
+
+   .. code:: python
+
+       reference = file.by_type("IfcClassificationReference")[0]
+       elements = ifcopenshell.util.element.get_referenced_elements(reference)
+
+
+.. py:function:: get_referenced_structures(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Retreives a list of referenced spatial elements
 
@@ -466,9 +510,9 @@ Module Contents
    as stairs, doors, etc.
 
    :param element: The IFC element
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: A list of IfcSpatialElement
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -478,14 +522,14 @@ Module Contents
        print(ifcopenshell.util.element.get_referenced_structures(element))
 
 
-.. py:function:: get_shape_aspects(element: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_shape_aspects(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Gets element shape aspects
 
    :param element: The element to get the shape aspects of.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The associated shape aspects of the element.
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -495,16 +539,33 @@ Module Contents
        shape_aspect = ifcopenshell.util.element.get_shape_aspects(element)
 
 
-.. py:function:: get_styles(element: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_structure_referenced_elements(structure: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
+
+   Retreives a set of elements referenced by a structure
+
+   :param structure: IfcSpatialElement
+   :type element: ifcopenshell.entity_instance
+   :return: A set of referenced elements, IfcSpatialReferenceSelect
+   :rtype: set[ifcopenshell.entity_instance]
+
+   Example:
+
+   .. code:: python
+
+       element = file.by_type("IfcBuildingStorey")[0]
+       print(ifcopenshell.util.element.get_structure_referenced_elements(element))
+
+
+.. py:function:: get_styles(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Retrieves the styles used in an element's representation.
 
    Styles may be retreived from the material or the body representation.
 
    :param element: The element to get the styles of.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: A list of surface styles
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -519,9 +580,9 @@ Module Contents
    Retrieves the construction type element of an element occurrence
 
    :param element: The element occurrence
-   :type: ifcopenshell.entity_instance.entity_instance
+   :type: ifcopenshell.entity_instance
    :return: The related type element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -531,14 +592,14 @@ Module Contents
        element_type = ifcopenshell.util.element.get_type(element)
 
 
-.. py:function:: get_types(type: ifcopenshell.entity_instance) -> List[ifcopenshell.entity_instance]
+.. py:function:: get_types(type: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Get all the occurrences of a type element
 
    :param type: The type element
-   :type type: ifcopenshell.entity_instance.entity_instance
+   :type type: ifcopenshell.entity_instance
    :return: A list of occurrences of that type
-   :rtype: list[ifcopenshell.entity_instance.entity_instance]
+   :rtype: list[ifcopenshell.entity_instance]
 
    Example:
 
@@ -558,7 +619,7 @@ Module Contents
    Do not use, use remove_deep2() instead.
 
 
-.. py:function:: remove_deep2(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, also_consider: List[ifcopenshell.entity_instance] = [], do_not_delete: List[ifcopenshell.entity_instance] = []) -> None
+.. py:function:: remove_deep2(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, also_consider: list[ifcopenshell.entity_instance] = [], do_not_delete: list[ifcopenshell.entity_instance] = []) -> None
 
    Recursively purges a subgraph safely, starting at an element
 
@@ -585,13 +646,13 @@ Module Contents
    subgraph but are protected from deletion.
 
    :param ifc_file: The IFC file object
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :param also_consider: elements to also consider as a part of a subgraph
-   :type also_consider: list[ifcopenshell.entity_instance.entity_instance], optional
+   :type also_consider: list[ifcopenshell.entity_instance], optional
    :param do_not_delete: elements to protect from deletion
-   :type do_not_delete: list[ifcopenshell.entity_instance.entity_instance], optional
+   :type do_not_delete: list[ifcopenshell.entity_instance], optional
    :param element: The starting element that defines the subgraph
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
 
 
 .. py:function:: replace_attribute(element: ifcopenshell.entity_instance, old: Any, new: Any) -> None
@@ -604,8 +665,17 @@ Module Contents
    See documentation for batch_remove_deep2.
 
    :param ifc_file: The IFC file object
-   :type ifc_file: ifcopenshell.file.file
+   :type ifc_file: ifcopenshell.file
    :return: A newly loaded file with the elements removed.
-   :rtype: ifcopenshell.file.file
+   :rtype: ifcopenshell.file
 
+
+.. py:data:: REFERENCE_TYPES
+   :type: dict[str, ReferenceData]
+
+   
+
+.. py:data:: ReferenceData
+
+   
 

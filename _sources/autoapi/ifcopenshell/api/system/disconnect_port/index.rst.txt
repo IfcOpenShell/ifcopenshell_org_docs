@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, port=None)
+.. py:function:: disconnect_port(file, port=None) -> None
 
-
-   
    Disconnects a port from any other port
 
    A port may only be connected to one other port, so the other port is not
    needed to be specified.
 
    :param port: The IfcDistributionPort to disconnect.
-   :type port: ifcopenshell.entity_instance.entity_instance
+   :type port: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -35,8 +33,8 @@ Module Contents
            ifc_class="IfcDuctFitting", predefined_type="BEND")
 
        # The duct and fitting is part of the system
-       ifcopenshell.api.run("system.assign_system", model, product=duct, system=system)
-       ifcopenshell.api.run("system.assign_system", model, product=fitting, system=system)
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+       ifcopenshell.api.run("system.assign_system", model, products=[fitting], system=system)
 
        # Create 2 ports, one for either end of both the duct and fitting.
        duct_port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
@@ -52,8 +50,5 @@ Module Contents
        # Disconnect the port. note we could've equally disconnected
        # fitting_port1 instead of duct_port2
        ifcopenshell.api.run("system.disconnect_port", model, port=duct_port2)
-
-   .. py:method:: execute()
-
 
 

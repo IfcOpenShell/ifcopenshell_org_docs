@@ -7,14 +7,12 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, time_period=None)
+.. py:function:: remove_time_period(file, time_period=None) -> None
 
-
-   
    Removes a time period
 
    :param time_period: The IfcTimePeriod to remove.
-   :type time_period: ifcopenshell.entity_instance.entity_instance
+   :type time_period: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -45,8 +43,5 @@ Module Contents
 
        # Let's take the afternoon off!
        ifcopenshell.api.run("sequence.remove_time_period", model, time_period=afternoon)
-
-   .. py:method:: execute()
-
 
 

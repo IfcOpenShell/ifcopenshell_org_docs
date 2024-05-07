@@ -18,27 +18,6 @@ Module Contents
       Return the GUID of the visualization info.
 
 
-   .. py:method:: _load_bitmaps(topic_dir: zipfile.Path, visinfo: Optional[bcf.v2.model.VisualizationInfo]) -> dict[str, bytes]
-      :staticmethod:
-
-
-   .. py:method:: _load_snapshot(topic_dir: zipfile.Path, vp_snapshot: Optional[str]) -> Optional[bytes]
-      :staticmethod:
-
-
-   .. py:method:: _load_visinfo(topic_dir: zipfile.Path, vp_name: Optional[str], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[bcf.v2.model.VisualizationInfo]
-      :staticmethod:
-
-
-   .. py:method:: _save_bitmaps(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str) -> None
-
-
-   .. py:method:: _save_snapshot(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str, filename: Optional[str]) -> None
-
-
-   .. py:method:: _save_visinfo(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str, vp_name: str) -> None
-
-
    .. py:method:: create_from_point_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> VisualizationInfoHandler
       :classmethod:
 

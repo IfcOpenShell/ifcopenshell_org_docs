@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_product=None, related_object=None)
+.. py:function:: assign_product(file, relating_product=None, related_object=None) -> None
 
-
-   
    Assigns a product to be produced as a result of a process
 
    A construction task may result in products (e.g. a wall) being
@@ -26,12 +24,12 @@ Module Contents
 
    :param relating_product: The IfcProduct that was constructed as a result
        of the task.
-   :type relating_product: ifcopenshell.entity_instance.entity_instance
+   :type relating_product: ifcopenshell.entity_instance
    :param related_object: The IfcProcess (typically IfcTask) of the
        construction task.
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :type related_object: ifcopenshell.entity_instance
    :return: The newly created IfcRelAssignsToProduct relationship
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -51,8 +49,5 @@ Module Contents
 
        # Let's construct that wall!
        ifcopenshell.api.run("sequence.assign_product", model, relating_product=wall, related_object=task)
-
-   .. py:method:: execute()
-
 
 

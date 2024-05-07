@@ -21,21 +21,8 @@ Module Contents
 .. py:class:: Expression(contents)
 
 
-   .. py:method:: __iter__()
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
 
 .. py:class:: Keyword(contents)
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
 
 
 
@@ -72,11 +59,6 @@ Module Contents
 
 
 .. py:class:: Terminal(contents)
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
 
 
 

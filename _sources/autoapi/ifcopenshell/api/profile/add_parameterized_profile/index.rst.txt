@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, ifc_class=None)
+.. py:function:: add_parameterized_profile(file, ifc_class=None) -> None
 
-
-   
    Adds a new parameterised profile
 
    IFC offers parameterised profiles for common standardised hot roll
@@ -18,13 +16,13 @@ Module Contents
    the IFC documentation as subclasses of IfcParameterizedProfileDef.
 
    Currently, this API has no benefit over directly calling
-   ifcopenshell.file.file.create_entity.
+   ifcopenshell.file.create_entity.
 
    :param ifc_class: The subclass of IfcParameterizedProfileDef that you'd
        like to create.
    :type ifc_class: str
    :return: The newly created element depending on the specified ifc_class.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -33,8 +31,5 @@ Module Contents
        circle = ifcopenshell.api.run("profile.add_parameterized_profile", model,
            ifc_class="IfcCircleProfileDef")
        circle.Radius = 1.
-
-   .. py:method:: execute()
-
 
 

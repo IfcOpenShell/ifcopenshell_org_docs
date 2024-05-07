@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, source=None, destination=None)
+.. py:function:: copy_cost_item_values(file, source=None, destination=None) -> None
 
-
-   
    Copies all cost values from one cost item to another
 
    Any previously existing values will be removed. The entire value is
@@ -18,9 +16,9 @@ Module Contents
    parametrically linked, so if one value changes, the other will not.
 
    :param source: The IfcCostItem to copy cost values from
-   :type source: ifcopenshell.entity_instance.entity_instance
+   :type source: ifcopenshell.entity_instance
    :param destination: The IfcCostItem to copy cost values from
-   :type destination: ifcopenshell.entity_instance.entity_instance
+   :type destination: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -40,8 +38,5 @@ Module Contents
 
        # Let's copy the value from one item to another
        ifcopenshell.api.run("cost.copy_cost_item_values", model, source=item1, destination=item2)
-
-   .. py:method:: execute()
-
 
 

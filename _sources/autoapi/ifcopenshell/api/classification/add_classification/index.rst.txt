@@ -7,10 +7,21 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, classification=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: add_from_library()
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: relate_to_project(classification)
+
+
+
+.. py:function:: add_classification(file: ifcopenshell.file, classification: Union[str, ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
+
    Adds a new classification system to the project
 
    External classification systems such as Uniclass or Omniclass are
@@ -46,9 +57,9 @@ Module Contents
        classification library. The latter approach is preferred if you are
        using a commonly known system such as Uniclass, as this will ensure
        all metadata is added correctly.
-   :type classification: str,ifcopenshell.entity_instance.entity_instance
+   :type classification: str,ifcopenshell.entity_instance
    :return: The added IfcClassification element
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -63,14 +74,5 @@ Module Contents
        classification = library.by_type("IfcClassification")[0]
        ifcopenshell.api.run("classification.add_classification", model,
            classification=classification)
-
-   .. py:method:: add_from_library()
-
-
-   .. py:method:: execute()
-
-
-   .. py:method:: relate_to_project(classification)
-
 
 

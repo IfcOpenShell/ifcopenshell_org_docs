@@ -7,28 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, style=None)
+.. py:class:: Usecase
 
-
-   
-   Removes a presentation style
-
-   All of the presentation items of the style will also be removed.
-
-   :param style: The IfcPresentationStyle to remove.
-   :type style: ifcopenshell.entity_instance.entity_instance
-   :return: None
-   :rtype: None
-
-   Example:
-
-   .. code:: python
-
-       # Create a new surface style
-       style = ifcopenshell.api.run("style.add_style", model)
-
-       # Not anymore!
-       ifcopenshell.api.run("style.remove_style", model, style=style)
 
    .. py:method:: execute()
 
@@ -41,5 +21,27 @@ Module Contents
 
    .. py:method:: purge_styled_representations(styled_item)
 
+
+
+.. py:function:: remove_style(file, style=None) -> None
+
+   Removes a presentation style
+
+   All of the presentation items of the style will also be removed.
+
+   :param style: The IfcPresentationStyle to remove.
+   :type style: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Create a new surface style
+       style = ifcopenshell.api.run("style.add_style", model)
+
+       # Not anymore!
+       ifcopenshell.api.run("style.remove_style", model, style=style)
 
 

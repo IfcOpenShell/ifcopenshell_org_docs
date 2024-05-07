@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file: ifcopenshell.file, **settings)
+.. py:class:: Usecase
 
 
    .. py:method:: convert_si_to_unit(co)
@@ -24,5 +24,8 @@ Module Contents
 
    .. py:method:: execute()
 
+
+
+.. py:function:: add_mesh_representation(file: ifcopenshell.file, **usecase_settings) -> None
 
 

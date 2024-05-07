@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file)
+.. py:function:: remove_georeferencing(file) -> None
 
-
-   
    Remove georeferencing data
 
    All georeferencing parameters such as projected CRS and map conversion
@@ -24,8 +22,5 @@ Module Contents
        ifcopenshell.api.run("georeference.add_georeferencing", model)
        # Let's change our mind
        ifcopenshell.api.run("georeference.remove_georeferencing", model)
-
-   .. py:method:: execute()
-
 
 

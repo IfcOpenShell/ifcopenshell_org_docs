@@ -28,11 +28,6 @@ Module Contents
 
       
 
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
    .. py:method:: get_type()
 
 
@@ -49,27 +44,11 @@ Module Contents
 
       
 
-   .. py:method:: __iter__()
-
-
-   .. py:method:: __len__()
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
 
 .. py:class:: BinaryType(s, loc, tokens, rule=None)
 
 
    Bases: :py:obj:`Node`
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
 
 .. py:class:: BoundSpecification(s, loc, tokens, rule=None)
@@ -84,11 +63,6 @@ Module Contents
    .. py:attribute:: upper
 
       
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
 
 .. py:class:: EntityDeclaration(s, loc, tokens, rule=None)
@@ -116,11 +90,6 @@ Module Contents
 
       
 
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
    .. py:method:: get_abstract()
 
 
@@ -136,11 +105,6 @@ Module Contents
    .. py:attribute:: values
 
       
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
 
 .. py:class:: ExplicitAttribute(s, loc, tokens, rule=None)
@@ -159,11 +123,6 @@ Module Contents
    .. py:attribute:: type
 
       
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
    .. py:method:: get_type()
 
@@ -200,21 +159,8 @@ Module Contents
 
       
 
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
 
 .. py:class:: ListNode(s, loc, tokens, rule=None)
-
-
-   .. py:method:: __iter__()
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
 
 
    .. py:method:: init()
@@ -230,27 +176,8 @@ Module Contents
 
       
 
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
 
 .. py:class:: Node(s, loc, tokens, rule=None)
-
-
-   .. py:method:: __getattr__(k)
-
-
-   .. py:method:: __getstate__()
-
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
-   .. py:method:: __setstate__(d)
 
 
    .. py:method:: any()
@@ -284,11 +211,6 @@ Module Contents
 
       
 
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
 
 .. py:class:: SimpleType(s, loc, tokens, rule=None)
 
@@ -298,11 +220,6 @@ Module Contents
    .. py:attribute:: type
 
       
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
    .. py:method:: get_type()
 
@@ -317,11 +234,6 @@ Module Contents
 
       
 
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
 
 .. py:class:: SubTypeExpression(s, loc, tokens, rule=None)
 
@@ -331,11 +243,6 @@ Module Contents
    .. py:attribute:: super_type
 
       
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
 
 .. py:class:: SuperTypeExpression(s, loc, tokens, rule=None)
@@ -350,11 +257,6 @@ Module Contents
    .. py:attribute:: sub_types
 
       
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
    .. py:method:: get_sub_types()
 
@@ -377,11 +279,6 @@ Module Contents
 
       
 
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
-
    .. py:method:: init()
 
 
@@ -394,11 +291,6 @@ Module Contents
    .. py:attribute:: fixed
 
       
-
-   .. py:method:: __repr__()
-
-      Return repr(self).
-
 
    .. py:method:: init()
 

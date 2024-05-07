@@ -7,16 +7,14 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_process=None, related_process=None)
+.. py:function:: unassign_sequence(file, relating_process=None, related_process=None) -> None
 
-
-   
    Removes a sequence relationship between tasks
 
    :param relating_process: The previous / predecessor task.
-   :type relating_process: ifcopenshell.entity_instance.entity_instance
+   :type relating_process: ifcopenshell.entity_instance
    :param related_process: The next / successor task.
-   :type related_process: ifcopenshell.entity_instance.entity_instance
+   :type related_process: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -44,8 +42,5 @@ Module Contents
        # Let's make them unrelated
        ifcopenshell.api.run("sequence.unassign_sequence", model,
            relating_process=zone1, related_process=zone2)
-
-   .. py:method:: execute()
-
 
 

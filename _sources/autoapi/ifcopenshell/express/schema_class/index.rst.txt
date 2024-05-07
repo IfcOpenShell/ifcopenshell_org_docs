@@ -10,11 +10,6 @@ Module Contents
 .. py:class:: EarlyBoundCodeWriter(schema_name)
 
 
-   .. py:method:: __str__()
-
-      Return str(self).
-
-
    .. py:method:: aggregation_type(aggr_type, bound1, bound2, decl_type)
 
 
@@ -105,9 +100,6 @@ Module Contents
 
 
    Bases: :py:obj:`codegen.Base`
-
-   .. py:method:: __repr__()
-
 
 
 .. py:data:: Generator

@@ -7,10 +7,18 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, outer_profile=None, inner_profiles=None, name=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: add_arbitrary_profile_with_voids(file, outer_profile=None, inner_profiles=None, name=None) -> None
+
    Adds a new arbitrary polyline-based profile with voids
 
    The outer profile is represented as a polyline defined by a list of
@@ -34,7 +42,7 @@ Module Contents
        this may be left as none.
    :type name: str, optional
    :return: The newly created IfcArbitraryProfileDefWithVoids
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -45,11 +53,5 @@ Module Contents
            outer_profile=[(0., 0.), (.4, 0.), (.4, .4), (0., .4), (0., 0.)],
            inner_profiles=[[(0.1, 0.1), (0.3, 0.1), (0.3, 0.3), (0.1, 0.3), (0.1, 0.1)]],
            name="SK01 Hole Profile")
-
-   .. py:method:: convert_si_to_unit(co)
-
-
-   .. py:method:: execute()
-
 
 

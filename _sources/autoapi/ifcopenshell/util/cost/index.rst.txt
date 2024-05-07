@@ -29,9 +29,6 @@ Module Contents
 
 
 
-.. py:function:: _serialise_cost_value(cost_value)
-
-
 .. py:function:: calculate_applied_value(root_element, cost_value, category_filter=None)
 
 

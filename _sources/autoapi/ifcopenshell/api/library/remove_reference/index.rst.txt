@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, reference=None)
+.. py:function:: remove_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance) -> None
 
-
-   
    Removes a library reference
 
    Any products which have relationships to this reference will not be
    removed.
 
    :param reference: The IfcLibraryReference entity you want to remove
-   :type reference: ifcopenshell.entity_instance.entity_instance
+   :type reference: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -29,8 +27,5 @@ Module Contents
        reference = ifcopenshell.api.run("library.add_reference", model, library=library)
        # Let's change our mind and remove it.
        ifcopenshell.api.run("library.remove_reference", model, reference=reference)
-
-   .. py:method:: execute()
-
 
 

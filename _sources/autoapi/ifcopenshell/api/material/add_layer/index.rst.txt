@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, layer_set=None, material=None)
+.. py:function:: add_layer(file, layer_set=None, material=None) -> None
 
-
-   
    Adds a new layer to a layer set
 
    A layer represents a portion of material within a layered build up,
@@ -28,11 +26,11 @@ Module Contents
        layer set represents a group of layers. See
        ifcopenshell.api.material.add_material_set for more information on
        how to add a layer set.
-   :type layer_set: ifcopenshell.entity_instance.entity_instance
+   :type layer_set: ifcopenshell.entity_instance
    :param material: The IfcMaterial that the layer is made out of.
-   :type material: ifcopenshell.entity_instance.entity_instance
+   :type material: ifcopenshell.entity_instance
    :return: The newly created IfcMaterialLayer
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -68,9 +66,6 @@ Module Contents
        ifcopenshell.api.run("material.edit_layer", model, layer=layer, attributes={"LayerThickness": 13})
 
        # Great! Let's assign our material set to our wall type.
-       ifcopenshell.api.run("material.assign_material", model, product=wall_type, material=material_set)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("material.assign_material", model, products=[wall_type], material=material_set)
 
 

@@ -21,7 +21,7 @@ Module Contents
    :param x: The +X vector / axis of the matrix
    :type x: iterable[float]
    :return: A 4x4 numpy matrix
-   :rtype: np.ndarray[np.ndarray[float]]
+   :rtype: MatrixType
 
 
 .. py:function:: get_axis2placement(placement: ifcopenshell.entity_instance) -> MatrixType
@@ -34,9 +34,9 @@ Module Contents
    should use ``get_local_placement`` instead.
 
    :param placement: The IfcLocalPlacement enitity
-   :type placement: ifcopenshell.entity_instance.entity_instance
+   :type placement: ifcopenshell.entity_instance
    :return: A 4x4 numpy matrix
-   :rtype: np.ndarray[np.ndarray[float]]
+   :rtype: MatrixType
 
 
 .. py:function:: get_cartesiantransformationoperator3d(inst: ifcopenshell.entity_instance) -> MatrixType
@@ -47,9 +47,9 @@ Module Contents
    ``get_mappeditem_transformation`` instead.
 
    :param item: The IfcCartesianTransformationOperator entity
-   :type item: ifcopenshell.entity_instance.entity_instance
+   :type item: ifcopenshell.entity_instance
    :return: A 4x4 numpy transformation matrix
-   :rtype: np.ndarray[np.ndarray[float]]
+   :rtype: MatrixType
 
 
 .. py:function:: get_local_placement(placement: ifcopenshell.entity_instance) -> MatrixType
@@ -74,9 +74,9 @@ Module Contents
        matrix = ifcopenshell.util.placement.get_local_placement(placement)
 
    :param placement: The IfcLocalPlacement entity
-   :type placement: ifcopenshell.entity_instance.entity_instance
+   :type placement: ifcopenshell.entity_instance
    :return: A 4x4 numpy matrix
-   :rtype: np.ndarray[np.ndarray[float]]
+   :rtype: MatrixType
 
 
 .. py:function:: get_mappeditem_transformation(item: ifcopenshell.entity_instance) -> MatrixType
@@ -88,9 +88,9 @@ Module Contents
    transformation matrix.
 
    :param item: The IfcMappedItem entity
-   :type item: ifcopenshell.entity_instance.entity_instance
+   :type item: ifcopenshell.entity_instance
    :return: A 4x4 numpy transformation matrix
-   :rtype: np.ndarray[np.ndarray[float]]
+   :rtype: MatrixType
 
 
 .. py:function:: get_storey_elevation(storey: ifcopenshell.entity_instance) -> float
@@ -101,7 +101,7 @@ Module Contents
    its placement, or as a fallback the ``Elevation`` attribute.
 
    :param storey: The IfcBuildingStorey entity
-   :type storey: ifcopenshell.entity_instance.entity_instance
+   :type storey: ifcopenshell.entity_instance
    :return: The elevation in project units
    :rtype: float
 
@@ -118,10 +118,11 @@ Module Contents
        radians. Defaults to true (i.e. degrees).
    :type is_degrees: bool
    :return: A 4x4 numpy rotation matrix
-   :rtype: np.ndarray[np.ndarray[float]]
+   :rtype: MatrixType
 
 
 .. py:data:: MatrixType
 
-   
+   `npt.NDArray[np.float64]`
+
 

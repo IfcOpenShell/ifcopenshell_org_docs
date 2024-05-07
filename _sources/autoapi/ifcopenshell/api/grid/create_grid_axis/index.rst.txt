@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, axis_tag=None, same_sense=None, uvw_axes=None, grid=None)
+.. py:function:: create_grid_axis(file, axis_tag=None, same_sense=None, uvw_axes=None, grid=None) -> None
 
-
-   
    Adds a new grid axis to a grid
 
    An IFC grid will typically have a minimum of two axes which will be
@@ -46,9 +44,9 @@ Module Contents
        Defaults to "UAxes".
    :type uvw_axes: str, optional
    :param grid: The IfcGrid you are adding the axis to.
-   :type grid: ifcopenshell.entity_instance.entity_instance
+   :type grid: ifcopenshell.entity_instance
    :return: The newly created IfcGridAxis
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -58,8 +56,5 @@ Module Contents
            axis_tag="A", uvw_axes="UAxes", grid=grid)
        axis_1 = ifcopenshell.api.run("grid.create_grid_axis", model,
            axis_tag="1", uvw_axes="VAxes", grid=grid)
-
-   .. py:method:: execute()
-
 
 

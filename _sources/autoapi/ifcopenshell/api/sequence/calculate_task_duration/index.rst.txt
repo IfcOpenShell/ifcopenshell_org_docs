@@ -7,10 +7,27 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, task=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: calculate_duration_in_days(resource)
+
+
+   .. py:method:: calculate_max_resource_usage_duration()
+
+
+   .. py:method:: calculate_seconds_per_workday()
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: set_task_duration(duration)
+
+
+
+.. py:function:: calculate_task_duration(file, task=None) -> None
+
    Calculates the task duration based on resource usage
 
    If a task has labour or equipment resources assigned to it, its duration
@@ -23,7 +40,7 @@ Module Contents
    then nothing happens.
 
    :param task: The IfcTask to calculate the duration for.
-   :type task: ifcopenshell.entity_instance.entity_instance
+   :type task: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -67,20 +84,5 @@ Module Contents
        # Now we can calculate the task duration based on the resource. This
        # will set task.TaskTime.ScheduleDuration to be P5D.
        ifcopenshell.api.run("sequence.calculate_task_duration", model, task=task)
-
-   .. py:method:: calculate_duration_in_days(resource)
-
-
-   .. py:method:: calculate_max_resource_usage_duration()
-
-
-   .. py:method:: calculate_seconds_per_workday()
-
-
-   .. py:method:: execute()
-
-
-   .. py:method:: set_task_duration(duration)
-
 
 

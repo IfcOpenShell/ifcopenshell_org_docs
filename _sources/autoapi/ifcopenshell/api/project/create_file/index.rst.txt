@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(version: str = 'IFC4')
+.. py:function:: create_file(version: str = 'IFC4') -> ifcopenshell.file
 
-
-   
    Create a blank IFC model file object
 
    Create a new IFC file object based on the nominated schema version. The
@@ -26,7 +24,7 @@ Module Contents
        schema, you may specify that schema identifier here too.
    :type version: str, optional
    :return: The created IFC file object.
-   :rtype: ifcopenshell.file.file
+   :rtype: ifcopenshell.file
 
    Example:
 
@@ -40,8 +38,5 @@ Module Contents
        project = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcProject", name="Test")
 
        # ... and off we go!
-
-   .. py:method:: execute() -> ifcopenshell.file
-
 
 

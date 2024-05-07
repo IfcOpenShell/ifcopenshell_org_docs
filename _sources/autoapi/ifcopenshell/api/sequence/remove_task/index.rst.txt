@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, task=None)
+.. py:function:: remove_task(file, task=None) -> None
 
-
-   
    Removes a task
 
    All subtasks are also removed recursively. Any relationships such as
    sequences or controls are also removed.
 
    :param task: The IfcTask to remove.
-   :type task: ifcopenshell.entity_instance.entity_instance
+   :type task: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -41,8 +39,5 @@ Module Contents
        # Ah, let's delete the design section, who needs it anyway we'll
        # just fix it on site.
        ifcopenshell.api.run("sequence.remove_task", model, task=design)
-
-   .. py:method:: execute()
-
 
 

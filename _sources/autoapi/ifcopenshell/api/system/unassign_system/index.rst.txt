@@ -7,16 +7,14 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, system=None)
+.. py:function:: unassign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
 
+   Unassigns list of products from a system
 
-   
-   Unassigns a product from a system
-
-   :param product: The IfcDistributionElement to unassign from the system.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :param products: The list of IfcDistributionElements to unassign from the system.
+   :type products: list[ifcopenshell.entity_instance]
    :param system: The IfcSystem you want to unassign the element from.
-   :type system: ifcopenshell.entity_instance.entity_instance
+   :type system: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -32,12 +30,9 @@ Module Contents
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # This duct is part of the system
-       ifcopenshell.api.run("system.assign_system", model, product=duct, system=system)
+       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
 
        # Not anymore!
-       ifcopenshell.api.run("system.unassign_system", model, product=duct, system=system)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("system.unassign_system", model, products=[duct], system=system)
 
 

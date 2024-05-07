@@ -7,19 +7,19 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, item=None, layer=None)
+.. py:function:: unassign_layer(file: ifcopenshell.file, items: list[ifcopenshell.entity_instance], layer: ifcopenshell.entity_instance) -> None
 
-
-   
-   Unassigns an item from a layer
+   Unassigns representation items from a layer
 
    If the representation item isn't assigned to the layer, nothing will
    happen.
+   If after unassignment layer won't have any assigned items it will be
+   removed to keep IFC valid.
 
-   :param item: An IfcRepresentationItem element to unassign
-   :type item: ifcopenshell.entity_instance.entity_instance
+   :param items: A list IfcRepresentationItem elements to unassign
+   :type items: list[ifcopenshell.entity_instance]
    :param layer: The IfcPresentationLayerAssignment to unassign from
-   :type layer: ifcopenshell.entity_instance.entity_instance
+   :type layer: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -46,12 +46,9 @@ Module Contents
 
        # And assign our wall representation item (in this example, there is
        # only one item) to the layer.
-       ifcopenshell.api.run("layer.assign_layer", model, item=representation.Items[0], layer=layer)
+       ifcopenshell.api.run("layer.assign_layer", model, items=[representation.Items[0]], layer=layer)
 
        # Let's undo it!
-       ifcopenshell.api.run("layer.unassign_layer", model, item=representation.Items[0], layer=layer)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("layer.unassign_layer", model, items=[representation.Items[0]], layer=layer)
 
 

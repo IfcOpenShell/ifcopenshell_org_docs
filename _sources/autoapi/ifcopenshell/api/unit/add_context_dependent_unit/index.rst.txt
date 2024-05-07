@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, unit_type='USERDEFINED', name='THINGAMAJIG', dimensions=None)
+.. py:function:: add_context_dependent_unit(file, unit_type='USERDEFINED', name='THINGAMAJIG', dimensions=None) -> None
 
-
-   
    Add a new arbitrary unit that can only be interpreted in a project specific context
 
    Occasionally the construction industry uses arbitrary units to quantify
@@ -35,7 +33,7 @@ Module Contents
        recommended to leave this as the default of (0, 0, 0, 0, 0, 0, 0).
    :type dimensions: list[int]
    :return: The new IfcContextDependentUnit
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -43,8 +41,5 @@ Module Contents
 
        # Boxes of things
        ifcopenshell.api.run("unit.add_context_dependent_unit", model, name="BOXES")
-
-   .. py:method:: execute()
-
 
 

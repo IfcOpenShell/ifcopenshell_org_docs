@@ -149,9 +149,6 @@ Module Contents
 .. py:class:: FoundationClient(client_id: str, client_secret: str, base_url: Optional[str] = None, redirect_subdir: Optional[str] = None)
 
 
-   .. py:method:: _get_access_token_headers() -> dict[str, str]
-
-
    .. py:method:: get_access_token() -> str
 
 

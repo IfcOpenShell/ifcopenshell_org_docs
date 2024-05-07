@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, resource=None, ifc_class='IfcQuantityCount')
+.. py:function:: add_resource_quantity(file, resource=None, ifc_class='IfcQuantityCount') -> None
 
-
-   
    Adds a quantity to a resource
 
    The quantity of a resource represents the "unit quantity" of that
@@ -24,7 +22,7 @@ Module Contents
    This base quantity is then used in other calculations.
 
    :param resource: The IfcConstructionResource to add a quantity to.
-   :type resource: ifcopenshell.entity_instance.entity_instance
+   :type resource: ifcopenshell.entity_instance
    :param ifc_class: The type of quantity to add, chosen from
        IfcQuantityArea (for material), IfcQuantityCount (for products),
        IfcQuantityLength (for material), IfcQuantityTime (for equipment or
@@ -32,7 +30,7 @@ Module Contents
        (for material).
    :type ifc_class: str,optional
    :return: The newly created quantity depending on the IFC class
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -52,8 +50,5 @@ Module Contents
        # Store the time used in hours
        ifcopenshell.api.run("resource.edit_resource_quantity", model,
            physical_quantity=quantity, attributes={"TimeValue": 8.0})
-
-   .. py:method:: execute()
-
 
 

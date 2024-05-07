@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, actor=None, ifc_class='IfcActor')
+.. py:function:: add_actor(file, actor=None, ifc_class='IfcActor') -> None
 
-
-   
    Adds a new actor
 
    An actor is a person or an organisation who has a responsibility or role
@@ -30,11 +28,11 @@ Module Contents
        IfcPerson if it is a sole individual, or an IfcPersonAndOrganization
        if a specific person is liable within an organisation and must be
        legally nominated.
-   :type actor: ifcopenshell.entity_instance.entity_instance
+   :type actor: ifcopenshell.entity_instance
    :param ifc_class: Either "IfcActor" or "IfcOccupant".
    :type ifc_class: str, optional
    :return: The newly created IfcActor or IfcOccupant
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -47,8 +45,5 @@ Module Contents
 
        # Assign that organisation to a newly created actor
        actor = ifcopenshell.api.run("owner.add_actor", model, actor=organisation)
-
-   .. py:method:: execute()
-
 
 

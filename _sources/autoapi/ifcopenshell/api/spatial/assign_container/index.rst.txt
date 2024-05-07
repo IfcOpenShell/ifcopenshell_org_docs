@@ -7,11 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, relating_structure=None)
+.. py:function:: assign_container(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], relating_structure: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
-   Assigns a product to be contained hierarchically in a space
+   Assigns products to be contained hierarchically in a space
 
    All physical IFC model elements must be part of a hierarchical tree
    called the "spatial decomposition", where large things are made up of
@@ -48,13 +46,14 @@ Module Contents
    decomposition" tree, assigning an aggregate relationship will remove any
    previous aggregation, containment, or nesting relationships it may have.
 
-   :param product: The physical IfcElement that exists in the space.
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :param products: A list of physical IfcElements existing in the space.
+   :type products: list[ifcopenshell.entity_instance]
    :param relating_structure: The IfcSpatialStructureElement element, such
        as IfcBuilding, IfcBuildingStorey, or IfcSpace that the element
        exists in.
    :return: The IfcRelContainedInSpatialStructure relationship instance
-   :rtype: ifcopenshell.entity_instance.entity_instance
+       or `None` if `products` was empty list.
+   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -67,22 +66,19 @@ Module Contents
        space = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcSpace")
 
        # The project contains a site (note that project aggregation is a special case in IFC)
-       ifcopenshell.api.run("aggregate.assign_object", model, product=site, relating_object=project)
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[site], relating_object=project)
 
        # The site has a building, the building has a storey, and the storey has a space
-       ifcopenshell.api.run("aggregate.assign_object", model, product=building, relating_object=site)
-       ifcopenshell.api.run("aggregate.assign_object", model, product=storey, relating_object=building)
-       ifcopenshell.api.run("aggregate.assign_object", model, product=space, relating_object=storey)
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[building], relating_object=site)
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[storey], relating_object=building)
+       ifcopenshell.api.run("aggregate.assign_object", model, products=[space], relating_object=storey)
 
        # Create a wall and furniture
        wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
        furniture = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcFurniture")
 
        # The wall is in the storey, and the furniture is in the space
-       ifcopenshell.api.run("spatial.assign_container", model, product=wall, relating_structure=storey)
-       ifcopenshell.api.run("spatial.assign_container", model, product=furniture, relating_structure=space)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("spatial.assign_container", model, products=[wall], relating_structure=storey)
+       ifcopenshell.api.run("spatial.assign_container", model, products=[furniture], relating_structure=space)
 
 

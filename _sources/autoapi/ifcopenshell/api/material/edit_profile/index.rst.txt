@@ -7,25 +7,23 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, profile=None, attributes=None, profile_def=None, material=None)
+.. py:function:: edit_profile(file, profile=None, attributes=None, profile_def=None, material=None) -> None
 
-
-   
    Edits the attributes of an IfcMaterialProfile
 
    For more information about the attributes and data types of an
    IfcMaterialProfile, consult the IFC documentation.
 
    :param profile: The IfcMaterialProfile entity you want to edit
-   :type profile: ifcopenshell.entity_instance.entity_instance
+   :type profile: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
    :type attributes: dict, optional
    :param profile_def: The IfcProfileDef entity the profile curve should be
        extruded from.
-   :type profile_def: ifcopenshell.entity_instance.entity_instance, optional
+   :type profile_def: ifcopenshell.entity_instance, optional
    :param material: The IfcMaterial entity you want to change the profile
        to be made from.
-   :type material: ifcopenshell.entity_instance.entity_instance, optional
+   :type material: ifcopenshell.entity_instance, optional
    :return: None
    :rtype: None
 
@@ -43,11 +41,11 @@ Module Contents
 
        # Create some I-shaped profiles. Notice how we name our profiles based
        # on standardised steel profile names.
-       hea100 = self.file.create_entity(
+       hea100 = file.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA100", ProfileType="AREA",
            OverallWidth=100, OverallDepth=96, WebThickness=5, FlangeThickness=8, FilletRadius=12,
        )
-       hea200 = self.file.create_entity(
+       hea200 = file.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA200", ProfileType="AREA",
            OverallWidth=200, OverallDepth=190, WebThickness=6.5, FlangeThickness=10, FilletRadius=18,
        )
@@ -62,8 +60,5 @@ Module Contents
        # another type of steel.
        ifcopenshell.api.run("material.edit_profile", model,
            profile=profile_item, profile_def=hea200, material=steel2)
-
-   .. py:method:: execute()
-
 
 

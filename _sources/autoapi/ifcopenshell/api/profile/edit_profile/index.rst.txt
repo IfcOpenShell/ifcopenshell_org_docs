@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, profile=None, attributes=None)
+.. py:function:: edit_profile(file, profile=None, attributes=None) -> None
 
-
-   
    Edits the attributes of an IfcProfileDef
 
    For more information about the attributes and data types of an
    IfcProfileDef, consult the IFC documentation.
 
    :param profile: The IfcProfileDef entity you want to edit
-   :type profile: ifcopenshell.entity_instance.entity_instance
+   :type profile: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
    :type attributes: dict, optional
    :return: None
@@ -33,8 +31,5 @@ Module Contents
 
        ifcopenshell.api.run("profile.edit_profile", model,
            profile=circle, attributes={"ProfileName": "1000mm Dia"})
-
-   .. py:method:: execute()
-
 
 

@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, layer=None)
+.. py:function:: remove_layer(file, layer=None) -> None
 
-
-   
    Removes a layer
 
    All representation items assigned to the layer will remain, but the
    relationship to the layer will be removed.
 
    :param layer: The IfcPresentationLayerAssignment entity to remove
-   :type layer: ifcopenshell.entity_instance.entity_instance
+   :type layer: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -27,8 +25,5 @@ Module Contents
 
        layer = ifcopenshell.api.run("layer.add_layer", model, Name="AI-WALL")
        ifcopenshell.api.run("layer.remove_layer", model, layer=layer)
-
-   .. py:method:: execute()
-
 
 

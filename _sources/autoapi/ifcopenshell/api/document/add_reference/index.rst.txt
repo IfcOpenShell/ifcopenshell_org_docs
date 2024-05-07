@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, information=None)
+.. py:function:: add_reference(file: ifcopenshell.file, information: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-
-   
    Creates a new reference to a document to assign to products
 
    A document may be associated with physical products, tasks, cost items,
@@ -29,9 +27,9 @@ Module Contents
 
    :param information: The IfcDocumentInformation that the reference will
        be created for
-   :type information: ifcopenshell.entity_instance.entity_instance
+   :type information: ifcopenshell.entity_instance
    :return: The newly created IfcDocumentReference entity
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -53,8 +51,5 @@ Module Contents
        reference2 = ifcopenshell.api.run("document.add_reference", model, information=document)
        ifcopenshell.api.run("document.edit_reference", model,
            reference=reference2, attributes={"Identification": "2.1.15"})
-
-   .. py:method:: execute()
-
 
 

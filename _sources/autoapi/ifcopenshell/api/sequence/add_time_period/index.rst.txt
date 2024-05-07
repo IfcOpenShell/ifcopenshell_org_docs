@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, recurrence_pattern=None, start_time=None, end_time=None)
+.. py:function:: add_time_period(file, recurrence_pattern=None, start_time=None, end_time=None) -> None
 
-
-   
    Adds a time period to a recurrence pattern
 
    A recurring time may be an all-day event, or only during certain time
@@ -25,7 +23,7 @@ Module Contents
 
    :param recurrence_pattern: The IfcRecurrencePattern to add the time
        period to. See ifcopenshell.api.sequence.assign_recurrence_pattern.
-   :type recurrence_pattern: ifcopenshell.entity_instance.entity_instance
+   :type recurrence_pattern: ifcopenshell.entity_instance
    :param start_time: The start time of the time period, in a format
        compatible with IfcTime, such as an ISO format time string or a
        datetime.time object.
@@ -35,7 +33,7 @@ Module Contents
        datetime.time object.
    :type end_time: str,datetime.time
    :return: The newly created IfcTimePeriod
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -61,8 +59,5 @@ Module Contents
            recurrence_pattern=pattern, start_time="09:00", end_time="12:00")
        ifcopenshell.api.run("sequence.add_time_period", model,
            recurrence_pattern=pattern, start_time="13:00", end_time="17:00")
-
-   .. py:method:: execute()
-
 
 

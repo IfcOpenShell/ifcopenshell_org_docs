@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name=None, ifc_class='IfcSurfaceStyle')
+.. py:function:: add_style(file, name=None, ifc_class='IfcSurfaceStyle') -> None
 
-
-   
    Add a new presentation style
 
    A presentation style is a container of visual settings (called
@@ -38,7 +36,7 @@ Module Contents
    :type ifc_class: str
    :return: The newly created style element, based on the provided
        ifc_class.
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -46,8 +44,5 @@ Module Contents
 
        # Create a new surface style
        style = ifcopenshell.api.run("style.add_style", model)
-
-   .. py:method:: execute()
-
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, resource=None)
+.. py:function:: calculate_resource_work(file, resource=None) -> None
 
-
-   
    Calculates the work that a resource is used for
 
    This is an unofficial parametric calculation that may be done on a
@@ -38,11 +36,8 @@ Module Contents
 
    :param resource: The IfcConstructionResource that you want to calculate
        the work performed.
-   :type resource: ifcopenshell.entity_instance.entity_instance
+   :type resource: ifcopenshell.entity_instance
    :return None:
    :rtype: None:
-
-   .. py:method:: execute()
-
 
 

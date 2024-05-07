@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, material=None)
+.. py:function:: remove_material_set(file, material=None) -> None
 
-
-   
    Removes a material set
 
    All set items, such as layers, profiles, or constituents will also be
@@ -19,7 +17,7 @@ Module Contents
 
    :param material: The IfcMaterialLayerSet, IfcMaterialConstituentSet,
        IfcMaterialProfileSet entity you want to remove.
-   :type material: ifcopenshell.entity_instance.entity_instance
+   :type material: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -43,8 +41,5 @@ Module Contents
        # Completely delete the set and all layers. The gypsum and steel
        # material still exist, though.
        ifcopenshell.api.run("material.remove_material_set", model, material=material_set)
-
-   .. py:method:: execute()
-
 
 

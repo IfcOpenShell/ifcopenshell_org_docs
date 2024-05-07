@@ -19,35 +19,780 @@ Submodules
 Package Contents
 ----------------
 
+.. py:class:: BimSnippet
 
 
+   .. py:attribute:: is_external
+      :type: bool
+
+      
+
+   .. py:attribute:: reference
+      :type: str
+
+      
+
+   .. py:attribute:: reference_schema
+      :type: str
+
+      
+
+   .. py:attribute:: snippet_type
+      :type: str
+
+      
 
 
+.. py:class:: BitmapFormat
 
 
+   Bases: :py:obj:`enum.Enum`
+
+   Generic enumeration.
+
+   Derive from this class to define new enumerations.
+
+   .. py:attribute:: JPG
+      :value: 'JPG'
+
+      
+
+   .. py:attribute:: PNG
+      :value: 'PNG'
+
+      
 
 
+.. py:class:: ClippingPlane
 
 
+   .. py:attribute:: direction
+      :type: Direction
+
+      
+
+   .. py:attribute:: location
+      :type: Point
+
+      
 
 
+.. py:class:: Comment
 
 
+   .. py:attribute:: author
+      :type: str
+
+      
+
+   .. py:attribute:: comment
+      :type: str
+
+      
+
+   .. py:attribute:: date
+      :type: xsdata.models.datatype.XmlDateTime
+
+      
+
+   .. py:attribute:: guid
+      :type: str
+
+      
+
+   .. py:attribute:: modified_author
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: modified_date
+      :type: Optional[xsdata.models.datatype.XmlDateTime]
+
+      
+
+   .. py:attribute:: viewpoint
+      :type: Optional[CommentViewpoint]
+
+      
 
 
+.. py:class:: CommentViewpoint
 
 
+   .. py:class:: Meta
 
 
+      .. py:attribute:: global_type
+         :value: False
+
+         
 
 
+   .. py:attribute:: guid
+      :type: str
+
+      
 
 
+.. py:class:: Component
 
 
+   .. py:attribute:: authoring_tool_id
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: ifc_guid
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: originating_system
+      :type: Optional[str]
+
+      
 
 
+.. py:class:: ComponentColoring
 
 
+   .. py:attribute:: color
+      :type: List[ComponentColoringColor]
+
+      
+
+
+.. py:class:: ComponentColoringColor
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: color
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: component
+      :type: List[Component]
+
+      
+
+
+.. py:class:: ComponentSelection
+
+
+   .. py:attribute:: component
+      :type: List[Component]
+
+      
+
+
+.. py:class:: ComponentVisibility
+
+
+   .. py:attribute:: default_visibility
+      :type: Optional[bool]
+
+      
+
+   .. py:attribute:: exceptions
+      :type: Optional[ComponentVisibilityExceptions]
+
+      
+
+
+.. py:class:: ComponentVisibilityExceptions
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: component
+      :type: List[Component]
+
+      
+
+
+.. py:class:: Components
+
+
+   .. py:attribute:: coloring
+      :type: Optional[ComponentColoring]
+
+      
+
+   .. py:attribute:: selection
+      :type: Optional[ComponentSelection]
+
+      
+
+   .. py:attribute:: view_setup_hints
+      :type: Optional[ViewSetupHints]
+
+      
+
+   .. py:attribute:: visibility
+      :type: ComponentVisibility
+
+      
+
+
+.. py:class:: Direction
+
+
+   .. py:attribute:: x
+      :type: float
+
+      
+
+   .. py:attribute:: y
+      :type: float
+
+      
+
+   .. py:attribute:: z
+      :type: float
+
+      
+
+
+.. py:class:: Header
+
+
+   .. py:attribute:: file
+      :type: List[HeaderFile]
+
+      
+
+
+.. py:class:: HeaderFile
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: date
+      :type: Optional[xsdata.models.datatype.XmlDateTime]
+
+      
+
+   .. py:attribute:: filename
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: ifc_project
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: ifc_spatial_structure_element
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: is_external
+      :type: bool
+
+      
+
+   .. py:attribute:: reference
+      :type: Optional[str]
+
+      
+
+
+.. py:class:: Line
+
+
+   .. py:attribute:: end_point
+      :type: Point
+
+      
+
+   .. py:attribute:: start_point
+      :type: Point
+
+      
+
+
+.. py:class:: Markup
+
+
+   .. py:attribute:: comment
+      :type: List[Comment]
+
+      
+
+   .. py:attribute:: header
+      :type: Optional[Header]
+
+      
+
+   .. py:attribute:: topic
+      :type: Topic
+
+      
+
+   .. py:attribute:: viewpoints
+      :type: List[ViewPoint]
+
+      
+
+
+.. py:class:: OrthogonalCamera
+
+
+   Attributes
+       camera_view_point:
+       camera_direction:
+       camera_up_vector:
+       view_to_world_scale: view's visible size in meters
+
+   .. py:attribute:: camera_direction
+      :type: Direction
+
+      
+
+   .. py:attribute:: camera_up_vector
+      :type: Direction
+
+      
+
+   .. py:attribute:: camera_view_point
+      :type: Point
+
+      
+
+   .. py:attribute:: view_to_world_scale
+      :type: float
+
+      
+
+
+.. py:class:: PerspectiveCamera
+
+
+   Attributes
+       camera_view_point:
+       camera_direction:
+       camera_up_vector:
+       field_of_view: It is currently limited to a value between 45 and
+           60 degrees. This limitation will be dropped in the next
+           release and viewers should be expect values outside this
+           range in current implementations.
+
+   .. py:attribute:: camera_direction
+      :type: Direction
+
+      
+
+   .. py:attribute:: camera_up_vector
+      :type: Direction
+
+      
+
+   .. py:attribute:: camera_view_point
+      :type: Point
+
+      
+
+   .. py:attribute:: field_of_view
+      :type: float
+
+      
+
+
+.. py:class:: Point
+
+
+   .. py:attribute:: x
+      :type: float
+
+      
+
+   .. py:attribute:: y
+      :type: float
+
+      
+
+   .. py:attribute:: z
+      :type: float
+
+      
+
+
+.. py:class:: Project
+
+
+   .. py:attribute:: name
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: project_id
+      :type: str
+
+      
+
+
+.. py:class:: ProjectExtension
+
+
+   .. py:attribute:: extension_schema
+      :type: str
+
+      
+
+   .. py:attribute:: project
+      :type: Optional[Project]
+
+      
+
+
+.. py:class:: Topic
+
+
+   .. py:attribute:: assigned_to
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: bim_snippet
+      :type: Optional[BimSnippet]
+
+      
+
+   .. py:attribute:: creation_author
+      :type: str
+
+      
+
+   .. py:attribute:: creation_date
+      :type: xsdata.models.datatype.XmlDateTime
+
+      
+
+   .. py:attribute:: description
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: document_reference
+      :type: List[TopicDocumentReference]
+
+      
+
+   .. py:attribute:: due_date
+      :type: Optional[xsdata.models.datatype.XmlDateTime]
+
+      
+
+   .. py:attribute:: guid
+      :type: str
+
+      
+
+   .. py:attribute:: index
+      :type: Optional[int]
+
+      
+
+   .. py:attribute:: labels
+      :type: List[str]
+
+      
+
+   .. py:attribute:: modified_author
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: modified_date
+      :type: Optional[xsdata.models.datatype.XmlDateTime]
+
+      
+
+   .. py:attribute:: priority
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: reference_link
+      :type: List[str]
+
+      
+
+   .. py:attribute:: related_topic
+      :type: List[TopicRelatedTopic]
+
+      
+
+   .. py:attribute:: stage
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: title
+      :type: str
+
+      
+
+   .. py:attribute:: topic_status
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: topic_type
+      :type: Optional[str]
+
+      
+
+
+.. py:class:: TopicDocumentReference
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: description
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: guid
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: is_external
+      :type: bool
+
+      
+
+   .. py:attribute:: referenced_document
+      :type: Optional[str]
+
+      
+
+
+.. py:class:: TopicRelatedTopic
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: guid
+      :type: str
+
+      
+
+
+.. py:class:: Version
+
+
+   .. py:attribute:: detailed_version
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: version_id
+      :type: Optional[str]
+
+      
+
+
+.. py:class:: ViewPoint
+
+
+   .. py:attribute:: guid
+      :type: str
+
+      
+
+   .. py:attribute:: index
+      :type: Optional[int]
+
+      
+
+   .. py:attribute:: snapshot
+      :type: Optional[str]
+
+      
+
+   .. py:attribute:: viewpoint
+      :type: Optional[str]
+
+      
+
+
+.. py:class:: ViewSetupHints
+
+
+   .. py:attribute:: openings_visible
+      :type: Optional[bool]
+
+      
+
+   .. py:attribute:: space_boundaries_visible
+      :type: Optional[bool]
+
+      
+
+   .. py:attribute:: spaces_visible
+      :type: Optional[bool]
+
+      
+
+
+.. py:class:: VisualizationInfo
+
+
+   VisualizationInfo documentation.
+
+   .. py:attribute:: bitmap
+      :type: List[VisualizationInfoBitmap]
+
+      
+
+   .. py:attribute:: clipping_planes
+      :type: Optional[VisualizationInfoClippingPlanes]
+
+      
+
+   .. py:attribute:: components
+      :type: Optional[Components]
+
+      
+
+   .. py:attribute:: guid
+      :type: str
+
+      
+
+   .. py:attribute:: lines
+      :type: Optional[VisualizationInfoLines]
+
+      
+
+   .. py:attribute:: orthogonal_camera
+      :type: Optional[OrthogonalCamera]
+
+      
+
+   .. py:attribute:: perspective_camera
+      :type: Optional[PerspectiveCamera]
+
+      
+
+
+.. py:class:: VisualizationInfoBitmap
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: bitmap
+      :type: BitmapFormat
+
+      
+
+   .. py:attribute:: height
+      :type: float
+
+      
+
+   .. py:attribute:: location
+      :type: Point
+
+      
+
+   .. py:attribute:: normal
+      :type: Direction
+
+      
+
+   .. py:attribute:: reference
+      :type: str
+
+      
+
+   .. py:attribute:: up
+      :type: Direction
+
+      
+
+
+.. py:class:: VisualizationInfoClippingPlanes
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: clipping_plane
+      :type: List[ClippingPlane]
+
+      
+
+
+.. py:class:: VisualizationInfoLines
+
+
+   .. py:class:: Meta
+
+
+      .. py:attribute:: global_type
+         :value: False
+
+         
+
+
+   .. py:attribute:: line
+      :type: List[Line]
+
+      
 
 

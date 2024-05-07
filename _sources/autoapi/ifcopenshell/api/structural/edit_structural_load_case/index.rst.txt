@@ -7,23 +7,18 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, load_case=None, attributes=None)
+.. py:function:: edit_structural_load_case(file, load_case=None, attributes=None) -> None
 
-
-   
    Edits the attributes of an IfcStructuralLoadCase
 
    For more information about the attributes and data types of an
    IfcStructuralLoadCase, consult the IFC documentation.
 
    :param load_case: The IfcStructuralLoadCase entity you want to edit
-   :type load_case: ifcopenshell.entity_instance.entity_instance
+   :type load_case: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
    :type attributes: dict, optional
    :return: None
    :rtype: None
-
-   .. py:method:: execute()
-
 
 

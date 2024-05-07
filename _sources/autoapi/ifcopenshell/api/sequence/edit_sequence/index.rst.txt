@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, rel_sequence=None, attributes=None)
+.. py:function:: edit_sequence(file, rel_sequence=None, attributes=None) -> None
 
-
-   
    Edits the attributes of an IfcRelSequence
 
    For more information about the attributes and data types of an
    IfcRelSequence, consult the IFC documentation.
 
    :param rel_sequence: The IfcRelSequence entity you want to edit
-   :type rel_sequence: ifcopenshell.entity_instance.entity_instance
+   :type rel_sequence: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
    :type attributes: dict, optional
    :return: None
@@ -48,8 +46,5 @@ Module Contents
        # What if they both started at the same time?
        ifcopenshell.api.run("sequence.edit_sequence", model,
            rel_sequence=sequence, attributes={"SequenceType": "START_START"})
-
-   .. py:method:: execute()
-
 
 

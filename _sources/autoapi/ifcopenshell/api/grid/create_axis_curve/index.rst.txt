@@ -7,10 +7,21 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, axis_curve=None, grid_axis=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: create_cartesian_point(x, y, z=None)
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: create_axis_curve(file, axis_curve=None, grid_axis=None) -> None
+
    Adds curve geometry to a grid axis to represent the axis extents
 
    This currently depends on the Blender geometry kernel to function.
@@ -22,7 +33,7 @@ Module Contents
        single edge.
    :type axis_curve: bpy.types.Object
    :param grid_axis: The IfcGridAxis element to add geometry to.
-   :type grid_axis: ifcopenshell.entity_instance.entity_instance
+   :type grid_axis: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -42,14 +53,5 @@ Module Contents
        obj2 = bpy.data.objects.get("Axis1")
        ifcopenshell.api.run("grid.create_axis_curve", model, axis_curve=obj1, grid_axis=axis_a)
        ifcopenshell.api.run("grid.create_axis_curve", model, axis_curve=obj2, grid_axis=axis_1)
-
-   .. py:method:: convert_si_to_unit(co)
-
-
-   .. py:method:: create_cartesian_point(x, y, z=None)
-
-
-   .. py:method:: execute()
-
 
 

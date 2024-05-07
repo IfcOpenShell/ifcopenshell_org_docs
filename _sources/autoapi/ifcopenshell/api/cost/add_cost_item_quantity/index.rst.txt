@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, cost_item=None, ifc_class='IfcQuantityCount')
+.. py:function:: add_cost_item_quantity(file, cost_item=None, ifc_class='IfcQuantityCount') -> None
 
-
-   
    Adds a new quantity associated with a cost item
 
    Cost items calculate their subtotal by multiplying the sum of the cost
@@ -40,12 +38,12 @@ Module Contents
    using another API call.
 
    :param cost_item: The IfcCostItem to add the quantity to
-   :type cost_item: ifcopenshell.entity_instance.entity_instance
+   :type cost_item: ifcopenshell.entity_instance
    :param ifc_class: The type of quantity to add
    :type ifc_class: str, optional
    :return: The newly created quantity entity, chosen from the ifc_class
        parameter
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -61,8 +59,5 @@ Module Contents
        # Because this is an IfcQuantityCount the count will be automatically set to "1" chair
        ifcopenshell.api.run("cost.add_cost_item_quantity", model,
            cost_item=item, ifc_class="IfcQuantityCount")
-
-   .. py:method:: execute()
-
 
 

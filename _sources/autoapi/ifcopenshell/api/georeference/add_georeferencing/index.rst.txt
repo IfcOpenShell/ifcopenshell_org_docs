@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file)
+.. py:function:: add_georeferencing(file) -> None
 
-
-   
    Add empty georeferencing entities to a model
 
    By default, models are not georeferenced. Georeferencing requires two
@@ -32,8 +30,5 @@ Module Contents
    .. code:: python
 
        ifcopenshell.api.run("georeference.add_georeferencing", model)
-
-   .. py:method:: execute()
-
 
 

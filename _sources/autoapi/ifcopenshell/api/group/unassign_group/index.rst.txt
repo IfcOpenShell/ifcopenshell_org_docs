@@ -7,18 +7,16 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, product=None, group=None)
+.. py:function:: unassign_group(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], group: ifcopenshell.entity_instance) -> None
 
-
-   
-   Unassigns a product from a group
+   Unassigns products from a group
 
    If the product isn't assigned to the group, nothing will happen.
 
-   :param product: A IfcProduct element to unassign from the group
-   :type product: ifcopenshell.entity_instance.entity_instance
+   :param products: A list of IfcProduct elements to unassign from the group
+   :type products: list[ifcopenshell.entity_instance]
    :param group: The IfcGroup to unassign from
-   :type group: ifcopenshell.entity_instance.entity_instance
+   :type group: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -31,9 +29,6 @@ Module Contents
        ifcopenshell.api.run("group.assign_group", model, products=furniture, group=group)
 
        bad_furniture = furniture[0]
-       ifcopenshell.api.run("group.unassign_group", model, product=bad_furniture, group=group)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("group.unassign_group", model, products=[bad_furniture], group=group)
 
 

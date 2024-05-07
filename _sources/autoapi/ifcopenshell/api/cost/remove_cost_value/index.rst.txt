@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, parent=None, cost_value=None)
+.. py:function:: remove_cost_value(file, parent=None, cost_value=None) -> None
 
-
-   
    Removes a cost value
 
    The cost value may be assigned either to a cost item, a construction
@@ -18,9 +16,9 @@ Module Contents
 
    :param parent: The IfcCostItem, IfcConstructionResource, or IfcCostValue
        that the IfcCostValue is assigned to.
-   :type parent: ifcopenshell.entity_instance.entity_instance
+   :type parent: ifcopenshell.entity_instance
    :param cost_value: The IfcCostValue that you want to remove
-   :type parent: ifcopenshell.entity_instance.entity_instance
+   :type parent: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -37,8 +35,5 @@ Module Contents
            attributes={"AppliedValue": 5.0})
 
        ifcopenshell.api.run("cost.remove_cost_value", model, parent=item, cost_value=value)
-
-   .. py:method:: execute()
-
 
 

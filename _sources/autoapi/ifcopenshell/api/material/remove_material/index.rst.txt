@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, material=None)
+.. py:function:: remove_material(file, material=None) -> None
 
-
-   
    Removes a material
 
    If the material is used in a material set, the corresponding layer,
@@ -19,7 +17,7 @@ Module Contents
    take care of this situation themselves.
 
    :param material: The IfcMaterial entity you want to remove
-   :type material: ifcopenshell.entity_instance.entity_instance
+   :type material: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -32,8 +30,5 @@ Module Contents
 
        # ... and remove it
        ifcopenshell.api.run("material.remove_material", model, material=aluminium)
-
-   .. py:method:: execute()
-
 
 

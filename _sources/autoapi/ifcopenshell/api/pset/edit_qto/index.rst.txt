@@ -7,10 +7,39 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, qto=None, name=None, properties=None, pset_template=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: add_new_properties()
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: extend_qto_with_new_properties(new_properties)
+
+
+   .. py:method:: get_canonical_property_type(name, value)
+
+
+   .. py:method:: get_primary_measure_type(name, previous_value=None)
+
+
+   .. py:method:: load_qto_template()
+
+
+   .. py:method:: update_existing_properties()
+
+
+   .. py:method:: update_existing_property(prop)
+
+
+   .. py:method:: update_qto_name()
+
+
+
+.. py:function:: edit_qto(file, qto=None, name=None, properties=None, pset_template=None) -> None
+
    Edits a quantity set and its quantities
 
    At its simplest usage, this may be used to edit the name of a quantity
@@ -23,7 +52,7 @@ Module Contents
    It is not allowed to have None quantities in IFC.
 
    :param qto: The IfcElementQuantity to edit.
-   :type qto: ifcopenshell.entity_instance.entity_instance
+   :type qto: ifcopenshell.entity_instance
    :param name: A new name for the quantity set. If no name is specified,
        the quantity set name is not changed.
    :type name: str, optional
@@ -40,7 +69,7 @@ Module Contents
    :param pset_template: If a quantity set template is provided, this will
        be used to determine data types. If no user-defined template is
        provided, the built-in buildingSMART templates will be loaded.
-   :type pset_template: ifcopenshell.entity_instance.entity_instance
+   :type pset_template: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -96,32 +125,5 @@ Module Contents
        # Editing existing quantities will retain their current data types
        # if possible. So this will still be a length measure.
        ifcopenshell.api.run("pset.edit_qto", model, qto=qto, properties={"SomeLength": 12.3})
-
-   .. py:method:: add_new_properties()
-
-
-   .. py:method:: execute()
-
-
-   .. py:method:: extend_qto_with_new_properties(new_properties)
-
-
-   .. py:method:: get_canonical_property_type(name, value)
-
-
-   .. py:method:: get_primary_measure_type(name, previous_value=None)
-
-
-   .. py:method:: load_qto_template()
-
-
-   .. py:method:: update_existing_properties()
-
-
-   .. py:method:: update_existing_property(prop)
-
-
-   .. py:method:: update_qto_name()
-
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file)
+.. py:function:: add_objective(file) -> None
 
-
-   
    Add a new objective constraint
 
    Parametric constraints may be defined by the user. The constraint is defined
@@ -20,7 +18,7 @@ Module Contents
    quantities. See ifcopenshell.api.constraint.add_metric for more information.
 
    :return: The newly created IfcObjective entity
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -32,8 +30,5 @@ Module Contents
        objective.ObjectiveQualifier = "CODECOMPLIANCE"
        # Note: the objective right now is purely qualitative and for
        # information purposes. You may wish to add quantiative metrics.
-
-   .. py:method:: execute()
-
 
 

@@ -1,10 +1,11 @@
-API Reference
-=============
+Python API Reference
+====================
 
 This page contains auto-generated API reference documentation [#f1]_.
 
 .. toctree::
    :titlesonly:
+   :maxdepth: 1
 
    /autoapi/ifcopenshell/index
    /autoapi/bcf/index

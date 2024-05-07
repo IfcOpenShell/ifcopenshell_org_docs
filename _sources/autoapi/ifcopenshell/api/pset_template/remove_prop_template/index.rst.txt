@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, prop_template=None)
+.. py:function:: remove_prop_template(file, prop_template=None) -> None
 
-
-   
    Removes a property template
 
    Note that a property set template should always have at least one
@@ -18,7 +16,7 @@ Module Contents
    templates.
 
    :param prop_template: The IfcSimplePropertyTemplate to remove.
-   :type prop_template: ifcopenshell.entity_instance.entity_instance
+   :type prop_template: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -34,8 +32,5 @@ Module Contents
 
        # Let's remove the second one.
        ifcopenshell.api.run("pset_template.remove_prop_template", model, prop_template=prop2)
-
-   .. py:method:: execute()
-
 
 

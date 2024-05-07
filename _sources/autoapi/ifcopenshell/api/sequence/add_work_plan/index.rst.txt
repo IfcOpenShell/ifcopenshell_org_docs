@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, name=None, predefined_type='NOTDEFINED', start_time=None)
+.. py:function:: add_work_plan(file, name=None, predefined_type='NOTDEFINED', start_time=None) -> None
 
-
-   
    Add a new work plan
 
    A work plan is a group of work schedules. Since work schedules may have
@@ -30,7 +28,7 @@ Module Contents
        within the work plan are relevant.
    :type start_time: str,datetime.time
    :return: The newly created IfcWorkPlan
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -42,8 +40,5 @@ Module Contents
        # This is one of our schedules in our work plan.
        schedule = ifcopenshell.api.run("sequence.add_work_schedule", model,
            name="Construction Schedule A", work_plan=work_plan)
-
-   .. py:method:: execute()
-
 
 

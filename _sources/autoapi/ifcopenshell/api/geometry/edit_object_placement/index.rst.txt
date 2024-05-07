@@ -7,34 +7,41 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, **settings)
+.. py:class:: Usecase
 
 
-   .. py:method:: convert_matrix_to_si(matrix)
+   .. py:method:: convert_matrix_to_si(matrix: NPArrayOfFloats)
 
 
-   .. py:method:: convert_si_to_unit(co)
+   .. py:method:: convert_si_to_unit(co: NPArrayOfFloats) -> NPArrayOfFloats
 
 
-   .. py:method:: convert_unit_to_si(co)
+   .. py:method:: convert_unit_to_si(co: NPArrayOfFloats) -> NPArrayOfFloats
 
 
-   .. py:method:: create_cartesian_point(co)
+   .. py:method:: create_cartesian_point(co: NPArrayOfFloats) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_ifc_axis_2_placement_3d(point, up, forward)
+   .. py:method:: create_ifc_axis_2_placement_3d(point: NPArrayOfFloats, up: NPArrayOfFloats, forward: NPArrayOfFloats) -> ifcopenshell.entity_instance
 
 
    .. py:method:: execute()
 
 
-   .. py:method:: get_children_settings(placement)
+   .. py:method:: get_children_settings(placement: Union[ifcopenshell.entity_instance, None]) -> list[dict]
 
 
-   .. py:method:: get_placement_rel_to()
+   .. py:method:: get_placement_rel_to() -> Union[ifcopenshell.entity_instance, None]
 
 
-   .. py:method:: get_relative_placement(placement_rel_to)
+   .. py:method:: get_relative_placement(placement_rel_to: Union[ifcopenshell.entity_instance, None]) -> ifcopenshell.entity_instance
 
 
+
+.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si=True, should_transform_children=False) -> ifcopenshell.entity_instance
+
+
+.. py:data:: NPArrayOfFloats
+
+   
 

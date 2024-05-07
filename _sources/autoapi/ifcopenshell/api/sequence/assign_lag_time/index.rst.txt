@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, rel_sequence=None, lag_value=None, duration_type='WORKTIME')
+.. py:function:: assign_lag_time(file, rel_sequence=None, lag_value=None, duration_type='WORKTIME') -> None
 
-
-   
    Assign a lag time to a sequence relationship between tasks
 
    A task sequence (e.g. finish to start) may optionally have a lag time
@@ -23,7 +21,7 @@ Module Contents
    are allowed.
 
    :param rel_sequence: The IfcRelSequence to assign the lag time to.
-   :type rel_sequence: ifcopenshell.entity_instance.entity_instance
+   :type rel_sequence: ifcopenshell.entity_instance
    :param lag_value: An ISO standardised duration string.
    :type lag_value: str
    :param duration_type: Choose from WORKTIME for the associated
@@ -33,7 +31,7 @@ Module Contents
        is unclear.
    :type duration_type: str
    :return: The newly created IfcLagTime
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -72,8 +70,5 @@ Module Contents
        # reinforcement, but let's pretend that we had to allow 1 day gap
        # for whatever reason.
        ifcopenshell.api.run("sequence.assign_lag_time", model, rel_sequence=sequence, lag_value="P1D")
-
-   .. py:method:: execute()
-
 
 

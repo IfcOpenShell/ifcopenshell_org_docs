@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, opening=None, element=None)
+.. py:function:: add_opening(file: ifcopenshell.file, opening: ifcopenshell.entity_instance, element: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-
-   
    Create an opening in an element
 
    It is often necessary to cut out openings in elements like walls and
@@ -36,11 +34,11 @@ Module Contents
    booleaned or be part of the shape of the object).
 
    :param opening: The IfcOpeningElement to cut out the element.
-   :type opening: ifcopenshell.entity_instance.entity_instance
+   :type opening: ifcopenshell.entity_instance
    :param element: The IfcElement to insert the opening into.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The new IfcRelVoidsElement relationship
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -86,8 +84,5 @@ Module Contents
 
        # The opening will now void the wall.
        ifcopenshell.api.run("void.add_opening", model, opening=opening, element=wall)
-
-   .. py:method:: execute()
-
 
 

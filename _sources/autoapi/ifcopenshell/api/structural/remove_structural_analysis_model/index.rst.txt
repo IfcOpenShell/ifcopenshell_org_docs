@@ -7,21 +7,16 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, structural_analysis_model=None)
+.. py:function:: remove_structural_analysis_model(file, structural_analysis_model=None) -> None
 
-
-   
    Removes an analysis model
 
    Note that the contents of an analysis model are currently preserved.
 
    :param structural_analysis_model: The IfcStructuralAnalysisModel to
        remove.
-   :type structural_analysis_model: ifcopenshell.entity_instance.entity_instance
+   :type structural_analysis_model: ifcopenshell.entity_instance
    :return: None
    :rtype: None
-
-   .. py:method:: execute()
-
 
 

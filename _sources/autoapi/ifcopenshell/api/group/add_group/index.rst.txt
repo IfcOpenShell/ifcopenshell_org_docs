@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, Name='Unnamed', Description=None)
+.. py:function:: add_group(file, Name='Unnamed', Description=None) -> None
 
-
-   
    Adds a new group
 
    An IFC group is an arbitrary collection of products, which are typically
@@ -26,15 +24,12 @@ Module Contents
    :param Description: The description of the purpose of the group.
    :type Description: str, optional
    :return: The newly created IfcGroup
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
    .. code:: python
 
        ifcopenshell.api.run("group.add_group", model, Name="Unit 1A")
-
-   .. py:method:: execute()
-
 
 

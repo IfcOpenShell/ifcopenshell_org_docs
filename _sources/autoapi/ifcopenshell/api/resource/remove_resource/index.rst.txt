@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, resource=None)
+.. py:function:: remove_resource(file, resource=None) -> None
 
-
-   
    Removes a resource and all relationships
 
    Example:
@@ -22,8 +20,5 @@ Module Contents
 
        # Fire our crew
        ifcopenshell.api.run("resource.remove_resource", model, resource=crew)
-
-   .. py:method:: execute()
-
 
 

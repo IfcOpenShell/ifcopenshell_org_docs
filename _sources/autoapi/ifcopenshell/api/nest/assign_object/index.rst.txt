@@ -7,11 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, related_object=None, relating_object=None)
+.. py:function:: assign_object(file: ifcopenshell.file, related_objects: list[ifcopenshell.entity_instance], relating_object: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
-   Assigns an object as a nested child to a parent host
+   Assigns objects as nested children to a parent host
 
    All physical IFC model elements must be part of a hierarchical tree
    called the "spatial decomposition", where large things are made up of
@@ -60,14 +58,15 @@ Module Contents
    ifcopenshell.api.cost.add_cost_item or
    ifcopenshell.api.sequence.add_task.
 
-   :param related_object: The child of the nesting relationship, typically
-       an IfcElement.
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :param related_objects: The list of children of the nesting relationship,
+       typically IfcElements.
+   :type related_objects: list[ifcopenshell.entity_instance]
    :param relating_object: The host parent of the nesting relationship,
        typically an IfcElement.
-   :type relating_object: ifcopenshell.entity_instance.entity_instance
+   :type relating_object: ifcopenshell.entity_instance
    :return: The IfcRelNests relationship instance
-   :rtype: ifcopenshell.entity_instance.entity_instance
+       or `None` if `related_objects` was empty list.
+   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -78,9 +77,6 @@ Module Contents
            ifc_class="IfcSanitaryTerminal", predefined_type="SINK")
        faucet = ifcopenshell.api.run("root.create_entity", model,
            ifc_class="IfcValve", predefined_type="FAUCET")
-       ifcopenshell.api.run("nest.assign_object", model, related_object=faucet, relating_object=sink)
-
-   .. py:method:: execute()
-
+       ifcopenshell.api.run("nest.assign_object", model, related_objects=[faucet], relating_object=sink)
 
 

@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, element=None)
+.. py:function:: add_port(file, element=None) -> None
 
-
-   
    Adds a new distribution port to an element
 
    A distribution port represents a connection point on an element, where
@@ -24,9 +22,9 @@ Module Contents
 
    :param element: The IfcDistributionElement you want to add a
        distribution port to.
-   :type element: ifcopenshell.entity_instance.entity_instance
+   :type element: ifcopenshell.entity_instance
    :return: The newly created IfcDistributionPort
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -39,8 +37,5 @@ Module Contents
        # Create 2 ports, one for either end.
        port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
        port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
-
-   .. py:method:: execute()
-
 
 

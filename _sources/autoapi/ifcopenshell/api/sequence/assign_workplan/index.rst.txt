@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, work_schedule=None, work_plan=None)
+.. py:function:: assign_workplan(file, work_schedule=None, work_plan=None) -> None
 
-
-   
    Assigns a work schedule to a work plan
 
    Typically, work schedules would be assigned to a work plan at creation.
@@ -18,11 +16,11 @@ Module Contents
 
    :param work_schedule: The IfcWorkSchedule that will be assigned to the
        work plan.
-   :type work_schedule: ifcopenshell.entity_instance.entity_instance
+   :type work_schedule: ifcopenshell.entity_instance
    :param work_plan: The IfcWorkPlan for the schedule to be assigned to.
-   :type work_plan: ifcopenshell.entity_instance.entity_instance
+   :type work_plan: ifcopenshell.entity_instance
    :return: The IfcRelAggregates relationship
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -36,8 +34,5 @@ Module Contents
 
        # ... you can assign the work plan afterwards.
        ifcopenshell.api.run("sequence.assign_workplan", work_schedule=schedule, work_plan=work_plan)
-
-   .. py:method:: execute()
-
 
 

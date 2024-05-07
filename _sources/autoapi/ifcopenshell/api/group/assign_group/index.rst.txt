@@ -7,21 +7,20 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, products=None, group=None)
+.. py:function:: assign_group(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], group: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
-
-   
    Assigns products to a group
 
    If a product is already assigned to the group, it will not be assigned
    twice.
 
    :param products: A list of IfcProduct elements to assign to the group
-   :type products: list[ifcopenshell.entity_instance.entity_instance]
+   :type products: list[ifcopenshell.entity_instance]
    :param group: The IfcGroup to assign the products to
-   :type group: ifcopenshell.entity_instance.entity_instance
+   :type group: ifcopenshell.entity_instance
    :return: The IfcRelAssignsToGroup relationship
-   :rtype: ifcopenshell.entity_instance.entity_instance
+       or `None` if `products` was empty list.
+   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -30,8 +29,5 @@ Module Contents
        group = ifcopenshell.api.run("group.add_group", model, Name="Furniture")
        ifcopenshell.api.run("group.assign_group", model,
            products=model.by_type("IfcFurniture"), group=group)
-
-   .. py:method:: execute()
-
 
 

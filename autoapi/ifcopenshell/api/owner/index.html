@@ -5,14 +5,14 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ifcopenshell.api.owner.add_actor" href="add_actor/index.html" /><link rel="prev" title="ifcopenshell.api.nest.unassign_object" href="../nest/unassign_object/index.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>ifcopenshell.api.owner - IfcOpenShell 0.7.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=a40f3a19" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c85da206" />
     
     
 
@@ -29,7 +29,10 @@
   --color-background-border: #cfd0cb;
   --color-foreground-primary: #2e3436;
   --color-sidebar-item-background--hover: #f7f7f6;
+  --color-link: #39b54a;
+  --color-link--visited: #39b54a;
   --color-link--hover: #d98014;
+  --color-link--visited--hover: #d98014;
   --font-stack: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   
   }
@@ -44,7 +47,10 @@
   --color-background-border: #2e3436;
   --color-foreground-primary: #eeeeec;
   --color-sidebar-item-background--hover: #2e3436;
+  --color-link: #39b54a;
+  --color-link--visited: #39b54a;
   --color-link--hover: #d98014;
+  --color-link--visited--hover: #d98014;
   --font-stack: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   
     }
@@ -59,7 +65,10 @@
   --color-background-border: #2e3436;
   --color-foreground-primary: #eeeeec;
   --color-sidebar-item-background--hover: #2e3436;
+  --color-link: #39b54a;
+  --color-link--visited: #39b54a;
   --color-link--hover: #d98014;
+  --color-link--visited--hover: #d98014;
   --font-stack: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   
       }
@@ -99,7 +108,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -114,7 +123,7 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
@@ -122,7 +131,7 @@
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
       <path d="M13 12h5" />
@@ -130,6 +139,60 @@
       <path d="M13 18h1" />
       <path d="M13 9h4" />
       <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
 </svg>
@@ -142,6 +205,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -160,7 +225,8 @@
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
           <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
@@ -563,7 +629,6 @@
 <li class="toctree-l5"><a class="reference internal" href="../spatial/assign_container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.assign_container</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../spatial/dereference_structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.dereference_structure</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../spatial/reference_structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.reference_structure</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../spatial/remove_container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.remove_container</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../spatial/unassign_container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.spatial.unassign_container</span></code></a></li>
 </ul>
 </li>
@@ -684,7 +749,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../util/date/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.date</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../util/doc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.doc</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../util/element/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.element</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../util/file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.file</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../util/fm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.fm</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../util/generate_pset_templates/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.generate_pset_templates</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../util/geolocation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.util.geolocation</span></code></a></li>
@@ -708,7 +772,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../entity_instance/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.entity_instance</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.file</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.guid</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../main/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.main</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../settings/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.settings</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../sql/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.sql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../stream/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.stream</span></code></a></li>
@@ -755,7 +818,6 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../bsdd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-50" name="toctree-checkbox-50" role="switch" type="checkbox"/><label for="toctree-checkbox-50"><div class="visually-hidden">Toggle navigation of bsdd</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../bsdd/__about__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd.__about__</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../bsdd/bsdd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd.bsdd</span></code></a></li>
 </ul>
 </li>
@@ -794,11 +856,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../ifcpatch/recipes/TessellateElements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcpatch.recipes.TessellateElements</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../ifcpatch/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcpatch.__main__</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifctester/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-53" name="toctree-checkbox-53" role="switch" type="checkbox"/><label for="toctree-checkbox-53"><div class="visually-hidden">Toggle navigation of ifctester</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../ifctester/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.__main__</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ifctester/facet/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.facet</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ifctester/ids/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.ids</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../ifctester/reporter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifctester.reporter</span></code></a></li>
@@ -826,19 +886,21 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="edit-this-page">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.7.0/src/ifcopenshell-python/docs/autoapi/ifcopenshell/api/owner/index.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
   <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/edit/v0.7.0/src/ifcopenshell-python/docs/autoapi/ifcopenshell/api/owner/index.rst" title="Edit this page">
-    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-    </svg>
+    <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
 </div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
@@ -848,11 +910,11 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="module-ifcopenshell.api.owner">
-<span id="ifcopenshell-api-owner"></span><h1><a class="reference internal" href="#module-ifcopenshell.api.owner" title="ifcopenshell.api.owner"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.owner</span></code></a><a class="headerlink" href="#module-ifcopenshell.api.owner" title="Link to this heading">#</a></h1>
+<span id="ifcopenshell-api-owner"></span><h1><a class="reference internal" href="#module-ifcopenshell.api.owner" title="ifcopenshell.api.owner"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.owner</span></code></a><a class="headerlink" href="#module-ifcopenshell.api.owner" title="Link to this heading">¶</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="add_actor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.owner.add_actor</span></code></a></li>
@@ -881,6 +943,832 @@
 <li class="toctree-l1"><a class="reference internal" href="update_owner_history/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.owner.update_owner_history</span></code></a></li>
 </ul>
 </div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.add_actor">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">add_actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifc_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IfcActor'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.add_actor" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a new actor</p>
+<p>An actor is a person or an organisation who has a responsibility or role
+to play in a project. Actor roles include design consultants,
+architects, engineers, cost planners, suppliers, manufacturers,
+warrantors, owners, subcontractors, etc.</p>
+<p>Actors may either be project actors, who are responsible for the
+delivery of the project, or occupants, who are responsible for the
+consumption of the project.</p>
+<p>Identifying and managing actors is critical for asset management, and
+identifying liability for legal submissions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actor</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – Most commonly, an IfcOrganization (in compliance with GDPR
+requirements for non personally identifiable information), or an
+IfcPerson if it is a sole individual, or an IfcPersonAndOrganization
+if a specific person is liable within an organisation and must be
+legally nominated.</p></li>
+<li><p><strong>ifc_class</strong> (<em>str</em><em>, </em><em>optional</em>) – Either “IfcActor” or “IfcOccupant”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created IfcActor or IfcOccupant</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup an organisation with a single role</span>
+<span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+<span class="n">role</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;ARCHITECT&quot;</span><span class="p">)</span>
+
+<span class="c1"># Assign that organisation to a newly created actor</span>
+<span class="n">actor</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">actor</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.add_address">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">add_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assigned_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifc_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IfcPostalAddress'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.add_address" title="Link to this definition">¶</a></dt>
+<dd><p>Add a new telecom or postal address to an organisation or person</p>
+<p>A person or organisation may have associated contact details such as
+phone numbers, mailing addresses, websites, email addresses, and instant
+messaging handles. This information is critical in recording the contact
+information of manufacturers and suppliers for facility management, or
+liable actors.</p>
+<p>There are two types of addresses, postal addresses for physical snail
+mail, and telecom addresses for telephone or internet contact numbers
+and addresses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>assigned_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcOrganization or IfcPerson the contact
+address belongs to.</p></li>
+<li><p><strong>ifc_class</strong> (<em>str</em><em>, </em><em>optional</em>) – Either IfcPostalAddress or IfcTelecomAddress. Defaults
+to IfcPostalAddress.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new IfcPostalAddress or IfcTelecomAddress</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># A snail mail address</span>
+<span class="n">postal</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcPostalAddress&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">postal</span><span class="p">,</span>
+    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;OFFICE&quot;</span><span class="p">,</span> <span class="s2">&quot;AddressLines&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;42 Wallaby Way&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Town&quot;</span><span class="p">:</span> <span class="s2">&quot;Sydney&quot;</span><span class="p">,</span> <span class="s2">&quot;Region&quot;</span><span class="p">:</span> <span class="s2">&quot;NSW&quot;</span><span class="p">,</span> <span class="s2">&quot;PostalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;2000&quot;</span><span class="p">})</span>
+
+<span class="c1"># A phone or internet address</span>
+<span class="n">telecom</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcTelecomAddress&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">telecom</span><span class="p">,</span>
+    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;OFFICE&quot;</span><span class="p">,</span> <span class="s2">&quot;TelephoneNumbers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;+61432466949&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ElectronicMailAddresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bobthebuilder@example.com&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;WWWHomePageURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://thinkmoult.com&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.add_application">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">add_application</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">application_developer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">application_full_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IfcOpenShell'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">application_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IfcOpenShell'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.add_application" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a new application</p>
+<p>IFC data may be associated with an authoring application to identify
+which application was responsible for editing or authoring the data. An
+application is defined by the developing organisation, as well as a full
+name and identifier. This is akin to how web browsers have an
+identification string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>application_developer</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>, </em><em>optional</em>) – The IfcOrganization responsible for
+creating the application. Defaults to generating an IfcOpenShell
+organisation if none is provided.</p></li>
+<li><p><strong>version</strong> (<em>str</em><em>, </em><em>optional</em>) – The version of the application. Defaults to the
+ifcopenshell.version data if not specified.</p></li>
+<li><p><strong>application_full_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the application</p></li>
+<li><p><strong>application_identifier</strong> (<em>str</em><em>, </em><em>optional</em>) – An identification string for the
+application intended for computers to read.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">application</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_application&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.add_organisation">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">add_organisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'APTR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Aperture</span> <span class="pre">Science'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.owner.add_organisation" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a new organisation</p>
+<p>Organisations are the main way to identify manufacturers, suppliers, and
+other actors who do not have a single representative or must not have
+any personally identifiable information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identification</strong> (<em>str</em><em>, </em><em>optional</em>) – The short code identifying the organisation.
+Sometimes used in drawing naming schemes. Otherise used as a
+canonicalised way of computers to identify the organisation. Like
+their stock name.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – The legal name of the organisation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created IfcOrganization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.add_person">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">add_person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">identification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'HSeldon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">family_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Seldon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">given_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Hari'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.add_person" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a new person</p>
+<p>Persons are used to identify a legal or liable representative of an
+organisation or point of contact.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identification</strong> (<em>str</em><em>, </em><em>optional</em>) – The computer readable unique identification of
+the person. For example, their username in a CDE or alias.</p></li>
+<li><p><strong>family_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The family name</p></li>
+<li><p><strong>given_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The given name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created IfcPerson</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;bobthebuilder&quot;</span><span class="p">,</span> <span class="n">family_name</span><span class="o">=</span><span class="s2">&quot;Thebuilder&quot;</span><span class="p">,</span> <span class="n">given_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.add_person_and_organisation">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">add_person_and_organisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">person</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">organisation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.owner.add_person_and_organisation" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a paired person and organisation</p>
+<p>A person and an organisation may be paired to create a representative
+belonging to a company.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>person</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcPerson being the representative of the
+organisation.</p></li>
+<li><p><strong>organisation</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcOrganization it</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created IfcPersonAndOrganization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;lecorbycorbycorb&quot;</span><span class="p">,</span> <span class="n">family_name</span><span class="o">=</span><span class="s2">&quot;Curbosiar&quot;</span><span class="p">,</span> <span class="n">given_name</span><span class="o">=</span><span class="s2">&quot;Le&quot;</span><span class="p">)</span>
+<span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person_and_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">person</span><span class="o">=</span><span class="n">person</span><span class="p">,</span> <span class="n">organisation</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.add_role">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">add_role</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assigned_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ARCHITECT'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.add_role" title="Link to this definition">¶</a></dt>
+<dd><p>Adds and assigns a new role</p>
+<p>People and organisations must play one or more roles on a project. Roles
+include architects, engineers, subcontractors, clients, manufacturers,
+etc. Typically these roles and their corresponding responsibilities will
+be outlined in contractual documents.</p>
+<p>This function will both add and assign the role to the person or
+organisation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>assigned_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcPerson or IfcOrganization the role should
+be assigned to.</p></li>
+<li><p><strong>role</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of role, taken from the IFC documentation for
+IfcActorRole, or a custom name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created IfcActorRole</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;ARCHITECT&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.assign_actor">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">assign_actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_actor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.assign_actor" title="Link to this definition">¶</a></dt>
+<dd><p>Assigns an actor to an object</p>
+<p>An actor may be assigned to objects which implies that the actor is
+responsible for. This is most commonly used in facility management for
+indicating the manufacturers, suppliers, and warrantors for product
+types.</p>
+<p>Here are a list of objects you may assign an actor to:</p>
+<ul class="simple">
+<li><p>IfcControl: Indicates project directives issued by the actor.</p></li>
+<li><p>IfcGroup: Indicates groups for which the actor is responsible.</p></li>
+<li><p>IfcProduct: Indicates products for which the actor is responsible.</p></li>
+<li><p>IfcProcess: Indicates processes for which the actor is responsible.</p></li>
+<li><dl class="simple">
+<dt>IfcResource: Indicates resources for which the actor is responsible to</dt><dd><p>allocate, manage, or delegate. This is not the actor actually using
+the resource or performing the work. For that type of actor, see
+ifcopenshell.api.resource.assign_resource.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>relating_actor</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcActor who is responsible for the object.</p></li>
+<li><p><strong>related_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The object the actor is responsible for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created IfcRelAssignsToActor relationship.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to procure and install 2 of this particular pump type in our facility.</span>
+<span class="n">pump_type</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;root.create_entity&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcPumpType&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define who the manufacturer is</span>
+<span class="n">manufacturer</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;PWP&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Pumps With Power&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">manufacturer</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;MANUFACTURER&quot;</span><span class="p">)</span>
+
+<span class="c1"># To help our facility manager, it&#39;s nice to provide contact details</span>
+<span class="c1"># of the manufacturer so they know how to call when the pump breaks.</span>
+<span class="n">telecom</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcTelecomAddress&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">telecom</span><span class="p">,</span>
+    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;OFFICE&quot;</span><span class="p">,</span> <span class="s2">&quot;TelephoneNumbers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;+61432466949&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ElectronicMailAddresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;contact@example.com&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;WWWHomePageURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com&quot;</span><span class="p">})</span>
+
+<span class="c1"># Make the manufacturer responsible for that pump type.</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.assign_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">relating_actor</span><span class="o">=</span><span class="n">manufacturer</span><span class="p">,</span> <span class="n">related_object</span><span class="o">=</span><span class="n">pump_type</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.create_owner_history">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">create_owner_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.create_owner_history" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a new owner history indicating an element was added</p>
+<p>Any object in IFC with a unique ID and name (such as physical products,
+tasks, calendars, etc) may have an owner associated with it. An owner is
+a liable person and/or organisation which a bit of metadata indicating
+whether they have created the object, edited the object, when the change
+was made, and which application they used.</p>
+<p>IFC does not offer a comprehensive specification for version control and
+change tracking, as this is completely out of scope. However this
+similar ability allows IFC to satisfy legal requirements where object
+ownership, responsibilities, and permissions must be specified.
+Recording the owner is mandatory in IFC2X3 but optional in IFC4. It is
+not recommended to store this ownership data in IFC4 unless a legal
+requirement is in place.</p>
+<p>Because owner tracking is mandatory in IFC2X3, be aware that some
+configuration may be required to work correctly. Read on.</p>
+<p>To track the owner, at a minimum we have to know the application that
+the element was authored from, as well as the user (person and
+organisation) that made the change. The IfcOpenShell API is a low level
+software library and will not know what application the API is being
+called from, and nor does it have the responsibility to manage the
+“active user” making edits, which may be as simple as hardcoding it to
+“Bob” or even be as complex as integration with a CDE’s authentication
+system. As a result, the developer responsible to integrate with
+IfcOpenShell is expected to overload the
+ifcopenshell.api.owner.settings.get_user and
+ifcopenshell.api.owner.settings.get_application functions.</p>
+<p>It is not necessary to call this function directly if you are already
+using other API calls. It is a low level function only available if you
+are writing your own advanced scripts and want to take advantage of the
+easier ownership tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The newly created IfcOwnerHistory element or <cite>None</cite> if it’s
+not IFC2X3 and user or application is not found in the current project.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../../express/bootstrap/index.html#ifcopenshell.express.bootstrap.Union" title="ifcopenshell.express.bootstrap.Union">Union</a>[<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>, None]</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s imagine we&#39;re writing a small script, not large enough to be</span>
+<span class="c1"># its own fully branded application. In this case, let&#39;s use the</span>
+<span class="c1"># default application which is prepopulated with &quot;IfcOpenShell&quot; as</span>
+<span class="c1"># the name and version.</span>
+<span class="n">application</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_application&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s imagine we run this as an automated QA process in an</span>
+<span class="c1"># architectural firm. However, the results must be signed off by the</span>
+<span class="c1"># registered architect who is liable for the project.</span>
+<span class="n">person</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;LPARTEE&quot;</span><span class="p">,</span> <span class="n">family_name</span><span class="o">=</span><span class="s2">&quot;Partee&quot;</span><span class="p">,</span> <span class="n">given_name</span><span class="o">=</span><span class="s2">&quot;Leeable&quot;</span><span class="p">)</span>
+<span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person_and_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">person</span><span class="o">=</span><span class="n">person</span><span class="p">,</span> <span class="n">organisation</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s configure our owner settings to hardcode always returning</span>
+<span class="c1"># the application and user. In theory, you could build complex user</span>
+<span class="c1"># access control lookup functions here, but this is simple enough.</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get_user</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">user</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get_application</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">application</span>
+
+<span class="c1"># We&#39;ve finished our ownership setup. Now let&#39;s start our script and</span>
+<span class="c1"># create a space. Notice we don&#39;t actually call</span>
+<span class="c1"># create_owner_history at all. This is already automatically handled</span>
+<span class="c1"># by the API when necessary. Under the hood, the API is actually</span>
+<span class="c1"># running this code on the IfcSpace element:</span>
+<span class="c1"># element.OwnerHistory = ifcopenshell.api.run(&quot;owner.create_owner_history&quot;, model)</span>
+<span class="n">space</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;root.create_entity&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcSpace&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.edit_actor">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">edit_actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.edit_actor" title="Link to this definition">¶</a></dt>
+<dd><p>Edits the attributes of an IfcActor</p>
+<p>For more information about the attributes and data types of an
+IfcActor, consult the IFC documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actor</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcActor entity you want to edit</p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>, </em><em>optional</em>) – a dictionary of attribute names and values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup an organisation with a single role</span>
+<span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+<span class="n">role</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Role&quot;</span><span class="p">:</span> <span class="s2">&quot;ARCHITECT&quot;</span><span class="p">})</span>
+
+<span class="c1"># Assign that organisation to a newly created actor</span>
+<span class="n">actor</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">actor</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+
+<span class="c1"># Edit the description of the attribute.</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;actor.edit_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">actor</span><span class="o">=</span><span class="n">actor</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;Responsible for buildings A, B, and C.&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.edit_address">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">edit_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.edit_address" title="Link to this definition">¶</a></dt>
+<dd><p>Edits the attributes of an IfcAddress</p>
+<p>For more information about the attributes and data types of an
+IfcAddress, consult the IFC documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcAddress entity you want to edit</p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>, </em><em>optional</em>) – a dictionary of attribute names and values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A snail mail address</span>
+<span class="n">postal</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcPostalAddress&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">postal</span><span class="p">,</span>
+    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;OFFICE&quot;</span><span class="p">,</span> <span class="s2">&quot;AddressLines&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;42 Wallaby Way&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Town&quot;</span><span class="p">:</span> <span class="s2">&quot;Sydney&quot;</span><span class="p">,</span> <span class="s2">&quot;Region&quot;</span><span class="p">:</span> <span class="s2">&quot;NSW&quot;</span><span class="p">,</span> <span class="s2">&quot;PostalCode&quot;</span><span class="p">:</span> <span class="s2">&quot;2000&quot;</span><span class="p">})</span>
+
+<span class="c1"># A phone or internet address</span>
+<span class="n">telecom</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcTelecomAddress&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">telecom</span><span class="p">,</span>
+    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;OFFICE&quot;</span><span class="p">,</span> <span class="s2">&quot;TelephoneNumbers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;+61432466949&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ElectronicMailAddresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bobthebuilder@example.com&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;WWWHomePageURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://thinkmoult.com&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.edit_organisation">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">edit_organisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.edit_organisation" title="Link to this definition">¶</a></dt>
+<dd><p>Edits the attributes of an IfcOrganization</p>
+<p>For more information about the attributes and data types of an
+IfcOrganization, consult the IFC documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>organisation</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcOrganization entity you want to edit</p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>, </em><em>optional</em>) – a dictionary of attribute names and values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects With Ballpens&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">organisation</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span>
+    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.edit_person">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">edit_person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">person</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.edit_person" title="Link to this definition">¶</a></dt>
+<dd><p>Edits the attributes of an IfcPerson</p>
+<p>For more information about the attributes and data types of an
+IfcPerson, consult the IFC documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>person</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcPerson entity you want to edit</p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>, </em><em>optional</em>) – a dictionary of attribute names and values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;bobthebuilder&quot;</span><span class="p">,</span> <span class="n">family_name</span><span class="o">=</span><span class="s2">&quot;Thebuilder&quot;</span><span class="p">,</span> <span class="n">given_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">person</span><span class="o">=</span><span class="n">person</span><span class="p">,</span>
+    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;MiddleNames&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;The&quot;</span><span class="p">],</span> <span class="s2">&quot;FamilyName&quot;</span><span class="p">:</span> <span class="s2">&quot;Builder&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.edit_role">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">edit_role</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.edit_role" title="Link to this definition">¶</a></dt>
+<dd><p>Edits the attributes of an IfcActorRole</p>
+<p>For more information about the attributes and data types of an
+IfcActorRole, consult the IFC documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>role</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcActorRole entity you want to edit</p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>, </em><em>optional</em>) – a dictionary of attribute names and values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;bobthebuilder&quot;</span><span class="p">,</span> <span class="n">family_name</span><span class="o">=</span><span class="s2">&quot;Thebuilder&quot;</span><span class="p">,</span> <span class="n">given_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+
+<span class="c1"># By default, the role is an architect</span>
+<span class="n">role</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">person</span><span class="p">)</span>
+
+<span class="c1"># But Bob is not an architect</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Role&quot;</span><span class="p">:</span> <span class="s2">&quot;CONSTRUCTIONMANAGER&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.remove_actor">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">remove_actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.remove_actor" title="Link to this definition">¶</a></dt>
+<dd><p>Removes an actor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>actor</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcActor to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup an organisation with a single role</span>
+<span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+<span class="n">role</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.edit_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Role&quot;</span><span class="p">:</span> <span class="s2">&quot;ARCHITECT&quot;</span><span class="p">})</span>
+
+<span class="c1"># Assign that organisation to a newly created actor</span>
+<span class="n">actor</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">actor</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+
+<span class="c1"># Actually we need ballpens on this project</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.remove_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">actor</span><span class="o">=</span><span class="n">actor</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.remove_address">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">remove_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.remove_address" title="Link to this definition">¶</a></dt>
+<dd><p>Removes an address</p>
+<p>Naturally, any organisations or people using that address will have the
+relationship removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>address</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcAddress to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">address</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcPostalAddress&quot;</span><span class="p">)</span>
+
+<span class="c1"># Change our mind and delete it</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.remove_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">address</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.remove_application">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">remove_application</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">application</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.remove_application" title="Link to this definition">¶</a></dt>
+<dd><p>Removes an application</p>
+<p>Warning: removing an application may invalidate ownership histories.
+Check whether or not the application is used anywhere prior to removal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>address</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcApplication to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">application</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_application&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.remove_address&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">application</span><span class="o">=</span><span class="n">application</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.remove_organisation">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">remove_organisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.remove_organisation" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an organisation</p>
+<p>All roles and addresses assigned to the organisation will also be
+removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>organisation</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcOrganization to remove</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.remove_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">organisation</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.remove_person">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">remove_person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">person</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.remove_person" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an person</p>
+<p>All roles and addresses assigned to the person will also be
+removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>person</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcPerson to remove</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;bobthebuilder&quot;</span><span class="p">,</span> <span class="n">family_name</span><span class="o">=</span><span class="s2">&quot;Thebuilder&quot;</span><span class="p">,</span> <span class="n">given_name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.remove_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">person</span><span class="o">=</span><span class="n">person</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.remove_person_and_organisation">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">remove_person_and_organisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">person_and_organisation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.remove_person_and_organisation" title="Link to this definition">¶</a></dt>
+<dd><p>Removes a person and organisation</p>
+<p>Note that the underlying person and organisation is not removed, only
+the “person and organisation” group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>person_and_organisation</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcPersonAndOrganization to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;lecorbycorbycorb&quot;</span><span class="p">,</span> <span class="n">family_name</span><span class="o">=</span><span class="s2">&quot;Curbosiar&quot;</span><span class="p">,</span> <span class="n">given_name</span><span class="o">=</span><span class="s2">&quot;Le&quot;</span><span class="p">)</span>
+<span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_person_and_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">person</span><span class="o">=</span><span class="n">person</span><span class="p">,</span> <span class="n">organisation</span><span class="o">=</span><span class="n">organisation</span><span class="p">)</span>
+
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.remove_person_and_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">person_and_organisation</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.remove_role">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">remove_role</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.remove_role" title="Link to this definition">¶</a></dt>
+<dd><p>Removes a role</p>
+<p>People and organisations using the role will be untouched. This may
+leave some of them without roles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>role</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcActorRole to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">organisation</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;AWB&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Architects Without Ballpens&quot;</span><span class="p">)</span>
+<span class="n">role</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">organisation</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;ARCHITECT&quot;</span><span class="p">)</span>
+
+<span class="c1"># After running this, the organisation will have no role again</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.remove_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.unassign_actor">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">unassign_actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_actor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.unassign_actor" title="Link to this definition">¶</a></dt>
+<dd><p>Unassigns an actor to an object</p>
+<p>This means that the actor is no longer responsible for the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>relating_actor</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcActor who is responsible for the object.</p></li>
+<li><p><strong>related_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The object the actor is responsible for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated IfcRelAssignsToActor relationship or none if there
+is no more valid relationship.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None, <a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to procure and install 2 of this particular pump type in our facility.</span>
+<span class="n">pump_type</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;root.create_entity&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcPumpType&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define who the manufacturer is</span>
+<span class="n">manufacturer</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_organisation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">identification</span><span class="o">=</span><span class="s2">&quot;PWP&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Pumps With Power&quot;</span><span class="p">)</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.add_role&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">assigned_object</span><span class="o">=</span><span class="n">manufacturer</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;MANUFACTURER&quot;</span><span class="p">)</span>
+
+<span class="c1"># Make the manufacturer responsible for that pump type.</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.assign_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">relating_actor</span><span class="o">=</span><span class="n">manufacturer</span><span class="p">,</span> <span class="n">related_object</span><span class="o">=</span><span class="n">pump_type</span><span class="p">)</span>
+
+<span class="c1"># Undo the assignment</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;owner.unassign_actor&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">relating_actor</span><span class="o">=</span><span class="n">manufacturer</span><span class="p">,</span> <span class="n">related_object</span><span class="o">=</span><span class="n">pump_type</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifcopenshell.api.owner.update_owner_history">
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.owner.</span></span><span class="sig-name descname"><span class="pre">update_owner_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.owner.update_owner_history" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the owner that is assigned to an object</p>
+<p>This ensures that the owner is tracked to have modified the object last,
+including the time when the change occured. See
+ifcopenshell.api.owner.create_owner_history for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcRoot element to update the ownership details on
+when a change is made.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated IfcOwnerHistory element.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># See ifcopenshell.api.owner.create_owner_history for setup</span>
+<span class="c1"># [ ... example setup code ... ]</span>
+
+<span class="c1"># We&#39;ve finished our ownership setup. Now let&#39;s start our script and</span>
+<span class="c1"># create a space. Notice we don&#39;t actually call</span>
+<span class="c1"># create_owner_history at all. This is already automatically handled</span>
+<span class="c1"># by the API when necessary. Under the hood, the API is actually</span>
+<span class="c1"># running this code on the IfcSpace element:</span>
+<span class="c1"># element.OwnerHistory = ifcopenshell.api.run(&quot;owner.create_owner_history&quot;, model)</span>
+<span class="n">space</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;root.create_entity&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">ifc_class</span><span class="o">=</span><span class="s2">&quot;IfcSpace&quot;</span><span class="p">)</span>
+
+<span class="c1"># Any edits we make will have ownership tracking automatically</span>
+<span class="c1"># applied. There is no need to run any owner.update_owner_history</span>
+<span class="c1"># API calls either.</span>
+<span class="n">ifcopenshell</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;attribute.edit_attributes&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">product</span><span class="o">=</span><span class="n">space</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Lobby&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </section>
 </section>
 
@@ -951,6 +1839,32 @@
             <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.owner</span></code></a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.add_actor"><code class="docutils literal notranslate"><span class="pre">add_actor()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.add_address"><code class="docutils literal notranslate"><span class="pre">add_address()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.add_application"><code class="docutils literal notranslate"><span class="pre">add_application()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.add_organisation"><code class="docutils literal notranslate"><span class="pre">add_organisation()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.add_person"><code class="docutils literal notranslate"><span class="pre">add_person()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.add_person_and_organisation"><code class="docutils literal notranslate"><span class="pre">add_person_and_organisation()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.add_role"><code class="docutils literal notranslate"><span class="pre">add_role()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.assign_actor"><code class="docutils literal notranslate"><span class="pre">assign_actor()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.create_owner_history"><code class="docutils literal notranslate"><span class="pre">create_owner_history()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.edit_actor"><code class="docutils literal notranslate"><span class="pre">edit_actor()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.edit_address"><code class="docutils literal notranslate"><span class="pre">edit_address()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.edit_organisation"><code class="docutils literal notranslate"><span class="pre">edit_organisation()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.edit_person"><code class="docutils literal notranslate"><span class="pre">edit_person()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.edit_role"><code class="docutils literal notranslate"><span class="pre">edit_role()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.remove_actor"><code class="docutils literal notranslate"><span class="pre">remove_actor()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.remove_address"><code class="docutils literal notranslate"><span class="pre">remove_address()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.remove_application"><code class="docutils literal notranslate"><span class="pre">remove_application()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.remove_organisation"><code class="docutils literal notranslate"><span class="pre">remove_organisation()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.remove_person"><code class="docutils literal notranslate"><span class="pre">remove_person()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.remove_person_and_organisation"><code class="docutils literal notranslate"><span class="pre">remove_person_and_organisation()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.remove_role"><code class="docutils literal notranslate"><span class="pre">remove_role()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.unassign_actor"><code class="docutils literal notranslate"><span class="pre">unassign_actor()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.api.owner.update_owner_history"><code class="docutils literal notranslate"><span class="pre">update_owner_history()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -963,9 +1877,9 @@
     </aside>
   </div>
 </div><script src="../../../../_static/documentation_options.js?v=fe7df9b0"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../../../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     </body>

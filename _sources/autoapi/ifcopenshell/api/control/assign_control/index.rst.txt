@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, relating_control=None, related_object=None)
+.. py:function:: assign_control(file, relating_control=None, related_object=None) -> None
 
-
-   
    Assigns a planning control or constraint to an object
 
    IFC can describe concepts that control other objects. For example, a
@@ -26,12 +24,12 @@ Module Contents
 
    :param relating_control: The IfcControl entity that is creating the
        control or constraint
-   :type relating_control: ifcopenshell.entity_instance.entity_instance
+   :type relating_control: ifcopenshell.entity_instance
    :param related_object: The IfcObjectDefinition that is being controlled
-   :type related_object: ifcopenshell.entity_instance.entity_instance
+   :type related_object: ifcopenshell.entity_instance
    :return: The newly created IfcRelAssignsToControl. If relationship already
        existed before and wasn't changed then returns None.
-   :rtype: ifcopenshell.entity_instance.entity_instance, None
+   :rtype: ifcopenshell.entity_instance, None
 
    Example:
 
@@ -55,8 +53,5 @@ Module Contents
            cost_schedule=schedule)
        ifcopenshell.api.run("control.assign_control", model,
            relating_control=cost_item, related_object=wall)
-
-   .. py:method:: execute()
-
 
 

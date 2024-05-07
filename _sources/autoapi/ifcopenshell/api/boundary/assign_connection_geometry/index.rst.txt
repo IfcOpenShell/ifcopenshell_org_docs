@@ -7,10 +7,27 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, rel_space_boundary=None, outer_boundary=None, inner_boundaries=None, location=None, axis=None, ref_direction=None, unit_scale=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: close_polyline(points)
+
+
+   .. py:method:: create_plane(location, axis, ref_direction)
+
+
+   .. py:method:: create_point(point)
+
+
+   .. py:method:: create_polyline(points)
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: assign_connection_geometry(file, rel_space_boundary=None, outer_boundary=None, inner_boundaries=None, location=None, axis=None, ref_direction=None, unit_scale=None) -> None
+
    Create and assign a connection geometry to a space boundary relationship
 
    A space boundary may optionally have a plane that represents how that
@@ -21,7 +38,7 @@ Module Contents
 
    :param rel_space_boundary: The space boundary relationship to assign the
        connection geometry to.
-   :type rel_space_boundary: ifcopenshell.entity_instance.entity_instance
+   :type rel_space_boundary: ifcopenshell.entity_instance
    :param outer_boundary: A list of 2D points representing an open
        polyline.  The last point will connect to the first point. Each
        point is represented by an interable of 2 floats. The coordinates of
@@ -60,20 +77,5 @@ Module Contents
            outer_boundary=[(0., 0.), (1., 0.), (1., 1.), (0., 1.)],
            location=[0., 0., 0.], axis=[1., 0., 0.], ref_direction=[0., 0., 1.],
            )
-
-   .. py:method:: close_polyline(points)
-
-
-   .. py:method:: create_plane(location, axis, ref_direction)
-
-
-   .. py:method:: create_point(point)
-
-
-   .. py:method:: create_polyline(points)
-
-
-   .. py:method:: execute()
-
 
 

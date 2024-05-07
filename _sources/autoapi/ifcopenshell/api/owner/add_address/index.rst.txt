@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, assigned_object=None, ifc_class='IfcPostalAddress')
+.. py:function:: add_address(file, assigned_object=None, ifc_class='IfcPostalAddress') -> None
 
-
-   
    Add a new telecom or postal address to an organisation or person
 
    A person or organisation may have associated contact details such as
@@ -25,12 +23,12 @@ Module Contents
 
    :param assigned_object: The IfcOrganization or IfcPerson the contact
        address belongs to.
-   :type assigned_object: ifcopenshell.entity_instance.entity_instance
+   :type assigned_object: ifcopenshell.entity_instance
    :param ifc_class: Either IfcPostalAddress or IfcTelecomAddress. Defaults
        to IfcPostalAddress.
    :type ifc_class: str, optional
    :return: The new IfcPostalAddress or IfcTelecomAddress
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -52,8 +50,5 @@ Module Contents
            attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
            "ElectronicMailAddresses": ["bobthebuilder@example.com"],
            "WWWHomePageURL": "https://thinkmoult.com"})
-
-   .. py:method:: execute()
-
 
 

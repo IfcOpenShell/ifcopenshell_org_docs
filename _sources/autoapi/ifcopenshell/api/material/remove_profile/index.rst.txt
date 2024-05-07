@@ -7,17 +7,15 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, profile=None)
+.. py:function:: remove_profile(file, profile=None) -> None
 
-
-   
    Removes a profile item from a profile set
 
    Note that it is invalid to have zero items in a set, so you should leave
    at least one profile to ensure a valid IFC dataset.
 
    :param profile: The IfcMaterialProfile entity you want to remove
-   :type profile: ifcopenshell.entity_instance.entity_instance
+   :type profile: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -34,7 +32,7 @@ Module Contents
 
        # Create an I-beam profile curve. Notice how we name our profiles
        # based on standardised steel profile names.
-       hea100 = self.file.create_entity(
+       hea100 = file.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA100", ProfileType="AREA",
            OverallWidth=100, OverallDepth=96, WebThickness=5, FlangeThickness=8, FilletRadius=12,
        )
@@ -51,8 +49,5 @@ Module Contents
 
        # Let's remove our welded square.
        ifcopenshell.api.run("material.remove_profile", model, profile=weld_profile)
-
-   .. py:method:: execute()
-
 
 

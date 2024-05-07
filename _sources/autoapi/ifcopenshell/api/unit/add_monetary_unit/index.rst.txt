@@ -7,10 +7,8 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, currency='DOLLARYDOO')
+.. py:function:: add_monetary_unit(file, currency='DOLLARYDOO') -> None
 
-
-   
    Add a new currency
 
    Currency units are useful in cost plans to know in what currency the
@@ -20,7 +18,7 @@ Module Contents
    :param currency: The currency code
    :type currency: str
    :return: The newly created IfcMonetaryUnit
-   :rtype: ifcopenshell.entity_instance.entity_instance
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -32,8 +30,5 @@ Module Contents
 
        # Make it our default currency
        ifcopenshell.api.run("unit.assign_unit", model, units=[zwl])
-
-   .. py:method:: execute()
-
 
 

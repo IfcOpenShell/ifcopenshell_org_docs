@@ -7,10 +7,21 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, context_type=None, context_identifier=None, target_view=None, parent=None)
+.. py:class:: Usecase
 
 
-   
+   .. py:method:: create_2d_origin()
+
+
+   .. py:method:: create_3d_origin()
+
+
+   .. py:method:: execute()
+
+
+
+.. py:function:: add_context(file, context_type=None, context_identifier=None, target_view=None, parent=None) -> None
+
    Adds a new geometric representation context
 
    In IFC, physical objects may have zero, one, or multiple geometric
@@ -94,10 +105,10 @@ Module Contents
    :param parent: the parent context. Must be left as None (the default)
        for contexts, and only set for subcontexts. Note that there are only
        contexts and subcontexts, a subcontext cannot have any children.
-   :type parent: ifcopenshell.entity_instance.entity_instance, optional
+   :type parent: ifcopenshell.entity_instance, optional
    :return: the newly created IfcGeometricRepresentationContext or
        IfcGeometricRepresentationSubContext entity
-   :rtype: ifcopenshell.entity_instance.entity_instance, optional
+   :rtype: ifcopenshell.entity_instance, optional
 
    Example:
 
@@ -162,14 +173,5 @@ Module Contents
 
        # Place our wall at the origin
        ifcopenshell.api.run("geometry.edit_object_placement", model, product=wall)
-
-   .. py:method:: create_2d_origin()
-
-
-   .. py:method:: create_3d_origin()
-
-
-   .. py:method:: execute()
-
 
 

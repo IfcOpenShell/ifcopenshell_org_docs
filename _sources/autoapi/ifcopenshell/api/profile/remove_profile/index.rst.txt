@@ -7,14 +7,12 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase(file, profile=None)
+.. py:function:: remove_profile(file, profile=None) -> None
 
-
-   
    Removes a profile
 
    :param profile: The IfcProfileDef to remove.
-   :type profile: ifcopenshell.entity_instance.entity_instance
+   :type profile: ifcopenshell.entity_instance
    :return: None
    :rtype: None
 
@@ -26,8 +24,5 @@ Module Contents
            ifc_class="IfcCircleProfileDef")
        circle = 1.
        ifcopenshell.api.run("profile.remove_profile", model, profile=circle)
-
-   .. py:method:: execute()
-
 
 

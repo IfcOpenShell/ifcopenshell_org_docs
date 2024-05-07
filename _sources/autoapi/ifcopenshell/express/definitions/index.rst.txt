@@ -12,9 +12,6 @@ Module Contents
 
    Bases: :py:obj:`codegen.Base`
 
-   .. py:method:: __repr__()
-
-
 
 .. py:data:: Generator
 
