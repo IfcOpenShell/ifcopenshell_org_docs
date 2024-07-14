@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, sql_type: str = 'sqlite', host: str = 'localhost', username: str = 'root', password: str = 'pass', database: str = 'test')
 
-
    
    Convert an IFC-SPF model to SQLite or MySQL.
 
@@ -43,6 +42,7 @@ Module Contents
 
        # Convert to SQLite
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "Ifc2Sql", "arguments": ["sqlite"]})
+
 
    .. py:method:: create_geometry()
 
@@ -78,6 +78,5 @@ Module Contents
 
 
    .. py:method:: serialise_value(element, value)
-
 
 

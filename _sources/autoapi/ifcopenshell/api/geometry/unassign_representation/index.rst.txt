@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: execute()
 
 
@@ -25,7 +24,5 @@ Module Contents
    .. py:method:: unassign_type_representation()
 
 
-
-.. py:function:: unassign_representation(file, **usecase_settings) -> None
-
+.. py:function:: unassign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
 

@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: reorder_nesting(file, item=None, old_index=0, new_index=0) -> None
+.. py:function:: reorder_nesting(file: ifcopenshell.file, item: ifcopenshell.entity_instance, old_index: int = 0, new_index: int = 0) -> None
 
    Reorders an item in a nesting set
 

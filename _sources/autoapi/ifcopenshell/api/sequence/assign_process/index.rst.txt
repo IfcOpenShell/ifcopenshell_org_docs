@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: assign_process(file, relating_process=None, related_object=None) -> None
+.. py:function:: assign_process(file: ifcopenshell.file, relating_process: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns an object to be related to a process, typically a construction task
 
@@ -61,17 +61,17 @@ Module Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's create a construction task. Note that the predefined type is
        # important to distinguish types of tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Demolish existing", identification="A", predefined_type="DEMOLITION")
 
        # Let's say we have a wall somewhere.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # Let's demolish that wall!
-       ifcopenshell.api.run("sequence.assign_process", model, relating_process=task, related_object=wall)
+       ifcopenshell.api.sequence.assign_process(model, relating_process=task, related_object=wall)
 
 

@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: copy_direct_attributes(to_element)
 
 
@@ -28,8 +27,7 @@ Module Contents
    .. py:method:: remove_representations(element)
 
 
-
-.. py:function:: copy_class(file, product=None) -> None
+.. py:function:: copy_class(file: ifcopenshell.file, product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Copies a product
 
@@ -67,9 +65,9 @@ Module Contents
    .. code:: python
 
        # We have a wall
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # And now we have two
-       wall_copy = ifcopenshell.api.run("root.copy_class", model, product=wall)
+       wall_copy = ifcopenshell.api.root.copy_class(model, product=wall)
 
 

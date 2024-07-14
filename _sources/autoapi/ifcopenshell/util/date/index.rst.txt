@@ -9,28 +9,20 @@ Module Contents
 
 .. py:function:: canonicalise_time(time)
 
-
-.. py:function:: datetime2ifc(dt, ifc_type)
-
+.. py:function:: datetime2ifc(dt: None, ifc_type: Any) -> None
+                 datetime2ifc(dt: Union[datetime.date, str, None], ifc_type: Literal['IfcDuration', 'IfcTimeStamp', 'IfcDateTime', 'IfcDate', 'IfcTime', 'IfcCalendarDate', 'IfcLocalTime']) -> Union[int, str, dict[str, Any], None]
 
 .. py:function:: get_isosplit(s, split)
 
-
 .. py:function:: ifc2datetime(element)
-
 
 .. py:function:: parse_duration(value)
 
-
 .. py:function:: readable_ifc_duration(string)
-
 
 .. py:function:: string_to_date(string)
 
-
 .. py:function:: string_to_duration(duration_string)
 
-
 .. py:function:: timedelta2duration(timedelta)
-
 

@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger)
 
-
    
    Removes the built-in Revit Uniformat classification.
 
@@ -23,10 +22,10 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "RemoveRevitUniformatClassification"})
 
+
    .. py:method:: get_references(classification)
 
 
    .. py:method:: patch()
-
 
 

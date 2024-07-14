@@ -9,8 +9,8 @@ Module Contents
 
 .. py:class:: Bcf(ids: ifctester.ids.Ids)
 
-
    Bases: :py:obj:`Json`
+
 
    .. py:method:: report_failed_entities(requirement: ifctester.facet.Facet) -> list[ifctester.facet.FacetFailure]
 
@@ -18,11 +18,10 @@ Module Contents
    .. py:method:: to_file(filepath: str) -> None
 
 
-
 .. py:class:: Console(ids: ifctester.ids.Ids, use_colour=True)
 
-
    Bases: :py:obj:`Reporter`
+
 
    .. py:method:: print(txt: str, end: Optional[str] = None)
 
@@ -39,11 +38,10 @@ Module Contents
    .. py:method:: set_style(*colours: str)
 
 
-
 .. py:class:: Html(ids: ifctester.ids.Ids)
 
-
    Bases: :py:obj:`Json`
+
 
    .. py:method:: report() -> None
 
@@ -54,16 +52,21 @@ Module Contents
    .. py:method:: to_string() -> str
 
 
-
 .. py:class:: Json(ids: ifctester.ids.Ids)
 
-
    Bases: :py:obj:`Reporter`
+
+
+   .. py:method:: encode(obj)
+
 
    .. py:method:: report() -> Results
 
 
-   .. py:method:: report_failed_entities(requirement: ifctester.facet.Facet) -> list[ResultsFailedEntity]
+   .. py:method:: report_failed_entities(requirement: ifctester.facet.Facet) -> list[ResultsEntity]
+
+
+   .. py:method:: report_passed_entities(requirement: ifctester.facet.Facet) -> list[ResultsEntity]
 
 
    .. py:method:: report_specification(specification: ifctester.ids.Specification) -> ResultsSpecification
@@ -75,11 +78,10 @@ Module Contents
    .. py:method:: to_string() -> str
 
 
-
 .. py:class:: Ods(ids: ifctester.ids.Ids, excel_safe=False)
 
-
    Bases: :py:obj:`Json`
+
 
    .. py:method:: excel_safe_spreadsheet_name(name: str) -> str
 
@@ -87,9 +89,18 @@ Module Contents
    .. py:method:: to_file(filepath: str) -> None
 
 
+.. py:class:: OdsSummary(ids: ifctester.ids.Ids, excel_safe=False)
+
+   Bases: :py:obj:`Json`
+
+
+   .. py:method:: excel_safe_spreadsheet_name(name: str) -> str
+
+
+   .. py:method:: to_file(filepath: str) -> None
+
 
 .. py:class:: Reporter(ids: ifctester.ids.Ids)
-
 
    .. py:method:: report(ids)
 
@@ -100,11 +111,10 @@ Module Contents
    .. py:method:: write(filepath)
 
 
-
 .. py:class:: Results
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -118,106 +128,87 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: date
-      :type: str
 
-      
+   .. py:attribute:: date
+      :type:  str
+
 
    .. py:attribute:: filename
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: filepath
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: percent_checks_pass
-      :type: ResultsPercent
+      :type:  ResultsPercent
 
-      
 
    .. py:attribute:: percent_requirements_pass
-      :type: ResultsPercent
+      :type:  ResultsPercent
 
-      
 
    .. py:attribute:: percent_specifications_pass
-      :type: ResultsPercent
+      :type:  ResultsPercent
 
-      
 
    .. py:attribute:: specifications
-      :type: list[ResultsSpecification]
+      :type:  list[ResultsSpecification]
 
-      
 
    .. py:attribute:: status
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: title
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: total_checks
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_checks_fail
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_checks_pass
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_requirements
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_requirements_fail
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_requirements_pass
-      :type: int
+      :type:  int
 
-      
-
-   .. py:attribute:: total_specifications
-      :type: int
-
-      
 
    .. py:attribute:: total_specifications
-      :type: int
+      :type:  int
 
-      
+
+   .. py:attribute:: total_specifications
+      :type:  int
+
 
    .. py:attribute:: total_specifications_fail
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_specifications_pass
-      :type: int
-
-      
+      :type:  int
 
 
 .. py:class:: ResultsRequirement
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -231,46 +222,59 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: description
-      :type: str
 
-      
+   .. py:attribute:: description
+      :type:  str
+
+
+   .. py:attribute:: facet_type
+      :type:  str
+
 
    .. py:attribute:: failed_entities
-      :type: list[ResultsFailedEntity]
+      :type:  list[ResultsEntity]
 
-      
+
+   .. py:attribute:: label
+      :type:  str
+
+
+   .. py:attribute:: metadata
+      :type:  dict
+
+
+   .. py:attribute:: passed_entities
+      :type:  list[ResultsEntity]
+
 
    .. py:attribute:: percent_pass
-      :type: ResultsPercent
+      :type:  ResultsPercent
 
-      
 
    .. py:attribute:: status
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: total_applicable
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_fail
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_pass
-      :type: int
+      :type:  int
 
-      
+
+   .. py:attribute:: value
+      :type:  str
 
 
 .. py:class:: ResultsSpecification
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -284,86 +288,71 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: applicability
-      :type: list[str]
 
-      
+   .. py:attribute:: applicability
+      :type:  list[str]
+
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: instructions
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: percent_applicable_pass
-      :type: ResultsPercent
+      :type:  ResultsPercent
 
-      
 
    .. py:attribute:: percent_checks_pass
-      :type: ResultsPercent
+      :type:  ResultsPercent
 
-      
 
    .. py:attribute:: required
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: requirements
-      :type: list[ResultsRequirement]
+      :type:  list[ResultsRequirement]
 
-      
 
    .. py:attribute:: status
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: total_applicable
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_applicable_fail
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_applicable_pass
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_checks
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_checks_fail
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: total_checks_pass
-      :type: int
-
-      
+      :type:  int
 
 
 .. py:class:: Txt(ids: ifctester.ids.Ids)
 
-
    Bases: :py:obj:`Console`
+
 
    .. py:method:: print(txt: str, end: Optional[str] = None)
 
@@ -374,16 +363,9 @@ Module Contents
    .. py:method:: to_string() -> None
 
 
-
-.. py:data:: ResultsFailedEntity
-
-   
+.. py:data:: ResultsEntity
 
 .. py:data:: ResultsPercent
 
-   
-
 .. py:data:: cwd
-
-   
 

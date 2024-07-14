@@ -9,29 +9,6 @@ Module Contents
 
 .. py:class:: Clipping
 
-
-   .. py:attribute:: location
-      :type: tuple[float, float, float]
-
-      
-
-   .. py:attribute:: normal
-      :type: tuple[float, float, float]
-
-      
-
-   .. py:attribute:: operand_type
-      :type: str
-      :value: 'IfcHalfSpaceSolid'
-
-      
-
-   .. py:attribute:: type
-      :type: str
-      :value: 'IfcBooleanClippingResult'
-
-      
-
    .. py:method:: apply(ifc_file: ifcopenshell.file, first_operand: ifcopenshell.entity_instance, unit_scale: float) -> ifcopenshell.entity_instance
 
       Applies the clipping data as an IfcBooleanClippingResult to an operand
@@ -42,8 +19,10 @@ Module Contents
       :return: An IfcBooleanClippingResult which uses an IfcHalfSpaceSolid to clip the first operand
 
 
+
    .. py:method:: parse(raw_data: Any) -> Union[ifcopenshell.entity_instance, Clipping, None]
       :classmethod:
+
 
       Parse various formats into a clipping object
 
@@ -54,6 +33,26 @@ Module Contents
       - dictionary to define `Clipping` - either `location` and `normal`
           or a `matrix` where XY plane is the clipping boundary and +Z is removed.
           `matrix` method will be soon to be deprecated completely.
+
+
+
+   .. py:attribute:: location
+      :type:  tuple[float, float, float]
+
+
+   .. py:attribute:: normal
+      :type:  tuple[float, float, float]
+
+
+   .. py:attribute:: operand_type
+      :type:  str
+      :value: 'IfcHalfSpaceSolid'
+
+
+
+   .. py:attribute:: type
+      :type:  str
+      :value: 'IfcBooleanClippingResult'
 
 
 

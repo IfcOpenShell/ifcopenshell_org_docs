@@ -52,7 +52,7 @@ Module Contents
    :rtype: MatrixType
 
 
-.. py:function:: get_local_placement(placement: ifcopenshell.entity_instance) -> MatrixType
+.. py:function:: get_local_placement(placement: Optional[ifcopenshell.entity_instance] = None) -> MatrixType
 
    Parse a local placement into a 4x4 transformation matrix
 
@@ -74,7 +74,7 @@ Module Contents
        matrix = ifcopenshell.util.placement.get_local_placement(placement)
 
    :param placement: The IfcLocalPlacement entity
-   :type placement: ifcopenshell.entity_instance
+   :type placement: ifcopenshell.entity_instance, optional
    :return: A 4x4 numpy matrix
    :rtype: MatrixType
 
@@ -106,7 +106,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: rotation(angle: float, axis: Literal[X, Y, Z], is_degrees=True) -> MatrixType
+.. py:function:: rotation(angle: float, axis: Literal['X', 'Y', 'Z'], is_degrees=True) -> MatrixType
 
    Create a 4x4 numpy matrix representing an euler rotation
 

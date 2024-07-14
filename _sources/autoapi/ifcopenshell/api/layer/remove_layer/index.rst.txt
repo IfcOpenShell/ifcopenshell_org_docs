@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_layer(file, layer=None) -> None
+.. py:function:: remove_layer(file: ifcopenshell.file, layer: ifcopenshell.entity_instance) -> None
 
    Removes a layer
 
@@ -23,7 +23,7 @@ Module Contents
 
    .. code:: python
 
-       layer = ifcopenshell.api.run("layer.add_layer", model, Name="AI-WALL")
-       ifcopenshell.api.run("layer.remove_layer", model, layer=layer)
+       layer = ifcopenshell.api.layer.add_layer(model, name="AI-WALL")
+       ifcopenshell.api.layer.remove_layer(model, layer=layer)
 
 

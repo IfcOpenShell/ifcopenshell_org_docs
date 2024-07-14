@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: copy_cost_item_values(file, source=None, destination=None) -> None
+.. py:function:: copy_cost_item_values(file: ifcopenshell.file, source: ifcopenshell.entity_instance, destination: ifcopenshell.entity_instance) -> None
 
    Copies all cost values from one cost item to another
 
@@ -27,16 +27,16 @@ Module Contents
    .. code:: python
 
        # Assume we have a schedule with multiple items in it
-       schedule = ifcopenshell.api.run("cost.add_cost_schedule", model)
-       item1 = ifcopenshell.api.run("cost.add_cost_item", model, cost_schedule=schedule)
-       item2 = ifcopenshell.api.run("cost.add_cost_item", model, cost_schedule=schedule)
+       schedule = ifcopenshell.api.cost.add_cost_schedule(model)
+       item1 = ifcopenshell.api.cost.add_cost_item(model, cost_schedule=schedule)
+       item2 = ifcopenshell.api.cost.add_cost_item(model, cost_schedule=schedule)
 
        # One of the items has a value
-       value = ifcopenshell.api.run("cost.add_cost_value", model, parent=item)
-       ifcopenshell.api.run("cost.edit_cost_value", model, cost_value=value,
+       value = ifcopenshell.api.cost.add_cost_value(model, parent=item)
+       ifcopenshell.api.cost.edit_cost_value(model, cost_value=value,
            attributes={"AppliedValue": 5000.0})
 
        # Let's copy the value from one item to another
-       ifcopenshell.api.run("cost.copy_cost_item_values", model, source=item1, destination=item2)
+       ifcopenshell.api.cost.copy_cost_item_values(model, source=item1, destination=item2)
 
 

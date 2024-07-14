@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_person(file: ifcopenshell.entity_instance, identification: str = 'HSeldon', family_name: str = 'Seldon', given_name: str = 'Hari') -> None
+.. py:function:: add_person(file: ifcopenshell.file, identification: str = 'HSeldon', family_name: str = 'Seldon', given_name: str = 'Hari') -> ifcopenshell.entity_instance
 
    Adds a new person
 
@@ -28,7 +28,7 @@ Module Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("owner.add_person", model,
+       ifcopenshell.api.owner.add_person(model,
            identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
 
 

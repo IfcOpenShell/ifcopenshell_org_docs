@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: apply_clippings(first_operand)
 
 
@@ -31,7 +30,7 @@ Module Contents
    .. py:method:: get_y()
 
 
+.. py:function:: add_profile_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, profile: ifcopenshell.entity_instance, depth: float = 1.0, cardinal_point: Literal[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] = 5, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, placement_zx_axes: tuple[Union[VECTOR_3D, None], Union[VECTOR_3D, None]] = (None, None)) -> ifcopenshell.entity_instance
 
-.. py:function:: add_profile_representation(file, **usecase_settings) -> None
-
+.. py:data:: VECTOR_3D
 

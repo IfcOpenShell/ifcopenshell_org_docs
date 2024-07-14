@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: change_nest(file, item=None, new_parent=None) -> None
+.. py:function:: change_nest(file: ifcopenshell.file, item: ifcopenshell.entity_instance, new_parent: ifcopenshell.entity_instance) -> None
 
    Assigns a cost item to a new parent cost item
 

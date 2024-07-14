@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: assign_declaration(file: ifcopenshell.entity_instance, definitions: list[ifcopenshell.entity_instance], relating_context: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: assign_declaration(file: ifcopenshell.file, definitions: list[ifcopenshell.entity_instance], relating_context: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Declares the list of elements to the project
 
@@ -36,31 +36,31 @@ Module Contents
    .. code:: python
 
        # Programmatically generate a library. You could do this visually too.
-       library = ifcopenshell.api.run("project.create_file")
-       root = ifcopenshell.api.run("root.create_entity", library, ifc_class="IfcProject", name="Demo Library")
-       context = ifcopenshell.api.run("root.create_entity", library,
+       library = ifcopenshell.api.project.create_file()
+       root = ifcopenshell.api.root.create_entity(library, ifc_class="IfcProject", name="Demo Library")
+       context = ifcopenshell.api.root.create_entity(library,
            ifc_class="IfcProjectLibrary", name="Demo Library")
 
        # It's necessary to say our library is part of our project.
-       ifcopenshell.api.run("project.assign_declaration", library, definitions=[context], relating_context=root)
+       ifcopenshell.api.project.assign_declaration(library, definitions=[context], relating_context=root)
 
        # Assign units for our example library
-       unit = ifcopenshell.api.run("unit.add_si_unit", library,
+       unit = ifcopenshell.api.unit.add_si_unit(library,
            unit_type="LENGTHUNIT", name="METRE", prefix="MILLI")
-       ifcopenshell.api.run("unit.assign_unit", library, units=[unit])
+       ifcopenshell.api.unit.assign_unit(library, units=[unit])
 
        # Let's create a single asset of a 200mm thick concrete wall
-       wall_type = ifcopenshell.api.run("root.create_entity", library, ifc_class="IfcWallType", name="WAL01")
-       concrete = ifcopenshell.api.run("material.add_material", file, name="CON", category="concrete")
-       rel = ifcopenshell.api.run("material.assign_material", library,
+       wall_type = ifcopenshell.api.root.create_entity(library, ifc_class="IfcWallType", name="WAL01")
+       concrete = ifcopenshell.api.material.add_material(file, name="CON", category="concrete")
+       rel = ifcopenshell.api.material.assign_material(library,
            products=[wall_type], type="IfcMaterialLayerSet")
-       layer = ifcopenshell.api.run("material.add_layer", library,
+       layer = ifcopenshell.api.material.add_layer(library,
            layer_set=rel.RelatingMaterial, material=concrete)
        layer.Name = "Structure"
        layer.LayerThickness = 200
 
        # Mark our wall type as a reusable asset in our library.
-       ifcopenshell.api.run("project.assign_declaration", library,
+       ifcopenshell.api.project.assign_declaration(library,
            definitions=[wall_type], relating_context=context)
 
        # All done, just for fun let's save our asset library to disk for later use.

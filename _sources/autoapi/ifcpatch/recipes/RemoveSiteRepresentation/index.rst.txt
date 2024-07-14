@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger)
 
-
    
    Removes any 3D geometry associated with a site or multiple sites
 
@@ -21,10 +20,10 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "RemoveSiteRepresentation", "arguments": []})
 
+
    .. py:method:: find_decomposed_ifc_class(element, ifc_class)
 
 
    .. py:method:: patch()
-
 
 

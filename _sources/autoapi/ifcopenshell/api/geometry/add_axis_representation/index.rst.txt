@@ -9,15 +9,13 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: convert_si_to_unit(co)
 
 
    .. py:method:: execute()
 
 
-
-.. py:function:: add_axis_representation(file, context=None, axis=None) -> None
+.. py:function:: add_axis_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, axis: tuple[COORD, COORD]) -> ifcopenshell.entity_instance
 
    Adds a new axis representation
 
@@ -63,7 +61,9 @@ Module Contents
    .. code:: python
 
        context = ifcopenshell.util.representation.get_context(model, "Plan", "Axis", "GRAPH_VIEW")
-       axis = ifcopenshell.api.run("geometry.add_axis_representation", model,
+       axis = ifcopenshell.api.geometry.add_axis_representation(model,
            context=context, axis=[(0.0, 0.0), (1.0, 0.0)])
 
+
+.. py:data:: COORD
 

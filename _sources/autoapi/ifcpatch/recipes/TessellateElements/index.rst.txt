@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcBeam', force_faceted_brep: bool = False)
 
-
    
    Convert element body representations to tessellations or faceted breps
 
@@ -33,7 +32,7 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "TessellateElements", "arguments": ["IfcBeam", False]})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

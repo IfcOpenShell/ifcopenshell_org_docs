@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_style(file, name=None, ifc_class='IfcSurfaceStyle') -> None
+.. py:function:: add_style(file: ifcopenshell.file, name: Optional[str] = None, ifc_class='IfcSurfaceStyle') -> ifcopenshell.entity_instance
 
    Add a new presentation style
 
@@ -43,6 +43,6 @@ Module Contents
    .. code:: python
 
        # Create a new surface style
-       style = ifcopenshell.api.run("style.add_style", model)
+       style = ifcopenshell.api.style.add_style(model)
 
 

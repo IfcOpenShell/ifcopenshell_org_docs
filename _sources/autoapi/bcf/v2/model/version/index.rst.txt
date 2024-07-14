@@ -9,15 +9,11 @@ Module Contents
 
 .. py:class:: Version
 
-
    .. py:attribute:: detailed_version
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: version_id
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 

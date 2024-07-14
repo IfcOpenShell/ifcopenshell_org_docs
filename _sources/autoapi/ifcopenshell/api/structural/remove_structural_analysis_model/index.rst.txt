@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_structural_analysis_model(file, structural_analysis_model=None) -> None
+.. py:function:: remove_structural_analysis_model(file: ifcopenshell.file, structural_analysis_model: ifcopenshell.entity_instance) -> None
 
    Removes an analysis model
 

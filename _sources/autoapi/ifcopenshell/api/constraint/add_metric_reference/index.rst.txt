@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_metric_reference(file, metric=None, reference_path=None) -> None
+.. py:function:: add_metric_reference(file: ifcopenshell.file, metric: ifcopenshell.entity_instance, reference_path: str) -> list[ifcopenshell.entity_instance]
 
    Adds a chain of references to a metric. The reference path is a string of the form "attribute.attribute.attribute"
    Used to reference a value of an attribute of an instance through a metric objective entity.

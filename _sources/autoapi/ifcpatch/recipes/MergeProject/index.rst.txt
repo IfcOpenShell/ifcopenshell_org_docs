@@ -7,8 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, filepath: str)
-
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, filepath: Union[str, ifcopenshell.file])
 
    
    Merge two IFC models into one
@@ -23,13 +22,13 @@ Module Contents
    :param filepath: The filepath of the second IFC model to merge into the
        first. The first model is already specified as the input to
        IfcPatch.
-   :type filepath: str
 
    Example:
 
    .. code:: python
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "MergeProject", "arguments": ["/path/to/model2.ifc"]})
+
 
    .. py:method:: get_equivalent_existing_context(added_context: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
@@ -41,6 +40,5 @@ Module Contents
 
 
    .. py:method:: reuse_existing_contexts()
-
 
 

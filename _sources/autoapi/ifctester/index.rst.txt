@@ -21,4 +21,3 @@ Package Contents
 .. py:function:: open(filepath: str, validate: Literal[False] = False) -> Ids
                  open(filepath: str, validate: Literal[True]) -> None
 
-

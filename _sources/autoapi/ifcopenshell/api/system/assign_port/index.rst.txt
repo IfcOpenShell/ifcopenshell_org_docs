@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: execute()
 
 
@@ -19,8 +18,7 @@ Module Contents
    .. py:method:: update_port_placement()
 
 
-
-.. py:function:: assign_port(file, element=None, port=None) -> None
+.. py:function:: assign_port(file: ifcopenshell.file, element: ifcopenshell.entity_instance, port: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns a port to an element
 
@@ -41,17 +39,17 @@ Module Contents
    .. code:: python
 
        # Create a duct
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # Create 2 ports, one for either end.
-       port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       port1 = ifcopenshell.api.system.add_port(model, element=duct)
+       port2 = ifcopenshell.api.system.add_port(model, element=duct)
 
        # Unassign one port for some weird reason.
-       ifcopenshell.api.run("system.unassign_port", model, element=duct, port=port1)
+       ifcopenshell.api.system.unassign_port(model, element=duct, port=port1)
 
        # Reassign it back
-       ifcopenshell.api.run("system.assign_port", model, element=duct, port=port1)
+       ifcopenshell.api.system.assign_port(model, element=duct, port=port1)
 
 

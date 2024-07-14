@@ -3,6 +3,15 @@
 
 .. py:module:: ifcopenshell.api.library
 
+.. autoapi-nested-parse::
+
+   Manage references to external libraries
+
+   An external library is any system which uses a key to store information. This
+   allows you to associate IFC entities with any arbitrary external database, API,
+   system, and so on. This is typically useful in smart building systems.
+
+
 
 Submodules
 ----------
@@ -23,7 +32,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_library(file, name=None) -> None
+.. py:function:: add_library(file: ifcopenshell.file, name: str) -> ifcopenshell.entity_instance
 
    Adds a new library to the project
 
@@ -61,7 +70,7 @@ Package Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("library.add_library", model, name="Brickschema")
+       ifcopenshell.api.library.add_library(model, name="Brickschema")
 
 
 .. py:function:: add_reference(file: ifcopenshell.file, library: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -89,11 +98,11 @@ Package Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
 
        # Let's create a reference to a single AHU in our Brickschema dataset
-       reference = ifcopenshell.api.run("library.add_reference", model, library=library)
-       ifcopenshell.api.run("library.edit_reference", model,
+       reference = ifcopenshell.api.library.add_reference(model, library=library)
+       ifcopenshell.api.library.edit_reference(model,
            reference=reference, attributes={"Identification": "http://example.org/digitaltwin#AHU01"})
 
 
@@ -119,22 +128,22 @@ Package Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
 
        # Let's create a reference to a single AHU in our Brickschema dataset
-       reference = ifcopenshell.api.run("library.add_reference", model, library=library)
-       ifcopenshell.api.run("library.edit_reference", model,
+       reference = ifcopenshell.api.library.add_reference(model, library=library)
+       ifcopenshell.api.library.edit_reference(model,
            reference=reference, attributes={"Identification": "http://example.org/digitaltwin#AHU01"})
 
        # Let's assume we have an AHU in our model.
-       ahu = ifcopenshell.api.run("root.create_entity", model,
+       ahu = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcUnitaryEquipment", predefined_type="AIRHANDLER")
 
        # And now assign the IFC model's AHU with its Brickschema counterpart
-       ifcopenshell.api.run("library.assign_reference", model, reference=reference, products=[ahu])
+       ifcopenshell.api.library.assign_reference(model, reference=reference, products=[ahu])
 
 
-.. py:function:: edit_library(file, library=None, attributes=None) -> None
+.. py:function:: edit_library(file: ifcopenshell.file, library: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcLibraryInformation
 
@@ -144,7 +153,7 @@ Package Contents
    :param library: The IfcLibraryInformation entity you want to edit
    :type library: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -152,12 +161,12 @@ Package Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
-       ifcopenshell.api.run("library.edit_library", model, library=library,
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
+       ifcopenshell.api.library.edit_library(model, library=library,
            attributes={"Description": "A Brickschema TTL including only mechanical distribution systems."})
 
 
-.. py:function:: edit_reference(file, reference=None, attributes=None) -> None
+.. py:function:: edit_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcLibraryReference
 
@@ -167,7 +176,7 @@ Package Contents
    :param reference: The IfcLibraryReference entity you want to edit
    :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -175,14 +184,14 @@ Package Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
        # Let's create a reference to a single AHU in our Brickschema dataset
-       reference = ifcopenshell.api.run("library.add_reference", model, library=library)
-       ifcopenshell.api.run("library.edit_reference", model,
+       reference = ifcopenshell.api.library.add_reference(model, library=library)
+       ifcopenshell.api.library.edit_reference(model,
            reference=reference, attributes={"Identification": "http://example.org/digitaltwin#AHU01"})
 
 
-.. py:function:: remove_library(file, library=None) -> None
+.. py:function:: remove_library(file: ifcopenshell.file, library: ifcopenshell.entity_instance) -> None
 
    Removes a library
 
@@ -198,8 +207,8 @@ Package Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
-       ifcopenshell.api.run("library.remove_library", model, library=library)
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
+       ifcopenshell.api.library.remove_library(model, library=library)
 
 
 .. py:function:: remove_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance) -> None
@@ -218,10 +227,10 @@ Package Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
-       reference = ifcopenshell.api.run("library.add_reference", model, library=library)
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
+       reference = ifcopenshell.api.library.add_reference(model, library=library)
        # Let's change our mind and remove it.
-       ifcopenshell.api.run("library.remove_reference", model, reference=reference)
+       ifcopenshell.api.library.remove_reference(model, reference=reference)
 
 
 .. py:function:: unassign_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> None
@@ -241,21 +250,21 @@ Package Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
 
        # Let's create a reference to a single AHU in our Brickschema dataset
-       reference = ifcopenshell.api.run("library.add_reference", model, library=library)
-       ifcopenshell.api.run("library.edit_reference", model,
+       reference = ifcopenshell.api.library.add_reference(model, library=library)
+       ifcopenshell.api.library.edit_reference(model,
            reference=reference, attributes={"Identification": "http://example.org/digitaltwin#AHU01"})
 
        # Let's assume we have an AHU in our model.
-       ahu = ifcopenshell.api.run("root.create_entity", model,
+       ahu = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcUnitaryEquipment", predefined_type="AIRHANDLER")
 
        # And now assign the IFC model's AHU with its Brickschema counterpart
-       ifcopenshell.api.run("library.assign_reference", model, reference=reference, products=[ahu])
+       ifcopenshell.api.library.assign_reference(model, reference=reference, products=[ahu])
 
        # Let's change our mind and unassign it.
-       ifcopenshell.api.run("library.unassign_reference", model, reference=reference, products=[ahu])
+       ifcopenshell.api.library.unassign_reference(model, reference=reference, products=[ahu])
 
 

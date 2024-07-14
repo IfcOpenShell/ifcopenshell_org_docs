@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger)
 
-
    
    Optimise the filesize of an IFC model
 
@@ -35,7 +34,7 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "Optimise", "arguments": []})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

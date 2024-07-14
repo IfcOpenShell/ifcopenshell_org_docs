@@ -9,70 +9,58 @@ Module Contents
 
 .. py:class:: Attribute(name='Name', value=None, cardinality: Cardinality = 'required', instructions=None)
 
-
    Bases: :py:obj:`Facet`
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
 .. py:class:: AttributeResult(is_pass, reason=None)
 
-
    Bases: :py:obj:`Result`
 
-   .. py:method:: to_string()
 
+   .. py:method:: to_string()
 
 
 .. py:class:: Classification(value=None, system=None, uri=None, cardinality: Cardinality = 'required', instructions=None)
 
-
    Bases: :py:obj:`Facet`
+
 
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
-
 .. py:class:: ClassificationResult(is_pass, reason=None)
-
 
    Bases: :py:obj:`Result`
 
-   .. py:method:: to_string()
 
+   .. py:method:: to_string()
 
 
 .. py:class:: Entity(name='IFCWALL', predefinedType=None, instructions=None)
 
-
    Bases: :py:obj:`Facet`
+
 
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
 
 
-
 .. py:class:: EntityResult(is_pass, reason=None)
 
-
    Bases: :py:obj:`Result`
+
 
    .. py:method:: to_string()
 
 
-
 .. py:class:: Facet(*parameters)
-
-
-   .. py:attribute:: cardinality
-      :type: Cardinality
-
-      
 
    .. py:method:: asdict(clause_type: str) -> dict[str, Any]
 
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: list[ifcopenshell.entity_instance]) -> list[ifcopenshell.entity_instance]
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
    .. py:method:: get_usage() -> Cardinality
@@ -87,11 +75,14 @@ Module Contents
    .. py:method:: to_string(clause_type: str, specification: Optional[ifctester.ids.Specification] = None, requirement: Optional[Facet] = None) -> str
 
 
+   .. py:attribute:: cardinality
+      :type:  Cardinality
+
 
 .. py:class:: FacetFailure
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -105,39 +96,35 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: element
-      :type: ifcopenshell.entity_instance
 
-      
+   .. py:attribute:: element
+      :type:  ifcopenshell.entity_instance
+
 
    .. py:attribute:: reason
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: Material(value=None, uri=None, cardinality: Cardinality = 'required', instructions=None)
 
-
    Bases: :py:obj:`Facet`
+
 
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
-
 .. py:class:: MaterialResult(is_pass, reason=None)
 
-
    Bases: :py:obj:`Result`
+
 
    .. py:method:: to_string()
 
 
-
 .. py:class:: PartOf(name='IFCWALL', predefinedType=None, relation=None, cardinality: Cardinality = 'required', instructions=None)
 
-
    Bases: :py:obj:`Facet`
+
 
    .. py:method:: asdict(clause_type: str) -> dict[str, Any]
 
@@ -145,35 +132,24 @@ Module Contents
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: get_filled_opening(element)
-
-
-   .. py:method:: get_nested_whole(element)
-
-
    .. py:method:: get_parent(element)
-
-
-   .. py:method:: get_voided_element(element)
 
 
    .. py:method:: parse(xml)
 
 
-
 .. py:class:: PartOfResult(is_pass, reason=None)
 
-
    Bases: :py:obj:`Result`
+
 
    .. py:method:: to_string()
 
 
-
 .. py:class:: Property(propertySet='Property_Set', baseName='PropertyName', value=None, dataType=None, uri=None, cardinality: Cardinality = 'required', instructions=None)
 
-
    Bases: :py:obj:`Facet`
+
 
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
@@ -181,18 +157,15 @@ Module Contents
    .. py:method:: get_properties(pset)
 
 
-
 .. py:class:: PropertyResult(is_pass, reason=None)
 
-
    Bases: :py:obj:`Result`
+
 
    .. py:method:: to_string()
 
 
-
 .. py:class:: Restriction(options=None, base='string')
-
 
    .. py:method:: asdict() -> dict[str, Any]
 
@@ -200,24 +173,18 @@ Module Contents
    .. py:method:: parse(ids_dict)
 
 
-
 .. py:class:: Result(is_pass, reason=None)
-
 
    .. py:method:: to_string()
 
 
-
 .. py:function:: cast_to_value(from_value, to_value)
-
 
 .. py:function:: get_pset(element, pset)
 
-
 .. py:function:: get_psets(element)
 
+.. py:function:: is_x(value, cast_value)
 
 .. py:data:: Cardinality
-
-   
 

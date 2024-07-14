@@ -3,6 +3,16 @@
 
 .. py:module:: ifcopenshell.api.system
 
+.. autoapi-nested-parse::
+
+   Manage distribution systems and port connectivity
+
+   Service distribution systems (mechanical, electrical, hydraulic, fire,
+   logistical, etc) consist of connected distribution segments, fittings,
+   terminals, control equipment, and more. This module handles port connectivity
+   and relationships describing distribution flow.
+
+
 
 Submodules
 ----------
@@ -27,7 +37,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_port(file, element=None) -> None
+.. py:function:: add_port(file: ifcopenshell.file, element: Optional[ifcopenshell.entity_instance] = None) -> None
 
    Adds a new distribution port to an element
 
@@ -42,7 +52,7 @@ Package Contents
 
    :param element: The IfcDistributionElement you want to add a
        distribution port to.
-   :type element: ifcopenshell.entity_instance
+   :type element: ifcopenshell.entity_instance, optional
    :return: The newly created IfcDistributionPort
    :rtype: ifcopenshell.entity_instance
 
@@ -51,12 +61,12 @@ Package Contents
    .. code:: python
 
        # Create a duct
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # Create 2 ports, one for either end.
-       port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       port1 = ifcopenshell.api.system.add_port(model, element=duct)
+       port2 = ifcopenshell.api.system.add_port(model, element=duct)
 
 
 .. py:function:: add_system(file: ifcopenshell.file, ifc_class: str = 'IfcDistributionSystem') -> ifcopenshell.entity_instance
@@ -82,10 +92,10 @@ Package Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
 
-.. py:function:: assign_flow_control(file, relating_flow_element=None, related_flow_control=None) -> None
+.. py:function:: assign_flow_control(file: ifcopenshell.file, relating_flow_element: ifcopenshell.entity_instance, related_flow_control: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Assigns to the flow element control element that either sense or control
    some aspect of the flow element.
@@ -107,13 +117,12 @@ Package Contents
 
        flow_element = model.createIfcFlowSegment()
        flow_control = model.createIfcController()
-       relation = ifcopenshell.api.run(
-           "system.assign_flow_control", model,
-           related_flow_control=flow_control, relating_flow_element=flow_element
+       relation = ifcopenshell.api.system.assign_flow_control(
+           model, related_flow_control=flow_control, relating_flow_element=flow_element
        )
 
 
-.. py:function:: assign_port(file, element=None, port=None) -> None
+.. py:function:: assign_port(file: ifcopenshell.file, element: ifcopenshell.entity_instance, port: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns a port to an element
 
@@ -134,18 +143,18 @@ Package Contents
    .. code:: python
 
        # Create a duct
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # Create 2 ports, one for either end.
-       port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       port1 = ifcopenshell.api.system.add_port(model, element=duct)
+       port2 = ifcopenshell.api.system.add_port(model, element=duct)
 
        # Unassign one port for some weird reason.
-       ifcopenshell.api.run("system.unassign_port", model, element=duct, port=port1)
+       ifcopenshell.api.system.unassign_port(model, element=duct, port=port1)
 
        # Reassign it back
-       ifcopenshell.api.run("system.assign_port", model, element=duct, port=port1)
+       ifcopenshell.api.system.assign_port(model, element=duct, port=port1)
 
 
 .. py:function:: assign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
@@ -167,17 +176,17 @@ Package Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Create a duct
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # This duct is part of the system
-       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+       ifcopenshell.api.system.assign_system(model, products=[duct], system=system)
 
 
-.. py:function:: connect_port(file, port1=None, port2=None, direction='NOTDEFINED', element=None) -> None
+.. py:function:: connect_port(file: ifcopenshell.file, port1: ifcopenshell.entity_instance, port2: ifcopenshell.entity_instance, direction: str = 'NOTDEFINED', element: Optional[ifcopenshell.entity_instance] = None) -> None
 
    Connects two ports together
 
@@ -217,38 +226,38 @@ Package Contents
        connectivity is made, such as a segment or fitting. This is only to
        be used for implicit port connectivity where the segments and
        fittings are less important.
-   :type element: ifcopenshell.entity_instance
+   :type element: ifcopenshell.entity_instance, optional
 
    Example:
 
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Create a duct and a 90 degree bend fitting
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
-       fitting = ifcopenshell.api.run("root.create_entity", model,
+       fitting = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctFitting", predefined_type="BEND")
 
        # The duct and fitting is part of the system
-       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
-       ifcopenshell.api.run("system.assign_system", model, products=[fitting], system=system)
+       ifcopenshell.api.system.assign_system(model, products=[duct], system=system)
+       ifcopenshell.api.system.assign_system(model, products=[fitting], system=system)
 
        # Create 2 ports, one for either end of both the duct and fitting.
-       duct_port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       duct_port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       fitting_port1 = ifcopenshell.api.run("system.add_port", model, element=fitting)
-       fitting_port2 = ifcopenshell.api.run("system.add_port", model, element=fitting)
+       duct_port1 = ifcopenshell.api.system.add_port(model, element=duct)
+       duct_port2 = ifcopenshell.api.system.add_port(model, element=duct)
+       fitting_port1 = ifcopenshell.api.system.add_port(model, element=fitting)
+       fitting_port2 = ifcopenshell.api.system.add_port(model, element=fitting)
 
        # Connect the duct and fitting together. At this point, we have not
        # yet determined the direction of the flow, so we leave direction as
        # NOTDEFINED.
-       ifcopenshell.api.run("system.connect_port", model, port1=duct_port2, port2=fitting_port1)
+       ifcopenshell.api.system.connect_port(model, port1=duct_port2, port2=fitting_port1)
 
 
-.. py:function:: disconnect_port(file, port=None) -> None
+.. py:function:: disconnect_port(file: ifcopenshell.file, port: ifcopenshell.entity_instance) -> None
 
    Disconnects a port from any other port
 
@@ -265,35 +274,35 @@ Package Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Create a duct and a 90 degree bend fitting
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
-       fitting = ifcopenshell.api.run("root.create_entity", model,
+       fitting = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctFitting", predefined_type="BEND")
 
        # The duct and fitting is part of the system
-       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
-       ifcopenshell.api.run("system.assign_system", model, products=[fitting], system=system)
+       ifcopenshell.api.system.assign_system(model, products=[duct], system=system)
+       ifcopenshell.api.system.assign_system(model, products=[fitting], system=system)
 
        # Create 2 ports, one for either end of both the duct and fitting.
-       duct_port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       duct_port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       fitting_port1 = ifcopenshell.api.run("system.add_port", model, element=fitting)
-       fitting_port2 = ifcopenshell.api.run("system.add_port", model, element=fitting)
+       duct_port1 = ifcopenshell.api.system.add_port(model, element=duct)
+       duct_port2 = ifcopenshell.api.system.add_port(model, element=duct)
+       fitting_port1 = ifcopenshell.api.system.add_port(model, element=fitting)
+       fitting_port2 = ifcopenshell.api.system.add_port(model, element=fitting)
 
        # Connect the duct and fitting together. At this point, we have not
        # yet determined the direction of the flow, so we leave direction as
        # NOTDEFINED.
-       ifcopenshell.api.run("system.connect_port", model, port1=duct_port2, port2=fitting_port1)
+       ifcopenshell.api.system.connect_port(model, port1=duct_port2, port2=fitting_port1)
 
        # Disconnect the port. note we could've equally disconnected
        # fitting_port1 instead of duct_port2
-       ifcopenshell.api.run("system.disconnect_port", model, port=duct_port2)
+       ifcopenshell.api.system.disconnect_port(model, port=duct_port2)
 
 
-.. py:function:: edit_system(file, system=None, attributes=None) -> None
+.. py:function:: edit_system(file: ifcopenshell.file, system: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcSystem
 
@@ -303,7 +312,7 @@ Package Contents
    :param system: The IfcSystem entity you want to edit
    :type system: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -312,13 +321,13 @@ Package Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Change the name of the system to "HW" for Hot Water
-       ifcopenshell.api.run("system.edit_system", model, system=system, attributes={"Name": "HW"})
+       ifcopenshell.api.system.edit_system(model, system=system, attributes={"Name": "HW"})
 
 
-.. py:function:: remove_system(file, system=None) -> None
+.. py:function:: remove_system(file: ifcopenshell.file, system: ifcopenshell.entity_instance) -> None
 
    Removes a distribution system
 
@@ -334,13 +343,13 @@ Package Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Delete it.
-       ifcopenshell.api.run("system.remove_system", model, system=system)
+       ifcopenshell.api.system.remove_system(model, system=system)
 
 
-.. py:function:: unassign_flow_control(file, relating_flow_element=None, related_flow_control=None) -> None
+.. py:function:: unassign_flow_control(file: ifcopenshell.file, relating_flow_element: ifcopenshell.entity_instance, related_flow_control: ifcopenshell.entity_instance) -> None
 
    Unassigns flow control element from the flow element.
 
@@ -349,9 +358,8 @@ Package Contents
    :type related_flow_control: ifcopenshell.entity_instance
    :param relating_flow_element: The IfcDistributionFlowElement that is being controlled
    :type relating_flow_element: ifcopenshell.entity_instance
-   :return: If the control still is related to other objects, the
-       IfcRelFlowControlElements is returned, otherwise None.
-   :rtype: ifcopenshell.entity_instance, None
+   :return: None
+   :rtype: None
 
    Example:
 
@@ -360,18 +368,17 @@ Package Contents
        # assign control to the flow element
        flow_element = file.createIfcFlowSegment()
        flow_control = file.createIfcController()
-       relation = ifcopenshell.api.run(
-           "system.assign_flow_control", file,
-           relating_control=flow_control, related_object=flow_element
+       relation = ifcopenshell.api.system.assign_flow_control(
+           file, relating_control=flow_control, related_object=flow_element
        )
 
        # und unassign it
-       ifcopenshell.api.run("system.unassign_flow_control", file,
+       ifcopenshell.api.system.unassign_flow_control(file,
            relating_control=flow_control, related_object=flow_element
        )
 
 
-.. py:function:: unassign_port(file, element=None, port=None) -> None
+.. py:function:: unassign_port(file: ifcopenshell.file, element: ifcopenshell.entity_instance, port: ifcopenshell.entity_instance) -> None
 
    Unassigns a port to an element
 
@@ -391,15 +398,15 @@ Package Contents
    .. code:: python
 
        # Create a duct
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # Create 2 ports, one for either end.
-       port1 = ifcopenshell.api.run("system.add_port", model, element=duct)
-       port2 = ifcopenshell.api.run("system.add_port", model, element=duct)
+       port1 = ifcopenshell.api.system.add_port(model, element=duct)
+       port2 = ifcopenshell.api.system.add_port(model, element=duct)
 
        # Unassign one port for some weird reason.
-       ifcopenshell.api.run("system.unassign_port", model, element=duct, port=port1)
+       ifcopenshell.api.system.unassign_port(model, element=duct, port=port1)
 
 
 .. py:function:: unassign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
@@ -418,16 +425,16 @@ Package Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Create a duct
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # This duct is part of the system
-       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+       ifcopenshell.api.system.assign_system(model, products=[duct], system=system)
 
        # Not anymore!
-       ifcopenshell.api.run("system.unassign_system", model, products=[duct], system=system)
+       ifcopenshell.api.system.unassign_system(model, products=[duct], system=system)
 
 

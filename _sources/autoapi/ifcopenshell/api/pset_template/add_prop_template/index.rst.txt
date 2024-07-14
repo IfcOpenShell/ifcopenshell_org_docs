@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_prop_template(file, pset_template=None, name='NewProperty', description=None, template_type='P_SINGLEVALUE', primary_measure_type='IfcLabel') -> None
+.. py:function:: add_prop_template(file: ifcopenshell.file, pset_template: ifcopenshell.entity_instance, name: str = 'NewProperty', description: Optional[str] = None, template_type: str = 'P_SINGLEVALUE', primary_measure_type: str = 'IfcLabel') -> ifcopenshell.entity_instance
 
    Adds new property templates to a property set template
 
@@ -53,15 +53,15 @@ Module Contents
    .. code:: python
 
        # Create a simple template that may be applied to all types
-       template = ifcopenshell.api.run("pset_template.add_pset_template", model, name="ABC_RiskFactors")
+       template = ifcopenshell.api.pset_template.add_pset_template(model, name="ABC_RiskFactors")
 
        # Here's one example property
-       ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template,
+       ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template,
            name="HighVoltage", description="Whether there is a risk of high voltage.",
            primary_measure_type="IfcBoolean")
 
        # Here's another
-       ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template,
+       ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template,
            name="ChemicalType", description="The class of chemical spillage.",
            primary_measure_type="IfcLabel")
 

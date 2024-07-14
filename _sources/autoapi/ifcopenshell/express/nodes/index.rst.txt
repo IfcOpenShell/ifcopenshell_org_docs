@@ -9,24 +9,8 @@ Module Contents
 
 .. py:class:: AggregationType(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: aggregate_type
-
-      
-
-   .. py:attribute:: bounds
-
-      
-
-   .. py:attribute:: type
-
-      
-
-   .. py:attribute:: unique
-
-      
 
    .. py:method:: get_type()
 
@@ -34,61 +18,46 @@ Module Contents
    .. py:method:: init()
 
 
+   .. py:attribute:: aggregate_type
 
-.. py:class:: AttributeList(s, loc, tokens, rule=None)
 
+   .. py:attribute:: bounds
 
-   Bases: :py:obj:`ListNode`
 
    .. py:attribute:: type
 
-      
+
+   .. py:attribute:: unique
+
+
+.. py:class:: AttributeList(s, loc, tokens, rule=None)
+
+   Bases: :py:obj:`ListNode`
+
+
+   .. py:attribute:: type
 
 
 .. py:class:: BinaryType(s, loc, tokens, rule=None)
-
 
    Bases: :py:obj:`Node`
 
 
 .. py:class:: BoundSpecification(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
+
 
    .. py:attribute:: lower
 
-      
 
    .. py:attribute:: upper
-
-      
 
 
 .. py:class:: EntityDeclaration(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: abstract
-
-      
-
-   .. py:attribute:: name
-
-      
-
-   .. py:attribute:: subtype
-
-      
-
-   .. py:attribute:: supertype
-
-      
-
-   .. py:attribute:: supertypes
-
-      
 
    .. py:method:: get_abstract()
 
@@ -96,89 +65,85 @@ Module Contents
    .. py:method:: init()
 
 
+   .. py:attribute:: abstract
+
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: subtype
+
+
+   .. py:attribute:: supertype
+
+
+   .. py:attribute:: supertypes
+
 
 .. py:class:: EnumerationType(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: values
 
-      
+   .. py:attribute:: values
 
 
 .. py:class:: ExplicitAttribute(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: name
-
-      
-
-   .. py:attribute:: optional
-
-      
-
-   .. py:attribute:: type
-
-      
 
    .. py:method:: get_type()
 
 
+   .. py:attribute:: name
+
+
+   .. py:attribute:: optional
+
+
+   .. py:attribute:: type
+
 
 .. py:class:: FunctionDeclaration(s, loc, tokens, rule=None)
-
 
    Bases: :py:obj:`ProcedureDeclaration`
 
 
 .. py:class:: InverseAttribute(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
+
 
    .. py:attribute:: attribute
 
-      
 
    .. py:attribute:: bounds
 
-      
 
    .. py:attribute:: entity
 
-      
 
    .. py:attribute:: name
 
-      
 
    .. py:attribute:: type
-
-      
 
 
 .. py:class:: ListNode(s, loc, tokens, rule=None)
 
-
    .. py:method:: init()
-
 
 
 .. py:class:: NamedType(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
+
 
    .. py:attribute:: type
 
-      
-
 
 .. py:class:: Node(s, loc, tokens, rule=None)
-
 
    .. py:method:: any()
 
@@ -186,137 +151,107 @@ Module Contents
    .. py:method:: init()
 
 
-
 .. py:class:: ProcedureDeclaration(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`ListNode`
+
 
    .. py:property:: name
 
 
-
 .. py:class:: RuleDeclaration(s, loc, tokens, rule=None)
-
 
    Bases: :py:obj:`ProcedureDeclaration`
 
 
 .. py:class:: SelectType(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: values
 
-      
+   .. py:attribute:: values
 
 
 .. py:class:: SimpleType(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: type
-
-      
 
    .. py:method:: get_type()
 
 
+   .. py:attribute:: type
+
 
 .. py:class:: StringType(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: width
 
-      
+   .. py:attribute:: width
 
 
 .. py:class:: SubTypeExpression(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: super_type
 
-      
+   .. py:attribute:: super_type
 
 
 .. py:class:: SuperTypeExpression(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: abstract
-
-      
-
-   .. py:attribute:: sub_types
-
-      
 
    .. py:method:: get_sub_types()
 
 
+   .. py:attribute:: abstract
+
+
+   .. py:attribute:: sub_types
+
 
 .. py:class:: TypeDeclaration(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: name
-
-      
-
-   .. py:attribute:: type
-
-      
-
-   .. py:attribute:: utype
-
-      
 
    .. py:method:: init()
 
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: type
+
+
+   .. py:attribute:: utype
 
 
 .. py:class:: WidthSpec(s, loc, tokens, rule=None)
 
-
    Bases: :py:obj:`Node`
 
-   .. py:attribute:: fixed
-
-      
 
    .. py:method:: init()
 
 
+   .. py:attribute:: fixed
+
 
 .. py:function:: do_try(fn)
 
-
 .. py:function:: format_clause(exp)
-
 
 .. py:function:: get_rule_id(x)
 
-
 .. py:function:: to_tree(x, key=None)
-
 
 .. py:data:: all_rules
 
-   
-
 .. py:data:: rule_definitions
 
-   
-
 .. py:data:: rule_dependencies
-
-   
 

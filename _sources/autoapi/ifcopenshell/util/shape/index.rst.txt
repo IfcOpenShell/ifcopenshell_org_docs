@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: get_area(geometry) -> float
+.. py:function:: get_area(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Calculates the surface area of the geometry
 
@@ -42,7 +42,7 @@ Module Contents
    :rtype: tuple[np.array[float]]
 
 
-.. py:function:: get_bbox_centroid(geometry) -> tuple[float, float, float]
+.. py:function:: get_bbox_centroid(geometry: ifcopenshell.geom.ShapeType) -> tuple[float, float, float]
 
    Calculates the bounding box centroid of the geometry
 
@@ -54,7 +54,7 @@ Module Contents
    :rtype: tuple[float, float, float]
 
 
-.. py:function:: get_bottom_elevation(geometry) -> float
+.. py:function:: get_bottom_elevation(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Gets the lowest local Z ordinate of the geometry
 
@@ -64,7 +64,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_edges(geometry) -> numpy.typing.NDArray[numpy.int32]
+.. py:function:: get_edges(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
 
    Get all the edges as a numpy array
 
@@ -95,7 +95,7 @@ Module Contents
    :rtype: npt.NDArray[np.float64]
 
 
-.. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry) -> float
+.. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> float
 
    Gets the lowest global Z ordinate of the element
 
@@ -110,7 +110,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_element_top_elevation(element: ifcopenshell.entity_instance, geometry) -> float
+.. py:function:: get_element_top_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> float
 
    Gets the highest global Z ordinate of the element
 
@@ -125,7 +125,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
 
    Get the element's vertices as a numpy array
 
@@ -152,7 +152,7 @@ Module Contents
    :rtype: list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_faces(geometry) -> numpy.typing.NDArray[numpy.int32]
+.. py:function:: get_faces(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
 
    Get all the faces as a numpy array
 
@@ -167,7 +167,7 @@ Module Contents
    :rtype: np.array[np.array[int]]
 
 
-.. py:function:: get_footprint_area(geometry, axis: AXIS_LITERAL = 'Z', direction: Optional[VECTOR_3D] = None) -> float
+.. py:function:: get_footprint_area(geometry: ifcopenshell.geom.ShapeType, axis: AXIS_LITERAL = 'Z', direction: Optional[VECTOR_3D] = None) -> float
 
    Calculates the total footprint (i.e. projected) surface area visible from along an axis
 
@@ -193,7 +193,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_footprint_perimeter(geometry) -> float
+.. py:function:: get_footprint_perimeter(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Calculates the footprint perimeter of the geometry
 
@@ -206,7 +206,49 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_outer_surface_area(geometry) -> float
+.. py:function:: get_max_side_area(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Returns the maximum X, Y, or Z side area
+
+   See :func:`get_side_area` for how side area is calculated.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :type geometry: geometry
+   :return: The maximum surface area from either the X, Y, or Z axis.
+   :rtype: float
+
+
+.. py:function:: get_max_xy(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the maximum X or Y length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :type geometry: geometry
+   :return: The maximum possible value out of the X and Y dimension
+   :rtype: float
+
+
+.. py:function:: get_max_xyz(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the maximum X, Y, or Z length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :type geometry: geometry
+   :return: The maximum possible value out of the X, Y, and Z dimension
+   :rtype: float
+
+
+.. py:function:: get_min_xyz(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the minimum X, Y, or Z length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :type geometry: geometry
+   :return: The minimum possible value out of the X, Y, and Z dimension
+   :rtype: float
+
+
+.. py:function:: get_outer_surface_area(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Calculates the outer surface area (i.e. all sides except for top and bottom)
 
@@ -232,7 +274,12 @@ Module Contents
    :rtype: list[ifcopenshell.entity_instance]
 
 
-.. py:function:: get_shape_bbox_centroid(shape, geometry) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_representation_item_ids(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+
+   Get representation item ids for the geometry faces.
+
+
+.. py:function:: get_shape_bbox_centroid(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
 
    Calculates the shape's bounding box centroid
 
@@ -247,7 +294,7 @@ Module Contents
    :rtype: npt.NDArray[np.float64]
 
 
-.. py:function:: get_shape_bottom_elevation(shape, geometry) -> float
+.. py:function:: get_shape_bottom_elevation(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> float
 
    Gets the lowest global Z ordinate of the shape
 
@@ -262,7 +309,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_shape_matrix(shape) -> MatrixType
+.. py:function:: get_shape_matrix(shape: ifcopenshell.geom.ShapeElementType) -> MatrixType
 
    Formats the transformation matrix of a shape as a 4x4 numpy array
 
@@ -272,7 +319,7 @@ Module Contents
    :rtype: MatrixType
 
 
-.. py:function:: get_shape_top_elevation(shape, geometry) -> float
+.. py:function:: get_shape_top_elevation(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> float
 
    Gets the highest global Z ordinate of the shape
 
@@ -287,7 +334,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_shape_vertices(shape, geometry) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_shape_vertices(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
 
    Get the shape's vertices as a numpy array
 
@@ -304,7 +351,7 @@ Module Contents
    :rtype: np.array[np.array[float]]
 
 
-.. py:function:: get_side_area(geometry, axis: AXIS_LITERAL = 'Y', direction: Optional[VECTOR_3D] = None) -> float
+.. py:function:: get_side_area(geometry: ifcopenshell.geom.ShapeType, axis: AXIS_LITERAL = 'Y', direction: Optional[VECTOR_3D] = None) -> float
 
    Calculates the total surface area of surfaces that are visible from the specified axis
 
@@ -328,7 +375,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_top_elevation(geometry) -> float
+.. py:function:: get_top_elevation(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Gets the highest local Z ordinate of the geometry
 
@@ -338,7 +385,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_vertices(geometry) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_vertices(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
 
    Get all the vertices as a numpy array
 
@@ -352,7 +399,7 @@ Module Contents
    :rtype: np.array[np.array[float]]
 
 
-.. py:function:: get_volume(geometry) -> float
+.. py:function:: get_volume(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Calculates the total internal volume of a geometry
 
@@ -364,7 +411,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_x(geometry) -> float
+.. py:function:: get_x(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Calculates the X length of the geometry
 
@@ -374,7 +421,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_y(geometry) -> float
+.. py:function:: get_y(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Calculates the Y length of the geometry
 
@@ -384,7 +431,7 @@ Module Contents
    :rtype: float
 
 
-.. py:function:: get_z(geometry) -> float
+.. py:function:: get_z(geometry: ifcopenshell.geom.ShapeType) -> float
 
    Calculates the Z length of the geometry
 
@@ -410,8 +457,6 @@ Module Contents
 
 .. py:data:: AXIS_LITERAL
 
-   
-
 .. py:data:: MatrixType
 
    `npt.NDArray[np.float64]`
@@ -419,10 +464,7 @@ Module Contents
 
 .. py:data:: VECTOR_3D
 
-   
-
 .. py:data:: tol
    :value: 1e-06
 
-   
 

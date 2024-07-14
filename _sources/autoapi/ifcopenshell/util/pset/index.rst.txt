@@ -7,12 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: PsetQto(schema: str, templates=None)
-
-
-   .. py:attribute:: templates_path
-
-      
+.. py:class:: PsetQto(schema_identifier: str, templates=None)
 
    .. py:method:: get_applicable(ifc_class='', predefined_type='', pset_only=False, qto_only=False) -> List[ifcopenshell.entity_instance.entity_instance]
 
@@ -20,6 +15,7 @@ Module Contents
    .. py:method:: get_applicable_names(ifc_class: str, predefined_type='', pset_only=False, qto_only=False) -> List[str]
 
       Return names instead of objects for other use eg. enum
+
 
 
    .. py:method:: get_by_name(name: str) -> Optional[ifcopenshell.entity_instance.entity_instance]
@@ -34,15 +30,15 @@ Module Contents
       IfcBoilerType/STEAM[PerformanceHistory]     (IfcClass/PREDEFINEDTYPE[PerformanceHistory])
 
 
+
    .. py:method:: is_templated(name: str) -> bool
 
+
+   .. py:attribute:: templates_path
 
 
 .. py:function:: get_template(schema: str) -> PsetQto
 
-
 .. py:data:: templates
-   :type: dict[str, PsetQto]
-
-   
+   :type:  dict[str, PsetQto]
 

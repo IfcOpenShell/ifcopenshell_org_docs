@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: BatchReassignClass(file: ifcopenshell.file)
 
-
    .. py:method:: purge() -> None
 
 
@@ -19,27 +18,27 @@ Module Contents
    .. py:method:: unbatch()
 
 
-
 .. py:class:: Migrator
 
+   .. py:method:: find_equivalent_attribute(new_element: ifcopenshell.entity_instance, attribute: ifcopenshell.ifcopenshell_wrapper.attribute, element: ifcopenshell.entity_instance, attributes_mapping: dict[str, dict[str, str]], reverse_mapping: bool = False) -> Union[Any, None]
 
-   .. py:method:: find_equivalent_attribute(new_element, attribute, element, attributes_mapping, reverse_mapping=False)
 
-
-   .. py:method:: generate_default_value(attribute, new_file)
+   .. py:method:: generate_default_value(attribute: ifcopenshell.ifcopenshell_wrapper.attribute, new_file: ifcopenshell.file) -> Any
 
 
    .. py:method:: migrate(element: ifcopenshell.entity_instance, new_file: ifcopenshell.file) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: migrate_attribute(attribute, element, new_file: ifcopenshell.file, new_element, new_element_schema)
+   .. py:method:: migrate_attribute(attribute: ifcopenshell.ifcopenshell_wrapper.attribute, element: ifcopenshell.entity_instance, new_file: ifcopenshell.file, new_element: ifcopenshell.entity_instance, new_element_schema: ifcopenshell.ifcopenshell_wrapper.declaration) -> None
 
 
    .. py:method:: migrate_attributes(element, new_file, new_element, new_element_schema)
 
 
-   .. py:method:: migrate_class(element, new_file)
+   .. py:method:: migrate_class(element: ifcopenshell.entity_instance, new_file: ifcopenshell.file) -> ifcopenshell.entity_instance
 
+
+   .. py:method:: preprocess(old_file: ifcopenshell.file, new_file: ifcopenshell.file)
 
 
 .. py:function:: get_fallback_schema(version: str) -> str
@@ -50,9 +49,7 @@ Module Contents
 
 .. py:function:: get_subtypes(entity)
 
-
 .. py:function:: is_a(entity: ifcopenshell.entity_instance, ifc_class: str) -> bool
-
 
 .. py:function:: reassign_class(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, new_class: str) -> ifcopenshell.entity_instance
 
@@ -70,6 +67,4 @@ Module Contents
 
 
 .. py:data:: cwd
-
-   
 

@@ -31,12 +31,7 @@ Package Contents
 
 .. py:function:: parse(fn)
 
-
 .. py:data:: d
 
-   
-
 .. py:data:: exp_parser_fn
-
-   
 

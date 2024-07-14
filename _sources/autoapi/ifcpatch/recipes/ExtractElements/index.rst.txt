@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcWall')
 
-
    
    Extract certain elements into a new model
 
@@ -33,9 +32,11 @@ Module Contents
        # Extract all walls and slabs
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ExtractElements", "arguments": ["IfcWall, IfcSlab"]})
 
+
    .. py:method:: add_decomposition_parents(element: ifcopenshell.entity_instance, new_element: ifcopenshell.entity_instance) -> None
 
       element is IfcObjectDefinition
+
 
 
    .. py:method:: add_element(element: ifcopenshell.entity_instance) -> None
@@ -46,6 +47,7 @@ Module Contents
       element is IfcElement
 
 
+
    .. py:method:: append_asset(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
 
@@ -53,6 +55,5 @@ Module Contents
 
 
    .. py:method:: patch()
-
 
 

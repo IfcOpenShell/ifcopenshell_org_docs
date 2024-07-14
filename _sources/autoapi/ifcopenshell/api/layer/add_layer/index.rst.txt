@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_layer(file, Name=None) -> None
+.. py:function:: add_layer(file: ifcopenshell.file, name: str = 'Unnamed') -> ifcopenshell.entity_instance
 
    Adds a new layer
 
@@ -23,13 +23,13 @@ Module Contents
    Some software that are still based on layers, such as Tekla or ArchiCAD
    may also use this layer information for filtering.
 
-   :param Name: The name of the layer. Defaults to "Unnamed".
-   :type Name: str, optional
+   :param name: The name of the layer. Defaults to "Unnamed".
+   :type name: str, optional
    :return: The newly created IfcPresentationLayerAssignment element
    :rtype: ifcopenshell.entity_instance
 
    Example:
 
-       ifcopenshell.api.run("layer.add_layer", model, Name="AI-WALL-FULL-DIMS-N")
+       ifcopenshell.api.layer.add_layer(model, name="AI-WALL-FULL-DIMS-N")
 
 

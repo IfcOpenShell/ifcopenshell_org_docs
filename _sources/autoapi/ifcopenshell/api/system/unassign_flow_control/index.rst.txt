@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: unassign_flow_control(file, relating_flow_element=None, related_flow_control=None) -> None
+.. py:function:: unassign_flow_control(file: ifcopenshell.file, relating_flow_element: ifcopenshell.entity_instance, related_flow_control: ifcopenshell.entity_instance) -> None
 
    Unassigns flow control element from the flow element.
 
@@ -16,9 +16,8 @@ Module Contents
    :type related_flow_control: ifcopenshell.entity_instance
    :param relating_flow_element: The IfcDistributionFlowElement that is being controlled
    :type relating_flow_element: ifcopenshell.entity_instance
-   :return: If the control still is related to other objects, the
-       IfcRelFlowControlElements is returned, otherwise None.
-   :rtype: ifcopenshell.entity_instance, None
+   :return: None
+   :rtype: None
 
    Example:
 
@@ -27,13 +26,12 @@ Module Contents
        # assign control to the flow element
        flow_element = file.createIfcFlowSegment()
        flow_control = file.createIfcController()
-       relation = ifcopenshell.api.run(
-           "system.assign_flow_control", file,
-           relating_control=flow_control, related_object=flow_element
+       relation = ifcopenshell.api.system.assign_flow_control(
+           file, relating_control=flow_control, related_object=flow_element
        )
 
        # und unassign it
-       ifcopenshell.api.run("system.unassign_flow_control", file,
+       ifcopenshell.api.system.unassign_flow_control(file,
            relating_control=flow_control, related_object=flow_element
        )
 

@@ -23,632 +23,483 @@ Package Contents
 
 .. py:class:: BimSnippet
 
-
    .. py:attribute:: is_external
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: reference
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: reference_schema
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: snippet_type
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: Bitmap
 
-
    .. py:attribute:: format
-      :type: BitmapFormat
+      :type:  BitmapFormat
 
-      
 
    .. py:attribute:: height
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: location
-      :type: Point
+      :type:  Point
 
-      
 
    .. py:attribute:: normal
-      :type: Direction
+      :type:  Direction
 
-      
 
    .. py:attribute:: reference
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: up
-      :type: Direction
-
-      
+      :type:  Direction
 
 
 .. py:class:: BitmapFormat
 
-
    Bases: :py:obj:`enum.Enum`
+
 
    Generic enumeration.
 
    Derive from this class to define new enumerations.
 
+
    .. py:attribute:: JPG
       :value: 'jpg'
 
-      
+
 
    .. py:attribute:: PNG
       :value: 'png'
 
-      
 
 
 .. py:class:: ClippingPlane
 
-
    .. py:attribute:: direction
-      :type: Direction
+      :type:  Direction
 
-      
 
    .. py:attribute:: location
-      :type: Point
-
-      
+      :type:  Point
 
 
 .. py:class:: Comment
 
-
    .. py:attribute:: author
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: comment
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: date
-      :type: xsdata.models.datatype.XmlDateTime
+      :type:  xsdata.models.datatype.XmlDateTime
 
-      
 
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: modified_author
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: modified_date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: viewpoint
-      :type: Optional[CommentViewpoint]
-
-      
+      :type:  Optional[CommentViewpoint]
 
 
 .. py:class:: CommentViewpoint
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: guid
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: Component
 
-
    .. py:attribute:: authoring_tool_id
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: ifc_guid
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: originating_system
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 
 .. py:class:: ComponentColoring
 
-
    .. py:attribute:: color
-      :type: List[ComponentColoringColor]
-
-      
+      :type:  List[ComponentColoringColor]
 
 
 .. py:class:: ComponentColoringColor
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: color
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: components
-      :type: ComponentColoringColorComponents
-
-      
+      :type:  ComponentColoringColorComponents
 
 
 .. py:class:: ComponentColoringColorComponents
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: component
-      :type: List[Component]
-
-      
+      :type:  List[Component]
 
 
 .. py:class:: ComponentSelection
 
-
    .. py:attribute:: component
-      :type: List[Component]
-
-      
+      :type:  List[Component]
 
 
 .. py:class:: ComponentVisibility
 
-
    .. py:attribute:: default_visibility
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: exceptions
-      :type: Optional[ComponentVisibilityExceptions]
+      :type:  Optional[ComponentVisibilityExceptions]
 
-      
 
    .. py:attribute:: view_setup_hints
-      :type: Optional[ViewSetupHints]
-
-      
+      :type:  Optional[ViewSetupHints]
 
 
 .. py:class:: ComponentVisibilityExceptions
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: component
-      :type: List[Component]
-
-      
+      :type:  List[Component]
 
 
 .. py:class:: Components
 
-
    .. py:attribute:: coloring
-      :type: Optional[ComponentColoring]
+      :type:  Optional[ComponentColoring]
 
-      
 
    .. py:attribute:: selection
-      :type: Optional[ComponentSelection]
+      :type:  Optional[ComponentSelection]
 
-      
 
    .. py:attribute:: visibility
-      :type: Optional[ComponentVisibility]
-
-      
+      :type:  Optional[ComponentVisibility]
 
 
 .. py:class:: Direction
 
-
    .. py:attribute:: x
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: y
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: z
-      :type: float
-
-      
+      :type:  float
 
 
 .. py:class:: Document
 
-
    .. py:attribute:: description
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: filename
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: guid
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: DocumentInfo
 
-
    .. py:attribute:: documents
-      :type: Optional[DocumentInfoDocuments]
-
-      
+      :type:  Optional[DocumentInfoDocuments]
 
 
 .. py:class:: DocumentInfoDocuments
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: document
-      :type: List[Document]
-
-      
+      :type:  List[Document]
 
 
 .. py:class:: DocumentReference
 
-
    .. py:attribute:: description
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: document_guid
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: url
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 
 .. py:class:: Extensions
 
-
    .. py:attribute:: priorities
-      :type: Optional[ExtensionsPriorities]
+      :type:  Optional[ExtensionsPriorities]
 
-      
 
    .. py:attribute:: snippet_types
-      :type: Optional[ExtensionsSnippetTypes]
+      :type:  Optional[ExtensionsSnippetTypes]
 
-      
 
    .. py:attribute:: stages
-      :type: Optional[ExtensionsStages]
+      :type:  Optional[ExtensionsStages]
 
-      
 
    .. py:attribute:: topic_labels
-      :type: Optional[ExtensionsTopicLabels]
+      :type:  Optional[ExtensionsTopicLabels]
 
-      
 
    .. py:attribute:: topic_statuses
-      :type: Optional[ExtensionsTopicStatuses]
+      :type:  Optional[ExtensionsTopicStatuses]
 
-      
 
    .. py:attribute:: topic_types
-      :type: Optional[ExtensionsTopicTypes]
+      :type:  Optional[ExtensionsTopicTypes]
 
-      
 
    .. py:attribute:: users
-      :type: Optional[ExtensionsUsers]
-
-      
+      :type:  Optional[ExtensionsUsers]
 
 
 .. py:class:: ExtensionsPriorities
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: priority
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsSnippetTypes
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: snippet_type
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsStages
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: stage
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsTopicLabels
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: topic_label
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsTopicStatuses
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: topic_status
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsTopicTypes
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: topic_type
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsUsers
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: user
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: File
 
-
    .. py:attribute:: date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: filename
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: ifc_project
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: ifc_spatial_structure_element
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: is_external
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: reference
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 
 .. py:class:: Header
 
-
    .. py:attribute:: files
-      :type: Optional[HeaderFiles]
-
-      
+      :type:  Optional[HeaderFiles]
 
 
 .. py:class:: HeaderFiles
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: file
-      :type: List[File]
-
-      
+      :type:  List[File]
 
 
 .. py:class:: Line
 
-
    .. py:attribute:: end_point
-      :type: Point
+      :type:  Point
 
-      
 
    .. py:attribute:: start_point
-      :type: Point
-
-      
+      :type:  Point
 
 
 .. py:class:: Markup
 
-
    .. py:attribute:: header
-      :type: Optional[Header]
+      :type:  Optional[Header]
 
-      
 
    .. py:attribute:: topic
-      :type: Topic
-
-      
+      :type:  Topic
 
 
 .. py:class:: OrthogonalCamera
-
 
    Attributes
        camera_view_point:
@@ -658,34 +509,28 @@ Package Contents
        aspect_ratio: Proportional relationship between the width and
            the height of the view (w/h).
 
-   .. py:attribute:: aspect_ratio
-      :type: float
 
-      
+   .. py:attribute:: aspect_ratio
+      :type:  float
+
 
    .. py:attribute:: camera_direction
-      :type: Direction
+      :type:  Direction
 
-      
 
    .. py:attribute:: camera_up_vector
-      :type: Direction
+      :type:  Direction
 
-      
 
    .. py:attribute:: camera_view_point
-      :type: Point
+      :type:  Point
 
-      
 
    .. py:attribute:: view_to_world_scale
-      :type: float
-
-      
+      :type:  float
 
 
 .. py:class:: PerspectiveCamera
-
 
    Attributes
        camera_view_point:
@@ -699,458 +544,355 @@ Package Contents
        aspect_ratio: Proportional relationship between the width and
            the height of the view (w/h).
 
-   .. py:attribute:: aspect_ratio
-      :type: float
 
-      
+   .. py:attribute:: aspect_ratio
+      :type:  float
+
 
    .. py:attribute:: camera_direction
-      :type: Direction
+      :type:  Direction
 
-      
 
    .. py:attribute:: camera_up_vector
-      :type: Direction
+      :type:  Direction
 
-      
 
    .. py:attribute:: camera_view_point
-      :type: Point
+      :type:  Point
 
-      
 
    .. py:attribute:: field_of_view
-      :type: float
-
-      
+      :type:  float
 
 
 .. py:class:: Point
 
-
    .. py:attribute:: x
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: y
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: z
-      :type: float
-
-      
+      :type:  float
 
 
 .. py:class:: Project
 
-
    .. py:attribute:: name
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: project_id
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ProjectInfo
 
-
    .. py:attribute:: project
-      :type: Project
-
-      
+      :type:  Project
 
 
 .. py:class:: Topic
 
-
    .. py:attribute:: assigned_to
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: bim_snippet
-      :type: Optional[BimSnippet]
+      :type:  Optional[BimSnippet]
 
-      
 
    .. py:attribute:: comments
-      :type: Optional[TopicComments]
+      :type:  Optional[TopicComments]
 
-      
 
    .. py:attribute:: creation_author
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: creation_date
-      :type: xsdata.models.datatype.XmlDateTime
+      :type:  xsdata.models.datatype.XmlDateTime
 
-      
 
    .. py:attribute:: description
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: document_references
-      :type: Optional[TopicDocumentReferences]
+      :type:  Optional[TopicDocumentReferences]
 
-      
 
    .. py:attribute:: due_date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: index
-      :type: Optional[int]
+      :type:  Optional[int]
 
-      
 
    .. py:attribute:: labels
-      :type: Optional[TopicLabels]
+      :type:  Optional[TopicLabels]
 
-      
 
    .. py:attribute:: modified_author
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: modified_date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: priority
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: reference_links
-      :type: Optional[TopicReferenceLinks]
+      :type:  Optional[TopicReferenceLinks]
 
-      
 
    .. py:attribute:: related_topics
-      :type: Optional[TopicRelatedTopics]
+      :type:  Optional[TopicRelatedTopics]
 
-      
 
    .. py:attribute:: server_assigned_id
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: stage
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: title
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: topic_status
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: topic_type
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: viewpoints
-      :type: Optional[TopicViewpoints]
-
-      
+      :type:  Optional[TopicViewpoints]
 
 
 .. py:class:: TopicComments
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: comment
-      :type: List[Comment]
-
-      
+      :type:  List[Comment]
 
 
 .. py:class:: TopicDocumentReferences
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: document_reference
-      :type: List[DocumentReference]
-
-      
+      :type:  List[DocumentReference]
 
 
 .. py:class:: TopicLabels
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: label
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: TopicReferenceLinks
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: reference_link
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: TopicRelatedTopics
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: related_topic
-      :type: List[TopicRelatedTopicsRelatedTopic]
-
-      
+      :type:  List[TopicRelatedTopicsRelatedTopic]
 
 
 .. py:class:: TopicRelatedTopicsRelatedTopic
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: guid
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: TopicViewpoints
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: view_point
-      :type: List[ViewPoint]
-
-      
+      :type:  List[ViewPoint]
 
 
 .. py:class:: Version
 
-
    .. py:attribute:: version_id
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ViewPoint
 
-
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: index
-      :type: Optional[int]
+      :type:  Optional[int]
 
-      
 
    .. py:attribute:: snapshot
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: viewpoint
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 
 .. py:class:: ViewSetupHints
 
-
    .. py:attribute:: openings_visible
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: space_boundaries_visible
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: spaces_visible
-      :type: bool
-
-      
+      :type:  bool
 
 
 .. py:class:: VisualizationInfo
 
-
    VisualizationInfo documentation.
 
-   .. py:attribute:: bitmaps
-      :type: Optional[VisualizationInfoBitmaps]
 
-      
+   .. py:attribute:: bitmaps
+      :type:  Optional[VisualizationInfoBitmaps]
+
 
    .. py:attribute:: clipping_planes
-      :type: Optional[VisualizationInfoClippingPlanes]
+      :type:  Optional[VisualizationInfoClippingPlanes]
 
-      
 
    .. py:attribute:: components
-      :type: Optional[Components]
+      :type:  Optional[Components]
 
-      
 
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: lines
-      :type: Optional[VisualizationInfoLines]
+      :type:  Optional[VisualizationInfoLines]
 
-      
 
    .. py:attribute:: orthogonal_camera
-      :type: Optional[OrthogonalCamera]
+      :type:  Optional[OrthogonalCamera]
 
-      
 
    .. py:attribute:: perspective_camera
-      :type: Optional[PerspectiveCamera]
-
-      
+      :type:  Optional[PerspectiveCamera]
 
 
 .. py:class:: VisualizationInfoBitmaps
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: bitmap
-      :type: List[Bitmap]
-
-      
+      :type:  List[Bitmap]
 
 
 .. py:class:: VisualizationInfoClippingPlanes
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: clipping_plane
-      :type: List[ClippingPlane]
-
-      
+      :type:  List[ClippingPlane]
 
 
 .. py:class:: VisualizationInfoLines
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: line
-      :type: List[Line]
-
-      
+      :type:  List[Line]
 
 

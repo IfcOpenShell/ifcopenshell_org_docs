@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, x=None, y=None, z=None, ax=None, ay=None, az=None)
 
-
    
    Sets the world coordinate system of the geometric representation context
 
@@ -38,6 +37,7 @@ Module Contents
        # Set the world coordinate system back to 0, 0, 0
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "SetWorldCoordinateSystem", "arguments": [0,0,0,0,0,0]})
 
+
    .. py:method:: identity_matrix()
 
 
@@ -51,6 +51,5 @@ Module Contents
 
 
    .. py:method:: z_rotation_matrix(angle, transformation)
-
 
 

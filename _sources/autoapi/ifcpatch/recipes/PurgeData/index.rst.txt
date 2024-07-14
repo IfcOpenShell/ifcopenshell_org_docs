@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger)
 
-
    
    Purge IFC properties, relationships, and other data
 
@@ -39,7 +38,7 @@ Module Contents
        # Watch the world burn
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "PurgeData", "arguments": []})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

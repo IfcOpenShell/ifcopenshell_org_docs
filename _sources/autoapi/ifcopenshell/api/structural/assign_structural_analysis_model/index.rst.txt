@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: assign_structural_analysis_model(file, product=None, structural_analysis_model=None) -> None
+.. py:function:: assign_structural_analysis_model(file: ifcopenshell.file, product: ifcopenshell.entity_instance, structural_analysis_model: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns a load or structural member to an analysis model
 

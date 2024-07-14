@@ -38,9 +38,9 @@ Module Contents
    .. code:: python
 
        # We have a wall.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # No we don't.
-       ifcopenshell.api.run("root.remove_product", model, product=wall)
+       ifcopenshell.api.root.remove_product(model, product=wall)
 
 

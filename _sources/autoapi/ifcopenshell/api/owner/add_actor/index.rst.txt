@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_actor(file, actor=None, ifc_class='IfcActor') -> None
+.. py:function:: add_actor(file: ifcopenshell.file, actor: ifcopenshell.entity_instance, ifc_class: ACTOR_TYPE = 'IfcActor') -> ifcopenshell.entity_instance
 
    Adds a new actor
 
@@ -39,11 +39,13 @@ Module Contents
    .. code:: python
 
        # Setup an organisation with a single role
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       role = ifcopenshell.api.run("owner.add_role", model, assigned_object=organisation, role="ARCHITECT")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="ARCHITECT")
 
        # Assign that organisation to a newly created actor
-       actor = ifcopenshell.api.run("owner.add_actor", model, actor=organisation)
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
 
+
+.. py:data:: ACTOR_TYPE
 

@@ -3,6 +3,15 @@
 
 .. py:module:: ifcopenshell.api.group
 
+.. autoapi-nested-parse::
+
+   Elements may be arbitrarily assigned to groups for organisation
+
+   Groups are useful for filtering elements or non-hierarchical organisation of a
+   model. Note that this only targets arbitrary groups. If you want to group
+   elements into a distribution system, see :mod:`ifcopenshell.api.system`.
+
+
 
 Submodules
 ----------
@@ -21,7 +30,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_group(file, Name='Unnamed', Description=None) -> None
+.. py:function:: add_group(file: ifcopenshell.file, name: str = 'Unnamed', description: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Adds a new group
 
@@ -35,8 +44,8 @@ Package Contents
 
    :param Name: The name of the group. Defaults to "Unnamed"
    :type Name: str, optional
-   :param Description: The description of the purpose of the group.
-   :type Description: str, optional
+   :param description: The description of the purpose of the group.
+   :type description: str, optional
    :return: The newly created IfcGroup
    :rtype: ifcopenshell.entity_instance
 
@@ -44,7 +53,7 @@ Package Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("group.add_group", model, Name="Unit 1A")
+       ifcopenshell.api.group.add_group(model, name="Unit 1A")
 
 
 .. py:function:: assign_group(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], group: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
@@ -66,12 +75,12 @@ Package Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Furniture")
-       ifcopenshell.api.run("group.assign_group", model,
+       group = ifcopenshell.api.group.add_group(model, name="Furniture")
+       ifcopenshell.api.group.assign_group(model,
            products=model.by_type("IfcFurniture"), group=group)
 
 
-.. py:function:: edit_group(file, group=None, attributes=None) -> None
+.. py:function:: edit_group(file: ifcopenshell.file, group: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcGroup
 
@@ -81,7 +90,7 @@ Package Contents
    :param group: The IfcGroup entity you want to edit
    :type group: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -89,12 +98,12 @@ Package Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Unit 1A")
-       ifcopenshell.api.run("group.edit_group", model,
+       group = ifcopenshell.api.group.add_group(model, name="Unit 1A")
+       ifcopenshell.api.group.edit_group(model,
            group=group, attributes={"Description": "All furniture and joinery included in the unit"})
 
 
-.. py:function:: remove_group(file, group=None) -> None
+.. py:function:: remove_group(file: ifcopenshell.file, group: ifcopenshell.entity_instance) -> None
 
    Removes a group
 
@@ -110,8 +119,8 @@ Package Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Unit 1A")
-       ifcopenshell.api.run("group.remove_group", model, group=group)
+       group = ifcopenshell.api.group.add_group(model, name="Unit 1A")
+       ifcopenshell.api.group.remove_group(model, group=group)
 
 
 .. py:function:: unassign_group(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], group: ifcopenshell.entity_instance) -> None
@@ -131,15 +140,15 @@ Package Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Furniture")
+       group = ifcopenshell.api.group.add_group(model, name="Furniture")
        furniture = model.by_type("IfcFurniture")
-       ifcopenshell.api.run("group.assign_group", model, products=furniture, group=group)
+       ifcopenshell.api.group.assign_group(model, products=furniture, group=group)
 
        bad_furniture = furniture[0]
-       ifcopenshell.api.run("group.unassign_group", model, products=[bad_furniture], group=group)
+       ifcopenshell.api.group.unassign_group(model, products=[bad_furniture], group=group)
 
 
-.. py:function:: update_group_products(file, group=None, products=None) -> None
+.. py:function:: update_group_products(file: ifcopenshell.file, group: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
 
    Sets a group products to be an explicit list of products
 
@@ -157,8 +166,8 @@ Package Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Furniture")
-       ifcopenshell.api.run("group.update_group_products", model,
+       group = ifcopenshell.api.group.add_group(model, name="Furniture")
+       ifcopenshell.api.group.update_group_products(model,
            products=model.by_type("IfcFurniture"), group=group)
 
 

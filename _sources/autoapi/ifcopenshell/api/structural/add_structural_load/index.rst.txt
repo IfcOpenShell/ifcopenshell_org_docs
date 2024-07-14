@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_structural_load(file, name=None, ifc_class='IfcStructuralLoadLinearForce') -> None
+.. py:function:: add_structural_load(file: ifcopenshell.file, name: Optional[str] = None, ifc_class: str = 'IfcStructuralLoadLinearForce') -> ifcopenshell.entity_instance
 
    Adds a new structural load
 
@@ -29,6 +29,6 @@ Module Contents
    .. code:: python
 
        # Create a simple linear load
-       ifcopenshell.api.run("structural.add_structural_load", model)
+       ifcopenshell.api.structural.add_structural_load(model)
 
 

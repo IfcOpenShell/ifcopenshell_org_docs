@@ -3,6 +3,15 @@
 
 .. py:module:: ifcopenshell.api.geometry
 
+.. autoapi-nested-parse::
+
+   Create geometric representations and assign them to elements
+
+   These functions support both the creation of arbitrary geometry as well as
+   geometry that follows parametric rules (e.g. layered geometry or profiled
+   geometry extrusions).
+
+
 
 Submodules
 ----------
@@ -37,7 +46,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_axis_representation(file, context=None, axis=None) -> None
+.. py:function:: add_axis_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, axis: tuple[COORD, COORD]) -> ifcopenshell.entity_instance
 
    Adds a new axis representation
 
@@ -83,54 +92,50 @@ Package Contents
    .. code:: python
 
        context = ifcopenshell.util.representation.get_context(model, "Plan", "Axis", "GRAPH_VIEW")
-       axis = ifcopenshell.api.run("geometry.add_axis_representation", model,
+       axis = ifcopenshell.api.geometry.add_axis_representation(model,
            context=context, axis=[(0.0, 0.0), (1.0, 0.0)])
 
 
-.. py:function:: add_boolean(file, **usecase_settings) -> None
+.. py:function:: add_boolean(file: ifcopenshell.file, representation: ifcopenshell.entity_instance, operator: str = 'DIFFERENCE', type: Literal['IfcHalfSpaceSolid', 'Mesh'] = 'IfcHalfSpaceSolid', matrix: Optional[NPArrayOfFloats] = None, blender_obj: Optional[bpy.types.Object] = None, blender_void: Optional[bpy.types.Object] = None, should_force_faceted_brep: bool = False, should_force_triangulation: bool = False) -> list[ifcopenshell.entity_instance]
+
+   For `type` values:
+   - "IfcHalfSpaceSolid" - `matrix` is not optional.
+   - "Mesh" - `blender_obj` and `blender_void` are not optional
 
 
-.. py:function:: add_footprint_representation(file, **usecase_settings) -> None
+.. py:function:: add_footprint_representation(file, context: ifcopenshell.entity_instance, curves: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
+
+.. py:function:: add_mesh_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, vertices: list[COORD_3D], edges: list[tuple[int, int]] = None, faces: list[list[int]] = None, cooridnate_offset: Optional[COORD_3D] = None, unit_scale: Optional[float] = None, force_faceted_brep: bool = False) -> ifcopenshell.entity_instance
+
+.. py:function:: add_profile_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, profile: ifcopenshell.entity_instance, depth: float = 1.0, cardinal_point: Literal[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] = 5, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, placement_zx_axes: tuple[Union[VECTOR_3D, None], Union[VECTOR_3D, None]] = (None, None)) -> ifcopenshell.entity_instance
+
+.. py:function:: add_slab_representation(file, context: ifcopenshell.entity_instance, depth: float = 0.2, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None) -> ifcopenshell.entity_instance
+
+.. py:function:: add_wall_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, length: float = 1.0, height: float = 3.0, offset: float = 0.0, thickness: float = 0.2, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, booleans: Optional[list[ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+
+.. py:function:: assign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
+
+.. py:function:: connect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
+
+.. py:function:: connect_path(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, relating_connection: str = 'NOTDEFINED', related_connection: str = 'NOTDEFINED', description: Optional[str] = None) -> ifcopenshell.entity_instance
+
+.. py:function:: create_2pt_wall(file: ifcopenshell.file, element: ifcopenshell.entity_instance, context: ifcopenshell.entity_instance, p1: tuple[float, float], p2: tuple[float, float], elevation: float, height: float, thickness: float, is_si: bool = True) -> ifcopenshell.entity_instance
+
+.. py:function:: disconnect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance) -> None
+
+.. py:function:: disconnect_path(file: ifcopenshell.file, element: Optional[ifcopenshell.entity_instance] = None, connection_type: Optional[str] = None, relating_element: Optional[ifcopenshell.entity_instance] = None, related_element: Optional[ifcopenshell.entity_instance] = None) -> None
+
+   There are two options to use this API method:
+   - provide `element` (connected from) and `connection_type` that should be disconnected.
+   - provide connected elements to disconnect explicitly:
+   `relating_element` (connected from) and `related_element` (connected to)
 
 
-.. py:function:: add_mesh_representation(file: ifcopenshell.file, **usecase_settings) -> None
+.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
 
+.. py:function:: map_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-.. py:function:: add_profile_representation(file, **usecase_settings) -> None
-
-
-.. py:function:: add_slab_representation(file, **usecase_settings) -> None
-
-
-.. py:function:: add_wall_representation(file, **usecase_settings) -> None
-
-
-.. py:function:: assign_representation(file, **usecase_settings) -> None
-
-
-.. py:function:: connect_element(file, **usecase_settings) -> None
-
-
-.. py:function:: connect_path(file, **usecase_settings) -> None
-
-
-.. py:function:: create_2pt_wall(file, element=None, context=None, p1=None, p2=None, elevation=None, height=None, thickness=None, is_si=True) -> None
-
-
-.. py:function:: disconnect_element(file, **usecase_settings) -> None
-
-
-.. py:function:: disconnect_path(file, **usecase_settings) -> None
-
-
-.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si=True, should_transform_children=False) -> ifcopenshell.entity_instance
-
-
-.. py:function:: map_representation(file, **usecase_settings) -> None
-
-
-.. py:function:: remove_boolean(file, **usecase_settings) -> None
-
+.. py:function:: remove_boolean(file: ifcopenshell.file, item: ifcopenshell.entity_instance) -> None
 
 .. py:function:: remove_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> None
 
@@ -148,6 +153,5 @@ Package Contents
    :rtype: None
 
 
-.. py:function:: unassign_representation(file, **usecase_settings) -> None
-
+.. py:function:: unassign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
 

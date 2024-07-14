@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_pset(file, product=None, name=None) -> None
+.. py:function:: add_pset(file: ifcopenshell.file, product: ifcopenshell.entity_instance, name: str) -> ifcopenshell.entity_instance
 
    Adds a new property set to a product
 
@@ -48,6 +48,9 @@ Module Contents
        that prefix. It is recommended to use your own prefix tailored to
        your project, company, or local government requirement.
    :type name: str
+
+   :raises TypeError: If `product` class doesn't support adding a pset.
+
    :return: The newly created IfcPropertySet
    :rtype: ifcopenshell.entity_instance
 
@@ -56,14 +59,14 @@ Module Contents
    .. code:: python
 
        # Let's imagine we have a new wall type.
-       wall_type = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWallType")
+       wall_type = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWallType")
 
        # Note that this only creates and assigns an empty property set. We
        # still need to add properties into the property set. Having blank
        # property sets are invalid.
-       pset = ifcopenshell.api.run("pset.add_pset", model, product=wall_type, name="Pset_WallCommon")
+       pset = ifcopenshell.api.pset.add_pset(model, product=wall_type, name="Pset_WallCommon")
 
        # Add a fire rating property standardised by buildingSMART.
-       ifcopenshell.api.run("pset.edit_pset", model, pset=pset, properties={"FireRating": "2HR"})
+       ifcopenshell.api.pset.edit_pset(model, pset=pset, properties={"FireRating": "2HR"})
 
 

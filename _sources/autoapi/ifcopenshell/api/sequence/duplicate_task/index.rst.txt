@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: copy_indirect_attributes(from_element, to_element)
 
 
@@ -25,8 +24,7 @@ Module Contents
    .. py:method:: execute()
 
 
-
-.. py:function:: duplicate_task(file, task=None) -> None
+.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Duplicates a task in the project
 

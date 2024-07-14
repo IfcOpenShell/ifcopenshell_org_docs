@@ -9,15 +9,13 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: delete_reference(reference)
 
 
    .. py:method:: execute()
 
 
-
-.. py:function:: remove_metric(file, metric=None) -> None
+.. py:function:: remove_metric(file: ifcopenshell.file, metric: ifcopenshell.entity_instance) -> None
 
    Remove a metric benchmark
 
@@ -33,10 +31,10 @@ Module Contents
 
    .. code:: python
 
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
-       metric = ifcopenshell.api.run("constraint.add_metric", model,
+       objective = ifcopenshell.api.constraint.add_objective(model)
+       metric = ifcopenshell.api.constraint.add_metric(model,
            objective=objective)
-       ifcopenshell.api.run("constraint.remove_metric", model,
+       ifcopenshell.api.constraint.remove_metric(model,
            metric=metric)
 
 

@@ -7,10 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: parse(fn)
-
+.. py:function:: parse(fn: str) -> mapping.Mapping
 
 .. py:data:: m
-
-   
 

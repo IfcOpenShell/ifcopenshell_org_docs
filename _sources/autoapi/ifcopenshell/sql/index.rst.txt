@@ -9,8 +9,8 @@ Module Contents
 
 .. py:class:: sqlite(filepath)
 
-
    Bases: :py:obj:`ifcopenshell.file.file`
+
 
    Base class for containing IFC files.
 
@@ -66,6 +66,7 @@ Module Contents
        # A poweruser testing out a particular version of IFC4X3
        model = ifcopenshell.file(schema_version=(4, 3, 0, 1))
 
+
    .. py:method:: by_id(id)
 
       Return an IFC entity instance filtered by IFC ID.
@@ -77,6 +78,7 @@ Module Contents
 
       :returns: An ifcopenshell.entity_instance
       :rtype: ifcopenshell.entity_instance
+
 
 
    .. py:method:: by_type(type, include_subtypes=True)
@@ -96,12 +98,19 @@ Module Contents
       :rtype: list[ifcopenshell.entity_instance]
 
 
+
    .. py:method:: clear_cache()
 
 
    .. py:method:: create_entity(type, *args, **kawrgs)
 
       Create a new IFC entity in the file.
+
+      You can also use dynamic methods similar to `ifc_file.createIfcWall(...)`
+      to create IFC entities. They work exactly the same as if you would do
+      `ifc_file.create_entity("IfcWall", ...)` but the resulting typing
+      is not as accurate as for `create_entity` due to a dynamic nature
+      of those methods.
 
       :param type: Case insensitive name of the IFC class
       :type type: string
@@ -123,12 +132,18 @@ Module Contents
           # >>> #3=IfcPerson('Foobar',$,$,$,$,$,$,$)
 
 
+
    .. py:method:: get_geometry(ids: list[int]) -> dict[str, dict]
 
 
    .. py:method:: get_inverse(inst, allow_duplicate=False, with_attribute_indices=False)
 
       Return a list of entities that reference this entity
+
+      Warning: this is a slow function, especially when there is a large
+      number of inverses (such as for a shared owner history). If you are
+      only interested in the total number of inverses (typically 0, 1, or N),
+      consider using :func:`get_total_inverses`.
 
       :param inst: The entity instance to get inverse relationships
       :type inst: ifcopenshell.entity_instance
@@ -137,6 +152,7 @@ Module Contents
          where i[idx] is inst or contains inst. Requires allow_duplicate=True
       :returns: A list of ifcopenshell.entity_instance objects
       :rtype: list[ifcopenshell.entity_instance]
+
 
 
    .. py:method:: is_entity_list(attribute)
@@ -162,8 +178,8 @@ Module Contents
 
 .. py:class:: sqlite_entity(id, ifc_class, file=None)
 
-
    Bases: :py:obj:`ifcopenshell.entity_instance.entity_instance`
+
 
    Represents an entity (wall, slab, property, etc) of an IFC model
 
@@ -207,6 +223,7 @@ Module Contents
 
        print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
 
+
    .. py:method:: get_info(include_identifier=True, recursive=False, return_type=dict, ignore=(), scalar_only=False)
 
       Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
@@ -236,6 +253,7 @@ Module Contents
           >>> ...'ElevationOfTerrain', 'CompositionType', 'id', 'Representation', 'type', 'ElevationOfRefHeight'])
 
 
+
    .. py:method:: id()
 
       Return the STEP numerical identifier
@@ -243,11 +261,9 @@ Module Contents
       :rtype: int
 
 
+
    .. py:method:: unserialise_value(value)
 
 
-
 .. py:class:: sqlite_wrapper(id, ifc_class, file)
-
-
 

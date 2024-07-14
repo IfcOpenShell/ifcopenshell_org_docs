@@ -73,10 +73,10 @@ Module Contents
    .. code:: python
 
        # Faucets are designed to attach onto a sink through a predrilled hole.
-       sink = ifcopenshell.api.run("root.create_entity", model,
+       sink = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcSanitaryTerminal", predefined_type="SINK")
-       faucet = ifcopenshell.api.run("root.create_entity", model,
+       faucet = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcValve", predefined_type="FAUCET")
-       ifcopenshell.api.run("nest.assign_object", model, related_objects=[faucet], relating_object=sink)
+       ifcopenshell.api.nest.assign_object(model, related_objects=[faucet], relating_object=sink)
 
 

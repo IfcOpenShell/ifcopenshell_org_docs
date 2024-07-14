@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_structural_member_connection(file, relating_structural_member=None, related_structural_connection=None) -> None
+.. py:function:: add_structural_member_connection(file: ifcopenshell.file, relating_structural_member: ifcopenshell.entity_instance, related_structural_connection: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Relates a structural member and a structural connection
 

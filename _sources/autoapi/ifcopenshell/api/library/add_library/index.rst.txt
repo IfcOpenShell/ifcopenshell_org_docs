@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_library(file, name=None) -> None
+.. py:function:: add_library(file: ifcopenshell.file, name: str) -> ifcopenshell.entity_instance
 
    Adds a new library to the project
 
@@ -45,6 +45,6 @@ Module Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("library.add_library", model, name="Brickschema")
+       ifcopenshell.api.library.add_library(model, name="Brickschema")
 
 

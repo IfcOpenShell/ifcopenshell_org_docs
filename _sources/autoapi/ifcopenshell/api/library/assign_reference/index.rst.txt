@@ -29,18 +29,18 @@ Module Contents
 
    .. code:: python
 
-       library = ifcopenshell.api.run("library.add_library", model, name="Brickschema")
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
 
        # Let's create a reference to a single AHU in our Brickschema dataset
-       reference = ifcopenshell.api.run("library.add_reference", model, library=library)
-       ifcopenshell.api.run("library.edit_reference", model,
+       reference = ifcopenshell.api.library.add_reference(model, library=library)
+       ifcopenshell.api.library.edit_reference(model,
            reference=reference, attributes={"Identification": "http://example.org/digitaltwin#AHU01"})
 
        # Let's assume we have an AHU in our model.
-       ahu = ifcopenshell.api.run("root.create_entity", model,
+       ahu = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcUnitaryEquipment", predefined_type="AIRHANDLER")
 
        # And now assign the IFC model's AHU with its Brickschema counterpart
-       ifcopenshell.api.run("library.assign_reference", model, reference=reference, products=[ahu])
+       ifcopenshell.api.library.assign_reference(model, reference=reference, products=[ahu])
 
 

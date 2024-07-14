@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_structural_load_case(file, load_case=None) -> None
+.. py:function:: remove_structural_load_case(file: ifcopenshell.file, load_case: ifcopenshell.entity_instance) -> None
 
    Removes a structural load case
 

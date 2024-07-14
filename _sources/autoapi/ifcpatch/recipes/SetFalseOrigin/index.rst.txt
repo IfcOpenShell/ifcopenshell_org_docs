@@ -1,0 +1,37 @@
+:py:mod:`ifcpatch.recipes.SetFalseOrigin`
+=========================================
+
+.. py:module:: ifcpatch.recipes.SetFalseOrigin
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(src, file, logger, name: str = 'EPSG:1234', x: float = 0, y: float = 0, z: float = 0, e: float = 0, n: float = 0, h: float = 0, gn_angle: float = 0, rotate_angle: float = 0)
+
+   
+   Sets a false origin with a map conversion in a model
+
+   On IFC2X3 models, a EPset_MapConversion is used.
+
+   :param x: The local X coordinate which will become the new false origin.
+   :param y: The local Y coordinate which will become the new false origin.
+   :param z: The local Z coordinate which will become the new false origin.
+   :param e: The easting which the false origin correlates to.
+   :param n: The northing which the false origin correlates to.
+   :param h: The height which the false origin correlates to.
+   :param gn_angle: The anticlockwise angle to grid north.
+   :param rotate_angle: An anticlockwise angle to rotate the model by if
+       necessary (pivoted by the false origin).
+
+   Example:
+
+   .. code:: python
+
+       # Set the current origin 0,0,0 to correlate to map coordinates 1000,1000,0 and a grid north of 15.
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "SetFalseOrigin", "arguments": ["EPSG:1234", 0, 0, 0, 1000, 1000, 0, 15, 0]})
+
+
+   .. py:method:: patch()
+
+

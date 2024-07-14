@@ -14,48 +14,13 @@ Module Contents
 
 .. py:class:: BcfXml(filename: Optional[pathlib.Path] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None)
 
-
    BCF XML handler.
-
-   .. py:property:: documents
-      :type: Optional[bcf.v3.document.DocumentsHandler]
-
-      Documents stored in the BCF file.
-
-
-   .. py:property:: extensions
-      :type: Optional[bcf.v3.model.Extensions]
-
-      BCF extensions.
-
-
-   .. py:property:: project
-      :type: Optional[bcf.v3.model.Project]
-
-      BCF project.
-
-
-   .. py:property:: project_info
-      :type: Optional[bcf.v3.model.ProjectInfo]
-
-      BCF project information.
-
-
-   .. py:property:: topics
-      :type: dict[str, bcf.v3.topic.TopicHandler]
-
-      BCF topics.
-
-
-   .. py:property:: version
-      :type: bcf.v3.model.Version
-
-      Bcf Version.
 
 
    .. py:method:: add_comment(_topic: bcf.v3.model.Topic, _comment: Optional[bcf.v3.model.Comment] = None) -> None
 
       Deprecated method.
+
 
 
    .. py:method:: add_topic(title: str, description: str, author: str, topic_type: str = '', topic_status: str = '') -> bcf.v3.topic.TopicHandler
@@ -73,11 +38,13 @@ Module Contents
           The newly created topic wrapped inside a TopicHandler object.
 
 
+
    .. py:method:: close() -> None
 
 
    .. py:method:: create_new(project_name: Optional[str] = None, extensions: Optional[bcf.v3.model.Extensions] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> BcfXml
       :classmethod:
+
 
       Create a new BcfXml object.
 
@@ -90,9 +57,11 @@ Module Contents
           A new BcfXml object.
 
 
+
    .. py:method:: edit_comment() -> None
 
       Deprecated method.
+
 
 
    .. py:method:: edit_project() -> None
@@ -100,9 +69,11 @@ Module Contents
       Deprecated method.
 
 
+
    .. py:method:: edit_topic() -> None
 
       Deprecated method.
+
 
 
    .. py:method:: edit_version() -> None
@@ -110,9 +81,11 @@ Module Contents
       Deprecated method.
 
 
+
    .. py:method:: get_header(guid: str) -> Optional[bcf.v3.model.Header]
 
       Return the header of a Topic by its GUID.
+
 
 
    .. py:method:: get_project(_filepath: Optional[str] = None) -> Optional[bcf.v3.model.Project]
@@ -120,9 +93,11 @@ Module Contents
       Deprecated method.
 
 
+
    .. py:method:: get_topic(guid: str) -> bcf.v3.topic.TopicHandler
 
       Return a topic by its GUID.
+
 
 
    .. py:method:: get_topics() -> dict[str, bcf.v3.topic.TopicHandler]
@@ -130,11 +105,13 @@ Module Contents
       Deprecated method.
 
 
+
    .. py:method:: get_version() -> str
 
 
    .. py:method:: load(filename: pathlib.Path, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[BcfXml]
       :classmethod:
+
 
       Create a BcfXml object from a file.
 
@@ -149,14 +126,17 @@ Module Contents
           ValueError: If the file name is null or empty
 
 
+
    .. py:method:: new_project() -> BcfXml
 
       Deprecated method.
 
 
+
    .. py:method:: save(filename: Optional[pathlib.Path] = None, keep_open: bool = False) -> None
 
       Save the BCF file to the given filename.
+
 
 
    .. py:method:: save_project(filepath: pathlib.Path) -> None
@@ -165,7 +145,47 @@ Module Contents
 
 
 
-.. py:data:: T
+   .. py:property:: documents
+      :type: Optional[bcf.v3.document.DocumentsHandler]
 
-   
+      Documents stored in the BCF file.
+
+
+
+   .. py:property:: extensions
+      :type: Optional[bcf.v3.model.Extensions]
+
+      BCF extensions.
+
+
+
+   .. py:property:: project
+      :type: Optional[bcf.v3.model.Project]
+
+      BCF project.
+
+
+
+   .. py:property:: project_info
+      :type: Optional[bcf.v3.model.ProjectInfo]
+
+      BCF project information.
+
+
+
+   .. py:property:: topics
+      :type: dict[str, bcf.v3.topic.TopicHandler]
+
+      BCF topics.
+
+
+
+   .. py:property:: version
+      :type: bcf.v3.model.Version
+
+      Bcf Version.
+
+
+
+.. py:data:: T
 

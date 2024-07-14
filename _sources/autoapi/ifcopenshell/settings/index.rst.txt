@@ -28,5 +28,4 @@ Module Contents
 .. py:data:: unpack_non_aggregate_inverses
    :value: False
 
-   
 

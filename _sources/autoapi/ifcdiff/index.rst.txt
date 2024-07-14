@@ -9,16 +9,13 @@ Module Contents
 
 .. py:class:: DiffTerminator
 
-
    .. py:method:: give_up_diffing(level, diff_instance) -> bool
 
 
    .. py:method:: match(level) -> bool
 
 
-
 .. py:class:: IfcDiff(old, new, relationships=None, is_shallow=True, filter_elements=None)
-
 
    Main IfcDiff application
 
@@ -26,7 +23,7 @@ Module Contents
 
    :param old: IFC file object for the old model
    :type old: ifcopenshell.file.file
-   :param new: IFC file object for the old model
+   :param new: IFC file object for the new model
    :type new: ifcopenshell.file.file
    :param relationships: List of relationships to check. None means that only
        geometry is compared.
@@ -47,6 +44,7 @@ Module Contents
        ifc_diff.diff()
        print(ifc_diff.change_register)
        ifc_diff.export()
+
 
    .. py:method:: diff()
 
@@ -84,8 +82,5 @@ Module Contents
    .. py:method:: summarise_shapes(ifc, elements)
 
 
-
 .. py:data:: parser
-
-   
 

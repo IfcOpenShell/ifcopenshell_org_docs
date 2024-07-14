@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, ifc_class='IfcSite')
 
-
    
    Resets the location of a spatial element to 0,0,0
 
@@ -27,6 +26,7 @@ Module Contents
        # All IfcSites will shift back to 0,0,0.
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetSpatialElementLocations", "arguments": ["IfcSite"]})
 
+
    .. py:method:: find_decomposed_ifc_class(element, ifc_class)
 
 
@@ -34,6 +34,5 @@ Module Contents
 
 
    .. py:method:: patch_placement_to_origin(element)
-
 
 

@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: copy_indirect_attributes(from_element, to_element)
 
 
@@ -19,8 +18,7 @@ Module Contents
    .. py:method:: execute()
 
 
-
-.. py:function:: copy_cost_item(file, cost_item=None) -> None
+.. py:function:: copy_cost_item(file: ifcopenshell.file, cost_item: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
 
    Copies all cost items and related relationships
 
@@ -33,7 +31,7 @@ Module Contents
    :param cost_item: The cost item to be duplicated
    :type cost_item: ifcopenshell.entity_instance
    :return: The duplicated cost item or the list of duplicated cost items if the latter has children
-   :rtype: ifcopenshell.entity_instance or list of ifcopenshell.entity_instance
+   :rtype: ifcopenshell.entity_instance or list[ifcopenshell.entity_instance]
 
    Example:
    .. code:: python

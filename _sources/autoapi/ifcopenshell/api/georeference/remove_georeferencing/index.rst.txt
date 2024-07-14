@@ -7,20 +7,19 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_georeferencing(file) -> None
+.. py:function:: remove_georeferencing(file: ifcopenshell.file) -> None
 
    Remove georeferencing data
 
    All georeferencing parameters such as projected CRS and map conversion
    data will be lost.
 
-   :return: None
-   :rtype: None
+   In IFC2X3, the psets will be removed from the IfcProject.
 
    Example:
 
-       ifcopenshell.api.run("georeference.add_georeferencing", model)
+       ifcopenshell.api.georeference.add_georeferencing(model)
        # Let's change our mind
-       ifcopenshell.api.run("georeference.remove_georeferencing", model)
+       ifcopenshell.api.georeference.remove_georeferencing(model)
 
 

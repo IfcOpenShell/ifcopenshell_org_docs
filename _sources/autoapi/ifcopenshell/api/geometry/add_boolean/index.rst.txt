@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: convert_si_to_unit(co)
 
 
@@ -34,7 +33,12 @@ Module Contents
    .. py:method:: execute()
 
 
+.. py:function:: add_boolean(file: ifcopenshell.file, representation: ifcopenshell.entity_instance, operator: str = 'DIFFERENCE', type: Literal['IfcHalfSpaceSolid', 'Mesh'] = 'IfcHalfSpaceSolid', matrix: Optional[NPArrayOfFloats] = None, blender_obj: Optional[bpy.types.Object] = None, blender_void: Optional[bpy.types.Object] = None, should_force_faceted_brep: bool = False, should_force_triangulation: bool = False) -> list[ifcopenshell.entity_instance]
 
-.. py:function:: add_boolean(file, **usecase_settings) -> None
+   For `type` values:
+   - "IfcHalfSpaceSolid" - `matrix` is not optional.
+   - "Mesh" - `blender_obj` and `blender_void` are not optional
 
+
+.. py:data:: NPArrayOfFloats
 

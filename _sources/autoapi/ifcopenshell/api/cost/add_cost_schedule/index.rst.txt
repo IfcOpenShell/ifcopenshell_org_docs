@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_cost_schedule(file, name=None, predefined_type='NOTDEFINED') -> None
+.. py:function:: add_cost_schedule(file: ifcopenshell.file, name: Optional[str] = None, predefined_type: str = 'NOTDEFINED') -> ifcopenshell.entity_instance
 
    Add a new cost schedule
 
@@ -35,8 +35,10 @@ Module Contents
 
    .. code:: python
 
-       schedule = ifcopenshell.api.run("cost.add_cost_schedule", model)
+       schedule = ifcopenshell.api.cost.add_cost_schedule(model)
        # Now that we have a cost schedule, we may add cost items to it
-       item = ifcopenshell.api.run("cost.add_cost_item", model, cost_schedule=schedule)
+       item = ifcopenshell.api.cost.add_cost_item(model, cost_schedule=schedule)
 
+
+.. py:function:: createIfcDateAndTime(file: ifcopenshell.file, dt: datetime.datetime)
 

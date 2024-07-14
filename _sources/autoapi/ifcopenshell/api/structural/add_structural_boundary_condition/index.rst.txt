@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_structural_boundary_condition(file, name=None, connection=None, ifc_class='IfcBoundaryNodeCondition') -> None
+.. py:function:: add_structural_boundary_condition(file: ifcopenshell.file, name: Optional[str] = None, connection: Optional[ifcopenshell.entity_instance] = None, ifc_class: str = 'IfcBoundaryNodeCondition') -> ifcopenshell.entity_instance
 
    Adds a new structural boundary condition to a structural connection
 
@@ -33,6 +33,6 @@ Module Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("structural.add_structural_boundary_condition", model, connection=connection)
+       ifcopenshell.api.structural.add_structural_boundary_condition(model, connection=connection)
 
 

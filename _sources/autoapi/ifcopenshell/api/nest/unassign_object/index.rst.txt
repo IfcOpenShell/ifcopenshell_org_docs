@@ -26,14 +26,14 @@ Module Contents
 
    .. code:: python
 
-       task = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcTasks")
-       subtask1 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcTask")
-       subtask2 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcTask")
-       ifcopenshell.api.run("nest.assign_object", model, related_objects=[subtask1], relating_object=task)
-       ifcopenshell.api.run("nest.assign_object", model, related_objects=[subtask2], relating_object=task)
+       task = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTasks")
+       subtask1 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTask")
+       subtask2 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTask")
+       ifcopenshell.api.nest.assign_object(model, related_objects=[subtask1], relating_object=task)
+       ifcopenshell.api.nest.assign_object(model, related_objects=[subtask2], relating_object=task)
        # nothing is returned
-       rel = ifcopenshell.api.run("nest.unassign_object", model, related_objects=[subtask1])
+       rel = ifcopenshell.api.nest.unassign_object(model, related_objects=[subtask1])
        # nothing is returned, relationship is removed
-       ifcopenshell.api.run("nest.unassign_object", model, related_objects=[subtask2])
+       ifcopenshell.api.nest.unassign_object(model, related_objects=[subtask2])
 
 

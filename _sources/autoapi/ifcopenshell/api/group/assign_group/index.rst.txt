@@ -26,8 +26,8 @@ Module Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Furniture")
-       ifcopenshell.api.run("group.assign_group", model,
+       group = ifcopenshell.api.group.add_group(model, name="Furniture")
+       ifcopenshell.api.group.assign_group(model,
            products=model.by_type("IfcFurniture"), group=group)
 
 

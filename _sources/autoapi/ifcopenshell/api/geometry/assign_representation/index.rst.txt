@@ -9,14 +9,11 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: assign_product_representation(product, representation)
 
 
    .. py:method:: execute()
 
 
-
-.. py:function:: assign_representation(file, **usecase_settings) -> None
-
+.. py:function:: assign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
 

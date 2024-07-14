@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: add_from_library()
 
 
@@ -17,7 +16,6 @@ Module Contents
 
 
    .. py:method:: relate_to_project(classification)
-
 
 
 .. py:function:: add_classification(file: ifcopenshell.file, classification: Union[str, ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
@@ -66,13 +64,13 @@ Module Contents
    .. code:: python
 
        # Option 1: adding a custom clasification from scratch
-       ifcopenshell.api.run("classification.add_classification", model,
+       ifcopenshell.api.classification.add_classification(model,
            classification="MyCustomClassification")
 
        # Option 2: adding a popular classification from a library
        library = ifcopenshell.open("/path/to/Uniclass.ifc")
        classification = library.by_type("IfcClassification")[0]
-       ifcopenshell.api.run("classification.add_classification", model,
+       ifcopenshell.api.classification.add_classification(model,
            classification=classification)
 
 

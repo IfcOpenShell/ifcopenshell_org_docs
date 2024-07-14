@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: edit_attributes(file, entity=None, relating_space=None, related_building_element=None, parent_boundary=None, corresponding_boundary=None) -> None
+.. py:function:: edit_attributes(file: ifcopenshell.file, entity: ifcopenshell.entity_instance, relating_space: ifcopenshell.entity_instance, related_building_element: ifcopenshell.entity_instance, parent_boundary: Optional[ifcopenshell.entity_instance] = None, corresponding_boundary: Optional[ifcopenshell.entity_instance] = None) -> None
 
    Modify the relationships of a space boundary relationship
 

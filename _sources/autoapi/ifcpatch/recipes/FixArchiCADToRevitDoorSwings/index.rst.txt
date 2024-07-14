@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger)
 
-
    
    Fix missing door swings in Revit when viewing ArchiCAD IFCs
 
@@ -39,7 +38,7 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "FixArchiCADToRevitDoorSwings", "arguments": []})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

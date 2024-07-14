@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_georeferencing(file) -> None
+.. py:function:: add_georeferencing(file: ifcopenshell.file, ifc_class: str = 'IfcMapConversion', name: str = 'EPSG:3857') -> None
 
    Add empty georeferencing entities to a model
 
@@ -22,13 +22,13 @@ Module Contents
    georeferencing parameters. See
    ifcopenshell.api.georeference.edit_georeferencing.
 
-   :return: None
-   :rtype: None
+   :param ifc_class: A type of IfcCoordinateOperation. For IFC2X3, this has no
+       impact and only uses ePSet_MapConversion.
 
    Example:
 
    .. code:: python
 
-       ifcopenshell.api.run("georeference.add_georeferencing", model)
+       ifcopenshell.api.georeference.add_georeferencing(model)
 
 

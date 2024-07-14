@@ -14,10 +14,11 @@ Module Contents
 
 .. py:class:: AbstractXmlParserSerializer
 
-
    Bases: :py:obj:`Protocol`
 
+
    XML Parser and serializer wrapper.
+
 
    .. py:method:: parse(xml: bytes, clazz: Type[T]) -> T
 
@@ -28,7 +29,8 @@ Module Contents
           clazz: The class to parse to.
 
 
-   .. py:method:: serialize(obj: T, ns_map: Optional[dict[str, str]] = None) -> str
+
+   .. py:method:: serialize(obj: object, ns_map: Optional[dict[str, str]] = None) -> str
 
       Serialize an object to XML.
 
@@ -43,8 +45,8 @@ Module Contents
 
 .. py:class:: XmlParserSerializer
 
-
    XML Parser and serializer wrapper.
+
 
    .. py:method:: parse(xml: bytes, clazz: Type[T]) -> T
 
@@ -55,7 +57,8 @@ Module Contents
           clazz: The class to parse to.
 
 
-   .. py:method:: serialize(obj: T, ns_map: Optional[dict[str, str]] = None) -> str
+
+   .. py:method:: serialize(obj: object, ns_map: Optional[dict[Optional[str], str]] = None) -> str
 
       Serialize an object to XML.
 
@@ -79,6 +82,4 @@ Module Contents
 
 
 .. py:data:: T
-
-   
 

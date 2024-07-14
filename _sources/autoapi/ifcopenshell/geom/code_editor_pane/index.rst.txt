@@ -9,22 +9,21 @@ Module Contents
 
 .. py:class:: StdoutRedirector(widget)
 
-
    A class for redirecting stdout to this Text widget.
+
 
    .. py:method:: write(myStr)
 
 
-
 .. py:class:: code_edit(viewer, snippets=None)
-
 
    Bases: :py:obj:`PyQt5.QtWidgets.QWidget`
 
+
    .. py:class:: Console
 
-
       Bases: :py:obj:`code.InteractiveConsole`
+
 
       Closely emulate the behavior of the interactive Python interpreter.
 
@@ -39,6 +38,7 @@ Module Contents
 
       The optional filename argument should specify the (file)name
       of the input stream; it will show up in tracebacks.
+
 
 
       .. py:method:: enter(source)
@@ -57,13 +57,9 @@ Module Contents
    .. py:method:: select(product)
 
 
-
 .. py:data:: QtWidgets
-
-   
 
 .. py:data:: has_pyqode
    :value: True
 
-   
 

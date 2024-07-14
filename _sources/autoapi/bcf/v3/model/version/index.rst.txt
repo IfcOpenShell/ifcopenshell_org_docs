@@ -9,10 +9,7 @@ Module Contents
 
 .. py:class:: Version
 
-
    .. py:attribute:: version_id
-      :type: str
-
-      
+      :type:  str
 
 

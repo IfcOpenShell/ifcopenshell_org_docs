@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: entity_instance(e, file=None)
 
-
    Represents an entity (wall, slab, property, etc) of an IFC model
 
    An IFC model consists of entities. Examples of entities include walls,
@@ -52,13 +51,6 @@ Module Contents
 
        print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
 
-   .. py:property:: file
-
-
-   .. py:attribute:: wrapped_data
-      :type: ifcopenshell.ifcopenshell_wrapper.entity_instance
-
-      
 
    .. py:method:: attribute_name(attr_idx: int) -> str
 
@@ -69,13 +61,15 @@ Module Contents
       :rtype: string
 
 
-   .. py:method:: attribute_type(attr: int) -> str
+
+   .. py:method:: attribute_type(attr: Union[int, str]) -> str
 
       Return the data type of a positional attribute of the element
 
-      :param attr: The index of the attribute
-      :type attr: int
+      :param attr: The index or name of the attribute
+      :type attr: Union[int, str]
       :rtype: string
+
 
 
    .. py:method:: compare(other, op, reverse=False)
@@ -114,6 +108,7 @@ Module Contents
           bool: The comparison predicate applied to self and other
 
 
+
    .. py:method:: get_info(include_identifier=True, recursive=False, return_type=dict, ignore=(), scalar_only=False) -> dict
 
       Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
@@ -143,6 +138,7 @@ Module Contents
           >>> ...'ElevationOfTerrain', 'CompositionType', 'id', 'Representation', 'type', 'ElevationOfRefHeight'])
 
 
+
    .. py:method:: get_info_2(include_identifier=True, recursive=False, return_type=dict, ignore=())
 
       More perfomant version of `.get_info()` but with limited arguments values.
@@ -156,11 +152,13 @@ Module Contents
           * ignore: `()` (empty tuple)
 
 
+
    .. py:method:: id() -> int
 
       Return the STEP numerical identifier
 
       :rtype: int
+
 
 
    .. py:method:: is_a() -> str
@@ -192,12 +190,14 @@ Module Contents
           >>> True
 
 
+
    .. py:method:: is_entity() -> bool
 
       Tests whether the instance is an entity type as opposed to a simple data type.
 
       Returns:
           bool: True if the instance is an entity
+
 
 
    .. py:method:: to_string(valid_spf=True) -> str
@@ -210,12 +210,15 @@ Module Contents
       the specific control directives.
 
 
+
    .. py:method:: unwrap_value(v)
       :staticmethod:
 
 
+
    .. py:method:: walk(f: Callable[[Any], bool], g: Callable[[Any], Any], value: Any) -> Any
       :staticmethod:
+
 
       Applies a transformation to `value` based on a given condition.
 
@@ -249,29 +252,28 @@ Module Contents
           print(old in attribute_value, new in attribute_value) # False, True
 
 
+
    .. py:method:: wrap_value(v, file)
       :staticmethod:
 
 
 
-.. py:function:: register_schema_attributes(schema: ifcopenshell.ifcopenshell_wrapper.schema_definition) -> None
+   .. py:property:: file
 
+
+   .. py:attribute:: wrapped_data
+      :type:  ifcopenshell.ifcopenshell_wrapper.entity_instance
+
+
+.. py:function:: register_schema_attributes(schema: ifcopenshell.ifcopenshell_wrapper.schema_definition) -> None
 
 .. py:function:: set_derived_attribute(*args)
 
-
 .. py:function:: set_unsupported_attribute(*args)
-
 
 .. py:data:: T
 
-   
-
 .. py:data:: logging
 
-   
-
 .. py:data:: schema
-
-   
 

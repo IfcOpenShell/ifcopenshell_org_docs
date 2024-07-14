@@ -3,6 +3,14 @@
 
 .. py:module:: ifcopenshell.api.drawing
 
+.. autoapi-nested-parse::
+
+   Create relationships necessary for smart annotations for drawings
+
+   Drawings may be generated from modeled elements and annotations. These
+   annotations may have relationships which indicate smart data being populated.
+
+
 
 Submodules
 ----------
@@ -18,7 +26,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: assign_product(file, relating_product=None, related_object=None) -> None
+.. py:function:: assign_product(file: ifcopenshell.file, relating_product: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Associates a product and an object, typically for annotation
 
@@ -51,13 +59,13 @@ Package Contents
 
    .. code:: python
 
-       furniture = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcFurniture")
-       annotation = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcAnnotation")
-       ifcopenshell.api.run("drawing.assign_product", model,
+       furniture = ifcopenshell.api.root.create_entity(model, ifc_class="IfcFurniture")
+       annotation = ifcopenshell.api.root.create_entity(model, ifc_class="IfcAnnotation")
+       ifcopenshell.api.drawing.assign_product(model,
            relating_product=furniture, related_object=annotation)
 
 
-.. py:function:: edit_text_literal(file, text_literal=None, attributes=None) -> None
+.. py:function:: edit_text_literal(file: ifcopenshell.file, text_literal: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcTextLiteral
 
@@ -67,7 +75,7 @@ Package Contents
    :param reference: The IfcTextLiteral entity you want to edit
    :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -76,11 +84,11 @@ Package Contents
    .. code:: python
 
        text = model.createIfcTextLiteral()
-       ifcopenshell.api.run("drawing.edit_text_literal", model,
+       ifcopenshell.api.drawing.edit_text_literal(model,
            text_literal=text, attributes={"Literal": "MY ANNOTATION"})
 
 
-.. py:function:: unassign_product(file, relating_product=None, related_object=None) -> None
+.. py:function:: unassign_product(file: ifcopenshell.file, relating_product: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> None
 
    Unassigns a product and an object (typically an annotation)
 
@@ -94,20 +102,20 @@ Package Contents
    :param related_object: The object (typically IfcAnnotation) that the
        product is related to
    :type related_object: ifcopenshell.entity_instance
-   :return: The created IfcRelAssignsToProduct relationship
-   :rtype: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
 
    Example:
 
    .. code:: python
 
-       furniture = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcFurniture")
-       annotation = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcAnnotation")
-       ifcopenshell.api.run("drawing.assign_product", model,
+       furniture = ifcopenshell.api.root.create_entity(model, ifc_class="IfcFurniture")
+       annotation = ifcopenshell.api.root.create_entity(model, ifc_class="IfcAnnotation")
+       ifcopenshell.api.drawing.assign_product(model,
            relating_product=furniture, related_object=annotation)
 
        # Let's change our mind and remove the relationship
-       ifcopenshell.api.run("drawing.unassign_product", model,
+       ifcopenshell.api.drawing.unassign_product(model,
            relating_product=furniture, related_object=annotation)
 
 

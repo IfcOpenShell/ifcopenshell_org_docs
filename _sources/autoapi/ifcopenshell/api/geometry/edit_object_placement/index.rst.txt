@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: convert_matrix_to_si(matrix: NPArrayOfFloats)
 
 
@@ -37,11 +36,7 @@ Module Contents
    .. py:method:: get_relative_placement(placement_rel_to: Union[ifcopenshell.entity_instance, None]) -> ifcopenshell.entity_instance
 
 
-
-.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si=True, should_transform_children=False) -> ifcopenshell.entity_instance
-
+.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
 
 .. py:data:: NPArrayOfFloats
-
-   
 

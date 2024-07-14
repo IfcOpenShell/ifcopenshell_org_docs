@@ -9,8 +9,8 @@ Module Contents
 
 .. py:class:: OrderedCaseInsensitiveDict(*args, **kwargs)
 
-
    Bases: :py:obj:`collections.OrderedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -24,6 +24,7 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
+
    .. py:method:: get(key, *args, **kwargs)
 
       Return the value for key if key is in the dictionary, else default.
@@ -32,8 +33,8 @@ Module Contents
 
 .. py:class:: OrderedCaseInsensitiveDict_KeyObject
 
-
    Bases: :py:obj:`str`
+
 
    str(object='') -> str
    str(bytes_or_buffer[, encoding[, errors]]) -> str
@@ -49,8 +50,7 @@ Module Contents
    Initialize self.  See help(type(self)) for accurate signature.
 
 
-.. py:class:: Schema(parsetree)
-
+.. py:class:: Schema(parsetree: pyparsing.ParseResults)
 
    .. py:method:: is_entity(v)
 
@@ -65,6 +65,5 @@ Module Contents
 
 
    .. py:method:: is_type(v)
-
 
 

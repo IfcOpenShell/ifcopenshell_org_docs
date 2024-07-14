@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger)
 
-
    
    Reassigns occurrence classifications to types
 
@@ -24,7 +23,7 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "FixRevitClassificationCodeTypes"})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

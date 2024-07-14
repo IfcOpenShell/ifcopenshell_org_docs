@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_resource(file, resource=None) -> None
+.. py:function:: remove_resource(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
 
    Removes a resource and all relationships
 
@@ -16,9 +16,9 @@ Module Contents
    .. code:: python
 
        # Add our own crew
-       crew = ifcopenshell.api.run("resource.add_resource", model, ifc_class="IfcCrewResource")
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
 
        # Fire our crew
-       ifcopenshell.api.run("resource.remove_resource", model, resource=crew)
+       ifcopenshell.api.resource.remove_resource(model, resource=crew)
 
 

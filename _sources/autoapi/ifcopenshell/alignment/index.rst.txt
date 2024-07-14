@@ -9,34 +9,23 @@ Module Contents
 
 .. py:class:: circle
 
-
    .. py:attribute:: radius
-      :type: numpy.ndarray
-
-      
+      :type:  numpy.ndarray
 
 
 .. py:class:: line
 
-
    .. py:attribute:: direction_vector
-      :type: numpy.ndarray
+      :type:  numpy.ndarray
 
-      
 
    .. py:attribute:: start_point
-      :type: numpy.ndarray
-
-      
+      :type:  numpy.ndarray
 
 
 .. py:class:: piecewise(fns)
 
-
-
 .. py:class:: trimmed_curve(fn, length)
-
-
 
 .. py:function:: convert(inst)
 
@@ -45,30 +34,21 @@ Module Contents
 
 .. py:function:: convert_IfcAlignmentHorizontalSegment_LINE(data)
 
-
 .. py:function:: create_shape(settings, elem)
-
 
 .. py:function:: evaluate_segment(segment)
 
-
 .. py:function:: impl_IfcAxis2Placement2D(inst)
-
 
 .. py:function:: impl_IfcCircle(inst)
 
-
 .. py:function:: impl_IfcClothoid(inst)
-
 
 .. py:function:: impl_IfcLine(inst)
 
-
 .. py:function:: interpret_linear_element_geometry(settings, crv)
 
-
 .. py:function:: interpret_linear_element_semantics(settings, crv)
-
 
 .. py:function:: map_inst(inst)
 
@@ -76,7 +56,6 @@ Module Contents
 
 
 .. py:function:: normalized_curve(fn)
-
 
 .. py:function:: place(matrix, func)
 
@@ -91,12 +70,7 @@ Module Contents
 
 .. py:function:: reparametrized_curve(fn, a, b)
 
-
 .. py:data:: interpret_linear_element
 
-   
-
 .. py:data:: s
-
-   
 

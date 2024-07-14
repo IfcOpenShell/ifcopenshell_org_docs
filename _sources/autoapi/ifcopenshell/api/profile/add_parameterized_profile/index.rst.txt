@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_parameterized_profile(file, ifc_class=None) -> None
+.. py:function:: add_parameterized_profile(file: ifcopenshell.file, ifc_class: str) -> ifcopenshell.entity_instance
 
    Adds a new parameterised profile
 
@@ -28,7 +28,7 @@ Module Contents
 
    .. code:: python
 
-       circle = ifcopenshell.api.run("profile.add_parameterized_profile", model,
+       circle = ifcopenshell.api.profile.add_parameterized_profile(model,
            ifc_class="IfcCircleProfileDef")
        circle.Radius = 1.
 

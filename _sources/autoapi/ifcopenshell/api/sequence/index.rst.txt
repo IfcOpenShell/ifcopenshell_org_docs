@@ -3,6 +3,14 @@
 
 .. py:module:: ifcopenshell.api.sequence
 
+.. autoapi-nested-parse::
+
+   Manage work schedules, tasks, calendars, and more for 4D
+
+   These are typically used for construction planning, but may also be used in
+   managing recurring facility maintenance schedules.
+
+
 
 Submodules
 ----------
@@ -22,7 +30,7 @@ Submodules
    assign_product/index.rst
    assign_recurrence_pattern/index.rst
    assign_sequence/index.rst
-   assign_workplan/index.rst
+   assign_work_plan/index.rst
    calculate_task_duration/index.rst
    cascade_schedule/index.rst
    create_baseline/index.rst
@@ -36,7 +44,6 @@ Submodules
    edit_work_plan/index.rst
    edit_work_schedule/index.rst
    edit_work_time/index.rst
-   get_related_products/index.rst
    recalculate_schedule/index.rst
    remove_task/index.rst
    remove_time_period/index.rst
@@ -54,7 +61,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_task(file, work_schedule=None, parent_task=None, name=None, description=None, identification=None, predefined_type='NOTDEFINED') -> None
+.. py:function:: add_task(file: ifcopenshell.file, work_schedule: Optional[ifcopenshell.entity_instance] = None, parent_task: Optional[ifcopenshell.entity_instance] = None, name: Optional[str] = None, description: Optional[str] = None, identification: Optional[str] = None, predefined_type: str = 'NOTDEFINED') -> ifcopenshell.entity_instance
 
    Adds a new task
 
@@ -92,11 +99,11 @@ Package Contents
    :param work_schedule: The work schedule to group the task in, if the
        task is to be a top-level or root task. This is mutually exclusive
        with the parent_task parameter.
-   :type work_schedule: ifcopenshell.entity_instance
+   :type work_schedule: ifcopenshell.entity_instance, optional
    :param parent_task: The parent task, if the task is to be a subtask or
        child task. This is mutually exclusive with the work_schedule
        parameter.
-   :type parent_task: ifcopenshell.entity_instance
+   :type parent_task: ifcopenshell.entity_instance, optioanl
    :param name: The name of the task.
    :type name: str,optional
    :param description: The description of the task.
@@ -116,54 +123,54 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Add a root task to represent the design milestones, and major
        # project phases.
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Milestones", identification="A")
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Design", identification="B")
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's start creating our work breakdown structure.
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Early Works", identification="C1")
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Substructure", identification="C2")
-       superstructure = ifcopenshell.api.run("sequence.add_task", model,
+       superstructure = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Superstructure", identification="C3")
 
        # Notice how the leaf task is the actual activity
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            parent_task=superstructure, name="Ground Floor FRP", identification="C3.1")
 
        # Let's imagine we are digitising an operations and maintenance
        # manual for the mechanical discipline.
-       maintenance = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Mechanical Maintenance")
+       maintenance = ifcopenshell.api.sequence.add_work_schedule(model, name="Mechanical Maintenance")
 
        # Imagine we have to clean the condenser coils for a chiller every
        # month. Like the schedule above, to keep things simple we won't
        # show scheduling times and calendars. This root task represents the
        # overall maintenance task.
-       cleaning = ifcopenshell.api.run("sequence.add_task", model,
+       cleaning = ifcopenshell.api.sequence.add_task(model,
            work_schedule=maintenance, name="Condenser coil cleaning")
 
        # These subtasks represent the punch list of maintenance tasks.
-       ifcopenshell.api.run("sequence.add_task", model, parent_task=cleaning, identification="1",
+       ifcopenshell.api.sequence.add_task(model, parent_task=cleaning, identification="1",
            description="Prior to work, wear safety shoes, gloves, and goggles.")
-       ifcopenshell.api.run("sequence.add_task", model, parent_task=cleaning, identification="2",
+       ifcopenshell.api.sequence.add_task(model, parent_task=cleaning, identification="2",
            description="Prepare jet pump, screwdriver, hose clamp, and control panel door key.")
-       ifcopenshell.api.run("sequence.add_task", model, parent_task=cleaning, identification="3",
+       ifcopenshell.api.sequence.add_task(model, parent_task=cleaning, identification="3",
            description="Switch OFF the chiller unit.")
-       ifcopenshell.api.run("sequence.add_task", model, parent_task=cleaning, identification="3",
+       ifcopenshell.api.sequence.add_task(model, parent_task=cleaning, identification="3",
            description="Open the isolator switch.")
-       ifcopenshell.api.run("sequence.add_task", model, parent_task=cleaning, identification="3",
+       ifcopenshell.api.sequence.add_task(model, parent_task=cleaning, identification="3",
            description="Setup the water pressure by tapping to a water supply and connecting to a ...")
 
 
-.. py:function:: add_task_time(file, task=None, is_recurring=False) -> None
+.. py:function:: add_task_time(file: ifcopenshell.file, task: ifcopenshell.entity_instance, is_recurring: bool = False) -> ifcopenshell.entity_instance
 
    Adds a task time to a task
 
@@ -184,29 +191,29 @@ Package Contents
    .. code:: python
 
        # Let's imagine we are creating a construction schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Create a portion of a work breakdown structure.
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
-       superstructure = ifcopenshell.api.run("sequence.add_task", model,
+       superstructure = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Superstructure", identification="C3")
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            parent_task=superstructure, name="Ground Floor FRP", identification="C3.1")
 
        # Add time data. Note that time data is blank by default.
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=task)
+       time = ifcopenshell.api.sequence.add_task_time(model, task=task)
 
        # Let's say our task starts on the first of January when everybody
        # is still drunk from the new years celebration, and lasts for 2
        # days. Note we don't need to specify the end date, as that is
        # derived from the start plus the duration. In this simple example,
        # no calendar has been specified, so we are working 24/7. Yikes!
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
 
-.. py:function:: add_time_period(file, recurrence_pattern=None, start_time=None, end_time=None) -> None
+.. py:function:: add_time_period(file: ifcopenshell.file, recurrence_pattern: ifcopenshell.entity_instance, start_time: Optional[Union[str, datetime.time]] = None, end_time: Optional[Union[str, datetime.time]] = None) -> ifcopenshell.entity_instance
 
    Adds a time period to a recurrence pattern
 
@@ -239,28 +246,28 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # We create a weekly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="WEEKLY")
 
        # State that we work from weekdays 1 to 5 (i.e. Monday to Friday)
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"WeekdayComponent": [1, 2, 3, 4, 5]})
 
        # The morning work session, lunch, then the afternoon work session.
-       ifcopenshell.api.run("sequence.add_time_period", model,
+       ifcopenshell.api.sequence.add_time_period(model,
            recurrence_pattern=pattern, start_time="09:00", end_time="12:00")
-       ifcopenshell.api.run("sequence.add_time_period", model,
+       ifcopenshell.api.sequence.add_time_period(model,
            recurrence_pattern=pattern, start_time="13:00", end_time="17:00")
 
 
-.. py:function:: add_work_calendar(file, name='Unnamed', predefined_type='NOTDEFINED') -> None
+.. py:function:: add_work_calendar(file: ifcopenshell.file, name: str = 'Unnamed', predefined_type: str = 'NOTDEFINED') -> ifcopenshell.entity_instance
 
    Add a work calendar
 
@@ -290,36 +297,36 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Add a root task to represent the construction tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model, name="5 Day Week")
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model, name="5 Day Week")
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # We create a weekly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="WEEKLY")
 
        # State that we work from weekdays 1 to 5 (i.e. Monday to Friday), 9am to 5pm
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"WeekdayComponent": [1, 2, 3, 4, 5]})
-       ifcopenshell.api.run("sequence.add_time_period", model,
+       ifcopenshell.api.sequence.add_time_period(model,
            recurrence_pattern=pattern, start_time="09:00", end_time="17:00")
 
        # We associate the calendar with the construction root task. All
        # subtasks underneath the construction work task will also inherit
        # this calendar by default (though you can override them).
-       ifcopenshell.api.run("control.assign_control", model, relating_control=calendar, related_object=task)
+       ifcopenshell.api.control.assign_control(model, relating_control=calendar, related_object=task)
 
 
-.. py:function:: add_work_plan(file, name=None, predefined_type='NOTDEFINED', start_time=None) -> None
+.. py:function:: add_work_plan(file: ifcopenshell.file, name: Optional[str] = None, predefined_type: str = 'NOTDEFINED', start_time: Optional[Union[str, datetime.time]] = None) -> ifcopenshell.entity_instance
 
    Add a new work plan
 
@@ -347,14 +354,14 @@ Package Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # This is one of our schedules in our work plan.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model,
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model,
            name="Construction Schedule A", work_plan=work_plan)
 
 
-.. py:function:: add_work_schedule(file, name='Unnamed', predefined_type='NOTDEFINED', object_type=None, start_time=None, work_plan=None) -> None
+.. py:function:: add_work_schedule(file: ifcopenshell.file, name: str = 'Unnamed', predefined_type: str = 'NOTDEFINED', object_type=None, start_time: Optional[Union[str, datetime.time]] = None, work_plan: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Add a new work schedule
 
@@ -384,23 +391,23 @@ Package Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # Let's imagine this is one of our schedules in our work plan.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model,
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model,
            name="Construction Schedule A", work_plan=work_plan)
 
        # Add a root task to represent the design milestones, and major
        # project phases.
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Milestones", identification="A")
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Design", identification="B")
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
 
-.. py:function:: add_work_time(file, work_calendar=None, time_type='WorkingTimes') -> None
+.. py:function:: add_work_time(file: ifcopenshell.file, work_calendar: ifcopenshell.entity_instance, time_type: TIME_TYPE = 'WorkingTimes') -> ifcopenshell.entity_instance
 
    Add either working times or holiday times to a calendar
 
@@ -426,34 +433,34 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # We create a weekly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="WEEKLY")
 
        # State that we work from weekdays 1 to 5 (i.e. Monday to Friday)
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"WeekdayComponent": [1, 2, 3, 4, 5]})
 
        # Let's set some holidays
-       holidays = ifcopenshell.api.run("sequence.add_work_time", model,
+       holidays = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="ExceptionTimes")
 
        # We create a yearly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="YEARLY_BY_DAY_OF_MONTH")
 
        # The holiday is every 1st of January
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"DayComponent": [1], "MonthComponent": [1]})
 
 
-.. py:function:: assign_lag_time(file, rel_sequence=None, lag_value=None, duration_type='WORKTIME') -> None
+.. py:function:: assign_lag_time(file: ifcopenshell.file, rel_sequence: ifcopenshell.entity_instance, lag_value: str, duration_type: str = 'WORKTIME') -> ifcopenshell.entity_instance
 
    Assign a lag time to a sequence relationship between tasks
 
@@ -485,40 +492,40 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's imagine a root construction task
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's imagine we're doing a typically formwork, reinforcement,
        # pour sequence. Let's start with the formwork. It'll take us 2
        # days.
-       formwork = ifcopenshell.api.run("sequence.add_task", model,
+       formwork = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Formwork", identification="C.1")
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=formwork)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=formwork)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
        # Now let's do the reinforcement. It'll take us another 2 days.
-       reinforcement = ifcopenshell.api.run("sequence.add_task", model,
+       reinforcement = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Reinforcement", identification="C.2")
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=reinforcement)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=reinforcement)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
        # Now let's say the formwork must finish before the reinforcement
        # can start. This is a typical finish to start relationship (FS).
-       sequence = ifcopenshell.api.run("sequence.assign_sequence", model,
+       sequence = ifcopenshell.api.sequence.assign_sequence(model,
            relating_process=formwork, related_process=reinforcement)
 
        # Now typically there would be no lag time between formwork and
        # reinforcement, but let's pretend that we had to allow 1 day gap
        # for whatever reason.
-       ifcopenshell.api.run("sequence.assign_lag_time", model, rel_sequence=sequence, lag_value="P1D")
+       ifcopenshell.api.sequence.assign_lag_time(model, rel_sequence=sequence, lag_value="P1D")
 
 
-.. py:function:: assign_process(file, relating_process=None, related_object=None) -> None
+.. py:function:: assign_process(file: ifcopenshell.file, relating_process: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns an object to be related to a process, typically a construction task
 
@@ -572,21 +579,21 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's create a construction task. Note that the predefined type is
        # important to distinguish types of tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Demolish existing", identification="A", predefined_type="DEMOLITION")
 
        # Let's say we have a wall somewhere.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # Let's demolish that wall!
-       ifcopenshell.api.run("sequence.assign_process", model, relating_process=task, related_object=wall)
+       ifcopenshell.api.sequence.assign_process(model, relating_process=task, related_object=wall)
 
 
-.. py:function:: assign_product(file, relating_product=None, related_object=None) -> None
+.. py:function:: assign_product(file: ifcopenshell.file, relating_product: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns a product to be produced as a result of a process
 
@@ -616,21 +623,21 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's create a construction task. Note that the predefined type is
        # important to distinguish types of tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Build wall", identification="A", predefined_type="CONSTRUCTION")
 
        # Let's say we have a wall somewhere.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # Let's construct that wall!
-       ifcopenshell.api.run("sequence.assign_product", model, relating_product=wall, related_object=task)
+       ifcopenshell.api.sequence.assign_product(model, relating_product=wall, related_object=task)
 
 
-.. py:function:: assign_recurrence_pattern(file, parent=None, recurrence_type='WEEKLY') -> None
+.. py:function:: assign_recurrence_pattern(file: ifcopenshell.file, parent: ifcopenshell.entity_instance, recurrence_type: ifcopenshell.util.sequence.RECURRENCE_TYPE = 'WEEKLY') -> ifcopenshell.entity_instance
 
    Define a time to recur at a particular interval
 
@@ -684,40 +691,40 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # We create a weekly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="WEEKLY")
 
        # State that we work from weekdays 1 to 5 (i.e. Monday to Friday)
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"WeekdayComponent": [1, 2, 3, 4, 5]})
 
        # Let's imagine we are creating a maintenance schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Equipment Maintenance")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Equipment Maintenance")
 
        # Now let's imagine we have a task to maintain the chillers
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Chiller maintenance")
 
        # Because it is a maintenance task, we must schedule a recurring time
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=task, is_recurring=True)
+       time = ifcopenshell.api.sequence.add_task_time(model, task=task, is_recurring=True)
 
        # We create a monthly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="MONTHLY_BY_DAY_OF_MONTH")
 
        # Specifically, the maintenance task must occur every 6 months
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"DayComponent": [1], "Interval": 6})
 
 
-.. py:function:: assign_sequence(file, relating_process=None, related_process=None, sequence_type='FINISH_START') -> None
+.. py:function:: assign_sequence(file: ifcopenshell.file, relating_process: ifcopenshell.entity_instance, related_process: ifcopenshell.entity_instance, sequence_type: str = 'FINISH_START') -> ifcopenshell.entity_instance
 
    Assign a sequential relationship between tasks
 
@@ -756,41 +763,41 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's imagine a root construction task
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's imagine we're doing a typically formwork, reinforcement,
        # pour sequence. Let's start with the formwork. It'll take us 2
        # days.
-       formwork = ifcopenshell.api.run("sequence.add_task", model,
+       formwork = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Formwork", identification="C.1")
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=formwork)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=formwork)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
        # Now let's do the reinforcement. It'll take us another 2 days.
-       reinforcement = ifcopenshell.api.run("sequence.add_task", model,
+       reinforcement = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Reinforcement", identification="C.2")
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=reinforcement)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=reinforcement)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
        # Now the pour it It'll only take 1 day.
-       pour = ifcopenshell.api.run("sequence.add_task", model,
+       pour = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Reinforcement", identification="C.3")
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=pour)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=pour)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P1D"})
 
        # Now let's say the formwork must finish before the reinforcement
        # can start, and the reinforcement must finish before the pour can
        # start. This is a typical finish to start relationship (FS).
-       ifcopenshell.api.run("sequence.assign_sequence", model,
+       ifcopenshell.api.sequence.assign_sequence(model,
            relating_process=formwork, related_process=reinforcement)
-       ifcopenshell.api.run("sequence.assign_sequence", model,
+       ifcopenshell.api.sequence.assign_sequence(model,
            relating_process=reinforcement, related_process=pour)
 
        # Notice how we set all the scheduled start dates arbitrarily at
@@ -798,10 +805,10 @@ Package Contents
        # automatically cascade the dates, starting from any task. This will
        # update the reinforcement date to be 2000-01-03 and the pour date
        # to be 2000-01-05.
-       ifcopenshell.api.run("sequence.cascade_schedule", model, task=formwork)
+       ifcopenshell.api.sequence.cascade_schedule(model, task=formwork)
 
 
-.. py:function:: assign_workplan(file, work_schedule=None, work_plan=None) -> None
+.. py:function:: assign_work_plan(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, work_plan: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns a work schedule to a work plan
 
@@ -821,16 +828,16 @@ Package Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # Alternatively, if you create a schedule without a work plan ...
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # ... you can assign the work plan afterwards.
-       ifcopenshell.api.run("sequence.assign_workplan", work_schedule=schedule, work_plan=work_plan)
+       ifcopenshell.api.sequence.assign_work_plan(work_schedule=schedule, work_plan=work_plan)
 
 
-.. py:function:: calculate_task_duration(file, task=None) -> None
+.. py:function:: calculate_task_duration(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> None
 
    Calculates the task duration based on resource usage
 
@@ -853,44 +860,44 @@ Package Contents
    .. code:: python
 
        # Add our own crew
-       crew = ifcopenshell.api.run("resource.add_resource", model, ifc_class="IfcCrewResource")
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
 
        # Add some labour to our crew.
-       labour = ifcopenshell.api.run("resource.add_resource", model,
+       labour = ifcopenshell.api.resource.add_resource(model,
            parent_resource=crew, ifc_class="IfcLaborResource")
 
        # Labour resource is quantified in terms of time.
-       quantity = ifcopenshell.api.run("resource.add_resource_quantity", model,
+       quantity = ifcopenshell.api.resource.add_resource_quantity(model,
            resource=labour, ifc_class="IfcQuantityTime")
 
        # Store the unit time used in hours
-       ifcopenshell.api.run("resource.edit_resource_quantity", model,
+       ifcopenshell.api.resource.edit_resource_quantity(model,
            physical_quantity=quantity, attributes={"TimeValue": 8.0})
 
        # Let's imagine we've used the resource for 10 days with a
        # utilisation of 200%.
-       time = ifcopenshell.api.run("resource.add_resource_time", model, resource=labour)
-       ifcopenshell.api.run("resource.edit_resource_time", model,
+       time = ifcopenshell.api.resource.add_resource_time(model, resource=labour)
+       ifcopenshell.api.resource.edit_resource_time(model,
            resource_time=time, attributes={"ScheduleWork": "PT80H", "ScheduleUsage": 2})
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's create a construction task. Note that the predefined type is
        # important to distinguish types of tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Foundations", identification="A")
 
        # Assign our resource to the task.
-       ifcopenshell.api.run("sequence.assign_process", model, relating_process=task, related_object=labour)
+       ifcopenshell.api.sequence.assign_process(model, relating_process=task, related_object=labour)
 
        # Now we can calculate the task duration based on the resource. This
        # will set task.TaskTime.ScheduleDuration to be P5D.
-       ifcopenshell.api.run("sequence.calculate_task_duration", model, task=task)
+       ifcopenshell.api.sequence.calculate_task_duration(model, task=task)
 
 
-.. py:function:: cascade_schedule(file, task=None) -> None
+.. py:function:: cascade_schedule(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> None
 
    Cascades start and end dates of tasks based on durations
 
@@ -922,19 +929,19 @@ Package Contents
        # Define a convenience function to add a task chained to a predecessor
        def add_task(model, name, predecessor, work_schedule):
            # Add a construction task
-           task = ifcopenshell.api.run("sequence.add_task", model,
+           task = ifcopenshell.api.sequence.add_task(model,
                work_schedule=work_schedule, name=name, predefined_type="CONSTRUCTION")
 
            # Give it a time
-           task_time = ifcopenshell.api.run("sequence.add_task_time", model, task=task)
+           task_time = ifcopenshell.api.sequence.add_task_time(model, task=task)
 
            # Arbitrarily set the task's scheduled time duration to be 1 week
-           ifcopenshell.api.run("sequence.edit_task_time", model, task_time=task_time,
+           ifcopenshell.api.sequence.edit_task_time(model, task_time=task_time,
                attributes={"ScheduleStart": datetime.date(2000, 1, 1), "ScheduleDuration": "P1W"})
 
            # If a predecessor exists, create a finish to start relationship
            if predecessor:
-               ifcopenshell.api.run("sequence.assign_sequence", model,
+               ifcopenshell.api.sequence.assign_sequence(model,
                    relating_process=predecessor, related_process=task)
 
            return task
@@ -943,7 +950,7 @@ Package Contents
        model = ifcopenshell.open("/path/to/existing/model.ifc")
 
        # Create a new construction schedule
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction")
 
        # Let's imagine a starting task for site establishment.
        task = add_task(model, "Site establishment", None, schedule)
@@ -960,19 +967,19 @@ Package Contents
 
            # Assign all the products in that storey to the task as construction outputs.
            for product in get_decomposition(storey):
-               ifcopenshell.api.run("sequence.assign_product", model, relating_product=product, related_object=task)
+               ifcopenshell.api.sequence.assign_product(model, relating_product=product, related_object=task)
 
        # Ask the computer to calculate all the dates for us from the start task.
        # For example, if the first task started on the 1st of January and took a
        # week, the next task will start on the 8th of January. This saves us
        # manually doing date calculations.
-       ifcopenshell.api.run("sequence.cascade_schedule", model, task=start_task)
+       ifcopenshell.api.sequence.cascade_schedule(model, task=start_task)
 
        # Calculate the critical path and floats.
-       ifcopenshell.api.run("sequence.recalculate_schedule", model, work_schedule=schedule)
+       ifcopenshell.api.sequence.recalculate_schedule(model, work_schedule=schedule)
 
 
-.. py:function:: create_baseline(file, work_schedule=None, name=None) -> None
+.. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> None
 
    Creates a baseline for your Work Schedule
 
@@ -989,20 +996,23 @@ Package Contents
 
    :param work_schedule: The planned work_schedule to baseline
    :type work_schedule: ifcopenshell.entity_instance
+   :param name: baseline work schedule name
+   :type name: str, optional
    :return: The baseline work_schedule
    :rtype: ifcopenshell.entity_instance
 
    Example:
+
    .. code:: python
 
        # We have a Work Schedule
        planned_work_schedule = WorkSchedule(name="Design new feature",predefinedType="PLANNED", deadline="2023-03-01")
 
        # And now we have a baseline for our Work Schedule
-       baseline_work_schedule = ifcopenshell.api.run("sequence.create_baseline",file, work_schedule= planned_work_schedule, name="Baseline 1")
+       baseline_work_schedule = ifcopenshell.api.sequence.create_baseline(file, work_schedule=planned_work_schedule, name="Baseline 1")
 
 
-.. py:function:: duplicate_task(file, task=None) -> None
+.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Duplicates a task in the project
 
@@ -1027,7 +1037,7 @@ Package Contents
        duplicated_task = project.duplicate_task(original_task)
 
 
-.. py:function:: edit_lag_time(file, lag_time=None, attributes=None) -> None
+.. py:function:: edit_lag_time(file: ifcopenshell.file, lag_time: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcLagTime
 
@@ -1037,7 +1047,7 @@ Package Contents
    :param lag_time: The IfcLagTime entity you want to edit
    :type lag_time: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1047,43 +1057,43 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's imagine a root construction task
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's imagine we're doing a typically formwork, reinforcement,
        # pour sequence. Let's start with the formwork. It'll take us 2
        # days.
-       formwork = ifcopenshell.api.run("sequence.add_task", model,
+       formwork = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Formwork", identification="C.1")
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=formwork)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=formwork)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
        # Now let's do the reinforcement. It'll take us another 2 days.
-       reinforcement = ifcopenshell.api.run("sequence.add_task", model,
+       reinforcement = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Reinforcement", identification="C.2")
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=reinforcement)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=reinforcement)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
        # Now let's say the formwork must finish before the reinforcement
        # can start. This is a typical finish to start relationship (FS).
-       sequence = ifcopenshell.api.run("sequence.assign_sequence", model,
+       sequence = ifcopenshell.api.sequence.assign_sequence(model,
            relating_process=formwork, related_process=reinforcement)
 
        # Now typically there would be no lag time between formwork and
        # reinforcement, but let's pretend that we had to allow 1 day gap
        # for whatever reason.
-       lag = ifcopenshell.api.run("sequence.assign_lag_time", model, rel_sequence=sequence, lag_value="P1D")
+       lag = ifcopenshell.api.sequence.assign_lag_time(model, rel_sequence=sequence, lag_value="P1D")
 
        # Or, let's make it 2 days instead.
-       ifcopenshell.api.run("sequence.edit_lag_time", model, lag_time=lag, attributes={"LagValue": "P2D"})
+       ifcopenshell.api.sequence.edit_lag_time(model, lag_time=lag, attributes={"LagValue": "P2D"})
 
 
-.. py:function:: edit_recurrence_pattern(file, recurrence_pattern=None, attributes=None) -> None
+.. py:function:: edit_recurrence_pattern(file: ifcopenshell.file, recurrence_pattern: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcRecurrencePattern
 
@@ -1093,7 +1103,7 @@ Package Contents
    :param recurrence_pattern: The IfcRecurrencePattern entity you want to edit
    :type recurrence_pattern: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1102,22 +1112,22 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # We create a weekly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="WEEKLY")
 
        # State that we work from weekdays 1 to 5 (i.e. Monday to Friday)
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"WeekdayComponent": [1, 2, 3, 4, 5]})
 
 
-.. py:function:: edit_sequence(file, rel_sequence=None, attributes=None) -> None
+.. py:function:: edit_sequence(file: ifcopenshell.file, rel_sequence: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcRelSequence
 
@@ -1127,7 +1137,7 @@ Package Contents
    :param rel_sequence: The IfcRelSequence entity you want to edit
    :type rel_sequence: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1137,28 +1147,28 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's imagine a root construction task
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's imagine we're building 2 zones, one after another.
-       zone1 = ifcopenshell.api.run("sequence.add_task", model,
+       zone1 = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Zone 1", identification="C.1")
-       zone2 = ifcopenshell.api.run("sequence.add_task", model,
+       zone2 = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Zone 2", identification="C.2")
 
        # Zone 1 finishes, then zone 2 starts.
-       sequence = ifcopenshell.api.run("sequence.assign_sequence", model,
+       sequence = ifcopenshell.api.sequence.assign_sequence(model,
            relating_process=zone1, related_process=zone2)
 
        # What if they both started at the same time?
-       ifcopenshell.api.run("sequence.edit_sequence", model,
+       ifcopenshell.api.sequence.edit_sequence(model,
            rel_sequence=sequence, attributes={"SequenceType": "START_START"})
 
 
-.. py:function:: edit_task(file, task=None, attributes=None) -> None
+.. py:function:: edit_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcTask
 
@@ -1168,7 +1178,7 @@ Package Contents
    :param task: The IfcTask entity you want to edit
    :type task: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1178,18 +1188,18 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Add a root task to represent the design milestones, and major
        # project phases.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Milestones", identification="A")
 
        # Change the identification
-       ifcopenshell.api.run("sequence.edit_task", model, task=task, attributes={"Identification": "M"})
+       ifcopenshell.api.sequence.edit_task(model, task=task, attributes={"Identification": "M"})
 
 
-.. py:function:: edit_task_time(file: ifcopenshell.file, task_time: ifcopenshell.entity_instance, attributes: Optional[dict[str, Any]] = None) -> None
+.. py:function:: edit_task_time(file: ifcopenshell.file, task_time: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcTaskTime
 
@@ -1199,7 +1209,7 @@ Package Contents
    :param task_time: The IfcTaskTime entity you want to edit
    :type task_time: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1209,19 +1219,19 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Create a task to do formwork
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Formwork", identification="A")
 
        # Let's say it takes 2 days and starts on the 1st of January, 2000
-       time = ifcopenshell.api.run("sequence.add_task_time", model, task=formwork)
-       ifcopenshell.api.run("sequence.edit_task_time", model,
+       time = ifcopenshell.api.sequence.add_task_time(model, task=formwork)
+       ifcopenshell.api.sequence.edit_task_time(model,
            task_time=time, attributes={"ScheduleStart": "2000-01-01", "ScheduleDuration": "P2D"})
 
 
-.. py:function:: edit_work_calendar(file, work_calendar=None, attributes=None) -> None
+.. py:function:: edit_work_calendar(file: ifcopenshell.file, work_calendar: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcWorkCalendar
 
@@ -1231,7 +1241,7 @@ Package Contents
    :param work_calendar: The IfcWorkCalendar entity you want to edit
    :type work_calendar: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1240,14 +1250,14 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model, name="5 Day Week")
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model, name="5 Day Week")
 
        # Let's give it a description
-       ifcopenshell.api.run("sequence.edit_work_calendar", model,
+       ifcopenshell.api.sequence.edit_work_calendar(model,
            work_calendar=calendar, attributes={"Description": "Monday to Friday 8 hour days"})
 
 
-.. py:function:: edit_work_plan(file, work_plan=None, attributes=None) -> None
+.. py:function:: edit_work_plan(file: ifcopenshell.file, work_plan: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcWorkPlan
 
@@ -1257,7 +1267,7 @@ Package Contents
    :param work_plan: The IfcWorkPlan entity you want to edit
    :type work_plan: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1266,14 +1276,14 @@ Package Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # Let's give it a description
-       ifcopenshell.api.run("sequence.edit_work_plan", model,
+       ifcopenshell.api.sequence.edit_work_plan(model,
            work_plan=work_plan, attributes={"Description": "Construction of phase 1"})
 
 
-.. py:function:: edit_work_schedule(file, work_schedule=None, attributes=None) -> None
+.. py:function:: edit_work_schedule(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcWorkSchedule
 
@@ -1283,7 +1293,7 @@ Package Contents
    :param work_schedule: The IfcWorkSchedule entity you want to edit
    :type work_schedule: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1292,18 +1302,18 @@ Package Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # Let's imagine this is one of our schedules in our work plan.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model,
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model,
            name="Construction Schedule A", work_plan=work_plan)
 
        # Let's give it a description
-       ifcopenshell.api.run("sequence.edit_work_schedule", model,
+       ifcopenshell.api.sequence.edit_work_schedule(model,
            work_schedule=work_schedule, attributes={"Description": "3 crane design option"})
 
 
-.. py:function:: edit_work_time(file: ifcopenshell.file, work_time: ifcopenshell.entity_instance, attributes: Optional[dict[str, Any]] = None) -> None
+.. py:function:: edit_work_time(file: ifcopenshell.file, work_time: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcWorkTime
 
@@ -1313,7 +1323,7 @@ Package Contents
    :param work_time: The IfcWorkTime entity you want to edit
    :type work_time: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -1322,58 +1332,20 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # If we don't specify any recurring time periods in our work time,
        # we need to specify a start and end date of the work time. It
        # starts at 0:00 on the start date and 24:00 at the end date.
-       ifcopenshell.api.run("sequence.edit_work_time", model,
+       ifcopenshell.api.sequence.edit_work_time(model,
            work_time=work_time, attributes={"StartDate": "2000-01-01", "FinishDate": "2000-01-02"})
 
 
-.. py:function:: get_related_products(file, relating_product=None, related_object=None) -> None
-
-   Gets the related products being output by a task
-
-   This API function will be removed in the future and migrated to a
-   utility module.
-
-   :param relating_product: One of the products already output by the task.
-   :type relating_product: ifcopenshell.entity_instance
-   :param related_object: The IfcTask that you want to get all the related
-       products for.
-   :type related_object: ifcopenshell.entity_instance
-   :return: A set of IfcProducts output by the IfcTask.
-   :rtype: set[ifcopenshell.entity_instance]
-
-   Example:
-
-   .. code:: python
-
-       # Let's imagine we are creating a construction schedule. All tasks
-       # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
-
-       # Let's create a construction task. Note that the predefined type is
-       # important to distinguish types of tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
-           work_schedule=schedule, name="Build wall", identification="A", predefined_type="CONSTRUCTION")
-
-       # Let's say we have a wall somewhere.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
-
-       # Let's construct that wall!
-       ifcopenshell.api.run("sequence.assign_product", relating_product=wall, related_object=task)
-
-       # This will give us a set with that wall in it.
-       products = ifcopenshell.api.run("sequence.get_related_products", model, related_object=task)
-
-
-.. py:function:: remove_task(file, task=None) -> None
+.. py:function:: remove_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> None
 
    Removes a task
 
@@ -1391,23 +1363,23 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Add a root task to represent the design milestones, and major
        # project phases.
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Milestones", identification="A")
-       design = ifcopenshell.api.run("sequence.add_task", model,
+       design = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Design", identification="B")
-       ifcopenshell.api.run("sequence.add_task", model,
+       ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Ah, let's delete the design section, who needs it anyway we'll
        # just fix it on site.
-       ifcopenshell.api.run("sequence.remove_task", model, task=design)
+       ifcopenshell.api.sequence.remove_task(model, task=design)
 
 
-.. py:function:: remove_time_period(file, time_period=None) -> None
+.. py:function:: remove_time_period(file: ifcopenshell.file, time_period: ifcopenshell.entity_instance) -> None
 
    Removes a time period
 
@@ -1421,31 +1393,31 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # We create a weekly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="WEEKLY")
 
        # State that we work from weekdays 1 to 5 (i.e. Monday to Friday)
-       ifcopenshell.api.run("sequence.edit_recurrence_pattern", model,
+       ifcopenshell.api.sequence.edit_recurrence_pattern(model,
            recurrence_pattern=pattern, attributes={"WeekdayComponent": [1, 2, 3, 4, 5]})
 
        # The morning work session, lunch, then the afternoon work session.
-       morning = ifcopenshell.api.run("sequence.add_time_period", model,
+       morning = ifcopenshell.api.sequence.add_time_period(model,
            recurrence_pattern=pattern, start_time="09:00", end_time="12:00")
-       afternoon = ifcopenshell.api.run("sequence.add_time_period", model,
+       afternoon = ifcopenshell.api.sequence.add_time_period(model,
            recurrence_pattern=pattern, start_time="13:00", end_time="17:00")
 
        # Let's take the afternoon off!
-       ifcopenshell.api.run("sequence.remove_time_period", model, time_period=afternoon)
+       ifcopenshell.api.sequence.remove_time_period(model, time_period=afternoon)
 
 
-.. py:function:: remove_work_calendar(file, work_calendar=None) -> None
+.. py:function:: remove_work_calendar(file: ifcopenshell.file, work_calendar: ifcopenshell.entity_instance) -> None
 
    Removes a work calendar
 
@@ -1462,13 +1434,13 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model, name="5 Day Week")
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model, name="5 Day Week")
 
        # And remove it immediately
-       ifcopenshell.api.run("sequence.remove_work_calendar", model, work_calendar=calendar)
+       ifcopenshell.api.sequence.remove_work_calendar(model, work_calendar=calendar)
 
 
-.. py:function:: remove_work_plan(file, work_plan=None) -> None
+.. py:function:: remove_work_plan(file: ifcopenshell.file, work_plan: ifcopenshell.entity_instance) -> None
 
    Removes a work plan
 
@@ -1485,13 +1457,13 @@ Package Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # And remove it immediately
-       ifcopenshell.api.run("sequence.remove_work_plan", model, work_plan=work_plan)
+       ifcopenshell.api.sequence.remove_work_plan(model, work_plan=work_plan)
 
 
-.. py:function:: remove_work_schedule(file, work_schedule=None) -> None
+.. py:function:: remove_work_schedule(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance) -> None
 
    Removes a work schedule
 
@@ -1507,17 +1479,17 @@ Package Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # Let's imagine this is one of our schedules in our work plan.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model,
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model,
            name="Construction Schedule A", work_plan=work_plan)
 
        # And remove it immediately
-       ifcopenshell.api.run("sequence.remove_work_schedule", model, work_schedule=schedule)
+       ifcopenshell.api.sequence.remove_work_schedule(model, work_schedule=schedule)
 
 
-.. py:function:: remove_work_time(file, work_time=None) -> None
+.. py:function:: remove_work_time(file: ifcopenshell.file, work_time: ifcopenshell.entity_instance) -> None
 
    Removes a work time
 
@@ -1531,17 +1503,17 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # And remove it immediately
-       ifcopenshell.api.run("sequence.remove_work_time", model, work_time=work_time)
+       ifcopenshell.api.sequence.remove_work_time(model, work_time=work_time)
 
 
-.. py:function:: unassign_lag_time(file, rel_sequence=None) -> None
+.. py:function:: unassign_lag_time(file: ifcopenshell.file, rel_sequence: ifcopenshell.entity_instance) -> None
 
    Removes any lag time in a sequence
 
@@ -1558,30 +1530,30 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's imagine a root construction task
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's imagine we're building 2 zones, one after another.
-       zone1 = ifcopenshell.api.run("sequence.add_task", model,
+       zone1 = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Zone 1", identification="C.1")
-       zone2 = ifcopenshell.api.run("sequence.add_task", model,
+       zone2 = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Zone 2", identification="C.2")
 
        # Zone 1 finishes, then zone 2 starts.
-       sequence = ifcopenshell.api.run("sequence.assign_sequence", model,
+       sequence = ifcopenshell.api.sequence.assign_sequence(model,
            relating_process=zone1, related_process=zone2)
 
        # What if you had to wait 1 week before you could start zone 2?
-       ifcopenshell.api.run("sequence.assign_lag_time", model, rel_sequence=sequence, lag_value="P1W")
+       ifcopenshell.api.sequence.assign_lag_time(model, rel_sequence=sequence, lag_value="P1W")
 
        # What if you didn't?
-       ifcopenshell.api.run("sequence.unassign_lag_time", model, rel_sequence=sequence)
+       ifcopenshell.api.sequence.unassign_lag_time(model, rel_sequence=sequence)
 
 
-.. py:function:: unassign_process(file, relating_process=None, related_object=None) -> None
+.. py:function:: unassign_process(file: ifcopenshell.file, relating_process: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> None
 
    Unassigns a process and object relationship
 
@@ -1600,24 +1572,24 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's create a construction task. Note that the predefined type is
        # important to distinguish types of tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Demolish existing", identification="A", predefined_type="DEMOLITION")
 
        # Let's say we have a wall somewhere.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # Let's demolish that wall!
-       ifcopenshell.api.run("sequence.assign_process", model, relating_process=task, related_object=wall)
+       ifcopenshell.api.sequence.assign_process(model, relating_process=task, related_object=wall)
 
        # Change our mind.
-       ifcopenshell.api.run("sequence.unassign_process", model, relating_process=task, related_object=wall)
+       ifcopenshell.api.sequence.unassign_process(model, relating_process=task, related_object=wall)
 
 
-.. py:function:: unassign_product(file, relating_product=None, related_object=None) -> None
+.. py:function:: unassign_product(file: ifcopenshell.file, relating_product: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> None
 
    Unassigns a product and object relationship
 
@@ -1636,29 +1608,32 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's create a construction task. Note that the predefined type is
        # important to distinguish types of tasks.
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Build wall", identification="A", predefined_type="CONSTRUCTION")
 
        # Let's say we have a wall somewhere.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # Let's construct that wall!
-       ifcopenshell.api.run("sequence.assign_product", relating_product=wall, related_object=task)
+       ifcopenshell.api.sequence.assign_product(relating_product=wall, related_object=task)
 
        # Change our mind.
-       ifcopenshell.api.run("sequence.unassign_product", relating_product=wall, related_object=task)
+       ifcopenshell.api.sequence.unassign_product(relating_product=wall, related_object=task)
 
 
-.. py:function:: unassign_recurrence_pattern(file, recurrence_pattern=None) -> None
+.. py:function:: unassign_recurrence_pattern(file: ifcopenshell.file, recurrence_pattern: ifcopenshell.entity_instance) -> None
 
    Unassigns a recurrence pattern
 
    Note that a recurring task time must have a recurrence pattern, so if
-   you remove it, be sure to clean up after your
+   you remove it, be sure to clean up after this API call
+   (e.g. remove IfcTaskTimeRecurring entity
+   or assign a different recurrence patern to it
+   or replace IfcTaskTimeRecurring with IfcTaskTime).
 
    :param recurrence_pattern: The IfcRecurrencePattern to remove.
    :type recurrence_pattern: ifcopenshell.entity_instance
@@ -1670,21 +1645,21 @@ Package Contents
    .. code:: python
 
        # Let's create a new calendar.
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
 
        # Let's start defining the times that we work during the week.
-       work_time = ifcopenshell.api.run("sequence.add_work_time", model,
+       work_time = ifcopenshell.api.sequence.add_work_time(model,
            work_calendar=calendar, time_type="WorkingTimes")
 
        # We create a weekly recurrence
-       pattern = ifcopenshell.api.run("sequence.assign_recurrence_pattern", model,
+       pattern = ifcopenshell.api.sequence.assign_recurrence_pattern(model,
            parent=work_time, recurrence_type="WEEKLY")
 
        # Change our mind, let's just maintain it whenever we feel like it.
-       ifcopenshell.api.run("sequence.unassign_recurrence_pattern", recurrence_pattern=pattern)
+       ifcopenshell.api.sequence.unassign_recurrence_pattern(recurrence_pattern=pattern)
 
 
-.. py:function:: unassign_sequence(file, relating_process=None, related_process=None) -> None
+.. py:function:: unassign_sequence(file: ifcopenshell.file, relating_process: ifcopenshell.entity_instance, related_process: ifcopenshell.entity_instance) -> None
 
    Removes a sequence relationship between tasks
 
@@ -1701,23 +1676,23 @@ Package Contents
 
        # Let's imagine we are creating a construction schedule. All tasks
        # need to be part of a work schedule.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model, name="Construction Schedule A")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # Let's imagine a root construction task
-       construction = ifcopenshell.api.run("sequence.add_task", model,
+       construction = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule, name="Construction", identification="C")
 
        # Let's imagine we're building 2 zones, one after another.
-       zone1 = ifcopenshell.api.run("sequence.add_task", model,
+       zone1 = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Zone 1", identification="C.1")
-       zone2 = ifcopenshell.api.run("sequence.add_task", model,
+       zone2 = ifcopenshell.api.sequence.add_task(model,
            parent_task=construction, name="Zone 2", identification="C.2")
 
        # Zone 1 finishes, then zone 2 starts.
-       ifcopenshell.api.run("sequence.assign_sequence", model, relating_process=zone1, related_process=zone2)
+       ifcopenshell.api.sequence.assign_sequence(model, relating_process=zone1, related_process=zone2)
 
        # Let's make them unrelated
-       ifcopenshell.api.run("sequence.unassign_sequence", model,
+       ifcopenshell.api.sequence.unassign_sequence(model,
            relating_process=zone1, related_process=zone2)
 
 

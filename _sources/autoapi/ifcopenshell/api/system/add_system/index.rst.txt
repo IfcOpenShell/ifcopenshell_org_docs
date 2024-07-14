@@ -30,6 +30,6 @@ Module Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
 

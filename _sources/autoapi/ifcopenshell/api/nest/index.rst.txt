@@ -3,6 +3,19 @@
 
 .. py:module:: ifcopenshell.api.nest
 
+.. autoapi-nested-parse::
+
+   Nesting is when a component is attached to a host element
+
+   Examples include when a faucet is attached using a predrilled hole in a basin,
+   or when a modular connection occurs through a connection point. This implies
+   that when a host element moves, the child nested components must move as well.
+
+   Note that this API is not meant to be used for connection points on
+   distribution systems. For that purpose, such as for pipe fittings and
+   equipment, please see :mod:`ifcopenshell.api.system`.
+
+
 
 Submodules
 ----------
@@ -85,19 +98,19 @@ Package Contents
    .. code:: python
 
        # Faucets are designed to attach onto a sink through a predrilled hole.
-       sink = ifcopenshell.api.run("root.create_entity", model,
+       sink = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcSanitaryTerminal", predefined_type="SINK")
-       faucet = ifcopenshell.api.run("root.create_entity", model,
+       faucet = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcValve", predefined_type="FAUCET")
-       ifcopenshell.api.run("nest.assign_object", model, related_objects=[faucet], relating_object=sink)
+       ifcopenshell.api.nest.assign_object(model, related_objects=[faucet], relating_object=sink)
 
 
-.. py:function:: change_nest(file, item=None, new_parent=None) -> None
+.. py:function:: change_nest(file: ifcopenshell.file, item: ifcopenshell.entity_instance, new_parent: ifcopenshell.entity_instance) -> None
 
    Assigns a cost item to a new parent cost item
 
 
-.. py:function:: reorder_nesting(file, item=None, old_index=0, new_index=0) -> None
+.. py:function:: reorder_nesting(file: ifcopenshell.file, item: ifcopenshell.entity_instance, old_index: int = 0, new_index: int = 0) -> None
 
    Reorders an item in a nesting set
 
@@ -121,14 +134,14 @@ Package Contents
 
    .. code:: python
 
-       task = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcTasks")
-       subtask1 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcTask")
-       subtask2 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcTask")
-       ifcopenshell.api.run("nest.assign_object", model, related_objects=[subtask1], relating_object=task)
-       ifcopenshell.api.run("nest.assign_object", model, related_objects=[subtask2], relating_object=task)
+       task = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTasks")
+       subtask1 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTask")
+       subtask2 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTask")
+       ifcopenshell.api.nest.assign_object(model, related_objects=[subtask1], relating_object=task)
+       ifcopenshell.api.nest.assign_object(model, related_objects=[subtask2], relating_object=task)
        # nothing is returned
-       rel = ifcopenshell.api.run("nest.unassign_object", model, related_objects=[subtask1])
+       rel = ifcopenshell.api.nest.unassign_object(model, related_objects=[subtask1])
        # nothing is returned, relationship is removed
-       ifcopenshell.api.run("nest.unassign_object", model, related_objects=[subtask2])
+       ifcopenshell.api.nest.unassign_object(model, related_objects=[subtask2])
 
 

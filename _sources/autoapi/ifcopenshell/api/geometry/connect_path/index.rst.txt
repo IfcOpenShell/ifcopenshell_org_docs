@@ -7,6 +7,5 @@
 Module Contents
 ---------------
 
-.. py:function:: connect_path(file, **usecase_settings) -> None
-
+.. py:function:: connect_path(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, relating_connection: str = 'NOTDEFINED', related_connection: str = 'NOTDEFINED', description: Optional[str] = None) -> ifcopenshell.entity_instance
 

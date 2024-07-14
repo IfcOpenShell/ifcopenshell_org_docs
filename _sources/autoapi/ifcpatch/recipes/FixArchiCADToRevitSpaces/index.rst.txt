@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger)
 
-
    
    Allow ArchiCAD IFC spaces to open as Revit rooms
 
@@ -44,7 +43,7 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "FixArchiCADToRevitSpaces", "arguments": []})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

@@ -7,10 +7,20 @@
 Module Contents
 ---------------
 
+.. py:exception:: SetElementValueException
+
+   Bases: :py:obj:`Exception`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
 .. py:class:: FacetTransformer(ifc_file: ifcopenshell.file, elements: Optional[set[ifcopenshell.entity_instance]] = None)
 
-
    Bases: :py:obj:`lark.Transformer`
+
 
    .. py:method:: attribute(args)
 
@@ -51,6 +61,9 @@ Module Contents
    .. py:method:: material(args)
 
 
+   .. py:method:: parent(args)
+
+
    .. py:method:: prop(args)
 
 
@@ -69,11 +82,10 @@ Module Contents
    .. py:method:: value(args)
 
 
-
 .. py:class:: FormatTransformer
 
-
    Bases: :py:obj:`lark.Transformer`
+
 
    .. py:method:: ESCAPED_STRING(args)
 
@@ -117,11 +129,10 @@ Module Contents
    .. py:method:: upper(args)
 
 
-
 .. py:class:: GetElementTransformer
 
-
    Bases: :py:obj:`lark.Transformer`
+
 
    .. py:method:: ESCAPED_STRING(args)
 
@@ -144,55 +155,6 @@ Module Contents
    .. py:method:: unquoted_string(args)
 
 
-
-.. py:class:: Selector
-
-
-   .. py:method:: filter_element(element, element_value, comparison, value, is_regex=False)
-      :classmethod:
-
-
-   .. py:method:: filter_elements(elements, filter_rule)
-      :classmethod:
-
-
-   .. py:method:: get_class_selector(class_selector)
-      :classmethod:
-
-
-   .. py:method:: get_element_value(element: ifcopenshell.entity_instance, keys: list[str]) -> Any
-      :classmethod:
-
-
-   .. py:method:: get_group(group)
-      :classmethod:
-
-
-   .. py:method:: get_guid_selector(guid_selector)
-      :classmethod:
-
-
-   .. py:method:: get_query(query)
-      :classmethod:
-
-
-   .. py:method:: get_selector(selector)
-      :classmethod:
-
-
-   .. py:method:: parse(ifc_file: ifcopenshell.file, query: str, elements: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
-      :classmethod:
-
-
-   .. py:method:: parse_filter_query(filter_query)
-      :classmethod:
-
-
-   .. py:method:: parse_inverse_relationship(elements, inverse_relationship)
-      :classmethod:
-
-
-
 .. py:function:: filter_elements(ifc_file: ifcopenshell.file, query: str, elements: Optional[set[ifcopenshell.entity_instance]] = None, edit_in_place=False) -> set[ifcopenshell.entity_instance]
 
    Filter elements based on the provided `query`.
@@ -201,9 +163,10 @@ Module Contents
    :type ifc_file: ifcopenshell.file
    :param query: Query to execute
    :type query: str
-   :param elements: Base set of IFC elements for the query.
-       If provided, new elements found for the current query will be added to `elements`.
-       Elements explicitly excluded in the `query` will also be excluded from `elements`
+   :param elements: Base set of IFC elements for the query. If not provided,
+       all elements in the IFC are queried. If provided, the query will be
+       applied to this set of elements, so the result will be a subset of
+       elements.
    :type elements: set[ifcopenshell.entity_instance], optional
    :param edit_in_place: If `True`, mutate the provided `elements` in place. Defaults to `False`
    :type edit_in_place: bool
@@ -214,7 +177,7 @@ Module Contents
 
    .. code:: python
 
-       # Select all walls in the file.
+       # Select all the walls and slabs in the file.
        elements = ifcopenshell.util.selector.filter_elements(ifc_file, "IfcWall, IfcSlab")
 
        # Add doors to the elements too.
@@ -229,22 +192,13 @@ Module Contents
 
 .. py:function:: format(query: str) -> str
 
-
 .. py:function:: get_element_value(element: ifcopenshell.entity_instance, query: str) -> Any
 
-
-.. py:function:: set_element_value(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, query: Union[str, list[str]], value: Optional[str]) -> Union[ifcopenshell.entity_instance, None]
-
+.. py:function:: set_element_value(ifc_file: ifcopenshell.file, element: Union[ifcopenshell.entity_instance, Iterable[ifcopenshell.entity_instance], None], query: Union[str, list[str]], value: Any) -> None
 
 .. py:data:: filter_elements_grammar
 
-   
-
 .. py:data:: format_grammar
 
-   
-
 .. py:data:: get_element_grammar
-
-   
 

@@ -7,6 +7,5 @@
 Module Contents
 ---------------
 
-.. py:function:: add_footprint_representation(file, **usecase_settings) -> None
-
+.. py:function:: add_footprint_representation(file, context: ifcopenshell.entity_instance, curves: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
 

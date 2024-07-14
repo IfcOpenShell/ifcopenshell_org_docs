@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, property_name=None, quantity_name=None)
 
-
    
    Converts a property to a standardised quantity
 
@@ -45,6 +44,7 @@ Module Contents
        # "NetSideArea", if that standardised quantity exists.
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ConvertPropertiesToQuantities", "arguments": ["Area", "NetSideArea"]})
 
+
    .. py:method:: get_qto_name(ifc_class)
 
 
@@ -55,6 +55,5 @@ Module Contents
 
 
    .. py:method:: process_product(product, definitions)
-
 
 

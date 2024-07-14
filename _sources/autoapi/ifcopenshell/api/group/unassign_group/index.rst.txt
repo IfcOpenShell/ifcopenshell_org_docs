@@ -24,11 +24,11 @@ Module Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Furniture")
+       group = ifcopenshell.api.group.add_group(model, name="Furniture")
        furniture = model.by_type("IfcFurniture")
-       ifcopenshell.api.run("group.assign_group", model, products=furniture, group=group)
+       ifcopenshell.api.group.assign_group(model, products=furniture, group=group)
 
        bad_furniture = furniture[0]
-       ifcopenshell.api.run("group.unassign_group", model, products=[bad_furniture], group=group)
+       ifcopenshell.api.group.unassign_group(model, products=[bad_furniture], group=group)
 
 

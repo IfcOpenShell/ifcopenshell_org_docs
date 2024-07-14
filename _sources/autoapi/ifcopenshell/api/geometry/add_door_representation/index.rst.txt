@@ -7,8 +7,205 @@
 Module Contents
 ---------------
 
-.. py:class:: Usecase
+.. py:class:: DoorLiningProperties
 
+   .. py:method:: initialize_properties(unit_scale: float) -> None
+
+
+   .. py:attribute:: CasingDepth
+      :type:  Optional[float]
+      :value: None
+
+
+      Casing cover wall faces around the opening
+      on the left, right and upper sides
+      Casing should be either on both sides of the wall or no casing
+      If `LiningOffset` is present then therefore casing is not possible on outer wall
+      therefore there will be no casing on inner wall either. Optional, defaults to 5mm.
+
+
+
+   .. py:attribute:: CasingThickness
+      :type:  Optional[float]
+      :value: None
+
+
+      Casing thickness by Z-axis. Optional, defaults to 75mm.
+
+
+
+   .. py:attribute:: LiningDepth
+      :type:  Optional[float]
+      :value: None
+
+
+      Optional, defaults to 50mm.
+
+
+
+   .. py:attribute:: LiningOffset
+      :type:  Optional[float]
+      :value: None
+
+
+      Offset from the outer side of the wall (by Y-axis). Optional, defaults to 0.0.
+
+
+
+   .. py:attribute:: LiningThickness
+      :type:  Optional[float]
+      :value: None
+
+
+      Optional, defaults to 50mm.
+
+
+
+   .. py:attribute:: LiningToPanelOffsetX
+      :type:  Optional[float]
+      :value: None
+
+
+      Offset from the wall. Optional, defaults to 25mm.
+
+
+
+   .. py:attribute:: LiningToPanelOffsetY
+      :type:  Optional[float]
+      :value: None
+
+
+      Offset from the X-axis (unlike windows). Optional, defaults to 25mm.
+
+
+
+   .. py:attribute:: ShapeAspectStyle
+      :type:  None
+      :value: None
+
+
+      Optional. Deprecated argument.
+
+
+
+   .. py:attribute:: ThresholdDepth
+      :type:  Optional[float]
+      :value: None
+
+
+      Threshold covers the bottom side of the opening. Optional, defaults to 100mm.
+
+
+
+   .. py:attribute:: ThresholdOffset
+      :type:  Optional[float]
+      :value: None
+
+
+      Threshold offset by Y-axis. Optional, defaults to 0.0.
+
+
+
+   .. py:attribute:: ThresholdThickness
+      :type:  Optional[float]
+      :value: None
+
+
+      Theshold thickness by Z-axis. Optional, defaults to 25mm.
+
+
+
+   .. py:attribute:: TransomOffset
+      :type:  Optional[float]
+      :value: None
+
+
+      Distance from the bottom door opening
+      to the beginning of the transom
+      unlike windows TransomOffset which goes to the center of the transom.
+      Optional, defaults 1.525m.
+
+
+
+   .. py:attribute:: TransomThickness
+      :type:  Optional[float]
+      :value: None
+
+
+      Vertical distance between door and window panels. Optional, defaults to 0.0.
+
+
+
+.. py:class:: DoorPanelProperties
+
+   .. py:method:: initialize_properties(unit_scale: float) -> None
+
+
+   .. py:attribute:: FrameDepth
+      :type:  Optional[float]
+      :value: None
+
+
+      Frame thickness by Y axis. Optional, defaults to 35 mm.
+
+
+
+   .. py:attribute:: FrameThickness
+      :type:  Optional[float]
+      :value: None
+
+
+      Frame thickness by X axis. Optional, defaults to 35 mm.
+
+
+
+   .. py:attribute:: PanelDepth
+      :type:  Optional[float]
+      :value: None
+
+
+      Frame thickness by Y axis. Optional, defaults to 35 mm.
+
+
+
+   .. py:attribute:: PanelOperation
+      :type:  None
+      :value: None
+
+
+      Optional, value is never used.
+      Defines the basic ways to describe how door panels operate.
+
+
+
+   .. py:attribute:: PanelPosition
+      :type:  None
+      :value: None
+
+
+      Optional, value is never used
+
+
+
+   .. py:attribute:: PanelWidth
+      :type:  float
+      :value: 1.0
+
+
+      Ratio to the clear door opening. Optional, defaults to 1.0.
+
+
+
+   .. py:attribute:: ShapeAspectStyle
+      :type:  None
+      :value: None
+
+
+      Optional. Deprecated argument.
+
+
+
+.. py:class:: Usecase
 
    .. py:method:: convert_si_to_unit(value)
 
@@ -16,24 +213,48 @@ Module Contents
    .. py:method:: execute()
 
 
-
-.. py:function:: add_door_representation(file, **usecase_settings) -> None
+.. py:function:: add_door_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, operation_type: Literal['SINGLE_SWING_LEFT', 'SINGLE_SWING_RIGHT', 'DOUBLE_SWING_RIGHT', 'DOUBLE_SWING_LEFT', 'DOUBLE_DOOR_SINGLE_SWING', 'DOUBLE_DOOR_DOUBLE_SWING', 'SLIDING_TO_LEFT', 'SLIDING_TO_RIGHT', 'DOUBLE_DOOR_SLIDING'] = 'SINGLE_SWING_LEFT', lining_properties: Optional[Union[DoorLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[Union[DoorPanelProperties, dict[str, Any]]] = None, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
 
    units in usecase_settings expected to be in ifc project units
 
+   :param context: IfcGeometricRepresentationContext for the representation.
+   :type context: ifcopenshell.entity_instance
+   :param overall_height: Overall door height. Defaults to 2m.
+   :type overall_height: float, optional
+   :param overall_width: Overall door width. Defaults to 0.9m.
+   :type overall_width: float, optional
+   :param operation_type: Type of the door. Defaults to SINGLE_SWING_LEFT.
+   :type operation_type: str, optional
+   :param lining_properties: DoorLiningProperties or a dictionary to create one.
+       See DoorLiningProperties description for details.
+   :type lining_properties: Union[DoorLiningProperties, dict[str, Any]]]
+   :param panel_properties: DoorPanelProperties or a dictionary to create one.
+       See DoorPanelProperties description for details.
+   :type panel_properties: Union[DoorPanelProperties, dict[str, Any]]]
+   :param unit_scale: The unit scale as calculated by
+       ifcopenshell.util.unit.calculate_unit_scale. If not provided, it
+       will be automatically calculated for you.
+   :type unit_scale: float, optional
+   :return: IfcShapeRepresentation for a door.
+   :rtype: ifcopenshell.entity_instance
 
-.. py:function:: create_ifc_box(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: mathutils.Vector, position: mathutils.Vector = V(0, 0, 0).freeze())
 
 
-.. py:function:: create_ifc_door_lining(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: mathutils.Vector, thickness: list, position: mathutils.Vector = V(0, 0, 0).freeze())
+.. py:function:: create_ifc_box(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: mathutils.Vector, position: mathutils.Vector = V(0, 0, 0).freeze()) -> ifcopenshell.entity_instance
+
+.. py:function:: create_ifc_door_lining(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: mathutils.Vector, thickness: list, position: mathutils.Vector = V(0, 0, 0).freeze()) -> ifcopenshell.entity_instance
 
    `thickness` of the profile is defined as list in the following order: `(SIDE, TOP)`
 
    `thickness` can be also defined just as 1 float value.
 
 
+.. py:function:: mm(x: float) -> float
+
+   mm to meters shortcut for readability
+
+
 .. py:data:: SUPPORTED_DOOR_TYPES
    :value: ('SINGLE_SWING_LEFT', 'SINGLE_SWING_RIGHT', 'DOUBLE_SWING_RIGHT', 'DOUBLE_SWING_LEFT',...
 
-   
 

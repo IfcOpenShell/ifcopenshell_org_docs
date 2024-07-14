@@ -3,6 +3,15 @@
 
 .. py:module:: ifcopenshell.api.attribute
 
+.. autoapi-nested-parse::
+
+   Basic modification of the attributes of an element.
+
+   All IFC entities have attributes. Some of these attributes contain rules about
+   inheritance and what they are allowed to contain. These usecases make sure that
+   any editing complies with these rules.
+
+
 
 Submodules
 ----------
@@ -16,7 +25,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: edit_attributes(file, product=None, attributes=None) -> None
+.. py:function:: edit_attributes(file: ifcopenshell.file, product: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edit the attributes of a product
 
@@ -29,7 +38,7 @@ Package Contents
        entity.
    :type product: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -37,8 +46,8 @@ Package Contents
 
    .. code:: python
 
-       element = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
-       ifcopenshell.api.run("attribute.edit_attributes", model,
+       element = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+       ifcopenshell.api.attribute.edit_attributes(model,
            product=element, attributes={"Name": "Waldo"})
 
 

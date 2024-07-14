@@ -18,14 +18,10 @@ Module Contents
 
 .. py:class:: InMemoryZipFile(file_name: Optional[str | pathlib.Path] = None, compression: int = zipfile.ZIP_DEFLATED, debug: int = 0)
 
-
-   .. py:property:: data
-      :type: bytes
-
-
    .. py:method:: write_to_file(filename: str | bytes | os.PathLike[str] | os.PathLike[bytes] | int) -> None
 
       Writes the in-memory zip to a file.
+
 
 
    .. py:method:: writestr(filename_in_zip: str | zipfile.ZipInfo, file_contents: bytes | str) -> None
@@ -35,10 +31,15 @@ Module Contents
 
 
 
+   .. py:property:: data
+      :type: bytes
+
+
+
 .. py:class:: ZipFileInterface
 
-
    Bases: :py:obj:`Protocol`
+
 
    Base class for protocol classes.
 
@@ -69,7 +70,7 @@ Module Contents
            def meth(self) -> T:
                ...
 
-   .. py:method:: writestr(filename_in_zip: str | zipfile.ZipInfo, file_contents: bytes | str) -> None
 
+   .. py:method:: writestr(filename_in_zip: str | zipfile.ZipInfo, file_contents: bytes | str) -> None
 
 

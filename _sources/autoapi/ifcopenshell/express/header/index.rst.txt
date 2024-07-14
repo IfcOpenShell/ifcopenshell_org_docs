@@ -9,11 +9,8 @@ Module Contents
 
 .. py:class:: Header(mapping)
 
-
    Bases: :py:obj:`codegen.Base`
 
 
 .. py:data:: Generator
-
-   
 

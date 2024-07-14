@@ -54,17 +54,9 @@ Module Contents
 
 .. py:data:: get_application_backup
 
-   
-
 .. py:data:: get_application_factory
-
-   
 
 .. py:data:: get_user_backup
 
-   
-
 .. py:data:: get_user_factory
-
-   
 

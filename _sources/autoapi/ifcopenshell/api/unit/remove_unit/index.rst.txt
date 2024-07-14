@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_unit(file, unit=None) -> None
+.. py:function:: remove_unit(file: ifcopenshell.file, unit: ifcopenshell.entity_instance) -> None
 
    Remove a unit
 
@@ -24,9 +24,9 @@ Module Contents
    .. code:: python
 
        # What?
-       unit = ifcopenshell.api.run("unit.add_context_dependent_unit", model, name="HANDFULS")
+       unit = ifcopenshell.api.unit.add_context_dependent_unit(model, name="HANDFULS")
 
        # Yeah maybe not.
-       ifcopenshell.api.run("unit.remove_unit", model, unit=unit)
+       ifcopenshell.api.unit.remove_unit(model, unit=unit)
 
 

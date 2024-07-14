@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_system(file, system=None) -> None
+.. py:function:: remove_system(file: ifcopenshell.file, system: ifcopenshell.entity_instance) -> None
 
    Removes a distribution system
 
@@ -23,9 +23,9 @@ Module Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Delete it.
-       ifcopenshell.api.run("system.remove_system", model, system=system)
+       ifcopenshell.api.system.remove_system(model, system=system)
 
 

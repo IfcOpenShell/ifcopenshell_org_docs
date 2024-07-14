@@ -9,14 +9,11 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: execute()
 
 
    .. py:method:: get_representation(item)
 
 
-
-.. py:function:: remove_boolean(file, **usecase_settings) -> None
-
+.. py:function:: remove_boolean(file: ifcopenshell.file, item: ifcopenshell.entity_instance) -> None
 

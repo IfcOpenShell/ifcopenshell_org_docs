@@ -7,31 +7,68 @@
 Module Contents
 ---------------
 
-.. py:function:: angle2xaxis(angle)
+.. py:class:: HelmertTransformation
+
+   Bases: :py:obj:`NamedTuple`
+
+
+   .. py:attribute:: e
+      :type:  float
+
+
+   .. py:attribute:: factor_x
+      :type:  float
+
+
+   .. py:attribute:: factor_y
+      :type:  float
+
+
+   .. py:attribute:: factor_z
+      :type:  float
+
+
+   .. py:attribute:: h
+      :type:  float
+
+
+   .. py:attribute:: n
+      :type:  float
+
+
+   .. py:attribute:: scale
+      :type:  float
+
+
+   .. py:attribute:: xaa
+      :type:  float
+
+
+   .. py:attribute:: xao
+      :type:  float
+
+
+.. py:function:: angle2xaxis(angle: float) -> tuple[float, float]
 
    Converts an angle into an X axis abscissa and ordinate
 
-   The inverse of ``xaxis2angle``.
+   The inverse of :func:`xaxis2angle`.
 
    :param angle: The angle in decimal degrees where anticlockwise is positive.
-   :type angle: float
    :return: A tuple of X axis abscissa and ordinate
-   :rtype: tuple[float]
 
 
-.. py:function:: angle2yaxis(angle)
+.. py:function:: angle2yaxis(angle: float) -> tuple[float, float]
 
    Converts an angle into an Y axis abscissa and ordinate
 
-   The inverse of ``yaxis2angle``.
+   The inverse of :func:`yaxis2angle`.
 
    :param angle: The angle in decimal degrees where anticlockwise is positive.
-   :type angle: float
    :return: A tuple of Y axis abscissa and ordinate
-   :rtype: tuple[float]
 
 
-.. py:function:: auto_enh2xyz(ifc_file, easting, northing, height)
+.. py:function:: auto_enh2xyz(ifc_file, easting, northing, height, is_specified_in_map_units: bool = True)
 
    Convert from global map coordinate eastings, northings, and heights to local XYZ coordinates
 
@@ -44,42 +81,66 @@ Module Contents
    https://www.buildingsmart.org/standards/bsi-standards/standards-library/
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file
    :param easting: The global easting map coordinate provided in map units.
-   :type easting: float
    :param northing: The global northing map coordinate provided in map units.
-   :type northing: float
    :param height: The global height map coordinate provided in map units.
-   :type height: float
+   :param is_specified_in_map_units: True if the input eastings, northing, and height are in map units.
    :return: The local engineering XYZ coordinates in project length units.
-   :rtype: tuple[float]
 
 
-.. py:function:: auto_xyz2enh(ifc_file, x, y, z)
+.. py:function:: auto_global2local(ifc_file: ifcopenshell.file, matrix: numpy.typing.NDArray[numpy.float64], is_specified_in_map_units: bool = True) -> numpy.typing.NDArray[numpy.float64]
+
+   Convert a global map matrix to a local matrix
+
+   The necessary georeferencing map conversion is automatically detected from
+   the IFC map conversion parameters present in the IFC model. If no map
+   conversion is present, then the matrix is returned unchanged.
+
+   :param ifc_file: The IFC file
+   :param matrix: A 4x4 numpy matrix representing local coordinates.
+   :param should_return_in_map_units: If true, the result is given in map units.
+       If false, the result will be converted back into project units.
+   :param is_specified_in_map_units: True if the input matrix is in map units.
+   :return: A numpy 4x4 array matrix representing global coordinates.
+
+
+.. py:function:: auto_local2global(ifc_file: ifcopenshell.file, matrix: numpy.typing.NDArray[numpy.float64], should_return_in_map_units: bool = True) -> numpy.typing.NDArray[numpy.float64]
+
+   Convert a local matrix to a global map matrix
+
+   The necessary georeferencing map conversion is automatically detected from
+   the IFC map conversion parameters present in the IFC model. If no map
+   conversion is present, then the matrix is returned unchanged.
+
+   :param ifc_file: The IFC file
+   :param matrix: A 4x4 numpy matrix representing local coordinates.
+   :param should_return_in_map_units: If true, the result is given in map units.
+       If false, the result will be converted back into project units.
+   :return: A numpy 4x4 array matrix representing global coordinates.
+
+
+.. py:function:: auto_xyz2enh(ifc_file: ifcopenshell.file, x: float, y: float, z: float, should_return_in_map_units: bool = True) -> tuple[float, float, float]
 
    Convert from local XYZ coordinates to global map coordinate eastings, northings, and heights
 
    The necessary georeferencing map conversion is automatically detected from
    the IFC map conversion parameters present in the IFC model. If no map
-   conversion is present, then the Z coordinate is returned unchanged.
+   conversion is present, then the coordinates are returned unchanged.
 
    For IFC2X3, the map conversion is detected from the IfcProject's
    ePSet_MapConversion. See the "User Guide for Geo-referencing in IFC":
    https://www.buildingsmart.org/standards/bsi-standards/standards-library/
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file
    :param x: The X local engineering coordinate provided in project length units.
-   :type x: float
    :param y: The Y local engineering coordinate provided in project length units.
-   :type y: float
    :param z: The Z local engineering coordinate provided in project length units.
-   :type z: float
-   :return: The global map coordinate eastings, northings, and height in map units.
-   :rtype: tuple[float]
+   :param should_return_in_map_units: If true, the result is given in map units.
+       If false, the result will be converted back into project units.
+   :return: The global map coordinate eastings, northings, and height.
 
 
-.. py:function:: auto_z2e(ifc_file, z)
+.. py:function:: auto_z2e(ifc_file: ifcopenshell.file, z: float, should_return_in_map_units: bool = True) -> float
 
    Convert a Z coordinate to an elevation using model georeferencing data
 
@@ -92,45 +153,34 @@ Module Contents
    https://www.buildingsmart.org/standards/bsi-standards/standards-library/
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file
    :param z: The Z local engineering coordinate provided in project length units.
-   :type z: float
    :return: The elevation in project length units.
-   :rtype: float
 
 
-.. py:function:: dd2dms(dd, use_ms=False)
+.. py:function:: dd2dms(dd: float, use_ms: bool = False) -> Union[tuple[float, float, float, float], tuple[float, float, float]]
 
    Convert decimal degrees to degrees, minutes, and (milli)seconds format
 
    :param dd: The decimal degrees
-   :type dd: float
    :param use_ms: True if to include milliseconds and false otherwise. Defaults to false.
-   :type use_ms: bool
    :return: The angle in a tuple of either 3 or 4 values, being degrees,
        minutes, seconds, and optionally milliseconds.
-   :rtype: tuple[float]
 
 
-.. py:function:: dms2dd(degrees, minutes, seconds, ms=0)
+.. py:function:: dms2dd(degrees: int, minutes: int, seconds: int, ms: int = 0) -> float
 
    Convert degrees, minutes, and (milli)seconds to decimal degrees
 
    :param degrees: The degrees component
-   :type degrees: int
    :param minutes: The minutes component
-   :type minutes: int
    :param seconds: The seconds component
-   :type seconds: int
    :param ms: The milliseconds component
-   :type ms: int
    :return: The angle in decimal degrees.
-   :rtype: float
 
 
-.. py:function:: enh2xyz(e, n, h, eastings, northings, orthogonal_height, x_axis_abscissa, x_axis_ordinate, scale=None)
+.. py:function:: enh2xyz(e: float, n: float, h: float, eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> tuple[float, float, float]
 
-   Manually convert  map eastings, northings, and height to local XYZ coordinates
+   Manually convert map eastings, northings, and height to local XYZ coordinates
 
    This function is for advanced users as it allows you to specify your own
    helmert transformation parameters (i.e. those typically stored in
@@ -139,36 +189,31 @@ Module Contents
    you are applying your own temporary false origin (such as when federating
    models for digital twins of large cities).
 
-   No unit conversion is performed.
-
-   For most scenarios you should use ``auto_enh2xyz`` instead.
+   For most scenarios you should use :func:`auto_enh2xyz` instead.
 
    :param e: The global easting map coordinate.
-   :type e: float
    :param n: The global northing map coordinate.
-   :type n: float
    :param h: The global height map coordinate.
-   :type h: float
    :param eastings: The eastings offset to apply.
-   :type eastings: float
    :param northings: The northings offset to apply.
-   :type northings: float
    :param orthogonal_height: The orthogonal height offset to apply.
-   :type orthogonal_height: float
    :param x_axis_abscissa: The X axis abscissa (i.e. first coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_abscissa: float
    :param x_axis_ordinate: The X axis ordinate (i.e. second coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_ordinate: float
-   :param scale: The combined scale factor to convert from local coordinates
-       to map coordinates.
-   :type scale: float
+   :param scale: The unit scale such that local ordinate * scale = map
+       ordinate. E.g. if your project is in millimeters but your CRS is in
+       meters, your scale should be 0.001.
+   :param factor_x: The combined scale factor for the X value to convert from
+       local coordinates to map coordinates. Your surveyor will typically know
+       this number and approximate it as a constant on a small site. Typically
+       factor_x and factor_y will be identical, and factor_z will be 1.
+   :param factor_y: Same but for the Y value.
+   :param factor_z: Same but for the Z value.
    :return: A tuple of three ordinates representing XYZ.
-   :rtype: tuple[float]
 
 
-.. py:function:: get_grid_north(ifc_file)
+.. py:function:: get_grid_north(ifc_file: ifcopenshell.file) -> float
 
    Get an angle pointing to map grid north
 
@@ -183,12 +228,23 @@ Module Contents
    https://www.buildingsmart.org/standards/bsi-standards/standards-library/
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file
    :return: An angle to grid north in decimal degrees
-   :rtype: float
 
 
-.. py:function:: get_true_north(ifc_file)
+.. py:function:: get_helmert_transformation_parameters(ifc_file: ifcopenshell.file) -> Optional[HelmertTransformation]
+
+   Retrieves the parameters of a helmert transformation that represents a
+   coordinate operation
+
+   This coordinate operation is typically what is used to convert between
+   local engineering coordinates and map coordinates.
+
+   :param ifc_file: The IFC model, typically containing an
+       IfcCoordinateOperation such as an IfcMapConversion.
+   :return: The parameters of the transformation.
+
+
+.. py:function:: get_true_north(ifc_file: ifcopenshell.file) -> float
 
    Get an angle pointing to global true north
 
@@ -197,16 +253,22 @@ Module Contents
    Always remember that true north is not a constant! (Unless you are working
    in polar coordinates) This true north is only a reference value useful for
    things like solar analysis on small sites (<1km). If you're after the north
-   that your surveyor is using, you're probably after ``get_grid_north``
+   that your surveyor is using, you're probably after :func:`get_grid_north`
    instead.
 
    :param ifc_file: The IFC file
-   :type ifc_file: ifcopenshell.file
    :return: An angle to true north in decimal degrees
-   :rtype: float
 
 
-.. py:function:: global2local(matrix, eastings, northings, orthogonal_height, x_axis_abscissa, x_axis_ordinate, scale=None)
+.. py:function:: get_wcs(ifc_file: ifcopenshell.file) -> Optional[numpy.typing.NDArray[numpy.float64]]
+
+   Gets the WCS (prioritising 3D contexts) as a matrix
+
+   :param: The IFC file
+   :return: A 4x4 matrix in project units
+
+
+.. py:function:: global2local(matrix: numpy.typing.NDArray[numpy.float64], eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0.0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> numpy.typing.NDArray[numpy.float64]
 
    Manually convert a 4x4 matrix from global to local coordinates
 
@@ -217,30 +279,20 @@ Module Contents
    you are applying your own temporary false origin (such as when federating
    models for digital twins of large cities).
 
-   No unit conversion is performed.
-
    :param matrix: A 4x4 numpy matrix representing global coordinates.
-   :type matrix: np.array
    :param eastings: The eastings offset to apply.
-   :type eastings: float
    :param northings: The northings offset to apply.
-   :type northings: float
    :param orthogonal_height: The orthogonal height offset to apply.
-   :type orthogonal_height: float
    :param x_axis_abscissa: The X axis abscissa (i.e. first coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_abscissa: float
    :param x_axis_ordinate: The X axis ordinate (i.e. second coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_ordinate: float
    :param scale: The combined scale factor to convert from local coordinates
        to map coordinates.
-   :type scale: float
    :return: A numpy 4x4 array matrix representing local coordinates.
-   :rtype: np.array
 
 
-.. py:function:: local2global(matrix, eastings, northings, orthogonal_height, x_axis_abscissa, x_axis_ordinate, scale=None)
+.. py:function:: local2global(matrix: numpy.typing.NDArray[numpy.float64], eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0.0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> numpy.typing.NDArray[numpy.float64]
 
    Manually convert a 4x4 matrix from local to global coordinates
 
@@ -251,45 +303,41 @@ Module Contents
    you are applying your own temporary false origin (such as when federating
    models for digital twins of large cities).
 
-   No unit conversion is performed.
+   For most scenarios you should use :func:`auto_local2global` instead.
 
    :param matrix: A 4x4 numpy matrix representing local coordinates.
-   :type matrix: np.array
    :param eastings: The eastings offset to apply.
-   :type eastings: float
    :param northings: The northings offset to apply.
-   :type northings: float
    :param orthogonal_height: The orthogonal height offset to apply.
-   :type orthogonal_height: float
    :param x_axis_abscissa: The X axis abscissa (i.e. first coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_abscissa: float
    :param x_axis_ordinate: The X axis ordinate (i.e. second coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_ordinate: float
    :param scale: The combined scale factor to convert from local coordinates
        to map coordinates.
-   :type scale: float
    :return: A numpy 4x4 array matrix representing global coordinates.
-   :rtype: np.array
 
 
-.. py:function:: local2global_ifc4x3(matrix, eastings, northings, orthogonal_height, x_axis_abscissa, x_axis_ordinate, scale=1.0, factor_x=1.0, factor_y=1.0, factor_z=1.0)
-
-
-.. py:function:: xaxis2angle(x, y)
+.. py:function:: xaxis2angle(x: float, y: float) -> float
 
    Converts X axis abscissa and ordinates to an angle in decimal degrees
 
+   The X axis abscissa and ordinate is how IFC stores grid north.
+
+   This X axis vector indicates "where is project east, if grid north is up
+   the page?". See the diagram on the IfcGeometricRepresentationContext
+   documentation for clarification.
+
+   The angle indicates "how do I rotate project east to get to grid east?".
+   Alternatively: "how do I rotate project north to get to grid north?".
+   Positive angles are anticlockwise.
+
    :param x: The X axis abscissa
-   :type x: float
    :param y: The X axis ordinate
-   :type y: float
    :return: The equivalent angle in decimal degrees from the X axis
-   :rtype: float
 
 
-.. py:function:: xyz2enh(x, y, z, eastings, northings, orthogonal_height, x_axis_abscissa, x_axis_ordinate, scale=None)
+.. py:function:: xyz2enh(x: float, y: float, z: float, eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0.0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> tuple[float, float, float]
 
    Manually convert local XYZ coordinates to map eastings, northings, and height
 
@@ -300,66 +348,67 @@ Module Contents
    you are applying your own temporary false origin (such as when federating
    models for digital twins of large cities).
 
-   No unit conversion is performed.
-
-   For most scenarios you should use ``auto_xyz2enh`` instead.
+   For most scenarios you should use :func:`auto_xyz2enh` instead.
 
    :param x: The X local engineering coordinate.
-   :type x: float
    :param y: The Y local engineering coordinate.
-   :type y: float
    :param z: The Z local engineering coordinate.
-   :type z: float
    :param eastings: The eastings offset to apply.
-   :type eastings: float
    :param northings: The northings offset to apply.
-   :type northings: float
    :param orthogonal_height: The orthogonal height offset to apply.
-   :type orthogonal_height: float
    :param x_axis_abscissa: The X axis abscissa (i.e. first coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_abscissa: float
    :param x_axis_ordinate: The X axis ordinate (i.e. second coordinate) of the
        2D vector that points to the local X axis when in map coordinates.
-   :type x_axis_ordinate: float
-   :param scale: The combined scale factor to convert from local coordinates
-       to map coordinates.
-   :type scale: float
+   :param scale: The unit scale such that local ordinate * scale = map
+       ordinate. E.g. if your project is in millimeters but your CRS is in
+       meters, your scale should be 0.001.
+   :param factor_x: The combined scale factor for the X value to convert from
+       local coordinates to map coordinates. Your surveyor will typically know
+       this number and approximate it as a constant on a small site. Typically
+       factor_x and factor_y will be identical, and factor_z will be 1.
+   :param factor_y: Same but for the Y value.
+   :param factor_z: Same but for the Z value.
    :return: A tuple of three ordinates representing the easting, northing and height.
-   :rtype: tuple[float]
 
 
-.. py:function:: xyz2enh_ifc4x3(x, y, z, eastings, northings, orthogonal_height, x_axis_abscissa, x_axis_ordinate, scale=1.0, factor_x=1.0, factor_y=1.0, factor_z=1.0)
-
-
-.. py:function:: yaxis2angle(x, y)
+.. py:function:: yaxis2angle(x: float, y: float) -> float
 
    Converts Y axis abscissa and ordinates to an angle in decimal degrees
 
    The Y axis abscissa and ordinate is how IFC stores true north.
 
+   This Y axis vector indicates "where is true north, if project north is up
+   the page?". See the diagram on the IfcGeometricRepresentationContext
+   documentation for clarification.
+
+   The angle indicates "how do I rotate project north to get to true north?".
+   Positive angles are anticlockwise.
+
    :param x: The Y axis abscissa
-   :type x: float
    :param y: The Y axis ordinate
-   :type y: float
    :return: The equivalent angle in decimal degrees from the Y axis
-   :rtype: float
 
 
-.. py:function:: z2e(z, h)
+.. py:function:: z2e(z: float, orthogonal_height: float = 0.0, scale: float = 1.0, factor_z: float = 1.0) -> float
 
-   Manually convert a Z coordinate to an elevation
+   Manually convert a Z coordinate to a map elevation
 
    This function is for advanced users as it allows you to specify your own
-   orthogonal height offset.
+   orthogonal height offset and transformation parameters.
 
-   For most scenarios you should use ``auto_z2e`` instead.
+   For most scenarios you should use :func:`auto_z2e` instead.
 
    :param z: The Z local engineering coordinate provided in project length units.
-   :type z: float
-   :param h: The orthogonal height offset in project length units.
-   :type h: float
-   :return: The elevation in project length units.
-   :rtype: float
+   :param orthogonal_height: The orthogonal height offset to apply.
+   :param scale: The unit scale such that local ordinate * scale = map
+       ordinate. E.g. if your project is in millimeters but your CRS is in
+       meters, your scale should be 0.001.
+   :param factor_x: The combined scale factor for the Z value to convert from
+       local coordinates to map coordinates. Your surveyor will typically know
+       this number and approximate it as a constant on a small site. This is
+       typically just 1.0, as average combined scale factors usually only
+       affect the XY axes.
+   :return: The elevation in map units.
 
 

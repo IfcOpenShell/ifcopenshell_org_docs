@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, output_dir=None)
 
-
    
    Split an IFC model into multiple models based on building storey
 
@@ -26,10 +25,10 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "SplitByBuildingStorey", "arguments": ["C:/.../output_files"]})
 
+
    .. py:method:: is_in_storey(element, storey)
 
 
    .. py:method:: patch()
-
 
 

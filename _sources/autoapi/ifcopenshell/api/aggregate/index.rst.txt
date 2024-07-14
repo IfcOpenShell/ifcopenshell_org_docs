@@ -5,11 +5,11 @@
 
 .. autoapi-nested-parse::
 
-   Aggregates are the concept of breaking down larger wholes into smaller parts.
+   Aggregates is the concept of breaking down larger wholes into smaller parts.
 
-   One common use is spatial elements, such as how a site has multiple buildings,
-   and a building has multiple storeys. Another is for regular elements, such as
-   how a wall is made out of members and coverings.
+   For example, spatial elements such as sites are broken down into one or more
+   buildings, and a building is broken down into storeys. Another example is for
+   physical elements, such as how a wall is made out of members and coverings.
 
 
 
@@ -73,15 +73,15 @@ Package Contents
 
    .. code:: python
 
-       project = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcProject")
-       element = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcSite")
-       subelement = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcBuilding")
+       project = ifcopenshell.api.root.create_entity(model, ifc_class="IfcProject")
+       element = ifcopenshell.api.root.create_entity(model, ifc_class="IfcSite")
+       subelement = ifcopenshell.api.root.create_entity(model, ifc_class="IfcBuilding")
 
        # The project contains a site (note that project aggregation is a special case in IFC)
-       ifcopenshell.api.run("aggregate.assign_object", model, products=[element], relating_object=project)
+       ifcopenshell.api.aggregate.assign_object(model, products=[element], relating_object=project)
 
        # The site has a building
-       ifcopenshell.api.run("aggregate.assign_object", model, products=[subelement], relating_object=element)
+       ifcopenshell.api.aggregate.assign_object(model, products=[subelement], relating_object=element)
 
 
 .. py:function:: unassign_object(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance]) -> None
@@ -110,14 +110,14 @@ Package Contents
 
    .. code:: python
 
-       element = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcSite")
-       subelement1 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcBuilding")
-       subelement2 = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcBuilding")
-       ifcopenshell.api.run("aggregate.assign_object", model, products=[subelement1], relating_object=element)
-       ifcopenshell.api.run("aggregate.assign_object", model, products=[subelement2], relating_object=element)
+       element = ifcopenshell.api.root.create_entity(model, ifc_class="IfcSite")
+       subelement1 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcBuilding")
+       subelement2 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcBuilding")
+       ifcopenshell.api.aggregate.assign_object(model, products=[subelement1], relating_object=element)
+       ifcopenshell.api.aggregate.assign_object(model, products=[subelement2], relating_object=element)
        # nothing is returned
-       ifcopenshell.api.run("aggregate.unassign_object", model, products=[subelement1])
+       ifcopenshell.api.aggregate.unassign_object(model, products=[subelement1])
        # nothing is returned, relationship is removed
-       ifcopenshell.api.run("aggregate.unassign_object", model, products=[subelement2])
+       ifcopenshell.api.aggregate.unassign_object(model, products=[subelement2])
 
 

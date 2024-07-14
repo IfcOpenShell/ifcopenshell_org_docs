@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: add_from_identification()
 
 
@@ -23,7 +22,6 @@ Module Contents
 
 
    .. py:method:: update_relationships(reference: ifcopenshell.entity_instance) -> None
-
 
 
 .. py:function:: add_reference(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], reference: Optional[ifcopenshell.entity_instance] = None, identification: Optional[str] = None, name: Optional[str] = None, classification: Optional[ifcopenshell.entity_instance] = None, is_lightweight=True) -> Union[ifcopenshell.entity_instance, None]
@@ -100,20 +98,20 @@ Module Contents
 
        # Option 1: adding and assigning a new reference from scratch
        wall_type = model.by_type("IfcWallType")[0]
-       classification = ifcopenshell.api.run("classification.add_classification",
+       classification = ifcopenshell.api.classification.add_classification(
            model, classification="MyCustomClassification")
-       ifcopenshell.api.run("classification.add_reference", model,
+       ifcopenshell.api.classification.add_reference(model,
            products=[wall_type], classification=classification,
            identification="W_01", name="Interior Walls")
 
        # Option 2: adding a popular classification from a library
        library = ifcopenshell.open("/path/to/Uniclass.ifc")
        lib_classification = library.by_type("IfcClassification")[0]
-       classification = ifcopenshell.api.run("classification.add_classification",
+       classification = ifcopenshell.api.classification.add_classification(
            model, classification=lib_classification)
        reference = [r for r in library.by_type("IfcClassificationReference")
            if r.Identification == "XYZ"][0]
-       ifcopenshell.api.run("classification.add_reference", model,
+       ifcopenshell.api.classification.add_reference(model,
            products=[wall_type], classification=classification,
            reference=reference)
 

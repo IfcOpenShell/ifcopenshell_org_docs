@@ -9,15 +9,13 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: create_qto()
 
 
    .. py:method:: execute()
 
 
-
-.. py:function:: add_qto(file, product=None, name=None) -> None
+.. py:function:: add_qto(file: ifcopenshell.file, product: ifcopenshell.entity_instance, name: str) -> ifcopenshell.entity_instance
 
    Adds a new quantity set to a product
 
@@ -61,16 +59,16 @@ Module Contents
    .. code:: python
 
        # Let's imagine we have a new wall.
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # Note that this only creates and assigns an empty quantity set. We
        # still need to add quantities into the property set. Having blank
        # quantity sets are invalid.
-       qto = ifcopenshell.api.run("pset.add_qto", model, product=wall_type, name="Qto_WallBaseQuantities")
+       qto = ifcopenshell.api.pset.add_qto(model, product=wall_type, name="Qto_WallBaseQuantities")
 
        # Add a side area property standardised by buildingSMART. This
        # allows quantity take-off to occur, even though no geometry has
        # even been modelled!
-       ifcopenshell.api.run("pset.edit_qto", model, qto=qto, properties={"NetSideArea": 4.2})
+       ifcopenshell.api.pset.edit_qto(model, qto=qto, properties={"NetSideArea": 4.2})
 
 

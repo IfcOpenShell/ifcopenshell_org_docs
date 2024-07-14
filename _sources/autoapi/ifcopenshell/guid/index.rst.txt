@@ -20,17 +20,11 @@ Module Contents
 
 .. py:function:: compress(g)
 
-
 .. py:function:: expand(g)
-
 
 .. py:function:: new()
 
-
 .. py:function:: split(g)
 
-
 .. py:data:: chars
-
-   
 

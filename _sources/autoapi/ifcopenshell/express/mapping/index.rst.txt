@@ -7,16 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Mapping(schema)
-
-
-   .. py:attribute:: express_to_cpp_typemapping
-
-      
-
-   .. py:attribute:: supported_argument_types
-
-      
+.. py:class:: Mapping(schema: Mapping.__init__.schema)
 
    .. py:method:: argument_count(t)
 
@@ -62,5 +53,10 @@ Module Contents
 
    .. py:method:: simple_type_parent(type)
 
+
+   .. py:attribute:: express_to_cpp_typemapping
+
+
+   .. py:attribute:: supported_argument_types
 
 

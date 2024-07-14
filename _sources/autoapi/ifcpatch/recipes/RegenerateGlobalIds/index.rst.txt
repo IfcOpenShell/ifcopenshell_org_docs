@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, only_duplicates=False)
 
-
    
    Regenerate GlobalIds in an IFC model
 
@@ -36,7 +35,7 @@ Module Contents
        # Regenerate only duplicate GlobalIds
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "RegenerateGlobalIds", "arguments": [True]})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

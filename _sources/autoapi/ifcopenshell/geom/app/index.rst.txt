@@ -9,30 +9,20 @@ Module Contents
 
 .. py:class:: application(settings=None)
 
-
    Bases: :py:obj:`PyQt5.QtWidgets.QApplication`
+
 
    A pythonOCC, PyQt based IfcOpenShell application
    with two tree views and a graphical 3d view
 
-   .. py:class:: abstract_treeview
 
+   .. py:class:: abstract_treeview
 
       Bases: :py:obj:`PyQt5.QtWidgets.QTreeWidget`
 
+
       Base class for the two treeview controls
 
-      .. py:attribute:: instanceDisplayModeChanged
-
-         
-
-      .. py:attribute:: instanceSelected
-
-         
-
-      .. py:attribute:: instanceVisibilityChanged
-
-         
 
       .. py:method:: clicked_(index)
 
@@ -46,18 +36,23 @@ Module Contents
       .. py:method:: select(product)
 
 
+      .. py:attribute:: instanceDisplayModeChanged
+
+
+      .. py:attribute:: instanceSelected
+
+
+      .. py:attribute:: instanceVisibilityChanged
+
+
 
    .. py:class:: decomposition_treeview
 
-
       Bases: :py:obj:`abstract_treeview`
+
 
       Treeview with typical IFC decomposition relationships
 
-      .. py:attribute:: ATTRIBUTES
-         :value: ['Entity', 'GlobalId', 'Name']
-
-         
 
       .. py:method:: load_file(f, **kwargs)
 
@@ -65,11 +60,16 @@ Module Contents
       .. py:method:: parent(instance)
 
 
+      .. py:attribute:: ATTRIBUTES
+         :value: ['Entity', 'GlobalId', 'Name']
+
+
+
 
    .. py:class:: property_table
 
-
       Bases: :py:obj:`PyQt5.QtWidgets.QWidget`
+
 
       .. py:method:: load_file(f, **kwargs)
 
@@ -80,28 +80,25 @@ Module Contents
 
    .. py:class:: type_treeview
 
-
       Bases: :py:obj:`abstract_treeview`
 
+
       Treeview with typical IFC decomposition relationships
+
+
+      .. py:method:: load_file(f, **kwargs)
+
 
       .. py:attribute:: ATTRIBUTES
          :value: ['Name']
 
-         
-
-      .. py:method:: load_file(f, **kwargs)
 
 
 
    .. py:class:: viewer(widget)
 
-
       Bases: :py:obj:`OCC.Display.pyqt5Display.qtViewer3d`
 
-      .. py:attribute:: instanceSelected
-
-         
 
       .. py:method:: HandleSelection(X, Y)
 
@@ -127,25 +124,27 @@ Module Contents
       .. py:method:: toggle_wireframe(product_or_products, flag)
 
 
+      .. py:attribute:: instanceSelected
+
+
 
    .. py:class:: window
 
-
       Bases: :py:obj:`PyQt5.QtWidgets.QMainWindow`
 
-      .. py:attribute:: TITLE
-         :value: 'IfcOpenShell IFC viewer'
-
-         
-
-      .. py:attribute:: window_closed
-
-         
 
       .. py:method:: add_menu_item(menu, label, callback, icon=None, shortcut=None)
 
 
       .. py:method:: closeEvent(*args)
+
+
+      .. py:attribute:: TITLE
+         :value: 'IfcOpenShell IFC viewer'
+
+
+
+      .. py:attribute:: window_closed
 
 
 
@@ -170,43 +169,33 @@ Module Contents
    .. py:method:: start()
 
 
-
 .. py:class:: configuration
-
 
    .. py:method:: options(s)
 
 
-
 .. py:class:: geometry_creation_signals
-
 
    Bases: :py:obj:`pyqode.qt.QtCore.QObject`
 
+
    .. py:attribute:: completed
 
-      
 
    .. py:attribute:: progress
-
-      
 
 
 .. py:class:: geometry_creation_thread(signals, settings, f)
 
-
    Bases: :py:obj:`pyqode.qt.QtCore.QThread`
+
 
    .. py:method:: run()
 
 
-
 .. py:data:: QString
-
-   
 
 .. py:data:: USE_OCCT_HANDLE
    :value: False
 
-   
 

@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_structural_analysis_model(file) -> None
+.. py:function:: add_structural_analysis_model(file: ifcopenshell.file) -> ifcopenshell.entity_instance
 
    Add a new structural analysis model
 
@@ -25,6 +25,6 @@ Module Contents
    .. code:: python
 
        # Create a fresh blank structural analysis
-       analysis = ifcopenshell.api.run("structural.add_structural_analysis_model", model)
+       analysis = ifcopenshell.api.structural.add_structural_analysis_model(model)
 
 

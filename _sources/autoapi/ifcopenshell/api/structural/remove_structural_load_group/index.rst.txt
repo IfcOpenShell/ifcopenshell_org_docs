@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_structural_load_group(file, load_group=None) -> None
+.. py:function:: remove_structural_load_group(file: ifcopenshell.file, load_group: ifcopenshell.entity_instance) -> None
 
    Removes a structural load group
 

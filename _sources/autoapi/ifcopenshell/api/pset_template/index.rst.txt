@@ -3,6 +3,16 @@
 
 .. py:module:: ifcopenshell.api.pset_template
 
+.. autoapi-nested-parse::
+
+   Manage property templates to standard project property names and data types
+
+   To help standardise the naming, data types, and association of properties to
+   elements, IFC supports property set templates. buildingSMART provides their own
+   built-in ISO-standardised property templates, but governments, companies, and
+   individuals may also create their own.
+
+
 
 Submodules
 ----------
@@ -21,7 +31,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_prop_template(file, pset_template=None, name='NewProperty', description=None, template_type='P_SINGLEVALUE', primary_measure_type='IfcLabel') -> None
+.. py:function:: add_prop_template(file: ifcopenshell.file, pset_template: ifcopenshell.entity_instance, name: str = 'NewProperty', description: Optional[str] = None, template_type: str = 'P_SINGLEVALUE', primary_measure_type: str = 'IfcLabel') -> ifcopenshell.entity_instance
 
    Adds new property templates to a property set template
 
@@ -67,20 +77,20 @@ Package Contents
    .. code:: python
 
        # Create a simple template that may be applied to all types
-       template = ifcopenshell.api.run("pset_template.add_pset_template", model, name="ABC_RiskFactors")
+       template = ifcopenshell.api.pset_template.add_pset_template(model, name="ABC_RiskFactors")
 
        # Here's one example property
-       ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template,
+       ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template,
            name="HighVoltage", description="Whether there is a risk of high voltage.",
            primary_measure_type="IfcBoolean")
 
        # Here's another
-       ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template,
+       ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template,
            name="ChemicalType", description="The class of chemical spillage.",
            primary_measure_type="IfcLabel")
 
 
-.. py:function:: add_pset_template(file, name='New_Pset', template_type='PSET_TYPEDRIVENOVERRIDE', applicable_entity='IfcObject,IfcTypeObject') -> None
+.. py:function:: add_pset_template(file: ifcopenshell.file, name: str = 'New_Pset', template_type: str = 'PSET_TYPEDRIVENOVERRIDE', applicable_entity: str = 'IfcObject,IfcTypeObject') -> ifcopenshell.entity_instance
 
    Adds a new property set template
 
@@ -146,17 +156,17 @@ Package Contents
    .. code:: python
 
        # Create a simple template that may be applied to all types
-       ifcopenshell.api.run("pset_template.add_pset_template", model, name="ABC_RiskFactors")
+       ifcopenshell.api.pset_template.add_pset_template(model, name="ABC_RiskFactors")
 
        # Note that we aren't finished yet. Our property set template
        # doesn't have any properties in it. Let's add a minimum of one
        # property.
-       ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template,
+       ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template,
            name="HighVoltage", description="Whether there is a risk of high voltage.",
            primary_measure_type="IfcBoolean")
 
 
-.. py:function:: edit_prop_template(file, prop_template=None, attributes=None) -> None
+.. py:function:: edit_prop_template(file: ifcopenshell.file, prop_template: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcSimplePropertyTemplate
 
@@ -166,7 +176,7 @@ Package Contents
    :param prop_template: The IfcSimplePropertyTemplate entity you want to edit
    :type prop_template: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -174,17 +184,17 @@ Package Contents
 
    .. code:: python
 
-       template = ifcopenshell.api.run("pset_template.add_pset_template", model, name="ABC_RiskFactors")
+       template = ifcopenshell.api.pset_template.add_pset_template(model, name="ABC_RiskFactors")
 
        # Here's a property with just default values.
-       prop = ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template)
+       prop = ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template)
 
        # Let's edit it to give the actual values we need.
-       ifcopenshell.api.run("pset_template.edit_prop_template", model,
+       ifcopenshell.api.pset_template.edit_prop_template(model,
            prop_template=prop, attributes={"Name": "DemoA", "PrimaryMeasureType": "IfcLengthMeasure"})
 
 
-.. py:function:: edit_pset_template(file, pset_template=None, attributes=None) -> None
+.. py:function:: edit_pset_template(file: ifcopenshell.file, pset_template: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcPropertySetTemplate
 
@@ -194,7 +204,7 @@ Package Contents
    :param pset_template: The IfcPropertySetTemplate entity you want to edit
    :type pset_template: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -203,14 +213,14 @@ Package Contents
    .. code:: python
 
        # Whoops! We named it with a buildingSMART reserved "Pset_" prefix!
-       template = ifcopenshell.api.run("pset_template.add_pset_template", model, name="Pset_RiskFactors")
+       template = ifcopenshell.api.pset_template.add_pset_template(model, name="Pset_RiskFactors")
 
        # Let's fix it to prefix with our company code instead.
-       ifcopenshell.api.run("pset_template.edit_pset_template", model,
+       ifcopenshell.api.pset_template.edit_pset_template(model,
            pset_template=template, attributes={"Name": "ABC_RiskFactors"})
 
 
-.. py:function:: remove_prop_template(file, prop_template=None) -> None
+.. py:function:: remove_prop_template(file: ifcopenshell.file, prop_template: ifcopenshell.entity_instance) -> None
 
    Removes a property template
 
@@ -227,17 +237,17 @@ Package Contents
 
    .. code:: python
 
-       template = ifcopenshell.api.run("pset_template.add_pset_template", model, name="ABC_RiskFactors")
+       template = ifcopenshell.api.pset_template.add_pset_template(model, name="ABC_RiskFactors")
 
        # Here's two propertes with just default values.
-       prop1 = ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template)
-       prop2 = ifcopenshell.api.run("pset_template.add_prop_template", model, pset_template=template)
+       prop1 = ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template)
+       prop2 = ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template)
 
        # Let's remove the second one.
-       ifcopenshell.api.run("pset_template.remove_prop_template", model, prop_template=prop2)
+       ifcopenshell.api.pset_template.remove_prop_template(model, prop_template=prop2)
 
 
-.. py:function:: remove_pset_template(file, pset_template=None) -> None
+.. py:function:: remove_pset_template(file: ifcopenshell.file, pset_template: ifcopenshell.entity_instance) -> None
 
    Removes a property set template
 
@@ -254,9 +264,9 @@ Package Contents
    .. code:: python
 
        # Create a template.
-       template = ifcopenshell.api.run("pset_template.add_pset_template", model, name="ABC_RiskFactors")
+       template = ifcopenshell.api.pset_template.add_pset_template(model, name="ABC_RiskFactors")
 
        # Let's remove the template.
-       ifcopenshell.api.run("pset_template.remove_pset_template", model, pset_template=template)
+       ifcopenshell.api.pset_template.remove_pset_template(model, pset_template=template)
 
 

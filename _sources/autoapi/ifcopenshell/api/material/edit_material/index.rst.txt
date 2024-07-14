@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: edit_material(file, material=None, attributes=None) -> None
+.. py:function:: edit_material(file: ifcopenshell.file, material: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcMaterial
 

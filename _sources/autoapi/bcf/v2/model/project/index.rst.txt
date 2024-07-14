@@ -9,29 +9,21 @@ Module Contents
 
 .. py:class:: Project
 
-
    .. py:attribute:: name
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: project_id
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ProjectExtension
 
-
    .. py:attribute:: extension_schema
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: project
-      :type: Optional[Project]
-
-      
+      :type:  Optional[Project]
 
 

@@ -9,11 +9,14 @@ Module Contents
 
 .. py:class:: IfcCsv
 
-
    .. py:method:: Import(ifc_file: ifcopenshell.file, table: str, attributes: Optional[list[Union[str, None]]] = None, delimiter: str = ',', null: str = '-', empty: str = '', bool_true: str = 'YES', bool_false: str = 'NO') -> None
 
+      Args:
+          table: filepath to the table.
 
-   .. py:method:: export(ifc_file: ifcopenshell.file, elements: ifcopenshell.entity_instance, attributes, headers=None, output=None, format=None, should_preserve_existing: bool = False, include_global_id: bool = True, delimiter: str = ',', null: str = '-', empty: str = '', bool_true: str = 'YES', bool_false: str = 'NO', concat: str = ', ', sort=None, groups=None, summaries=None, formatting=None)
+
+
+   .. py:method:: export(ifc_file: ifcopenshell.file, elements: ifcopenshell.entity_instance, attributes, headers=None, output=None, format: FILE_FORMAT = None, should_preserve_existing: bool = False, include_global_id: bool = True, delimiter: str = ',', null: str = '-', empty: str = '', bool_true: str = 'YES', bool_false: str = 'NO', concat: str = ', ', sort=None, groups=None, summaries=None, formatting=None)
 
 
    .. py:method:: export_csv(output: str, delimiter: Optional[str] = None) -> None
@@ -67,8 +70,7 @@ Module Contents
    .. py:method:: summarise_results(summaries, attributes)
 
 
+.. py:data:: FILE_FORMAT
 
 .. py:data:: parser
-
-   
 

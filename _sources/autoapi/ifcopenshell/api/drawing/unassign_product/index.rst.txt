@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: unassign_product(file, relating_product=None, related_object=None) -> None
+.. py:function:: unassign_product(file: ifcopenshell.file, relating_product: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> None
 
    Unassigns a product and an object (typically an annotation)
 
@@ -21,20 +21,20 @@ Module Contents
    :param related_object: The object (typically IfcAnnotation) that the
        product is related to
    :type related_object: ifcopenshell.entity_instance
-   :return: The created IfcRelAssignsToProduct relationship
-   :rtype: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
 
    Example:
 
    .. code:: python
 
-       furniture = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcFurniture")
-       annotation = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcAnnotation")
-       ifcopenshell.api.run("drawing.assign_product", model,
+       furniture = ifcopenshell.api.root.create_entity(model, ifc_class="IfcFurniture")
+       annotation = ifcopenshell.api.root.create_entity(model, ifc_class="IfcAnnotation")
+       ifcopenshell.api.drawing.assign_product(model,
            relating_product=furniture, related_object=annotation)
 
        # Let's change our mind and remove the relationship
-       ifcopenshell.api.run("drawing.unassign_product", model,
+       ifcopenshell.api.drawing.unassign_product(model,
            relating_product=furniture, related_object=annotation)
 
 

@@ -9,166 +9,129 @@ Module Contents
 
 .. py:class:: Extensions
 
-
    .. py:attribute:: priorities
-      :type: Optional[ExtensionsPriorities]
+      :type:  Optional[ExtensionsPriorities]
 
-      
 
    .. py:attribute:: snippet_types
-      :type: Optional[ExtensionsSnippetTypes]
+      :type:  Optional[ExtensionsSnippetTypes]
 
-      
 
    .. py:attribute:: stages
-      :type: Optional[ExtensionsStages]
+      :type:  Optional[ExtensionsStages]
 
-      
 
    .. py:attribute:: topic_labels
-      :type: Optional[ExtensionsTopicLabels]
+      :type:  Optional[ExtensionsTopicLabels]
 
-      
 
    .. py:attribute:: topic_statuses
-      :type: Optional[ExtensionsTopicStatuses]
+      :type:  Optional[ExtensionsTopicStatuses]
 
-      
 
    .. py:attribute:: topic_types
-      :type: Optional[ExtensionsTopicTypes]
+      :type:  Optional[ExtensionsTopicTypes]
 
-      
 
    .. py:attribute:: users
-      :type: Optional[ExtensionsUsers]
-
-      
+      :type:  Optional[ExtensionsUsers]
 
 
 .. py:class:: ExtensionsPriorities
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: priority
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsSnippetTypes
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: snippet_type
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsStages
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: stage
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsTopicLabels
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: topic_label
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsTopicStatuses
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: topic_status
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsTopicTypes
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: topic_type
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: ExtensionsUsers
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: user
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 

@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Ids(title: Optional[str] = 'Untitled', copyright=None, version=None, description=None, author=None, date=None, purpose=None, milestone=None)
 
-
    .. py:method:: asdict()
 
 
@@ -25,9 +24,7 @@ Module Contents
    .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False, filepath: Optional[str] = None) -> None
 
 
-
-.. py:class:: Specification(name='Unnamed', minOccurs=0, maxOccurs='unbounded', ifcVersion=['IFC2X3', 'IFC4'], identifier=None, description=None, instructions=None)
-
+.. py:class:: Specification(name='Unnamed', minOccurs=0, maxOccurs='unbounded', ifcVersion=['IFC2X3', 'IFC4', 'IFC4X3_ADD2'], identifier=None, description=None, instructions=None)
 
    .. py:method:: asdict()
 
@@ -50,19 +47,14 @@ Module Contents
    .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False) -> None
 
 
-
 .. py:function:: get_schema()
-
 
 .. py:function:: open(filepath: str, validate: Literal[False] = False) -> Ids
                  open(filepath: str, validate: Literal[True]) -> None
 
-
 .. py:data:: cwd
 
-   
-
 .. py:data:: schema
+   :value: None
 
-   
 

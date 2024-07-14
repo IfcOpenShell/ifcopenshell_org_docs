@@ -9,12 +9,10 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: execute()
 
 
    .. py:method:: get_constraint_rels() -> list[ifcopenshell.entity_instance]
-
 
 
 .. py:function:: assign_constraint(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], constraint: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]

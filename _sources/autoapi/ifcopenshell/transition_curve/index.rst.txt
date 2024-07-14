@@ -9,90 +9,50 @@ Module Contents
 
 .. py:class:: IfcTransitionCurveType
 
-
    Bases: :py:obj:`enum.Enum`
+
 
    IFC 4.1 Section 8.9.2.9
    [https://standards.buildingsmart.org/IFC/RELEASE/IFC4_1/FINAL/HTML/schema/ifcgeometryresource/lexical/ifctransitioncurvetype.htm]
 
    The IfcTransitionCurveType indicates the curvature of a transition curve.
 
+
    .. py:attribute:: BIQUADRATICPARABOLA
       :value: 1
 
-      
+
 
    .. py:attribute:: BLOSSCURVE
       :value: 2
 
-      
+
 
    .. py:attribute:: CLOTHOIDCURVE
       :value: 3
 
-      
+
 
    .. py:attribute:: COSINECURVE
       :value: 4
 
-      
+
 
    .. py:attribute:: CUBICPARABOLA
       :value: 5
 
-      
+
 
    .. py:attribute:: SINECURVE
       :value: 6
 
-      
 
 
 .. py:class:: TransitionCurve
 
-
    A curve that transitions between a straight line and a circular arc
    (or the reverse).
 
-   .. py:attribute:: EndRadius
-      :type: float
-
-      
-
-   .. py:attribute:: IsEndRadiusCCW
-      :type: bool
-
-      
-
-   .. py:attribute:: IsStartRadiusCCW
-      :type: bool
-
-      
-
-   .. py:attribute:: SegmentLength
-      :type: float
-
-      
-
-   .. py:attribute:: StartDirection
-      :type: float
-
-      
-
-   .. py:attribute:: StartPoint
-      :type: tuple
-
-      
-
-   .. py:attribute:: StartRadius
-      :type: float
-
-      
-
-   .. py:attribute:: TransitionCurveType
-      :type: IfcTransitionCurveType
-
-      
 
    .. py:method:: to_wire(stroking_interval=5.0)
 
@@ -102,5 +62,41 @@ Module Contents
       :type stroking_interval: float
       :return: OCC wire containing interpolated points
 
+
+
+   .. py:attribute:: EndRadius
+      :type:  float
+      :value: None
+
+
+
+   .. py:attribute:: IsEndRadiusCCW
+      :type:  bool
+
+
+   .. py:attribute:: IsStartRadiusCCW
+      :type:  bool
+
+
+   .. py:attribute:: SegmentLength
+      :type:  float
+
+
+   .. py:attribute:: StartDirection
+      :type:  float
+
+
+   .. py:attribute:: StartPoint
+      :type:  tuple
+
+
+   .. py:attribute:: StartRadius
+      :type:  float
+      :value: None
+
+
+
+   .. py:attribute:: TransitionCurveType
+      :type:  IfcTransitionCurveType
 
 

@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: create_baseline_reference(relating_object, related_object)
 
 
@@ -19,8 +18,7 @@ Module Contents
    .. py:method:: execute()
 
 
-
-.. py:function:: create_baseline(file, work_schedule=None, name=None) -> None
+.. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> None
 
    Creates a baseline for your Work Schedule
 
@@ -37,16 +35,19 @@ Module Contents
 
    :param work_schedule: The planned work_schedule to baseline
    :type work_schedule: ifcopenshell.entity_instance
+   :param name: baseline work schedule name
+   :type name: str, optional
    :return: The baseline work_schedule
    :rtype: ifcopenshell.entity_instance
 
    Example:
+
    .. code:: python
 
        # We have a Work Schedule
        planned_work_schedule = WorkSchedule(name="Design new feature",predefinedType="PLANNED", deadline="2023-03-01")
 
        # And now we have a baseline for our Work Schedule
-       baseline_work_schedule = ifcopenshell.api.run("sequence.create_baseline",file, work_schedule= planned_work_schedule, name="Baseline 1")
+       baseline_work_schedule = ifcopenshell.api.sequence.create_baseline(file, work_schedule=planned_work_schedule, name="Baseline 1")
 
 

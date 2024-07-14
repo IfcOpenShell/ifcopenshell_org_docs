@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: execute()
 
 
@@ -20,7 +19,7 @@ Module Contents
 
 
 
-.. py:function:: unassign_representation_styles(file, shape_representation=None, styles=None, should_use_presentation_style_assignment=False) -> None
+.. py:function:: unassign_representation_styles(file: ifcopenshell.file, shape_representation: ifcopenshell.entity_instance, styles: list[ifcopenshell.entity_instance], should_use_presentation_style_assignment: bool = False) -> None
 
    Unassigns styles directly assigned to an object representation
 
@@ -47,7 +46,7 @@ Module Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("style.unassign_representation_styles", model,
+       ifcopenshell.api.style.unassign_representation_styles(model,
            shape_representation=representation, styles=[style])
 
 

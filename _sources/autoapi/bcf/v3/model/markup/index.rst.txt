@@ -9,445 +9,343 @@ Module Contents
 
 .. py:class:: BimSnippet
 
-
    .. py:attribute:: is_external
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: reference
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: reference_schema
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: snippet_type
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: Comment
 
-
    .. py:attribute:: author
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: comment
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: date
-      :type: xsdata.models.datatype.XmlDateTime
+      :type:  xsdata.models.datatype.XmlDateTime
 
-      
 
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: modified_author
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: modified_date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: viewpoint
-      :type: Optional[CommentViewpoint]
-
-      
+      :type:  Optional[CommentViewpoint]
 
 
 .. py:class:: CommentViewpoint
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: guid
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: DocumentReference
 
-
    .. py:attribute:: description
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: document_guid
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: url
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 
 .. py:class:: File
 
-
    .. py:attribute:: date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: filename
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: ifc_project
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: ifc_spatial_structure_element
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: is_external
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: reference
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 
 .. py:class:: Header
 
-
    .. py:attribute:: files
-      :type: Optional[HeaderFiles]
-
-      
+      :type:  Optional[HeaderFiles]
 
 
 .. py:class:: HeaderFiles
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: file
-      :type: List[File]
-
-      
+      :type:  List[File]
 
 
 .. py:class:: Markup
 
-
    .. py:attribute:: header
-      :type: Optional[Header]
+      :type:  Optional[Header]
 
-      
 
    .. py:attribute:: topic
-      :type: Topic
-
-      
+      :type:  Topic
 
 
 .. py:class:: Topic
 
-
    .. py:attribute:: assigned_to
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: bim_snippet
-      :type: Optional[BimSnippet]
+      :type:  Optional[BimSnippet]
 
-      
 
    .. py:attribute:: comments
-      :type: Optional[TopicComments]
+      :type:  Optional[TopicComments]
 
-      
 
    .. py:attribute:: creation_author
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: creation_date
-      :type: xsdata.models.datatype.XmlDateTime
+      :type:  xsdata.models.datatype.XmlDateTime
 
-      
 
    .. py:attribute:: description
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: document_references
-      :type: Optional[TopicDocumentReferences]
+      :type:  Optional[TopicDocumentReferences]
 
-      
 
    .. py:attribute:: due_date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: index
-      :type: Optional[int]
+      :type:  Optional[int]
 
-      
 
    .. py:attribute:: labels
-      :type: Optional[TopicLabels]
+      :type:  Optional[TopicLabels]
 
-      
 
    .. py:attribute:: modified_author
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: modified_date
-      :type: Optional[xsdata.models.datatype.XmlDateTime]
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
 
-      
 
    .. py:attribute:: priority
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: reference_links
-      :type: Optional[TopicReferenceLinks]
+      :type:  Optional[TopicReferenceLinks]
 
-      
 
    .. py:attribute:: related_topics
-      :type: Optional[TopicRelatedTopics]
+      :type:  Optional[TopicRelatedTopics]
 
-      
 
    .. py:attribute:: server_assigned_id
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: stage
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: title
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: topic_status
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: topic_type
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: viewpoints
-      :type: Optional[TopicViewpoints]
-
-      
+      :type:  Optional[TopicViewpoints]
 
 
 .. py:class:: TopicComments
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: comment
-      :type: List[Comment]
-
-      
+      :type:  List[Comment]
 
 
 .. py:class:: TopicDocumentReferences
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: document_reference
-      :type: List[DocumentReference]
-
-      
+      :type:  List[DocumentReference]
 
 
 .. py:class:: TopicLabels
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: label
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: TopicReferenceLinks
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: reference_link
-      :type: List[str]
-
-      
+      :type:  List[str]
 
 
 .. py:class:: TopicRelatedTopics
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: related_topic
-      :type: List[TopicRelatedTopicsRelatedTopic]
-
-      
+      :type:  List[TopicRelatedTopicsRelatedTopic]
 
 
 .. py:class:: TopicRelatedTopicsRelatedTopic
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: guid
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: TopicViewpoints
 
-
    .. py:class:: Meta
-
 
       .. py:attribute:: global_type
          :value: False
 
-         
+
 
 
    .. py:attribute:: view_point
-      :type: List[ViewPoint]
-
-      
+      :type:  List[ViewPoint]
 
 
 .. py:class:: ViewPoint
 
-
    .. py:attribute:: guid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: index
-      :type: Optional[int]
+      :type:  Optional[int]
 
-      
 
    .. py:attribute:: snapshot
-      :type: Optional[str]
+      :type:  Optional[str]
 
-      
 
    .. py:attribute:: viewpoint
-      :type: Optional[str]
-
-      
+      :type:  Optional[str]
 
 

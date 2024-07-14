@@ -34,6 +34,7 @@ Submodules
    RemoveSiteRepresentation/index.rst
    ResetAbsoluteCoordinates/index.rst
    ResetSpatialElementLocations/index.rst
+   SetFalseOrigin/index.rst
    SetRefElevation/index.rst
    SetWorldCoordinateSystem/index.rst
    SplitByBuildingStorey/index.rst

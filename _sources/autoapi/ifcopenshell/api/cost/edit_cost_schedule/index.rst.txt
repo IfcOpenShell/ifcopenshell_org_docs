@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: edit_cost_schedule(file, cost_schedule=None, attributes=None) -> None
+.. py:function:: edit_cost_schedule(file: ifcopenshell.file, cost_schedule: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcCostSchedule
 
@@ -17,7 +17,7 @@ Module Contents
    :param cost_schedule: The IfcCostSchedule entity you want to edit
    :type cost_schedule: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -25,8 +25,8 @@ Module Contents
 
    .. code:: python
 
-       schedule = ifcopenshell.api.run("cost.add_cost_schedule", model)
-       ifcopenshell.api.run("cost.edit_cost_schedule", model,
+       schedule = ifcopenshell.api.cost.add_cost_schedule(model)
+       ifcopenshell.api.cost.edit_cost_schedule(model,
            cost_schedule=schedule, attributes={"Name": "Foo"})
 
 

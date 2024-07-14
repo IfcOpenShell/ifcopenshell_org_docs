@@ -4,22 +4,13 @@
 .. py:module:: bsdd
 
 
-Submodules
-----------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   bsdd/index.rst
-
-
-Package Contents
-----------------
+Module Contents
+---------------
 
 .. py:class:: ClassContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -33,166 +24,135 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: activationDateUtc
-      :type: str
 
-      
+   .. py:attribute:: activationDateUtc
+      :type:  str
+
 
    .. py:attribute:: childClassReferences
-      :type: list[ClassReferenceContractV1]
+      :type:  list[ClassReferenceContractV1]
 
-      
 
    .. py:attribute:: classProperties
-      :type: list[ClassPropertyContractV1]
+      :type:  list[ClassPropertyContractV1]
 
-      
 
    .. py:attribute:: classRelations
-      :type: list[ClassRelationContractV1]
+      :type:  list[ClassRelationContractV1]
 
-      
 
    .. py:attribute:: classType
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: code
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: countriesOfUse
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: countryOfOrigin
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: creatorLanguageCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: deActivationDateUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: definition
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: deprecationExplanation
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dictionaryUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: documentReference
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: parentClassReference
-      :type: ClassReferenceContractV1
+      :type:  ClassReferenceContractV1
 
-      
 
    .. py:attribute:: referenceCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: relatedIfcEntityNames
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: replacedObjectCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: replacingObjectCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: revisionDateUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: revisionNumber
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: status
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: subdivisionsOfUse
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: synonyms
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: uid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: versionDateUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: versionNumber
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: visualRepresentationUri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ClassListItemContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -206,46 +166,39 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: children
-      :type: list[ClassListItemContractV1]
 
-      
+   .. py:attribute:: children
+      :type:  list[ClassListItemContractV1]
+
 
    .. py:attribute:: classType
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: code
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: parentClassCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: referenceCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ClassPropertyContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -259,181 +212,147 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: allowedValues
-      :type: list[ClassPropertyValueContractV1]
 
-      
+   .. py:attribute:: allowedValues
+      :type:  list[ClassPropertyValueContractV1]
+
 
    .. py:attribute:: dataType
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dimension
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dimensionAmountOfSubstance
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionElectricCurrent
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionLength
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionLuminousIntensity
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionMass
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionThermodynamicTemperature
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionTime
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dynamicParameterPropertyCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: example
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: isDynamic
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: isRequired
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: isWritable
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: maxExclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: maxInclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: minExclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: minInclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: pattern
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: physicalQuantity
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: predefinedValue
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertyCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertyDictionaryName
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertySet
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertyStatus
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertyUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertyValueKind
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qudtCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: symbol
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: units
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ClassPropertyValueContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -447,36 +366,31 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: code
-      :type: str
 
-      
+   .. py:attribute:: code
+      :type:  str
+
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: sortNumber
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: uri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: value
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ClassReferenceContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -490,26 +404,23 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: code
-      :type: str
 
-      
+   .. py:attribute:: code
+      :type:  str
+
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ClassRelationContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -523,36 +434,31 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: fraction
-      :type: float
 
-      
+   .. py:attribute:: fraction
+      :type:  float
+
 
    .. py:attribute:: relatedClassName
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: relatedClassUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: relationType
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ClassSearchResponseClassContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -566,56 +472,47 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: classType
-      :type: str
 
-      
+   .. py:attribute:: classType
+      :type:  str
+
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dictionaryName
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dictionaryUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: parentClassName
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: referenceCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: relatedIfcEntityNames
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ClassSearchResponseContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -629,31 +526,27 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: classes
-      :type: list[ClassSearchResponseClassContractV1]
 
-      
+   .. py:attribute:: classes
+      :type:  list[ClassSearchResponseClassContractV1]
+
 
    .. py:attribute:: count
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: offset
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: totalCount
-      :type: int
-
-      
+      :type:  int
 
 
 .. py:class:: ClassSearchResultContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -667,39 +560,32 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: classType
-      :type: str
 
-      
+   .. py:attribute:: classType
+      :type:  str
+
 
    .. py:attribute:: definition
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: referenceCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: synonyms
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: Client
-
 
    .. py:method:: Classification(namespaceUri, version='v3', languageCode='', includeChildClassificationReferences=True)
 
@@ -746,16 +632,19 @@ Package Contents
       this API replaces Classification
 
 
+
    .. py:method:: get_classes(dictionary_uri: str, use_nested_classes: bool = True, class_type: ClassTypes = 'Class', language_code: str = '', version: int = 1, offset=0, limit=1000) -> DictionaryClassesResponseContractV1
 
       Get Dictionary with tree of classes
       This API replaces Domain
 
 
+
    .. py:method:: get_countries(version: int = 1) -> list[CountryContractV1]
 
-      Get list of all Countries 
+      Get list of all Countries
       this API replaces Country
+
 
 
    .. py:method:: get_dictionary(dictionary_uri: str = '', version: int = 1) -> DictionaryResponseContractV1
@@ -764,10 +653,12 @@ Package Contents
       This API replaces Domain
 
 
+
    .. py:method:: get_languages(version: int = 1) -> list[LanguageContractV1]
 
       Get list of available Languages
       this API replaces Language
+
 
 
    .. py:method:: get_new_access_token()
@@ -778,10 +669,12 @@ Package Contents
       Get Dictionary with its properties
 
 
+
    .. py:method:: get_property(uri, include_classes=False, language_code='', version: int = 4) -> PropertyContractV4
 
       Get Property Detail
       this API replaces Property
+
 
 
    .. py:method:: get_property_value(uri, language_code='', version: int = 2) -> PropertyValueContractV4
@@ -790,16 +683,19 @@ Package Contents
       this API replaces PropertyValue
 
 
+
    .. py:method:: get_reference_documents(version: int = 1) -> list[ReferenceDocumentContractV1]
 
       Get list of all ReferenceDocuments
       this API replaces Country
 
 
+
    .. py:method:: get_units(version: int = 1) -> list[UnitContractV1]
 
       Get list of all Units
       this API replaces Unit
+
 
 
    .. py:method:: login()
@@ -814,11 +710,13 @@ Package Contents
       this API replaces ClassificationSearch
 
 
+
    .. py:method:: search_in_dictionary(dictionary_uri: str, search_text: str = '', language_code: str = '', related_ifc_entity: str = '', version: int = 1, offset: int = 0, limit: int = 100) -> SearchInDictionaryResponseContractV1
 
       Search the bSDD database, get list of Classes without details.
       This version uses new naming and returns one Dictionary instead of a list with always one Dictionary.
       This API replaces SearchList.
+
 
 
    .. py:method:: search_text(search_text: str, type_filter='All', dictionary_uris=None, version: int = 1, offset: int = 0, limit: int = 100) -> TextSearchResponseContractV1
@@ -829,14 +727,14 @@ Package Contents
       Classes will be listed first, so if you then use Offset=10 and Limit=5, you will get the 5 properties.
 
 
-   .. py:method:: set_tokens_from_response(response)
 
+   .. py:method:: set_tokens_from_response(response)
 
 
 .. py:class:: CountryContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -850,21 +748,19 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: code
-      :type: str
 
-      
+   .. py:attribute:: code
+      :type:  str
+
 
    .. py:attribute:: name
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: DictionaryClassesResponseContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -878,101 +774,83 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: classes
-      :type: list[ClassListItemContractV1]
 
-      
+   .. py:attribute:: classes
+      :type:  list[ClassListItemContractV1]
+
 
    .. py:attribute:: classesCount
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: classesOffset
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: classesTotalCount
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: defaultLanguageCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: lastUpdatedUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: license
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: licenseUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: moreInfoUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: organizationCodeOwner
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: organizationNameOwner
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qualityAssuranceProcedure
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qualityAssuranceProcedureUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: releaseDate
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: status
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: version
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: DictionaryContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -986,81 +864,67 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: defaultLanguageCode
-      :type: str
 
-      
+   .. py:attribute:: defaultLanguageCode
+      :type:  str
+
 
    .. py:attribute:: lastUpdatedUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: license
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: licenseUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: moreInfoUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: organizationCodeOwner
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: organizationNameOwner
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qualityAssuranceProcedure
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qualityAssuranceProcedureUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: releaseDate
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: status
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: version
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: DictionaryPropertiesResponseContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1074,101 +938,83 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: defaultLanguageCode
-      :type: str
 
-      
+   .. py:attribute:: defaultLanguageCode
+      :type:  str
+
 
    .. py:attribute:: lastUpdatedUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: license
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: licenseUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: moreInfoUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: organizationCodeOwner
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: organizationNameOwner
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: properties
-      :type: list[PropertyListItemContractV1]
+      :type:  list[PropertyListItemContractV1]
 
-      
 
    .. py:attribute:: propertiesCount
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: propertiesOffset
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: propertiesTotalCount
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: qualityAssuranceProcedure
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qualityAssuranceProcedureUrl
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: releaseDate
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: status
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: version
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: DictionaryResponseContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1182,31 +1028,27 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: count
-      :type: int
 
-      
+   .. py:attribute:: count
+      :type:  int
+
 
    .. py:attribute:: dictionaries
-      :type: list[DictionaryContractV1]
+      :type:  list[DictionaryContractV1]
 
-      
 
    .. py:attribute:: offset
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: totalCount
-      :type: int
-
-      
+      :type:  int
 
 
 .. py:class:: DictionarySearchResultContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1220,26 +1062,23 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: classes
-      :type: list[ClassSearchResultContractV1]
 
-      
+   .. py:attribute:: classes
+      :type:  list[ClassSearchResultContractV1]
+
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: LanguageContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1253,21 +1092,19 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: isoCode
-      :type: str
 
-      
+   .. py:attribute:: isoCode
+      :type:  str
+
 
    .. py:attribute:: name
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: OAuthReceiver(request, client_address, server)
 
-
    Bases: :py:obj:`http.server.BaseHTTPRequestHandler`
+
 
    HTTP request handler base class.
 
@@ -1370,14 +1207,14 @@ Package Contents
    e.g. "text/html" or "text/plain".
 
 
-   .. py:method:: do_GET()
 
+   .. py:method:: do_GET()
 
 
 .. py:class:: PropertyClassContractV4
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1391,41 +1228,35 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: code
-      :type: str
 
-      
+   .. py:attribute:: code
+      :type:  str
+
 
    .. py:attribute:: definition
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertySet
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: PropertyContractV4
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1439,261 +1270,211 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: activationDateUtc
-      :type: str
 
-      
+   .. py:attribute:: activationDateUtc
+      :type:  str
+
 
    .. py:attribute:: allowedValues
-      :type: list[PropertyValueContractV4]
+      :type:  list[PropertyValueContractV4]
 
-      
 
    .. py:attribute:: code
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: connectedPropertyCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: countriesOfUse
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: countryOfOrigin
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: creatorLanguageCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dataType
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: deActivationDateUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: definition
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: deprecationExplanation
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dictionaryUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dimension
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dimensionAmountOfSubstance
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionElectricCurrent
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionLength
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionLuminousIntensity
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionMass
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionThermodynamicTemperature
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dimensionTime
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: documentReference
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dynamicParameterPropertyCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: example
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: isDynamic
-      :type: bool
+      :type:  bool
 
-      
 
    .. py:attribute:: maxExclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: maxInclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: methodOfMeasurement
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: minExclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: minInclusive
-      :type: float
+      :type:  float
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: pattern
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: physicalQuantity
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: propertyClasses
-      :type: list[PropertyClassContractV4]
+      :type:  list[PropertyClassContractV4]
 
-      
 
    .. py:attribute:: propertyRelations
-      :type: list[PropertyRelationContractV4]
+      :type:  list[PropertyRelationContractV4]
 
-      
 
    .. py:attribute:: propertyValueKind
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qudtCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: replacedObjectCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: replacingObjectCodes
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: revisionDateUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: revisionNumber
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: status
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: subdivisionsOfUse
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: textFormat
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uid
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: units
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: uri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: versionDateUtc
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: versionNumber
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: visualRepresentationUri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: PropertyListItemContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1707,26 +1488,23 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: code
-      :type: str
 
-      
+   .. py:attribute:: code
+      :type:  str
+
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: PropertyRelationContractV4
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1740,31 +1518,27 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: relatedPropertyName
-      :type: str
 
-      
+   .. py:attribute:: relatedPropertyName
+      :type:  str
+
 
    .. py:attribute:: relatedPropertyUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: relationType
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: PropertyValueContractV4
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1778,36 +1552,31 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: code
-      :type: str
 
-      
+   .. py:attribute:: code
+      :type:  str
+
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: sortNumber
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: uri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: value
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: ReferenceDocumentContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1821,26 +1590,23 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: date
-      :type: str
 
-      
+   .. py:attribute:: date
+      :type:  str
+
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: title
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: SearchInDictionaryResponseContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1854,31 +1620,27 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: count
-      :type: int
 
-      
+   .. py:attribute:: count
+      :type:  int
+
 
    .. py:attribute:: dictionary
-      :type: DictionarySearchResultContractV1
+      :type:  DictionarySearchResultContractV1
 
-      
 
    .. py:attribute:: offset
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: totalCount
-      :type: int
-
-      
+      :type:  int
 
 
 .. py:class:: TextSearchResponseClassContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1892,56 +1654,47 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: classType
-      :type: str
 
-      
+   .. py:attribute:: classType
+      :type:  str
+
 
    .. py:attribute:: description
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dictionaryName
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dictionaryUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: parentClassName
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: referenceCode
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: relatedIfcEntityNames
-      :type: list[str]
+      :type:  list[str]
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: TextSearchResponseContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -1955,41 +1708,35 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: classes
-      :type: list[TextSearchResponseClassContractV1]
 
-      
+   .. py:attribute:: classes
+      :type:  list[TextSearchResponseClassContractV1]
+
 
    .. py:attribute:: count
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: dictionaries
-      :type: list[TextSearchResponseDictionaryContractV1]
+      :type:  list[TextSearchResponseDictionaryContractV1]
 
-      
 
    .. py:attribute:: offset
-      :type: int
+      :type:  int
 
-      
 
    .. py:attribute:: properties
-      :type: list[TextSearchResponsePropertyContractV1]
+      :type:  list[TextSearchResponsePropertyContractV1]
 
-      
 
    .. py:attribute:: totalCount
-      :type: int
-
-      
+      :type:  int
 
 
 .. py:class:: TextSearchResponseDictionaryContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -2003,21 +1750,19 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: name
-      :type: str
 
-      
+   .. py:attribute:: name
+      :type:  str
+
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: TextSearchResponsePropertyContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -2031,36 +1776,31 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: description
-      :type: str
 
-      
+   .. py:attribute:: description
+      :type:  str
+
 
    .. py:attribute:: dictionaryName
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: dictionaryUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: uri
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:class:: UnitContractV1
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -2074,35 +1814,26 @@ Package Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: code
-      :type: str
 
-      
+   .. py:attribute:: code
+      :type:  str
+
 
    .. py:attribute:: name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: qudtUri
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: symbol
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:function:: apply_ifc_classification_properties(ifc_file, element, classificationProperties)
 
-
 .. py:data:: ClassTypes
 
-   
-
 .. py:data:: Status
-
-   
 

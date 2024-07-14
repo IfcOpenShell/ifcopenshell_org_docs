@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, is_solid=True)
 
-
    
    Fix missing or spot-coordinate bugged TINs loading in Revit
 
@@ -54,7 +53,7 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "FixRevitTINs", "arguments": []})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

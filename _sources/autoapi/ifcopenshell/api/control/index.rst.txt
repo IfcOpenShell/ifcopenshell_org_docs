@@ -3,6 +3,14 @@
 
 .. py:module:: ifcopenshell.api.control
 
+.. autoapi-nested-parse::
+
+   Processes and costs may be controlled by other entities which indicate
+   constraints that determine how they can change
+
+   This is an advanced feature mostly used in 4D/5D
+
+
 
 Submodules
 ----------
@@ -17,7 +25,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: assign_control(file, relating_control=None, related_object=None) -> None
+.. py:function:: assign_control(file: ifcopenshell.file, relating_control: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Assigns a planning control or constraint to an object
 
@@ -46,26 +54,26 @@ Package Contents
    .. code:: python
 
        # One common usecase is to assign a calendar to a task
-       calendar = ifcopenshell.api.run("sequence.add_work_calendar", model)
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model)
-       task = ifcopenshell.api.run("sequence.add_task", model,
+       calendar = ifcopenshell.api.sequence.add_work_calendar(model)
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model)
+       task = ifcopenshell.api.sequence.add_task(model,
            work_schedule=schedule)
 
        # All subtasks will inherit this calendar, so assigning a single
        # calendar to the root task effectively defines a "default" calendar
-       ifcopenshell.api.run("control.assign_control", model,
+       ifcopenshell.api.control.assign_control(model,
            relating_control=calendar, related_object=task)
 
        # Another common example might be relating a cost item and a product
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
-       schedule = ifcopenshell.api.run("cost.add_cost_schedule", model)
-       cost_item = ifcopenshell.api.run("cost.add_cost_item", model,
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+       schedule = ifcopenshell.api.cost.add_cost_schedule(model)
+       cost_item = ifcopenshell.api.cost.add_cost_item(model,
            cost_schedule=schedule)
-       ifcopenshell.api.run("control.assign_control", model,
+       ifcopenshell.api.control.assign_control(model,
            relating_control=cost_item, related_object=wall)
 
 
-.. py:function:: unassign_control(file, relating_control=None, related_object=None) -> None
+.. py:function:: unassign_control(file: ifcopenshell.file, relating_control: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Unassigns a planning control or constraint to an object
 
@@ -83,15 +91,15 @@ Package Contents
    .. code:: python
 
        # Let's relate a cost item and a product
-       wall = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcWall")
-       schedule = ifcopenshell.api.run("cost.add_cost_schedule", model)
-       cost_item = ifcopenshell.api.run("cost.add_cost_item", model,
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+       schedule = ifcopenshell.api.cost.add_cost_schedule(model)
+       cost_item = ifcopenshell.api.cost.add_cost_item(model,
            cost_schedule=schedule)
-       ifcopenshell.api.run("control.assign_control", model,
+       ifcopenshell.api.control.assign_control(model,
            relating_control=cost_item, related_object=wall)
 
        # And now let's change our mind
-       ifcopenshell.api.run("control.unassign_control", model,
+       ifcopenshell.api.control.unassign_control(model,
            relating_control=cost_item, related_object=wall)
 
 

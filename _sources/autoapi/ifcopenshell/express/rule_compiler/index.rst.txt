@@ -9,8 +9,8 @@ Module Contents
 
 .. py:class:: AttributeGetattrTransformer
 
-
    Bases: :py:obj:`ast.NodeTransformer`
+
 
    A :class:`NodeVisitor` subclass that walks the abstract syntax tree and
    allows modification of nodes.
@@ -45,6 +45,7 @@ Module Contents
 
       node = YourTransformer().visit(node)
 
+
    .. py:method:: assign_parent_refs(tree)
 
 
@@ -54,9 +55,7 @@ Module Contents
    .. py:method:: visit_Subscript(node)
 
 
-
 .. py:class:: codegen_rule(pattern, fn)
-
 
    .. py:method:: apply(G)
       :staticmethod:
@@ -64,7 +63,6 @@ Module Contents
 
 
 .. py:class:: context(graph, rules)
-
 
    .. py:method:: branch(i)
 
@@ -84,110 +82,71 @@ Module Contents
    .. py:method:: parent()
 
 
-
 .. py:class:: empty
-
-
 
 .. py:function:: make_lowercase(context)
 
-
 .. py:function:: make_lowercase_if(fn)
-
 
 .. py:function:: paths(G, root, length)
 
-
 .. py:function:: process_aggregate_initializer(context)
-
 
 .. py:function:: process_assignment(context)
 
-
 .. py:function:: process_case_action(context)
-
 
 .. py:function:: process_case_statement(context)
 
-
 .. py:function:: process_domain_rule(context)
-
 
 .. py:function:: process_expression(context)
 
-
 .. py:function:: process_function_call(context)
-
 
 .. py:function:: process_function_decl(context)
 
-
 .. py:function:: process_if_stmt(context)
-
 
 .. py:function:: process_index(context)
 
-
 .. py:function:: process_interval(context)
-
 
 .. py:function:: process_local_variable(context)
 
-
 .. py:function:: process_query(context)
-
 
 .. py:function:: process_rel_op(context)
 
-
 .. py:function:: process_repeat_stmt(context)
-
 
 .. py:function:: process_rule_decl(context)
 
-
 .. py:function:: process_type_decl(scope, context)
-
 
 .. py:function:: simple_concat(context)
 
-
 .. py:function:: to_graph(tree)
-
 
 .. py:function:: wrap_parens(s)
 
-
 .. py:function:: write_dot(fn, g)
-
 
 .. py:data:: DEBUG
    :value: False
 
-   
 
 .. py:data:: SLASH
 
-   
-
 .. py:data:: context_class
-
-   
 
 .. py:data:: identifier
 
-   
-
 .. py:data:: rule
 
-   
-
 .. py:data:: schema
-
-   
 
 .. py:data:: wb
    :value: '\\b'
 
-   
 

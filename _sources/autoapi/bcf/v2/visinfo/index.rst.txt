@@ -9,17 +9,12 @@ Module Contents
 
 .. py:class:: VisualizationInfoHandler(visualization_info: bcf.v2.model.VisualizationInfo, snapshot: Optional[bytes] = None, bitmaps: Optional[dict[str, bytes]] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None)
 
-
    Handle the VisualizationInfo and related objects.
-
-   .. py:property:: guid
-      :type: str
-
-      Return the GUID of the visualization info.
 
 
    .. py:method:: create_from_point_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> VisualizationInfoHandler
       :classmethod:
+
 
       Create a new VisualizationInfoHandler object from an IFC element.
 
@@ -32,8 +27,10 @@ Module Contents
           The VisualizationInfoHandler object.
 
 
+
    .. py:method:: create_new(element: ifcopenshell.entity_instance, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> VisualizationInfoHandler
       :classmethod:
+
 
       Create a new VisualizationInfoHandler object from an IFC element.
 
@@ -45,14 +42,18 @@ Module Contents
           The VisualizationInfoHandler object.
 
 
+
    .. py:method:: from_topic_viewpoints(topic_dir: zipfile.Path, vps: Iterable[bcf.v2.model.ViewPoint], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> dict[str, VisualizationInfoHandler]
       :classmethod:
+
 
       Create VisualizationInfoHandler objects of a Topic's ViewPoints.
 
 
+
    .. py:method:: load(topic_dir: zipfile.Path, vpt: bcf.v2.model.ViewPoint, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[VisualizationInfoHandler]
       :classmethod:
+
 
       Load the VisualizationInfo and related objects from a BCF zip file.
 
@@ -65,6 +66,7 @@ Module Contents
           The VisualizationInfoHandler object.
 
 
+
    .. py:method:: save(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str, vpt: bcf.v2.model.ViewPoint) -> None
 
       Save the VisualizationInfo and related objects to a BCF zip file.
@@ -73,6 +75,13 @@ Module Contents
           bcf_zip: The BCF zip file to save to.
           topic_dir: The directory in the BCF zip file to save to.
           vpt: The ViewPoint to save.
+
+
+
+   .. py:property:: guid
+      :type: str
+
+      Return the GUID of the visualization info.
 
 
 

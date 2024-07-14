@@ -3,6 +3,16 @@
 
 .. py:module:: ifcopenshell.api.document
 
+.. autoapi-nested-parse::
+
+   Reference external project documents and associate them to model elements
+
+   Some project information (drawings, specifications, certificates, reports, etc)
+   may be stored in external documents (locally or in a CDE). IFC lets you store a
+   register of documents with metadata and associate them with elements (both
+   physical and non-physical).
+
+
 
 Submodules
 ----------
@@ -23,7 +33,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_information(file, parent=None) -> None
+.. py:function:: add_information(file: ifcopenshell.file, parent: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Adds a new document information to the project
 
@@ -45,14 +55,14 @@ Package Contents
 
    .. code:: python
 
-       document = ifcopenshell.api.run("document.add_information", model)
+       document = ifcopenshell.api.document.add_information(model)
        # A document typically has a unique drawing or document name (which
        # follows a coding system depending on the project), as well as a
        # title.  This should match what is shown on the titleblock or title
        # page of the document. At a minimum you'd also want to specify a
        # URI location. The location may be on local, or on a CDE, or any
        # other platform.
-       ifcopenshell.api.run("document.edit_information", model,
+       ifcopenshell.api.document.edit_information(model,
            information=document,
            attributes={"Identification": "A-GA-6100", "Name": "Overall Plan",
            "Location": "A-GA-6100 - Overall Plan.pdf"})
@@ -86,8 +96,8 @@ Package Contents
 
    .. code:: python
 
-       document = ifcopenshell.api.run("document.add_information", model)
-       ifcopenshell.api.run("document.edit_information", model,
+       document = ifcopenshell.api.document.add_information(model)
+       ifcopenshell.api.document.edit_information(model,
            information=document,
            attributes={"Identification": "A-GA-6100", "Name": "Overall Plan",
            "Location": "A-GA-6100 - Overall Plan.pdf"})
@@ -95,12 +105,12 @@ Package Contents
        # In this case, we don't specify any more information, and so the
        # reference is for the entire document, as opposed to a single page or
        # chapter or section.
-       reference = ifcopenshell.api.run("document.add_reference", model, information=document)
+       reference = ifcopenshell.api.document.add_reference(model, information=document)
 
        # Alternatively, we can specify a single section, such as by a
        # subheading code.
-       reference2 = ifcopenshell.api.run("document.add_reference", model, information=document)
-       ifcopenshell.api.run("document.edit_reference", model,
+       reference2 = ifcopenshell.api.document.add_reference(model, information=document)
+       ifcopenshell.api.document.edit_reference(model,
            reference=reference2, attributes={"Identification": "2.1.15"})
 
 
@@ -133,18 +143,18 @@ Package Contents
 
    .. code:: python
 
-       document = ifcopenshell.api.run("document.add_information", model)
-       ifcopenshell.api.run("document.edit_information", model,
+       document = ifcopenshell.api.document.add_information(model)
+       ifcopenshell.api.document.edit_information(model,
            information=document,
            attributes={"Identification": "A-GA-6100", "Name": "Overall Plan",
            "Location": "A-GA-6100 - Overall Plan.pdf"})
-       reference = ifcopenshell.api.run("document.add_reference", model, information=document)
+       reference = ifcopenshell.api.document.add_reference(model, information=document)
 
        # Let's imagine storey represents an IfcBuildingStorey for the ground floor
-       ifcopenshell.api.run("document.assign_document", model, products=[storey], document=reference)
+       ifcopenshell.api.document.assign_document(model, products=[storey], document=reference)
 
 
-.. py:function:: edit_information(file: ifcopenshell.file, information: ifcopenshell.entity_instance, attributes: Optional[dict[str, Any]] = None) -> None
+.. py:function:: edit_information(file: ifcopenshell.file, information: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcDocumentInformation
 
@@ -154,7 +164,7 @@ Package Contents
    :param reference: The IfcDocumentInformation entity you want to edit
    :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -162,14 +172,14 @@ Package Contents
 
    .. code:: python
 
-       document = ifcopenshell.api.run("document.add_information", model)
-       ifcopenshell.api.run("document.edit_information", model,
+       document = ifcopenshell.api.document.add_information(model)
+       ifcopenshell.api.document.edit_information(model,
            information=document,
            attributes={"Identification": "A-GA-6100", "Name": "Overall Plan",
            "Location": "A-GA-6100 - Overall Plan.pdf"})
 
 
-.. py:function:: edit_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, attributes: Optional[dict[str, Any]] = None) -> None
+.. py:function:: edit_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcDocumentReference
 
@@ -179,7 +189,7 @@ Package Contents
    :param reference: The IfcDocumentReference entity you want to edit
    :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -187,17 +197,17 @@ Package Contents
 
    .. code:: python
 
-       document = ifcopenshell.api.run("document.add_information", model)
-       ifcopenshell.api.run("document.edit_information", model,
+       document = ifcopenshell.api.document.add_information(model)
+       ifcopenshell.api.document.edit_information(model,
            information=document,
            attributes={"Identification": "A-GA-6100", "Name": "Overall Plan",
            "Location": "A-GA-6100 - Overall Plan.pdf"})
-       reference = ifcopenshell.api.run("document.add_reference", model, information=document)
-       ifcopenshell.api.run("document.edit_reference", model,
+       reference = ifcopenshell.api.document.add_reference(model, information=document)
+       ifcopenshell.api.document.edit_reference(model,
            reference=reference, attributes={"Identification": "2.1.15"})
 
 
-.. py:function:: remove_information(file, information=None) -> None
+.. py:function:: remove_information(file: ifcopenshell.file, information: ifcopenshell.entity_instance) -> None
 
    Removes a document information
 
@@ -213,9 +223,9 @@ Package Contents
    .. code:: python
 
        # Add a document
-       document = ifcopenshell.api.run("document.add_information", model)
+       document = ifcopenshell.api.document.add_information(model)
        # ... and remove it!
-       ifcopenshell.api.run("document.remove_information", model, information=document)
+       ifcopenshell.api.document.remove_information(model, information=document)
 
 
 .. py:function:: remove_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance) -> None
@@ -233,9 +243,9 @@ Package Contents
 
    .. code:: python
 
-       document = ifcopenshell.api.run("document.add_information", model)
-       reference = ifcopenshell.api.run("document.add_reference", model, information=document)
-       ifcopenshell.api.run("document.remove_reference", model, reference=reference)
+       document = ifcopenshell.api.document.add_information(model)
+       reference = ifcopenshell.api.document.add_reference(model, information=document)
+       ifcopenshell.api.document.remove_reference(model, reference=reference)
 
 
 .. py:function:: unassign_document(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], document: ifcopenshell.entity_instance) -> None
@@ -255,17 +265,17 @@ Package Contents
 
    .. code:: python
 
-       document = ifcopenshell.api.run("document.add_information", model)
-       ifcopenshell.api.run("document.edit_information", model,
+       document = ifcopenshell.api.document.add_information(model)
+       ifcopenshell.api.document.edit_information(model,
            information=document,
            attributes={"Identification": "A-GA-6100", "Name": "Overall Plan",
            "Location": "A-GA-6100 - Overall Plan.pdf"})
-       reference = ifcopenshell.api.run("document.add_reference", model, information=document)
+       reference = ifcopenshell.api.document.add_reference(model, information=document)
 
        # Let's imagine storey represents an IfcBuildingStorey for the ground floor
-       ifcopenshell.api.run("document.assign_document", model, products=[storey], document=reference)
+       ifcopenshell.api.document.assign_document(model, products=[storey], document=reference)
 
        # Now let's change our mind and remove the association
-       ifcopenshell.api.run("document.unassign_document", model, products=[storey], document=reference)
+       ifcopenshell.api.document.unassign_document(model, products=[storey], document=reference)
 
 

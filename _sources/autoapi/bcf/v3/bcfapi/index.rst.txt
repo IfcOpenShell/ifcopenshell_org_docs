@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: BcfClient(foundation_client: FoundationClient)
 
-
    .. py:method:: create_comments(project_id: str = '', topic_id: str = '', data: Any = None, params: Any = None) -> Tuple[int, str]
 
 
@@ -145,9 +144,7 @@ Module Contents
    .. py:method:: update_topic(project_id: str = '', topic_id: str = '', data: Any = None) -> Tuple[int, str]
 
 
-
 .. py:class:: FoundationClient(client_id: str, client_secret: str, base_url: Optional[str] = None, redirect_subdir: Optional[str] = None)
-
 
    .. py:method:: get_access_token() -> str
 
@@ -173,11 +170,10 @@ Module Contents
    .. py:method:: set_tokens_from_response(response: requests.Response) -> None
 
 
-
 .. py:class:: OAuthReceiver(request, client_address, server)
 
-
    Bases: :py:obj:`http.server.BaseHTTPRequestHandler`
+
 
    HTTP request handler base class.
 
@@ -280,7 +276,7 @@ Module Contents
    e.g. "text/html" or "text/plain".
 
 
-   .. py:method:: do_GET() -> None
 
+   .. py:method:: do_GET() -> None
 
 

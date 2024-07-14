@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_context_dependent_unit(file, unit_type='USERDEFINED', name='THINGAMAJIG', dimensions=None) -> None
+.. py:function:: add_context_dependent_unit(file: ifcopenshell.file, unit_type: str = 'USERDEFINED', name: str = 'THINGAMAJIG', dimensions: tuple[int, int, int, int, int, int, int] = (0, 0, 0, 0, 0, 0, 0)) -> ifcopenshell.entity_instance
 
    Add a new arbitrary unit that can only be interpreted in a project specific context
 
@@ -40,6 +40,6 @@ Module Contents
    .. code:: python
 
        # Boxes of things
-       ifcopenshell.api.run("unit.add_context_dependent_unit", model, name="BOXES")
+       ifcopenshell.api.unit.add_context_dependent_unit(model, name="BOXES")
 
 

@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_structural_connection_condition(file, relation=None) -> None
+.. py:function:: remove_structural_connection_condition(file: ifcopenshell.file, relation: ifcopenshell.entity_instance) -> None
 
    Removes a relationship between a connection and a condition
 

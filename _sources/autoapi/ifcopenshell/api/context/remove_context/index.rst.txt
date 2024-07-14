@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_context(file: ifcopenshell.entity_instance, context: ifcopenshell.entity_instance) -> None
+.. py:function:: remove_context(file: ifcopenshell.file, context: ifcopenshell.entity_instance) -> None
 
    Removes an IfcGeometricRepresentationContext
 
@@ -23,13 +23,13 @@ Module Contents
 
    .. code:: python
 
-       model = ifcopenshell.api.run("context.add_context", model, context_type="Model")
+       model = ifcopenshell.api.context.add_context(model, context_type="Model")
        # Revit had a bug where they incorrectly called the body representation a "Facetation"
-       body = ifcopenshell.api.run("context.add_context", model,
+       body = ifcopenshell.api.context.add_context(model,
            context_type="Model", context_identifier="Facetation", target_view="MODEL_VIEW", parent=model
        )
 
        # Let's just get rid of it completely
-       ifcopenshell.api.run("context.remove_context", model, context=body)
+       ifcopenshell.api.context.remove_context(model, context=body)
 
 

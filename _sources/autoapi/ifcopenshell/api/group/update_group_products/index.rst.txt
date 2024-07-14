@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: update_group_products(file, group=None, products=None) -> None
+.. py:function:: update_group_products(file: ifcopenshell.file, group: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
 
    Sets a group products to be an explicit list of products
 
@@ -25,8 +25,8 @@ Module Contents
 
    .. code:: python
 
-       group = ifcopenshell.api.run("group.add_group", model, Name="Furniture")
-       ifcopenshell.api.run("group.update_group_products", model,
+       group = ifcopenshell.api.group.add_group(model, name="Furniture")
+       ifcopenshell.api.group.update_group_products(model,
            products=model.by_type("IfcFurniture"), group=group)
 
 

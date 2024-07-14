@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: EarlyBoundCodeWriter(schema_name)
 
-
    .. py:method:: aggregation_type(aggr_type, bound1, bound2, decl_type)
 
 
@@ -49,9 +48,7 @@ Module Contents
    .. py:method:: typedef(name, declared_type)
 
 
-
 .. py:class:: LateBoundSchemaInstantiator(schema_name)
-
 
    .. py:method:: aggregation_type(aggr_type, bound1, bound2, decl_type)
 
@@ -95,14 +92,15 @@ Module Contents
    .. py:method:: typedef(name, declared_type)
 
 
-
-.. py:class:: SchemaClass(mapping, code=EarlyBoundCodeWriter)
-
+.. py:class:: SchemaClass(mapping: SchemaClass.__init__.mapping, code=EarlyBoundCodeWriter)
 
    Bases: :py:obj:`codegen.Base`
 
 
-.. py:data:: Generator
+.. py:class:: string_pool(fn)
 
-   
+   .. py:method:: append(v)
+
+
+.. py:data:: Generator
 

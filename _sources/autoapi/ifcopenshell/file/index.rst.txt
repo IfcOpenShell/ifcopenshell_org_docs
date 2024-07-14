@@ -9,11 +9,10 @@ Module Contents
 
 .. py:class:: Transaction(ifc_file)
 
+   .. py:method:: batch() -> None
 
-   .. py:method:: batch()
 
-
-   .. py:method:: commit()
+   .. py:method:: commit() -> None
 
 
    .. py:method:: get_element_inverses(element)
@@ -22,7 +21,7 @@ Module Contents
    .. py:method:: has_element_reference(value: Any, element: ifcopenshell.entity_instance) -> bool
 
 
-   .. py:method:: rollback()
+   .. py:method:: rollback() -> None
 
 
    .. py:method:: serialise_entity_instance(element: ifcopenshell.entity_instance) -> dict[str, Any]
@@ -31,24 +30,22 @@ Module Contents
    .. py:method:: serialise_value(element, value)
 
 
-   .. py:method:: store_create(element)
+   .. py:method:: store_create(element: ifcopenshell.entity_instance) -> None
 
 
    .. py:method:: store_delete(element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: store_edit(element, index, value)
+   .. py:method:: store_edit(element: ifcopenshell.entity_instance, index: int, value: Any) -> None
 
 
-   .. py:method:: unbatch()
+   .. py:method:: unbatch() -> None
 
 
    .. py:method:: unserialise_value(element, value)
 
 
-
 .. py:class:: file(f: Optional[ifcopenshell.ifcopenshell_wrapper.file] = None, schema: Optional[str] = None, schema_version: Optional[tuple[int, int, int, int]] = None)
-
 
    Base class for containing IFC files.
 
@@ -104,10 +101,6 @@ Module Contents
        # A poweruser testing out a particular version of IFC4X3
        model = ifcopenshell.file(schema_version=(4, 3, 0, 1))
 
-   .. py:attribute:: wrapped_data
-      :type: ifcopenshell.ifcopenshell_wrapper.file
-
-      
 
    .. py:method:: add(inst: ifcopenshell.entity_instance, _id: int = None) -> ifcopenshell.entity_instance
 
@@ -120,12 +113,14 @@ Module Contents
       :rtype: ifcopenshell.entity_instance
 
 
+
    .. py:method:: batch()
 
       Low-level mechanism to speed up deletion of large subgraphs
 
 
-   .. py:method:: begin_transaction()
+
+   .. py:method:: begin_transaction() -> None
 
 
    .. py:method:: by_guid(guid: str) -> ifcopenshell.entity_instance
@@ -142,6 +137,7 @@ Module Contents
 
 
 
+
    .. py:method:: by_id(id: int) -> ifcopenshell.entity_instance
 
       Return an IFC entity instance filtered by IFC ID.
@@ -153,6 +149,7 @@ Module Contents
 
       :returns: An ifcopenshell.entity_instance
       :rtype: ifcopenshell.entity_instance
+
 
 
    .. py:method:: by_type(type: str, include_subtypes=True) -> list[ifcopenshell.entity_instance]
@@ -172,9 +169,16 @@ Module Contents
       :rtype: list[ifcopenshell.entity_instance]
 
 
+
    .. py:method:: create_entity(type: str, *args, **kwargs) -> ifcopenshell.entity_instance
 
       Create a new IFC entity in the file.
+
+      You can also use dynamic methods similar to `ifc_file.createIfcWall(...)`
+      to create IFC entities. They work exactly the same as if you would do
+      `ifc_file.create_entity("IfcWall", ...)` but the resulting typing
+      is not as accurate as for `create_entity` due to a dynamic nature
+      of those methods.
 
       :param type: Case insensitive name of the IFC class
       :type type: string
@@ -196,23 +200,31 @@ Module Contents
           # >>> #3=IfcPerson('Foobar',$,$,$,$,$,$,$)
 
 
-   .. py:method:: discard_transaction()
+
+   .. py:method:: discard_transaction() -> None
 
 
-   .. py:method:: end_transaction()
+   .. py:method:: end_transaction() -> None
 
 
    .. py:method:: from_pointer(v)
       :staticmethod:
 
 
+
    .. py:method:: from_string(s: str) -> file
       :staticmethod:
 
 
-   .. py:method:: get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate=False, with_attribute_indices=False) -> list[ifcopenshell.entity_instance]
+
+   .. py:method:: get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate: bool = False, with_attribute_indices: bool = False) -> list[ifcopenshell.entity_instance]
 
       Return a list of entities that reference this entity
+
+      Warning: this is a slow function, especially when there is a large
+      number of inverses (such as for a shared owner history). If you are
+      only interested in the total number of inverses (typically 0, 1, or N),
+      consider using :func:`get_total_inverses`.
 
       :param inst: The entity instance to get inverse relationships
       :type inst: ifcopenshell.entity_instance
@@ -223,9 +235,13 @@ Module Contents
       :rtype: list[ifcopenshell.entity_instance]
 
 
+
    .. py:method:: get_total_inverses(inst: ifcopenshell.entity_instance) -> int
 
       Returns the number of entities that reference this entity
+
+      This is equivalent to `len(model.get_inverse(element))`, but
+      significantly faster.
 
       :param inst: The entity instance to get inverse relationships
       :type inst: ifcopenshell.entity_instance
@@ -233,7 +249,8 @@ Module Contents
       :rtype: int
 
 
-   .. py:method:: redo()
+
+   .. py:method:: redo() -> None
 
 
    .. py:method:: remove(inst: ifcopenshell.entity_instance) -> None
@@ -249,7 +266,8 @@ Module Contents
       :rtype: None
 
 
-   .. py:method:: set_history_size(size)
+
+   .. py:method:: set_history_size(size: int) -> None
 
 
    .. py:method:: traverse(inst: ifcopenshell.entity_instance, max_levels=None, breadth_first=False) -> list[ifcopenshell.entity_instance]
@@ -266,12 +284,14 @@ Module Contents
       :rtype: list[ifcopenshell.entity_instance]
 
 
+
    .. py:method:: unbatch()
 
       Low-level mechanism to speed up deletion of large subgraphs
 
 
-   .. py:method:: undo()
+
+   .. py:method:: undo() -> None
 
 
    .. py:method:: write(path: os.PathLike | str, format: Optional[str] = None, zipped: bool = False) -> None
@@ -298,7 +318,38 @@ Module Contents
 
 
 
-.. py:data:: file_dict
+   .. py:property:: schema
+      :type: str
 
-   
+      General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
+   .. py:property:: schema_identifier
+      :type: str
+
+      Full IFC schema version: IFC2X3_TC1, IFC4_ADD2, IFC4X3_ADD2, etc.
+
+
+
+   .. py:property:: schema_version
+      :type: tuple[int, int, int, int]
+
+      Numeric representation of the full IFC schema version.
+
+      E.g. IFC4X3_ADD2 is represented as (4, 3, 2, 0).
+
+
+
+   .. py:attribute:: wrapped_data
+      :type:  ifcopenshell.ifcopenshell_wrapper.file
+
+
+.. py:data:: NO_HEADER
+
+.. py:data:: READ_ERROR
+
+.. py:data:: UNSUPPORTED_SCHEMA
+
+.. py:data:: file_dict
 

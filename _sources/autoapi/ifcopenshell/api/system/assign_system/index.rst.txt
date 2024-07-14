@@ -26,13 +26,13 @@ Module Contents
    .. code:: python
 
        # A completely empty distribution system
-       system = ifcopenshell.api.run("system.add_system", model)
+       system = ifcopenshell.api.system.add_system(model)
 
        # Create a duct
-       duct = ifcopenshell.api.run("root.create_entity", model,
+       duct = ifcopenshell.api.root.create_entity(model,
            ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
 
        # This duct is part of the system
-       ifcopenshell.api.run("system.assign_system", model, products=[duct], system=system)
+       ifcopenshell.api.system.assign_system(model, products=[duct], system=system)
 
 

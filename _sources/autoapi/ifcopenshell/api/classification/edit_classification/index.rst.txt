@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: edit_classification(file, classification=None, attributes=None) -> None
+.. py:function:: edit_classification(file: ifcopenshell.file, classification: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcClassification
 
@@ -17,7 +17,7 @@ Module Contents
    :param classification: The IfcClassification entity you want to edit
    :type classification: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -27,7 +27,7 @@ Module Contents
 
        classification = model.by_type("IfcClassification")[0]
        # Change the name of the classification system to "Foo"
-       ifcopenshell.api.run("classification.edit_classification", model,
+       ifcopenshell.api.classification.edit_classification(model,
            classification=classification, attributes={"Name": "Foo"})
 
 

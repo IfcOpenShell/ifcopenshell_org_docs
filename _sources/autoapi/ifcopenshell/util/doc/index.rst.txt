@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: DocExtractor
 
-
    .. py:method:: clean_description(description)
 
 
@@ -61,84 +60,53 @@ Module Contents
    .. py:method:: setup_ifc4_reference_lookup()
 
 
-
 .. py:function:: get_attribute_doc(version, entity, attribute, recursive=True)
-
 
 .. py:function:: get_class_suggestions(version, class_name)
 
-
 .. py:function:: get_db(version)
-
 
 .. py:function:: get_entity_doc(version, entity_name, recursive=True)
 
-
 .. py:function:: get_inverse_attributes(el)
-
 
 .. py:function:: get_predefined_type_doc(version, entity, predefined_type)
 
-
 .. py:function:: get_property_doc(version, pset, prop)
-
 
 .. py:function:: get_property_set_doc(version, pset)
 
-
 .. py:function:: get_schema_by_name(version: str) -> ifcopenshell.ifcopenshell_wrapper.schema_definition
-
 
 .. py:function:: get_type_doc(version, ifc_type)
 
-
 .. py:function:: run_doc_api_examples()
-
 
 .. py:data:: BASE_MODULE_PATH
 
-   
-
 .. py:data:: IFC2x3_DOCS_LOCATION
-
-   
 
 .. py:data:: IFC4_DOCS_LOCATION
 
-   
-
 .. py:data:: IFC4x3_DEV_LOCATION
 
-   
-
 .. py:data:: IFC4x3_HTML_LOCATION
-
-   
 
 .. py:data:: IFC4x3_SPEC_URL_TEMPLATE
    :value: 'https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/%s.htm'
 
-   
 
 .. py:data:: SCHEMA_FILES
-   :type: dict[SUPPORTED_SCHEMA, dict]
-
-   
+   :type:  dict[SUPPORTED_SCHEMA, dict]
 
 .. py:data:: SUPPORTED_SCHEMA
 
-   
-
 .. py:data:: db
+   :value: None
 
-   
 
 .. py:data:: extractor
 
-   
-
 .. py:data:: schema_by_name
-   :type: dict[SUPPORTED_SCHEMA, Optional[ifcopenshell.ifcopenshell_wrapper.schema_definition]]
-
-   
+   :type:  dict[SUPPORTED_SCHEMA, Optional[ifcopenshell.ifcopenshell_wrapper.schema_definition]]
 

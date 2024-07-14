@@ -9,8 +9,8 @@ Module Contents
 
 .. py:class:: ResolvedItemDict
 
-
    Bases: :py:obj:`TypedDict`
+
 
    dict() -> new empty dictionary
    dict(mapping) -> new dictionary initialized from a mapping object's
@@ -24,36 +24,54 @@ Module Contents
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: item
-      :type: ifcopenshell.entity_instance
 
-      
+   .. py:attribute:: item
+      :type:  ifcopenshell.entity_instance
+
 
    .. py:attribute:: matrix
-      :type: numpy.array
-
-      
+      :type:  numpy.typing.NDArray[numpy.float64]
 
 
 .. py:function:: get_context(ifc_file: ifcopenshell.file, context: str, subcontext: Optional[str] = None, target_view: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
 
+.. py:function:: get_prioritised_contexts(ifc_file: ifcopenshell.file) -> list[ifcopenshell.entity_instance]
+
+   Gets a list of contexts ordered from high priority to low priority
+
+   Models can contain multiple geometric contexts. When visualising models,
+   you may want to prioritise visualising certain contexts over others,
+   determined by the context type, identifier, target view, and target scale.
+
+   The default prioritises subcontexts, then contexts. It then prioritises 3D,
+   then 2D. It then prioritises bodies, then others. It also prioritises model
+   views, then plan views, then others.
+
+   :param ifc_file: The model containing contexts
+   :return: A list of IfcGeometricRepresentationContext (or SubContext) from
+       high priority to low priority.
+
 
 .. py:function:: get_representation(element: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, str], subcontext: Optional[str] = None, target_view: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
+
+   Gets a IfcShapeRepresentation filtered by the context type, identifier, and target view
+
+   :param element: An IfcProduct or IfcTypeProduct
+   :param context: Either a specific IfcGeometricRepresentationContext or a ContextType
+   :param subcontext: A ContextIdentifier string, or any if left blank.
+   :param target_view: A TargetView string, or any if left blank.
+   :return: The first IfcShapeRepresentation matching the criteria.
 
 
 .. py:function:: is_representation_of_context(representation: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, str], subcontext: Optional[str] = None, target_view: Optional[str] = None) -> bool
 
-
-.. py:function:: resolve_items(representation: ifcopenshell.entity_instance, matrix: Optional[numpy.array] = None) -> list[ResolvedItemDict]
-
+.. py:function:: resolve_items(representation: ifcopenshell.entity_instance, matrix: Optional[numpy.typing.NDArray[numpy.float64]] = None) -> list[ResolvedItemDict]
 
 .. py:function:: resolve_representation(representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Resolve possibly mapped representation.
 
    :param representation: IfcRepresentation
-   :type representation: ifcopenshell.entity_instance
    :return: Representation resolved from mappings
-   :rtype: ifcopenshell.entity_instance
 
 

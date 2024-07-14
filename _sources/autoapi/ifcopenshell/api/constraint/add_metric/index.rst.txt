@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_metric(file, objective=None) -> None
+.. py:function:: add_metric(file: ifcopenshell.file, objective: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Add a new metric benchmark
 
@@ -25,8 +25,8 @@ Module Contents
 
    .. code:: python
 
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
-       metric = ifcopenshell.api.run("constraint.add_metric", model,
+       objective = ifcopenshell.api.constraint.add_objective(model)
+       metric = ifcopenshell.api.constraint.add_metric(model,
            objective=objective)
 
 

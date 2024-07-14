@@ -9,10 +9,7 @@ Module Contents
 
 .. py:function:: get_enum_items(attribute)
 
-
-.. py:function:: get_primitive_type(attribute_or_data_type)
-
+.. py:function:: get_primitive_type(attribute_or_data_type: Union[ifcopenshell.ifcopenshell_wrapper.attribute, ifcopenshell.ifcopenshell_wrapper.parameter_type]) -> Union[str, tuple[str, list[str]]]
 
 .. py:function:: get_select_items(attribute)
-
 

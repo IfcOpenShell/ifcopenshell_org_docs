@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger)
 
-
    
    Convert nesting relationships to aggregate relationships
 
@@ -28,7 +27,7 @@ Module Contents
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ConvertNestToAggregate", "arguments": []})
 
-   .. py:method:: patch()
 
+   .. py:method:: patch()
 
 

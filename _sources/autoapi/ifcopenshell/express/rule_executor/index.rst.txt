@@ -9,44 +9,37 @@ Module Contents
 
 .. py:exception:: error
 
-
    Bases: :py:obj:`Exception`
+
 
    Common base class for all non-exit exceptions.
 
    Initialize self.  See help(type(self)) for accurate signature.
 
-   .. py:attribute:: instance
-      :type: ifcopenshell.entity_instance
 
-      
+   .. py:attribute:: instance
+      :type:  ifcopenshell.entity_instance
+      :value: None
+
+
 
    .. py:attribute:: rule_definition
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: rule_name
-      :type: str
+      :type:  str
 
-      
 
    .. py:attribute:: violation
-      :type: str
-
-      
+      :type:  str
 
 
 .. py:function:: fix_type(v)
 
-
 .. py:function:: reverse_compile(s)
 
-
-.. py:function:: run(f, logger)
-
+.. py:function:: run(f: ifcopenshell.file, logger: logging.Logger) -> None
 
 .. py:data:: filenames
-
-   
 

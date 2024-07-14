@@ -3,6 +3,14 @@
 
 .. py:module:: ifcopenshell.api.constraint
 
+.. autoapi-nested-parse::
+
+   Constraints are an advanced feature allowing you to specify parametric
+   limits on properties
+
+   Warning: usage of constraints are mostly untested in real life applications.
+
+
 
 Submodules
 ----------
@@ -24,7 +32,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_metric(file, objective=None) -> None
+.. py:function:: add_metric(file: ifcopenshell.file, objective: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Add a new metric benchmark
 
@@ -42,18 +50,18 @@ Package Contents
 
    .. code:: python
 
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
-       metric = ifcopenshell.api.run("constraint.add_metric", model,
+       objective = ifcopenshell.api.constraint.add_objective(model)
+       metric = ifcopenshell.api.constraint.add_metric(model,
            objective=objective)
 
 
-.. py:function:: add_metric_reference(file, metric=None, reference_path=None) -> None
+.. py:function:: add_metric_reference(file: ifcopenshell.file, metric: ifcopenshell.entity_instance, reference_path: str) -> list[ifcopenshell.entity_instance]
 
    Adds a chain of references to a metric. The reference path is a string of the form "attribute.attribute.attribute"
    Used to reference a value of an attribute of an instance through a metric objective entity.
 
 
-.. py:function:: add_objective(file) -> None
+.. py:function:: add_objective(file: ifcopenshell.file) -> ifcopenshell.entity_instance
 
    Add a new objective constraint
 
@@ -71,7 +79,7 @@ Package Contents
    .. code:: python
 
        # Create a new objective for code compliance requirements
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
+       objective = ifcopenshell.api.constraint.add_objective(model)
        objective.ConstraintGrade = "ADVISORY"
        objective.ObjectiveQualifier = "CODECOMPLIANCE"
        # Note: the objective right now is purely qualitative and for
@@ -100,7 +108,7 @@ Package Contents
    :rtype: ifcopenshell.entity_instance
 
 
-.. py:function:: edit_metric(file, metric=None, attributes=None) -> None
+.. py:function:: edit_metric(file: ifcopenshell.file, metric: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edit the attributes of a metric
 
@@ -110,7 +118,7 @@ Package Contents
    :param metric: The IfcMetric you want to edit.
    :type metric: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -118,14 +126,14 @@ Package Contents
 
    .. code:: python
 
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
-       metric = ifcopenshell.api.run("constraint.add_metric", model,
+       objective = ifcopenshell.api.constraint.add_objective(model)
+       metric = ifcopenshell.api.constraint.add_metric(model,
            objective=objective)
-       ifcopenshell.api.run("constraint.edit_metric", model,
+       ifcopenshell.api.constraint.edit_metric(model,
            metric=metric, attributes={"ConstraintGrade": "HARD"})
 
 
-.. py:function:: edit_objective(file, objective=None, attributes=None) -> None
+.. py:function:: edit_objective(file: ifcopenshell.file, objective: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edit the attributes of a objective
 
@@ -135,7 +143,7 @@ Package Contents
    :param objective: The IfcObjective you want to edit.
    :type objective: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -143,12 +151,12 @@ Package Contents
 
    .. code:: python
 
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
-       ifcopenshell.api.run("constraint.edit_objective", model,
+       objective = ifcopenshell.api.constraint.add_objective(model)
+       ifcopenshell.api.constraint.edit_objective(model,
            objective=objective, attributes={"ConstraintGrade": "HARD"})
 
 
-.. py:function:: remove_constraint(file, constraint=None) -> None
+.. py:function:: remove_constraint(file: ifcopenshell.file, constraint: ifcopenshell.entity_instance) -> None
 
    Remove a constraint (typically an objective)
 
@@ -166,12 +174,12 @@ Package Contents
 
    .. code:: python
 
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
-       ifcopenshell.api.run("constraint.remove_constraint", model,
+       objective = ifcopenshell.api.constraint.add_objective(model)
+       ifcopenshell.api.constraint.remove_constraint(model,
            constraint=objective)
 
 
-.. py:function:: remove_metric(file, metric=None) -> None
+.. py:function:: remove_metric(file: ifcopenshell.file, metric: ifcopenshell.entity_instance) -> None
 
    Remove a metric benchmark
 
@@ -187,10 +195,10 @@ Package Contents
 
    .. code:: python
 
-       objective = ifcopenshell.api.run("constraint.add_objective", model)
-       metric = ifcopenshell.api.run("constraint.add_metric", model,
+       objective = ifcopenshell.api.constraint.add_objective(model)
+       metric = ifcopenshell.api.constraint.add_metric(model,
            objective=objective)
-       ifcopenshell.api.run("constraint.remove_metric", model,
+       ifcopenshell.api.constraint.remove_metric(model,
            metric=metric)
 
 

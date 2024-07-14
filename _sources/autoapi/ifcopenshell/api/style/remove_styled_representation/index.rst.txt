@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_styled_representation(file, representation=None) -> None
+.. py:function:: remove_styled_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> None
 
    Removes a styled representation
 
@@ -24,6 +24,6 @@ Module Contents
    .. code:: python
 
        # Remove a styled representation
-       ifcopenshell.api.run("style.remove_styled_representation", model, representation=representation)
+       ifcopenshell.api.style.remove_styled_representation(model, representation=representation)
 
 

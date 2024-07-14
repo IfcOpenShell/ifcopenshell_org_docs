@@ -9,27 +9,15 @@ Module Contents
 
 .. py:function:: get_applicable_entities(ifc_type_class: str, schema='IFC4') -> List[str]
 
-
 .. py:function:: get_applicable_types(ifc_class: str, schema='IFC4') -> List[str]
-
 
 .. py:data:: cwd
 
-   
-
 .. py:data:: entity_to_type_map
-
-   
 
 .. py:data:: mapped_schemas
 
-   
-
 .. py:data:: schema_path
 
-   
-
 .. py:data:: type_to_entity_map
-
-   
 

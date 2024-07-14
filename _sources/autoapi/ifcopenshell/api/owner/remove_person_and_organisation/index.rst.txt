@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_person_and_organisation(file, person_and_organisation=None) -> None
+.. py:function:: remove_person_and_organisation(file: ifcopenshell.file, person_and_organisation: ifcopenshell.entity_instance) -> None
 
    Removes a person and organisation
 
@@ -23,14 +23,14 @@ Module Contents
 
    .. code:: python
 
-       person = ifcopenshell.api.run("owner.add_person", model,
+       person = ifcopenshell.api.owner.add_person(model,
            identification="lecorbycorbycorb", family_name="Curbosiar", given_name="Le")
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
 
-       user = ifcopenshell.api.run("owner.add_person_and_organisation", model,
+       user = ifcopenshell.api.owner.add_person_and_organisation(model,
            person=person, organisation=organisation)
 
-       ifcopenshell.api.run("owner.remove_person_and_organisation", model, person_and_organisation=user)
+       ifcopenshell.api.owner.remove_person_and_organisation(model, person_and_organisation=user)
 
 

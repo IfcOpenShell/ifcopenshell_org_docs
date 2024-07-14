@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: calculate_resource_work(file, resource=None) -> None
+.. py:function:: calculate_resource_work(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
 
    Calculates the work that a resource is used for
 

@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, elevation=0)
 
-
    
    Sets the reference elevation of all IfcSites
 
@@ -31,10 +30,10 @@ Module Contents
        # All IfcSites will have their reference elevation set to 42.
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "SetRefElevation", "arguments": [42]})
 
+
    .. py:method:: find_decomposed_ifc_class(element, ifc_class)
 
 
    .. py:method:: patch()
-
 
 

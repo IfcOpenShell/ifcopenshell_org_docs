@@ -14,51 +14,7 @@ Module Contents
 
 .. py:class:: TopicHandler(topic_dir: Optional[zipfile.Path] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None)
 
-
    BCF Topic and related objects handler.
-
-   .. py:property:: bim_snippet
-      :type: Optional[bytes]
-
-
-   .. py:property:: comments
-      :type: list[bcf.v2.model.Comment]
-
-      Return the comments of the topic.
-
-
-   .. py:property:: document_references
-      :type: dict[str, bytes]
-
-
-   .. py:property:: guid
-      :type: str
-
-      Return the GUID of the topic.
-
-
-   .. py:property:: header
-      :type: Optional[bcf.v2.model.Header]
-
-      Return the header of the topic.
-
-
-   .. py:property:: markup
-      :type: Optional[bcf.v2.model.Markup]
-
-
-   .. py:property:: reference_files
-      :type: dict[str, bytes]
-
-
-   .. py:property:: topic
-      :type: bcf.v2.model.Topic
-
-      Return the Topic object.
-
-
-   .. py:property:: viewpoints
-      :type: dict[str, bcf.v2.visinfo.VisualizationInfoHandler]
 
 
    .. py:method:: add_viewpoint(element: ifcopenshell.entity_instance) -> None
@@ -67,6 +23,7 @@ Module Contents
 
       Args:
           element: The IFC element.
+
 
 
    .. py:method:: add_viewpoint_from_point_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str) -> None
@@ -78,11 +35,13 @@ Module Contents
           guids: one or more element GlobalIds.
 
 
+
    .. py:method:: add_visinfo_handler(new_viewpoint: bcf.v2.visinfo.VisualizationInfoHandler) -> None
 
 
    .. py:method:: create_new(title: str, description: str, author: str, topic_type: str = '', topic_status: str = '', xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> TopicHandler
       :classmethod:
+
 
       Create a new BCF topic.
 
@@ -96,6 +55,7 @@ Module Contents
 
       Returns:
           The BCF topic definition.
+
 
 
    .. py:method:: extract_file(entity, outfile: Optional[pathlib.Path] = None) -> pathlib.Path
@@ -117,12 +77,66 @@ Module Contents
       :rtype: Path
 
 
+
    .. py:method:: save(destination_zip: bcf.inmemory_zipfile.ZipFileInterface) -> None
 
       Save the topic to a BCF zip file.
 
       Args:
           bcf_zip: The BCF zip file to save to.
+
+
+
+   .. py:property:: bim_snippet
+      :type: Optional[bytes]
+
+
+
+   .. py:property:: comments
+      :type: list[bcf.v2.model.Comment]
+
+      Return the comments of the topic.
+
+
+
+   .. py:property:: document_references
+      :type: dict[str, bytes]
+
+
+
+   .. py:property:: guid
+      :type: str
+
+      Return the GUID of the topic.
+
+
+
+   .. py:property:: header
+      :type: Optional[bcf.v2.model.Header]
+
+      Return the header of the topic.
+
+
+
+   .. py:property:: markup
+      :type: Optional[bcf.v2.model.Markup]
+
+
+
+   .. py:property:: reference_files
+      :type: dict[str, bytes]
+
+
+
+   .. py:property:: topic
+      :type: bcf.v2.model.Topic
+
+      Return the Topic object.
+
+
+
+   .. py:property:: viewpoints
+      :type: dict[str, bcf.v2.visinfo.VisualizationInfoHandler]
 
 
 

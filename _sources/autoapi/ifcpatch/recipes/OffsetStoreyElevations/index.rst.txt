@@ -9,7 +9,6 @@ Module Contents
 
 .. py:class:: Patcher(src, file, logger, z=None)
 
-
    
    Offset building storeys by a particular Z value
 
@@ -25,10 +24,10 @@ Module Contents
        # Shift all storeys up by 42 units
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "OffsetStoreyElevations", "arguments": [42]})
 
+
    .. py:method:: find_decomposed_ifc_class(element, ifc_class)
 
 
    .. py:method:: patch()
-
 
 

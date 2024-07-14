@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_work_plan(file, name=None, predefined_type='NOTDEFINED', start_time=None) -> None
+.. py:function:: add_work_plan(file: ifcopenshell.file, name: Optional[str] = None, predefined_type: str = 'NOTDEFINED', start_time: Optional[Union[str, datetime.time]] = None) -> ifcopenshell.entity_instance
 
    Add a new work plan
 
@@ -35,10 +35,10 @@ Module Contents
    .. code:: python
 
        # This will hold all our construction schedules
-       work_plan = ifcopenshell.api.run("sequence.add_work_plan", model, name="Construction")
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
 
        # This is one of our schedules in our work plan.
-       schedule = ifcopenshell.api.run("sequence.add_work_schedule", model,
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model,
            name="Construction Schedule A", work_plan=work_plan)
 
 

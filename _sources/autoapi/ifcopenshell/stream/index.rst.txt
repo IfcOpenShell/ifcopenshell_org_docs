@@ -9,8 +9,8 @@ Module Contents
 
 .. py:class:: StreamTransformer
 
-
    Bases: :py:obj:`lark.Transformer`
+
 
    .. py:method:: arg(items)
 
@@ -46,6 +46,5 @@ Module Contents
 
 
    .. py:method:: string(items)
-
 
 

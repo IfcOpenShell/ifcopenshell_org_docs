@@ -9,11 +9,13 @@ Module Contents
 
 .. py:class:: PsetTemplatesGenerator
 
-
    .. py:method:: add_prop_type_params_to_prop(pset_type, pdef, pset_property, property_type_tag)
 
 
    .. py:method:: get_property_from_pdef(pset_name, pset_type, pdef)
+
+
+   .. py:method:: get_pset_template_type_ifc2x3(pset_template: ifcopenshell.entity_instance) -> str
 
 
    .. py:method:: get_unit(unit_type)
@@ -31,37 +33,19 @@ Module Contents
    .. py:method:: parse_psets_data(schema_name, pset_data_glob, project_name, ifc_output_path)
 
 
-
 .. py:data:: BASE_MODULE_PATH
-
-   
 
 .. py:data:: IFC2x3_HTML_ZIP_LOCATION
 
-   
-
 .. py:data:: IFC2x3_OUTPUT_PATH
 
-   
-
-.. py:data:: IFC4x3_HTML_LOCATION
-
-   
-
-.. py:data:: IFC4x3_OUTPUT_PATH
-
-   
+.. py:data:: IFC4x3_HTML_ZIP_LOCATION
 
 .. py:data:: PROPERTY_TYPES_DICT
-
-   
 
 .. py:data:: RUN_FROM_DEV_REPO
    :value: False
 
-   
 
 .. py:data:: templates_generator
-
-   
 

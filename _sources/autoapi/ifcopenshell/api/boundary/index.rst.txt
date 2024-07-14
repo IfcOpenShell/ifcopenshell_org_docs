@@ -8,6 +8,9 @@
    Boundaries are primarily used for representing virtual interfaces between
    spaces for energy analysis.
 
+   Boundaries may be associated with spaces or physical elements that enclose
+   spaces such as walls, doors, and windows.
+
 
 
 Submodules
@@ -25,7 +28,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: assign_connection_geometry(file, rel_space_boundary=None, outer_boundary=None, inner_boundaries=None, location=None, axis=None, ref_direction=None, unit_scale=None) -> None
+.. py:function:: assign_connection_geometry(file: ifcopenshell.file, rel_space_boundary: ifcopenshell.entity_instance, outer_boundary: list[tuple[float, float]], location: tuple[float, float, float], axis: tuple[float, float, float], ref_direction: tuple[float, float, float], inner_boundaries: Optional[list[list[tuple[float, float]]]] = None, unit_scale: Optional[float] = None) -> None
 
    Create and assign a connection geometry to a space boundary relationship
 
@@ -42,24 +45,24 @@ Package Contents
        polyline.  The last point will connect to the first point. Each
        point is represented by an interable of 2 floats. The coordinates of
        the points are relative to the positional matrix arguments.
-   :type outer_boundary: list[list[float]]
+   :type outer_boundary: list[tuple[float, float]]
    :param inner_boundaries: A list of zero or more inner boundaries to use
        for the plane. Each boundary is represented by an open polyline, as
        defined by the outer_boundary argument.
-   :type inner_boundaries: list[list[list[float]]], optional
+   :type inner_boundaries: list[list[tuple[float, float]]], optional
    :param location: The local origin of the connection geometry, defined as
        an XYZ coordinate relative to the placement of the space that is
        being bounded.
-   :type location: list[float]
+   :type location: tuple[float, float, float]
    :param axis: The local X axis of the connection geometry, defined as an
        XYZ vector relative to the placement of the space that is being
        bounded.
-   :type axis: list[float]
+   :type axis: tuple[float, float, float]
    :param ref_direction: The local Z axis of the connection geometry,
        defined as an XYZ vector relative to the placement of the space that
        is being bounded. The Y vector is automatically derived using the
        right hand rule.
-   :type ref_direction: list[float]
+   :type ref_direction: tuple[float, float, float]
    :param unit_scale: The unit scale as calculated by
        ifcopenshell.util.unit.calculate_unit_scale. If not provided, it
        will be automatically calculated for you.
@@ -71,33 +74,33 @@ Package Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("boundary.assign_connection_geometry", model,
+       ifcopenshell.api.boundary.assign_connection_geometry(model,
            rel_space_boundary=element,
            outer_boundary=[(0., 0.), (1., 0.), (1., 1.), (0., 1.)],
            location=[0., 0., 0.], axis=[1., 0., 0.], ref_direction=[0., 0., 1.],
            )
 
 
-.. py:function:: copy_boundary(file, boundary=None) -> None
+.. py:function:: copy_boundary(file: ifcopenshell.file, boundary: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Copies a space boundary
 
    :param boundary: The IfcRelSpaceBoundary you want to copy.
    :type boundary: ifcopenshell.entity_instance
-   :return: None
-   :rtype: None
+   :return: Duplicate of the IfcRelSpaceBoundary
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
        # A boring boundary with no geometry. Note that this boundary is
        # invalid and does not relate to any space or building element.
-       boundary = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcRelSpaceBoundary")
+       boundary = ifcopenshell.api.root.create_entity(model, ifc_class="IfcRelSpaceBoundary")
 
        # And now we have two
-       boundary_copy = ifcopenshell.api.run("boundary.copy_boundary", model, boundary=boundary)
+       boundary_copy = ifcopenshell.api.boundary.copy_boundary(model, boundary=boundary)
 
 
-.. py:function:: edit_attributes(file, entity=None, relating_space=None, related_building_element=None, parent_boundary=None, corresponding_boundary=None) -> None
+.. py:function:: edit_attributes(file: ifcopenshell.file, entity: ifcopenshell.entity_instance, relating_space: ifcopenshell.entity_instance, related_building_element: ifcopenshell.entity_instance, parent_boundary: Optional[ifcopenshell.entity_instance] = None, corresponding_boundary: Optional[ifcopenshell.entity_instance] = None) -> None
 
    Modify the relationships of a space boundary relationship
 
@@ -126,7 +129,7 @@ Package Contents
    :rtype: None
 
 
-.. py:function:: remove_boundary(file, boundary=None) -> None
+.. py:function:: remove_boundary(file: ifcopenshell.file, boundary: ifcopenshell.entity_instance) -> None
 
    Removes a space boundary
 
@@ -142,9 +145,9 @@ Package Contents
 
        # A boring boundary with no geometry. Note that this boundary is
        # invalid and does not relate to any space or building element.
-       boundary = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcRelSpaceBoundary")
+       boundary = ifcopenshell.api.root.create_entity(model, ifc_class="IfcRelSpaceBoundary")
 
        # Let's remove it!
-       ifcopenshell.api.run("boundary.remove_boundary", model, boundary=boundary)
+       ifcopenshell.api.boundary.remove_boundary(model, boundary=boundary)
 
 

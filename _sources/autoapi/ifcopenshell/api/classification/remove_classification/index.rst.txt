@@ -9,15 +9,13 @@ Module Contents
 
 .. py:class:: Usecase
 
-
    .. py:method:: execute()
 
 
-   .. py:method:: get_references(classification)
+   .. py:method:: get_references(classification: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
 
-
-.. py:function:: remove_classification(file: ifcopenshell.entity_instance, classification: ifcopenshell.entity_instance) -> None
+.. py:function:: remove_classification(file: ifcopenshell.file, classification: ifcopenshell.entity_instance) -> None
 
    Removes an IfcClassification from the project and all references
 
@@ -35,7 +33,7 @@ Module Contents
    .. code:: python
 
        classification = model.by_type("IfcClassification")[0]
-       ifcopenshell.api.run("classification.remove_classification", model,
+       ifcopenshell.api.classification.remove_classification(model,
            classification=classification)
 
 

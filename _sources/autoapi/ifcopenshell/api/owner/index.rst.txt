@@ -3,6 +3,16 @@
 
 .. py:module:: ifcopenshell.api.owner
 
+.. autoapi-nested-parse::
+
+   An element may have an owner, indicating who is responsible, liable, or
+   contactable regarding that element
+
+   Note that in IFC2X3, element ownership is mandatory and must be addressed prior
+   to the creation of any element at all. See :func:`create_owner_history` for
+   examples.
+
+
 
 Submodules
 ----------
@@ -39,7 +49,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_actor(file, actor=None, ifc_class='IfcActor') -> None
+.. py:function:: add_actor(file: ifcopenshell.file, actor: ifcopenshell.entity_instance, ifc_class: ACTOR_TYPE = 'IfcActor') -> ifcopenshell.entity_instance
 
    Adds a new actor
 
@@ -71,15 +81,15 @@ Package Contents
    .. code:: python
 
        # Setup an organisation with a single role
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       role = ifcopenshell.api.run("owner.add_role", model, assigned_object=organisation, role="ARCHITECT")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="ARCHITECT")
 
        # Assign that organisation to a newly created actor
-       actor = ifcopenshell.api.run("owner.add_actor", model, actor=organisation)
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
 
 
-.. py:function:: add_address(file, assigned_object=None, ifc_class='IfcPostalAddress') -> None
+.. py:function:: add_address(file: ifcopenshell.file, assigned_object: ifcopenshell.entity_instance, ifc_class: ADDRESS_TYPE = 'IfcPostalAddress') -> ifcopenshell.entity_instance
 
    Add a new telecom or postal address to an organisation or person
 
@@ -106,25 +116,25 @@ Package Contents
 
    .. code:: python
 
-       organisation = ifcopenshell.api.run("owner.add_organisation", model)
+       organisation = ifcopenshell.api.owner.add_organisation(model)
 
        # A snail mail address
-       postal = ifcopenshell.api.run("owner.add_address", model,
+       postal = ifcopenshell.api.owner.add_address(model,
            assigned_object=organisation, ifc_class="IfcPostalAddress")
-       ifcopenshell.api.run("owner.edit_address", model, address=postal,
+       ifcopenshell.api.owner.edit_address(model, address=postal,
            attributes={"Purpose": "OFFICE", "AddressLines": ["42 Wallaby Way"],
            "Town": "Sydney", "Region": "NSW", "PostalCode": "2000"})
 
        # A phone or internet address
-       telecom = ifcopenshell.api.run("owner.add_address", model,
+       telecom = ifcopenshell.api.owner.add_address(model,
            assigned_object=organisation, ifc_class="IfcTelecomAddress")
-       ifcopenshell.api.run("owner.edit_address", model, address=telecom,
+       ifcopenshell.api.owner.edit_address(model, address=telecom,
            attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
            "ElectronicMailAddresses": ["bobthebuilder@example.com"],
            "WWWHomePageURL": "https://thinkmoult.com"})
 
 
-.. py:function:: add_application(file, application_developer=None, version=None, application_full_name='IfcOpenShell', application_identifier='IfcOpenShell') -> None
+.. py:function:: add_application(file: ifcopenshell.file, application_developer: Optional[ifcopenshell.entity_instance] = None, version: Optional[str] = None, application_full_name: str = 'IfcOpenShell', application_identifier: str = 'IfcOpenShell') -> ifcopenshell.entity_instance
 
    Adds a new application
 
@@ -146,12 +156,14 @@ Package Contents
    :param application_identifier: An identification string for the
        application intended for computers to read.
    :type application_identifier: str, optional
+   :return: The newly created IfcApplication
+   :rtype: ifcopenshell.entity_instance
 
    Example:
 
    .. code:: python
 
-       application = ifcopenshell.api.run("owner.add_application", model)
+       application = ifcopenshell.api.owner.add_application(model)
 
 
 .. py:function:: add_organisation(file: ifcopenshell.file, identification: str = 'APTR', name: str = 'Aperture Science') -> ifcopenshell.entity_instance
@@ -176,11 +188,11 @@ Package Contents
 
    .. code:: python
 
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
 
 
-.. py:function:: add_person(file: ifcopenshell.entity_instance, identification: str = 'HSeldon', family_name: str = 'Seldon', given_name: str = 'Hari') -> None
+.. py:function:: add_person(file: ifcopenshell.file, identification: str = 'HSeldon', family_name: str = 'Seldon', given_name: str = 'Hari') -> ifcopenshell.entity_instance
 
    Adds a new person
 
@@ -201,11 +213,11 @@ Package Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("owner.add_person", model,
+       ifcopenshell.api.owner.add_person(model,
            identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
 
 
-.. py:function:: add_person_and_organisation(file: ifcopenshell.entity_instance, person: ifcopenshell.entity_instance, organisation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: add_person_and_organisation(file: ifcopenshell.file, person: ifcopenshell.entity_instance, organisation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Adds a paired person and organisation
 
@@ -224,16 +236,16 @@ Package Contents
 
    .. code:: python
 
-       person = ifcopenshell.api.run("owner.add_person", model,
+       person = ifcopenshell.api.owner.add_person(model,
            identification="lecorbycorbycorb", family_name="Curbosiar", given_name="Le")
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
 
-       ifcopenshell.api.run("owner.add_person_and_organisation", model,
+       ifcopenshell.api.owner.add_person_and_organisation(model,
            person=person, organisation=organisation)
 
 
-.. py:function:: add_role(file, assigned_object=None, role='ARCHITECT') -> None
+.. py:function:: add_role(file: ifcopenshell.file, assigned_object: ifcopenshell.entity_instance, role: str = 'ARCHITECT') -> ifcopenshell.entity_instance
 
    Adds and assigns a new role
 
@@ -249,7 +261,7 @@ Package Contents
        be assigned to.
    :type assigned_object: ifcopenshell.entity_instance
    :param role: The type of role, taken from the IFC documentation for
-       IfcActorRole, or a custom name.
+       IfcActorRole, or a custom name. Defaults to "ARCHITECT".
    :type role: str, optional
    :return: The newly created IfcActorRole
    :rtype: ifcopenshell.entity_instance
@@ -258,12 +270,12 @@ Package Contents
 
    .. code:: python
 
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       ifcopenshell.api.run("owner.add_role", model, assigned_object=organisation, role="ARCHITECT")
+       ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="ARCHITECT")
 
 
-.. py:function:: assign_actor(file, relating_actor=None, related_object=None) -> None
+.. py:function:: assign_actor(file: ifcopenshell.file, relating_actor: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Assigns an actor to an object
 
@@ -295,28 +307,28 @@ Package Contents
    .. code:: python
 
        # We need to procure and install 2 of this particular pump type in our facility.
-       pump_type = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcPumpType")
+       pump_type = ifcopenshell.api.root.create_entity(model, ifc_class="IfcPumpType")
 
        # Define who the manufacturer is
-       manufacturer = ifcopenshell.api.run("owner.add_organisation", model,
+       manufacturer = ifcopenshell.api.owner.add_organisation(model,
            identification="PWP", name="Pumps With Power")
-       ifcopenshell.api.run("owner.add_role", model, assigned_object=manufacturer, role="MANUFACTURER")
+       ifcopenshell.api.owner.add_role(model, assigned_object=manufacturer, role="MANUFACTURER")
 
        # To help our facility manager, it's nice to provide contact details
        # of the manufacturer so they know how to call when the pump breaks.
-       telecom = ifcopenshell.api.run("owner.add_address", model,
+       telecom = ifcopenshell.api.owner.add_address(model,
            assigned_object=organisation, ifc_class="IfcTelecomAddress")
-       ifcopenshell.api.run("owner.edit_address", model, address=telecom,
+       ifcopenshell.api.owner.edit_address(model, address=telecom,
            attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
            "ElectronicMailAddresses": ["contact@example.com"],
            "WWWHomePageURL": "https://example.com"})
 
        # Make the manufacturer responsible for that pump type.
-       ifcopenshell.api.run("owner.assign_actor", model,
+       ifcopenshell.api.owner.assign_actor(model,
            relating_actor=manufacturer, related_object=pump_type)
 
 
-.. py:function:: create_owner_history(file: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: create_owner_history(file: ifcopenshell.file) -> Union[ifcopenshell.entity_instance, None]
 
    Creates a new owner history indicating an element was added
 
@@ -366,16 +378,16 @@ Package Contents
        # its own fully branded application. In this case, let's use the
        # default application which is prepopulated with "IfcOpenShell" as
        # the name and version.
-       application = ifcopenshell.api.run("owner.add_application", model)
+       application = ifcopenshell.api.owner.add_application(model)
 
        # Let's imagine we run this as an automated QA process in an
        # architectural firm. However, the results must be signed off by the
        # registered architect who is liable for the project.
-       person = ifcopenshell.api.run("owner.add_person", model,
+       person = ifcopenshell.api.owner.add_person(model,
            identification="LPARTEE", family_name="Partee", given_name="Leeable")
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       user = ifcopenshell.api.run("owner.add_person_and_organisation", model,
+       user = ifcopenshell.api.owner.add_person_and_organisation(model,
            person=person, organisation=organisation)
 
        # Let's configure our owner settings to hardcode always returning
@@ -389,11 +401,11 @@ Package Contents
        # create_owner_history at all. This is already automatically handled
        # by the API when necessary. Under the hood, the API is actually
        # running this code on the IfcSpace element:
-       # element.OwnerHistory = ifcopenshell.api.run("owner.create_owner_history", model)
-       space = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcSpace")
+       # element.OwnerHistory = ifcopenshell.api.owner.create_owner_history(model)
+       space = ifcopenshell.api.root.create_entity(model, ifc_class="IfcSpace")
 
 
-.. py:function:: edit_actor(file, actor=None, attributes=None) -> None
+.. py:function:: edit_actor(file: ifcopenshell.file, actor: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcActor
 
@@ -403,7 +415,7 @@ Package Contents
    :param actor: The IfcActor entity you want to edit
    :type actor: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -412,20 +424,20 @@ Package Contents
    .. code:: python
 
        # Setup an organisation with a single role
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       role = ifcopenshell.api.run("owner.add_role", model, assigned_object=organisation)
-       ifcopenshell.api.run("owner.edit_role", model, role=role, attributes={"Role": "ARCHITECT"})
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation)
+       ifcopenshell.api.owner.edit_role(model, role=role, attributes={"Role": "ARCHITECT"})
 
        # Assign that organisation to a newly created actor
-       actor = ifcopenshell.api.run("owner.add_actor", model, actor=organisation)
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
 
        # Edit the description of the attribute.
-       ifcopenshell.api.run("actor.edit_actor", model,
+       ifcopenshell.api.actor.edit_actor(model,
            actor=actor, attributes={"Description": "Responsible for buildings A, B, and C."})
 
 
-.. py:function:: edit_address(file, address=None, attributes=None) -> None
+.. py:function:: edit_address(file: ifcopenshell.file, address: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcAddress
 
@@ -435,7 +447,7 @@ Package Contents
    :param address: The IfcAddress entity you want to edit
    :type address: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -444,22 +456,22 @@ Package Contents
    .. code:: python
 
        # A snail mail address
-       postal = ifcopenshell.api.run("owner.add_address", model,
+       postal = ifcopenshell.api.owner.add_address(model,
            assigned_object=organisation, ifc_class="IfcPostalAddress")
-       ifcopenshell.api.run("owner.edit_address", model, address=postal,
+       ifcopenshell.api.owner.edit_address(model, address=postal,
            attributes={"Purpose": "OFFICE", "AddressLines": ["42 Wallaby Way"],
            "Town": "Sydney", "Region": "NSW", "PostalCode": "2000"})
 
        # A phone or internet address
-       telecom = ifcopenshell.api.run("owner.add_address", model,
+       telecom = ifcopenshell.api.owner.add_address(model,
            assigned_object=organisation, ifc_class="IfcTelecomAddress")
-       ifcopenshell.api.run("owner.edit_address", model, address=telecom,
+       ifcopenshell.api.owner.edit_address(model, address=telecom,
            attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
            "ElectronicMailAddresses": ["bobthebuilder@example.com"],
            "WWWHomePageURL": "https://thinkmoult.com"})
 
 
-.. py:function:: edit_organisation(file, organisation=None, attributes=None) -> None
+.. py:function:: edit_organisation(file: ifcopenshell.file, organisation: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcOrganization
 
@@ -469,7 +481,7 @@ Package Contents
    :param organisation: The IfcOrganization entity you want to edit
    :type organisation: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -477,13 +489,13 @@ Package Contents
 
    .. code:: python
 
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects With Ballpens")
-       ifcopenshell.api.run("owner.edit_organisation", model, organisation=organisation,
+       ifcopenshell.api.owner.edit_organisation(model, organisation=organisation,
            attributes={"name": "Architects Without Ballpens"})
 
 
-.. py:function:: edit_person(file, person=None, attributes=None) -> None
+.. py:function:: edit_person(file: ifcopenshell.file, person: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcPerson
 
@@ -493,7 +505,7 @@ Package Contents
    :param person: The IfcPerson entity you want to edit
    :type person: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -501,13 +513,13 @@ Package Contents
 
    .. code:: python
 
-       person = ifcopenshell.api.run("owner.add_person", model,
+       person = ifcopenshell.api.owner.add_person(model,
            identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
-       ifcopenshell.api.run("owner.edit_person", model, person=person,
+       ifcopenshell.api.owner.edit_person(model, person=person,
            attributes={"MiddleNames": ["The"], "FamilyName": "Builder"})
 
 
-.. py:function:: edit_role(file, role=None, attributes=None) -> None
+.. py:function:: edit_role(file: ifcopenshell.file, role: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
 
    Edits the attributes of an IfcActorRole
 
@@ -517,7 +529,7 @@ Package Contents
    :param role: The IfcActorRole entity you want to edit
    :type role: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
+   :type attributes: dict
    :return: None
    :rtype: None
 
@@ -525,17 +537,17 @@ Package Contents
 
    .. code:: python
 
-       person = ifcopenshell.api.run("owner.add_person", model,
+       person = ifcopenshell.api.owner.add_person(model,
            identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
 
        # By default, the role is an architect
-       role = ifcopenshell.api.run("owner.add_role", model, assigned_object=person)
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=person)
 
        # But Bob is not an architect
-       ifcopenshell.api.run("owner.edit_role", model, role=role, attributes={"Role": "CONSTRUCTIONMANAGER"})
+       ifcopenshell.api.owner.edit_role(model, role=role, attributes={"Role": "CONSTRUCTIONMANAGER"})
 
 
-.. py:function:: remove_actor(file, actor=None) -> None
+.. py:function:: remove_actor(file: ifcopenshell.file, actor: ifcopenshell.entity_instance) -> None
 
    Removes an actor
 
@@ -549,19 +561,19 @@ Package Contents
    .. code:: python
 
        # Setup an organisation with a single role
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       role = ifcopenshell.api.run("owner.add_role", model, assigned_object=organisation)
-       ifcopenshell.api.run("owner.edit_role", model, role=role, attributes={"Role": "ARCHITECT"})
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation)
+       ifcopenshell.api.owner.edit_role(model, role=role, attributes={"Role": "ARCHITECT"})
 
        # Assign that organisation to a newly created actor
-       actor = ifcopenshell.api.run("owner.add_actor", model, actor=organisation)
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
 
        # Actually we need ballpens on this project
-       ifcopenshell.api.run("owner.remove_actor", model, actor=actor)
+       ifcopenshell.api.owner.remove_actor(model, actor=actor)
 
 
-.. py:function:: remove_address(file, address=None) -> None
+.. py:function:: remove_address(file: ifcopenshell.file, address: ifcopenshell.entity_instance) -> None
 
    Removes an address
 
@@ -577,15 +589,15 @@ Package Contents
 
    .. code:: python
 
-       organisation = ifcopenshell.api.run("owner.add_organisation", model)
-       address = ifcopenshell.api.run("owner.add_address", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model)
+       address = ifcopenshell.api.owner.add_address(model,
            assigned_object=organisation, ifc_class="IfcPostalAddress")
 
        # Change our mind and delete it
-       ifcopenshell.api.run("owner.remove_address", model, address=address)
+       ifcopenshell.api.owner.remove_address(model, address=address)
 
 
-.. py:function:: remove_application(file, application=None) -> None
+.. py:function:: remove_application(file: ifcopenshell.file, application: ifcopenshell.entity_instance) -> None
 
    Removes an application
 
@@ -601,11 +613,11 @@ Package Contents
 
    .. code:: python
 
-       application = ifcopenshell.api.run("owner.add_application", model)
-       ifcopenshell.api.run("owner.remove_address", model, application=application)
+       application = ifcopenshell.api.owner.add_application(model)
+       ifcopenshell.api.owner.remove_address(model, application=application)
 
 
-.. py:function:: remove_organisation(file, organisation=None) -> None
+.. py:function:: remove_organisation(file: ifcopenshell.file, organisation: ifcopenshell.entity_instance) -> None
 
    Remove an organisation
 
@@ -621,17 +633,19 @@ Package Contents
 
    .. code:: python
 
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       ifcopenshell.api.run("owner.remove_organisation", model, organisation=organisation)
+       ifcopenshell.api.owner.remove_organisation(model, organisation=organisation)
 
 
-.. py:function:: remove_person(file, person=None) -> None
+.. py:function:: remove_person(file: ifcopenshell.file, person: ifcopenshell.entity_instance) -> None
 
    Remove an person
 
    All roles and addresses assigned to the person will also be
    removed.
+   In IFC2X3 will also remove related inventories if `person` was
+   the only responsile person for them.
 
    :param person: The IfcPerson to remove
    :type person: ifcopenshell.entity_instance
@@ -642,12 +656,12 @@ Package Contents
 
    .. code:: python
 
-       ifcopenshell.api.run("owner.add_person", model,
+       ifcopenshell.api.owner.add_person(model,
            identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
-       ifcopenshell.api.run("owner.remove_person", model, person=person)
+       ifcopenshell.api.owner.remove_person(model, person=person)
 
 
-.. py:function:: remove_person_and_organisation(file, person_and_organisation=None) -> None
+.. py:function:: remove_person_and_organisation(file: ifcopenshell.file, person_and_organisation: ifcopenshell.entity_instance) -> None
 
    Removes a person and organisation
 
@@ -663,18 +677,18 @@ Package Contents
 
    .. code:: python
 
-       person = ifcopenshell.api.run("owner.add_person", model,
+       person = ifcopenshell.api.owner.add_person(model,
            identification="lecorbycorbycorb", family_name="Curbosiar", given_name="Le")
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
 
-       user = ifcopenshell.api.run("owner.add_person_and_organisation", model,
+       user = ifcopenshell.api.owner.add_person_and_organisation(model,
            person=person, organisation=organisation)
 
-       ifcopenshell.api.run("owner.remove_person_and_organisation", model, person_and_organisation=user)
+       ifcopenshell.api.owner.remove_person_and_organisation(model, person_and_organisation=user)
 
 
-.. py:function:: remove_role(file, role=None) -> None
+.. py:function:: remove_role(file: ifcopenshell.file, role: ifcopenshell.entity_instance) -> None
 
    Removes a role
 
@@ -690,15 +704,15 @@ Package Contents
 
    .. code:: python
 
-       organisation = ifcopenshell.api.run("owner.add_organisation", model,
+       organisation = ifcopenshell.api.owner.add_organisation(model,
            identification="AWB", name="Architects Without Ballpens")
-       role = ifcopenshell.api.run("owner.add_role", model, assigned_object=organisation, role="ARCHITECT")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="ARCHITECT")
 
        # After running this, the organisation will have no role again
-       ifcopenshell.api.run("owner.remove_role", model, role=role)
+       ifcopenshell.api.owner.remove_role(model, role=role)
 
 
-.. py:function:: unassign_actor(file, relating_actor=None, related_object=None) -> None
+.. py:function:: unassign_actor(file: ifcopenshell.file, relating_actor: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> None
 
    Unassigns an actor to an object
 
@@ -708,28 +722,27 @@ Package Contents
    :type relating_actor: ifcopenshell.entity_instance
    :param related_object: The object the actor is responsible for.
    :type related_object: ifcopenshell.entity_instance
-   :return: The updated IfcRelAssignsToActor relationship or none if there
-       is no more valid relationship.
-   :rtype: None, ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
 
    Example:
 
    .. code:: python
 
        # We need to procure and install 2 of this particular pump type in our facility.
-       pump_type = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcPumpType")
+       pump_type = ifcopenshell.api.root.create_entity(model, ifc_class="IfcPumpType")
 
        # Define who the manufacturer is
-       manufacturer = ifcopenshell.api.run("owner.add_organisation", model,
+       manufacturer = ifcopenshell.api.owner.add_organisation(model,
            identification="PWP", name="Pumps With Power")
-       ifcopenshell.api.run("owner.add_role", model, assigned_object=manufacturer, role="MANUFACTURER")
+       ifcopenshell.api.owner.add_role(model, assigned_object=manufacturer, role="MANUFACTURER")
 
        # Make the manufacturer responsible for that pump type.
-       ifcopenshell.api.run("owner.assign_actor", model,
+       ifcopenshell.api.owner.assign_actor(model,
            relating_actor=manufacturer, related_object=pump_type)
 
        # Undo the assignment
-       ifcopenshell.api.run("owner.unassign_actor", model,
+       ifcopenshell.api.owner.unassign_actor(model,
            relating_actor=manufacturer, related_object=pump_type)
 
 
@@ -759,12 +772,12 @@ Package Contents
        # create_owner_history at all. This is already automatically handled
        # by the API when necessary. Under the hood, the API is actually
        # running this code on the IfcSpace element:
-       # element.OwnerHistory = ifcopenshell.api.run("owner.create_owner_history", model)
-       space = ifcopenshell.api.run("root.create_entity", model, ifc_class="IfcSpace")
+       # element.OwnerHistory = ifcopenshell.api.owner.create_owner_history(model)
+       space = ifcopenshell.api.root.create_entity(model, ifc_class="IfcSpace")
 
        # Any edits we make will have ownership tracking automatically
        # applied. There is no need to run any owner.update_owner_history
        # API calls either.
-       ifcopenshell.api.run("attribute.edit_attributes", model, product=space, attributes={"Name": "Lobby"})
+       ifcopenshell.api.attribute.edit_attributes(model, product=space, attributes={"Name": "Lobby"})
 
 

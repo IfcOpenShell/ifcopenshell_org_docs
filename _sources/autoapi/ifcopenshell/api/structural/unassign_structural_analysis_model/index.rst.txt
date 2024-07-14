@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: unassign_structural_analysis_model(file, product=None, structural_analysis_model=None) -> None
+.. py:function:: unassign_structural_analysis_model(file: ifcopenshell.file, product: ifcopenshell.entity_instance, structural_analysis_model: ifcopenshell.entity_instance) -> None
 
    Removes a relationship between a structural element and the analysis model
 

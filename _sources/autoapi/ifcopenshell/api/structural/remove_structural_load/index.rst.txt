@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_structural_load(file, structural_load=None) -> None
+.. py:function:: remove_structural_load(file: ifcopenshell.file, structural_load: ifcopenshell.entity_instance) -> None
 
    Removes a structural load
 
