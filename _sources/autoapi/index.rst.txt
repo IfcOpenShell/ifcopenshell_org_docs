@@ -7,5 +7,13 @@ This page contains auto-generated API reference documentation [#f1]_.
    :titlesonly:
    :maxdepth: 1
 
+   /autoapi/bcf/index
+   /autoapi/bsdd/index
+   /autoapi/ifccsv/index
+   /autoapi/ifcdiff/index
+   /autoapi/ifcpatch/index
+   /autoapi/test_bsdd/index
+   /autoapi/ifctester/index
+   /autoapi/ifcopenshell/index
 
 .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_
