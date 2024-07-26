@@ -71,6 +71,15 @@ Module Contents
 
 
 
+   .. py:attribute:: context
+
+
+   .. py:attribute:: parser
+
+
+   .. py:attribute:: serializer
+
+
 .. py:function:: build_serializer(context: Optional[xsdata.formats.dataclass.context.XmlContext] = None) -> xsdata.formats.dataclass.serializers.XmlSerializer
 
    Return a serializer for an XML file.

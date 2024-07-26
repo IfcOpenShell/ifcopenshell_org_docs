@@ -33,7 +33,14 @@ Module Contents
       :type:  numpy.typing.NDArray[numpy.float64]
 
 
-.. py:function:: get_context(ifc_file: ifcopenshell.file, context: str, subcontext: Optional[str] = None, target_view: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: get_context(ifc_file: ifcopenshell.file, context: CONTEXT_TYPE, subcontext: Optional[REPRESENTATION_IDENTIFIER] = None, target_view: Optional[TARGET_VIEW] = None) -> Union[ifcopenshell.entity_instance, None]
+
+   Get IfcGeometricRepresentationSubContext by the provided context type, identifier, and target view.
+
+   :param context: ContextType.
+   :param subcontext: A ContextIdentifier string, or any if left blank.
+   :param target_view: A TargetView string, or any if left blank.
+
 
 .. py:function:: get_prioritised_contexts(ifc_file: ifcopenshell.file) -> list[ifcopenshell.entity_instance]
 
@@ -52,7 +59,7 @@ Module Contents
        high priority to low priority.
 
 
-.. py:function:: get_representation(element: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, str], subcontext: Optional[str] = None, target_view: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: get_representation(element: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, CONTEXT_TYPE], subcontext: Optional[REPRESENTATION_IDENTIFIER] = None, target_view: Optional[TARGET_VIEW] = None) -> Union[ifcopenshell.entity_instance, None]
 
    Gets a IfcShapeRepresentation filtered by the context type, identifier, and target view
 
@@ -63,7 +70,15 @@ Module Contents
    :return: The first IfcShapeRepresentation matching the criteria.
 
 
-.. py:function:: is_representation_of_context(representation: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, str], subcontext: Optional[str] = None, target_view: Optional[str] = None) -> bool
+.. py:function:: is_representation_of_context(representation: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, CONTEXT_TYPE], subcontext: Optional[REPRESENTATION_IDENTIFIER] = None, target_view: Optional[TARGET_VIEW] = None) -> bool
+
+   Check if representation has specified context or context type, identifier, and target view.
+
+   :param representation: IfcShapeRepresentation.
+   :param context: Either a specific IfcGeometricRepresentationContext or a ContextType.
+   :param subcontext: A ContextIdentifier string, or any if left blank.
+   :param target_view: A TargetView string, or any if left blank.
+
 
 .. py:function:: resolve_items(representation: ifcopenshell.entity_instance, matrix: Optional[numpy.typing.NDArray[numpy.float64]] = None) -> list[ResolvedItemDict]
 
@@ -74,4 +89,10 @@ Module Contents
    :param representation: IfcRepresentation
    :return: Representation resolved from mappings
 
+
+.. py:data:: CONTEXT_TYPE
+
+.. py:data:: REPRESENTATION_IDENTIFIER
+
+.. py:data:: TARGET_VIEW
 

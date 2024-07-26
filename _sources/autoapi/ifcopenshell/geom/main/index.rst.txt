@@ -12,6 +12,9 @@ Module Contents
    Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.Iterator`
 
 
+   .. py:attribute:: settings
+
+
 .. py:class:: missing_setting
 
 .. py:class:: serializer_settings(**kwargs)
@@ -122,9 +125,12 @@ Module Contents
    .. py:method:: select_box(value, **kwargs) -> list[ifcopenshell.entity_instance.entity_instance]
 
 
+   .. py:attribute:: args
+
+
 .. py:function:: consume_iterator(it, with_progress=False)
 
-.. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance.entity_instance, repr: Optional[ifcopenshell.entity_instance.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.Transformation]
+.. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance.entity_instance, repr: Optional[ifcopenshell.entity_instance.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.Transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
 
    Return a geometric representation from STEP-based IFCREPRESENTATIONSHAPE
    or
@@ -137,13 +143,26 @@ Module Contents
 
    :return:
        - `inst` is IfcProduct and `repr` provided / None -> ShapeElementType
+
        - `inst` is IfcRepresentation and `repr` is None -> ShapeType
+
        - `inst` is IfcRepresentationItem and `repr` is None -> ShapeType
+
        - `inst` is IfcProfileDef and `repr` is None -> ShapeType
+
        - `inst` is IfcPlacement / IfcObjectPlacement -> Transformation
+
        - `inst` is IfcTypeProduct and `repr` is None -> None
+
        - `inst` is IfcTypeProduct and `repr` is provided -> RuntimeError
        (for IfcTypeProducts provide just IfcRepresentation as `inst`).
+
+
+       If 'use-python-opencascade' is enabled in settings then
+
+       - instead of ShapeElementType it returns shape_tuple, 
+
+       - instead of ShapeType it returns TopoDS.TopoDS_Shape.
 
    Example:
 

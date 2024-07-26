@@ -78,262 +78,325 @@ Submodules
 Package Contents
 ----------------
 
-.. py:class:: entity_instance(e, file=None)
+.. py:class:: file(f: Optional[ifcopenshell.ifcopenshell_wrapper.file] = None, schema: Optional[str] = None, schema_version: Optional[tuple[int, int, int, int]] = None)
 
-   Represents an entity (wall, slab, property, etc) of an IFC model
+   Base class for containing IFC files.
 
-   An IFC model consists of entities. Examples of entities include walls,
-   slabs, doors and so on. Entities can also be non-physical things, like
-   properties, systems, construction tasks, colours, geometry, and more.
-
-   Entities are defined through an **IFC Class**. There are hundreds of **IFC
-   Classes** defined as part of the ISO standard by the buildingSMART
-   International organisation. The **IFC Class** defines the attributes of an
-   entity, as well as the data types and whether or not an attribute is
-   mandatory or optional.
-
-   IfcOpenShell's API dynamically implements the IFC schema. You will not find
-   documentation about available **IFC Classes**, or what attributes they
-   have.  Please consult the buildingSMART official documentation or start
-   reading :doc:`/introduction/introduction_to_ifc`.
-
-   In addition to the Python methods you see documented here, an instantiated
-   entity_instance will have attributes defined by its IFC class. For example,
-   an entity instance which is an IfcWall class will have a ``Name``
-   attribute, and an IfcColourRgb will have a ``Red`` attribute. Please
-   consult the buildingSMART official documentation.
+   Class has instance methods for filtering by element Id, Type, etc.
+   Instantiated objects can be subscripted by Id or Guid
 
    Example:
 
    .. code:: python
 
        model = ifcopenshell.open(file_path)
-       walls = model.by_type("IfcWall")
-       wall = walls[0]
+       products = model.by_type("IfcProduct")
+       print(products[0].id(), products[0].GlobalId) # 122 2XQ$n5SLP5MBLyL442paFx
+       print(products[0] == model[122] == model["2XQ$n5SLP5MBLyL442paFx"]) # True
 
-       print(wall) # #38=IFCWALL('2MEinnTPbCMwLOgceaQZFu',$,$,'My Wall',$,#52,#47,$,$);
-       print(wall.is_a()) # IfcWall
+   Create a new blank IFC model
 
-       # Note: the `Name` attribute is dynamic, based on the IFC class.
-       print(wall.Name) # My Wall
+   This IFC model does not have any entities in it yet. See the
+   ``create_entity`` function for how to create new entities. All data is
+   stored in memory. If you wish to write the IFC model to disk, see the
+   ``write`` function.
 
-       # Attributes are ordered and may also be accessed via index.
-       print(wall[3]) # My Wall
+   :param f: The underlying IfcOpenShell file object to be wrapped. This
+       is an internal implementation detail and should generally be left
+       as None by users.
+   :param schema: Which IFC schema to use, chosen from "IFC2X3", "IFC4",
+       or "IFC4X3". These refer to the ISO approved versions of IFC.
+       Defaults to "IFC4" if not specified, which is currently recommended
+       for all new projects.
+   :type schema: string
+   :param schema_version: If you want to specify an exact version of IFC
+       that may not be an ISO approved version, use this argument instead
+       of ``schema``. IFC versions on technical.buildingsmart.org are
+       described using 4 integers representing the major, minor, addendum,
+       and corrigendum number. For example, (4, 0, 2, 1) refers to IFC4
+       ADD2 TC1, which is the official version approved by ISO when people
+       refer to "IFC4". Generally you should not use this argument unless
+       you are testing non-ISO IFC releases.
+   :type schema_version: tuple[int, int, int, int]
 
-       print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
+   Example:
+
+   .. code:: python
+
+       # Create a new IFC4 model, create a wall, then save it to an IFC-SPF file.
+       model = ifcopenshell.file()
+       model.create_entity("IfcWall")
+       model.write("/path/to/model.ifc")
+
+       # Create a new IFC4X3 model
+       model = ifcopenshell.file(schema="IFC4X3")
+
+       # A poweruser testing out a particular version of IFC4X3
+       model = ifcopenshell.file(schema_version=(4, 3, 0, 1))
 
 
-   .. py:method:: attribute_name(attr_idx: int) -> str
+   .. py:method:: add(inst: ifcopenshell.entity_instance, _id: int = None) -> ifcopenshell.entity_instance
 
-      Return the name of a positional attribute of the element
+      Adds an entity including any dependent entities to an IFC file.
+      If the entity already exists, it is not re-added. Existence of entity is checked by it's `.identity()`.
 
-      :param attr_idx: The index of the attribute
-      :type attr_idx: int
-      :rtype: string
-
-
-
-   .. py:method:: attribute_type(attr: Union[int, str]) -> str
-
-      Return the data type of a positional attribute of the element
-
-      :param attr: The index or name of the attribute
-      :type attr: Union[int, str]
-      :rtype: string
-
-
-
-   .. py:method:: compare(other, op, reverse=False)
-
-      Compares with another instance.
-
-      For simple types the declaration name is not taken into account:
-
-      >>> f = ifcopenshell.file()
-      >>> f.createIfcInteger(0) < f.createIfcPositiveInteger(1)
-      True
-
-      For entity types the declaration name is taken into account:
-
-      >>> f.createIfcWall('a') < f.createIfcWall('b')
-      True
-
-      >>> f.createIfcWallStandardCase('a') < f.createIfcWall('b')
-      False
-
-      Comparing simple types with different underlying types throws an exception:
-
-      >>> f.createIfcInteger(0) < f.createIfcLabel('x')
-      Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-      File "entity_instance.py", line 371, in compare
-          return op(a, b)
-      TypeError: '<' not supported between instances of 'int' and 'str'
-
-      Args:
-          other (_type_): Right hand side (or lhs when reverse = True)
-          op (_type_): The comparison operator (likely from the operator module)
-          reverse (bool, optional): When true swaps lhs and rhs. Defaults to False.
-
-      Returns:
-          bool: The comparison predicate applied to self and other
+      :param inst: The entity instance to add
+      :type inst: ifcopenshell.entity_instance
+      :returns: An ifcopenshell.entity_instance
+      :rtype: ifcopenshell.entity_instance
 
 
 
-   .. py:method:: get_info(include_identifier=True, recursive=False, return_type=dict, ignore=(), scalar_only=False) -> dict
+   .. py:method:: batch()
 
-      Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
-
-      :param include_identifier: Whether or not to include the STEP numerical identifier
-      :type include_identifier: bool
-      :param recursive: Whether or not to convert referenced IFC elements into dictionaries too. All attributes also apply recursively
-      :type recursive: bool
-      :param return_type: The return data type to be casted into
-      :type return_type: dict|list|other
-      :param ignore: A list of attribute names to ignore
-      :type ignore: set|list
-      :param scalar_only: Filters out all values that are IFC instances
-      :type scalar_only: bool
-      :returns: A dictionary of properties and their corresponding values
-      :rtype: dict
-
-      Example:
-
-      .. code:: python
-
-          ifc_file = ifcopenshell.open(file_path)
-          products = ifc_file.by_type("IfcProduct")
-          obj_info = products[0].get_info()
-          print(obj_info.keys())
-          >>> dict_keys(['Description', 'Name', 'BuildingAddress', 'LongName', 'GlobalId', 'ObjectPlacement', 'OwnerHistory', 'ObjectType',
-          >>> ...'ElevationOfTerrain', 'CompositionType', 'id', 'Representation', 'type', 'ElevationOfRefHeight'])
+      Low-level mechanism to speed up deletion of large subgraphs
 
 
 
-   .. py:method:: get_info_2(include_identifier=True, recursive=False, return_type=dict, ignore=())
-
-      More perfomant version of `.get_info()` but with limited arguments values.
-
-      Method has exactly the same signature as `.get_info()` but it doesn't support getting information non-recursively.
-
-      Currently supported arguments values:
-          * include_identifier: `True`
-          * recursive: `True` (will fail with default `False` value from `.get_info()`)
-          * return_type: `dict`
-          * ignore: `()` (empty tuple)
+   .. py:method:: begin_transaction() -> None
 
 
+   .. py:method:: by_guid(guid: str) -> ifcopenshell.entity_instance
 
-   .. py:method:: id() -> int
+      Return an IFC entity instance filtered by IFC GUID.
 
-      Return the STEP numerical identifier
+      :param guid: GlobalId value in 22-character encoded form
+      :type guid: string
 
-      :rtype: int
+      :raises RuntimeError: If `guid` is not found.
+
+      :returns: An ifcopenshell.entity_instance
+      :rtype: ifcopenshell.entity_instance
 
 
 
-   .. py:method:: is_a() -> str
-                  is_a(ifc_class: str) -> bool
-                  is_a(with_schema: bool) -> str
 
-      Return the IFC class name of an instance, or checks if an instance belongs to a class.
+   .. py:method:: by_id(id: int) -> ifcopenshell.entity_instance
 
-      The check will also return true if a parent class name is provided.
+      Return an IFC entity instance filtered by IFC ID.
 
-      :param args: If specified, is a case insensitive IFC class name to check
-          or if specified as a boolean then will define whether
-          returned IFC class name should include schema name
-          (e.g. "IFC4.IfcWall" if `True` and "IfcWall" if `False`).
-          If omitted will act as `False`.
-      :type args: Union[str, bool]
-      :returns: Either the name of the class, or a boolean if it passes the check
-      :rtype: Union[str, bool]
+      :param id: STEP numerical identifier
+      :type id: int
+
+      :raises RuntimeError: If `id` is not found.
+
+      :returns: An ifcopenshell.entity_instance
+      :rtype: ifcopenshell.entity_instance
+
+
+
+   .. py:method:: by_type(type: str, include_subtypes=True) -> list[ifcopenshell.entity_instance]
+
+      Return IFC objects filtered by IFC Type and wrapped with the entity_instance class.
+
+      If an IFC type class has subclasses, all entities of those subclasses are also returned.
+
+      :param type: The case insensitive type of IFC class to return.
+      :type type: string
+      :param include_subtypes: Whether or not to return subtypes of the IFC class
+      :type include_subtypes: bool
+
+      :raises RuntimeError: If `type` is not found in IFC schema.
+
+      :returns: A list of ifcopenshell.entity_instance objects
+      :rtype: list[ifcopenshell.entity_instance]
+
+
+
+   .. py:method:: create_entity(type: str, *args, **kwargs) -> ifcopenshell.entity_instance
+
+      Create a new IFC entity in the file.
+
+      You can also use dynamic methods similar to `ifc_file.createIfcWall(...)`
+      to create IFC entities. They work exactly the same as if you would do
+      `ifc_file.create_entity("IfcWall", ...)` but the resulting typing
+      is not as accurate as for `create_entity` due to a dynamic nature
+      of those methods.
+
+      :param type: Case insensitive name of the IFC class
+      :type type: string
+      :param args: The positional arguments of the IFC class
+      :param kwargs: The keyword arguments of the IFC class
+      :returns: An entity instance
+      :rtype: ifcopenshell.entity_instance
 
       Example:
 
       .. code:: python
 
           f = ifcopenshell.file()
-          f.create_entity('IfcPerson')
-          f.is_a()
-          >>> 'IfcPerson'
-          f.is_a('IfcPerson')
-          >>> True
+          f.create_entity("IfcPerson")
+          # >>> #1=IfcPerson($,$,$,$,$,$,$,$)
+          f.create_entity("IfcPerson", "Foobar")
+          # >>> #2=IfcPerson('Foobar',$,$,$,$,$,$,$)
+          f.create_entity("IfcPerson", Identification="Foobar")
+          # >>> #3=IfcPerson('Foobar',$,$,$,$,$,$,$)
 
 
 
-   .. py:method:: is_entity() -> bool
-
-      Tests whether the instance is an entity type as opposed to a simple data type.
-
-      Returns:
-          bool: True if the instance is an entity
+   .. py:method:: discard_transaction() -> None
 
 
-
-   .. py:method:: to_string(valid_spf=True) -> str
-
-      Returns a string representation of the current entity instance.
-      Equal to str(self) when valid_spf=False. When valid_spf is True
-      returns a representation of the string that conforms to valid Step
-      Physical File notation. The difference being entity names in upper
-      case and string attribute values with unicode values encoded per
-      the specific control directives.
+   .. py:method:: end_transaction() -> None
 
 
-
-   .. py:method:: unwrap_value(v)
+   .. py:method:: from_pointer(v) -> file
       :staticmethod:
 
 
 
-   .. py:method:: walk(f: Callable[[Any], bool], g: Callable[[Any], Any], value: Any) -> Any
+   .. py:method:: from_string(s: str) -> file
       :staticmethod:
 
 
-      Applies a transformation to `value` based on a given condition.
 
-      If value is a nested structure (e.g., a list or a tuple) will apply
-      transformation to it's elements.
+   .. py:method:: get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate: bool = False, with_attribute_indices: bool = False) -> list[ifcopenshell.entity_instance]
 
-      :param f: A callable that takes a single argument and returns a boolean
-          value. It represents the condition.
-      :type f: Callable
-      :param g: A callable that takes a single argument and returns a
-          transformed value. It represents the transformation.
-      :type g: Callable
-      :param value: Any object, the input value to be processed
-      :type value: Any
-      :return: Transformed value
-      :rtype: Any
+      Return a list of entities that reference this entity
+
+      Warning: this is a slow function, especially when there is a large
+      number of inverses (such as for a shared owner history). If you are
+      only interested in the total number of inverses (typically 0, 1, or N),
+      consider using :func:`get_total_inverses`.
+
+      :param inst: The entity instance to get inverse relationships
+      :type inst: ifcopenshell.entity_instance
+      :param allow_duplicate: Returns a `list` when True, `set` when False
+      :param with_attribute_indices: Returns pairs of <i, idx>
+         where i[idx] is inst or contains inst. Requires allow_duplicate=True
+      :returns: A list of ifcopenshell.entity_instance objects
+      :rtype: list[ifcopenshell.entity_instance]
+
+
+
+   .. py:method:: get_total_inverses(inst: ifcopenshell.entity_instance) -> int
+
+      Returns the number of entities that reference this entity
+
+      This is equivalent to `len(model.get_inverse(element))`, but
+      significantly faster.
+
+      :param inst: The entity instance to get inverse relationships
+      :type inst: ifcopenshell.entity_instance
+      :returns: The total number of references
+      :rtype: int
+
+
+
+   .. py:method:: redo() -> None
+
+
+   .. py:method:: remove(inst: ifcopenshell.entity_instance) -> None
+
+      Deletes an IFC object in the file.
+
+      Attribute values in other entity instances that reference the deleted
+      object will be set to null. In the case of a list or set of references,
+      the reference to the deleted will be removed from the aggregate.
+
+      :param inst: The entity instance to delete
+      :type inst: ifcopenshell.entity_instance
+      :rtype: None
+
+
+
+   .. py:method:: set_history_size(size: int) -> None
+
+
+   .. py:method:: traverse(inst: ifcopenshell.entity_instance, max_levels=None, breadth_first=False) -> list[ifcopenshell.entity_instance]
+
+      Get a list of all referenced instances for a particular instance including itself
+
+      :param inst: The entity instance to get all sub instances
+      :type inst: ifcopenshell.entity_instance
+      :param max_levels: How far deep to recursively fetch sub instances. None or -1 means infinite.
+      :type max_levels: None|int
+      :param breadth_first: Whether to use breadth-first search, the default is depth-first.
+      :type max_levels: bool
+      :returns: A list of ifcopenshell.entity_instance objects
+      :rtype: list[ifcopenshell.entity_instance]
+
+
+
+   .. py:method:: unbatch()
+
+      Low-level mechanism to speed up deletion of large subgraphs
+
+
+
+   .. py:method:: undo() -> None
+
+
+   .. py:method:: write(path: os.PathLike | str, format: Optional[str] = None, zipped: bool = False) -> None
+
+      Write ifc model to file.
+
+      :param format: Force use of a specific format. Guessed from file name
+          if None.  Supported formats : .ifc, .ifcXML, .ifcZIP (equivalent to
+          format=".ifc" with zipped=True) For zipped .ifcXML use
+          format=".ifcXML" with zipped=True
+      :type format: str
+      :param zipped: zip the file after it is written
+      :type zipped: bool
 
       Example:
 
       .. code:: python
 
-          # Define condition and transformation functions
-          condition = lambda v: v == old
-          transform = lambda v: new
-          
-          # Usage example
-          attribute_value = element.RelatedElements
-          print(old in attribute_value, new in attribute_value) # True, False
-
-          result = element.walk(condition, transform, element.RelatedElements)
-          print(old in attribute_value, new in attribute_value) # False, True
+          model.write("path/to/model.ifc")
+          model.write("path/to/model.ifcXML")
+          model.write("path/to/model.ifcZIP")
+          model.write("path/to/model.ifcZIP", format=".ifcXML", zipped=True)
+          model.write("path/to/model.anyextension", format=".ifcXML")
 
 
 
-   .. py:method:: wrap_value(v, file)
-      :staticmethod:
+   .. py:attribute:: future
+      :value: []
 
 
 
-   .. py:property:: file
+   .. py:attribute:: history
+      :value: []
+
+
+
+   .. py:attribute:: history_size
+      :value: 64
+
+
+
+   .. py:property:: schema
+      :type: Literal['IFC2X3', 'IFC4', 'IFC4X3']
+
+      General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
+   .. py:property:: schema_identifier
+      :type: str
+
+      Full IFC schema version: IFC2X3_TC1, IFC4_ADD2, IFC4X3_ADD2, etc.
+
+
+
+   .. py:property:: schema_version
+      :type: tuple[int, int, int, int]
+
+      Numeric representation of the full IFC schema version.
+
+      E.g. IFC4X3_ADD2 is represented as (4, 3, 2, 0).
+
+
+
+   .. py:attribute:: transaction
+      :type:  Optional[Transaction]
+      :value: None
+
 
 
    .. py:attribute:: wrapped_data
-      :type:  ifcopenshell.ifcopenshell_wrapper.entity_instance
+      :type:  ifcopenshell.ifcopenshell_wrapper.file
 
 
 .. py:class:: sqlite(filepath)
@@ -505,6 +568,55 @@ Package Contents
 
 
 
+   .. py:attribute:: class_map
+
+
+   .. py:attribute:: cursor
+
+
+   .. py:attribute:: db
+
+
+   .. py:attribute:: entity_cache
+
+
+   .. py:attribute:: filepath
+
+
+   .. py:attribute:: future
+      :value: []
+
+
+
+   .. py:attribute:: history
+      :value: []
+
+
+
+   .. py:attribute:: history_size
+      :value: 64
+
+
+
+   .. py:attribute:: id_map
+
+
+   .. py:attribute:: ifc_schema
+
+
+   .. py:attribute:: row_factory
+
+
+   .. py:attribute:: transaction
+      :value: None
+
+
+
+   .. py:attribute:: wrapped_data
+      :value: None
+
+
+
 .. py:class:: sqlite_entity(id, ifc_class, file=None)
 
    Bases: :py:obj:`ifcopenshell.entity_instance.entity_instance`
@@ -592,5 +704,11 @@ Package Contents
 
 
    .. py:method:: unserialise_value(value)
+
+
+   .. py:attribute:: e
+
+
+   .. py:attribute:: s
 
 

@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="ifccsv" href="../ifccsv/index.html" /><link rel="prev" title="bcf.xml_parser" href="../bcf/xml_parser/index.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>bsdd - IfcOpenShell 0.7.10 documentation</title>
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>bsdd - IfcOpenShell 0.7.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=c85da206" />
     
     
@@ -128,19 +128,6 @@
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
   <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
     <title>Auto light/dark, in light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -181,7 +168,7 @@
       <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
       <path d="M13.5 6.5l4 4" />
       <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" /
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
   <symbol id="svg-eye" viewBox="0 0 24 24">
@@ -219,7 +206,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">IfcOpenShell 0.7.10 documentation</div></a>
+      <a href="../../index.html"><div class="brand">IfcOpenShell 0.7.11 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -246,7 +233,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.7.10 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.7.11 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -1786,7 +1773,7 @@ this API replaces Unit</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bsdd.Client.search_class">
-<span class="sig-name descname"><span class="pre">search_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dictionary_uris</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_ifc_entities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bsdd.ClassSearchResponseContractV1" title="bsdd.ClassSearchResponseContractV1"><span class="pre">ClassSearchResponseContractV1</span></a></span></span><a class="headerlink" href="#bsdd.Client.search_class" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">search_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dictionary_uris</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_ifc_entities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bsdd.ClassSearchResponseContractV1" title="bsdd.ClassSearchResponseContractV1"><span class="pre">ClassSearchResponseContractV1</span></a></span></span><a class="headerlink" href="#bsdd.Client.search_class" title="Link to this definition">¶</a></dt>
 <dd><p>Search the bSDD database using free text, get list of Classes matching the text and optional additional filters.
 this API replaces ClassificationSearch</p>
 </dd></dl>
@@ -1811,6 +1798,46 @@ Classes will be listed first, so if you then use Offset=10 and Limit=5, you will
 <dl class="py method">
 <dt class="sig sig-object py" id="bsdd.Client.set_tokens_from_response">
 <span class="sig-name descname"><span class="pre">set_tokens_from_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bsdd.Client.set_tokens_from_response" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.access_token">
+<span class="sig-name descname"><span class="pre">access_token</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#bsdd.Client.access_token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.access_token_expires_on">
+<span class="sig-name descname"><span class="pre">access_token_expires_on</span></span><a class="headerlink" href="#bsdd.Client.access_token_expires_on" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.auth_endpoint">
+<span class="sig-name descname"><span class="pre">auth_endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://buildingsmartservices.b2clogin.com/tfp/buildingsmartservices.onmicrosoft.com/b2c_1_signu...</span></em><a class="headerlink" href="#bsdd.Client.auth_endpoint" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.baseurl">
+<span class="sig-name descname"><span class="pre">baseurl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://api.bsdd.buildingsmart.org/api/'</span></em><a class="headerlink" href="#bsdd.Client.baseurl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.client_id">
+<span class="sig-name descname"><span class="pre">client_id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'4aba821f-d4ff-498b-a462-c2837dbbba70'</span></em><a class="headerlink" href="#bsdd.Client.client_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.refresh_token">
+<span class="sig-name descname"><span class="pre">refresh_token</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#bsdd.Client.refresh_token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.refresh_token_expires_on">
+<span class="sig-name descname"><span class="pre">refresh_token_expires_on</span></span><a class="headerlink" href="#bsdd.Client.refresh_token_expires_on" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bsdd.Client.token_endpoint">
+<span class="sig-name descname"><span class="pre">token_endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://buildingsmartservices.b2clogin.com/tfp/buildingsmartservices.onmicrosoft.com/b2c_1_signu...</span></em><a class="headerlink" href="#bsdd.Client.token_endpoint" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -3381,6 +3408,14 @@ for k, v in iterable:</p>
 <li><a class="reference internal" href="#bsdd.Client.search_in_dictionary"><code class="docutils literal notranslate"><span class="pre">Client.search_in_dictionary()</span></code></a></li>
 <li><a class="reference internal" href="#bsdd.Client.search_text"><code class="docutils literal notranslate"><span class="pre">Client.search_text()</span></code></a></li>
 <li><a class="reference internal" href="#bsdd.Client.set_tokens_from_response"><code class="docutils literal notranslate"><span class="pre">Client.set_tokens_from_response()</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.access_token"><code class="docutils literal notranslate"><span class="pre">Client.access_token</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.access_token_expires_on"><code class="docutils literal notranslate"><span class="pre">Client.access_token_expires_on</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.auth_endpoint"><code class="docutils literal notranslate"><span class="pre">Client.auth_endpoint</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.baseurl"><code class="docutils literal notranslate"><span class="pre">Client.baseurl</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.client_id"><code class="docutils literal notranslate"><span class="pre">Client.client_id</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.refresh_token"><code class="docutils literal notranslate"><span class="pre">Client.refresh_token</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.refresh_token_expires_on"><code class="docutils literal notranslate"><span class="pre">Client.refresh_token_expires_on</span></code></a></li>
+<li><a class="reference internal" href="#bsdd.Client.token_endpoint"><code class="docutils literal notranslate"><span class="pre">Client.token_endpoint</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#bsdd.CountryContractV1"><code class="docutils literal notranslate"><span class="pre">CountryContractV1</span></code></a><ul>
@@ -3622,10 +3657,10 @@ for k, v in iterable:</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=d46e566c"></script>
+</div><script src="../../_static/documentation_options.js?v=7016d275"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     </body>

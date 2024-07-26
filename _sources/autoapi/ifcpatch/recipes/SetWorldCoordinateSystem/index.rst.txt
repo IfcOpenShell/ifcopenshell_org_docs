@@ -53,3 +53,30 @@ Module Contents
    .. py:method:: z_rotation_matrix(angle, transformation)
 
 
+   .. py:attribute:: ax
+
+
+   .. py:attribute:: ay
+
+
+   .. py:attribute:: az
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: src
+
+
+   .. py:attribute:: x
+
+
+   .. py:attribute:: y
+
+
+   .. py:attribute:: z
+
+

@@ -12,5 +12,51 @@ Module Contents
    Bases: :py:obj:`codegen.Base`
 
 
+   .. py:attribute:: case_lookup
+
+
+   .. py:attribute:: case_normalize
+
+
+   .. py:attribute:: class_definitions
+      :value: []
+
+
+
+   .. py:attribute:: create_supertype_statement
+
+
+   .. py:attribute:: declarations
+      :value: []
+
+
+
+   .. py:attribute:: emitted_entities
+
+
+   .. py:attribute:: emitted_simpletypes
+
+
+   .. py:attribute:: file_name
+
+
+   .. py:attribute:: forward_definitions
+
+
+   .. py:attribute:: forward_names
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: select_super_types
+
+
+   .. py:attribute:: str
+
+
+   .. py:attribute:: write
+
+
 .. py:data:: Generator
 

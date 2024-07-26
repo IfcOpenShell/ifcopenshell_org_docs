@@ -12,5 +12,19 @@ Module Contents
    Bases: :py:obj:`codegen.Base`
 
 
+   .. py:attribute:: file_name
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: statements
+      :value: ['']
+
+
+
+   .. py:attribute:: str
+
+
 .. py:data:: Generator
 

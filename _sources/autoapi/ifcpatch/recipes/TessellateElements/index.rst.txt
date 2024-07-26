@@ -36,3 +36,18 @@ Module Contents
    .. py:method:: patch()
 
 
+   .. py:attribute:: file
+
+
+   .. py:attribute:: force_faceted_brep
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: query
+
+
+   .. py:attribute:: src
+
+

@@ -24,6 +24,27 @@ Module Contents
    .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False, filepath: Optional[str] = None) -> None
 
 
+   .. py:attribute:: filename
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: filepath
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: info
+
+
+   .. py:attribute:: specifications
+      :type:  List[Specification]
+      :value: []
+
+
+
 .. py:class:: Specification(name='Unnamed', minOccurs=0, maxOccurs='unbounded', ifcVersion=['IFC2X3', 'IFC4', 'IFC4X3_ADD2'], identifier=None, description=None, instructions=None)
 
    .. py:method:: asdict()
@@ -45,6 +66,60 @@ Module Contents
 
 
    .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False) -> None
+
+
+   .. py:attribute:: applicability
+      :type:  List[ifctester.facet.Facet]
+      :value: []
+
+
+
+   .. py:attribute:: applicable_entities
+      :type:  list[ifcopenshell.entity_instance]
+      :value: []
+
+
+
+   .. py:attribute:: description
+
+
+   .. py:attribute:: failed_entities
+      :type:  set[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: identifier
+
+
+   .. py:attribute:: ifcVersion
+
+
+   .. py:attribute:: instructions
+
+
+   .. py:attribute:: maxOccurs
+      :type:  Union[int, str]
+
+
+   .. py:attribute:: minOccurs
+      :type:  Union[int, str]
+
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: passed_entities
+      :type:  set[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: requirements
+      :type:  List[ifctester.facet.Facet]
+      :value: []
+
+
+
+   .. py:attribute:: status
+      :value: None
+
 
 
 .. py:function:: get_schema()

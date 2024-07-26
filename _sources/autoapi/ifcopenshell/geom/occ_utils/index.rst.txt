@@ -7,7 +7,28 @@
 Module Contents
 ---------------
 
-.. py:function:: create_shape_from_serialization(brep_object)
+.. py:class:: shape_tuple
+
+   Bases: :py:obj:`NamedTuple`
+
+
+   .. py:attribute:: data
+      :type:  Union[ifcopenshell.ifcopenshell_wrapper.SerializedElement, ifcopenshell.ifcopenshell_wrapper.Serialization]
+
+
+   .. py:attribute:: geometry
+      :type:  OCC.Core.TopoDS.TopoDS_Shape
+
+
+   .. py:attribute:: style_ids
+      :type:  tuple[int, Ellipsis]
+
+
+   .. py:attribute:: styles
+      :type:  tuple[tuple[float, float, float, float], Ellipsis]
+
+
+.. py:function:: create_shape_from_serialization(brep_object: Union[ifcopenshell.ifcopenshell_wrapper.SerializedElement, ifcopenshell.ifcopenshell_wrapper.Serialization]) -> Union[shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
 
 .. py:function:: display_shape(shape, clr=None, viewer_handle=None)
 
@@ -26,6 +47,4 @@ Module Contents
 .. py:data:: USE_OCCT_HANDLE
    :value: False
 
-
-.. py:data:: shape_tuple
 

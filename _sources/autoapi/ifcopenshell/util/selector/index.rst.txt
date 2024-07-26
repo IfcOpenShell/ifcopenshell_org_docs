@@ -82,6 +82,20 @@ Module Contents
    .. py:method:: value(args)
 
 
+   .. py:attribute:: container_parents
+
+
+   .. py:attribute:: container_trees
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: results
+      :value: []
+
+
+
 .. py:class:: FormatTransformer
 
    Bases: :py:obj:`lark.Transformer`

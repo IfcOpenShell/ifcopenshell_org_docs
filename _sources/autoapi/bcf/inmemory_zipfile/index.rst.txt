@@ -36,6 +36,15 @@ Module Contents
 
 
 
+   .. py:attribute:: debug
+
+
+   .. py:attribute:: in_memory_data
+
+
+   .. py:attribute:: in_memory_zip
+
+
 .. py:class:: ZipFileInterface
 
    Bases: :py:obj:`Protocol`

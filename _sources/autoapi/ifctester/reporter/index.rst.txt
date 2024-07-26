@@ -38,6 +38,12 @@ Module Contents
    .. py:method:: set_style(*colours: str)
 
 
+   .. py:attribute:: colours
+
+
+   .. py:attribute:: use_colour
+
+
 .. py:class:: Html(ids: ifctester.ids.Ids)
 
    Bases: :py:obj:`Json`
@@ -78,6 +84,9 @@ Module Contents
    .. py:method:: to_string() -> str
 
 
+   .. py:attribute:: results
+
+
 .. py:class:: Ods(ids: ifctester.ids.Ids, excel_safe=False)
 
    Bases: :py:obj:`Json`
@@ -87,6 +96,12 @@ Module Contents
 
 
    .. py:method:: to_file(filepath: str) -> None
+
+
+   .. py:attribute:: colours
+
+
+   .. py:attribute:: excel_safe
 
 
 .. py:class:: OdsSummary(ids: ifctester.ids.Ids, excel_safe=False)
@@ -100,6 +115,12 @@ Module Contents
    .. py:method:: to_file(filepath: str) -> None
 
 
+   .. py:attribute:: colours
+
+
+   .. py:attribute:: excel_safe
+
+
 .. py:class:: Reporter(ids: ifctester.ids.Ids)
 
    .. py:method:: report(ids)
@@ -109,6 +130,9 @@ Module Contents
 
 
    .. py:method:: write(filepath)
+
+
+   .. py:attribute:: ids
 
 
 .. py:class:: Results
@@ -186,10 +210,6 @@ Module Contents
 
 
    .. py:attribute:: total_requirements_pass
-      :type:  int
-
-
-   .. py:attribute:: total_specifications
       :type:  int
 
 
@@ -361,6 +381,11 @@ Module Contents
 
 
    .. py:method:: to_string() -> None
+
+
+   .. py:attribute:: text
+      :value: ''
+
 
 
 .. py:data:: ResultsEntity

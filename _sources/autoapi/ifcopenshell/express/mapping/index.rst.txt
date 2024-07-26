@@ -57,6 +57,9 @@ Module Contents
    .. py:attribute:: express_to_cpp_typemapping
 
 
+   .. py:attribute:: schema
+
+
    .. py:attribute:: supported_argument_types
 
 

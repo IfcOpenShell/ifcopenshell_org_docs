@@ -385,6 +385,16 @@ Module Contents
    :rtype: float
 
 
+.. py:function:: get_total_edge_length(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the total length of edges in a given geometry.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :type geometry: geometry
+   :return: The total length of all edges in the geometry.
+   :rtype: float
+
+
 .. py:function:: get_vertices(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
 
    Get all the vertices as a numpy array

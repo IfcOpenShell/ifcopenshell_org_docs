@@ -15,6 +15,26 @@ Module Contents
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
+   .. py:attribute:: applicability_templates
+      :value: ['Data where the {name} is {value}', 'Data where the {name} is provided']
+
+
+
+   .. py:attribute:: parameters
+      :value: ['name', 'value', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['The {name} shall not be {value}', 'The {name} shall not be provided']
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['The {name} shall be {value}', 'The {name} shall be provided']
+
+
+
 .. py:class:: AttributeResult(is_pass, reason=None)
 
    Bases: :py:obj:`Result`
@@ -31,6 +51,26 @@ Module Contents
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
+   .. py:attribute:: applicability_templates
+      :value: ['Data having a {system} reference of {value}', 'Data classified using {system}', 'Data...
+
+
+
+   .. py:attribute:: parameters
+      :value: ['value', 'system', '@uri', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['Shall not have a {system} reference of {value}', 'Shall not be classified using {system}',...
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['Shall have a {system} reference of {value}', 'Shall be classified using {system}', 'Shall be...
+
+
+
 .. py:class:: ClassificationResult(is_pass, reason=None)
 
    Bases: :py:obj:`Result`
@@ -45,6 +85,26 @@ Module Contents
 
 
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: applicability_templates
+      :value: ['All {name} data of type {predefinedType}', 'All {name} data']
+
+
+
+   .. py:attribute:: parameters
+      :value: ['name', 'predefinedType', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['Shall not be {name} data of type {predefinedType}', 'Shall not be {name} data']
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['Shall be {name} data of type {predefinedType}', 'Shall be {name} data']
+
 
 
 .. py:class:: EntityResult(is_pass, reason=None)
@@ -77,6 +137,21 @@ Module Contents
 
    .. py:attribute:: cardinality
       :type:  Cardinality
+
+
+   .. py:attribute:: failures
+      :type:  list[FacetFailure]
+      :value: []
+
+
+
+   .. py:attribute:: passed_entities
+      :type:  set[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: status
+      :value: None
+
 
 
 .. py:class:: FacetFailure
@@ -113,6 +188,26 @@ Module Contents
    .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
+   .. py:attribute:: applicability_templates
+      :value: ['All data with a {value} material', 'All data with a material']
+
+
+
+   .. py:attribute:: parameters
+      :value: ['value', '@uri', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['Shall not have a material of {value}', 'Shall not have a material']
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['Shall have a material of {value}', 'Shall have a material']
+
+
+
 .. py:class:: MaterialResult(is_pass, reason=None)
 
    Bases: :py:obj:`Result`
@@ -138,6 +233,26 @@ Module Contents
    .. py:method:: parse(xml)
 
 
+   .. py:attribute:: applicability_templates
+      :value: ['An element with an {relation} relationship with an {name}', 'An element with an {relation}...
+
+
+
+   .. py:attribute:: parameters
+      :value: ['name', 'predefinedType', '@relation', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['An element must not have an {relation} relationship with an {name}', 'An element must not have...
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['An element must have an {relation} relationship with an {name} of predefined type...
+
+
+
 .. py:class:: PartOfResult(is_pass, reason=None)
 
    Bases: :py:obj:`Result`
@@ -157,6 +272,26 @@ Module Contents
    .. py:method:: get_properties(pset)
 
 
+   .. py:attribute:: applicability_templates
+      :value: ['Elements with {baseName} data of {value} in the dataset {propertySet}', 'Elements with...
+
+
+
+   .. py:attribute:: parameters
+      :value: ['propertySet', 'baseName', 'value', '@dataType', '@uri', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['{baseName} data shall not be {value} and in the dataset {propertySet}', '{baseName} data shall...
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['{baseName} data shall be {value} and in the dataset {propertySet}', '{baseName} data shall be...
+
+
+
 .. py:class:: PropertyResult(is_pass, reason=None)
 
    Bases: :py:obj:`Result`
@@ -173,9 +308,21 @@ Module Contents
    .. py:method:: parse(ids_dict)
 
 
+   .. py:attribute:: base
+
+
+   .. py:attribute:: options
+
+
 .. py:class:: Result(is_pass, reason=None)
 
    .. py:method:: to_string()
+
+
+   .. py:attribute:: is_pass
+
+
+   .. py:attribute:: reason
 
 
 .. py:function:: cast_to_value(from_value, to_value)

@@ -82,5 +82,31 @@ Module Contents
    .. py:method:: summarise_shapes(ifc, elements)
 
 
+   .. py:attribute:: change_register
+
+
+   .. py:attribute:: filter_elements
+
+
+   .. py:attribute:: is_shallow
+
+
+   .. py:attribute:: new
+
+
+   .. py:attribute:: old
+
+
+   .. py:attribute:: precision
+      :value: 0.0001
+
+
+
+   .. py:attribute:: relationships
+
+
+   .. py:attribute:: representation_ids
+
+
 .. py:data:: parser
 

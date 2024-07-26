@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ifcopenshell.api.unit.add_context_dependent_unit" href="add_context_dependent_unit/index.html" /><link rel="prev" title="ifcopenshell.api.type.unassign_type" href="../type/unassign_type/index.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>ifcopenshell.api.unit - IfcOpenShell 0.7.10 documentation</title>
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>ifcopenshell.api.unit - IfcOpenShell 0.7.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=613ab9ff" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c85da206" />
     
     
@@ -128,19 +128,6 @@
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
   <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
     <title>Auto light/dark, in light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -181,7 +168,7 @@
       <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
       <path d="M13.5 6.5l4 4" />
       <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" /
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
   <symbol id="svg-eye" viewBox="0 0 24 24">
@@ -219,7 +206,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.10 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.11 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -246,7 +233,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.7.10 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.7.11 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -937,7 +924,7 @@ equipment.</p>
 <h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.add_context_dependent_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_context_dependent_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USERDEFINED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'THINGAMAJIG'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_context_dependent_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_context_dependent_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USERDEFINED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'THINGAMAJIG'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_context_dependent_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Add a new arbitrary unit that can only be interpreted in a project specific context</p>
 <p>Occasionally the construction industry uses arbitrary units to quantify
 objects, like “pairs” of door hardware, “palettes” or “boxes” of fixings
@@ -965,7 +952,7 @@ recommended to leave this as the default of (0, 0, 0, 0, 0, 0, 0).</p></li>
 <dd class="field-even"><p>The new IfcContextDependentUnit</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -977,7 +964,7 @@ recommended to leave this as the default of (0, 0, 0, 0, 0, 0, 0).</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.add_conversion_based_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_conversion_based_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'foot'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conversion_offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_conversion_based_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_conversion_based_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'foot'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conversion_offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_conversion_based_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Add a conversion based unit</p>
 <p>If you’re in one of those countries who don’t use SI units, you’re
 probably simply using SI units converted into another unit. If you want
@@ -1004,7 +991,7 @@ advanced users only.</p></li>
 IfcConversionBasedUnitWithOffset</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1020,7 +1007,7 @@ IfcConversionBasedUnitWithOffset</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.add_monetary_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_monetary_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'DOLLARYDOO'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_monetary_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_monetary_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'DOLLARYDOO'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_monetary_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Add a new currency</p>
 <p>Currency units are useful in cost plans to know in what currency the
 costs are calculated in. The currencies should follow ISO 4217, like
@@ -1033,7 +1020,7 @@ USD, GBP, AUD, MYR, etc.</p>
 <dd class="field-even"><p>The newly created IfcMonetaryUnit</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1049,7 +1036,7 @@ USD, GBP, AUD, MYR, etc.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.add_si_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_si_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LENGTHUNIT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_si_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">add_si_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LENGTHUNIT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.add_si_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Add a new SI unit</p>
 <p>The supported types are ABSORBEDDOSEUNIT, AMOUNTOFSUBSTANCEUNIT,
 AREAUNIT, DOSEEQUIVALENTUNIT, ELECTRICCAPACITANCEUNIT,
@@ -1075,7 +1062,7 @@ prefix.</p></li>
 <dd class="field-even"><p>The newly created IfcSIUnit</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1091,7 +1078,7 @@ prefix.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.assign_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">assign_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.unit.assign_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">assign_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.assign_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Assign default project units</p>
 <p>Whenever a unitised quantity is specified, such as a length, area,
 voltage, pressure, etc, these project units are used by default.</p>
@@ -1102,7 +1089,7 @@ sectional area of cables in cable trays. However, this function only
 deals with the default project units.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>units</strong> (<em>list</em><em>[</em><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>]</em><em>,</em><em>optional</em>) – A list of units to assign as project defaults. See
+<dd class="field-odd"><p><strong>units</strong> (<em>list</em><em>[</em><em>ifcopenshell.entity_instance</em><em>]</em><em>,</em><em>optional</em>) – A list of units to assign as project defaults. See
 ifcopenshell.api.unit.add_si_unit, unit.add_conversion_based_unit,
 and unit.add_monetary_unit for information on how to create units.</p>
 </dd>
@@ -1110,7 +1097,7 @@ and unit.add_monetary_unit for information on how to create units.</p>
 <dd class="field-even"><p>The IfcUnitAssignment element</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1135,14 +1122,14 @@ and unit.add_monetary_unit for information on how to create units.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.edit_derived_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">edit_derived_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.edit_derived_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">edit_derived_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.edit_derived_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcDerivedUnit</p>
 <p>For more information about the attributes and data types of an
 IfcDerivedUnit, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>unit</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcDerivedUnit entity you want to edit</p></li>
+<li><p><strong>unit</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcDerivedUnit entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -1157,14 +1144,14 @@ IfcDerivedUnit, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.edit_monetary_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">edit_monetary_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.edit_monetary_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">edit_monetary_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.edit_monetary_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcMonetaryUnit</p>
 <p>For more information about the attributes and data types of an
 IfcMonetaryUnit, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>unit</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcMonetaryUnit entity you want to edit</p></li>
+<li><p><strong>unit</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcMonetaryUnit entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -1188,7 +1175,7 @@ IfcMonetaryUnit, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.edit_named_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">edit_named_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.edit_named_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">edit_named_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.edit_named_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcNamedUnit</p>
 <p>Named units include SI units, conversion based units (imperial units),
 and context dependent units.</p>
@@ -1197,7 +1184,7 @@ IfcNamedUnit, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>unit</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcNamedUnit entity you want to edit</p></li>
+<li><p><strong>unit</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcNamedUnit entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -1220,13 +1207,13 @@ IfcNamedUnit, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.remove_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">remove_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.remove_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">remove_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.remove_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Remove a unit</p>
 <p>Be very careful when a unit is removed, as it may mean that previously
 defined quantities in the model completely lose their meaning.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>unit</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The unit element to remove</p>
+<dd class="field-odd"><p><strong>unit</strong> (<em>ifcopenshell.entity_instance</em>) – The unit element to remove</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -1247,11 +1234,11 @@ defined quantities in the model completely lose their meaning.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.unit.unassign_unit">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">unassign_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.unassign_unit" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.unit.</span></span><span class="sig-name descname"><span class="pre">unassign_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.unit.unassign_unit" title="Link to this definition">¶</a></dt>
 <dd><p>Unassigns units as default units for the project</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>units</strong> (<em>list</em><em>[</em><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>]</em><em>,</em><em>optional</em>) – A list of units to assign as project defaults.</p>
+<dd class="field-odd"><p><strong>units</strong> (<em>list</em><em>[</em><em>ifcopenshell.entity_instance</em><em>]</em><em>,</em><em>optional</em>) – A list of units to assign as project defaults.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -1371,10 +1358,10 @@ defined quantities in the model completely lose their meaning.</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=d46e566c"></script>
+</div><script src="../../../../_static/documentation_options.js?v=7016d275"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="../../../../_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     </body>

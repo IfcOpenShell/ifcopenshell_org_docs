@@ -25,7 +25,19 @@ Module Contents
 
 .. py:class:: piecewise(fns)
 
+   .. py:attribute:: fns
+
+
+   .. py:attribute:: length
+
+
 .. py:class:: trimmed_curve(fn, length)
+
+   .. py:attribute:: fn
+
+
+   .. py:attribute:: length
+
 
 .. py:function:: convert(inst)
 

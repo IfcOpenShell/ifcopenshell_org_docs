@@ -36,3 +36,15 @@ Module Contents
    .. py:method:: patch_placement_to_origin(element)
 
 
+   .. py:attribute:: file
+
+
+   .. py:attribute:: ifc_class
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: src
+
+

@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="bcf.v3.bcfxml" href="../bcfxml/index.html" /><link rel="prev" title="bcf.v3.model.visinfo" href="../model/visinfo/index.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>bcf.v3.bcfapi - IfcOpenShell 0.7.10 documentation</title>
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>bcf.v3.bcfapi - IfcOpenShell 0.7.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=613ab9ff" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c85da206" />
     
     
@@ -128,19 +128,6 @@
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
   <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
     <title>Auto light/dark, in light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -181,7 +168,7 @@
       <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
       <path d="M13.5 6.5l4 4" />
       <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" /
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
   <symbol id="svg-eye" viewBox="0 0 24 24">
@@ -219,7 +206,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.10 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.11 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -246,7 +233,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.7.10 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.7.11 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -1142,6 +1129,26 @@
 <span class="sig-name descname"><span class="pre">update_topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bcf.v3.bcfapi.BcfClient.update_topic" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.BcfClient.baseurl">
+<span class="sig-name descname"><span class="pre">baseurl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#bcf.v3.bcfapi.BcfClient.baseurl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.BcfClient.filepath">
+<span class="sig-name descname"><span class="pre">filepath</span></span><a class="headerlink" href="#bcf.v3.bcfapi.BcfClient.filepath" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.BcfClient.foundation_client">
+<span class="sig-name descname"><span class="pre">foundation_client</span></span><a class="headerlink" href="#bcf.v3.bcfapi.BcfClient.foundation_client" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.BcfClient.version_id">
+<span class="sig-name descname"><span class="pre">version_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#bcf.v3.bcfapi.BcfClient.version_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -1185,6 +1192,56 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.set_tokens_from_response">
 <span class="sig-name descname"><span class="pre">set_tokens_from_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">requests.Response</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.set_tokens_from_response" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.access_token">
+<span class="sig-name descname"><span class="pre">access_token</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.access_token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.access_token_expires_on">
+<span class="sig-name descname"><span class="pre">access_token_expires_on</span></span><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.access_token_expires_on" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.auth_method">
+<span class="sig-name descname"><span class="pre">auth_method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.auth_method" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.baseurl">
+<span class="sig-name descname"><span class="pre">baseurl</span></span><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.baseurl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.client_id">
+<span class="sig-name descname"><span class="pre">client_id</span></span><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.client_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.client_secret">
+<span class="sig-name descname"><span class="pre">client_secret</span></span><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.client_secret" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.redirect_subdir">
+<span class="sig-name descname"><span class="pre">redirect_subdir</span></span><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.redirect_subdir" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.refresh_token">
+<span class="sig-name descname"><span class="pre">refresh_token</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.refresh_token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.refresh_token_expires_on">
+<span class="sig-name descname"><span class="pre">refresh_token_expires_on</span></span><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.refresh_token_expires_on" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bcf.v3.bcfapi.FoundationClient.token_endpoint">
+<span class="sig-name descname"><span class="pre">token_endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#bcf.v3.bcfapi.FoundationClient.token_endpoint" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1396,6 +1453,10 @@ e.g. “text/html” or “text/plain”.</p>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.BcfClient.update_related_topics"><code class="docutils literal notranslate"><span class="pre">BcfClient.update_related_topics()</span></code></a></li>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.BcfClient.update_snippet"><code class="docutils literal notranslate"><span class="pre">BcfClient.update_snippet()</span></code></a></li>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.BcfClient.update_topic"><code class="docutils literal notranslate"><span class="pre">BcfClient.update_topic()</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.BcfClient.baseurl"><code class="docutils literal notranslate"><span class="pre">BcfClient.baseurl</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.BcfClient.filepath"><code class="docutils literal notranslate"><span class="pre">BcfClient.filepath</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.BcfClient.foundation_client"><code class="docutils literal notranslate"><span class="pre">BcfClient.foundation_client</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.BcfClient.version_id"><code class="docutils literal notranslate"><span class="pre">BcfClient.version_id</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient"><code class="docutils literal notranslate"><span class="pre">FoundationClient</span></code></a><ul>
@@ -1407,6 +1468,16 @@ e.g. “text/html” or “text/plain”.</p>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.login"><code class="docutils literal notranslate"><span class="pre">FoundationClient.login()</span></code></a></li>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.set_auth_method"><code class="docutils literal notranslate"><span class="pre">FoundationClient.set_auth_method()</span></code></a></li>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.set_tokens_from_response"><code class="docutils literal notranslate"><span class="pre">FoundationClient.set_tokens_from_response()</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.access_token"><code class="docutils literal notranslate"><span class="pre">FoundationClient.access_token</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.access_token_expires_on"><code class="docutils literal notranslate"><span class="pre">FoundationClient.access_token_expires_on</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.auth_method"><code class="docutils literal notranslate"><span class="pre">FoundationClient.auth_method</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.baseurl"><code class="docutils literal notranslate"><span class="pre">FoundationClient.baseurl</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.client_id"><code class="docutils literal notranslate"><span class="pre">FoundationClient.client_id</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.client_secret"><code class="docutils literal notranslate"><span class="pre">FoundationClient.client_secret</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.redirect_subdir"><code class="docutils literal notranslate"><span class="pre">FoundationClient.redirect_subdir</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.refresh_token"><code class="docutils literal notranslate"><span class="pre">FoundationClient.refresh_token</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.refresh_token_expires_on"><code class="docutils literal notranslate"><span class="pre">FoundationClient.refresh_token_expires_on</span></code></a></li>
+<li><a class="reference internal" href="#bcf.v3.bcfapi.FoundationClient.token_endpoint"><code class="docutils literal notranslate"><span class="pre">FoundationClient.token_endpoint</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#bcf.v3.bcfapi.OAuthReceiver"><code class="docutils literal notranslate"><span class="pre">OAuthReceiver</span></code></a><ul>
@@ -1426,10 +1497,10 @@ e.g. “text/html” or “text/plain”.</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=d46e566c"></script>
+</div><script src="../../../../_static/documentation_options.js?v=7016d275"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="../../../../_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     </body>

@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ifcopenshell.geom.main" href="../main/index.html" /><link rel="prev" title="ifcopenshell.geom.app" href="../app/index.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>ifcopenshell.geom.code_editor_pane - IfcOpenShell 0.7.10 documentation</title>
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>ifcopenshell.geom.code_editor_pane - IfcOpenShell 0.7.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=613ab9ff" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c85da206" />
     
     
@@ -128,19 +128,6 @@
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
   <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
     <title>Auto light/dark, in light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -181,7 +168,7 @@
       <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
       <path d="M13.5 6.5l4 4" />
       <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" /
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
   <symbol id="svg-eye" viewBox="0 0 24 24">
@@ -219,7 +206,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.10 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.11 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -246,7 +233,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.7.10 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.7.11 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -923,6 +910,16 @@
 <span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">myStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.StdoutRedirector.write" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.StdoutRedirector.isError">
+<span class="sig-name descname"><span class="pre">isError</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.StdoutRedirector.isError" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.StdoutRedirector.widget">
+<span class="sig-name descname"><span class="pre">widget</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.StdoutRedirector.widget" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -966,6 +963,56 @@ of the input stream; it will show up in tracebacks.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.select">
 <span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">product</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.select" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.c">
+<span class="sig-name descname"><span class="pre">c</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.c" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.editor">
+<span class="sig-name descname"><span class="pre">editor</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.editor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.layout">
+<span class="sig-name descname"><span class="pre">layout</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.layout" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.output">
+<span class="sig-name descname"><span class="pre">output</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.output" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.runbutton">
+<span class="sig-name descname"><span class="pre">runbutton</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.runbutton" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.snippets">
+<span class="sig-name descname"><span class="pre">snippets</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.snippets" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.tools">
+<span class="sig-name descname"><span class="pre">tools</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.tools" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.viewer">
+<span class="sig-name descname"><span class="pre">viewer</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.viewer" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.geom.code_editor_pane.code_edit.width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#ifcopenshell.geom.code_editor_pane.code_edit.width" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1052,6 +1099,8 @@ of the input stream; it will show up in tracebacks.</p>
 <li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
 <li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.StdoutRedirector"><code class="docutils literal notranslate"><span class="pre">StdoutRedirector</span></code></a><ul>
 <li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.StdoutRedirector.write"><code class="docutils literal notranslate"><span class="pre">StdoutRedirector.write()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.StdoutRedirector.isError"><code class="docutils literal notranslate"><span class="pre">StdoutRedirector.isError</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.StdoutRedirector.widget"><code class="docutils literal notranslate"><span class="pre">StdoutRedirector.widget</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit"><code class="docutils literal notranslate"><span class="pre">code_edit</span></code></a><ul>
@@ -1063,6 +1112,16 @@ of the input stream; it will show up in tracebacks.</p>
 <li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.replace_snippet"><code class="docutils literal notranslate"><span class="pre">code_edit.replace_snippet()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.runCode"><code class="docutils literal notranslate"><span class="pre">code_edit.runCode()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.select"><code class="docutils literal notranslate"><span class="pre">code_edit.select()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.c"><code class="docutils literal notranslate"><span class="pre">code_edit.c</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.editor"><code class="docutils literal notranslate"><span class="pre">code_edit.editor</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.layout"><code class="docutils literal notranslate"><span class="pre">code_edit.layout</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.model"><code class="docutils literal notranslate"><span class="pre">code_edit.model</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.output"><code class="docutils literal notranslate"><span class="pre">code_edit.output</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.runbutton"><code class="docutils literal notranslate"><span class="pre">code_edit.runbutton</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.snippets"><code class="docutils literal notranslate"><span class="pre">code_edit.snippets</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.tools"><code class="docutils literal notranslate"><span class="pre">code_edit.tools</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.viewer"><code class="docutils literal notranslate"><span class="pre">code_edit.viewer</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.code_edit.width"><code class="docutils literal notranslate"><span class="pre">code_edit.width</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ifcopenshell.geom.code_editor_pane.QtWidgets"><code class="docutils literal notranslate"><span class="pre">QtWidgets</span></code></a></li>
@@ -1080,10 +1139,10 @@ of the input stream; it will show up in tracebacks.</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=d46e566c"></script>
+</div><script src="../../../../_static/documentation_options.js?v=7016d275"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="../../../../_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     </body>

@@ -18,6 +18,9 @@ Module Contents
    .. py:method:: unbatch()
 
 
+   .. py:attribute:: file
+
+
 .. py:class:: Migrator
 
    .. py:method:: find_equivalent_attribute(new_element: ifcopenshell.entity_instance, attribute: ifcopenshell.ifcopenshell_wrapper.attribute, element: ifcopenshell.entity_instance, attributes_mapping: dict[str, dict[str, str]], reverse_mapping: bool = False) -> Union[Any, None]
@@ -39,6 +42,27 @@ Module Contents
 
 
    .. py:method:: preprocess(old_file: ifcopenshell.file, new_file: ifcopenshell.file)
+
+
+   .. py:attribute:: attribute_overrides
+
+
+   .. py:attribute:: attributes_mapping
+
+
+   .. py:attribute:: class_2x3_to_4
+
+
+   .. py:attribute:: class_4_to_2x3
+
+
+   .. py:attribute:: default_entities
+
+
+   .. py:attribute:: default_values
+
+
+   .. py:attribute:: migrated_ids
 
 
 .. py:function:: get_fallback_schema(version: str) -> str

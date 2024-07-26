@@ -67,3 +67,51 @@ Module Contents
    .. py:method:: is_type(v)
 
 
+   .. py:attribute:: all_declarations
+
+
+   .. py:attribute:: declarations
+
+
+   .. py:attribute:: entities
+
+
+   .. py:attribute:: enumerations
+
+
+   .. py:attribute:: functions
+
+
+   .. py:attribute:: keys
+
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: of_type
+
+
+   .. py:attribute:: rules
+
+
+   .. py:attribute:: schema
+
+
+   .. py:attribute:: schema_declarations
+
+
+   .. py:attribute:: selects
+
+
+   .. py:attribute:: simpletypes
+
+
+   .. py:attribute:: sort
+
+
+   .. py:attribute:: tree
+
+
+   .. py:attribute:: types
+
+

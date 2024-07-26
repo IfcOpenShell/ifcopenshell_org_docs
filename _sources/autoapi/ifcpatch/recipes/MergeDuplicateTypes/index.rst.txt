@@ -53,3 +53,15 @@ Module Contents
    .. py:method:: patch()
 
 
+   .. py:attribute:: attribute
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: src
+
+

@@ -45,6 +45,32 @@ Module Contents
    .. py:method:: unserialise_value(element, value)
 
 
+   .. py:attribute:: batch_delete_ids
+
+
+   .. py:attribute:: batch_delete_index
+      :value: 0
+
+
+
+   .. py:attribute:: batch_inverses
+      :value: []
+
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: is_batched
+      :value: False
+
+
+
+   .. py:attribute:: operations
+      :value: []
+
+
+
 .. py:class:: file(f: Optional[ifcopenshell.ifcopenshell_wrapper.file] = None, schema: Optional[str] = None, schema_version: Optional[tuple[int, int, int, int]] = None)
 
    Base class for containing IFC files.
@@ -207,7 +233,7 @@ Module Contents
    .. py:method:: end_transaction() -> None
 
 
-   .. py:method:: from_pointer(v)
+   .. py:method:: from_pointer(v) -> file
       :staticmethod:
 
 
@@ -318,8 +344,23 @@ Module Contents
 
 
 
+   .. py:attribute:: future
+      :value: []
+
+
+
+   .. py:attribute:: history
+      :value: []
+
+
+
+   .. py:attribute:: history_size
+      :value: 64
+
+
+
    .. py:property:: schema
-      :type: str
+      :type: Literal['IFC2X3', 'IFC4', 'IFC4X3']
 
       General IFC schema version: IFC2X3, IFC4, IFC4X3.
 
@@ -338,6 +379,12 @@ Module Contents
       Numeric representation of the full IFC schema version.
 
       E.g. IFC4X3_ADD2 is represented as (4, 3, 2, 0).
+
+
+
+   .. py:attribute:: transaction
+      :type:  Optional[Transaction]
+      :value: None
 
 
 

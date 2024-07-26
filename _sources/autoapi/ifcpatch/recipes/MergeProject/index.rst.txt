@@ -42,3 +42,15 @@ Module Contents
    .. py:method:: reuse_existing_contexts()
 
 
+   .. py:attribute:: file
+
+
+   .. py:attribute:: filepath
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: src
+
+

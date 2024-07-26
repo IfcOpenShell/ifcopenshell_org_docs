@@ -57,3 +57,15 @@ Module Contents
    .. py:method:: patch()
 
 
+   .. py:attribute:: file
+
+
+   .. py:attribute:: is_solid
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: src
+
+

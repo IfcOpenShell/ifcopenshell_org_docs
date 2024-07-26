@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ifcopenshell.api.sequence.add_task" href="add_task/index.html" /><link rel="prev" title="ifcopenshell.api.root.remove_product" href="../root/remove_product/index.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>ifcopenshell.api.sequence - IfcOpenShell 0.7.10 documentation</title>
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>ifcopenshell.api.sequence - IfcOpenShell 0.7.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=613ab9ff" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c85da206" />
     
     
@@ -128,19 +128,6 @@
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
   <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
     <title>Auto light/dark, in light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -181,7 +168,7 @@
       <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
       <path d="M13.5 6.5l4 4" />
       <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" /
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
   <symbol id="svg-eye" viewBox="0 0 24 24">
@@ -219,7 +206,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.10 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.7.11 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -246,7 +233,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.7.10 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.7.11 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -964,7 +951,7 @@ managing recurring facility maintenance schedules.</p>
 <h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.add_task">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_task" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_task" title="Link to this definition">¶</a></dt>
 <dd><p>Adds a new task</p>
 <p>Tasks are typically used for two purposes: construction scheduling and
 facility management.</p>
@@ -996,10 +983,10 @@ hierarchy. No further child tasks are recommended.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_schedule</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>, </em><em>optional</em>) – The work schedule to group the task in, if the
+<li><p><strong>work_schedule</strong> (<em>ifcopenshell.entity_instance</em><em>, </em><em>optional</em>) – The work schedule to group the task in, if the
 task is to be a top-level or root task. This is mutually exclusive
 with the parent_task parameter.</p></li>
-<li><p><strong>parent_task</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>, </em><em>optioanl</em>) – The parent task, if the task is to be a subtask or
+<li><p><strong>parent_task</strong> (<em>ifcopenshell.entity_instance</em><em>, </em><em>optioanl</em>) – The parent task, if the task is to be a subtask or
 child task. This is mutually exclusive with the work_schedule
 parameter.</p></li>
 <li><p><strong>name</strong> (<em>str</em><em>,</em><em>optional</em>) – The name of the task.</p></li>
@@ -1014,7 +1001,7 @@ IFC documentation for IfcTaskTypeEnum for more information.</p></li>
 <dd class="field-even"><p>The newly created IfcTask</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1071,7 +1058,7 @@ IFC documentation for IfcTaskTypeEnum for more information.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.add_task_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_task_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_recurring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_task_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_task_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_recurring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_task_time" title="Link to this definition">¶</a></dt>
 <dd><p>Adds a task time to a task</p>
 <p>Some tasks, such as activities within a work breakdown structure or
 overall maintenance tasks will have time related information. This
@@ -1080,7 +1067,7 @@ includes start dates, durations, end dates, and possible recurring times
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>task</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The task to add time data to.</p></li>
+<li><p><strong>task</strong> (<em>ifcopenshell.entity_instance</em>) – The task to add time data to.</p></li>
 <li><p><strong>is_recurring</strong> (<em>bool</em>) – Whether or not the time should recur.</p></li>
 </ul>
 </dd>
@@ -1088,7 +1075,7 @@ includes start dates, durations, end dates, and possible recurring times
 <dd class="field-even"><p>The newly created IfcTaskTime.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1119,7 +1106,7 @@ includes start dates, durations, end dates, and possible recurring times
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.add_time_period">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_time_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_time_period" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_time_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_time_period" title="Link to this definition">¶</a></dt>
 <dd><p>Adds a time period to a recurrence pattern</p>
 <p>A recurring time may be an all-day event, or only during certain time
 periods of the day. For example, you might say that every 1st of January
@@ -1132,7 +1119,7 @@ lunch).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>recurrence_pattern</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcRecurrencePattern to add the time
+<li><p><strong>recurrence_pattern</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcRecurrencePattern to add the time
 period to. See ifcopenshell.api.sequence.assign_recurrence_pattern.</p></li>
 <li><p><strong>start_time</strong> (<em>str</em><em>,</em><em>datetime.time</em>) – The start time of the time period, in a format
 compatible with IfcTime, such as an ISO format time string or a
@@ -1146,7 +1133,7 @@ datetime.time object.</p></li>
 <dd class="field-even"><p>The newly created IfcTimePeriod</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1176,7 +1163,7 @@ datetime.time object.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.add_work_calendar">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_calendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Unnamed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_calendar" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_calendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Unnamed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_calendar" title="Link to this definition">¶</a></dt>
 <dd><p>Add a work calendar</p>
 <p>A work calendar defines when work is allowed to occur and when the
 holidays are. This is a fundamental concept in construction planning.
@@ -1201,7 +1188,7 @@ THIRDSHIFT. Leave as NOTDEFINED for basic calendar usage.</p></li>
 <dd class="field-even"><p>The newly created IfcWorkCalendar</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1240,7 +1227,7 @@ THIRDSHIFT. Leave as NOTDEFINED for basic calendar usage.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.add_work_plan">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_plan" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_plan" title="Link to this definition">¶</a></dt>
 <dd><p>Add a new work plan</p>
 <p>A work plan is a group of work schedules. Since work schedules may have
 different purposes, such as for maintenance or construction scheduling,
@@ -1263,7 +1250,7 @@ within the work plan are relevant.</p></li>
 <dd class="field-even"><p>The newly created IfcWorkPlan</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1279,7 +1266,7 @@ within the work plan are relevant.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.add_work_schedule">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Unnamed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_schedule" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Unnamed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predefined_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NOTDEFINED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime.time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_schedule" title="Link to this definition">¶</a></dt>
 <dd><p>Add a new work schedule</p>
 <p>A work schedule is a group of tasks, where the tasks are typically
 either for maintenance or for construction scheduling.</p>
@@ -1293,7 +1280,7 @@ convert to a BASELINE when changes are made with separate schedules,
 then have a parallel ACTUAL schedule.</p></li>
 <li><p><strong>start_time</strong> (<em>str</em><em>,</em><em>datetime.time</em><em>,</em><em>optional</em>) – The earlier start time when the schedule is relevant.
 May be represented with an ISO standard string.</p></li>
-<li><p><strong>work_plan</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a><em>,</em><em>optional</em>) – The IfcWorkPlan the schedule will be part of. If not
+<li><p><strong>work_plan</strong> (<em>ifcopenshell.entity_instance</em><em>,</em><em>optional</em>) – The IfcWorkPlan the schedule will be part of. If not
 provided, the schedule will not be grouped in a work plan and would
 exist as a top level schedule in the project. This is not
 recommended.</p></li>
@@ -1303,7 +1290,7 @@ recommended.</p></li>
 <dd class="field-even"><p>The newly created IfcWorkSchedule</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1328,7 +1315,7 @@ recommended.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.add_work_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_calendar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TIME_TYPE</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WorkingTimes'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">add_work_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_calendar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TIME_TYPE</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WorkingTimes'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.add_work_time" title="Link to this definition">¶</a></dt>
 <dd><p>Add either working times or holiday times to a calendar</p>
 <p>A calendar defines when work occurs by defining working times and
 holiday times. First, the working times are defined, then the holidays
@@ -1340,7 +1327,7 @@ override the work time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_calendar</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkCalendar to add the work or holiday
+<li><p><strong>work_calendar</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkCalendar to add the work or holiday
 time definition to.</p></li>
 <li><p><strong>time_type</strong> (<em>str</em>) – Either WorkingTimes or ExceptionTimes, depending on
 what you want to define.</p></li>
@@ -1350,7 +1337,7 @@ what you want to define.</p></li>
 <dd class="field-even"><p>The newly created IfcWorkTime</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1386,7 +1373,7 @@ what you want to define.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.assign_lag_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_lag_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lag_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WORKTIME'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_lag_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_lag_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lag_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WORKTIME'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_lag_time" title="Link to this definition">¶</a></dt>
 <dd><p>Assign a lag time to a sequence relationship between tasks</p>
 <p>A task sequence (e.g. finish to start) may optionally have a lag time
 defined. This is a fundamental concept in construction scheduling. The
@@ -1398,7 +1385,7 @@ are allowed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rel_sequence</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcRelSequence to assign the lag time to.</p></li>
+<li><p><strong>rel_sequence</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcRelSequence to assign the lag time to.</p></li>
 <li><p><strong>lag_value</strong> (<em>str</em>) – An ISO standardised duration string.</p></li>
 <li><p><strong>duration_type</strong> (<em>str</em>) – Choose from WORKTIME for the associated
 calendar-based lag times (this is the most common scenario and is
@@ -1411,7 +1398,7 @@ is unclear.</p></li>
 <dd class="field-even"><p>The newly created IfcLagTime</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1454,7 +1441,7 @@ is unclear.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.assign_process">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_process" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_process" title="Link to this definition">¶</a></dt>
 <dd><p>Assigns an object to be related to a process, typically a construction task</p>
 <p>Processes work using the ICOM (Input, Controls, Outputs, Mechanisms)
 paradigm in IFC. This process model is commonly used in modeling
@@ -1505,9 +1492,9 @@ input, and there is no output).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>relating_process</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcProcess (typically IfcTask) that the
+<li><p><strong>relating_process</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcProcess (typically IfcTask) that the
 input, control, or resource is related to.</p></li>
-<li><p><strong>related_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcProduct (for input), IfcCostItem (for
+<li><p><strong>related_object</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcProduct (for input), IfcCostItem (for
 control) or IfcConstructionResource (for resource).</p></li>
 </ul>
 </dd>
@@ -1515,7 +1502,7 @@ control) or IfcConstructionResource (for resource).</p></li>
 <dd class="field-even"><p>The newly created IfcRelAssignsToProcess relationship</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1539,7 +1526,7 @@ control) or IfcConstructionResource (for resource).</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.assign_product">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_product</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_product" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_product</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_product" title="Link to this definition">¶</a></dt>
 <dd><p>Assigns a product to be produced as a result of a process</p>
 <p>A construction task may result in products (e.g. a wall) being
 constructed. These task “Outputs” are defined in IFC through product
@@ -1552,9 +1539,9 @@ process modeling.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>relating_product</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcProduct that was constructed as a result
+<li><p><strong>relating_product</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcProduct that was constructed as a result
 of the task.</p></li>
-<li><p><strong>related_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcProcess (typically IfcTask) of the
+<li><p><strong>related_object</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcProcess (typically IfcTask) of the
 construction task.</p></li>
 </ul>
 </dd>
@@ -1562,7 +1549,7 @@ construction task.</p></li>
 <dd class="field-even"><p>The newly created IfcRelAssignsToProduct relationship</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1586,7 +1573,7 @@ construction task.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.assign_recurrence_pattern">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_recurrence_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.util.sequence.RECURRENCE_TYPE</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WEEKLY'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_recurrence_pattern" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_recurrence_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.util.sequence.RECURRENCE_TYPE</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'WEEKLY'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_recurrence_pattern" title="Link to this definition">¶</a></dt>
 <dd><p>Define a time to recur at a particular interval</p>
 <p>There are two scenarios where you might want to define a recurring time
 pattern.</p>
@@ -1641,7 +1628,7 @@ scheduling applications.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parent</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – Either an IfcTaskTimeRecurring if you are defining a
+<li><p><strong>parent</strong> (<em>ifcopenshell.entity_instance</em>) – Either an IfcTaskTimeRecurring if you are defining a
 recurring schedule for a task, or IfcWorkTime if you are defining a
 recurring pattern for a workdays or holidays in a calendar.</p></li>
 <li><p><strong>recurrence_type</strong> (<em>str</em>) – One of the types of recurrences.</p></li>
@@ -1651,7 +1638,7 @@ recurring pattern for a workdays or holidays in a calendar.</p></li>
 <dd class="field-even"><p>The newly created IfcRecurrencePattern</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1693,7 +1680,7 @@ recurring pattern for a workdays or holidays in a calendar.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.assign_sequence">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'FINISH_START'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_sequence" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'FINISH_START'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_sequence" title="Link to this definition">¶</a></dt>
 <dd><p>Assign a sequential relationship between tasks</p>
 <p>Tasks in construction sequencing typically have sequence relationships
 between them, indicating that one task must happen after another. This
@@ -1714,8 +1701,8 @@ predecessor and successor tasks in the planning profession.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>relating_process</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The previous / predecessor task.</p></li>
-<li><p><strong>related_process</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The next / successor task.</p></li>
+<li><p><strong>relating_process</strong> (<em>ifcopenshell.entity_instance</em>) – The previous / predecessor task.</p></li>
+<li><p><strong>related_process</strong> (<em>ifcopenshell.entity_instance</em>) – The next / successor task.</p></li>
 <li><p><strong>sequence_type</strong> – Choose from FINISH_START, FINISH_FINISH,
 START_START, or START_FINISH.</p></li>
 </ul>
@@ -1724,7 +1711,7 @@ START_START, or START_FINISH.</p></li>
 <dd class="field-even"><p>The newly created IfcRelSequence</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1779,23 +1766,23 @@ START_START, or START_FINISH.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.assign_work_plan">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_work_plan" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">assign_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.assign_work_plan" title="Link to this definition">¶</a></dt>
 <dd><p>Assigns a work schedule to a work plan</p>
 <p>Typically, work schedules would be assigned to a work plan at creation.
 However you may also delay this and do it manually afterwards.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_schedule</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkSchedule that will be assigned to the
+<li><p><strong>work_schedule</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkSchedule that will be assigned to the
 work plan.</p></li>
-<li><p><strong>work_plan</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkPlan for the schedule to be assigned to.</p></li>
+<li><p><strong>work_plan</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkPlan for the schedule to be assigned to.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The IfcRelAggregates relationship</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1813,7 +1800,7 @@ work plan.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.calculate_task_duration">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">calculate_task_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.calculate_task_duration" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">calculate_task_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.calculate_task_duration" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates the task duration based on resource usage</p>
 <p>If a task has labour or equipment resources assigned to it, its duration
 may be parametrically derived from the scheduled work of the resource.
@@ -1824,7 +1811,7 @@ that the task duration is 5 working days.</p>
 then nothing happens.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>task</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcTask to calculate the duration for.</p>
+<dd class="field-odd"><p><strong>task</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcTask to calculate the duration for.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -1876,7 +1863,7 @@ then nothing happens.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.cascade_schedule">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">cascade_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.cascade_schedule" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">cascade_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.cascade_schedule" title="Link to this definition">¶</a></dt>
 <dd><p>Cascades start and end dates of tasks based on durations</p>
 <p>Given a start task with a start date and duration, the end date, and the
 start and end of all successor tasks with durations may be automatically
@@ -1892,7 +1879,7 @@ software calculate start and end dates. Some may consider Monday 5pm to
 be equivalent to be Tuesday 8am, for instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>task</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The start task to begin cascading from.</p>
+<dd class="field-odd"><p><strong>task</strong> (<em>ifcopenshell.entity_instance</em>) – The start task to begin cascading from.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -1959,7 +1946,7 @@ be equivalent to be Tuesday 8am, for instance.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.create_baseline">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">create_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.create_baseline" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">create_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.create_baseline" title="Link to this definition">¶</a></dt>
 <dd><p>Creates a baseline for your Work Schedule</p>
 <p>Using a IfcWorkSchdule having PredefinedType=PLANNED,
 We can create a baseline for our work schedule. This IfcWorkSchedule will have PredefinedType=BASELINE
@@ -1974,7 +1961,7 @@ and the IfcWorkSchedule.CreationDate indicating the date of the baseline creatio
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_schedule</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The planned work_schedule to baseline</p></li>
+<li><p><strong>work_schedule</strong> (<em>ifcopenshell.entity_instance</em>) – The planned work_schedule to baseline</p></li>
 <li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – baseline work schedule name</p></li>
 </ul>
 </dd>
@@ -1982,7 +1969,7 @@ and the IfcWorkSchedule.CreationDate indicating the date of the baseline creatio
 <dd class="field-even"><p>The baseline work_schedule</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1997,7 +1984,7 @@ and the IfcWorkSchedule.CreationDate indicating the date of the baseline creatio
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.duplicate_task">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">duplicate_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.duplicate_task" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">duplicate_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.duplicate_task" title="Link to this definition">¶</a></dt>
 <dd><p>Duplicates a task in the project</p>
 <p>The following relationships are also duplicated:</p>
 <ul class="simple">
@@ -2007,13 +1994,13 @@ and the IfcWorkSchedule.CreationDate indicating the date of the baseline creatio
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>task</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The task to be duplicated</p>
+<dd class="field-odd"><p><strong>task</strong> (<em>ifcopenshell.entity_instance</em>) – The task to be duplicated</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The duplicated task or the list of duplicated tasks if the latter has children</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a> or list of <a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance or list of ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:
@@ -2028,14 +2015,14 @@ duplicated_task = project.duplicate_task(original_task)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_lag_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_lag_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lag_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_lag_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_lag_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lag_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_lag_time" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcLagTime</p>
 <p>For more information about the attributes and data types of an
 IfcLagTime, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lag_time</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcLagTime entity you want to edit</p></li>
+<li><p><strong>lag_time</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcLagTime entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2089,14 +2076,14 @@ IfcLagTime, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_recurrence_pattern">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_recurrence_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_recurrence_pattern" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_recurrence_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_recurrence_pattern" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcRecurrencePattern</p>
 <p>For more information about the attributes and data types of an
 IfcRecurrencePattern, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>recurrence_pattern</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcRecurrencePattern entity you want to edit</p></li>
+<li><p><strong>recurrence_pattern</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcRecurrencePattern entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2128,14 +2115,14 @@ IfcRecurrencePattern, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_sequence">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_sequence" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_sequence" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcRelSequence</p>
 <p>For more information about the attributes and data types of an
 IfcRelSequence, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rel_sequence</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcRelSequence entity you want to edit</p></li>
+<li><p><strong>rel_sequence</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcRelSequence entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2174,14 +2161,14 @@ IfcRelSequence, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_task">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_task" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_task" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcTask</p>
 <p>For more information about the attributes and data types of an
 IfcTask, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>task</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcTask entity you want to edit</p></li>
+<li><p><strong>task</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcTask entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2210,14 +2197,14 @@ IfcTask, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_task_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_task_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_task_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_task_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_task_time" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcTaskTime</p>
 <p>For more information about the attributes and data types of an
 IfcTaskTime, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>task_time</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcTaskTime entity you want to edit</p></li>
+<li><p><strong>task_time</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcTaskTime entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2247,14 +2234,14 @@ IfcTaskTime, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_work_calendar">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_calendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_calendar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_calendar" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_calendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_calendar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_calendar" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcWorkCalendar</p>
 <p>For more information about the attributes and data types of an
 IfcWorkCalendar, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_calendar</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkCalendar entity you want to edit</p></li>
+<li><p><strong>work_calendar</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkCalendar entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2278,14 +2265,14 @@ IfcWorkCalendar, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_work_plan">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_plan" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_plan" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcWorkPlan</p>
 <p>For more information about the attributes and data types of an
 IfcWorkPlan, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_plan</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkPlan entity you want to edit</p></li>
+<li><p><strong>work_plan</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkPlan entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2309,14 +2296,14 @@ IfcWorkPlan, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_work_schedule">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_schedule" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_schedule" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcWorkSchedule</p>
 <p>For more information about the attributes and data types of an
 IfcWorkSchedule, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_schedule</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkSchedule entity you want to edit</p></li>
+<li><p><strong>work_schedule</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkSchedule entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2344,14 +2331,14 @@ IfcWorkSchedule, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.edit_work_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">edit_work_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.edit_work_time" title="Link to this definition">¶</a></dt>
 <dd><p>Edits the attributes of an IfcWorkTime</p>
 <p>For more information about the attributes and data types of an
 IfcWorkTime, consult the IFC documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>work_time</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkTime entity you want to edit</p></li>
+<li><p><strong>work_time</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkTime entity you want to edit</p></li>
 <li><p><strong>attributes</strong> (<em>dict</em>) – a dictionary of attribute names and values.</p></li>
 </ul>
 </dd>
@@ -2381,13 +2368,13 @@ IfcWorkTime, consult the IFC documentation.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.remove_task">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_task" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_task" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a task</p>
 <p>All subtasks are also removed recursively. Any relationships such as
 sequences or controls are also removed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>task</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcTask to remove.</p>
+<dd class="field-odd"><p><strong>task</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcTask to remove.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2419,11 +2406,11 @@ sequences or controls are also removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.remove_time_period">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_time_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_time_period" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_time_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_time_period" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a time period</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>time_period</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcTimePeriod to remove.</p>
+<dd class="field-odd"><p><strong>time_period</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcTimePeriod to remove.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2462,13 +2449,13 @@ sequences or controls are also removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.remove_work_calendar">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_calendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_calendar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_calendar" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_calendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_calendar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_calendar" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a work calendar</p>
 <p>All relationships are also removed, such as if a task is set to use that
 calendar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>work_calendar</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkCalendar to remove</p>
+<dd class="field-odd"><p><strong>work_calendar</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkCalendar to remove</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2489,13 +2476,13 @@ calendar.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.remove_work_plan">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_plan" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_plan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_plan" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a work plan</p>
 <p>Note that schedules that are grouped under the work plan are not
 removed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>work_plan</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkPlan to remove.</p>
+<dd class="field-odd"><p><strong>work_plan</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkPlan to remove.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2516,12 +2503,12 @@ removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.remove_work_schedule">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_schedule" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_schedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_schedule" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a work schedule</p>
 <p>All tasks in the work schedule are also removed recursively.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>work_schedule</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkSchedule to remove.</p>
+<dd class="field-odd"><p><strong>work_schedule</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkSchedule to remove.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2546,11 +2533,11 @@ removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.remove_work_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">remove_work_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.remove_work_time" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a work time</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>work_time</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcWorkTime to remove.</p>
+<dd class="field-odd"><p><strong>work_time</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcWorkTime to remove.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2575,12 +2562,12 @@ removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.unassign_lag_time">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_lag_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_lag_time" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_lag_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_lag_time" title="Link to this definition">¶</a></dt>
 <dd><p>Removes any lag time in a sequence</p>
 <p>The schedule is cascaded afterwards.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>rel_sequence</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The sequence to remove the lag time from.</p>
+<dd class="field-odd"><p><strong>rel_sequence</strong> (<em>ifcopenshell.entity_instance</em>) – The sequence to remove the lag time from.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2619,14 +2606,14 @@ removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.unassign_process">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_process" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_process" title="Link to this definition">¶</a></dt>
 <dd><p>Unassigns a process and object relationship</p>
 <p>See ifcopenshell.api.sequence.assign_process for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>relating_process</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcTask in the relationship.</p></li>
-<li><p><strong>related_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The related object.</p></li>
+<li><p><strong>relating_process</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcTask in the relationship.</p></li>
+<li><p><strong>related_object</strong> (<em>ifcopenshell.entity_instance</em>) – The related object.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2660,14 +2647,14 @@ removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.unassign_product">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_product</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_product" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_product</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_product" title="Link to this definition">¶</a></dt>
 <dd><p>Unassigns a product and object relationship</p>
 <p>See ifcopenshell.api.sequence.assign_product for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>relating_product</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcProduct in the relationship.</p></li>
-<li><p><strong>related_object</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcTask in the relationship.</p></li>
+<li><p><strong>relating_product</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcProduct in the relationship.</p></li>
+<li><p><strong>related_object</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcTask in the relationship.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2701,7 +2688,7 @@ removed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.unassign_recurrence_pattern">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_recurrence_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_recurrence_pattern" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_recurrence_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurrence_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_recurrence_pattern" title="Link to this definition">¶</a></dt>
 <dd><p>Unassigns a recurrence pattern</p>
 <p>Note that a recurring task time must have a recurrence pattern, so if
 you remove it, be sure to clean up after this API call
@@ -2710,7 +2697,7 @@ or assign a different recurrence patern to it
 or replace IfcTaskTimeRecurring with IfcTaskTime).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>recurrence_pattern</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcRecurrencePattern to remove.</p>
+<dd class="field-odd"><p><strong>recurrence_pattern</strong> (<em>ifcopenshell.entity_instance</em>) – The IfcRecurrencePattern to remove.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -2739,13 +2726,13 @@ or replace IfcTaskTimeRecurring with IfcTaskTime).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.sequence.unassign_sequence">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_sequence" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.sequence.</span></span><span class="sig-name descname"><span class="pre">unassign_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">relating_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">related_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.sequence.unassign_sequence" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a sequence relationship between tasks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>relating_process</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The previous / predecessor task.</p></li>
-<li><p><strong>related_process</strong> (<a class="reference internal" href="../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The next / successor task.</p></li>
+<li><p><strong>relating_process</strong> (<em>ifcopenshell.entity_instance</em>) – The previous / predecessor task.</p></li>
+<li><p><strong>related_process</strong> (<em>ifcopenshell.entity_instance</em>) – The next / successor task.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2901,10 +2888,10 @@ or replace IfcTaskTimeRecurring with IfcTaskTime).</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=d46e566c"></script>
+</div><script src="../../../../_static/documentation_options.js?v=7016d275"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="../../../../_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>
     </body>

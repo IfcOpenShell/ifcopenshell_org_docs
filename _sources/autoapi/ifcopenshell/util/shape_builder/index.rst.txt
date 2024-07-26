@@ -393,6 +393,9 @@ Module Contents
    .. py:method:: translate(curve_or_item: Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]], translation: mathutils.Vector, create_copy: bool = False) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
 
 
+   .. py:attribute:: file
+
+
 .. py:function:: is_x(value, x, si_conversion=None)
 
 .. py:data:: PRECISION

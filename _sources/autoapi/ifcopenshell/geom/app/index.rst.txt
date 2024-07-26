@@ -36,6 +36,9 @@ Module Contents
       .. py:method:: select(product)
 
 
+      .. py:attribute:: children
+
+
       .. py:attribute:: instanceDisplayModeChanged
 
 
@@ -75,6 +78,21 @@ Module Contents
 
 
       .. py:method:: select(product)
+
+
+      .. py:attribute:: layout
+
+
+      .. py:attribute:: prop_dict
+
+
+      .. py:attribute:: scroll
+
+
+      .. py:attribute:: scrollContent
+
+
+      .. py:attribute:: scrollLayout
 
 
 
@@ -124,7 +142,26 @@ Module Contents
       .. py:method:: toggle_wireframe(product_or_products, flag)
 
 
+      .. py:attribute:: ais_to_product
+
+
+      .. py:attribute:: counter
+         :value: 0
+
+
+
       .. py:attribute:: instanceSelected
+
+
+      .. py:attribute:: product_to_ais
+
+
+      .. py:attribute:: thread
+         :value: None
+
+
+
+      .. py:attribute:: window
 
 
 
@@ -142,6 +179,12 @@ Module Contents
       .. py:attribute:: TITLE
          :value: 'IfcOpenShell IFC viewer'
 
+
+
+      .. py:attribute:: menu
+
+
+      .. py:attribute:: menus
 
 
       .. py:attribute:: window_closed
@@ -169,9 +212,54 @@ Module Contents
    .. py:method:: start()
 
 
+   .. py:attribute:: canvas
+
+
+   .. py:attribute:: components
+
+
+   .. py:attribute:: editor
+
+
+   .. py:attribute:: files
+
+
+   .. py:attribute:: propview
+
+
+   .. py:attribute:: settings
+
+
+   .. py:attribute:: splitter
+
+
+   .. py:attribute:: splitter2
+
+
+   .. py:attribute:: tabs
+
+
+   .. py:attribute:: tree
+
+
+   .. py:attribute:: tree2
+
+
 .. py:class:: configuration
 
    .. py:method:: options(s)
+
+
+   .. py:attribute:: conf_file
+
+
+   .. py:attribute:: config
+
+
+   .. py:attribute:: config_decode
+
+
+   .. py:attribute:: config_encode
 
 
 .. py:class:: geometry_creation_signals
@@ -191,6 +279,15 @@ Module Contents
 
 
    .. py:method:: run()
+
+
+   .. py:attribute:: f
+
+
+   .. py:attribute:: settings
+
+
+   .. py:attribute:: signals
 
 
 .. py:data:: QString

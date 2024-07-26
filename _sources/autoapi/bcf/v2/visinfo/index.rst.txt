@@ -78,11 +78,20 @@ Module Contents
 
 
 
+   .. py:attribute:: bitmaps
+
+
    .. py:property:: guid
       :type: str
 
       Return the GUID of the visualization info.
 
+
+
+   .. py:attribute:: snapshot
+
+
+   .. py:attribute:: visualization_info
 
 
 .. py:function:: build_camera(elem_placement: numpy.typing.NDArray[numpy.float_]) -> bcf.v2.model.PerspectiveCamera

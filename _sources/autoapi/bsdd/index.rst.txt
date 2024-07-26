@@ -704,7 +704,7 @@ Module Contents
    .. py:method:: post()
 
 
-   .. py:method:: search_class(search_text: str, dictionary_uris=None, related_ifc_entities=None, version: int = 1, offset: int = 0, limit: int = 100) -> ClassSearchResponseContractV1
+   .. py:method:: search_class(search_text: str, dictionary_uris: Optional[list[str]] = None, related_ifc_entities: Optional[list[str]] = None, version: int = 1, offset: int = 0, limit: int = 100) -> ClassSearchResponseContractV1
 
       Search the bSDD database using free text, get list of Classes matching the text and optional additional filters.
       this API replaces ClassificationSearch
@@ -729,6 +729,42 @@ Module Contents
 
 
    .. py:method:: set_tokens_from_response(response)
+
+
+   .. py:attribute:: access_token
+      :value: ''
+
+
+
+   .. py:attribute:: access_token_expires_on
+
+
+   .. py:attribute:: auth_endpoint
+      :value: 'https://buildingsmartservices.b2clogin.com/tfp/buildingsmartservices.onmicrosoft.com/b2c_1_signu...
+
+
+
+   .. py:attribute:: baseurl
+      :value: 'https://api.bsdd.buildingsmart.org/api/'
+
+
+
+   .. py:attribute:: client_id
+      :value: '4aba821f-d4ff-498b-a462-c2837dbbba70'
+
+
+
+   .. py:attribute:: refresh_token
+      :value: ''
+
+
+
+   .. py:attribute:: refresh_token_expires_on
+
+
+   .. py:attribute:: token_endpoint
+      :value: 'https://buildingsmartservices.b2clogin.com/tfp/buildingsmartservices.onmicrosoft.com/b2c_1_signu...
+
 
 
 .. py:class:: CountryContractV1

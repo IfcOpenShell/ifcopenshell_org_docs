@@ -19,7 +19,13 @@ Module Contents
 
 .. py:class:: Expression(contents)
 
+   .. py:attribute:: contents
+
+
 .. py:class:: Keyword(contents)
+
+   .. py:attribute:: contents
+
 
 .. py:class:: Optional(contents)
 
@@ -52,6 +58,15 @@ Module Contents
 
 
 .. py:class:: Terminal(contents)
+
+   .. py:attribute:: contents
+
+
+   .. py:attribute:: is_keyword
+
+
+   .. py:attribute:: s
+
 
 .. py:class:: Union(contents)
 

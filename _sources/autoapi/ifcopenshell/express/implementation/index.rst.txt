@@ -12,5 +12,96 @@ Module Contents
    Bases: :py:obj:`codegen.Base`
 
 
+   .. py:attribute:: cat
+
+
+   .. py:attribute:: catc
+
+
+   .. py:attribute:: catnl
+
+
+   .. py:attribute:: cator
+
+
+   .. py:attribute:: collections_by_type
+
+
+   .. py:attribute:: entity_implementations
+      :value: []
+
+
+
+   .. py:attribute:: enumerable_types
+
+
+   .. py:attribute:: enumeration_functions
+      :value: []
+
+
+
+   .. py:attribute:: enumeration_index_by_str
+
+
+   .. py:attribute:: external_definitions
+
+
+   .. py:attribute:: file_name
+
+
+   .. py:attribute:: max_id
+
+
+   .. py:attribute:: max_len
+
+
+   .. py:attribute:: names
+      :value: []
+
+
+
+   .. py:attribute:: nl
+
+
+   .. py:attribute:: parent_type_statements
+
+
+   .. py:attribute:: schema_entity_statements
+      :value: []
+
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: schema_name_upper
+
+
+   .. py:attribute:: selectable_simple_types
+
+
+   .. py:attribute:: simple_type_impl
+      :value: []
+
+
+
+   .. py:attribute:: simple_type_statements
+
+
+   .. py:attribute:: str
+
+
+   .. py:attribute:: string_map_statements
+
+
+   .. py:attribute:: stringify
+
+
+   .. py:attribute:: type_name_strings
+
+
+   .. py:attribute:: write
+
+
 .. py:data:: Generator
 

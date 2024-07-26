@@ -135,6 +135,21 @@ Module Contents
    .. py:method:: init()
 
 
+   .. py:attribute:: dict_tokens
+
+
+   .. py:attribute:: flat
+
+
+   .. py:attribute:: rule
+
+
+   .. py:attribute:: rules_as_list
+
+
+   .. py:attribute:: tokens
+
+
 .. py:class:: NamedType(s, loc, tokens, rule=None)
 
    Bases: :py:obj:`Node`
@@ -149,6 +164,15 @@ Module Contents
 
 
    .. py:method:: init()
+
+
+   .. py:attribute:: flat
+
+
+   .. py:attribute:: rule
+
+
+   .. py:attribute:: tokens
 
 
 .. py:class:: ProcedureDeclaration(s, loc, tokens, rule=None)

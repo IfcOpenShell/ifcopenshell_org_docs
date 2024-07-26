@@ -89,3 +89,18 @@ Module Contents
    .. py:method:: patch()
 
 
+   .. py:attribute:: args
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: mode
+
+
+   .. py:attribute:: src
+
+

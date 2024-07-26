@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="ifcopenshell.api" href="api/index.html" /><link rel="prev" title="ifctester.reporter" href="../ifctester/reporter/index.html" />
 
-    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>ifcopenshell - IfcOpenShell 0.7.10 documentation</title>
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>ifcopenshell - IfcOpenShell 0.7.11 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=c85da206" />
     
     
@@ -128,19 +128,6 @@
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
-  <symbol id="svg-sun-half" viewBox="0 0 24 24">
-    <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M13 12h5" />
-      <path d="M13 15h4" />
-      <path d="M13 18h1" />
-      <path d="M13 9h4" />
-      <path d="M13 6h1" />
-    </svg>
-  </symbol>
   <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
     <title>Auto light/dark, in light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -181,7 +168,7 @@
       <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
       <path d="M13.5 6.5l4 4" />
       <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" /
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
   <symbol id="svg-eye" viewBox="0 0 24 24">
@@ -219,7 +206,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">IfcOpenShell 0.7.10 documentation</div></a>
+      <a href="../../index.html"><div class="brand">IfcOpenShell 0.7.11 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -246,7 +233,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.7.10 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.7.11 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -918,7 +905,7 @@ properties, systems, etc), edit attributes, write out <code class="docutils lite
 <p>This module provides primitive functions to interact with IFC, including:</p>
 <ul class="simple">
 <li><p>For most users, you can open and read IFC models, see docs for <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code>.
-This returns an <a class="reference internal" href="file/index.html#module-ifcopenshell.file" title="ifcopenshell.file"><code class="xref py py-class docutils literal notranslate"><span class="pre">file</span></code></a> object representing the IFC model. You can then
+This returns an <a class="reference internal" href="#ifcopenshell.file" title="ifcopenshell.file"><code class="xref py py-class docutils literal notranslate"><span class="pre">file</span></code></a> object representing the IFC model. You can then
 query the model to filter elements.</p></li>
 <li><p>For developers, you can query the schema itself, see docs for
 <code class="xref py py-func docutils literal notranslate"><span class="pre">schema_by_name()</span></code>. This returns a schema object which you can use to
@@ -975,162 +962,245 @@ analyse the definitions of IFC classes and data types.</p></li>
 <section id="package-contents">
 <h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifcopenshell.</span></span><span class="sig-name descname"><span class="pre">entity_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.entity_instance" title="Link to this definition">¶</a></dt>
-<dd><p>Represents an entity (wall, slab, property, etc) of an IFC model</p>
-<p>An IFC model consists of entities. Examples of entities include walls,
-slabs, doors and so on. Entities can also be non-physical things, like
-properties, systems, construction tasks, colours, geometry, and more.</p>
-<p>Entities are defined through an <strong>IFC Class</strong>. There are hundreds of <strong>IFC
-Classes</strong> defined as part of the ISO standard by the buildingSMART
-International organisation. The <strong>IFC Class</strong> defines the attributes of an
-entity, as well as the data types and whether or not an attribute is
-mandatory or optional.</p>
-<p>IfcOpenShell’s API dynamically implements the IFC schema. You will not find
-documentation about available <strong>IFC Classes</strong>, or what attributes they
-have.  Please consult the buildingSMART official documentation or start
-reading <a class="reference internal" href="../../introduction/introduction_to_ifc.html"><span class="doc">Introduction to IFC</span></a>.</p>
-<p>In addition to the Python methods you see documented here, an instantiated
-entity_instance will have attributes defined by its IFC class. For example,
-an entity instance which is an IfcWall class will have a <code class="docutils literal notranslate"><span class="pre">Name</span></code>
-attribute, and an IfcColourRgb will have a <code class="docutils literal notranslate"><span class="pre">Red</span></code> attribute. Please
-consult the buildingSMART official documentation.</p>
+<dt class="sig sig-object py" id="ifcopenshell.file">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifcopenshell.</span></span><span class="sig-name descname"><span class="pre">file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.ifcopenshell_wrapper.file</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.file" title="Link to this definition">¶</a></dt>
+<dd><p>Base class for containing IFC files.</p>
+<p>Class has instance methods for filtering by element Id, Type, etc.
+Instantiated objects can be subscripted by Id or Guid</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="n">walls</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcWall&quot;</span><span class="p">)</span>
-<span class="n">wall</span> <span class="o">=</span> <span class="n">walls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">wall</span><span class="p">)</span> <span class="c1"># #38=IFCWALL(&#39;2MEinnTPbCMwLOgceaQZFu&#39;,$,$,&#39;My Wall&#39;,$,#52,#47,$,$);</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wall</span><span class="o">.</span><span class="n">is_a</span><span class="p">())</span> <span class="c1"># IfcWall</span>
-
-<span class="c1"># Note: the `Name` attribute is dynamic, based on the IFC class.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wall</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span> <span class="c1"># My Wall</span>
-
-<span class="c1"># Attributes are ordered and may also be accessed via index.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wall</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># My Wall</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">wall</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span> <span class="c1"># &lt;class &#39;ifcopenshell.entity_instance&#39;&gt;</span>
+<span class="n">products</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcProduct&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">(),</span> <span class="n">products</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GlobalId</span><span class="p">)</span> <span class="c1"># 122 2XQ$n5SLP5MBLyL442paFx</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span><span class="p">[</span><span class="mi">122</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span><span class="p">[</span><span class="s2">&quot;2XQ$n5SLP5MBLyL442paFx&quot;</span><span class="p">])</span> <span class="c1"># True</span>
 </pre></div>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.attribute_name">
-<span class="sig-name descname"><span class="pre">attribute_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.attribute_name" title="Link to this definition">¶</a></dt>
-<dd><p>Return the name of a positional attribute of the element</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>attr_idx</strong> (<em>int</em>) – The index of the attribute</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>string</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.attribute_type">
-<span class="sig-name descname"><span class="pre">attribute_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.attribute_type" title="Link to this definition">¶</a></dt>
-<dd><p>Return the data type of a positional attribute of the element</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>attr</strong> (<a class="reference internal" href="express/bootstrap/index.html#ifcopenshell.express.bootstrap.Union" title="ifcopenshell.express.bootstrap.Union"><em>Union</em></a><em>[</em><em>int</em><em>, </em><em>str</em><em>]</em>) – The index or name of the attribute</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>string</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.compare">
-<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.entity_instance.compare" title="Link to this definition">¶</a></dt>
-<dd><p>Compares with another instance.</p>
-<p>For simple types the declaration name is not taken into account:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">file</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">createIfcInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="o">.</span><span class="n">createIfcPositiveInteger</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<p>For entity types the declaration name is taken into account:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">createIfcWall</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="o">.</span><span class="n">createIfcWall</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">createIfcWallStandardCase</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="o">.</span><span class="n">createIfcWall</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<p>Comparing simple types with different underlying types throws an exception:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">createIfcInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="o">.</span><span class="n">createIfcLabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="gr">File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class="gr">File &quot;entity_instance.py&quot;, line 371, in compare</span>
-<span class="gr">    return op(a, b)</span>
-<span class="gr">TypeError</span>: <span class="n">&#39;&lt;&#39; not supported between instances of &#39;int&#39; and &#39;str&#39;</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt>Args:</dt><dd><p>other (_type_): Right hand side (or lhs when reverse = True)
-op (_type_): The comparison operator (likely from the operator module)
-reverse (bool, optional): When true swaps lhs and rhs. Defaults to False.</p>
-</dd>
-<dt>Returns:</dt><dd><p>bool: The comparison predicate applied to self and other</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.get_info">
-<span class="sig-name descname"><span class="pre">get_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.get_info" title="Link to this definition">¶</a></dt>
-<dd><p>Return a dictionary of the entity_instance’s properties (Python and IFC) and their values.</p>
+<p>Create a new blank IFC model</p>
+<p>This IFC model does not have any entities in it yet. See the
+<code class="docutils literal notranslate"><span class="pre">create_entity</span></code> function for how to create new entities. All data is
+stored in memory. If you wish to write the IFC model to disk, see the
+<code class="docutils literal notranslate"><span class="pre">write</span></code> function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>include_identifier</strong> (<em>bool</em>) – Whether or not to include the STEP numerical identifier</p></li>
-<li><p><strong>recursive</strong> (<em>bool</em>) – Whether or not to convert referenced IFC elements into dictionaries too. All attributes also apply recursively</p></li>
-<li><p><strong>return_type</strong> (<em>dict</em><em>|</em><em>list</em><em>|</em><em>other</em>) – The return data type to be casted into</p></li>
-<li><p><strong>ignore</strong> (<em>set</em><em>|</em><em>list</em>) – A list of attribute names to ignore</p></li>
-<li><p><strong>scalar_only</strong> (<em>bool</em>) – Filters out all values that are IFC instances</p></li>
+<li><p><strong>f</strong> – The underlying IfcOpenShell file object to be wrapped. This
+is an internal implementation detail and should generally be left
+as None by users.</p></li>
+<li><p><strong>schema</strong> (<em>string</em>) – Which IFC schema to use, chosen from “IFC2X3”, “IFC4”,
+or “IFC4X3”. These refer to the ISO approved versions of IFC.
+Defaults to “IFC4” if not specified, which is currently recommended
+for all new projects.</p></li>
+<li><p><strong>schema_version</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>]</em>) – If you want to specify an exact version of IFC
+that may not be an ISO approved version, use this argument instead
+of <code class="docutils literal notranslate"><span class="pre">schema</span></code>. IFC versions on technical.buildingsmart.org are
+described using 4 integers representing the major, minor, addendum,
+and corrigendum number. For example, (4, 0, 2, 1) refers to IFC4
+ADD2 TC1, which is the official version approved by ISO when people
+refer to “IFC4”. Generally you should not use this argument unless
+you are testing non-ISO IFC releases.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dictionary of properties and their corresponding values</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ifc_file</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="n">products</span> <span class="o">=</span> <span class="n">ifc_file</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">&quot;IfcProduct&quot;</span><span class="p">)</span>
-<span class="n">obj_info</span> <span class="o">=</span> <span class="n">products</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">obj_info</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;BuildingAddress&#39;</span><span class="p">,</span> <span class="s1">&#39;LongName&#39;</span><span class="p">,</span> <span class="s1">&#39;GlobalId&#39;</span><span class="p">,</span> <span class="s1">&#39;ObjectPlacement&#39;</span><span class="p">,</span> <span class="s1">&#39;OwnerHistory&#39;</span><span class="p">,</span> <span class="s1">&#39;ObjectType&#39;</span><span class="p">,</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="o">...</span><span class="s1">&#39;ElevationOfTerrain&#39;</span><span class="p">,</span> <span class="s1">&#39;CompositionType&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;Representation&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;ElevationOfRefHeight&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new IFC4 model, create a wall, then save it to an IFC-SPF file.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">file</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">create_entity</span><span class="p">(</span><span class="s2">&quot;IfcWall&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;/path/to/model.ifc&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a new IFC4X3 model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="s2">&quot;IFC4X3&quot;</span><span class="p">)</span>
+
+<span class="c1"># A poweruser testing out a particular version of IFC4X3</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">schema_version</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.file.add" title="Link to this definition">¶</a></dt>
+<dd><p>Adds an entity including any dependent entities to an IFC file.
+If the entity already exists, it is not re-added. Existence of entity is checked by it’s <cite>.identity()</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inst</strong> (<em>ifcopenshell.entity_instance</em>) – The entity instance to add</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An ifcopenshell.entity_instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.batch">
+<span class="sig-name descname"><span class="pre">batch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.file.batch" title="Link to this definition">¶</a></dt>
+<dd><p>Low-level mechanism to speed up deletion of large subgraphs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.begin_transaction">
+<span class="sig-name descname"><span class="pre">begin_transaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.begin_transaction" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.by_guid">
+<span class="sig-name descname"><span class="pre">by_guid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">guid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.file.by_guid" title="Link to this definition">¶</a></dt>
+<dd><p>Return an IFC entity instance filtered by IFC GUID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>guid</strong> (<em>string</em>) – GlobalId value in 22-character encoded form</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – If <cite>guid</cite> is not found.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An ifcopenshell.entity_instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ifcopenshell.entity_instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.by_id">
+<span class="sig-name descname"><span class="pre">by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.file.by_id" title="Link to this definition">¶</a></dt>
+<dd><p>Return an IFC entity instance filtered by IFC ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – STEP numerical identifier</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – If <cite>id</cite> is not found.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An ifcopenshell.entity_instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ifcopenshell.entity_instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.by_type">
+<span class="sig-name descname"><span class="pre">by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_subtypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.file.by_type" title="Link to this definition">¶</a></dt>
+<dd><p>Return IFC objects filtered by IFC Type and wrapped with the entity_instance class.</p>
+<p>If an IFC type class has subclasses, all entities of those subclasses are also returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>string</em>) – The case insensitive type of IFC class to return.</p></li>
+<li><p><strong>include_subtypes</strong> (<em>bool</em>) – Whether or not to return subtypes of the IFC class</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – If <cite>type</cite> is not found in IFC schema.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of ifcopenshell.entity_instance objects</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[ifcopenshell.entity_instance]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.create_entity">
+<span class="sig-name descname"><span class="pre">create_entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ifcopenshell.entity_instance</span></span></span><a class="headerlink" href="#ifcopenshell.file.create_entity" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new IFC entity in the file.</p>
+<p>You can also use dynamic methods similar to <cite>ifc_file.createIfcWall(…)</cite>
+to create IFC entities. They work exactly the same as if you would do
+<cite>ifc_file.create_entity(“IfcWall”, …)</cite> but the resulting typing
+is not as accurate as for <cite>create_entity</cite> due to a dynamic nature
+of those methods.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>string</em>) – Case insensitive name of the IFC class</p></li>
+<li><p><strong>args</strong> – The positional arguments of the IFC class</p></li>
+<li><p><strong>kwargs</strong> – The keyword arguments of the IFC class</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An entity instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">file</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">create_entity</span><span class="p">(</span><span class="s2">&quot;IfcPerson&quot;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt; #1=IfcPerson($,$,$,$,$,$,$,$)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">create_entity</span><span class="p">(</span><span class="s2">&quot;IfcPerson&quot;</span><span class="p">,</span> <span class="s2">&quot;Foobar&quot;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt; #2=IfcPerson(&#39;Foobar&#39;,$,$,$,$,$,$,$)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">create_entity</span><span class="p">(</span><span class="s2">&quot;IfcPerson&quot;</span><span class="p">,</span> <span class="n">Identification</span><span class="o">=</span><span class="s2">&quot;Foobar&quot;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt; #3=IfcPerson(&#39;Foobar&#39;,$,$,$,$,$,$,$)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.get_info_2">
-<span class="sig-name descname"><span class="pre">get_info_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_identifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.entity_instance.get_info_2" title="Link to this definition">¶</a></dt>
-<dd><p>More perfomant version of <cite>.get_info()</cite> but with limited arguments values.</p>
-<p>Method has exactly the same signature as <cite>.get_info()</cite> but it doesn’t support getting information non-recursively.</p>
-<dl class="simple">
-<dt>Currently supported arguments values:</dt><dd><ul class="simple">
-<li><p>include_identifier: <cite>True</cite></p></li>
-<li><p>recursive: <cite>True</cite> (will fail with default <cite>False</cite> value from <cite>.get_info()</cite>)</p></li>
-<li><p>return_type: <cite>dict</cite></p></li>
-<li><p>ignore: <cite>()</cite> (empty tuple)</p></li>
+<dt class="sig sig-object py" id="ifcopenshell.file.discard_transaction">
+<span class="sig-name descname"><span class="pre">discard_transaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.discard_transaction" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.end_transaction">
+<span class="sig-name descname"><span class="pre">end_transaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.end_transaction" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.from_pointer">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_pointer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><span class="pre">file</span></a></span></span><a class="headerlink" href="#ifcopenshell.file.from_pointer" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.from_string">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="file/index.html#ifcopenshell.file.file" title="ifcopenshell.file.file"><span class="pre">file</span></a></span></span><a class="headerlink" href="#ifcopenshell.file.from_string" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.get_inverse">
+<span class="sig-name descname"><span class="pre">get_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_duplicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_attribute_indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.file.get_inverse" title="Link to this definition">¶</a></dt>
+<dd><p>Return a list of entities that reference this entity</p>
+<p>Warning: this is a slow function, especially when there is a large
+number of inverses (such as for a shared owner history). If you are
+only interested in the total number of inverses (typically 0, 1, or N),
+consider using <a class="reference internal" href="#ifcopenshell.file.get_total_inverses" title="ifcopenshell.file.get_total_inverses"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_total_inverses()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<em>ifcopenshell.entity_instance</em>) – The entity instance to get inverse relationships</p></li>
+<li><p><strong>allow_duplicate</strong> – Returns a <cite>list</cite> when True, <cite>set</cite> when False</p></li>
+<li><p><strong>with_attribute_indices</strong> – Returns pairs of &lt;i, idx&gt;
+where i[idx] is inst or contains inst. Requires allow_duplicate=True</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of ifcopenshell.entity_instance objects</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[ifcopenshell.entity_instance]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.id">
-<span class="sig-name descname"><span class="pre">id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.id" title="Link to this definition">¶</a></dt>
-<dd><p>Return the STEP numerical identifier</p>
+<dt class="sig sig-object py" id="ifcopenshell.file.get_total_inverses">
+<span class="sig-name descname"><span class="pre">get_total_inverses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#ifcopenshell.file.get_total_inverses" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the number of entities that reference this entity</p>
+<p>This is equivalent to <cite>len(model.get_inverse(element))</cite>, but
+significantly faster.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inst</strong> (<em>ifcopenshell.entity_instance</em>) – The entity instance to get inverse relationships</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total number of references</p>
+</dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
@@ -1138,117 +1208,130 @@ reverse (bool, optional): When true swaps lhs and rhs. Defaults to False.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.is_a">
-<span class="sig-name descname"><span class="pre">is_a</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.is_a" title="Link to this definition">¶</a></dt>
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">is_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifc_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span></dt>
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">is_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span></dt>
-<dd><p>Return the IFC class name of an instance, or checks if an instance belongs to a class.</p>
-<p>The check will also return true if a parent class name is provided.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="express/bootstrap/index.html#ifcopenshell.express.bootstrap.Union" title="ifcopenshell.express.bootstrap.Union"><em>Union</em></a><em>[</em><em>str</em><em>, </em><em>bool</em><em>]</em>) – If specified, is a case insensitive IFC class name to check
-or if specified as a boolean then will define whether
-returned IFC class name should include schema name
-(e.g. “IFC4.IfcWall” if <cite>True</cite> and “IfcWall” if <cite>False</cite>).
-If omitted will act as <cite>False</cite>.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Either the name of the class, or a boolean if it passes the check</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="express/bootstrap/index.html#ifcopenshell.express.bootstrap.Union" title="ifcopenshell.express.bootstrap.Union">Union</a>[str, bool]</p>
-</dd>
-</dl>
-<p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">file</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">create_entity</span><span class="p">(</span><span class="s1">&#39;IfcPerson&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">is_a</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;IfcPerson&#39;</span>
-<span class="n">f</span><span class="o">.</span><span class="n">is_a</span><span class="p">(</span><span class="s1">&#39;IfcPerson&#39;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.is_entity">
-<span class="sig-name descname"><span class="pre">is_entity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.is_entity" title="Link to this definition">¶</a></dt>
-<dd><p>Tests whether the instance is an entity type as opposed to a simple data type.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>bool: True if the instance is an entity</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.to_string">
-<span class="sig-name descname"><span class="pre">to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valid_spf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.to_string" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a string representation of the current entity instance.
-Equal to str(self) when valid_spf=False. When valid_spf is True
-returns a representation of the string that conforms to valid Step
-Physical File notation. The difference being entity names in upper
-case and string attribute values with unicode values encoded per
-the specific control directives.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.unwrap_value">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unwrap_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.entity_instance.unwrap_value" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ifcopenshell.file.redo">
+<span class="sig-name descname"><span class="pre">redo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.redo" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.walk">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#ifcopenshell.entity_instance.walk" title="Link to this definition">¶</a></dt>
-<dd><p>Applies a transformation to <cite>value</cite> based on a given condition.</p>
-<p>If value is a nested structure (e.g., a list or a tuple) will apply
-transformation to it’s elements.</p>
+<dt class="sig sig-object py" id="ifcopenshell.file.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.remove" title="Link to this definition">¶</a></dt>
+<dd><p>Deletes an IFC object in the file.</p>
+<p>Attribute values in other entity instances that reference the deleted
+object will be set to null. In the case of a list or set of references,
+the reference to the deleted will be removed from the aggregate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inst</strong> (<em>ifcopenshell.entity_instance</em>) – The entity instance to delete</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.set_history_size">
+<span class="sig-name descname"><span class="pre">set_history_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.set_history_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.traverse">
+<span class="sig-name descname"><span class="pre">traverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.entity_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">breadth_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ifcopenshell.entity_instance</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ifcopenshell.file.traverse" title="Link to this definition">¶</a></dt>
+<dd><p>Get a list of all referenced instances for a particular instance including itself</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> (<em>Callable</em>) – A callable that takes a single argument and returns a boolean
-value. It represents the condition.</p></li>
-<li><p><strong>g</strong> (<em>Callable</em>) – A callable that takes a single argument and returns a
-transformed value. It represents the transformation.</p></li>
-<li><p><strong>value</strong> (<em>Any</em>) – Any object, the input value to be processed</p></li>
+<li><p><strong>inst</strong> (<em>ifcopenshell.entity_instance</em>) – The entity instance to get all sub instances</p></li>
+<li><p><strong>max_levels</strong> (<em>bool</em>) – How far deep to recursively fetch sub instances. None or -1 means infinite.</p></li>
+<li><p><strong>breadth_first</strong> – Whether to use breadth-first search, the default is depth-first.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Transformed value</p>
+<dd class="field-even"><p>A list of ifcopenshell.entity_instance objects</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Any</p>
+<dd class="field-odd"><p>list[ifcopenshell.entity_instance]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.unbatch">
+<span class="sig-name descname"><span class="pre">unbatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.file.unbatch" title="Link to this definition">¶</a></dt>
+<dd><p>Low-level mechanism to speed up deletion of large subgraphs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.undo">
+<span class="sig-name descname"><span class="pre">undo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.undo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifcopenshell.file.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">os.PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zipped</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.file.write" title="Link to this definition">¶</a></dt>
+<dd><p>Write ifc model to file.</p>
+<dl class="simple">
+<dt>:param format: Force use of a specific format. Guessed from file name</dt><dd><p>if None.  Supported formats : .ifc, .ifcXML, .ifcZIP (equivalent to
+format=”.ifc” with zipped=True) For zipped .ifcXML use
+format=”.ifcXML” with zipped=True</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+</dl>
+<p>:param zipped: zip the file after it is written
+:type zipped: bool</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define condition and transformation functions</span>
-<span class="n">condition</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span> <span class="o">==</span> <span class="n">old</span>
-<span class="n">transform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">new</span>
-
-<span class="c1"># Usage example</span>
-<span class="n">attribute_value</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">RelatedElements</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">old</span> <span class="ow">in</span> <span class="n">attribute_value</span><span class="p">,</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">attribute_value</span><span class="p">)</span> <span class="c1"># True, False</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">element</span><span class="o">.</span><span class="n">RelatedElements</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">old</span> <span class="ow">in</span> <span class="n">attribute_value</span><span class="p">,</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">attribute_value</span><span class="p">)</span> <span class="c1"># False, True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;path/to/model.ifc&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;path/to/model.ifcXML&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;path/to/model.ifcZIP&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;path/to/model.ifcZIP&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;.ifcXML&quot;</span><span class="p">,</span> <span class="n">zipped</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;path/to/model.anyextension&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;.ifcXML&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.wrap_value">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wrap_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.entity_instance.wrap_value" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.file">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">file</span></span><a class="headerlink" href="#ifcopenshell.entity_instance.file" title="Link to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.file.future">
+<span class="sig-name descname"><span class="pre">future</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#ifcopenshell.file.future" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="ifcopenshell.entity_instance.wrapped_data">
-<span class="sig-name descname"><span class="pre">wrapped_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ifcopenshell.ifcopenshell_wrapper.entity_instance</span></em><a class="headerlink" href="#ifcopenshell.entity_instance.wrapped_data" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ifcopenshell.file.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#ifcopenshell.file.history" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.file.history_size">
+<span class="sig-name descname"><span class="pre">history_size</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#ifcopenshell.file.history_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifcopenshell.file.schema">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">schema</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'IFC2X3'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'IFC4'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'IFC4X3'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifcopenshell.file.schema" title="Link to this definition">¶</a></dt>
+<dd><p>General IFC schema version: IFC2X3, IFC4, IFC4X3.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifcopenshell.file.schema_identifier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">schema_identifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ifcopenshell.file.schema_identifier" title="Link to this definition">¶</a></dt>
+<dd><p>Full IFC schema version: IFC2X3_TC1, IFC4_ADD2, IFC4X3_ADD2, etc.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifcopenshell.file.schema_version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">schema_version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifcopenshell.file.schema_version" title="Link to this definition">¶</a></dt>
+<dd><p>Numeric representation of the full IFC schema version.</p>
+<p>E.g. IFC4X3_ADD2 is represented as (4, 3, 2, 0).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.file.transaction">
+<span class="sig-name descname"><span class="pre">transaction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="file/index.html#ifcopenshell.file.Transaction" title="ifcopenshell.file.Transaction"><span class="pre">Transaction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.file.transaction" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.file.wrapped_data">
+<span class="sig-name descname"><span class="pre">wrapped_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ifcopenshell.ifcopenshell_wrapper.file</span></em><a class="headerlink" href="#ifcopenshell.file.wrapped_data" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1321,7 +1404,7 @@ you are testing non-ISO IFC releases.</p></li>
 <dd class="field-odd"><p>An ifcopenshell.entity_instance</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-even"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1345,7 +1428,7 @@ you are testing non-ISO IFC releases.</p></li>
 <dd class="field-odd"><p>A list of ifcopenshell.entity_instance objects</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
+<dd class="field-even"><p>list[ifcopenshell.entity_instance]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1376,7 +1459,7 @@ of those methods.</p>
 <dd class="field-even"><p>An entity instance</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a></p>
+<dd class="field-odd"><p>ifcopenshell.entity_instance</p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1407,7 +1490,7 @@ consider using <code class="xref py py-func docutils literal notranslate"><span 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference internal" href="#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The entity instance to get inverse relationships</p></li>
+<li><p><strong>inst</strong> (<em>ifcopenshell.entity_instance</em>) – The entity instance to get inverse relationships</p></li>
 <li><p><strong>allow_duplicate</strong> – Returns a <cite>list</cite> when True, <cite>set</cite> when False</p></li>
 <li><p><strong>with_attribute_indices</strong> – Returns pairs of &lt;i, idx&gt;
 where i[idx] is inst or contains inst. Requires allow_duplicate=True</p></li>
@@ -1417,7 +1500,7 @@ where i[idx] is inst or contains inst. Requires allow_duplicate=True</p></li>
 <dd class="field-even"><p>A list of ifcopenshell.entity_instance objects</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[ifcopenshell.entity_instance]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1439,7 +1522,7 @@ where i[idx] is inst or contains inst. Requires allow_duplicate=True</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference internal" href="#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The entity instance to get all sub instances</p></li>
+<li><p><strong>inst</strong> (<em>ifcopenshell.entity_instance</em>) – The entity instance to get all sub instances</p></li>
 <li><p><strong>max_levels</strong> (<em>bool</em>) – How far deep to recursively fetch sub instances. None or -1 means infinite.</p></li>
 <li><p><strong>breadth_first</strong> – Whether to use breadth-first search, the default is depth-first.</p></li>
 </ul>
@@ -1448,10 +1531,75 @@ where i[idx] is inst or contains inst. Requires allow_duplicate=True</p></li>
 <dd class="field-even"><p>A list of ifcopenshell.entity_instance objects</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance">ifcopenshell.entity_instance</a>]</p>
+<dd class="field-odd"><p>list[ifcopenshell.entity_instance]</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.class_map">
+<span class="sig-name descname"><span class="pre">class_map</span></span><a class="headerlink" href="#ifcopenshell.sqlite.class_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.cursor">
+<span class="sig-name descname"><span class="pre">cursor</span></span><a class="headerlink" href="#ifcopenshell.sqlite.cursor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.db">
+<span class="sig-name descname"><span class="pre">db</span></span><a class="headerlink" href="#ifcopenshell.sqlite.db" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.entity_cache">
+<span class="sig-name descname"><span class="pre">entity_cache</span></span><a class="headerlink" href="#ifcopenshell.sqlite.entity_cache" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.filepath">
+<span class="sig-name descname"><span class="pre">filepath</span></span><a class="headerlink" href="#ifcopenshell.sqlite.filepath" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.future">
+<span class="sig-name descname"><span class="pre">future</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#ifcopenshell.sqlite.future" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.history">
+<span class="sig-name descname"><span class="pre">history</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#ifcopenshell.sqlite.history" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.history_size">
+<span class="sig-name descname"><span class="pre">history_size</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#ifcopenshell.sqlite.history_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.id_map">
+<span class="sig-name descname"><span class="pre">id_map</span></span><a class="headerlink" href="#ifcopenshell.sqlite.id_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.ifc_schema">
+<span class="sig-name descname"><span class="pre">ifc_schema</span></span><a class="headerlink" href="#ifcopenshell.sqlite.ifc_schema" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.row_factory">
+<span class="sig-name descname"><span class="pre">row_factory</span></span><a class="headerlink" href="#ifcopenshell.sqlite.row_factory" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.transaction">
+<span class="sig-name descname"><span class="pre">transaction</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.sqlite.transaction" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite.wrapped_data">
+<span class="sig-name descname"><span class="pre">wrapped_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.sqlite.wrapped_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -1542,6 +1690,16 @@ consult the buildingSMART official documentation.</p>
 <span class="sig-name descname"><span class="pre">unserialise_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.sqlite_entity.unserialise_value" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite_entity.e">
+<span class="sig-name descname"><span class="pre">e</span></span><a class="headerlink" href="#ifcopenshell.sqlite_entity.e" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifcopenshell.sqlite_entity.s">
+<span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#ifcopenshell.sqlite_entity.s" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -1616,21 +1774,35 @@ consult the buildingSMART official documentation.</p>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#package-contents">Package Contents</a><ul>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance"><code class="docutils literal notranslate"><span class="pre">entity_instance</span></code></a><ul>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.attribute_name"><code class="docutils literal notranslate"><span class="pre">entity_instance.attribute_name()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.attribute_type"><code class="docutils literal notranslate"><span class="pre">entity_instance.attribute_type()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.compare"><code class="docutils literal notranslate"><span class="pre">entity_instance.compare()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.get_info"><code class="docutils literal notranslate"><span class="pre">entity_instance.get_info()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.get_info_2"><code class="docutils literal notranslate"><span class="pre">entity_instance.get_info_2()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.id"><code class="docutils literal notranslate"><span class="pre">entity_instance.id()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.is_a"><code class="docutils literal notranslate"><span class="pre">entity_instance.is_a()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.is_entity"><code class="docutils literal notranslate"><span class="pre">entity_instance.is_entity()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.to_string"><code class="docutils literal notranslate"><span class="pre">entity_instance.to_string()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.unwrap_value"><code class="docutils literal notranslate"><span class="pre">entity_instance.unwrap_value()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.walk"><code class="docutils literal notranslate"><span class="pre">entity_instance.walk()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.wrap_value"><code class="docutils literal notranslate"><span class="pre">entity_instance.wrap_value()</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.file"><code class="docutils literal notranslate"><span class="pre">entity_instance.file</span></code></a></li>
-<li><a class="reference internal" href="#ifcopenshell.entity_instance.wrapped_data"><code class="docutils literal notranslate"><span class="pre">entity_instance.wrapped_data</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file"><code class="docutils literal notranslate"><span class="pre">file</span></code></a><ul>
+<li><a class="reference internal" href="#ifcopenshell.file.add"><code class="docutils literal notranslate"><span class="pre">file.add()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.batch"><code class="docutils literal notranslate"><span class="pre">file.batch()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.begin_transaction"><code class="docutils literal notranslate"><span class="pre">file.begin_transaction()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.by_guid"><code class="docutils literal notranslate"><span class="pre">file.by_guid()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.by_id"><code class="docutils literal notranslate"><span class="pre">file.by_id()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.by_type"><code class="docutils literal notranslate"><span class="pre">file.by_type()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.create_entity"><code class="docutils literal notranslate"><span class="pre">file.create_entity()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.discard_transaction"><code class="docutils literal notranslate"><span class="pre">file.discard_transaction()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.end_transaction"><code class="docutils literal notranslate"><span class="pre">file.end_transaction()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.from_pointer"><code class="docutils literal notranslate"><span class="pre">file.from_pointer()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.from_string"><code class="docutils literal notranslate"><span class="pre">file.from_string()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.get_inverse"><code class="docutils literal notranslate"><span class="pre">file.get_inverse()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.get_total_inverses"><code class="docutils literal notranslate"><span class="pre">file.get_total_inverses()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.redo"><code class="docutils literal notranslate"><span class="pre">file.redo()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.remove"><code class="docutils literal notranslate"><span class="pre">file.remove()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.set_history_size"><code class="docutils literal notranslate"><span class="pre">file.set_history_size()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.traverse"><code class="docutils literal notranslate"><span class="pre">file.traverse()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.unbatch"><code class="docutils literal notranslate"><span class="pre">file.unbatch()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.undo"><code class="docutils literal notranslate"><span class="pre">file.undo()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.write"><code class="docutils literal notranslate"><span class="pre">file.write()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.future"><code class="docutils literal notranslate"><span class="pre">file.future</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.history"><code class="docutils literal notranslate"><span class="pre">file.history</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.history_size"><code class="docutils literal notranslate"><span class="pre">file.history_size</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.schema"><code class="docutils literal notranslate"><span class="pre">file.schema</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.schema_identifier"><code class="docutils literal notranslate"><span class="pre">file.schema_identifier</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.schema_version"><code class="docutils literal notranslate"><span class="pre">file.schema_version</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.transaction"><code class="docutils literal notranslate"><span class="pre">file.transaction</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.file.wrapped_data"><code class="docutils literal notranslate"><span class="pre">file.wrapped_data</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ifcopenshell.sqlite"><code class="docutils literal notranslate"><span class="pre">sqlite</span></code></a><ul>
@@ -1643,12 +1815,27 @@ consult the buildingSMART official documentation.</p>
 <li><a class="reference internal" href="#ifcopenshell.sqlite.is_entity_list"><code class="docutils literal notranslate"><span class="pre">sqlite.is_entity_list()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.sqlite.preprocess_schema"><code class="docutils literal notranslate"><span class="pre">sqlite.preprocess_schema()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.sqlite.traverse"><code class="docutils literal notranslate"><span class="pre">sqlite.traverse()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.class_map"><code class="docutils literal notranslate"><span class="pre">sqlite.class_map</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.cursor"><code class="docutils literal notranslate"><span class="pre">sqlite.cursor</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.db"><code class="docutils literal notranslate"><span class="pre">sqlite.db</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.entity_cache"><code class="docutils literal notranslate"><span class="pre">sqlite.entity_cache</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.filepath"><code class="docutils literal notranslate"><span class="pre">sqlite.filepath</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.future"><code class="docutils literal notranslate"><span class="pre">sqlite.future</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.history"><code class="docutils literal notranslate"><span class="pre">sqlite.history</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.history_size"><code class="docutils literal notranslate"><span class="pre">sqlite.history_size</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.id_map"><code class="docutils literal notranslate"><span class="pre">sqlite.id_map</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.ifc_schema"><code class="docutils literal notranslate"><span class="pre">sqlite.ifc_schema</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.row_factory"><code class="docutils literal notranslate"><span class="pre">sqlite.row_factory</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.transaction"><code class="docutils literal notranslate"><span class="pre">sqlite.transaction</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite.wrapped_data"><code class="docutils literal notranslate"><span class="pre">sqlite.wrapped_data</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ifcopenshell.sqlite_entity"><code class="docutils literal notranslate"><span class="pre">sqlite_entity</span></code></a><ul>
 <li><a class="reference internal" href="#ifcopenshell.sqlite_entity.get_info"><code class="docutils literal notranslate"><span class="pre">sqlite_entity.get_info()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.sqlite_entity.id"><code class="docutils literal notranslate"><span class="pre">sqlite_entity.id()</span></code></a></li>
 <li><a class="reference internal" href="#ifcopenshell.sqlite_entity.unserialise_value"><code class="docutils literal notranslate"><span class="pre">sqlite_entity.unserialise_value()</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite_entity.e"><code class="docutils literal notranslate"><span class="pre">sqlite_entity.e</span></code></a></li>
+<li><a class="reference internal" href="#ifcopenshell.sqlite_entity.s"><code class="docutils literal notranslate"><span class="pre">sqlite_entity.s</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1664,10 +1851,10 @@ consult the buildingSMART official documentation.</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=d46e566c"></script>
+</div><script src="../../_static/documentation_options.js?v=7016d275"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     </body>

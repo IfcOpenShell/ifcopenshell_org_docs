@@ -48,6 +48,23 @@ Module Contents
    .. py:method:: typedef(name, declared_type)
 
 
+   .. py:attribute:: names
+      :value: []
+
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: schema_name_title
+
+
+   .. py:attribute:: statements
+
+
+   .. py:attribute:: strings
+
+
 .. py:class:: LateBoundSchemaInstantiator(schema_name)
 
    .. py:method:: aggregation_type(aggr_type, bound1, bound2, decl_type)
@@ -92,14 +109,82 @@ Module Contents
    .. py:method:: typedef(name, declared_type)
 
 
+   .. py:attribute:: cache
+      :value: []
+
+
+
+   .. py:attribute:: declarations
+
+
+   .. py:attribute:: names
+      :value: []
+
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: schema_name_title
+
+
 .. py:class:: SchemaClass(mapping: SchemaClass.__init__.mapping, code=EarlyBoundCodeWriter)
 
    Bases: :py:obj:`codegen.Base`
 
 
+   .. py:attribute:: can_be_instantiated_set
+
+
+   .. py:attribute:: code
+
+
+   .. py:attribute:: collections_by_type
+
+
+   .. py:attribute:: declarations_by_index
+      :value: []
+
+
+
+   .. py:attribute:: declared_types
+      :value: []
+
+
+
+   .. py:attribute:: emitted
+
+
+   .. py:attribute:: file_name
+
+
+   .. py:attribute:: len_to_emit
+
+
+   .. py:attribute:: num_declarations
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: str
+
+
+   .. py:attribute:: subtypes
+
+
+   .. py:attribute:: x
+
+
 .. py:class:: string_pool(fn)
 
    .. py:method:: append(v)
+
+
+   .. py:attribute:: di
+
+
+   .. py:attribute:: fn
 
 
 .. py:data:: Generator

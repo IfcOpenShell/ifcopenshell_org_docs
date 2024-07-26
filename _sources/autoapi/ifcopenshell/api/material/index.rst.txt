@@ -273,8 +273,8 @@ Package Contents
    Note that categories are not available in IFC2X3. This shortcoming is
    one of the big reasons projects should upgrade to IFC4.
 
-   Additionally, a material's description provides more information beyond 
-   its name or category. 
+   Additionally, a material's description provides more information beyond
+   its name or category.
 
    :param name: The name of the material, typically tagged in a finishes
        drawing or schedule.

@@ -15,6 +15,14 @@ Module Contents
    .. py:method:: write(myStr)
 
 
+   .. py:attribute:: isError
+      :value: False
+
+
+
+   .. py:attribute:: widget
+
+
 .. py:class:: code_edit(viewer, snippets=None)
 
    Bases: :py:obj:`PyQt5.QtWidgets.QWidget`
@@ -55,6 +63,40 @@ Module Contents
 
 
    .. py:method:: select(product)
+
+
+   .. py:attribute:: c
+      :value: None
+
+
+
+   .. py:attribute:: editor
+
+
+   .. py:attribute:: layout
+
+
+   .. py:attribute:: model
+      :value: None
+
+
+
+   .. py:attribute:: output
+
+
+   .. py:attribute:: runbutton
+
+
+   .. py:attribute:: snippets
+
+
+   .. py:attribute:: tools
+
+
+   .. py:attribute:: viewer
+
+
+   .. py:attribute:: width
 
 
 .. py:data:: QtWidgets

@@ -96,3 +96,6 @@ Module Contents
    .. py:method:: extract_ifc_zip() -> HeaderMetadata
 
 
+   .. py:attribute:: filepath
+
+

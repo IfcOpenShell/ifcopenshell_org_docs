@@ -38,3 +38,15 @@ Module Contents
    .. py:method:: patch()
 
 
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: optimized_file
+
+
+   .. py:attribute:: src
+
+

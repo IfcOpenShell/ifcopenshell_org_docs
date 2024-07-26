@@ -176,6 +176,55 @@ Module Contents
 
 
 
+   .. py:attribute:: class_map
+
+
+   .. py:attribute:: cursor
+
+
+   .. py:attribute:: db
+
+
+   .. py:attribute:: entity_cache
+
+
+   .. py:attribute:: filepath
+
+
+   .. py:attribute:: future
+      :value: []
+
+
+
+   .. py:attribute:: history
+      :value: []
+
+
+
+   .. py:attribute:: history_size
+      :value: 64
+
+
+
+   .. py:attribute:: id_map
+
+
+   .. py:attribute:: ifc_schema
+
+
+   .. py:attribute:: row_factory
+
+
+   .. py:attribute:: transaction
+      :value: None
+
+
+
+   .. py:attribute:: wrapped_data
+      :value: None
+
+
+
 .. py:class:: sqlite_entity(id, ifc_class, file=None)
 
    Bases: :py:obj:`ifcopenshell.entity_instance.entity_instance`
@@ -265,5 +314,32 @@ Module Contents
    .. py:method:: unserialise_value(value)
 
 
+   .. py:attribute:: e
+
+
+   .. py:attribute:: s
+
+
 .. py:class:: sqlite_wrapper(id, ifc_class, file)
+
+   .. py:attribute:: attribute_cache
+
+
+   .. py:attribute:: attributes
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: id
+
+
+   .. py:attribute:: ifc_class
+
+
+   .. py:attribute:: inverse_attribute_cache
+
+
+   .. py:attribute:: inverse_attributes
+
 

@@ -57,3 +57,18 @@ Module Contents
    .. py:method:: process_product(product, definitions)
 
 
+   .. py:attribute:: destination_quantity_name
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: source_property_name
+
+
+   .. py:attribute:: src
+
+

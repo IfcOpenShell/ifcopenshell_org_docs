@@ -80,3 +80,27 @@ Module Contents
    .. py:method:: serialise_value(element, value)
 
 
+   .. py:attribute:: database
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: host
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: password
+
+
+   .. py:attribute:: sql_type
+
+
+   .. py:attribute:: src
+
+
+   .. py:attribute:: username
+
+

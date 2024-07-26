@@ -34,6 +34,12 @@ Module Contents
    .. py:method:: is_templated(name: str) -> bool
 
 
+   .. py:attribute:: schema
+
+
+   .. py:attribute:: templates
+
+
    .. py:attribute:: templates_path
 
 

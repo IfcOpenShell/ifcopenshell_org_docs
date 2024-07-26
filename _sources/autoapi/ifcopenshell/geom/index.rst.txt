@@ -268,7 +268,7 @@ Package Contents
           # Define condition and transformation functions
           condition = lambda v: v == old
           transform = lambda v: new
-          
+
           # Usage example
           attribute_value = element.RelatedElements
           print(old in attribute_value, new in attribute_value) # True, False
@@ -452,7 +452,7 @@ Package Contents
    .. py:method:: end_transaction() -> None
 
 
-   .. py:method:: from_pointer(v)
+   .. py:method:: from_pointer(v) -> file
       :staticmethod:
 
 
@@ -563,8 +563,23 @@ Package Contents
 
 
 
+   .. py:attribute:: future
+      :value: []
+
+
+
+   .. py:attribute:: history
+      :value: []
+
+
+
+   .. py:attribute:: history_size
+      :value: 64
+
+
+
    .. py:property:: schema
-      :type: str
+      :type: Literal['IFC2X3', 'IFC4', 'IFC4X3']
 
       General IFC schema version: IFC2X3, IFC4, IFC4X3.
 
@@ -586,6 +601,12 @@ Package Contents
 
 
 
+   .. py:attribute:: transaction
+      :type:  Optional[Transaction]
+      :value: None
+
+
+
    .. py:attribute:: wrapped_data
       :type:  ifcopenshell.ifcopenshell_wrapper.file
 
@@ -593,6 +614,9 @@ Package Contents
 .. py:class:: iterator(settings: iterator.__init__.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade')
 
    Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.Iterator`
+
+
+   .. py:attribute:: settings
 
 
 .. py:class:: missing_setting
@@ -705,9 +729,12 @@ Package Contents
    .. py:method:: select_box(value, **kwargs) -> list[ifcopenshell.entity_instance.entity_instance]
 
 
+   .. py:attribute:: args
+
+
 .. py:function:: consume_iterator(it, with_progress=False)
 
-.. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance.entity_instance, repr: Optional[ifcopenshell.entity_instance.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.Transformation]
+.. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance.entity_instance, repr: Optional[ifcopenshell.entity_instance.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.Transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
 
    Return a geometric representation from STEP-based IFCREPRESENTATIONSHAPE
    or
@@ -720,13 +747,26 @@ Package Contents
 
    :return:
        - `inst` is IfcProduct and `repr` provided / None -> ShapeElementType
+
        - `inst` is IfcRepresentation and `repr` is None -> ShapeType
+
        - `inst` is IfcRepresentationItem and `repr` is None -> ShapeType
+
        - `inst` is IfcProfileDef and `repr` is None -> ShapeType
+
        - `inst` is IfcPlacement / IfcObjectPlacement -> Transformation
+
        - `inst` is IfcTypeProduct and `repr` is None -> None
+
        - `inst` is IfcTypeProduct and `repr` is provided -> RuntimeError
        (for IfcTypeProducts provide just IfcRepresentation as `inst`).
+
+
+       If 'use-python-opencascade' is enabled in settings then
+
+       - instead of ShapeElementType it returns shape_tuple, 
+
+       - instead of ShapeType it returns TopoDS.TopoDS_Shape.
 
    Example:
 

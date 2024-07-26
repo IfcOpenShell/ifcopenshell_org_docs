@@ -144,6 +144,24 @@ Module Contents
    .. py:method:: update_topic(project_id: str = '', topic_id: str = '', data: Any = None) -> Tuple[int, str]
 
 
+   .. py:attribute:: baseurl
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: filepath
+
+
+   .. py:attribute:: foundation_client
+
+
+   .. py:attribute:: version_id
+      :type:  Optional[str]
+      :value: None
+
+
+
 .. py:class:: FoundationClient(client_id: str, client_secret: str, base_url: Optional[str] = None, redirect_subdir: Optional[str] = None)
 
    .. py:method:: get_access_token() -> str
@@ -168,6 +186,45 @@ Module Contents
 
 
    .. py:method:: set_tokens_from_response(response: requests.Response) -> None
+
+
+   .. py:attribute:: access_token
+      :value: ''
+
+
+
+   .. py:attribute:: access_token_expires_on
+
+
+   .. py:attribute:: auth_method
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: baseurl
+
+
+   .. py:attribute:: client_id
+
+
+   .. py:attribute:: client_secret
+
+
+   .. py:attribute:: redirect_subdir
+
+
+   .. py:attribute:: refresh_token
+      :value: ''
+
+
+
+   .. py:attribute:: refresh_token_expires_on
+
+
+   .. py:attribute:: token_endpoint
+      :value: ''
+
 
 
 .. py:class:: OAuthReceiver(request, client_address, server)

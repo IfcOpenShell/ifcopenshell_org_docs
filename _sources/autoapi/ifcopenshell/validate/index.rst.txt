@@ -35,6 +35,9 @@ Module Contents
    Initialize self.  See help(type(self)) for accurate signature.
 
 
+   .. py:attribute:: attribute
+
+
 .. py:class:: LogDetectionHandler(level=NOTSET)
 
    Bases: :py:obj:`logging.Handler`
@@ -71,6 +74,14 @@ Module Contents
 
 
    .. py:method:: set_state(key, value)
+
+
+   .. py:attribute:: state
+
+
+   .. py:attribute:: statements
+      :value: []
+
 
 
 .. py:function:: annotate_inst_attr_pos(inst: ifcopenshell.entity_instance, pos: int) -> str

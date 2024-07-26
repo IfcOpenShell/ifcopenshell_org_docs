@@ -35,3 +35,39 @@ Module Contents
    .. py:method:: patch()
 
 
+   .. py:attribute:: e
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: gn_angle
+
+
+   .. py:attribute:: h
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: n
+
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: rotate_angle
+
+
+   .. py:attribute:: src
+
+
+   .. py:attribute:: x
+
+
+   .. py:attribute:: y
+
+
+   .. py:attribute:: z
+
+

@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, schema: str = 'IFC4')
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, schema: Literal['IFC2X3', 'IFC4', 'IFC4X3'] = 'IFC4')
 
    
    Migrate from one IFC version to another
@@ -27,5 +27,17 @@ Module Contents
 
 
    .. py:method:: patch()
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: schema
+
+
+   .. py:attribute:: src
 
 

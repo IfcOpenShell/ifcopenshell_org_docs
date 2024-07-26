@@ -243,7 +243,7 @@ Module Contents
           # Define condition and transformation functions
           condition = lambda v: v == old
           transform = lambda v: new
-          
+
           # Usage example
           attribute_value = element.RelatedElements
           print(old in attribute_value, new in attribute_value) # True, False
