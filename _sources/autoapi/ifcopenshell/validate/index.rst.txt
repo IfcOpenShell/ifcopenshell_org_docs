@@ -32,8 +32,6 @@ Module Contents
 
    Common base class for all non-exit exceptions.
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: attribute
 
@@ -96,7 +94,7 @@ Module Contents
 
 .. py:function:: get_select_members(schema: schema_definition, ty: select_type) -> set[str]
 
-.. py:function:: log_internal_cpp_errors(filename: str, logger: logging.Logger) -> None
+.. py:function:: log_internal_cpp_errors(f: ifcopenshell.file, filename: str, logger: logging.Logger) -> None
 
 .. py:function:: validate(f: Union[ifcopenshell.file, str], logger: logging.Logger, express_rules=False) -> None
 

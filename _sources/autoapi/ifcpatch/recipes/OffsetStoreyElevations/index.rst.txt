@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src, file, logger, z=None)
+.. py:class:: Patcher(src, file, logger, z: Union[str, float] = '0')
 
    
    Offset building storeys by a particular Z value
@@ -15,7 +15,7 @@ Module Contents
    All objects placed relative to the storeys will also be shifted.
 
    :param z: The Z value in project length units to offset storeys by.
-   :type z: float
+   :type z: typing.Union[str, float]
 
    Example:
 

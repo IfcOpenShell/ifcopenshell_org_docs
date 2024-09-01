@@ -17,7 +17,7 @@ Module Contents
    BCF Topic and related objects handler.
 
 
-   .. py:method:: add_viewpoint(element: ifcopenshell.entity_instance) -> None
+   .. py:method:: add_viewpoint(element: ifcopenshell.entity_instance) -> bcf.v2.visinfo.VisualizationInfoHandler
 
       Add a viewpoint pointed at the placement of an IFC element to the topic.
 
@@ -26,7 +26,7 @@ Module Contents
 
 
 
-   .. py:method:: add_viewpoint_from_point_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str) -> None
+   .. py:method:: add_viewpoint_from_point_and_guids(position: numpy.typing.NDArray[numpy.float64], *guids: str) -> bcf.v2.visinfo.VisualizationInfoHandler
 
       Add a viewpoint pointing at an XYZ point in space
 
@@ -36,7 +36,7 @@ Module Contents
 
 
 
-   .. py:method:: add_visinfo_handler(new_viewpoint: bcf.v2.visinfo.VisualizationInfoHandler) -> None
+   .. py:method:: add_visinfo_handler(new_viewpoint: bcf.v2.visinfo.VisualizationInfoHandler, snapshot_filename: Optional[str] = None) -> bcf.v2.model.ViewPoint
 
 
    .. py:method:: create_new(title: str, description: str, author: str, topic_type: str = '', topic_status: str = '', xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> TopicHandler
@@ -55,26 +55,6 @@ Module Contents
 
       Returns:
           The BCF topic definition.
-
-
-
-   .. py:method:: extract_file(entity, outfile: Optional[pathlib.Path] = None) -> pathlib.Path
-
-      Extracts an element with a file into a temporary directory
-
-      These include header files, bim snippets, document references, and
-      viewpoint bitmaps. External reference are not downloaded. Instead, the
-      URI reference is returned.
-
-      :param entity: The entity with a file reference to extract
-      :type entity: bcf.v2.model.HeaderFile,bcf.v2.model.BimSnippet,bcf.v2.model.TopicDocumentReference
-      :param outfile: If provided, save the header file to that location.
-          Otherwise, a temporary directory is created and the filename is
-          derived from the header's original filename.
-      :type outfile: pathlib.Path,optional
-      :return: The filepath of the extracted file. It may be a URL if the
-          header file is external.
-      :rtype: Path
 
 
 

@@ -1,0 +1,30 @@
+:py:mod:`topic`
+===============
+
+.. py:module:: topic
+
+
+Module Contents
+---------------
+
+.. py:function:: extract_file(topic: TopicHandler, entity: Union[bcf.agnostic.model.HeaderFile, bcf.agnostic.model.BimSnippet, bcf.agnostic.model.DocumentReference, bcf.agnostic.model.BitMap], bcfxml: Optional[Union[bcf.v2.bcfxml.BcfXml, bcf.v3.bcfxml.BcfXml]] = None, outfile: Optional[pathlib.Path] = None) -> Union[pathlib.Path, str, None]
+
+   Extracts an element with a file into a temporary directory
+
+   These include header files, bim snippets, document references, and
+   viewpoint bitmaps. External reference are not downloaded. Instead, the
+   URI reference is returned.
+
+   :param entity: The entity with a file reference to extract
+   :param outfile: If provided, save the header file to that location.
+       Otherwise, a temporary directory is created and the filename is
+       derived from the header's original filename.
+   :param bcfxml: The BCF XML file to use for resolving document references files.
+       Required only for BCF v3 document references (in BCF v3 internal documents
+       are stored at BCF root, not in the topic).
+   :return: The filepath of the extracted file. It may be a URL if the
+       header file is external.
+
+
+.. py:data:: TopicHandler
+

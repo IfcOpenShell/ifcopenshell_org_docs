@@ -1,0 +1,137 @@
+:py:mod:`bcf.v2.model.extensions`
+=================================
+
+.. py:module:: bcf.v2.model.extensions
+
+
+Module Contents
+---------------
+
+.. py:class:: Extensions
+
+   .. py:attribute:: priorities
+      :type:  Optional[ExtensionsPriorities]
+
+
+   .. py:attribute:: snippet_types
+      :type:  Optional[ExtensionsSnippetTypes]
+
+
+   .. py:attribute:: stages
+      :type:  Optional[ExtensionsStages]
+
+
+   .. py:attribute:: topic_labels
+      :type:  Optional[ExtensionsTopicLabels]
+
+
+   .. py:attribute:: topic_statuses
+      :type:  Optional[ExtensionsTopicStatuses]
+
+
+   .. py:attribute:: topic_types
+      :type:  Optional[ExtensionsTopicTypes]
+
+
+   .. py:attribute:: users
+      :type:  Optional[ExtensionsUsers]
+
+
+.. py:class:: ExtensionsPriorities
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: priority
+      :type:  List[str]
+
+
+.. py:class:: ExtensionsSnippetTypes
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: snippet_type
+      :type:  List[str]
+
+
+.. py:class:: ExtensionsStages
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: stage
+      :type:  List[str]
+
+
+.. py:class:: ExtensionsTopicLabels
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: topic_label
+      :type:  List[str]
+
+
+.. py:class:: ExtensionsTopicStatuses
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: topic_status
+      :type:  List[str]
+
+
+.. py:class:: ExtensionsTopicTypes
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: topic_type
+      :type:  List[str]
+
+
+.. py:class:: ExtensionsUsers
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: user
+      :type:  List[str]
+
+

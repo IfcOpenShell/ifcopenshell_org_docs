@@ -1,0 +1,36 @@
+:py:mod:`extensions`
+====================
+
+.. py:module:: extensions
+
+
+Module Contents
+---------------
+
+.. py:class:: AttributeData
+
+   Bases: :py:obj:`NamedTuple`
+
+
+   .. py:attribute:: attr_type
+      :type:  type
+
+
+   .. py:attribute:: subattr_name
+      :type:  str
+
+
+   .. py:attribute:: subattr_xsd_name
+      :type:  str
+
+
+.. py:function:: get_extensions_attributes(extensions: Extensions) -> dict[str, AttributeData]
+
+   Return mapping of xsd attribute name to a tuple that consists of:
+   - Extensions attribute name
+   - Extensions attribute type type
+   - subattribute name
+
+
+.. py:data:: Extensions
+

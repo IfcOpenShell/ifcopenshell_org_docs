@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src, file, logger, elevation=0)
+.. py:class:: Patcher(src, file, logger, elevation: Union[str, float] = '0')
 
    
    Sets the reference elevation of all IfcSites
@@ -21,7 +21,7 @@ Module Contents
    The reference elevation is simply a numerical attribute.
 
    :param elevation: The elevation to set.
-   :type elevation: float
+   :type elevation: typing.Union[str, float]
 
    Example:
 

@@ -149,6 +149,13 @@ Module Contents
 
 
 
+   .. py:property:: extensions
+      :type: Optional[bcf.v2.model.extensions.Extensions]
+
+      BCF extensions.
+
+
+
    .. py:property:: project
       :type: Optional[bcf.v2.model.Project]
 

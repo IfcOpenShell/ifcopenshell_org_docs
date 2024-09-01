@@ -1,0 +1,21 @@
+:py:mod:`model`
+===============
+
+.. py:module:: model
+
+
+Module Contents
+---------------
+
+.. py:data:: BimSnippet
+
+.. py:data:: BitMap
+
+.. py:data:: DocumentReference
+
+.. py:data:: HeaderFile
+
+.. py:data:: Topic
+
+.. py:data:: ViewPoint
+

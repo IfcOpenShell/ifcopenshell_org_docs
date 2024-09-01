@@ -607,6 +607,12 @@ Package Contents
    .. py:attribute:: row_factory
 
 
+   .. py:attribute:: schema
+
+      General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
    .. py:attribute:: transaction
       :value: None
 

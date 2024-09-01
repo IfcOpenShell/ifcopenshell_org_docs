@@ -17,7 +17,7 @@ Module Contents
    BCF Topic and related objects handler.
 
 
-   .. py:method:: add_viewpoint(element: ifcopenshell.entity_instance) -> None
+   .. py:method:: add_viewpoint(element: ifcopenshell.entity_instance) -> bcf.v3.visinfo.VisualizationInfoHandler
 
       Add a viewpoint tergeting an IFC element to the topic.
 
@@ -26,7 +26,7 @@ Module Contents
 
 
 
-   .. py:method:: add_viewpoint_from_point_and_guids(position: numpy.typing.NDArray[numpy.float_], *guids: str) -> None
+   .. py:method:: add_viewpoint_from_point_and_guids(position: numpy.typing.NDArray[numpy.float64], *guids: str) -> bcf.v3.visinfo.VisualizationInfoHandler
 
       Add a viewpoint tergeting an IFC element to the topic.
 
@@ -35,7 +35,7 @@ Module Contents
 
 
 
-   .. py:method:: add_visinfo_handler(new_viewpoint: bcf.v3.visinfo.VisualizationInfoHandler) -> None
+   .. py:method:: add_visinfo_handler(new_viewpoint: bcf.v3.visinfo.VisualizationInfoHandler, snapshot_filename: Optional[str] = None) -> bcf.v3.model.ViewPoint
 
 
    .. py:method:: create_new(title: str, description: str, author: str, topic_type: str = '', topic_status: str = '', xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> TopicHandler
@@ -79,7 +79,7 @@ Module Contents
 
 
    .. py:property:: guid
-      :type: Optional[str]
+      :type: str
 
       Return the GUID of the topic.
 
@@ -94,6 +94,11 @@ Module Contents
 
    .. py:property:: markup
       :type: Optional[bcf.v3.model.Markup]
+
+
+
+   .. py:property:: reference_files
+      :type: dict[str, bytes]
 
 
 

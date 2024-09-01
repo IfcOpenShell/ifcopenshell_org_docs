@@ -227,7 +227,7 @@ Module Contents
 
 
 
-.. py:class:: OAuthReceiver(request, client_address, server)
+.. py:class:: OAuthReceiver
 
    Bases: :py:obj:`http.server.BaseHTTPRequestHandler`
 

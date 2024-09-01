@@ -14,8 +14,6 @@ Module Contents
 
    Common base class for all non-exit exceptions.
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: instance
       :type:  ifcopenshell.entity_instance

@@ -30,11 +30,11 @@ Module Contents
 
 
 .. py:data:: constructor_stmt
-   :value: 'set_value(%(index)d, (%(name)s));'
+   :value: 'set_attribute_value(%(index)d, (%(name)s));'
 
 
 .. py:data:: constructor_stmt_array
-   :value: 'set_value(%(index)d, (%(name)s)->generalize());'
+   :value: 'set_attribute_value(%(index)d, (%(name)s)->generalize());'
 
 
 .. py:data:: constructor_stmt_derived
@@ -42,11 +42,11 @@ Module Contents
 
 
 .. py:data:: constructor_stmt_enum
-   :value: 'set_value(%(index)d,...
+   :value: 'set_attribute_value(%(index)d, (EnumerationReference(&%(type)s::Class(),(size_t)%(name)s)));'
 
 
 .. py:data:: constructor_stmt_instance
-   :value: 'set_value(%(index)d, %(name)s ? %(name)s->as<IfcUtil::IfcBaseClass>() :...
+   :value: 'set_attribute_value(%(index)d, %(name)s ? %(name)s->as<IfcUtil::IfcBaseClass>() :...
 
 
 .. py:data:: constructor_stmt_optional
@@ -75,7 +75,7 @@ Module Contents
       public:
       %(attributes)s    %(inverse)s    virtual const IfcParse::entity& declaration() const;
           static const IfcParse::entity& Class();
-          %(name)s (IfcEntityInstanceData* e);
+          %(name)s (IfcEntityInstanceData&& e);
           %(name)s (%(constructor_arguments)s);
           typedef aggregate_of< %(name)s > list;
       };
@@ -131,8 +131,8 @@ Module Contents
       %(inverse)s
       const IfcParse::entity& %(schema_name)s::%(name)s::declaration() const { return *((IfcParse::entity*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
       const IfcParse::entity& %(schema_name)s::%(name)s::Class() { return *((IfcParse::entity*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
-      %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData* e) : %(superclass)s { data_ = e; }
-      %(schema_name)s::%(name)s::%(name)s(%(constructor_arguments)s) : %(superclass)s {data_ = new IfcEntityInstanceData(%(schema_name_upper)s_types[%(index_in_schema)d]); %(constructor_implementation)s }
+      %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData&& e) : %(superclass)s { }
+      %(schema_name)s::%(name)s::%(name)s(%(constructor_arguments)s) : %(superclass_num_attrs)s { %(constructor_implementation)s }
       """
 
    .. raw:: html
@@ -190,7 +190,7 @@ Module Contents
       
           virtual const IfcParse::enumeration_type& declaration() const;
           static const IfcParse::enumeration_type& Class();
-          %(name)s (IfcEntityInstanceData* e);
+          %(name)s (IfcEntityInstanceData&& e);
           %(name)s (Value v);
           %(name)s (const std::string& v);
           operator Value() const;
@@ -239,18 +239,16 @@ Module Contents
       const IfcParse::enumeration_type& %(schema_name)s::%(name)s::declaration() const { return *((IfcParse::enumeration_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
       const IfcParse::enumeration_type& %(schema_name)s::%(name)s::Class() { return *((IfcParse::enumeration_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
       
-      %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData* e) {
-          data_ = e;
-      }
+      %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData&& e)
+          : IfcBaseType(std::move(e))
+      {}
       
       %(schema_name)s::%(name)s::%(name)s(Value v) {
-          data_ = new IfcEntityInstanceData(%(schema_name_upper)s_types[%(index_in_schema)d]);
-          set_value(0, IfcWrite::IfcWriteArgument::EnumerationReference(v,ToString(v)));
+          set_attribute_value(0, EnumerationReference(&declaration(), static_cast<size_t>(v)));
       }
       
       %(schema_name)s::%(name)s::%(name)s(const std::string& v) {
-          data_ = new IfcEntityInstanceData(%(schema_name_upper)s_types[%(index_in_schema)d]);
-          set_value(0, IfcWrite::IfcWriteArgument::EnumerationReference(FromString(v),ToString(FromString(v))));
+          set_attribute_value(0, EnumerationReference(&declaration(), declaration().lookup_enum_offset(v)));
       }
       
       const char* %(schema_name)s::%(name)s::ToString(Value v) {
@@ -262,7 +260,7 @@ Module Contents
       }
       
       %(schema_name)s::%(name)s::operator %(schema_name)s::%(name)s::Value() const {
-          return FromString((std::string) *data_->getArgument(0));
+          return (%(schema_name)s::%(name)s::Value) data_.storage_.get<EnumerationReference>(0).index();
       }
       """
 
@@ -277,11 +275,11 @@ Module Contents
 
 
 .. py:data:: get_attr_stmt
-   :value: '%(null_check)s %(non_optional_type)s v = *data_->getArgument(%(index)d); return v;'
+   :value: '%(null_check)s %(non_optional_type)s v = data_.get_attribute_value(%(index)d); return v;'
 
 
 .. py:data:: get_attr_stmt_array
-   :value: '%(null_check)s aggregate_of_instance::ptr es = *data_->getArgument(%(index)d); return es->as<...
+   :value: '%(null_check)s aggregate_of_instance::ptr es = data_.get_attribute_value(%(index)d); return...
 
 
 .. py:data:: get_attr_stmt_entity
@@ -289,15 +287,15 @@ Module Contents
 
 
 .. py:data:: get_attr_stmt_enum
-   :value: '%(null_check)s return %(non_optional_type)s::FromString(*data_->getArgument(%(index)d));'
+   :value: '%(null_check)s return %(non_optional_type)s::FromString(data_.get_attribute_value(%(index)d));'
 
 
 .. py:data:: get_attr_stmt_nested_array
-   :value: '%(null_check)s aggregate_of_aggregate_of_instance::ptr es = *data_->getArgument(%(index)d);...
+   :value: '%(null_check)s aggregate_of_aggregate_of_instance::ptr es =...
 
 
 .. py:data:: get_inverse
-   :value: 'return data_->getInverse(%(schema_name_upper)s_types[%(type_index)d], %(index)d)->as<%(type)s>();'
+   :value: 'if (!file_) { return nullptr; } return file_->getInverse(id_,...
 
 
 .. py:data:: header
@@ -364,14 +362,13 @@ Module Contents
       #include "../ifcparse/%(schema_name)s.h"
       #include "../ifcparse/IfcSchema.h"
       #include "../ifcparse/IfcException.h"
-      #include "../ifcparse/IfcWrite.h"
+      #include "../ifcparse/IfcFile.h"
       
       #include <map>
       
       const char* const %(schema_name)s::Identifier = "%(schema_name_upper)s";
       
       using namespace IfcParse;
-      using namespace IfcWrite;
       
       // External definitions
       %(external_definitions)s
@@ -418,7 +415,7 @@ Module Contents
 
 
 .. py:data:: optional_attr_stmt
-   :value: 'return !data_->getArgument(%(index)d)->isNull();'
+   :value: 'return !data_.get_attribute_value(%(index)d).isNull();'
 
 
 .. py:data:: optional_attribute_description
@@ -480,19 +477,19 @@ Module Contents
 
 
 .. py:data:: set_attr_instance
-   :value: '%(check_optional_set_begin)sset_value(%(index)d,...
+   :value: '%(check_optional_set_begin)sset_attribute_value(%(index)d,...
 
 
 .. py:data:: set_attr_stmt
-   :value: '%(check_optional_set_begin)sset_value(%(index)d,...
+   :value: '%(check_optional_set_begin)sset_attribute_value(%(index)d,...
 
 
 .. py:data:: set_attr_stmt_array
-   :value: '%(check_optional_set_begin)sset_value(%(index)d,...
+   :value: '%(check_optional_set_begin)sset_attribute_value(%(index)d,...
 
 
 .. py:data:: set_attr_stmt_enum
-   :value: '%(check_optional_set_begin)sset_value(%(index)d,...
+   :value: '%(check_optional_set_begin)sset_attribute_value(%(index)d,...
 
 
 .. py:data:: simpletype
@@ -509,7 +506,7 @@ Module Contents
       public:
           virtual const IfcParse::type_declaration& declaration() const;
           static const IfcParse::type_declaration& Class();
-          explicit %(name)s (IfcEntityInstanceData* e);
+          explicit %(name)s (IfcEntityInstanceData&& e);
           %(name)s (%(type)s v);
           operator %(type)s() const;
       };
@@ -522,7 +519,7 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_argument
-   :value: 'return data_->getArgument(i);'
+   :value: 'return data_.get_attribute_value(i);'
 
 
 .. py:data:: simpletype_impl_argument_type
@@ -530,11 +527,11 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_cast
-   :value: 'return *data_->getArgument(0);'
+   :value: 'return data_.get_attribute_value(0);'
 
 
 .. py:data:: simpletype_impl_cast_templated
-   :value: 'aggregate_of_instance::ptr es = *data_->getArgument(0); return es->as< %(underlying_type)s >();'
+   :value: 'aggregate_of_instance::ptr es = data_.get_attribute_value(0); return es->as< %(underlying_type)s >();'
 
 
 .. py:data:: simpletype_impl_class
@@ -546,7 +543,7 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_constructor
-   :value: 'data_ = new IfcEntityInstanceData(%(schema_name_upper)s_types[%(index_in_schema)d]); set_value(0, v);'
+   :value: 'data_ = new IfcEntityInstanceData(%(schema_name_upper)s_types[%(index_in_schema)d]);...
 
 
 .. py:data:: simpletype_impl_constructor_templated

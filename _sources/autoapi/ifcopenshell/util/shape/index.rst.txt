@@ -395,6 +395,18 @@ Module Contents
    :rtype: float
 
 
+.. py:function:: get_vert_centroid(geometry: ifcopenshell.geom.ShapeType) -> tuple[float, float, float]
+
+   Calculates the average vertex centroid of the geometry
+
+   The centroid is in local coordinates relative to the object's placement.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :type geometry: geometry
+   :return: A tuple representing the XYZ centroid
+   :rtype: tuple[float, float, float]
+
+
 .. py:function:: get_vertices(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
 
    Get all the vertices as a numpy array

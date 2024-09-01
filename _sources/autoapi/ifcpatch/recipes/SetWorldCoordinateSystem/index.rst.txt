@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src, file, logger, x=None, y=None, z=None, ax=None, ay=None, az=None)
+.. py:class:: Patcher(src, file, logger, x: Union[str, float] = '0', y: Union[str, float] = '0', z: Union[str, float] = '0', ax: Union[str, float] = '0', ay: Union[str, float] = '0', az: Union[str, float] = '0')
 
    
    Sets the world coordinate system of the geometric representation context
@@ -15,20 +15,20 @@ Module Contents
    Sets the world coordinate system to whatever you want.
 
    :param x: The X coordinate.
-   :type x: float
+   :type x: typing.Union[str, float]
    :param y: The Y coordinate.
-   :type y: float
+   :type y: typing.Union[str, float]
    :param z: The Z coordinate.
-   :type z: float
+   :type z: typing.Union[str, float]
    :param ax: An angle to rotate by for 3D rotations along the X axis.
        Angles are in decimal degrees and positive is anticlockwise.
-   :type ax: float
+   :type ax: typing.Union[str, float]
    :param ay: An angle to rotate by for 3D rotations along the Y axis.
        Angles are in decimal degrees and positive is anticlockwise.
-   :type ay: float
+   :type ay: typing.Union[str, float]
    :param az: An angle to rotate by for 3D rotations along the Z axis.
        Angles are in decimal degrees and positive is anticlockwise.
-   :type az: float
+   :type az: typing.Union[str, float]
 
    Example:
 

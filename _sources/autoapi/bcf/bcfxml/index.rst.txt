@@ -29,7 +29,7 @@
 Module Contents
 ---------------
 
-.. py:function:: load(filepath: pathlib.Path, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[Union[bcf.v2.bcfxml.BcfXml, bcf.v3.bcfxml.BcfXml]]
+.. py:function:: load(filepath: pathlib.Path, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[BcfXml]
 
    Load a BCF file.
 
@@ -42,4 +42,6 @@ Module Contents
    Raises:
        ValueError: If the BCF version is not supported.
 
+
+.. py:data:: BcfXml
 

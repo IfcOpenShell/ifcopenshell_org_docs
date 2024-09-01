@@ -22,8 +22,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: activationDateUtc
       :type:  str
@@ -164,8 +162,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: children
       :type:  list[ClassListItemContractV1]
@@ -209,8 +205,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: allowedValues
@@ -364,8 +358,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: code
       :type:  str
@@ -402,8 +394,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: code
       :type:  str
@@ -431,8 +421,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: fraction
@@ -469,8 +457,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: classType
@@ -524,8 +510,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: classes
       :type:  list[ClassSearchResponseClassContractV1]
@@ -557,8 +541,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: classType
@@ -782,8 +764,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: code
       :type:  str
@@ -807,8 +787,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: classes
@@ -898,8 +876,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: defaultLanguageCode
       :type:  str
@@ -971,8 +947,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: defaultLanguageCode
@@ -1062,8 +1036,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: count
       :type:  int
@@ -1096,8 +1068,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: classes
       :type:  list[ClassSearchResultContractV1]
@@ -1126,8 +1096,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: isoCode
       :type:  str
@@ -1137,7 +1105,7 @@ Module Contents
       :type:  str
 
 
-.. py:class:: OAuthReceiver(request, client_address, server)
+.. py:class:: OAuthReceiver
 
    Bases: :py:obj:`http.server.BaseHTTPRequestHandler`
 
@@ -1262,8 +1230,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: code
       :type:  str
@@ -1303,8 +1269,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: activationDateUtc
@@ -1522,8 +1486,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: code
       :type:  str
@@ -1551,8 +1513,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: relatedPropertyName
@@ -1585,8 +1545,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: code
@@ -1624,8 +1582,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: date
       :type:  str
@@ -1653,8 +1609,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: count
@@ -1687,8 +1641,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: classType
@@ -1742,8 +1694,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: classes
       :type:  list[TextSearchResponseClassContractV1]
@@ -1784,8 +1734,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: name
       :type:  str
@@ -1809,8 +1757,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: description
@@ -1847,8 +1793,6 @@ Module Contents
            d[k] = v
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
-
-   Initialize self.  See help(type(self)) for accurate signature.
 
 
    .. py:attribute:: code

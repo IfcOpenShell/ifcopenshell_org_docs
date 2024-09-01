@@ -12,6 +12,9 @@ Module Contents
    Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.Iterator`
 
 
+   .. py:method:: get()
+
+
    .. py:attribute:: settings
 
 
@@ -40,6 +43,12 @@ Module Contents
 
 
    .. py:attribute:: buffer
+
+
+   .. py:attribute:: gltf
+
+
+   .. py:attribute:: hdf5
 
 
    .. py:attribute:: xml
@@ -128,7 +137,9 @@ Module Contents
    .. py:attribute:: args
 
 
-.. py:function:: consume_iterator(it, with_progress=False)
+.. py:function:: consume_iterator(it: iterator, with_progress: Literal[False] = False) -> Generator[IteratorOutput, None, None]
+                 consume_iterator(it: iterator, with_progress: Literal[True]) -> Generator[tuple[int, IteratorOutput], None, None]
+                 consume_iterator(it: iterator, with_progress: bool) -> Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
 
 .. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance.entity_instance, repr: Optional[ifcopenshell.entity_instance.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.Transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
 
@@ -185,7 +196,9 @@ Module Contents
                    print("Shape creation failed")
 
 
-.. py:function:: iterate(settings, file_or_filename, num_threads=1, include=None, exclude=None, with_progress=False, cache=None, geometry_library: GEOMETRY_LIBRARY = 'opencascade')
+.. py:function:: iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, with_progress: Literal[False] = False, cache: Optional[serializers.hdf5] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Generator[IteratorOutput, None, None]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, with_progress: Literal[True] = True, cache: Optional[serializers.hdf5] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Generator[tuple[int, IteratorOutput], None, None]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, with_progress: bool = False, cache: Optional[serializers.hdf5] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
 
 .. py:function:: make_shape_function(fn)
 
@@ -196,6 +209,8 @@ Module Contents
 .. py:function:: wrap_shape_creation(settings, shape)
 
 .. py:data:: GEOMETRY_LIBRARY
+
+.. py:data:: IteratorOutput
 
 .. py:data:: SERIALIZER_SETTING
 

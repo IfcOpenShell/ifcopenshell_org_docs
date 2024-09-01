@@ -21,6 +21,7 @@ Submodules
    :maxdepth: 1
 
    bcfxml/index.rst
+   extensions/index.rst
    geometry/index.rst
    inmemory_zipfile/index.rst
    xml_parser/index.rst

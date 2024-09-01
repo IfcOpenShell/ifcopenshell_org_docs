@@ -49,6 +49,12 @@ Module Contents
    Bases: :py:obj:`Json`
 
 
+   .. py:method:: group_by_type(entities)
+
+
+   .. py:method:: limit_entities(entities)
+
+
    .. py:method:: report() -> None
 
 
@@ -56,6 +62,11 @@ Module Contents
 
 
    .. py:method:: to_string() -> str
+
+
+   .. py:attribute:: entity_limit
+      :value: 100
+
 
 
 .. py:class:: Json(ids: ifctester.ids.Ids)
@@ -150,8 +161,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: date
       :type:  str
@@ -240,8 +249,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: description
       :type:  str
@@ -306,8 +313,6 @@ Module Contents
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   Initialize self.  See help(type(self)) for accurate signature.
-
 
    .. py:attribute:: applicability
       :type:  list[str]
@@ -319,6 +324,10 @@ Module Contents
 
    .. py:attribute:: instructions
       :type:  str
+
+
+   .. py:attribute:: is_ifc_version
+      :type:  bool
 
 
    .. py:attribute:: name

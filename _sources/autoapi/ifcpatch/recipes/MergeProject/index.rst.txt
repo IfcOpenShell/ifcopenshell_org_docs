@@ -22,6 +22,8 @@ Module Contents
    :param filepath: The filepath of the second IFC model to merge into the
        first. The first model is already specified as the input to
        IfcPatch.
+   :type filepath: Union[str, ifcopenshell.file]
+   :filter_glob filepath: *.ifc;*.ifczip;*.ifcxml
 
    Example:
 
@@ -34,6 +36,9 @@ Module Contents
 
 
    .. py:method:: get_unit_name(ifc_file: ifcopenshell.file) -> str
+
+
+   .. py:method:: merge(other)
 
 
    .. py:method:: patch()

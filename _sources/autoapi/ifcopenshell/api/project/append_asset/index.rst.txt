@@ -21,6 +21,9 @@ Module Contents
    .. py:method:: append_material()
 
 
+   .. py:method:: append_presentation_style()
+
+
    .. py:method:: append_product()
 
 
@@ -33,25 +36,25 @@ Module Contents
    .. py:method:: check_inverses(element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: create_equivalent_context(added_context)
+   .. py:method:: create_equivalent_context(added_context: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
    .. py:method:: execute()
 
 
-   .. py:method:: get_equivalent_existing_context(added_context)
+   .. py:method:: get_equivalent_existing_context(added_context: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
 
    .. py:method:: get_existing_element(element)
 
 
-   .. py:method:: has_whitelisted_inverses(element)
+   .. py:method:: has_whitelisted_inverses(element: ifcopenshell.entity_instance) -> bool
 
 
-   .. py:method:: is_another_asset(element)
+   .. py:method:: is_another_asset(element: ifcopenshell.entity_instance) -> bool
 
 
-   .. py:method:: reuse_existing_contexts()
+   .. py:method:: reuse_existing_contexts() -> None
 
 
    .. py:attribute:: file
@@ -148,4 +151,8 @@ Module Contents
            )
 
 
+
+.. py:data:: APPENDABLE_ASSET
+
+.. py:data:: APPENDABLE_ASSET_TYPES
 

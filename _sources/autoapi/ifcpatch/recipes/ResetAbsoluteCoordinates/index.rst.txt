@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, mode: Literal['geometry', 'placement', 'both'] = 'geometry', a: Optional[float] = None, b: Optional[float] = None, c: Optional[float] = None, d: Optional[float] = None)
+.. py:class:: Patcher(src: str, file: ifcopenshell.file, logger: logging.Logger, mode: Literal['Geometry', 'Placement', 'Both'] = 'Geometry', automatic_offset_point: bool = True, threshold: float = 1000000, x: Union[str, float] = '0', y: Union[str, float] = '0', z: Union[str, float] = '0')
 
    
    Reset any large coordinates to smaller coordinates based on a threshold
@@ -24,47 +24,34 @@ Module Contents
    ordinate is larger than a threshold) and offsets it back down to a small
    number.
 
-   You may either manually specify the offset to apply to any large
-   coordinate, or an offset will be automatically determined arbitrarily
-   based on the first large number we encounter.
+   You may either let Blender BIM determine the offset to apply to any large
+   coordinate automatically, arbitrarily based on the first large number we
+   encounter, or manually specify this offset.
 
    Note that if your model inconsistently mixes coordinates between large
    and small (such as if your model mixes both local and map coordinates)
    then the results of this function may be poor. Provide a bug report back
    to your BIM application to get it fixed.
 
-   You may specify up to 4 arguments, a, b, c, and d.
-
-   If you specify no arguments, then the threshold is set to 1000000. The
-   offset is auto detected.
-
-   If you only specify 1 parameter (i.e. a), then this is treated as the
-   threshold beyond which an ordinate is considered to be large. The offset
-   is auto detected.
-
-   If you specify 3 parameters, (i.e. a, b, c) then your three numbers are
-   treated as the X, Y, Z offset to apply. Typically your numbers will be
-   negative to bring the numbers smaller. The threshold is set to 1000000.
-
-   If you specify 4 parameters (i.e. a, b, c, d), then the first three
-   numbers are treated as the X, Y, Z offset to apply (a, b, c). The fourth
-   (d) will be treated as the threshold.
-
-   :param mode: Choose from "geometry", "placement", or "both". Choosing
-       "geometry" will only replace cartesian points used in shape
-       representations. Choosing "placement" will only replace cartesian
-       points used in object placements. Choosing "both" will replace all
+   :param mode: Choose from "Geometry", "Placement", or "Both". Choosing
+       "Geometry" will only replace cartesian points used in shape
+       representations. Choosing "Placement" will only replace cartesian
+       points used in object placements. Choosing "Both" will replace all
        cartesian points regardless of use (useful if the model has both
        large placement offsets and large geometry offsets).
    :type mode: str
-   :param a: The first parameter
-   :type a: float,optional
-   :param b: The second parameter
-   :type b: float,optional
-   :param c: The third parameter
-   :type c: float,optional
-   :param d: The fourth parameter
-   :type d: float,optional
+   :param automatic_offset_point: Choose, whether the offset should be
+       determined automatically or specified manually.
+   :type automatic_offset_point: bool
+   :param threshold: The threshold for deciding, whether a coordinate is
+       treated as a large coordinate.
+   :type threshold: float
+   :param x: The x-ordinate of the manually specified offset point.
+   :type x: Union[str, float]
+   :param y: The y-ordinate of the manually specified offset point.
+   :type y: Union[str, float]
+   :param z: The z-ordinate of the manually specified offset point.
+   :type z: Union[str, float]
 
    Example:
 
@@ -74,22 +61,19 @@ Module Contents
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": []})
 
        # Reset all coordinates with an ordinate larger than 1000 arbitrarily
-       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [1000]})
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [True, 1000]})
 
        # Reset all coordinates with an ordinate larger than 1000000 by -50000,-20000,0
-       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [-50000,-20000,0]})
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [False, 1000000, -50000,-20000,0]})
 
        # Reset all coordinates with an ordinate larger than 1000 by -500,-200,0
-       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [-500,-200,0,1000]})
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [False, 1000, -500,-200,0]})
 
 
    .. py:method:: is_point_far_away(point: Union[ifcopenshell.entity_instance, numpy.typing.NDArray[numpy.float64]]) -> bool
 
 
    .. py:method:: patch()
-
-
-   .. py:attribute:: args
 
 
    .. py:attribute:: file
@@ -102,5 +86,8 @@ Module Contents
 
 
    .. py:attribute:: src
+
+
+   .. py:attribute:: threshold
 
 

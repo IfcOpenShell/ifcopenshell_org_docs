@@ -550,7 +550,7 @@ Module Contents
 
    Get all elements with assigned `reference`
 
-   :param reference: IfcExternalReference subtype reference
+   :param reference: IfcExternalReference/IfcExternalInformation subtype reference
    :type reference: ifcopenshell.entity_instance
    :return: The elements with assigned `reference`
    :rtype: set[ifcopenshell.entity_instance]

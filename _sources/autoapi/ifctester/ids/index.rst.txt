@@ -21,7 +21,7 @@ Module Contents
    .. py:method:: to_xml(filepath='output.xml')
 
 
-   .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False, filepath: Optional[str] = None) -> None
+   .. py:method:: validate(ifc_file: ifcopenshell.file, should_filter_version: bool = False, filepath: Optional[str] = None) -> None
 
 
    .. py:attribute:: filename
@@ -50,6 +50,9 @@ Module Contents
    .. py:method:: asdict()
 
 
+   .. py:method:: check_ifc_version(ifc_file: ifcopenshell.file) -> bool
+
+
    .. py:method:: get_usage() -> ifctester.facet.Cardinality
 
 
@@ -65,7 +68,7 @@ Module Contents
    .. py:method:: set_usage(usage: ifctester.facet.Cardinality) -> None
 
 
-   .. py:method:: validate(ifc_file: ifcopenshell.file, filter_version=False) -> None
+   .. py:method:: validate(ifc_file: ifcopenshell.file, should_filter_version: bool = False) -> None
 
 
    .. py:attribute:: applicability
@@ -94,6 +97,11 @@ Module Contents
 
 
    .. py:attribute:: instructions
+
+
+   .. py:attribute:: is_ifc_version
+      :value: None
+
 
 
    .. py:attribute:: maxOccurs

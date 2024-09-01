@@ -68,7 +68,7 @@ Module Contents
    :return: A tuple of Y axis abscissa and ordinate
 
 
-.. py:function:: auto_enh2xyz(ifc_file, easting, northing, height, is_specified_in_map_units: bool = True)
+.. py:function:: auto_enh2xyz(ifc_file: ifcopenshell.file, easting: float, northing: float, height: float, is_specified_in_map_units: bool = True) -> tuple[float, float, float]
 
    Convert from global map coordinate eastings, northings, and heights to local XYZ coordinates
 
@@ -88,7 +88,7 @@ Module Contents
    :return: The local engineering XYZ coordinates in project length units.
 
 
-.. py:function:: auto_global2local(ifc_file: ifcopenshell.file, matrix: numpy.typing.NDArray[numpy.float64], is_specified_in_map_units: bool = True) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: auto_global2local(ifc_file: ifcopenshell.file, matrix: MatrixType, is_specified_in_map_units: bool = True) -> MatrixType
 
    Convert a global map matrix to a local matrix
 
@@ -104,7 +104,7 @@ Module Contents
    :return: A numpy 4x4 array matrix representing global coordinates.
 
 
-.. py:function:: auto_local2global(ifc_file: ifcopenshell.file, matrix: numpy.typing.NDArray[numpy.float64], should_return_in_map_units: bool = True) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: auto_local2global(ifc_file: ifcopenshell.file, matrix: MatrixType, should_return_in_map_units: bool = True) -> MatrixType
 
    Convert a local matrix to a global map matrix
 
@@ -260,7 +260,7 @@ Module Contents
    :return: An angle to true north in decimal degrees
 
 
-.. py:function:: get_wcs(ifc_file: ifcopenshell.file) -> Optional[numpy.typing.NDArray[numpy.float64]]
+.. py:function:: get_wcs(ifc_file: ifcopenshell.file) -> Optional[MatrixType]
 
    Gets the WCS (prioritising 3D contexts) as a matrix
 
@@ -268,7 +268,7 @@ Module Contents
    :return: A 4x4 matrix in project units
 
 
-.. py:function:: global2local(matrix: numpy.typing.NDArray[numpy.float64], eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0.0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: global2local(matrix: MatrixType, eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0.0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> MatrixType
 
    Manually convert a 4x4 matrix from global to local coordinates
 
@@ -292,7 +292,7 @@ Module Contents
    :return: A numpy 4x4 array matrix representing local coordinates.
 
 
-.. py:function:: local2global(matrix: numpy.typing.NDArray[numpy.float64], eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0.0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: local2global(matrix: MatrixType, eastings: float = 0.0, northings: float = 0.0, orthogonal_height: float = 0.0, x_axis_abscissa: float = 1.0, x_axis_ordinate: float = 0.0, scale: float = 1.0, factor_x: float = 1.0, factor_y: float = 1.0, factor_z: float = 1.0) -> MatrixType
 
    Manually convert a 4x4 matrix from local to global coordinates
 
@@ -411,4 +411,6 @@ Module Contents
        affect the XY axes.
    :return: The elevation in map units.
 
+
+.. py:data:: MatrixType
 

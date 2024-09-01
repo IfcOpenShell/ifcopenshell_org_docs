@@ -29,7 +29,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: parse(fn)
+.. py:function:: parse(fn: str) -> schema_class.SchemaClass
 
 .. py:data:: d
 
