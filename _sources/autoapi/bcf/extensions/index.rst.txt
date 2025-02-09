@@ -1,6 +1,0 @@
-:py:mod:`bcf.extensions`
-========================
-
-.. py:module:: bcf.extensions
-
-

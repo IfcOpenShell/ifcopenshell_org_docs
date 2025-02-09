@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="IfcTester" href="../ifctester.html" /><link rel="prev" title="IfcSverchok" href="../ifcsverchok.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Boolean process" href="boolean_process.html" /><link rel="prev" title="Geometry settings" href="geometry_settings.html" />
 
     <link rel="shortcut icon" href="https://ifcopenshell.org/assets/images/logo.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Installation - IfcOpenShell 0.8.1 documentation</title>
+        <title>Serialiser settings - IfcOpenShell 0.8.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=aefb6c79" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -242,20 +242,20 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Main:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../introduction.html">Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Introduction</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/introduction_to_bim.html">Introduction to BIM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/introduction_to_ifc.html">Introduction to IFC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/how_to_contribute.html">How to contribute</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ifcopenshell.html">IfcOpenShell</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of IfcOpenShell</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ifcopenshell/installation.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ifcopenshell/getting_started.html">Getting Started with IFC parsing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ifcopenshell/geometry_iterator.html">Geometry iterator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ifcopenshell/geometry_settings.html">Geometry settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ifcopenshell/serialiser_settings.html">Serialiser settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ifcopenshell/boolean_process.html">Boolean process</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../ifcopenshell.html">IfcOpenShell</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of IfcOpenShell</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started with IFC parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_iterator.html">Geometry iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_settings.html">Geometry settings</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Serialiser settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_process.html">Boolean process</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ifcopenshell-python.html">IfcOpenShell-Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of IfcOpenShell-Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -277,7 +277,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../bonsai.html">Bonsai</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../bcf.html">BCF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bimserver-plugin.html">BIMServer-Plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bimtester.html">BIMTester</a></li>
@@ -292,8 +292,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../ifcfm.html">IfcFM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ifcmax.html">IfcMax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ifcpatch.html">IfcPatch</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../ifcsverchok.html">IfcSverchok</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of IfcSverchok</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ifcsverchok.html">IfcSverchok</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of IfcSverchok</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ifcsverchok/installation.html">Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ifctester.html">IfcTester</a></li>
@@ -323,12 +323,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.8.0/src/ifcopenshell-python/docs/ifcsverchok/installation.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.8.0/src/ifcopenshell-python/docs/ifcopenshell/serialiser_settings.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/edit/v0.8.0/src/ifcopenshell-python/docs/ifcsverchok/installation.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/IfcOpenShell/IfcOpenShell/edit/v0.8.0/src/ifcopenshell-python/docs/ifcopenshell/serialiser_settings.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -347,91 +347,194 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
-<p>There are different methods of installation, depending on your situation.</p>
-<ol class="arabic simple">
-<li><p><strong>Packaged installation</strong> is recommended for regular users.</p></li>
-<li><p><strong>Daily build installation</strong> is recommended for power users helping with testing.</p></li>
-<li><p><strong>Source installation</strong> is recommended for developers.</p></li>
-</ol>
-<section id="packaged-installation">
-<h2>Packaged installation<a class="headerlink" href="#packaged-installation" title="Link to this heading">¶</a></h2>
-<p>IfcSverchok is packaged like a regular Blender add-on, so installation is the
-same as any other Blender add-on. <a class="reference external" href="https://github.com/IfcOpenShell/IfcOpenShell/releases/download/ifcsverchok-0.8.1/ifcsverchok-0.8.1.zip">Download IfcSverchok here</a>.</p>
-<p>Like all Blender add-ons, they can be installed using <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span>
-<span class="pre">Addons</span> <span class="pre">&gt;</span> <span class="pre">Install</span> <span class="pre">&gt;</span> <span class="pre">Choose</span> <span class="pre">Downloaded</span> <span class="pre">ZIP</span> <span class="pre">&gt;</span> <span class="pre">Enable</span> <span class="pre">Add-on</span> <span class="pre">Checkbox</span></code>. You can
-enable add-ons permanently by using <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">User</span> <span class="pre">Settings</span></code> from the Addons menu.</p>
-<p>Before installing, you will also need to <a class="reference external" href="https://bonsaibim.org/download.html">install Bonsai</a> and <a class="reference external" href="https://github.com/nortikin/sverchok#installation">install Sverchok</a>.</p>
-<p>If you downloaded Blender as a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file without running an installer, you
-will find IfcSverchok installed in the following directory, where <code class="docutils literal notranslate"><span class="pre">2.XX</span></code> is
-the Blender version:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">blender</span><span class="o">/</span><span class="mf">2.</span><span class="n">XX</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">addons</span><span class="o">/</span>
+          <section id="serialiser-settings">
+<h1>Serialiser settings<a class="headerlink" href="#serialiser-settings" title="Link to this heading">¶</a></h1>
+<p>The geometry serialiser has a variety of settings which can impact its output.
+This is set during the construction of the serialiser.</p>
+<p>Here’s an example of changing settings in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">serialiser_settings</span> <span class="o">=</span> <span class="n">ifcopenshell</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">serializer_settings</span><span class="p">()</span>
+<span class="n">serialiser_settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;use-element-guids&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Otherwise, if you installed Blender using an installation package, the add-ons
-folder depends on which operating system you use. On Linux:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">config</span><span class="o">/</span><span class="n">blender</span><span class="o">/</span><span class="mf">2.</span><span class="n">XX</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">addons</span><span class="o">/</span>
-</pre></div>
+<section id="base-uri">
+<h2>base-uri<a class="headerlink" href="#base-uri" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>STRING</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--base-uri</span></code></p></td>
+<td><p>“”</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>On Mac:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="p">{</span><span class="n">YOUR_USER</span><span class="p">}</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Application</span> <span class="n">Support</span><span class="o">/</span><span class="n">Blender</span><span class="o">/</span><span class="mf">2.</span><span class="n">XX</span><span class="o">/</span>
-</pre></div>
-</div>
-<p>On Windows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="p">{</span><span class="n">YOUR_USER</span><span class="p">}</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Blender</span> <span class="n">Foundation</span>\<span class="mf">2.</span><span class="n">XX</span>\<span class="n">scripts</span>\<span class="n">addons</span>
-</pre></div>
-</div>
-<p>Upon installation, IfcSverchok is stored in the <code class="docutils literal notranslate"><span class="pre">ifcsverchok/</span></code> directory.</p>
+<p>Base URI for products to be used in RDF-based serializations.</p>
 </section>
-<section id="daily-build-installation">
-<h2>Daily build installation<a class="headerlink" href="#daily-build-installation" title="Link to this heading">¶</a></h2>
-<p>Daily builds are almost the same as <strong>Packaged installation</strong>, except that they
-are typically updated every day. Simply download a daily build from the <a class="reference external" href="https://github.com/IfcOpenShell/IfcOpenShell/releases">Github
-releases page</a>, then
-follow the same instructions as a packaged installation.</p>
-<p>TODO: daily builds not yet available</p>
-<p>Daily builds are not always stable. Sometimes, a build may be delayed, or
-contain broken code. We try to avoid this, but it happens.</p>
-</section>
-<section id="source-installation">
-<h2>Source installation<a class="headerlink" href="#source-installation" title="Link to this heading">¶</a></h2>
-<p>It is possible to run the latest bleeding edge version of IfcSverchok without
-having to wait for an official release, since IfcSverchok is coded in Python and
-doesn’t require any compilation.</p>
-<p>Just symbolically link the IfcSverchok add-on files to your Git repository. If
-you’re on Windows, use <code class="docutils literal notranslate"><span class="pre">mklink</span></code> instead. This allows us to code in our Git
-repository, and see the changes in our Blender installation.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/IfcOpenShell/IfcOpenShell.git
-<span class="nb">cd</span><span class="w"> </span>IfcOpenShell
-
-<span class="c1"># Link the repository to blender</span>
-ln<span class="w"> </span>-s<span class="w"> </span>src/ifcsverchok<span class="w"> </span>/path/to/blender/2.XX/scripts/addons/ifcsverchok
-</pre></div>
+<section id="use-element-names">
+<h2>use-element-names<a class="headerlink" href="#use-element-names" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--use-element-names</span></code></p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>On Windows:</p>
-<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/IfcOpenShell/IfcOpenShell.git
-<span class="k">cd</span> IfcOpenShell
-
-# Link the repository to blender
-<span class="k">mklink</span> /D <span class="s2">&quot;\path\to\blender\2.XX\scripts\addons\ifcsverchok&quot;</span> <span class="s2">&quot;\path\to\src\ifcsverchok&quot;</span>
-</pre></div>
+<p>Use entity instance IfcRoot.Name instead of unique IDs for naming elements upon serialization. Applicable for OBJ, DAE, STP, and SVG output.</p>
+</section>
+<section id="use-element-guids">
+<h2>use-element-guids<a class="headerlink" href="#use-element-guids" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--use-element-guids</span></code></p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>After you modify your code in the Git repository, you will need to restart
-Blender for the changes to take effect. In <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Add-ons</span></code> you
-will see that the version number of IfcSverchok has changed to <code class="docutils literal notranslate"><span class="pre">0.0.999999</span></code>,
-which represents an un-versioned IfcSverchok.</p>
+<p>Use entity instance IfcRoot.GlobalId instead of unique IDs for naming elements upon serialization. Applicable for OBJ, DAE, STP, and SVG output.</p>
 </section>
-<section id="updating">
-<h2>Updating<a class="headerlink" href="#updating" title="Link to this heading">¶</a></h2>
-<p>First uninstall the current IfcSverchok, then install the latest version.</p>
+<section id="use-element-step-ids">
+<h2>use-element-step-ids<a class="headerlink" href="#use-element-step-ids" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--use-element-step-ids</span></code></p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Use the numeric step identifier (entity instance name) for naming elements upon serialization. Applicable for OBJ, DAE, STP, and SVG output.</p>
 </section>
-<section id="uninstalling">
-<h2>Uninstalling<a class="headerlink" href="#uninstalling" title="Link to this heading">¶</a></h2>
-<p>Navigate to <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Add-ons</span></code>, find the IfcSverchok add-on, and
-press <code class="docutils literal notranslate"><span class="pre">Remove</span></code>.</p>
-<p>Alternatively, you may uninstall manually by deleting the <code class="docutils literal notranslate"><span class="pre">ifcsverchok/</span></code>
-directory in your Blender add-ons directory.</p>
+<section id="use-element-types">
+<h2>use-element-types<a class="headerlink" href="#use-element-types" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--use-element-types</span></code></p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Use element types instead of unique IDs for naming elements upon serialization.  Applicable to DAE output.</p>
+</section>
+<section id="y-up">
+<h2>y-up<a class="headerlink" href="#y-up" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--y-up</span></code></p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Change the ‘up’ axis to positive Y, default is Z UP. Applicable to OBJ output.</p>
+</section>
+<section id="ecef">
+<h2>ecef<a class="headerlink" href="#ecef" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ecef</span></code></p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Write glTF in Earth-Centered Earth-Fixed coordinates. Requires PROJ.</p>
+</section>
+<section id="digits">
+<h2>digits<a class="headerlink" href="#digits" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>INT</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--digits</span></code></p></td>
+<td><p>15</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Sets the precision to be used to format floating-point values, 15 by default.  Use a negative value to use the system’s default precision (should be 6 typically). Applicable for OBJ and DAE output. For DAE output, value &gt;= 15 means that up to 16 decimals are used, and any other value means that 6 or 7 decimals are used.</p>
+</section>
+<section id="wkt-use-section">
+<h2>wkt-use-section<a class="headerlink" href="#wkt-use-section" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>IfcConvert Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--wkt-use-section</span></code></p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Use a geometrical section rather than full polyhedral output and footprint in TTL WKT.</p>
 </section>
 </section>
 
@@ -440,23 +543,23 @@ directory in your Blender add-ons directory.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../ifctester.html">
+          <a class="next-page" href="boolean_process.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">IfcTester</div>
+                <div class="title">Boolean process</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../ifcsverchok.html">
+          <a class="prev-page" href="geometry_settings.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">IfcSverchok</div>
+                <div class="title">Geometry settings</div>
                 
               </div>
             </a>
@@ -500,12 +603,16 @@ directory in your Blender add-ons directory.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#packaged-installation">Packaged installation</a></li>
-<li><a class="reference internal" href="#daily-build-installation">Daily build installation</a></li>
-<li><a class="reference internal" href="#source-installation">Source installation</a></li>
-<li><a class="reference internal" href="#updating">Updating</a></li>
-<li><a class="reference internal" href="#uninstalling">Uninstalling</a></li>
+<li><a class="reference internal" href="#">Serialiser settings</a><ul>
+<li><a class="reference internal" href="#base-uri">base-uri</a></li>
+<li><a class="reference internal" href="#use-element-names">use-element-names</a></li>
+<li><a class="reference internal" href="#use-element-guids">use-element-guids</a></li>
+<li><a class="reference internal" href="#use-element-step-ids">use-element-step-ids</a></li>
+<li><a class="reference internal" href="#use-element-types">use-element-types</a></li>
+<li><a class="reference internal" href="#y-up">y-up</a></li>
+<li><a class="reference internal" href="#ecef">ecef</a></li>
+<li><a class="reference internal" href="#digits">digits</a></li>
+<li><a class="reference internal" href="#wkt-use-section">wkt-use-section</a></li>
 </ul>
 </li>
 </ul>
