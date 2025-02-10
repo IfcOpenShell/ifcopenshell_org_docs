@@ -1,0 +1,14 @@
+:py:mod:`ifcopenshell.api.material.edit_material`
+=================================================
+
+.. py:module:: ifcopenshell.api.material.edit_material
+
+
+Module Contents
+---------------
+
+.. py:function:: edit_material(file: ifcopenshell.file, material: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcMaterial
+
+

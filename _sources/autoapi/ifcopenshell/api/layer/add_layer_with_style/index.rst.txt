@@ -1,0 +1,34 @@
+:py:mod:`ifcopenshell.api.layer.add_layer_with_style`
+=====================================================
+
+.. py:module:: ifcopenshell.api.layer.add_layer_with_style
+
+
+Module Contents
+---------------
+
+.. py:function:: add_layer_with_style(file: ifcopenshell.file, name: str = 'Unnamed', on: IfcLogical = 'UNKNOWN', frozen: IfcLogical = 'UNKNOWN', blocked: IfcLogical = 'UNKNOWN', styles: Sequence[ifcopenshell.entity_instance] = ()) -> ifcopenshell.entity_instance
+
+   Adds a new layer with style
+
+   :param name: The name of the layer.
+   :param on: Whether layer is visible.
+   :param frozen:
+   :param blocked: Whether layer elements are blocked from manipulation.
+   :param styles: Styles to be used as default for representation item.
+   :return: The newly created IfcPresentationLayerWithStyle element
+
+   Example:
+
+       ifcopenshell.api.layer.add_layer_with_style(
+           model,
+           name="AI-WALL-FULL-DIMS-N",
+           on=True,
+           frozen=False,
+           blocked=False,
+           stlyes=[curve_style]
+       )
+
+
+.. py:data:: IfcLogical
+

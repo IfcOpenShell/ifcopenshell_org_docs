@@ -1,0 +1,39 @@
+:py:mod:`ifcopenshell.express`
+==============================
+
+.. py:module:: ifcopenshell.express
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bootstrap/index.rst
+   codegen/index.rst
+   definitions/index.rst
+   documentation/index.rst
+   express_parser/index.rst
+   header/index.rst
+   implementation/index.rst
+   mapping/index.rst
+   nodes/index.rst
+   rule_compiler/index.rst
+   rule_executor/index.rst
+   schema/index.rst
+   schema_class/index.rst
+   templates/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: parse(fn: str) -> schema_class.SchemaClass
+
+.. py:data:: d
+   :value: b'.'
+
+
+.. py:data:: exp_parser_fn
+

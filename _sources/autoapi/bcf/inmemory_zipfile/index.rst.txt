@@ -1,0 +1,84 @@
+:py:mod:`bcf.inmemory_zipfile`
+==============================
+
+.. py:module:: bcf.inmemory_zipfile
+
+.. autoapi-nested-parse::
+
+   In Memory Zip File management, taken from ruamel.std.zipfile
+
+   Copyright (c) 2017-2020 Anthon van der Neut, Ruamel bvba
+
+   original idea from https://stackoverflow.com/a/19722365/1307905
+
+
+
+Module Contents
+---------------
+
+.. py:class:: InMemoryZipFile(file_name: Optional[str | pathlib.Path] = None, compression: int = zipfile.ZIP_DEFLATED, debug: int = 0)
+
+   .. py:method:: write_to_file(filename: str | bytes | os.PathLike[str] | os.PathLike[bytes] | int) -> None
+
+      Writes the in-memory zip to a file.
+
+
+
+   .. py:method:: writestr(filename_in_zip: str | zipfile.ZipInfo, file_contents: bytes | str) -> None
+
+      Appends a file with name filename_in_zip and contents of
+      file_contents to the in-memory zip.
+
+
+
+   .. py:property:: data
+      :type: bytes
+
+
+
+   .. py:attribute:: in_memory_data
+
+
+   .. py:attribute:: in_memory_zip
+
+
+.. py:class:: ZipFileInterface
+
+   Bases: :py:obj:`Protocol`
+
+
+   Base class for protocol classes.
+
+   Protocol classes are defined as::
+
+       class Proto(Protocol):
+           def meth(self) -> int:
+               ...
+
+   Such classes are primarily used with static type checkers that recognize
+   structural subtyping (static duck-typing).
+
+   For example::
+
+       class C:
+           def meth(self) -> int:
+               return 0
+
+       def func(x: Proto) -> int:
+           return x.meth()
+
+       func(C())  # Passes static type check
+
+   See PEP 544 for details. Protocol classes decorated with
+   @typing.runtime_checkable act as simple-minded runtime protocols that check
+   only the presence of given attributes, ignoring their type signatures.
+   Protocol classes can be generic, they are defined as::
+
+       class GenProto[T](Protocol):
+           def meth(self) -> T:
+               ...
+
+
+   .. py:method:: writestr(filename_in_zip: str | zipfile.ZipInfo, file_contents: bytes | str) -> None
+
+

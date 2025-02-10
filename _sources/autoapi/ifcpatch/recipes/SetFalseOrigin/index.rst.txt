@@ -1,0 +1,85 @@
+:py:mod:`ifcpatch.recipes.SetFalseOrigin`
+=========================================
+
+.. py:module:: ifcpatch.recipes.SetFalseOrigin
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file, logger, name: str = 'EPSG:1234', x: Union[str, float] = '0', y: Union[str, float] = '0', z: Union[str, float] = '0', e: Union[str, float] = '0', n: Union[str, float] = '0', h: Union[str, float] = '0', gn_angle: Union[str, float] = '0', rotate_angle: Union[str, float] = '0')
+
+   
+   Sets local coordinates XYZ as a (false) origin that correlates to map coordinates ENH
+
+   The recommended workflow is to specify a projected CRS name (e.g.
+   EPSG:1234). The local XYZ coordinate will become the new local origin
+   in IFC (we call this the false origin). A map conversion will be added
+   that correlates that origin to eastings, northings, and orthogonal
+   height.
+
+   On IFC2X3 models, a EPset_MapConversion is used.
+
+   If the map projected CRS name is left blank, it merely transforms the
+   model such that the current point XYZ now becomes the point ENH (still
+   in local coordinates). The Grid North angle is ignored. Any existing
+   georeferencing is purged. This workflow not recommended, but may be is
+   relevant for BIM software that does not properly support map
+   coordinates.
+
+   :param x: The local X coordinate in project units which will become the new false origin.
+   :param y: The local Y coordinate in project units which will become the new false origin.
+   :param z: The local Z coordinate in project units which will become the new false origin.
+   :param e: The easting in project units which the false origin correlates to.
+   :param n: The northing in project units which the false origin correlates to.
+   :param h: The height in project units which the false origin correlates to.
+   :param gn_angle: The anticlockwise angle to grid north.
+   :param rotate_angle: An anticlockwise angle to rotate the model by if
+       necessary (pivoted by the false origin).
+
+   Example:
+
+   .. code:: python
+
+       # Set the current origin 0,0,0 to correlate to map coordinates 1000,1000,0 and a grid north of 15.
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "SetFalseOrigin", "arguments": ["EPSG:1234", 0, 0, 0, 1000, 1000, 0, 15, 0]})
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: e
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: gn_angle
+
+
+   .. py:attribute:: h
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: n
+
+
+   .. py:attribute:: name
+      :value: 'EPSG:1234'
+
+
+
+   .. py:attribute:: rotate_angle
+
+
+   .. py:attribute:: x
+
+
+   .. py:attribute:: y
+
+
+   .. py:attribute:: z
+
+

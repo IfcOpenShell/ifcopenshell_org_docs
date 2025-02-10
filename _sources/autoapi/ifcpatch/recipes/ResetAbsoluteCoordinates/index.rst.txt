@@ -1,0 +1,94 @@
+:py:mod:`ifcpatch.recipes.ResetAbsoluteCoordinates`
+===================================================
+
+.. py:module:: ifcpatch.recipes.ResetAbsoluteCoordinates
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, mode: Literal['Geometry', 'Placement', 'Both'] = 'Geometry', automatic_offset_point: bool = True, threshold: float = 1000000, x: Union[str, float] = '0', y: Union[str, float] = '0', z: Union[str, float] = '0')
+
+   
+   Reset any large coordinates to smaller coordinates based on a threshold
+
+   If you find large coordinates in your model, the large coordinates may
+   either by due to large coordinates in the object placement matrix of
+   each object, or large coordinates in the geometry of each object.
+
+   If it is the former (preferred), consult the OffsetObjectPlacements
+   recipe. If it is the latter, this indicates seriously incorrect
+   coordinates in your IFC model.
+
+   This recipe finds any large coordinates (if either the X, Y, or Z
+   ordinate is larger than a threshold) and offsets it back down to a small
+   number.
+
+   You may either let Blender BIM determine the offset to apply to any large
+   coordinate automatically, arbitrarily based on the first large number we
+   encounter, or manually specify this offset.
+
+   Note that if your model inconsistently mixes coordinates between large
+   and small (such as if your model mixes both local and map coordinates)
+   then the results of this function may be poor. Provide a bug report back
+   to your BIM application to get it fixed.
+
+   :param mode: Choose from "Geometry", "Placement", or "Both". Choosing
+       "Geometry" will only replace cartesian points used in shape
+       representations. Choosing "Placement" will only replace cartesian
+       points used in object placements. Choosing "Both" will replace all
+       cartesian points regardless of use (useful if the model has both
+       large placement offsets and large geometry offsets).
+   :type mode: str
+   :param automatic_offset_point: Choose, whether the offset should be
+       determined automatically or specified manually.
+   :type automatic_offset_point: bool
+   :param threshold: The threshold for deciding, whether a coordinate is
+       treated as a large coordinate.
+   :type threshold: float
+   :param x: The x-ordinate of the manually specified offset point.
+   :type x: Union[str, float]
+   :param y: The y-ordinate of the manually specified offset point.
+   :type y: Union[str, float]
+   :param z: The z-ordinate of the manually specified offset point.
+   :type z: Union[str, float]
+
+   Example:
+
+   .. code:: python
+
+       # Reset all coordinates with an ordinate larger than 1000000 arbitrarily
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": []})
+
+       # Reset all coordinates with an ordinate larger than 1000 arbitrarily
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [True, 1000]})
+
+       # Reset all coordinates with an ordinate larger than 1000000 by -50000,-20000,0
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [False, 1000000, -50000,-20000,0]})
+
+       # Reset all coordinates with an ordinate larger than 1000 by -500,-200,0
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetAbsoluteCoordinates", "arguments": [False, 1000, -500,-200,0]})
+
+
+   .. py:method:: is_point_far_away(point: Union[ifcopenshell.entity_instance, numpy.typing.NDArray[numpy.float64]]) -> bool
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: mode
+      :value: ''
+
+
+
+   .. py:attribute:: threshold
+      :value: 1000000
+
+
+

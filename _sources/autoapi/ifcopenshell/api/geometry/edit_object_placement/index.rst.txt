@@ -1,0 +1,50 @@
+:py:mod:`ifcopenshell.api.geometry.edit_object_placement`
+=========================================================
+
+.. py:module:: ifcopenshell.api.geometry.edit_object_placement
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: convert_matrix_to_si(matrix: NPArrayOfFloats)
+
+
+   .. py:method:: convert_si_to_unit(co: NPArrayOfFloats) -> NPArrayOfFloats
+
+
+   .. py:method:: convert_unit_to_si(co: NPArrayOfFloats) -> NPArrayOfFloats
+
+
+   .. py:method:: create_cartesian_point(co: NPArrayOfFloats) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_ifc_axis_2_placement_3d(point: NPArrayOfFloats, up: NPArrayOfFloats, forward: NPArrayOfFloats) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: get_children_settings(placement: Union[ifcopenshell.entity_instance, None]) -> list[dict]
+
+
+   .. py:method:: get_placement_rel_to() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: get_relative_placement(placement_rel_to: Union[ifcopenshell.entity_instance, None]) -> ifcopenshell.entity_instance
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
+.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
+
+.. py:data:: NPArrayOfFloats
+

@@ -1,0 +1,35 @@
+:py:mod:`ifcopenshell.util.type`
+================================
+
+.. py:module:: ifcopenshell.util.type
+
+
+Module Contents
+---------------
+
+.. py:function:: get_applicable_entities(ifc_type_class: str, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[str]
+
+   Get applicable occurrence IFC classes for the type IFC class.
+
+   E.g. "IfcWindowType" -> ["IfcWindow"].
+
+
+.. py:function:: get_applicable_types(ifc_class: str, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[str]
+
+   Get applicable types IFC classes for the occurrence IFC class.
+
+   E.g. "IfcWindow" -> ["IfcWindowType"].
+
+
+.. py:data:: cwd
+
+.. py:data:: entity_to_type_map
+   :type:  dict[ifcopenshell.util.schema.IFC_SCHEMA, dict[str, list[str]]]
+
+.. py:data:: mapped_schemas
+
+.. py:data:: schema_path
+
+.. py:data:: type_to_entity_map
+   :type:  dict[ifcopenshell.util.schema.IFC_SCHEMA, dict[str, list[str]]]
+

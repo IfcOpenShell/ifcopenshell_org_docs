@@ -1,0 +1,79 @@
+:py:mod:`ifcpatch.recipes.SetWorldCoordinateSystem`
+===================================================
+
+.. py:module:: ifcpatch.recipes.SetWorldCoordinateSystem
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file, logger, x: Union[str, float] = '0', y: Union[str, float] = '0', z: Union[str, float] = '0', ax: Union[str, float] = '0', ay: Union[str, float] = '0', az: Union[str, float] = '0')
+
+   
+   Sets the world coordinate system of the geometric representation context
+
+   Sets the world coordinate system to whatever you want.
+
+   :param x: The X coordinate.
+   :type x: typing.Union[str, float]
+   :param y: The Y coordinate.
+   :type y: typing.Union[str, float]
+   :param z: The Z coordinate.
+   :type z: typing.Union[str, float]
+   :param ax: An angle to rotate by for 3D rotations along the X axis.
+       Angles are in decimal degrees and positive is anticlockwise.
+   :type ax: typing.Union[str, float]
+   :param ay: An angle to rotate by for 3D rotations along the Y axis.
+       Angles are in decimal degrees and positive is anticlockwise.
+   :type ay: typing.Union[str, float]
+   :param az: An angle to rotate by for 3D rotations along the Z axis.
+       Angles are in decimal degrees and positive is anticlockwise.
+   :type az: typing.Union[str, float]
+
+   Example:
+
+   .. code:: python
+
+       # Set the world coordinate system back to 0, 0, 0
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "SetWorldCoordinateSystem", "arguments": [0,0,0,0,0,0]})
+
+
+   .. py:method:: identity_matrix()
+
+
+   .. py:method:: patch()
+
+
+   .. py:method:: x_rotation_matrix(angle, transformation)
+
+
+   .. py:method:: y_rotation_matrix(angle, transformation)
+
+
+   .. py:method:: z_rotation_matrix(angle, transformation)
+
+
+   .. py:attribute:: ax
+
+
+   .. py:attribute:: ay
+
+
+   .. py:attribute:: az
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: x
+
+
+   .. py:attribute:: y
+
+
+   .. py:attribute:: z
+
+

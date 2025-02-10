@@ -1,0 +1,101 @@
+:py:mod:`ifcopenshell.util.file`
+================================
+
+.. py:module:: ifcopenshell.util.file
+
+
+Module Contents
+---------------
+
+.. py:class:: HeaderMetadata
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: description
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: implementation_level
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: name
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: schema_name
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: time_stamp
+      :type:  typing_extensions.NotRequired[str]
+
+
+.. py:class:: IfcHeaderExtractor(filepath: str)
+
+   An utility class for extracting header information from IFC files.
+
+   This class provides functionality to extract key metadata from the header section of
+   IFC files without recreating the entire file as `ifcopenshell.file`.
+   For optimization, extractor will search only for the first 50 lines
+   of the IFC file for metadata.
+
+   Supported formats: .ifc, .ifczip.
+
+   Metadata available by the extraction is presented in the example below.
+
+
+   Example:
+
+   .. code:: python
+
+       from ifcopenshell.util.file import IfcHeaderExtractor
+
+       extractor = IfcHeaderExtractor("path/to/your/file.ifc")
+       # Get dictionary of the extracted metadata.
+       header_info = extractor.extract()
+
+       # Print the extracted information
+
+       # ViewDefinition[DesignTransferView]
+       print("File Description:", header_info.get("description"))
+
+       # 2;1
+       print("Implementation Level:", header_info.get("implementation_level"))
+
+       # file.ifc
+       print("File Name:", header_info.get("name"))
+
+       # 2024-06-25T15:48:10+05:00
+       print("Time Stamp:", header_info.get("time_stamp"))
+
+       # IFC4X3_ADD2
+       print("Schema Name:", header_info.get("schema_name"))
+
+
+   .. py:method:: extract() -> HeaderMetadata
+
+
+   .. py:method:: extract_ifc_spf(ifc_file: Union[IO[bytes], IO[str]]) -> HeaderMetadata
+
+
+   .. py:method:: extract_ifc_zip() -> HeaderMetadata
+
+
+   .. py:attribute:: filepath
+
+

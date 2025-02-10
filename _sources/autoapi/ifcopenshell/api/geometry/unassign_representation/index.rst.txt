@@ -1,0 +1,39 @@
+:py:mod:`ifcopenshell.api.geometry.unassign_representation`
+===========================================================
+
+.. py:module:: ifcopenshell.api.geometry.unassign_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: execute() -> None
+
+
+   .. py:method:: process_shape_aspects(product_representation: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: remove_representation_map_only(representation_map: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: unassign_product_representation(product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: unassign_products_using_mapped_representation(representation_map: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: unassign_type_representation() -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
+.. py:function:: unassign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
+

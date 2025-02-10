@@ -1,0 +1,40 @@
+:py:mod:`ifcopenshell.api.type.unassign_type`
+=============================================
+
+.. py:module:: ifcopenshell.api.type.unassign_type
+
+
+Module Contents
+---------------
+
+.. py:function:: unassign_type(file: ifcopenshell.file, related_objects: list[ifcopenshell.entity_instance]) -> None
+
+   Unassigns a type from occurrences
+
+   Note that unassigning a type doesn't automatically remove mapped representations
+   and material usages associated with the previously assigned type.
+
+   :param related_objects: List of IfcElement occurrences.
+   :type related_objects: list[ifcopenshell.entity_instance]
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A furniture type. This would correlate to a particular model in a
+       # manufacturer's catalogue. Like an Ikea sofa :)
+       furniture_type = ifcopenshell.api.root.create_entity(model,
+           ifc_class="IfcFurnitureType", name="FUN01")
+
+       # An individual occurrence of a that sofa.
+       furniture = ifcopenshell.api.root.create_entity(model, ifc_class="IfcFurniture")
+
+       # Assign the furniture to the furniture type.
+       ifcopenshell.api.type.assign_type(model, related_objects=[furniture], relating_type=furniture_type)
+
+       # Change our mind. Maybe it's a different type?
+       ifcopenshell.api.type.unassign_type(model, related_objects=[furniture])
+
+

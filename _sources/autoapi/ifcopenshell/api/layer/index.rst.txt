@@ -1,0 +1,203 @@
+:py:mod:`ifcopenshell.api.layer`
+================================
+
+.. py:module:: ifcopenshell.api.layer
+
+.. autoapi-nested-parse::
+
+   Manage CAD layers
+
+   Note that in IFC, elements cannot be assigned to CAD layers. Instead, the
+   geometric representation of the element is associated to a layer.
+
+   If you want to associated a whole element to a "layer", consider using
+   :mod:`ifcopenshell.api.classification`.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_layer/index.rst
+   add_layer_with_style/index.rst
+   assign_layer/index.rst
+   edit_layer/index.rst
+   remove_layer/index.rst
+   unassign_layer/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_layer(file: ifcopenshell.file, name: str = 'Unnamed') -> ifcopenshell.entity_instance
+
+   Adds a new layer
+
+   An IFC layer is like a CAD layer. Portions of an object's geometry
+   (typically portions of its 2D linework) can be assigned to layers, which
+   can provide stylistic information such as line weights, colours, or
+   simply be used for filtering.
+
+   Layers have historically been used to organise CAD data and included in
+   ISO standards such as ISO 13567 or by the AIA. This alllows IFC data to
+   be compatible with older, 2D-oriented, layer-based workflows.
+
+   Some software that are still based on layers, such as Tekla or ArchiCAD
+   may also use this layer information for filtering.
+
+   :param name: The name of the layer. Defaults to "Unnamed".
+   :return: The newly created IfcPresentationLayerAssignment element
+
+   Example:
+
+       ifcopenshell.api.layer.add_layer(model, name="AI-WALL-FULL-DIMS-N")
+
+
+.. py:function:: add_layer_with_style(file: ifcopenshell.file, name: str = 'Unnamed', on: IfcLogical = 'UNKNOWN', frozen: IfcLogical = 'UNKNOWN', blocked: IfcLogical = 'UNKNOWN', styles: Sequence[ifcopenshell.entity_instance] = ()) -> ifcopenshell.entity_instance
+
+   Adds a new layer with style
+
+   :param name: The name of the layer.
+   :param on: Whether layer is visible.
+   :param frozen:
+   :param blocked: Whether layer elements are blocked from manipulation.
+   :param styles: Styles to be used as default for representation item.
+   :return: The newly created IfcPresentationLayerWithStyle element
+
+   Example:
+
+       ifcopenshell.api.layer.add_layer_with_style(
+           model,
+           name="AI-WALL-FULL-DIMS-N",
+           on=True,
+           frozen=False,
+           blocked=False,
+           stlyes=[curve_style]
+       )
+
+
+.. py:function:: assign_layer(file: ifcopenshell.file, items: list[ifcopenshell.entity_instance], layer: ifcopenshell.entity_instance) -> None
+
+   Assigns representation items or representations to a layer
+
+   In IFC, instead of objects being assigned to layers, representation
+   items are assigned to layers. Representation items are portions of the
+   object's representation. For example, this allows a single IFC Window
+   element to have portions of its 2D linework (e.g. the cross section of
+   its frame) assigned to one layer, and another portion (e.g. the glazing
+   panels) assigned to another layer.
+
+   :param items: The list of IfcRepresentationItems / IfcRepresentations to assign to the layer. This
+       should be the items from the object's IfcShapeRepresentation.
+   :param layer: The IfcPresentationLayerAssignment layer to assign the
+       item to.
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       # Remember, all geometry needs to specify the context it is part of first.
+       # See ifcopenshell.api.context.add_context for details.
+       model = ifcopenshell.api.context.add_context(model, context_type="Model")
+       body = ifcopenshell.api.context.add_context(model,
+           context_type="Model", context_identifier="Body", target_view="MODEL_VIEW", parent=model
+       )
+
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+       representation = ifcopenshell.api.geometry.add_wall_representation(model,
+           context=body, length=5, height=3, thickness=0.2)
+       ifcopenshell.api.geometry.assign_representation(model,
+           product=wall, representation=representation)
+       ifcopenshell.api.geometry.edit_object_placement(model, product=wall)
+
+       # Now let's create a layer that contains walls
+       layer = ifcopenshell.api.layer.add_layer(model, name="AI-WALL")
+
+       # And assign our wall representation item (in this example, there is
+       # only one item) to the layer.
+       ifcopenshell.api.layer.assign_layer(model, items=[representation.Items[0]], layer=layer)
+
+
+.. py:function:: edit_layer(file: ifcopenshell.file, layer: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcPresentationLayerAssignment
+
+   For more information about the attributes and data types of an
+   IfcPresentationLayerAssignment, consult the IFC documentation.
+
+   :param layer: The IfcPresentationLayerAssignment entity you want to edit
+   :param attributes: a dictionary of attribute names and values.
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       layer = ifcopenshell.api.layer.add_layer(model, name="AI-WALL")
+       ifcopenshell.api.layer.edit_layer(model,
+           layer=layer, attributes={"Description": "All walls, based on the AIA standard."})
+
+
+.. py:function:: remove_layer(file: ifcopenshell.file, layer: ifcopenshell.entity_instance) -> None
+
+   Removes a layer
+
+   All representation items assigned to the layer will remain, but the
+   relationship to the layer will be removed.
+
+   :param layer: The IfcPresentationLayerAssignment entity to remove
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       layer = ifcopenshell.api.layer.add_layer(model, name="AI-WALL")
+       ifcopenshell.api.layer.remove_layer(model, layer=layer)
+
+
+.. py:function:: unassign_layer(file: ifcopenshell.file, items: list[ifcopenshell.entity_instance], layer: ifcopenshell.entity_instance) -> None
+
+   Unassigns representation items or representations from a layer
+
+   If the element isn't assigned to the layer, nothing will happen.
+   If after unassignment layer won't have any assigned items it will be
+   removed to keep IFC valid.
+
+   :param items: A list IfcRepresentationItem / IfcRepresentation elements to unassign
+   :param layer: The IfcPresentationLayerAssignment to unassign from
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       # Remember, all geometry needs to specify the context it is part of first.
+       # See ifcopenshell.api.context.add_context for details.
+       model = ifcopenshell.api.context.add_context(model, context_type="Model")
+       body = ifcopenshell.api.context.add_context(model,
+           context_type="Model", context_identifier="Body", target_view="MODEL_VIEW", parent=model
+       )
+
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+       representation = ifcopenshell.api.geometry.add_wall_representation(model,
+           context=body, length=5, height=3, thickness=0.2)
+       ifcopenshell.api.geometry.assign_representation(model,
+           product=wall, representation=representation)
+       ifcopenshell.api.geometry.edit_object_placement(model, product=wall)
+
+       # Now let's create a layer that contains walls
+       layer = ifcopenshell.api.layer.add_layer(model, name="AI-WALL")
+
+       # And assign our wall representation item (in this example, there is
+       # only one item) to the layer.
+       ifcopenshell.api.layer.assign_layer(model, items=[representation.Items[0]], layer=layer)
+
+       # Let's undo it!
+       ifcopenshell.api.layer.unassign_layer(model, items=[representation.Items[0]], layer=layer)
+
+

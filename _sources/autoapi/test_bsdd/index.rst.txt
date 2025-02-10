@@ -1,0 +1,31 @@
+:py:mod:`test_bsdd`
+===================
+
+.. py:module:: test_bsdd
+
+
+Module Contents
+---------------
+
+.. py:function:: get_ifc_classes()
+
+.. py:function:: get_nbs_classes()
+
+.. py:function:: test_get_class()
+
+.. py:function:: test_get_dictionary()
+
+.. py:function:: test_get_ifc_classes()
+
+.. py:function:: test_get_nbs_classes()
+
+.. py:function:: test_get_properties()
+
+.. py:function:: test_search_class()
+
+.. py:data:: client
+
+.. py:data:: ifc4x3_uri
+
+.. py:data:: nbs_uri
+

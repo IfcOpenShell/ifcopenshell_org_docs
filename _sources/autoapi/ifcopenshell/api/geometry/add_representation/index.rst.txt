@@ -1,0 +1,212 @@
+:py:mod:`ifcopenshell.api.geometry.add_representation`
+======================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: create_annotation2d_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_annotation3d_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_annotation_fill_areas(is_2d: bool = False) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_arbitrary_extrusion_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_arbitrary_void_extrusion_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_box_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_camera_block_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_camera_pyramid_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_cartesian_point(x: float, y: float, z: Optional[float] = None, is_model_coords: bool = True) -> ifcopenshell.entity_instance
+
+      Create IfcCartesianPoint.
+
+      x, y, z coords are provided in SI units.
+
+
+
+   .. py:method:: create_cartesian_point_list_from_vertices(vertices: list[bpy.types.MeshVertex], is_2d: bool = False, is_model_coords: bool = True) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_circle_extrusion_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_cog_representation() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_curve2d_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_curve3d_representation() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_curve_bounded_planes(is_2d: bool = False) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curve_from_polygon(points: ifcopenshell.entity_instance, polygon: bpy.types.MeshPolygon, is_2d: bool = False) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_curve_from_polygon_ifc2x3(polygon: bpy.types.MeshPolygon, is_2d: bool = False) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_curves(should_exclude_faces: bool = False, is_2d: bool = False, ignore_non_loose_edges: bool = False) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curves_from_curve(is_2d: bool = False, curve_object_data: Optional[bpy.types.Curve] = None) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curves_from_curve_ifc2x3(is_2d: bool = False, curve_object_data: Optional[bpy.types.Curve] = None) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curves_from_mesh(should_exclude_faces: bool = False, is_2d: bool = False) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curves_from_mesh_ifc2x3(should_exclude_faces=False, is_2d=False) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_edge() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_faceted_brep() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_geometric_curve_set_representation(is_2d: bool = False) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_light_source() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_light_source_positional() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_lighting_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_material_profile_set_extrusion_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_mesh_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_model_representation() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_plan_representation() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_plane(polygon: bpy.types.MeshPolygon) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_point_cloud_representation(is_2d: bool = False) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_polygonal_face_set() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_rectangle_extrusion_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_structural_reference_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_swept_disk_solid_representation() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_swept_disk_solids() -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_text() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_text_representation(is_2d: bool = False) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_triangulated_face_set() -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_variable_representation() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_vertex_point(point: mathutils.Vector) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_vertices(is_2d: bool = False) -> None
+
+
+   .. py:method:: evaluate_geometry() -> None
+
+
+   .. py:method:: execute() -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: is_camera_landscape() -> bool
+
+
+   .. py:method:: is_mesh_curve_consecutive(geom_data: bpy.types.Mesh) -> bool
+
+
+   .. py:method:: remove_doubles_from_mesh(mesh: bpy.types.Mesh) -> None
+
+
+   .. py:method:: should_triangulate_face(face: bmesh.types.BMFace, threshold: float = EPSILON) -> bool
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: ifc_vertices
+      :type:  list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
+.. py:function:: add_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, blender_object: bpy.types.Object, geometry: Union[bpy.types.Mesh, bpy.types.Curve], coordinate_offset: Optional[mathutils.Vector] = None, total_items: int = 1, unit_scale: Optional[float] = None, should_force_faceted_brep: bool = False, should_force_triangulation: bool = False, should_generate_uvs: bool = False, ifc_representation_class: Optional[Literal['IfcExtrudedAreaSolid/IfcRectangleProfileDef', 'IfcExtrudedAreaSolid/IfcCircleProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryClosedProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryProfileDefWithVoids', 'IfcExtrudedAreaSolid/IfcMaterialProfileSetUsage', 'IfcGeometricCurveSet/IfcTextLiteral', 'IfcTextLiteral']] = None, profile_set_usage: Optional[ifcopenshell.entity_instance] = None, text_literal: Optional[ifcopenshell.entity_instance] = None) -> Union[ifcopenshell.entity_instance, None]
+
+   Add an IfcShapeRepresentation.
+
+   :param context: The IfcGeometricRepresentationContext.
+   :param blender_object: This is (currently) a Blender object, hence this depends on Blender now.
+   :param geometry: This is (currently) a Blender data object, hence this depends on Blender now.
+   :param coordinate_offset: Optionally apply a vector offset to all coordinates (in SI units).
+   :param total_items: How many representation items to create.
+   :param unit_scale: A scale factor to apply for all vectors in case the unit is different.
+   :param should_force_faceted_brep: If we should force faceted breps for meshes.
+   :param should_force_triangulation: If we should force triangulation for meshes.
+   :param should_generate_uvs:  If UV coordinates should also be generated.
+   :param ifc_representation_class: Whether to cast a mesh into a particular class
+   :param profile_set_usage: The material profile set if the extrusion requires it
+   :param text_literal: The text literal if the representation requires it
+   :return: IfcShapeRepresentation or None if couldn't create representation
+       for the provided context.
+
+
+.. py:data:: EPSILON
+   :value: 1e-06
+
+
+.. py:data:: X_AXIS
+
+.. py:data:: Z_AXIS
+

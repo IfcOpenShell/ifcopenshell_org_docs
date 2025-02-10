@@ -1,0 +1,30 @@
+:py:mod:`ifcopenshell.api.geometry.add_shape_aspect`
+====================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_shape_aspect
+
+
+Module Contents
+---------------
+
+.. py:function:: add_shape_aspect(file: ifcopenshell.file, name: str, items: list[ifcopenshell.entity_instance], representation: ifcopenshell.entity_instance, part_of_product: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
+
+   Adds a shape aspect to items that are part of a representation and product
+
+   Existing shape aspects will be reused where possible. If the items already
+   belong to another shape aspect with a different name, this relationship
+   will be purged.
+
+   Warning: it is not possible to add a shape aspect to types (i.e.
+   IfcRepresentationMap) in IFC2X3.
+
+   :param name: The name of the shape aspect. This is case sensitive.
+   :param items: IfcRepresentationItems that will be assigned to this aspect.
+   :param representation: The IfcShapeRepresentation that the items are in.
+   :param part_of_product: The IfcRepresentationMap or
+       IfcProductDefinitionShape that the representation is in.
+   :param description: A description to set for the shape aspect. It's usually
+       not necessary.
+   :return: The IfcShapeAspect
+
+

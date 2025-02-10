@@ -1,0 +1,171 @@
+:py:mod:`ifctester.ids`
+=======================
+
+.. py:module:: ifctester.ids
+
+
+Module Contents
+---------------
+
+.. py:exception:: IdsXmlValidationError(xml_error: xmlschema.validators.exceptions.XMLSchemaValidationError, message: str)
+
+   Bases: :py:obj:`Exception`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: xml_error
+
+
+.. py:class:: Ids(title: Optional[str] = 'Untitled', copyright=None, version=None, description=None, author=None, date=None, purpose=None, milestone=None)
+
+   .. py:method:: asdict()
+
+
+   .. py:method:: parse(data)
+
+
+   .. py:method:: to_string()
+
+
+   .. py:method:: to_xml(filepath='output.xml')
+
+
+   .. py:method:: validate(ifc_file: ifcopenshell.file, should_filter_version: bool = False, filepath: Optional[str] = None) -> None
+
+
+   .. py:attribute:: filename
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: filepath
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: info
+
+
+   .. py:attribute:: specifications
+      :type:  List[Specification]
+      :value: []
+
+
+
+.. py:class:: Specification(name='Unnamed', minOccurs=0, maxOccurs='unbounded', ifcVersion=['IFC2X3', 'IFC4', 'IFC4X3_ADD2'], identifier=None, description=None, instructions=None)
+
+   .. py:method:: asdict()
+
+
+   .. py:method:: check_ifc_version(ifc_file: ifcopenshell.file) -> bool
+
+
+   .. py:method:: get_usage() -> ifctester.facet.Cardinality
+
+
+   .. py:method:: parse(ids_dict)
+
+
+   .. py:method:: parse_clause(clause)
+
+
+   .. py:method:: reset_status()
+
+
+   .. py:method:: set_usage(usage: ifctester.facet.Cardinality) -> None
+
+
+   .. py:method:: validate(ifc_file: ifcopenshell.file, should_filter_version: bool = False) -> None
+
+
+   .. py:attribute:: applicability
+      :type:  List[ifctester.facet.Facet]
+      :value: []
+
+
+
+   .. py:attribute:: applicable_entities
+      :type:  list[ifcopenshell.entity_instance]
+      :value: []
+
+
+
+   .. py:attribute:: description
+      :value: None
+
+
+
+   .. py:attribute:: failed_entities
+      :type:  set[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: identifier
+      :value: None
+
+
+
+   .. py:attribute:: ifcVersion
+      :value: ['IFC2X3', 'IFC4', 'IFC4X3_ADD2']
+
+
+
+   .. py:attribute:: instructions
+      :value: None
+
+
+
+   .. py:attribute:: is_ifc_version
+      :value: None
+
+
+
+   .. py:attribute:: maxOccurs
+      :type:  Union[int, str]
+      :value: 'unbounded'
+
+
+
+   .. py:attribute:: minOccurs
+      :type:  Union[int, str]
+      :value: 0
+
+
+
+   .. py:attribute:: name
+      :value: 'Unnamed'
+
+
+
+   .. py:attribute:: passed_entities
+      :type:  set[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: requirements
+      :type:  List[ifctester.facet.Facet]
+      :value: []
+
+
+
+   .. py:attribute:: status
+      :value: None
+
+
+
+.. py:function:: from_string(xml: str, validate: bool = False) -> Ids
+
+.. py:function:: get_schema()
+
+.. py:function:: open(filepath: str, validate: bool = False) -> Ids
+
+.. py:data:: cwd
+
+.. py:data:: schema
+   :value: None
+
+

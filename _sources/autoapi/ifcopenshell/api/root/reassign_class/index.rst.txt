@@ -1,0 +1,69 @@
+:py:mod:`ifcopenshell.api.root.reassign_class`
+==============================================
+
+.. py:module:: ifcopenshell.api.root.reassign_class
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: execute()
+
+
+   .. py:method:: reassign_class(element: ifcopenshell.entity_instance, ifc_class: str, predefined_type: Union[str, None]) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: simple_reassignment(element: ifcopenshell.entity_instance, ifc_class: str, predefined_type: Union[str, None]) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: switch_between_class_types(element: ifcopenshell.entity_instance, switch_type: Literal['occurrence_to_type', 'type_to_occurrence'], ifc_class: str, predefined_type: Union[str, None]) -> ifcopenshell.entity_instance
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+.. py:function:: reassign_class(file: ifcopenshell.file, product: ifcopenshell.entity_instance, ifc_class: str = 'IfcBuildingElementProxy', predefined_type: Optional[str] = None) -> ifcopenshell.entity_instance
+
+   Changes the class of a product
+
+   If you ever created a wall then realised it's meant to be something
+   else, this function lets you change the IFC class whilst retaining all
+   other geometry and relationships.
+
+   This is especially useful when dealing with poorly classified data from
+   proprietary software with limited IFC capabilities.
+
+   If you are reassigning a type, the occurrence classes are also
+   reassigned to maintain validity.
+
+   Vice versa, if you are reassigning an occurrence, the type is also
+   reassigned in IFC4 and up. In IFC2X3, this may not occur if the type
+   cannot be unambiguously derived, so you are required to manually check
+   this.
+
+   Reassigning type class to occurrence (and vice versa) is supported.
+
+   :param product: The IfcProduct that you want to change the class of.
+   :type product: ifcopenshell.entity_instance
+   :param ifc_class: The new IFC class you want to change it to.
+   :param predefined_type: In case you want to change the predefined type
+       too. User defined types are also allowed, just type what you want.
+   :return: The newly modified product.
+
+   Example:
+
+   .. code:: python
+
+       # We have a wall.
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+
+       # Oh, did I say wall? I meant slab.
+       slab = ifcopenshell.api.root.reassign_class(model, product=wall, ifc_class="IfcSlab")
+
+       # Warning: this will crash since wall doesn't exist any more.
+       print(wall) # Kaboom.
+
+

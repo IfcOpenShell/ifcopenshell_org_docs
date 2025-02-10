@@ -1,0 +1,124 @@
+:py:mod:`ifcdiff`
+=================
+
+.. py:module:: ifcdiff
+
+
+Module Contents
+---------------
+
+.. py:class:: DiffTerminator
+
+   .. py:method:: give_up_diffing(level, diff_instance) -> bool
+
+
+   .. py:method:: match(level) -> bool
+
+
+.. py:class:: IfcDiff(old: ifcopenshell.file, new: ifcopenshell.file, relationships: Optional[list[RELATIONSHIP_TYPE]] = None, is_shallow: bool = True, filter_elements: Optional[str] = None)
+
+   Main IfcDiff application
+
+   If you are using IfcDiff as a library, this is the class you should use.
+
+   :param old: IFC file object for the old model
+   :param new: IFC file object for the new model
+   :param relationships: List of relationships to check. None means that only
+       geometry is compared. See RELATIONSHIP_TYPE for available relationships.
+   :param is_shallow: True if you want only the first difference to be listed.
+       False if you want all differences to be checked. Choosing False means
+       that comparisons will take longer.
+   :param filter_elements: An IFC filter query if you only want to compare a
+       subset of elements. For example: ``IfcWall`` to only compare walls.
+
+   Example::
+
+       from ifcdiff import IfcDiff
+
+       ifc_diff = IfcDiff("/path/to/old.ifc", "/path/to/new.ifc", "/path/to/diff.json")
+       ifc_diff.diff()
+       print(ifc_diff.change_register)
+       ifc_diff.export()
+
+
+   .. py:method:: diff() -> None
+
+
+   .. py:method:: diff_element(old, new)
+
+
+   .. py:method:: diff_element_basic_geometry(old, new)
+
+
+   .. py:method:: diff_element_relationships(old, new)
+
+
+   .. py:method:: diff_representation(old_rep_id: int, new_rep_id: int) -> bool
+
+
+   .. py:method:: diff_representation_item(old_item: ifcopenshell.entity_instance, new_item: ifcopenshell.entity_instance) -> bool
+
+
+   .. py:method:: export(path: str) -> None
+
+
+   .. py:method:: get_precision() -> float
+
+
+   .. py:method:: get_representation_id(element: ifcopenshell.entity_instance) -> Union[int, None]
+
+
+   .. py:method:: get_settings(ifc: ifcopenshell.file) -> ifcopenshell.geom.settings
+
+
+   .. py:method:: json_dump_default(obj)
+
+
+   .. py:method:: summarise_shapes(ifc: ifcopenshell.file, elements: list[ifcopenshell.entity_instance]) -> dict[str, dict[str, Any]]
+
+
+   .. py:attribute:: added_elements
+      :type:  set[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: change_register
+      :type:  dict[str, dict[str, Any]]
+
+
+   .. py:attribute:: deleted_elements
+      :type:  set[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: filter_elements
+      :value: None
+
+
+
+   .. py:attribute:: is_shallow
+      :value: True
+
+
+
+   .. py:attribute:: new
+
+
+   .. py:attribute:: old
+
+
+   .. py:attribute:: precision
+      :value: 0.0001
+
+
+
+   .. py:attribute:: relationships
+      :value: ['geometry']
+
+
+
+   .. py:attribute:: representation_ids
+
+
+.. py:data:: RELATIONSHIP_TYPE
+
+.. py:data:: parser
+

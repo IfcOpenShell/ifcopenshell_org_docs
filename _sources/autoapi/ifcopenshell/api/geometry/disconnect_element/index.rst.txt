@@ -1,0 +1,11 @@
+:py:mod:`ifcopenshell.api.geometry.disconnect_element`
+======================================================
+
+.. py:module:: ifcopenshell.api.geometry.disconnect_element
+
+
+Module Contents
+---------------
+
+.. py:function:: disconnect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance) -> None
+

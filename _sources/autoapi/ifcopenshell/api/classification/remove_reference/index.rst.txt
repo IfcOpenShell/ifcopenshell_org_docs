@@ -1,0 +1,42 @@
+:py:mod:`ifcopenshell.api.classification.remove_reference`
+==========================================================
+
+.. py:module:: ifcopenshell.api.classification.remove_reference
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> None
+
+   Removes a classification reference from the list of products
+
+   If the classification reference is no longer associated to any products,
+   the classification reference itself is also removed.
+
+   :param reference: The IfcClassificationReference entity of the
+       relationship you want to remove.
+   :type reference: ifcopenshell.entity_instance
+   :param product: The list fo object entities of the relationship you want to
+       remove.
+   :type product: list[ifcopenshell.entity_instance]
+
+   :raises TypeError: If file is IFC2X3 and `products` has non-IfcRoot elements.
+
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       wall_type = model.by_type("IfcWallType")[0]
+       classification = ifcopenshell.api.classification.add_classification(
+           model, classification="MyCustomClassification")
+       reference = ifcopenshell.api.classification.add_reference(model,
+           products=[wall_type], classification=classification,
+           identification="W_01", name="Interior Walls")
+       ifcopenshell.api.classification.remove_reference(model,
+           reference=reference, products=[wall_type])
+
+

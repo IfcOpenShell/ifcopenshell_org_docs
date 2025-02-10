@@ -1,0 +1,156 @@
+:py:mod:`ifcpatch.recipes.Ifc2Sql`
+==================================
+
+.. py:module:: ifcpatch.recipes.Ifc2Sql
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file, logger, sql_type: SQLTypes = 'SQLite', host: str = 'localhost', username: str = 'root', password: str = 'pass', database: str = 'test', full_schema: bool = True, is_strict: bool = False, should_expand: bool = False, should_get_inverses: bool = True, should_get_psets: bool = True, should_get_geometry: bool = True, should_skip_geometry_data: bool = False)
+
+   
+   Convert an IFC-SPF model to SQLite or MySQL.
+
+   There are certain controls which are hardcoded in this recipe that you
+   may modify, including:
+
+   - full_schema: if True, will create tables for all IFC classes,
+     regardless if they are used or not in the dataset. If False, will
+     only create tables for classes in the dataset.
+   - is_strict: whether or not to enforce null or not null. If your
+     dataset might contain invalid data, set this to False.
+   - should_expand: if True, entities with attributes containing lists of
+     entities will be separated into multiple rows. This means the ifc_id
+     is no longer a unique primary key. If False, lists will be stored as
+     JSON.
+   - should_get_psets: if True, a separate psets table will be created to
+     make it easy to query properties. This is in addition to regular IFC
+     tables like IfcPropertySet.
+   - should_get_geometry: Whether or not to process and store explicit
+     geometry data as a blob in a separate geometry and shape table.
+   - should_skip_geometry_data: Whether or not to also create tables for
+     IfcRepresentation and IfcRepresentationItem classes. These tables are
+     unnecessary if you are not interested in geometry.
+
+   :param sql_type: Choose between "SQLite" or "MySQL"
+   :type sql_type: typing.Literal["SQLite", "MySQL"]
+
+   Example:
+
+   .. code:: python
+
+       # Convert to SQLite, SQLite databse will be saved to a temporary file.
+       sqlite_temp_filepath = ifcpatch.execute(
+           {"input": "input.ifc", "file": model, "recipe": "Ifc2Sql", "arguments": ["sqlite"]}
+       )
+
+
+   .. py:method:: create_geometry() -> None
+
+
+   .. py:method:: create_geometry_table() -> None
+
+
+   .. py:method:: create_id_map() -> None
+
+
+   .. py:method:: create_metadata() -> None
+
+
+   .. py:method:: create_mysql_table(ifc_class: str, declaration: ifcopenshell.ifcopenshell_wrapper.declaration) -> None
+
+
+   .. py:method:: create_pset_table() -> None
+
+
+   .. py:method:: create_sqlite_table(ifc_class: str, declaration: ifcopenshell.ifcopenshell_wrapper.declaration) -> None
+
+
+   .. py:method:: get_permutations(lst: list[Any], indexes: list[int]) -> list[Any]
+
+
+   .. py:method:: insert_data(ifc_class: str) -> None
+
+
+   .. py:method:: is_entity_list(attribute: ifcopenshell.ifcopenshell_wrapper.attribute) -> bool
+
+
+   .. py:method:: patch() -> None
+
+
+   .. py:method:: serialise_value(element: ifcopenshell.entity_instance, value: Any) -> Any
+
+
+   .. py:attribute:: database
+      :value: 'test'
+
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: full_schema
+      :value: True
+
+
+
+   .. py:attribute:: host
+      :value: 'localhost'
+
+
+
+   .. py:attribute:: is_strict
+      :value: False
+
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: password
+      :value: 'pass'
+
+
+
+   .. py:attribute:: should_expand
+      :value: False
+
+
+
+   .. py:attribute:: should_get_geometry
+      :value: True
+
+
+
+   .. py:attribute:: should_get_inverses
+      :value: True
+
+
+
+   .. py:attribute:: should_get_psets
+      :value: True
+
+
+
+   .. py:attribute:: should_skip_geometry_data
+      :value: False
+
+
+
+   .. py:attribute:: sql_type
+      :value: ''
+
+
+
+   .. py:attribute:: username
+      :value: 'root'
+
+
+
+.. py:data:: SQLTypes
+
+.. py:data:: SQLTypes
+
+.. py:data:: SQLTypes
+

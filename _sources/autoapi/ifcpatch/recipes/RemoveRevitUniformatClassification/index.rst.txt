@@ -1,0 +1,37 @@
+:py:mod:`ifcpatch.recipes.RemoveRevitUniformatClassification`
+=============================================================
+
+.. py:module:: ifcpatch.recipes.RemoveRevitUniformatClassification
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file, logger)
+
+   
+   Removes the built-in Revit Uniformat classification.
+
+   Revit has a bug (see https://github.com/Autodesk/revit-ifc/issues/486)
+   where it always inserts a Uniformat classification regardless if your
+   project needs it or not. This patch removes it.
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "RemoveRevitUniformatClassification"})
+
+
+   .. py:method:: get_references(classification)
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+

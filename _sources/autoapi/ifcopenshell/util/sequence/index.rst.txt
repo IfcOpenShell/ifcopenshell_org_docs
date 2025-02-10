@@ -1,0 +1,117 @@
+:py:mod:`ifcopenshell.util.sequence`
+====================================
+
+.. py:module:: ifcopenshell.util.sequence
+
+
+Module Contents
+---------------
+
+.. py:function:: count_working_days(start, finish, calendar: ifcopenshell.entity_instance) -> int
+
+.. py:function:: derive_calendar(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+.. py:function:: derive_date(task: ifcopenshell.entity_instance, attribute_name: str, date=None, is_earliest: bool = False, is_latest: bool = False)
+
+   :param task: IfcTask.
+
+
+
+.. py:function:: get_all_nested_tasks(task: ifcopenshell.entity_instance) -> Iterator[ifcopenshell.entity_instance]
+
+.. py:function:: get_calendar(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+.. py:function:: get_direct_task_outputs(task: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: get_nested_tasks(task: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: get_parent_task(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+.. py:function:: get_recent_working_day(start, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance)
+
+.. py:function:: get_related_products(relating_product: Optional[ifcopenshell.entity_instance] = None, related_object: Optional[ifcopenshell.entity_instance] = None) -> set[ifcopenshell.entity_instance]
+
+   Gets the related products being output by a task
+
+   :param relating_product: One of the products already output by the task.
+   :param related_object: The IfcTask that you want to get all the related
+       products for.
+   :return: A set of IfcProducts output by the IfcTask.
+
+   Example:
+
+   .. code:: python
+
+       # Let's imagine we are creating a construction schedule. All tasks
+       # need to be part of a work schedule.
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
+
+       # Let's create a construction task. Note that the predefined type is
+       # important to distinguish types of tasks.
+       task = ifcopenshell.api.sequence.add_task(model,
+           work_schedule=schedule, name="Build wall", identification="A", predefined_type="CONSTRUCTION")
+
+       # Let's say we have a wall somewhere.
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+
+       # Let's construct that wall!
+       ifcopenshell.api.sequence.assign_product(relating_product=wall, related_object=task)
+
+       # This will give us a set with that wall in it.
+       products = ifcopenshell.util.sequence.get_related_products(related_object=task)
+
+
+.. py:function:: get_root_tasks(work_schedule: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: get_root_tasks_ids(work_schedule: ifcopenshell.entity_instance) -> list[int]
+
+.. py:function:: get_sequence_assignment(task: ifcopenshell.entity_instance, sequence='successor')
+
+.. py:function:: get_soonest_working_day(start, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance)
+
+.. py:function:: get_start_or_finish_date(start, duration, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance, date_type: Literal['START', 'FINISH'] = 'FINISH')
+
+.. py:function:: get_task_inputs(task: ifcopenshell.entity_instance, is_deep: bool = False) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: get_task_outputs(task: ifcopenshell.entity_instance, is_deep: bool = False) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: get_task_resources(task: ifcopenshell.entity_instance, is_deep: bool = False) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: get_task_work_schedule(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+.. py:function:: get_tasks_for_product(product: ifcopenshell.entity_instance, schedule: Optional[ifcopenshell.entity_instance] = None) -> tuple[list[ifcopenshell.entity_instance], list[ifcopenshell.entity_instance]]
+
+   Get all tasks assigned to or referenced by the given product.
+
+   Args:
+       product: An object that is assigned tasks or references tasks.
+       schedule: An optional string representing the schedule name to filter tasks by.
+
+   Returns:
+       A tuple of two lists:
+       - The first list contains all tasks assigned to the product.
+       - The second list contains all tasks referenced by the product that are part of the given schedule.
+
+
+.. py:function:: get_work_schedule_tasks(work_schedule: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: guess_date_range(work_schedule: ifcopenshell.entity_instance)
+
+.. py:function:: has_task_inputs(task: ifcopenshell.entity_instance) -> bool
+
+.. py:function:: has_task_outputs(task: ifcopenshell.entity_instance) -> bool
+
+.. py:function:: is_calendar_applicable(day, calendar: ifcopenshell.entity_instance) -> bool
+
+.. py:function:: is_day_in_work_time(day, work_time: ifcopenshell.entity_instance) -> bool
+
+.. py:function:: is_work_time_applicable_to_day(work_time: ifcopenshell.entity_instance, day) -> bool
+
+.. py:function:: is_working_day(day, calendar: ifcopenshell.entity_instance) -> bool
+
+.. py:function:: offset_date(start, duration, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance)
+
+.. py:data:: DURATION_TYPE
+
+.. py:data:: RECURRENCE_TYPE
+

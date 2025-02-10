@@ -1,0 +1,25 @@
+:py:mod:`test`
+==============
+
+.. py:module:: test
+
+
+Module Contents
+---------------
+
+.. py:class:: TestIfcDiff
+
+   .. py:method:: test_add_element()
+
+
+   .. py:method:: test_changed_attribute()
+
+
+   .. py:method:: test_changed_geometry()
+
+
+   .. py:method:: test_remove_element()
+
+
+.. py:function:: setup_project() -> ifcopenshell.file
+

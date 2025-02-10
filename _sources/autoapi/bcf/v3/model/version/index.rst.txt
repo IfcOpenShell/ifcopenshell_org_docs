@@ -1,0 +1,15 @@
+:py:mod:`bcf.v3.model.version`
+==============================
+
+.. py:module:: bcf.v3.model.version
+
+
+Module Contents
+---------------
+
+.. py:class:: Version
+
+   .. py:attribute:: version_id
+      :type:  str
+
+

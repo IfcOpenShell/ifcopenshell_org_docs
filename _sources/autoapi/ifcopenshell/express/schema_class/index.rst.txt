@@ -1,0 +1,159 @@
+:py:mod:`ifcopenshell.express.schema_class`
+===========================================
+
+.. py:module:: ifcopenshell.express.schema_class
+
+
+Module Contents
+---------------
+
+.. py:class:: EarlyBoundCodeWriter(schema_name)
+
+   .. py:method:: aggregation_type(aggr_type, bound1, bound2, decl_type)
+
+
+   .. py:method:: begin_schema()
+
+
+   .. py:method:: declare(definition_type, name)
+
+
+   .. py:method:: entity(name, type)
+
+
+   .. py:method:: entity_attributes(name, attribute_definitions, is_derived)
+
+
+   .. py:method:: entity_subtypes(name, tys)
+
+
+   .. py:method:: enumeration(name, enum)
+
+
+   .. py:method:: finalize(can_be_instantiated_set)
+
+
+   .. py:method:: inverse_attributes(name, inv_attrs)
+
+
+   .. py:method:: named_type(type)
+
+
+   .. py:method:: select(name, type)
+
+
+   .. py:method:: simple_type(type)
+
+
+   .. py:method:: typedef(name, declared_type)
+
+
+   .. py:attribute:: names
+      :value: []
+
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: schema_name_title
+
+
+   .. py:attribute:: statements
+
+
+   .. py:attribute:: strings
+
+
+.. py:class:: LateBoundSchemaInstantiator(schema_name)
+
+   .. py:method:: aggregation_type(aggr_type, bound1, bound2, decl_type)
+
+
+   .. py:method:: begin_schema()
+
+
+   .. py:method:: declare(definition_type, name)
+
+
+   .. py:method:: disown()
+
+
+   .. py:method:: entity(name, type)
+
+
+   .. py:method:: entity_attributes(name, attribute_definitions, is_derived)
+
+
+   .. py:method:: entity_subtypes(name, tys)
+
+
+   .. py:method:: enumeration(name, enum)
+
+
+   .. py:method:: finalize(can_be_instantiated_set, override_schema_name=None)
+
+
+   .. py:method:: inverse_attributes(name, inv_attrs)
+
+
+   .. py:method:: named_type(type)
+
+
+   .. py:method:: select(name, type)
+
+
+   .. py:method:: simple_type(type)
+
+
+   .. py:method:: typedef(name, declared_type)
+
+
+   .. py:attribute:: cache
+      :value: []
+
+
+
+   .. py:attribute:: declarations
+
+
+   .. py:attribute:: names
+      :value: []
+
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: schema_name_title
+
+
+.. py:class:: SchemaClass(mapping: SchemaClass.__init__.mapping, code=EarlyBoundCodeWriter)
+
+   Bases: :py:obj:`codegen.Base`
+
+
+   .. py:attribute:: code
+
+
+   .. py:attribute:: file_name
+
+
+   .. py:attribute:: str
+      :value: ''
+
+
+
+.. py:class:: string_pool(fn)
+
+   .. py:method:: append(v)
+
+
+   .. py:attribute:: di
+
+
+   .. py:attribute:: fn
+
+
+.. py:data:: Generator
+

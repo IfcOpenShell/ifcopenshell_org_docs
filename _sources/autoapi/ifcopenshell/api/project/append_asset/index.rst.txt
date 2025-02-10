@@ -1,0 +1,190 @@
+:py:mod:`ifcopenshell.api.project.append_asset`
+===============================================
+
+.. py:module:: ifcopenshell.api.project.append_asset
+
+
+Module Contents
+---------------
+
+.. py:class:: SafeRemovalContext(ifc_file: ifcopenshell.file, reuse_identities: dict[int, ifcopenshell.entity_instance])
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: reuse_identities
+      :type:  dict[int, ifcopenshell.entity_instance]
+
+
+.. py:class:: Usecase
+
+   .. py:method:: add_element(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: add_inverse_element(element: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: append_cost_schedule()
+
+
+   .. py:method:: append_material()
+
+
+   .. py:method:: append_presentation_style()
+
+
+   .. py:method:: append_product()
+
+
+   .. py:method:: append_profile_def()
+
+
+   .. py:method:: append_type_product()
+
+
+   .. py:method:: by_guid(guid: str) -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: check_inverses(element: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: create_equivalent_context(added_context: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: execute()
+
+
+   .. py:method:: file_add(element: ifcopenshell.entity_instance, conversion_factor: Optional[float] = None) -> ifcopenshell.entity_instance
+
+      Reimplementation of `file.add` but taking into account that some elements (profiles, materials)
+      are already existing (checking by their name) and shouldn't be duplicated.
+
+      The problem with `file.add` it's recursively adding element and all it's attributes
+      and there is no control to prevent it from adding certain type of elements.
+
+
+
+   .. py:method:: get_equivalent_existing_context(added_context: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: get_existing_element(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: has_whitelisted_inverses(element: ifcopenshell.entity_instance) -> bool
+
+
+   .. py:method:: is_another_asset(element: ifcopenshell.entity_instance) -> bool
+
+      Is IFC entity from inverse attribute is another asset to append that should be skipped.
+
+
+
+   .. py:method:: reuse_existing_contexts() -> None
+
+
+   .. py:attribute:: assume_asset_uniqueness_by_name
+      :type:  bool
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
+   .. py:attribute:: whitelisted_inverse_attributes
+      :type:  dict[str, list[str]]
+
+
+.. py:function:: append_asset(file: ifcopenshell.file, library: ifcopenshell.file, element: ifcopenshell.entity_instance, reuse_identities: Optional[dict[int, ifcopenshell.entity_instance]] = None, assume_asset_uniqueness_by_name: bool = True) -> ifcopenshell.entity_instance
+
+   Appends an asset from a library into the active project
+
+   A BIM library asset may be a type product (e.g. wall type), product
+   (e.g. pump), material, profile, or cost schedule.
+
+   This copies the asset from the specified library file into the active
+   project. It handles all details like ensuring that product materials,
+   styles, properties, quantities, and so on are preserved.
+
+   If an asset contains geometry, the geometric contexts are also
+   intelligentely transplanted such that existing equivalent contexts are
+   reused.
+
+   Do not mix units.
+
+   :param library: The file object containing the asset.
+   :param element: An element in the library file of the asset. It may be
+       an IfcTypeProduct, IfcProduct, IfcMaterial, IfcCostSchedule, or
+       IfcProfileDef.
+   :param reuse_identities: Optional dictionary of mapped entities' identities to the
+       already created elements. It will be used to avoid creating
+       duplicated inverse elements during multiple `project.append_asset` calls. If you want
+       to add just 1 asset or if added assets won't have any shared elements, then it can be left empty.
+   :param assume_asset_uniqueness_by_name: If True, checks if elements (profiles, materials, styles)
+       with the same name already exist in the project and reuses them instead of appending new ones.
+   :return: The appended element
+
+   Example:
+
+   .. code:: python
+
+       # Programmatically generate a library. You could do this visually too.
+       library = ifcopenshell.api.project.create_file()
+       root = ifcopenshell.api.root.create_entity(library, ifc_class="IfcProject", name="Demo Library")
+       context = ifcopenshell.api.root.create_entity(library,
+           ifc_class="IfcProjectLibrary", name="Demo Library")
+       ifcopenshell.api.project.assign_declaration(library, definitions=[context], relating_context=root)
+
+       # Assign units for our example library
+       unit = ifcopenshell.api.unit.add_si_unit(library,
+           unit_type="LENGTHUNIT", prefix="MILLI")
+       ifcopenshell.api.unit.assign_unit(library, units=[unit])
+
+       # Let's create a single asset of a 200mm thick concrete wall
+       wall_type = ifcopenshell.api.root.create_entity(library, ifc_class="IfcWallType", name="WAL01")
+       concrete = ifcopenshell.api.material.add_material(usecase.file, name="CON", category="concrete")
+       rel = ifcopenshell.api.material.assign_material(library,
+           products=[wall_type], type="IfcMaterialLayerSet")
+       layer = ifcopenshell.api.material.add_layer(library,
+           layer_set=rel.RelatingMaterial, material=concrete)
+       layer.Name = "Structure"
+       layer.LayerThickness = 200
+
+       # Mark our wall type as a reusable asset in our library.
+       ifcopenshell.api.project.assign_declaration(library,
+           definitions=[wall_type], relating_context=context)
+
+       # Let's imagine we're starting a new project
+       model = ifcopenshell.api.project.create_file()
+       project = ifcopenshell.api.root.create_entity(model, ifc_class="IfcProject", name="Test")
+
+       # Now we can easily append our wall type from our library
+       wall_type = ifcopenshell.api.project.append_asset(model, library=library, element=wall_type)
+
+   Example of adding multiple assets and avoiding duplicated inverses:
+
+   .. code:: python
+
+       # since occurrences of IfcWindow of the same type
+       # might have shared inverses (e.g. IfcStyledItem)
+       # we provide a dictionary that will be populated with newly created items
+       # and reused to avoid duplicated elements
+       reuse_identities = dict()
+
+       for element in ifcopenshell.util.selector.filter_elements(model, "IfcWindow"):
+           ifcopenshell.api.project.append_asset(
+               model, library=library,
+               element=wall_type
+               reuse_identities=reuse_identities
+           )
+
+
+
+.. py:data:: APPENDABLE_ASSET
+
+.. py:data:: APPENDABLE_ASSET_TYPES
+

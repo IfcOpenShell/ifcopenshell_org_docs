@@ -1,0 +1,542 @@
+:py:mod:`ifcopenshell.util.shape_builder`
+=========================================
+
+.. py:module:: ifcopenshell.util.shape_builder
+
+
+Module Contents
+---------------
+
+.. py:class:: ShapeBuilder(ifc_file: ifcopenshell.file)
+
+   .. py:method:: block(position: VectorType = (0.0, 0.0, 0.0), x_length: float = 1.0, y_length: float = 1.0, z_length: float = 1.0) -> ifcopenshell.entity_instance
+
+      :param position: the bottom left (min X/Y of the cube).
+      :param x_length: the X length, in the +X direction
+      :param y_length: the Y length, in the +Y direction
+      :param z_length: the Z length, in the +Z direction
+
+      :return: IfcBlock
+
+
+
+   .. py:method:: circle(center: VectorType = (0.0, 0.0), radius: float = 1.0) -> ifcopenshell.entity_instance
+
+      :param center: circle 2D position
+      :param radius: radius of the circle
+      :return: IfcCircle
+
+
+
+   .. py:method:: create_axis2_placement_2d(position: VectorType = (0.0, 0.0), x_direction: Optional[VectorType] = None) -> ifcopenshell.entity_instance
+
+      Create IfcAxis2Placement2D.
+
+
+
+   .. py:method:: create_axis2_placement_3d(position: VectorType = (0.0, 0.0, 0.0), z_axis: VectorType = (0.0, 0.0, 1.0), x_axis: VectorType = (1.0, 0.0, 0.0)) -> ifcopenshell.entity_instance
+
+      Create IfcAxis2Placement3D.
+
+      :param position: placement position (Axis).
+      :param z_axis: local Z axis direction.
+      :param x_axis: local X axis direction (RefDirection).
+      :return: IfcAxis2Placement3D
+
+
+
+   .. py:method:: create_axis2_placement_3d_from_matrix(matrix: Union[numpy.typing.NDArray[numpy.float64], None] = None) -> ifcopenshell.entity_instance
+
+      Create IfcAxis2Placement3D from numpy matrix.
+
+      :param matrix: 4x4 transformation matrix, defaults to `np.eye(4)`
+      :return: IfcAxis2Placement3D
+
+
+
+   .. py:method:: create_ellipse_curve(x_axis_radius: float, y_axis_radius: float, position: VectorType = (0.0, 0.0), trim_points: SequenceOfVectors = (), ref_x_direction: VectorType = (1.0, 0.0), trim_points_mask: Sequence[int] = ()) -> ifcopenshell.entity_instance
+
+      Ellipse trimming points should be specified in counter clockwise order.
+
+      For example, if you need to get the part of the ellipse ABOVE y-axis, you need to use mask (0,2). Below y-axis - (2,0)
+
+      For more information about trim_points_mask check builder.get_trim_points_from_mask
+
+      Notion: trimmed ellipse also contains polyline between trim points, meaning IfcTrimmedCurve could be used
+      for further extrusion.
+
+
+
+   .. py:method:: create_swept_disk_solid(path_curve: ifcopenshell.entity_instance, radius: float) -> ifcopenshell.entity_instance
+
+      Create IfcSweptDiskSolid from `path_curve` (must be 3D) and `radius`
+
+
+
+   .. py:method:: create_transition_arc_ifc(width: float, height: float, create_ifc_curve: bool = False) -> tuple[SequenceOfVectors, list[list[int]], Union[ifcopenshell.entity_instance, None]]
+
+      Create an arc in the rectangle with specified width and height.
+
+      If it's not possible to make a complete arc, create an arc with longest radius possible
+      and straight segment in the middle.
+
+
+
+   .. py:method:: create_z_profile_lips_curve(FirstFlangeWidth: float, SecondFlangeWidth: float, Depth: float, Girth: float, WallThickness: float, FilletRadius: float) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: curve_between_two_points(points: tuple[VectorType, VectorType]) -> ifcopenshell.entity_instance
+
+      Simple circle based curve between two points
+      Good for creating curves and fillets, won't work for continuous ellipse shapes.
+
+      :param points: tuple of 2 points.
+      :return: IfcIndexePolyCurve
+
+
+
+   .. py:method:: deep_copy(element: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: extrude(profile_or_curve: ifcopenshell.entity_instance, magnitude: float = 1.0, position: VectorType = (0.0, 0.0, 0.0), extrusion_vector: VectorType = (0.0, 0.0, 1.0), position_z_axis: VectorType = (0.0, 0.0, 1.0), position_x_axis: VectorType = (1.0, 0.0, 0.0), position_y_axis: Optional[VectorType] = None) -> ifcopenshell.entity_instance
+
+      Extrude profile or curve to get IfcExtrudedAreaSolid.
+
+      REMEMBER when handling custom axes - IFC is using RIGHT handed coordinate system.
+
+      Position and position axes are in world space, extrusion vector in placement space defined by
+      position_x_axis/position_y_axis/position_z_axis
+
+      NOTE: changing position also changes the resulting geometry origin.
+
+      :param profile_or_curve: Profile or a curve to extrude (curve will automatically converted to a profile).
+      :param extrusion_vector: as defined in coordinate system position_x_axis+position_z_axis
+      :param position: as defined in default IFC coordinate system, not in position_x_axis+position_z_axis
+      :param position_y_axis: optional, could be used to calculate Z-axis based on Y-axis
+      :return: IfcExtrudedAreaSolid
+
+
+
+   .. py:method:: extrude_face_set(points: SequenceOfVectors, magnitude: float, extrusion_vector: VectorType = (0, 0, 1), offset: Optional[VectorType] = None, start_cap: bool = True, end_cap: bool = True) -> ifcopenshell.entity_instance
+
+      Method to extrude by creating face sets rather than creating IfcExtrudedAreaSolid.
+
+      Useful if your representation is already using face sets and you need to avoid using SweptSolid
+      to assure CorrectItemsForType.
+
+      :param points: list of points, assuming they form consecutive closed polyline.
+      :param magnitude: extrusion magnitude
+      :param extrusion_vector: extrusion direction, by default it's extruding by Z+ axis
+      :param offset: offset from the points
+      :param start_cap: if True, create start cap, by default it's True
+      :param end_cap: if True, create end cap, by default it's True
+      :return: IfcPolygonalFaceSet
+
+
+
+   .. py:method:: extrude_kwargs(axis: Literal['Y', 'X', 'Z']) -> dict[str, tuple[float, float, float]]
+
+      Shortcut to get kwargs for `ShapeBuilder.extrude` to extrude by some axis.
+
+      It assumes you have 2D profile in:
+          XZ plane for Y axis extrusion, 
+
+          YZ plane for X axis extrusion, 
+
+          XY plane for Z axis extrusion, 
+
+
+      Extruding by X/Y using other kwargs might break ValidExtrusionDirection.
+
+
+
+   .. py:method:: faceted_brep(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
+
+      Generate an IfcFacetedBrep with a closed shell
+
+      Note that :func:`polygonal_face_set` is recommended in IFC4.
+
+      :param points: list of 3d coordinates
+      :param faces: list of faces consisted of point indices (points indices starting from 0)
+      :return: IfcFacetedBrep
+
+
+
+   .. py:method:: get_polyline_coords(polyline: ifcopenshell.entity_instance) -> numpy.ndarray
+
+      polyline should be either `IfcIndexedPolyCurve` or `IfcPolyline`
+
+
+
+   .. py:method:: get_rectangle_coords(size: VectorType = (1.0, 1.0), position: Optional[VectorType] = None) -> numpy.ndarray
+
+      Get rectangle coords arranged as below:
+
+      ::
+
+          3 2
+          0 1
+
+      :param size: rectangle size, could be either 2d or 3d, defaults to `(1,1)`
+      :param position: rectangle position, default to `None`.
+          if `position` not specified zero-vector will be used
+      :return: list of rectangle coords
+
+
+
+   .. py:method:: get_representation(context: ifcopenshell.entity_instance, items: Union[ifcopenshell.entity_instance, Sequence[ifcopenshell.entity_instance]], representation_type: Optional[str] = None) -> ifcopenshell.entity_instance
+
+      Create IFC representation for the specified context and items.
+
+      :param context: IfcGeometricRepresentationSubContext
+      :param items: could be a list or single curve/IfcExtrudedAreaSolid
+      :param representation_type: Explicitly specified RepresentationType, defaults to `None`.
+          If not provided it will be guessed from the items types
+      :return: IfcShapeRepresentation
+
+
+
+   .. py:method:: get_simple_2dcurve_data(coords: SequenceOfVectors, fillets: Sequence[int] = (), fillet_radius: Union[float, Sequence[float]] = (), closed: bool = True, create_ifc_curve: bool = False) -> tuple[list[VectorType], list[list[int]], Union[ifcopenshell.entity_instance, None]]
+
+      Creates simple 2D curve from set of 2d coords and list of points with fillets.
+      Simple curve means that all fillets are based on 90 degree angle.
+
+      :param coords:           list of 2d coords. Example: ((x0,y0), (x1,y1), (x2, y2))
+      :param fillets:          list of points from `coords` to base fillet on. Example: (1,)
+      :param fillet_radius:    list of fillet radius for each of corresponding point form `fillets`.
+          Example: (5.,) Note: `fillet_radius` could be just 1 float value if it's the same for all fillets.
+      :param closed:           boolean whether curve should be closed (whether last point connected to first one). Default: True
+      :param create_ifc_curve: create IfcIndexedPolyCurve or just return the data. Default: False
+
+      :return: (points, segments, ifc_curve) for the created simple curve
+          if both points in e are equally far from pt, then v1 is returned.
+
+
+
+   .. py:method:: get_trim_points_from_mask(x_axis_radius: float, y_axis_radius: float, trim_points_mask: Sequence[int], position_offset: Optional[VectorType] = None) -> numpy.ndarray
+
+      Handy way to get edge points of the ellipse like shape of a given radiuses.
+
+      Mask points are numerated from 0 to 3 ccw starting from (x_axis_radius/2; 0).
+
+      Example: mask (0, 1, 2, 3) will return points (x, 0), (0, y), (-x, 0), (0, -y)
+
+
+
+   .. py:method:: half_space_solid(plane: ifcopenshell.entity_instance, agreement_flag: bool = False) -> ifcopenshell.entity_instance
+
+      :param plane: The IfcPlane representing the half space.
+      :param agreement_flag: False if +Z represents the void
+      :return: IfcHalfSpaceSolid
+
+
+
+   .. py:method:: mep_bend_shape(segment: ifcopenshell.entity_instance, start_length: float, end_length: float, angle: float, radius: float, bend_vector: VectorType, flip_z_axis: bool) -> tuple[ifcopenshell.entity_instance, dict[str, Any]]
+
+      Generate a MEP bend shape for the provided segments.
+
+      :param segment: IfcFlowSegment for a bend.
+          Note that for a bend start and end segments types should match.
+      :param angle: bend angle, in radians
+      :param radius: bend radius
+      :param bend_vector: offset between start and end segments in local space of start segment
+          used mainly to determine the second bend axis and it's direction (positive or negative),
+          the actual magnitude of the vector is not important (though near zero values will be ignored).
+      :param flip_z_axis: since we cannot determine z axis direction from the profile offset,
+          there is an option to flip it if bend is going by start segment Z- axis.
+      :return: tuple of Model/Body/MODEL_VIEW IfcRepresentation and dictionary of transition shape data
+
+
+
+   .. py:method:: mep_transition_calculate(start_half_dim: numpy.ndarray, end_half_dim: numpy.ndarray, offset: numpy.ndarray, diff: Optional[numpy.ndarray] = None, end_profile: bool = False, length: Optional[float] = None, angle: Optional[float] = None, verbose: bool = True) -> Union[float, None]
+
+      will return transition length based on the profile dimension differences and offset.
+
+      If `length` is provided will return transition angle
+
+
+
+   .. py:method:: mep_transition_length(start_half_dim: numpy.ndarray, end_half_dim: numpy.ndarray, angle: float, profile_offset: VectorType = (0.0, 0.0), verbose: bool = True)
+
+      get the final transition length for two profiles dimensions, angle and XY offset between them,
+
+      the difference from `calculate_transition` - `get_transition_length` is making sure
+      that length will fit both sides of the transition
+
+
+
+   .. py:method:: mep_transition_shape(start_segment: ifcopenshell.entity_instance, end_segment: ifcopenshell.entity_instance, start_length: float, end_length: float, angle: float = 30.0, profile_offset: VectorType = (0.0, 0.0)) -> Union[tuple[ifcopenshell.entity_instance, dict[str, Any]], tuple[None, None]]
+
+      Generate a MEP transition shape for the provided segments.
+
+      :param start_segment: Starting segment.
+      :param end_segment: Ending segment.
+      :param start_length: Start transition length.
+      :param end_length: End transition length.
+      :param angle: Transition angle, in degrees.
+          Good default values from angle = 30/60 deg
+          30 degree angle will result in 75 degrees on the transition (= 90 - α/2) - https://i.imgur.com/tcoYDWu.png
+      :param profile_offset: 2D vector for profile offset.
+      :return: A tuple of Model/Body/MODEL_VIEW IfcRepresentation and dictionary of transition shape data.
+          Or (None, None) if there was an error in the process.
+
+
+
+   .. py:method:: mesh(points: list[list[float]], faces: list[list[int]]) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: mirror(curve_or_item: Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]], mirror_axes: Union[VectorType, SequenceOfVectors] = (1.0, 1.0), mirror_point: VectorType = (0.0, 0.0), create_copy: bool = False, placement_matrix: Optional[numpy.ndarray] = None) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
+
+      Mirror curve/representaiton item/representation.
+
+      :param curve_or_item: A single item to mirror or a sequence of them.
+      :param mirror_axes: A vector of values, should have value > 0 for axes where mirror should be applied.
+          Example: mirroring `A(1,0)` by axis `(1,0)` will result in `A'(-1,0)`
+
+          Also could be a list of mirrors to apply to `curve_or_item`
+          multiple mirror_axes will result in multiple resulting curves
+          Example: curve_or_item = [a, b], mirror_axes=[v1, v2], result = [av1, av2, bv1, bv2]
+      :param mirror_point: Point relative to which mirror should be applied.
+      :param create_copy: Whether to mirror the provided item or it's copy.
+      :param placement_matrix: Optional placement matrix to use for polylines.
+      :return: Mirrored curve/item/representation or a sequence of them.
+
+
+
+   .. py:method:: mirror_2d_point(point_2d: VectorType, mirror_axes: VectorType = (1.0, 1.0), mirror_point: VectorType = (0.0, 0.0)) -> numpy.ndarray
+
+      mirror_axes - along which axes mirror will be applied
+
+
+
+   .. py:method:: plane(location: VectorType = (0.0, 0.0, 0.0), normal: VectorType = (0.0, 0.0, 1.0)) -> ifcopenshell.entity_instance
+
+      Create IfcPlane.
+
+      :param location: plane position.
+      :param normal: plane normal direction.
+      :return: IfcPlane
+
+
+
+   .. py:method:: polygonal_face_set(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
+
+      Generate an IfcPolygonalFaceSet
+
+      Note that this is not available in IFC2X3.
+
+      :param points: list of 3d coordinates
+      :param faces: list of faces consisted of point indices (points indices starting from 0)
+      :return: IfcPolygonalFaceSet
+
+
+
+   .. py:method:: polyline(points: SequenceOfVectors, closed: bool = False, position_offset: Optional[VectorType] = None, arc_points: Sequence[int] = ()) -> ifcopenshell.entity_instance
+
+      Generate an IfcIndexedPolyCurve based on the provided points.
+
+      :param points: List of 2d or 3d points
+      :param closed: Whether polyline should be closed. Default is `False`
+      :param position_offset: offset to be applied to all points
+      :param arc_points: Indices of the middle points for arcs. For creating an arc segment,
+          provide 3 points: `arc_start`, `arc_middle` and `arc_end` to `points` and add the `arc_middle`
+          point's index to `arc_points`
+      :return: IfcIndexedPolyCurve
+
+      Example:
+
+      .. code:: python
+
+          # rectangle
+          points = Vector((0, 0)), Vector((1, 0)), Vector((1, 1)), Vector((0, 1))
+          position = Vector((2, 0))
+          # #2=IfcIndexedPolyCurve(#1,(IfcLineIndex((1,2,3,4,1))),$)
+          polyline = builder.polyline(points, closed=True, position_offset=position)
+
+          # arc between points (1,0) and (0,1). Second point in the arc should be it's middle
+          points = Vector((1, 0)), Vector((0.707, 0.707)), Vector((0, 1)), Vector((0,2))
+          arc_points = (1,) # point with index 1 is a middle of the arc
+          # 4=IfcIndexedPolyCurve(#3,(IfcArcIndex((1,2,3)),IfcLineIndex((3,4,1))),$)
+          curved_polyline = builder.polyline(points, closed=False, position_offset=position, arc_points=arc_points)
+
+
+
+   .. py:method:: profile(outer_curve: ifcopenshell.entity_instance, name: Optional[str] = None, inner_curves: Sequence[ifcopenshell.entity_instance] = (), profile_type: str = 'AREA') -> ifcopenshell.entity_instance
+
+      Create a profile.
+
+      :param outer_curve: Profile IfcCurve.
+      :param inner_curves: a sequence of IfcCurves.
+
+      :return: IfcArbitraryClosedProfileDef or IfcArbitraryProfileDefWithVoids.
+
+
+
+   .. py:method:: rectangle(size: VectorType = (1.0, 1.0), position: Optional[VectorType] = None) -> ifcopenshell.entity_instance
+
+      Generate a rectangle polyline.
+
+      :param size: rectangle size, could be either 2d or 3d, defaults to `(1,1)`
+      :param position: rectangle position, default to `None`.
+          if `position` not specified zero-vector will be used
+      :return: IfcIndexedPolyCurve
+
+
+
+   .. py:method:: rotate(curve_or_item: Union[ifcopenshell.entity_instance, Sequence[ifcopenshell.entity_instance]], angle: float = 90.0, pivot_point: VectorType = (0.0, 0.0), counter_clockwise: bool = False, create_copy: bool = False) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
+
+      Rotate curve/representaiton item/representation.
+
+      :param curve_or_item: A single item to rotate or a sequence of them.
+      :param angle: Rotation angle, in degrees.
+      :param pivot_point: Rotation pivot point.
+      :param counter_clockwise: Whether rotation is counter-clockwise.
+      :param create_copy: Whether to rotate the provided item or it's copy.
+      :return: Rotated curve/representaiton item/representation or a sequence of them.
+
+
+
+   .. py:method:: rotate_2d_point(point_2d: VectorType, angle: float = 90.0, pivot_point: VectorType = (0.0, 0.0), counter_clockwise: bool = False) -> numpy.ndarray
+
+
+   .. py:method:: rotate_extrusion_kwargs_by_z(kwargs: dict[str, Any], angle: float, counter_clockwise: bool = False) -> dict[str, VectorType]
+
+      shortcut to rotate extrusion kwargs by z axis
+
+      `kwargs` expected to have `position_x_axis` and `position_z_axis` keys
+
+      `angle` is a rotation value in radians
+
+      by default rotation is clockwise, to make it counter clockwise use `counter_clockwise` flag
+
+
+
+   .. py:method:: set_polyline_coords(polyline: ifcopenshell.entity_instance, coords: SequenceOfVectors) -> None
+
+      polyline should be either `IfcIndexedPolyCurve` or `IfcPolyline`
+
+
+
+   .. py:method:: sphere(radius: float = 1.0, center: VectorType = (0.0, 0.0, 0.0)) -> ifcopenshell.entity_instance
+
+      :param radius: radius of the sphere, defaults to 1.0
+      :param center: sphere position, defaults to `(0.0, 0.0, 0.0)`
+
+      :return: IfcSphere
+
+
+
+   .. py:method:: translate(curve_or_item: Union[ifcopenshell.entity_instance, Sequence[ifcopenshell.entity_instance]], translation: VectorType, create_copy: bool = False) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
+
+      Translate curve/representaiton item/representation.
+
+      :param curve_or_item: A single item to translate or a sequence of them.
+      :param translation: Translation vector.
+      :param create_copy: Whether to translate the provided item or it's copy.
+      :return: Translated curve/item/representation or a sequence of them.
+
+
+
+   .. py:attribute:: file
+
+
+.. py:function:: V(*args: Union[float, int, VectorType, SequenceOfVectors]) -> numpy.typing.NDArray[numpy.float64]
+
+   Convert floats / vector / sequence of vectors to numpy array.
+
+   Note that `float` argument type also allows passing ints,
+   which will be converted to floats (a double type) as IfcOpenShell is strict
+   about setting int/float attributes.
+
+
+.. py:function:: ifc_safe_vector_type(v: Union[VectorType, SequenceOfVectors]) -> Any
+
+   Convert vector / sequence of vectors to a list of floats
+   that's safe to save IFC attribute.
+
+   Basically converting all numbers in sequences to Python floats.
+
+
+.. py:function:: is_x(value: float, x: float, si_conversion: Optional[float] = None) -> bool
+
+.. py:function:: np_angle(a: VectorType, b: VectorType) -> float
+
+   Get angle between vectors in radians.
+   Designed to work similar to `Vector.angle`.
+
+
+.. py:function:: np_angle_signed(a: VectorType, b: VectorType) -> float
+
+   Get signed angle between 2D vectors in radians (clockwise is positive).
+   Designed to work similar to `Vector.angle_signed`.
+
+
+.. py:function:: np_intersect_line_line(v1: VectorType, v2: VectorType, v3: VectorType, v4: VectorType) -> tuple[numpy.ndarray, numpy.ndarray]
+
+   Get 2 closest points on each line.
+   First line - (v1, v2). Second line - (v3, v4).
+
+   Designed to work similar to `mathutils.geometry.intersect_line_line`.
+
+
+.. py:function:: np_lerp(a: VectorType, b: VectorType, t: float) -> numpy.ndarray
+
+.. py:function:: np_matrix_normalized(matrix: numpy.ndarray) -> numpy.ndarray
+
+.. py:function:: np_matrix_to_euler(matrix: numpy.ndarray) -> tuple[float, float, float]
+
+   Convert a rotation matrix to Euler angles.
+
+   Designed to work similar to `mathutils.Matrix.to_euler`.
+   Currently only XYZ rotation is supported.
+
+
+.. py:function:: np_normal(vectors: SequenceOfVectors) -> numpy.ndarray
+
+   Normal of 3D Polygon.
+
+   Designed to work similar to `mathutils.geometry.normal`.
+
+
+.. py:function:: np_normalized(v: VectorType) -> numpy.ndarray
+
+.. py:function:: np_rotation_matrix(angle: float, size: int, axis: Optional[Union[Literal['X', 'Y', 'Z'], VectorType]] = None) -> numpy.ndarray
+
+   Get rotation matrix. Designed to be similar to mathutils Matrix.Rotation but to use numpy.
+
+   :param float: Rotation angle, in radians.
+   :param size: Matrix size ([2;4]).
+   :param axis: Rotation axis.
+       For 2x2 matrices Z assumed by default and argument can be omitted,
+       for 3x3/4x4 matrices could be either axis literal
+       or a rotation axis presented as a vector.
+   :return: Rotation matrix.
+
+
+.. py:function:: np_round_to_precision(v: numpy.ndarray, si_conversion: float) -> numpy.ndarray
+
+.. py:function:: np_to_3d(v: VectorType, z: float = 0.0) -> numpy.ndarray
+
+   Convert 2D/4D vector to 3D.
+
+
+.. py:function:: np_to_4d(v: VectorType, z: float = 0.0, w: float = 1.0) -> numpy.ndarray
+
+   Convert 2D/3D vector to 4D (e.g. for multiplying with 4x4 matrix).
+
+
+.. py:function:: np_to_4x4(matrix_3x3: numpy.ndarray) -> numpy.ndarray
+
+   Convert 3x3 matrix to 4x4.
+
+
+.. py:function:: round_to_precision(x: float, si_conversion: float) -> float
+
+.. py:data:: PRECISION
+   :value: 1e-05
+
+
+.. py:data:: SequenceOfVectors
+
+.. py:data:: VectorType
+

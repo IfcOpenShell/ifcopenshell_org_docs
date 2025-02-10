@@ -1,0 +1,31 @@
+:py:mod:`ifcopenshell.express.documentation`
+============================================
+
+.. py:module:: ifcopenshell.express.documentation
+
+
+Module Contents
+---------------
+
+.. py:function:: description(item)
+
+.. py:data:: definition_files
+   :value: ['DocEntity.csv', 'DocEnumeration.csv', 'DocDefined.csv', 'DocSelect.csv']
+
+
+.. py:data:: definition_files
+
+.. py:data:: make_absolute
+
+.. py:data:: name_to_oid
+
+.. py:data:: oid_to_desc
+
+.. py:data:: oid_to_name
+
+.. py:data:: oid_to_pid
+
+.. py:data:: pid
+
+.. py:data:: regices
+

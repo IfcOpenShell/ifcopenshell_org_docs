@@ -1,0 +1,70 @@
+:py:mod:`ifcpatch.recipes.ExtractElements`
+==========================================
+
+.. py:module:: ifcpatch.recipes.ExtractElements
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcWall')
+
+   
+   Extract certain elements into a new model
+
+   Extract a subset of elements from an existing IFC data set and save it
+   to a new IFC file. For example, you might want to extract only the walls
+   in a model and save it as a new model.
+
+   :param query: A query to select the subset of IFC elements.
+   :type query: str
+
+   Example:
+
+   .. code:: python
+
+       # Extract all walls
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ExtractElements", "arguments": ["IfcWall"]})
+
+       # Extract all slabs
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ExtractElements", "arguments": ["IfcSlab"]})
+
+       # Extract all walls and slabs
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ExtractElements", "arguments": ["IfcWall, IfcSlab"]})
+
+
+   .. py:method:: add_decomposition_parents(element: ifcopenshell.entity_instance, new_element: ifcopenshell.entity_instance) -> None
+
+      element is IfcObjectDefinition
+
+
+
+   .. py:method:: add_element(element: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: add_spatial_structures(element: ifcopenshell.entity_instance, new_element: ifcopenshell.entity_instance) -> None
+
+      element is IfcElement
+
+
+
+   .. py:method:: append_asset(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: create_spatial_tree() -> None
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: query
+      :value: 'IfcWall'
+
+
+

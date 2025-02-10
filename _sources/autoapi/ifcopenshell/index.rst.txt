@@ -1,0 +1,581 @@
+:py:mod:`ifcopenshell`
+======================
+
+.. py:module:: ifcopenshell
+
+.. autoapi-nested-parse::
+
+   Welcome to IfcOpenShell! IfcOpenShell provides a way to read and write IFCs.
+
+   IfcOpenShell can open IFC files, read entities (such as walls, buildings,
+   properties, systems, etc), edit attributes, write out ``.ifc`` files and more.
+
+   This module provides primitive functions to interact with IFC, including:
+
+   - For most users, you can open and read IFC models, see docs for :func:`open`.
+     This returns an :class:`file` object representing the IFC model. You can then
+     query the model to filter elements.
+   - For developers, you can query the schema itself, see docs for
+     :func:`schema_by_name`. This returns a schema object which you can use to
+     analyse the definitions of IFC classes and data types.
+
+   You may also be interested in:
+
+   - For model authoring and editing operations, see :mod:`ifcopenshell.api`.
+   - For extracting information from models, see :mod:`ifcopenshell.util`.
+   - For processing geometry, see :mod:`ifcopenshell.geom`.
+
+
+   For more details, consult https://docs.ifcopenshell.org/
+
+   Example:
+
+   .. code:: python
+
+       import ifcopenshell
+
+       print(ifcopenshell.version)
+
+       model = ifcopenshell.open("/path/to/model.ifc")
+       walls = model.by_type("IfcWall")
+
+       for wall in walls:
+           print(wall.Name)
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   api/index.rst
+   express/index.rst
+   geom/index.rst
+   util/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   alignment/index.rst
+   draw/index.rst
+   entity_instance/index.rst
+   file/index.rst
+   guid/index.rst
+   settings/index.rst
+   sql/index.rst
+   stream/index.rst
+   template/index.rst
+   validate/index.rst
+
+
+Package Contents
+----------------
+
+.. py:class:: entity_instance(e, file=None)
+
+   Represents an entity (wall, slab, property, etc) of an IFC model
+
+   An IFC model consists of entities. Examples of entities include walls,
+   slabs, doors and so on. Entities can also be non-physical things, like
+   properties, systems, construction tasks, colours, geometry, and more.
+
+   Entities are defined through an **IFC Class**. There are hundreds of **IFC
+   Classes** defined as part of the ISO standard by the buildingSMART
+   International organisation. The **IFC Class** defines the attributes of an
+   entity, as well as the data types and whether or not an attribute is
+   mandatory or optional.
+
+   IfcOpenShell's API dynamically implements the IFC schema. You will not find
+   documentation about available **IFC Classes**, or what attributes they
+   have.  Please consult the buildingSMART official documentation or start
+   reading :doc:`/introduction/introduction_to_ifc`.
+
+   In addition to the Python methods you see documented here, an instantiated
+   entity_instance will have attributes defined by its IFC class. For example,
+   an entity instance which is an IfcWall class will have a ``Name``
+   attribute, and an IfcColourRgb will have a ``Red`` attribute. Please
+   consult the buildingSMART official documentation.
+
+   Example:
+
+   .. code:: python
+
+       model = ifcopenshell.open(file_path)
+       walls = model.by_type("IfcWall")
+       wall = walls[0]
+
+       print(wall) # #38=IFCWALL('2MEinnTPbCMwLOgceaQZFu',$,$,'My Wall',$,#52,#47,$,$);
+       print(wall.is_a()) # IfcWall
+
+       # Note: the `Name` attribute is dynamic, based on the IFC class.
+       print(wall.Name) # My Wall
+
+       # Attributes are ordered and may also be accessed via index.
+       print(wall[3]) # My Wall
+
+       print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
+
+
+   .. py:method:: attribute_name(attr_idx: int) -> str
+
+      Return the name of a positional attribute of the element
+
+      :param attr_idx: The index of the attribute
+      :type attr_idx: int
+      :rtype: string
+
+
+
+   .. py:method:: attribute_type(attr: Union[int, str]) -> str
+
+      Return the data type of a positional attribute of the element
+
+      :param attr: The index or name of the attribute
+      :type attr: Union[int, str]
+      :rtype: string
+
+
+
+   .. py:method:: compare(other, op, reverse=False)
+
+      Compares with another instance.
+
+      For simple types the declaration name is not taken into account:
+
+      >>> f = ifcopenshell.file()
+      >>> f.createIfcInteger(0) < f.createIfcPositiveInteger(1)
+      True
+
+      For entity types the declaration name is taken into account:
+
+      >>> f.createIfcWall('a') < f.createIfcWall('b')
+      True
+
+      >>> f.createIfcWallStandardCase('a') < f.createIfcWall('b')
+      False
+
+      Comparing simple types with different underlying types throws an exception:
+
+      >>> f.createIfcInteger(0) < f.createIfcLabel('x')
+      Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "entity_instance.py", line 371, in compare
+          return op(a, b)
+      TypeError: '<' not supported between instances of 'int' and 'str'
+
+      Args:
+          other (_type_): Right hand side (or lhs when reverse = True)
+          op (_type_): The comparison operator (likely from the operator module)
+          reverse (bool, optional): When true swaps lhs and rhs. Defaults to False.
+
+      Returns:
+          bool: The comparison predicate applied to self and other
+
+
+
+   .. py:method:: get_info(include_identifier: bool = True, recursive: bool = False, return_type: Union[type[dict], type] = dict, ignore: Sequence[str] = (), scalar_only: bool = False) -> dict[str, Any]
+
+      Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
+
+      :param include_identifier: Whether or not to include the STEP numerical identifier
+      :param recursive: Whether or not to convert referenced IFC elements into dictionaries too. All attributes also apply recursively
+      :param return_type: The return data type to be casted into
+      :param ignore: A list of attribute names to ignore
+      :param scalar_only: Filters out all values that are IFC instances
+      :returns: A dictionary of properties and their corresponding values
+
+      Example:
+
+      .. code:: python
+
+          ifc_file = ifcopenshell.open(file_path)
+          products = ifc_file.by_type("IfcProduct")
+          obj_info = products[0].get_info()
+          print(obj_info.keys())
+          >>> dict_keys(['Description', 'Name', 'BuildingAddress', 'LongName', 'GlobalId', 'ObjectPlacement', 'OwnerHistory', 'ObjectType',
+          >>> ...'ElevationOfTerrain', 'CompositionType', 'id', 'Representation', 'type', 'ElevationOfRefHeight'])
+
+
+
+   .. py:method:: get_info_2(include_identifier: bool = True, recursive: bool = False, return_type: type[dict] = dict, ignore: Iterable[str] = ()) -> dict[str, Any]
+
+      More perfomant version of `.get_info()` but with limited arguments values.
+
+      Method has exactly the same signature as `.get_info()` but it doesn't support getting information non-recursively.
+
+      Currently supported arguments values:
+          * recursive: `True` (will fail with default `False` value from `.get_info()`)
+          * return_type: `dict`
+          * ignore: `()` (empty tuple)
+
+
+
+   .. py:method:: id() -> int
+
+      Return the STEP numerical identifier
+
+      :rtype: int
+
+
+
+   .. py:method:: is_a() -> str
+                  is_a(ifc_class: str) -> bool
+                  is_a(with_schema: bool) -> str
+
+      Return the IFC class name of an instance, or checks if an instance belongs to a class.
+
+      The check will also return true if a parent class name is provided.
+
+      :param args: If specified, is a case insensitive IFC class name to check
+          or if specified as a boolean then will define whether
+          returned IFC class name should include schema name
+          (e.g. "IFC4.IfcWall" if `True` and "IfcWall" if `False`).
+          If omitted will act as `False`.
+      :type args: Union[str, bool]
+      :returns: Either the name of the class, or a boolean if it passes the check
+      :rtype: Union[str, bool]
+
+      Example:
+
+      .. code:: python
+
+          f = ifcopenshell.file()
+          f.create_entity('IfcPerson')
+          f.is_a()
+          >>> 'IfcPerson'
+          f.is_a('IfcPerson')
+          >>> True
+
+
+
+   .. py:method:: is_entity() -> bool
+
+      Tests whether the instance is an entity type as opposed to a simple data type.
+
+      Returns:
+          bool: True if the instance is an entity
+
+
+
+   .. py:method:: to_string(valid_spf=True) -> str
+
+      Returns a string representation of the current entity instance.
+      Equal to str(self) when valid_spf=False. When valid_spf is True
+      returns a representation of the string that conforms to valid Step
+      Physical File notation. The difference being entity names in upper
+      case and string attribute values with unicode values encoded per
+      the specific control directives.
+
+
+
+   .. py:method:: unwrap_value(v)
+      :staticmethod:
+
+
+
+   .. py:method:: walk(f: Callable[[Any], bool], g: Callable[[Any], Any], value: Any) -> Any
+      :staticmethod:
+
+
+      Applies a transformation to `value` based on a given condition.
+
+      If value is a nested structure (e.g., a list or a tuple) will apply
+      transformation to it's elements.
+
+      :param f: A callable that takes a single argument and returns a boolean
+          value. It represents the condition.
+      :type f: Callable
+      :param g: A callable that takes a single argument and returns a
+          transformed value. It represents the transformation.
+      :type g: Callable
+      :param value: Any object, the input value to be processed
+      :type value: Any
+      :return: Transformed value
+      :rtype: Any
+
+      Example:
+
+      .. code:: python
+
+          # Define condition and transformation functions
+          condition = lambda v: v == old
+          transform = lambda v: new
+
+          # Usage example
+          attribute_value = element.RelatedElements
+          print(old in attribute_value, new in attribute_value) # True, False
+
+          result = element.walk(condition, transform, element.RelatedElements)
+          print(old in attribute_value, new in attribute_value) # False, True
+
+
+
+   .. py:method:: wrap_value(v, file)
+      :staticmethod:
+
+
+
+   .. py:property:: file
+
+
+   .. py:attribute:: wrapped_data
+      :type:  ifcopenshell.ifcopenshell_wrapper.entity_instance
+
+
+.. py:class:: sqlite(filepath: str)
+
+   Bases: :py:obj:`ifcopenshell.file.file`
+
+
+   Base class for containing IFC files.
+
+   Class has instance methods for filtering by element Id, Type, etc.
+   Instantiated objects can be subscripted by Id or Guid
+
+   Example:
+
+   .. code:: python
+
+       model = ifcopenshell.open(file_path)
+       products = model.by_type("IfcProduct")
+       print(products[0].id(), products[0].GlobalId) # 122 2XQ$n5SLP5MBLyL442paFx
+       print(products[0] == model[122] == model["2XQ$n5SLP5MBLyL442paFx"]) # True
+
+   Open existing sqlite IFC database.
+
+   To create a new database from IFC file consider using Ifc2Sql IfcPatch:
+
+   https://docs.ifcopenshell.org/autoapi/ifcpatch/recipes/Ifc2Sql/index.html
+
+   :param filepath: Path to sqlite database.
+
+
+   .. py:method:: by_id(id: int) -> Union[sqlite_entity, None]
+
+      Return an IFC entity instance filtered by IFC ID.
+
+      :param id: STEP numerical identifier
+      :type id: int
+
+      :raises RuntimeError: If `id` is not found.
+
+      :returns: An ifcopenshell.entity_instance
+      :rtype: ifcopenshell.entity_instance
+
+
+
+   .. py:method:: by_type(type: str, include_subtypes: bool = True) -> list[sqlite_entity]
+
+      Return IFC objects filtered by IFC Type and wrapped with the entity_instance class.
+
+      If an IFC type class has subclasses, all entities of those subclasses are also returned.
+
+      :param type: The case insensitive type of IFC class to return.
+      :type type: string
+      :param include_subtypes: Whether or not to return subtypes of the IFC class
+      :type include_subtypes: bool
+
+      :raises RuntimeError: If `type` is not found in IFC schema.
+
+      :returns: A list of ifcopenshell.entity_instance objects
+      :rtype: list[ifcopenshell.entity_instance]
+
+
+
+   .. py:method:: clear_cache() -> None
+
+
+   .. py:method:: create_entity(type, *args, **kawrgs) -> NoReturn
+
+      Not supported for sqlite database.
+
+
+
+   .. py:method:: get_geometry(ids: list[int]) -> dict[str, dict]
+
+
+   .. py:method:: get_inverse(inst: sqlite_entity, allow_duplicate: bool = False, with_attribute_indices: bool = False) -> set[sqlite_entity]
+
+      Return a list of entities that reference this entity
+
+      Warning: this is a slow function, especially when there is a large
+      number of inverses (such as for a shared owner history). If you are
+      only interested in the total number of inverses (typically 0, 1, or N),
+      consider using :func:`get_total_inverses`.
+
+      :param inst: The entity instance to get inverse relationships
+      :param allow_duplicate: Returns a `list` when True, `set` when False
+      :param with_attribute_indices: Returns pairs of <i, idx>
+         where i[idx] is inst or contains inst. Requires allow_duplicate=True
+      :returns: A list or set of ifcopenshell.entity_instance objects.
+
+
+
+   .. py:method:: is_entity_list(attribute: ifcopenshell.ifcopenshell_wrapper.attribute) -> bool
+
+
+   .. py:method:: preprocess_schema() -> None
+
+
+   .. py:method:: traverse(inst: sqlite_entity, max_levels: Optional[int] = None, breadth_first: bool = False) -> list[sqlite_entity]
+
+      Get a list of all referenced instances for a particular instance including itself
+
+      :param inst: The entity instance to get all sub instances
+      :param max_levels: How far deep to recursively fetch sub instances. None or -1 means infinite.
+      :param breadth_first: Whether to use breadth-first search, the default is depth-first.
+      :returns: A list of ifcopenshell.entity_instance objects
+
+
+
+   .. py:attribute:: class_map
+      :type:  dict[str, list[int]]
+
+
+   .. py:attribute:: cursor
+
+
+   .. py:attribute:: db
+
+
+   .. py:attribute:: entity_cache
+      :type:  dict[int, sqlite_entity]
+
+
+   .. py:attribute:: filepath
+
+
+   .. py:attribute:: future
+      :value: []
+
+
+
+   .. py:attribute:: history
+      :value: []
+
+
+
+   .. py:attribute:: history_size
+      :value: 64
+
+
+
+   .. py:attribute:: id_map
+      :type:  dict[int, str]
+
+
+   .. py:attribute:: ifc_schema
+
+
+   .. py:attribute:: schema
+      :type:  ifcopenshell.util.schema.IFC_SCHEMA
+      :value: 'IFC4'
+
+
+      General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
+   .. py:attribute:: transaction
+      :value: None
+
+
+
+   .. py:attribute:: wrapped_data
+      :value: None
+
+
+
+.. py:class:: sqlite_entity(id: int, ifc_class: str, file: sqlite = None)
+
+   Bases: :py:obj:`ifcopenshell.entity_instance.entity_instance`
+
+
+   Represents an entity (wall, slab, property, etc) of an IFC model
+
+   An IFC model consists of entities. Examples of entities include walls,
+   slabs, doors and so on. Entities can also be non-physical things, like
+   properties, systems, construction tasks, colours, geometry, and more.
+
+   Entities are defined through an **IFC Class**. There are hundreds of **IFC
+   Classes** defined as part of the ISO standard by the buildingSMART
+   International organisation. The **IFC Class** defines the attributes of an
+   entity, as well as the data types and whether or not an attribute is
+   mandatory or optional.
+
+   IfcOpenShell's API dynamically implements the IFC schema. You will not find
+   documentation about available **IFC Classes**, or what attributes they
+   have.  Please consult the buildingSMART official documentation or start
+   reading :doc:`/introduction/introduction_to_ifc`.
+
+   In addition to the Python methods you see documented here, an instantiated
+   entity_instance will have attributes defined by its IFC class. For example,
+   an entity instance which is an IfcWall class will have a ``Name``
+   attribute, and an IfcColourRgb will have a ``Red`` attribute. Please
+   consult the buildingSMART official documentation.
+
+   Example:
+
+   .. code:: python
+
+       model = ifcopenshell.open(file_path)
+       walls = model.by_type("IfcWall")
+       wall = walls[0]
+
+       print(wall) # #38=IFCWALL('2MEinnTPbCMwLOgceaQZFu',$,$,'My Wall',$,#52,#47,$,$);
+       print(wall.is_a()) # IfcWall
+
+       # Note: the `Name` attribute is dynamic, based on the IFC class.
+       print(wall.Name) # My Wall
+
+       # Attributes are ordered and may also be accessed via index.
+       print(wall[3]) # My Wall
+
+       print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
+
+
+   .. py:method:: get_info(include_identifier=True, recursive=False, return_type=dict, ignore=(), scalar_only=False) -> dict[str, Any]
+
+      Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
+
+      :param include_identifier: Whether or not to include the STEP numerical identifier
+      :param recursive: Whether or not to convert referenced IFC elements into dictionaries too. All attributes also apply recursively
+      :param return_type: The return data type to be casted into
+      :param ignore: A list of attribute names to ignore
+      :param scalar_only: Filters out all values that are IFC instances
+      :returns: A dictionary of properties and their corresponding values
+
+      Example:
+
+      .. code:: python
+
+          ifc_file = ifcopenshell.open(file_path)
+          products = ifc_file.by_type("IfcProduct")
+          obj_info = products[0].get_info()
+          print(obj_info.keys())
+          >>> dict_keys(['Description', 'Name', 'BuildingAddress', 'LongName', 'GlobalId', 'ObjectPlacement', 'OwnerHistory', 'ObjectType',
+          >>> ...'ElevationOfTerrain', 'CompositionType', 'id', 'Representation', 'type', 'ElevationOfRefHeight'])
+
+
+
+   .. py:method:: id() -> int
+
+      Return the STEP numerical identifier
+
+      :rtype: int
+
+
+
+   .. py:method:: unserialise_value(value)
+
+
+   .. py:attribute:: sqlite_wrapper
+      :type:  sqlite_entity.sqlite_wrapper
+
+

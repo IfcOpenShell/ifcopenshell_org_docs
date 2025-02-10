@@ -1,0 +1,128 @@
+:py:mod:`ifcopenshell.util.placement`
+=====================================
+
+.. py:module:: ifcopenshell.util.placement
+
+
+Module Contents
+---------------
+
+.. py:function:: a2p(o: Iterable[float], z: Iterable[float], x: Iterable[float]) -> MatrixType
+
+   Converts a location, X, and Z axis vector to a 4x4 transformation matrix
+
+   IFC uses a right-handed coordinate system, so it is not necessary to
+   provide the Y axis.
+
+   :param o: The origin (i.e. location) of the matrix
+   :type o: iterable[float]
+   :param z: The +Z vector / axis of the matrix
+   :type z: iterable[float]
+   :param x: The +X vector / axis of the matrix
+   :type x: iterable[float]
+   :return: A 4x4 numpy matrix
+   :rtype: MatrixType
+
+
+.. py:function:: get_axis2placement(placement: ifcopenshell.entity_instance) -> MatrixType
+
+   Parses an IfcAxis2Placement (2D or 3D) to a 4x4 transformation matrix
+
+   Note that this function only parses a single placement axis. If you want to
+   get the placement of an element instead, element placements often are made
+   out of multiple placement axes or other alternative placement methods. You
+   should use ``get_local_placement`` instead.
+
+   :param placement: The IfcLocalPlacement enitity
+   :type placement: ifcopenshell.entity_instance
+   :return: A 4x4 numpy matrix
+   :rtype: MatrixType
+
+
+.. py:function:: get_cartesiantransformationoperator3d(inst: ifcopenshell.entity_instance) -> MatrixType
+
+   Parses an IfcCartesianTransformationOperator into a 4x4 transformation matrix
+
+   Note that in general you will not need to call this directly. See
+   ``get_mappeditem_transformation`` instead.
+
+   :param item: The IfcCartesianTransformationOperator entity
+   :type item: ifcopenshell.entity_instance
+   :return: A 4x4 numpy transformation matrix
+   :rtype: MatrixType
+
+
+.. py:function:: get_local_placement(placement: Optional[ifcopenshell.entity_instance] = None) -> MatrixType
+
+   Parse a local placement into a 4x4 transformation matrix
+
+   This is typically used to find the location and rotation of an element. The
+   transformation matrix takes the form of:
+
+   .. code::
+
+       [ [ x_x, y_x, z_x, x   ]
+         [ x_y, y_y, z_y, y   ]
+         [ x_z, y_z, z_z, z   ]
+         [ 0.0, 0.0, 0.0, 1.0 ] ]
+
+   Example:
+
+   .. code:: python
+
+       placement = file.by_type("IfcBeam")[0].ObjectPlacement
+       matrix = ifcopenshell.util.placement.get_local_placement(placement)
+
+   :param placement: The IfcLocalPlacement entity
+   :type placement: ifcopenshell.entity_instance, optional
+   :return: A 4x4 numpy matrix
+   :rtype: MatrixType
+
+
+.. py:function:: get_mappeditem_transformation(item: ifcopenshell.entity_instance) -> MatrixType
+
+   Parse an IfcMappedItem into a 4x4 transformation matrix
+
+   Mapped items take a representation with an origin and transform them with a
+   cartesian transformation operation. This function returns the final
+   transformation matrix.
+
+   :param item: The IfcMappedItem entity
+   :type item: ifcopenshell.entity_instance
+   :return: A 4x4 numpy transformation matrix
+   :rtype: MatrixType
+
+
+.. py:function:: get_storey_elevation(storey: ifcopenshell.entity_instance) -> float
+
+   Get the Z elevation in project units of a buildling storey
+
+   Building storeys store elevation in two possible locations: the Z value of
+   its placement, or as a fallback the ``Elevation`` attribute.
+
+   :param storey: The IfcBuildingStorey entity
+   :type storey: ifcopenshell.entity_instance
+   :return: The elevation in project units
+   :rtype: float
+
+
+.. py:function:: rotation(angle: float, axis: Literal['X', 'Y', 'Z'], is_degrees=True) -> MatrixType
+
+   Create a 4x4 numpy matrix representing an euler rotation
+
+   :param angle: The angle of rotation
+   :type angle: float
+   :param axis: The axis to rotate around, either X, Y, or Z.
+   :type axis: str
+   :param is_degrees: Whether or not the angle is specified in degrees or
+       radians. Defaults to true (i.e. degrees).
+   :type is_degrees: bool
+   :return: A 4x4 numpy rotation matrix
+   :rtype: MatrixType
+
+
+.. py:data:: MatrixType
+
+   `npt.NDArray[np.float64]`
+
+

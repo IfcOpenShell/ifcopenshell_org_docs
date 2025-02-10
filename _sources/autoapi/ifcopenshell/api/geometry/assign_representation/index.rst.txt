@@ -1,0 +1,27 @@
+:py:mod:`ifcopenshell.api.geometry.assign_representation`
+=========================================================
+
+.. py:module:: ifcopenshell.api.geometry.assign_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: assign_product_representation(product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
+
+
+   .. py:method:: execute() -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
+.. py:function:: assign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
+

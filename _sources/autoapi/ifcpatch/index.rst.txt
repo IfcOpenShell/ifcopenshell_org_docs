@@ -1,0 +1,125 @@
+:py:mod:`ifcpatch`
+==================
+
+.. py:module:: ifcpatch
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   recipes/index.rst
+
+
+Package Contents
+----------------
+
+.. py:class:: ArgumentsDict
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: arguments
+      :type:  typing_extensions.NotRequired[Sequence[Any]]
+
+
+   .. py:attribute:: file
+      :type:  typing_extensions.NotRequired[ifcopenshell.file]
+
+
+   .. py:attribute:: input
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: log
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: recipe
+      :type:  str
+
+
+.. py:function:: execute(args: ArgumentsDict) -> Union[ifcopenshell.file, str]
+
+   Execute a patch recipe
+
+   The details of how the patch recipe is executed depends on the definition of
+   the recipe, as well as the arguments passed to the recipe. See the
+   documentation for each patch recipe separately to understand more.
+
+   :param args: A dictionary of arguments, corresponding to the parameters
+       listed subsequent to this in this docstring.
+   :type args: dict
+   :param file: An IFC model to apply the patch recipe to.
+       Required for most recipes except the ones that require `input`.
+   :type file: ifcopenshell.file, optional
+   :param input: A filepath to the incoming IFC file.
+       Required/supported only for some recipes, see specific recipes descriptions,
+       in other cases will be ignored.
+   :type input: str, optional
+   :param recipe: The name of the recipe. This is the same as the filename of
+       the recipe. E.g. "ExtractElements".
+   :type recipe: str
+   :param log: A filepath to a logfile.
+   :type log: str,optional
+   :param arguments: A list of zero or more positional arguments, depending on
+       the patch recipe. Some patch recipes will require you to specify
+       arguments, some won't.
+   :type arguments: list
+   :return: The result of the patch. This is typically a patched model, either
+       as an object or as a string.
+
+   Example:
+
+   .. code:: python
+
+       output = ifcpatch.execute({
+           "input": "input.ifc",
+           "file": ifcopenshell.open("input.ifc"),
+           "recipe": "ExtractElements",
+           "arguments": [".IfcWall"],
+       })
+       ifcpatch.write(output, "output.ifc")
+
+
+.. py:function:: extract_docs(submodule_name: str, cls_name: str, method_name: str = '__init__', boilerplate_args: Optional[Iterable[str]] = None) -> Union[dict[str, Any], None]
+
+   Extract class docstrings and method arguments
+
+   :param submodule_name: Submodule from which to extract the class
+   :param cls_name: Class from which to extract the docstring and method arguments
+   :param method_name: Class Method name from which to extract arguments
+   :param boilerplate_args: String iterable containing arguments that shall not be parsed
+
+
+.. py:function:: write(output: Union[ifcopenshell.file, str], filepath: str) -> None
+
+   Write the output of an IFC patch to a file
+
+   Typically a patch output would be a patched IFC model file object, or as a
+   string. This function lets you agnostically write that output to a filepath.
+
+   :param output: The results from ifcpatch.execute()
+   :type output: ifcopenshell.file.file,str
+   :param filepath: A filepath to where the results of the patched model should
+       be written to.
+   :type filepath: str
+   :return: None
+   :rtype: None
+
+

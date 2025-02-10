@@ -1,0 +1,64 @@
+:py:mod:`ifcopenshell.guid`
+===========================
+
+.. py:module:: ifcopenshell.guid
+
+.. autoapi-nested-parse::
+
+   Reads and writes encoded GlobalIds.
+
+   IFC entities may be identified using a unique ID (called a UUID or GUID).
+   This 128-bit label is often represented in the form
+   ```
+   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.
+   ```
+   However, in IFC, it is also usually stored as a
+   22 character base 64 encoded string.
+   This module lets you convert between these representations and generate new UUIDs.
+
+   NOTE: The Ifc convention for Base64 encoding differs from the standard.
+
+   The "digits" of a standard Base64 encoding are as follows:
+   ```
+   ABC...XYZ abc...XYZ 012...89 +/
+   ```
+   (see <https://www.rfc-editor.org/rfc/rfc4648.txt>,
+   <https://base64.guru/learn/base64-characters>),
+   whereas the Ifc convention is
+   ```
+   012...89 ABC...XYZ abc...XYZ _$
+   ```
+   cf. <https://technical.buildingsmart.org/resources/ifcimplementationguidance/ifc-guid>.
+
+
+
+Module Contents
+---------------
+
+.. py:function:: compress(uuid: str, /) -> str
+
+   Converts a hex-encoded UUID to a base64-encoded GUID in IFC-format.
+
+   See <https://technical.buildingsmart.org/resources/ifcimplementationguidance/ifc-guid>
+
+
+.. py:function:: expand(guid: str, /) -> str
+
+   Converts a base64-encoded GUID in IFC-format to a hex-encoded UUID.
+
+   See <https://technical.buildingsmart.org/resources/ifcimplementationguidance/ifc-guid>
+
+
+.. py:function:: new() -> str
+
+   Generates a random UUID and compresses it to a Base 64 IFC GUID.
+
+
+.. py:function:: split(uuid: str, /) -> str
+
+   Formats a UUID as
+   ```
+   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   ```
+
+

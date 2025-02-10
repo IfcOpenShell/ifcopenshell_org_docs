@@ -1,0 +1,60 @@
+:py:mod:`ifcpatch.recipes.AssignConstituentFractions`
+=====================================================
+
+.. py:module:: ifcpatch.recipes.AssignConstituentFractions
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, *args)
+
+   Assigns fractions to material constituents based on their "width".
+
+   In Reference View MVD, material layer information is exchanged through
+   IfcMaterialConstituentSet and IfcPhysicalComplexQuantity instead of IfcMaterialLayerSet.
+   The layer thicknesses are stored as IfcQuantityLength within IfcPhysicalComplexQuantity
+   with a Discrimination of 'layer'.
+
+   While the Fraction attribute in IfcMaterialConstituent is optional, it's valuable for
+   downstream applications as it indicates the relative proportion of each constituent in
+   the total material composition in a more straightforward way.
+   However, authoring applications often export material constituents without setting this attribute.
+
+   This patcher helps maintain proper material information in Reference View exports by:
+   1. Finding width quantities from IfcPhysicalComplexQuantity with 'layer' discrimination
+   2. Using these widths to calculate relative proportions
+   3. Setting the optional but valuable Fraction attribute
+
+   For example, if a wall has constituents with widths of 0.1m and 0.2m, their fractions
+   would be set to 0.333 and 0.667 respectively.
+
+   References:
+   - IFC4 Reference View MVD: https://standards.buildingsmart.org/MVD/RELEASE/IFC4/ADD2_TC1/RV1_2/HTML/
+   - IfcMaterialConstituent: https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD2_TC1/HTML/schema/ifcmaterialresource/lexical/ifcmaterialconstituent.htm
+
+
+   .. py:method:: calculate_constituent_widths(constituents: List[ifcopenshell.entity_instance], elements: set[ifcopenshell.entity_instance], unit_scale: float) -> Tuple[Dict[ifcopenshell.entity_instance, float], float]
+
+      Calculate the widths of constituents based on associated quantities.
+
+
+
+   .. py:method:: get_element_quantities(element: ifcopenshell.entity_instance) -> Dict[str, float]
+
+      Get width quantities for an element.
+
+
+
+   .. py:method:: patch()
+
+      Execute the patch to assign fractions to material constituents.
+
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+

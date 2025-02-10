@@ -1,0 +1,30 @@
+:py:mod:`ifcopenshell.api.owner.remove_organisation`
+====================================================
+
+.. py:module:: ifcopenshell.api.owner.remove_organisation
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_organisation(file: ifcopenshell.file, organisation: ifcopenshell.entity_instance) -> None
+
+   Remove an organisation
+
+   All roles and addresses assigned to the organisation will also be
+   removed.
+
+   :param organisation: The IfcOrganization to remove
+   :type organisation: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       ifcopenshell.api.owner.remove_organisation(model, organisation=organisation)
+
+

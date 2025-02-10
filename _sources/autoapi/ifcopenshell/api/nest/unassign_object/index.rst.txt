@@ -1,0 +1,39 @@
+:py:mod:`ifcopenshell.api.nest.unassign_object`
+===============================================
+
+.. py:module:: ifcopenshell.api.nest.unassign_object
+
+
+Module Contents
+---------------
+
+.. py:function:: unassign_object(file: ifcopenshell.file, related_objects: list[ifcopenshell.entity_instance]) -> None
+
+   Unassigns related_objects from their nests.
+
+   An object (the whole within a decomposition) is Nested by zero or one more smaller objects.
+   This function will remove this nesting relationship.
+
+   If the object is not part of a nesting relationship, nothing will happen.
+
+   :param related_objects: The list of children of the nesting relationship,
+       typically IfcElements.
+   :type related_objects: list[ifcopenshell.entity_instance]
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       task = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTasks")
+       subtask1 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTask")
+       subtask2 = ifcopenshell.api.root.create_entity(model, ifc_class="IfcTask")
+       ifcopenshell.api.nest.assign_object(model, related_objects=[subtask1], relating_object=task)
+       ifcopenshell.api.nest.assign_object(model, related_objects=[subtask2], relating_object=task)
+       # nothing is returned
+       rel = ifcopenshell.api.nest.unassign_object(model, related_objects=[subtask1])
+       # nothing is returned, relationship is removed
+       ifcopenshell.api.nest.unassign_object(model, related_objects=[subtask2])
+
+

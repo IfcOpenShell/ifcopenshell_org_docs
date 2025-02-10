@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.util.classification`
+==========================================
+
+.. py:module:: ifcopenshell.util.classification
+
+
+Module Contents
+---------------
+
+.. py:function:: get_classification(reference: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+.. py:function:: get_classification_data(file: ifcopenshell.file) -> Optional[tuple[list[dict], str]]
+
+.. py:function:: get_inherited_references(reference: Optional[ifcopenshell.entity_instance]) -> list[ifcopenshell.entity_instance]
+
+.. py:function:: get_references(element: ifcopenshell.entity_instance, should_inherit=True) -> set[ifcopenshell.entity_instance]
+

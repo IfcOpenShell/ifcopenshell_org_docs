@@ -1,0 +1,30 @@
+:py:mod:`ifcopenshell.api.geometry.add_mesh_representation`
+===========================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_mesh_representation
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: create_faceted_brep()
+
+
+   .. py:method:: create_mesh_representation()
+
+
+   .. py:method:: create_polygonal_face_set()
+
+
+   .. py:method:: execute()
+
+
+.. py:function:: add_mesh_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, vertices: list[COORD_3D], edges: list[tuple[int, int]] = None, faces: list[list[int]] = None, cooridnate_offset: Optional[COORD_3D] = None, unit_scale: Optional[float] = None, force_faceted_brep: bool = False) -> ifcopenshell.entity_instance
+
+.. py:data:: COORD_3D
+

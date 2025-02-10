@@ -1,0 +1,41 @@
+:py:mod:`ifcopenshell.api.project.unassign_declaration`
+=======================================================
+
+.. py:module:: ifcopenshell.api.project.unassign_declaration
+
+
+Module Contents
+---------------
+
+.. py:function:: unassign_declaration(file: ifcopenshell.file, definitions: list[ifcopenshell.entity_instance], relating_context: ifcopenshell.entity_instance) -> None
+
+   Unassigns a list of objects from a project or project library
+
+   Typically used to remove an asset from a project library.
+
+   :param definitions: The list of objects you want to undeclare.
+       Typically a list of assets.
+   :type definitions: list[ifcopenshell.entity_instance]
+   :param relating_context: The IfcProject, or more commonly the
+       IfcProjectLibrary that you want the object to no longer be part of.
+   :type relating_context: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Programmatically generate a library. You could do this visually too.
+       library = ifcopenshell.api.project.create_file()
+       root = ifcopenshell.api.root.create_entity(library, ifc_class="IfcProject", name="Demo Library")
+       context = ifcopenshell.api.root.create_entity(library,
+           ifc_class="IfcProjectLibrary", name="Demo Library")
+
+       # It's necessary to say our library is part of our project.
+       ifcopenshell.api.project.assign_declaration(library, definitions=[context], relating_context=root)
+
+       # Remove the library from our project
+       ifcopenshell.api.project.unassign_declaration(library, definitions=[context], relating_context=root)
+
+

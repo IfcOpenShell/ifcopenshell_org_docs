@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.util.brick`
+=================================
+
+.. py:module:: ifcopenshell.util.brick
+
+
+Module Contents
+---------------
+
+.. py:function:: get_brick_type(element)
+
+.. py:function:: get_element_feeds(element)
+
+.. py:data:: cwd
+
+.. py:data:: ifc4_to_brick_map
+
+.. py:data:: ifc4_to_brick_map
+

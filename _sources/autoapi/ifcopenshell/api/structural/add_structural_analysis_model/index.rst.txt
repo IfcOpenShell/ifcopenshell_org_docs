@@ -1,0 +1,30 @@
+:py:mod:`ifcopenshell.api.structural.add_structural_analysis_model`
+===================================================================
+
+.. py:module:: ifcopenshell.api.structural.add_structural_analysis_model
+
+
+Module Contents
+---------------
+
+.. py:function:: add_structural_analysis_model(file: ifcopenshell.file) -> ifcopenshell.entity_instance
+
+   Add a new structural analysis model
+
+   A structural analysis model is a group of all the loads, reactions,
+   structural members, and structural connections required to describe a
+   structural analysis model.
+
+   A 3D analytical model is assumed.
+
+   :return: The newly created IfcStructuralAnalysisModel
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Create a fresh blank structural analysis
+       analysis = ifcopenshell.api.structural.add_structural_analysis_model(model)
+
+

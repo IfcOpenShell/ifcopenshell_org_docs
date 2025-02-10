@@ -1,0 +1,29 @@
+:py:mod:`ifcopenshell.express.header`
+=====================================
+
+.. py:module:: ifcopenshell.express.header
+
+
+Module Contents
+---------------
+
+.. py:class:: Header(mapping)
+
+   Bases: :py:obj:`codegen.Base`
+
+
+   .. py:attribute:: file_name
+
+
+   .. py:attribute:: schema_name
+
+
+   .. py:attribute:: str
+
+
+.. py:data:: Generator
+
+.. py:data:: USE_VIRTUAL_INHERITANCE
+   :value: True
+
+

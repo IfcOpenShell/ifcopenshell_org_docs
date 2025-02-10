@@ -1,0 +1,32 @@
+:py:mod:`ifcopenshell.api.owner.remove_person`
+==============================================
+
+.. py:module:: ifcopenshell.api.owner.remove_person
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_person(file: ifcopenshell.file, person: ifcopenshell.entity_instance) -> None
+
+   Remove an person
+
+   All roles and addresses assigned to the person will also be
+   removed.
+   In IFC2X3 will also remove related inventories if `person` was
+   the only responsile person for them.
+
+   :param person: The IfcPerson to remove
+   :type person: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       ifcopenshell.api.owner.add_person(model,
+           identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
+       ifcopenshell.api.owner.remove_person(model, person=person)
+
+

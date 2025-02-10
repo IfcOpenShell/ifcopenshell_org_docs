@@ -1,0 +1,46 @@
+:py:mod:`ifcopenshell.api.library.assign_reference`
+===================================================
+
+.. py:module:: ifcopenshell.api.library.assign_reference
+
+
+Module Contents
+---------------
+
+.. py:function:: assign_reference(file: ifcopenshell.file, products: ifcopenshell.entity_instance, reference: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+   Associates a list products with a library reference
+
+   A product may be associated with zero, one, or many references across
+   multiple libraries. See ifcopenshell.api.library.add_reference for more
+   detail about how references work.
+
+   :param products: The list of IfcProducts you want to associate with the reference
+   :type products: list[ifcopenshell.entity_instance]
+   :param reference: The IfcLibraryReference you want the product to be
+       associated with.
+   :type reference: ifcopenshell.entity_instance
+   :return: The IfcRelAssociatesLibrary relationship entity
+       or `None` if `products` was an empty list or all products were
+       already assigned to the `reference`.
+   :rtype: Union[ifcopenshell.entity_instance, None]
+
+   Example:
+
+   .. code:: python
+
+       library = ifcopenshell.api.library.add_library(model, name="Brickschema")
+
+       # Let's create a reference to a single AHU in our Brickschema dataset
+       reference = ifcopenshell.api.library.add_reference(model, library=library)
+       ifcopenshell.api.library.edit_reference(model,
+           reference=reference, attributes={"Identification": "http://example.org/digitaltwin#AHU01"})
+
+       # Let's assume we have an AHU in our model.
+       ahu = ifcopenshell.api.root.create_entity(model,
+           ifc_class="IfcUnitaryEquipment", predefined_type="AIRHANDLER")
+
+       # And now assign the IFC model's AHU with its Brickschema counterpart
+       ifcopenshell.api.library.assign_reference(model, reference=reference, products=[ahu])
+
+

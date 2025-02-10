@@ -1,0 +1,34 @@
+:py:mod:`ifcopenshell.api.georeference.add_georeferencing`
+==========================================================
+
+.. py:module:: ifcopenshell.api.georeference.add_georeferencing
+
+
+Module Contents
+---------------
+
+.. py:function:: add_georeferencing(file: ifcopenshell.file, ifc_class: str = 'IfcMapConversion', name: str = 'EPSG:3857') -> None
+
+   Add empty georeferencing entities to a model
+
+   By default, models are not georeferenced. Georeferencing requires two
+   entities: a definition of the projected coordinated reference system
+   (CRS) used, and the transformation parameters between any local coordinate
+   system and that projected CRS if any.
+
+   This function will create the entities to store the projected CRS and
+   map conversion transformation, but will leave all the parameters blank.
+   It is this the users responsibility to specify the correct
+   georeferencing parameters. See
+   ifcopenshell.api.georeference.edit_georeferencing.
+
+   :param ifc_class: A type of IfcCoordinateOperation. For IFC2X3, this has no
+       impact and only uses ePSet_MapConversion.
+
+   Example:
+
+   .. code:: python
+
+       ifcopenshell.api.georeference.add_georeferencing(model)
+
+

@@ -1,0 +1,29 @@
+:py:mod:`ifcopenshell.api.profile.copy_profile`
+===============================================
+
+.. py:module:: ifcopenshell.api.profile.copy_profile
+
+
+Module Contents
+---------------
+
+.. py:function:: copy_profile(file: ifcopenshell.file, profile: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Copies a profile
+
+   All profile's psets are copied. The copied profile is not
+   associated to any elements.
+
+   :param profile: The IfcProfileDef to copy
+   :return: The new copy of the profile
+
+   Example:
+
+   .. code:: python
+
+       profile = ifcopenshell.api.profile.add_profile(model, ifc_class="IfcRectangleProfileDef")
+
+       # Let's duplicate the rectangle profile
+       profile_copy = ifcopenshell.api.profile.copy_profile(model, profile=profile)
+
+

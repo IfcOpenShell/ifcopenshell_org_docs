@@ -1,0 +1,62 @@
+:py:mod:`ifcopenshell.api.owner.settings`
+=========================================
+
+.. py:module:: ifcopenshell.api.owner.settings
+
+
+Module Contents
+---------------
+
+.. py:function:: factory_reset()
+
+   Reset the get_user and get_application functions to what came out of box
+
+   When you are developing a custom application, you will typically override
+   the get_user and get_application function to your own needs. Sometimes you
+   want to reset it to before you monkey-patched it. This function does that
+   reset.
+
+
+.. py:function:: get_application(ifc: ifcopenshell.file) -> Union[ifcopenshell.entity_instance, None]
+
+   Returns the application representing the authoring software
+
+   It is expected for you to overload this function with your own
+   IfcApplication. See ifcopenshell.api.owner.create_owner_history for details.
+
+   :param ifc: The IFC file object that is being edited.
+   :type ifc: ifcopenshell.file
+   :return: The IfcApplication with metadata of the authoring software.
+   :rtype: ifcopenshell.entity_instance
+
+
+.. py:function:: get_user(ifc: ifcopenshell.file) -> Union[ifcopenshell.entity_instance, None]
+
+   Returns the active authoring user
+
+   It is expected for you to overload this function with your own
+   IfcApplication. See ifcopenshell.api.owner.create_owner_history for details.
+
+   :param ifc: The IFC file object that is being edited.
+   :type ifc: ifcopenshell.file
+   :return: The IfcPersonAndOrganization with metadata of the authoring user.
+   :rtype: ifcopenshell.entity_instance
+
+
+.. py:function:: restore()
+
+   Restore the get_user and get_application function prior to a reset
+
+   In case you want to restore the monkey-patched version of get_user and
+   get_application that existed before you applied a factory_reset(), this
+   function will do that.
+
+
+.. py:data:: get_application_backup
+
+.. py:data:: get_application_factory
+
+.. py:data:: get_user_backup
+
+.. py:data:: get_user_factory
+

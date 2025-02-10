@@ -1,0 +1,49 @@
+:py:mod:`ifcpatch.recipes.ResetSpatialElementLocations`
+=======================================================
+
+.. py:module:: ifcpatch.recipes.ResetSpatialElementLocations
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file, logger, ifc_class='IfcSite')
+
+   
+   Resets the location of a spatial element to 0,0,0
+
+   Another more specialised patch to fix incorrect coordinate usage is to
+   reset the location of spatial elements (sites, buildings, storeys) back
+   to 0,0,0.
+
+   :param ifc_class: The class of spatial element to reset coordinates for.
+   :type ifc_class: str
+
+   Example:
+
+   .. code:: python
+
+       # All IfcSites will shift back to 0,0,0.
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetSpatialElementLocations", "arguments": ["IfcSite"]})
+
+
+   .. py:method:: find_decomposed_ifc_class(element, ifc_class)
+
+
+   .. py:method:: patch()
+
+
+   .. py:method:: patch_placement_to_origin(element)
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: ifc_class
+      :value: 'IfcSite'
+
+
+
+   .. py:attribute:: logger
+
+

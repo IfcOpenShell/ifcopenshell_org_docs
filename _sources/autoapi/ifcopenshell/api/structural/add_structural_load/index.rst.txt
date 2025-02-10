@@ -1,0 +1,34 @@
+:py:mod:`ifcopenshell.api.structural.add_structural_load`
+=========================================================
+
+.. py:module:: ifcopenshell.api.structural.add_structural_load
+
+
+Module Contents
+---------------
+
+.. py:function:: add_structural_load(file: ifcopenshell.file, name: Optional[str] = None, ifc_class: str = 'IfcStructuralLoadLinearForce') -> ifcopenshell.entity_instance
+
+   Adds a new structural load
+
+   Structural loads may be actions or reactions. A simple load might be a
+   static and be linear, planar, or a single point. Alternatively, loads
+   may be defined as a configuration of multiple loads.
+
+   :param name: The name of the load
+   :type name: str,optional
+   :param ifc_class: The subtype of IfcStructuralLoad to create. Consult
+       the IFC documentation to see all the types of loads.
+   :type ifc_class: str
+   :return: The newly created load entity, depending on the ifc_class
+       specified.
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Create a simple linear load
+       ifcopenshell.api.structural.add_structural_load(model)
+
+

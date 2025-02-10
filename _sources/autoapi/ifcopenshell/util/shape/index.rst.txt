@@ -1,0 +1,463 @@
+:py:mod:`ifcopenshell.util.shape`
+=================================
+
+.. py:module:: ifcopenshell.util.shape
+
+
+Module Contents
+---------------
+
+.. py:function:: get_area(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the surface area of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The surface area.
+
+
+.. py:function:: get_area_vf(vertices: numpy.typing.NDArray[numpy.float64], faces: numpy.typing.NDArray[numpy.int32]) -> float
+
+   Calculates the surface area given a list of vertices and triangulated faces
+
+   :param vertices: A list of 3D vertices, such as returned from get_vertices.
+   :param faces: A list of faces, such as returned from get_faces.
+   :return: The surface area.
+
+
+.. py:function:: get_bbox(vertices: numpy.typing.NDArray[numpy.float64]) -> tuple[numpy.typing.NDArray[numpy.float64], numpy.typing.NDArray[numpy.float64]]
+
+   Gets the bounding box of vertices
+
+   :param vertices: An iterable of vertices
+   :return: The bounding box value represented as a tuple of two numpy arrays.
+       The first holds the bottom left corner and the second holds the top
+       right.  E.g.  (np.array([minx, miny, minz]), np.array([maxx, maxy,
+       maxz]))
+
+
+.. py:function:: get_bbox_centroid(geometry: ifcopenshell.geom.ShapeType) -> tuple[float, float, float]
+
+   Calculates the bounding box centroid of the geometry
+
+   The centroid is in local coordinates relative to the object's placement.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A tuple representing the XYZ centroid
+
+
+.. py:function:: get_bottom_elevation(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the lowest local Z ordinate of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Z value
+
+
+.. py:function:: get_edges(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+
+   Get all the edges as a numpy array
+
+   Results are a nested numpy array e.g. [[e1v1, e1v2], [e2v1, e2v2], ...]
+
+   Note that although geometry always holds triangulated faces, edges will
+   represent the original tessellation or BRep's faces, which may be quads or
+   ngons.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A numpy array listing all the edges.
+       Array shape: (n, 2), where n - number of edges.
+
+
+.. py:function:: get_edges_representation_item_ids(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+
+   Get representation item ids for the geometry edges.
+
+   Can be useful for geometry without faces and in general is more universal
+   since it's possible that geometry will have elements with and without faces.
+
+
+.. py:function:: get_element_bbox_centroid(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+
+   Calculates the element's bounding box centroid
+
+   The centroid is in global coordinates. Note that if you have the shape, it
+   is more efficient to use ``get_shape_bbox_centroid``.
+
+   :param element: The element occurrence
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A tuple representing the XYZ centroid
+
+
+.. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the lowest global Z ordinate of the element
+
+   Note that if you have the shape, it is more efficient to use
+   ``get_shape_bottom_elevation``.
+
+   :param element: The element occurrence
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Z value
+
+
+.. py:function:: get_element_top_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the highest global Z ordinate of the element
+
+   Note that if you have the shape, it is more efficient to use
+   ``get_shape_top_elevation``.
+
+   :param element: The element occurrence
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Z value
+
+
+.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+
+   Get the element's vertices as a numpy array
+
+   Vertices are in global coordinates. Note that if you have the shape, it is
+   more efficient to use ``get_shape_vertices``.
+
+   Results are a nested numpy array e.g. [[v1x, v1y, v1z], [v2x, v2y, v2z], ...]
+
+   :param element: The element occurrence
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A numpy array listing all the vertices. Each vertex is a numpy array with XYZ coordinates.
+
+
+.. py:function:: get_extrusions(element: ifcopenshell.entity_instance) -> Union[list[ifcopenshell.entity_instance], None]
+
+   Gets all extruded area solids used to define an element's model body geometry
+
+   :param element: The element occurrence
+   :return: A list of extrusion representation items or `None` if element has no representation.
+
+
+.. py:function:: get_faces(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+
+   Get all the faces as a numpy array
+
+   Faces are always triangulated. If the shape is a BRep and you want to get
+   the original untriangulated output, refer to ``get_edges``.
+
+   Results are a nested numpy array e.g. [[f1v1, f1v2, f1v3], [f2v1, f2v2, f2v3], ...]
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A numpy array listing all the faces.
+       Array shape: (n, 3), where n - number of faces.
+
+
+.. py:function:: get_faces_material_style_ids(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+
+   Get material styles ids for the geometry faces.
+
+   Return a list of corresponding indices of styles from get_shape_material_styles for each face.
+   If face has no style assigned, index -1 is used.
+
+
+.. py:function:: get_faces_representation_item_ids(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+
+   Get representation item ids for the geometry faces.
+
+
+.. py:function:: get_footprint_area(geometry: ifcopenshell.geom.ShapeType, axis: AXIS_LITERAL = 'Z', direction: Optional[VECTOR_3D] = None) -> float
+
+   Calculates the total footprint (i.e. projected) surface area visible from along an axis
+
+   This is typically useful for calculating footprint areas. For example, you
+   might want to calculate the top-down footprint area of a slab, ignoring
+   slopes in the slab.
+
+   Surfaces do not need to be exactly perpendicular in the direction of the
+   specified axis. A surface is counted so long as it is visible from that
+   axis.
+
+   Note that this calculates the 2D projected area, not the actual surface
+   area. If you want the actual area, use ``get_side_area``.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :param axis: Either X, Y, or Z. Defaults to Z.
+   :param direction: An XYZ iterable (e.g. (0., 0., 1.)). If a direction
+       vector is specified, this overrides the axis argument.
+   :return: The surface area.
+
+
+.. py:function:: get_footprint_perimeter(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the footprint perimeter of the geometry
+
+   All faces with a negative Z normal are considered and the distance of all
+   perimeter edges are totaled.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The perimeter length
+
+
+.. py:function:: get_material_colors(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+
+   Get material colors as a numpy array.
+
+   :return: A numpy array listing RGBA color for each shape's material.
+       Array shape: (1, 4).
+
+
+.. py:function:: get_max_side_area(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Returns the maximum X, Y, or Z side area
+
+   See :func:`get_side_area` for how side area is calculated.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The maximum surface area from either the X, Y, or Z axis.
+
+
+.. py:function:: get_max_xy(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the maximum X or Y length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The maximum possible value out of the X and Y dimension
+
+
+.. py:function:: get_max_xyz(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the maximum X, Y, or Z length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The maximum possible value out of the X, Y, and Z dimension
+
+
+.. py:function:: get_min_xyz(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the minimum X, Y, or Z length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The minimum possible value out of the X, Y, and Z dimension
+
+
+.. py:function:: get_normals(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+
+   Get vertex normals as a numpy array.
+
+   See geometry settings documentation for settings that affect normals.
+
+   :return: A numpy array listing normal for each shape vertex.
+       Array shape: (1, 3).
+
+
+.. py:function:: get_outer_surface_area(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the outer surface area (i.e. all sides except for top and bottom)
+
+   This is typically useful for calculating painted areas of beams which
+   exclude the end faces (at the minimum and maximum local Z).
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The surface area.
+
+
+.. py:function:: get_profiles(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+   Gets all 2D profiles used in the definition of a parametric shape
+
+   Profiles may be retrieved either from material profile sets or from swept
+   solid extrusions. This is useful for later doing 2D take-off from profiles.
+
+   :param element: The element occurrence
+   :return: A list of profiles
+
+
+.. py:function:: get_shape_bbox_centroid(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+
+   Calculates the shape's bounding box centroid
+
+   The centroid is in global coordinates. Note that if you do not have the
+   shape, you can use ``get_element_bbox_centroid``.
+
+   :param shape: Shape output calculated by IfcOpenShell
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A tuple representing the XYZ centroid
+
+
+.. py:function:: get_shape_bottom_elevation(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the lowest global Z ordinate of the shape
+
+   If you do not have the shape, you can use ``get_element_bottom_elevation``
+   instead.
+
+   :param shape: Shape output calculated by IfcOpenShell
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Z value
+
+
+.. py:function:: get_shape_material_styles(geometry: ifcopenshell.geom.ShapeType) -> tuple[ifcopenshell.ifcopenshell_wrapper.style, Ellipsis]
+
+   Get list of material styles.
+
+   Possible values for `style.instance_id()`:
+   - IFC style id if style assigned to the representation items directly
+   or through material with a style;
+   - IFC material id if both true:
+     - element has a material without a style;
+     - there are parts of the geometry that has no other style assigned to them;
+   - -1 in case if there is no material;
+   - 0 in case if there are default materials used.
+
+
+.. py:function:: get_shape_matrix(shape: ifcopenshell.geom.ShapeElementType) -> MatrixType
+
+   Formats the transformation matrix of a shape as a 4x4 numpy array
+
+   :param shape: Shape output calculated by IfcOpenShell
+   :return: A 4x4 numpy array representing the transformation matrix
+
+
+.. py:function:: get_shape_top_elevation(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the highest global Z ordinate of the shape
+
+   If you do not have the shape, you can use ``get_element_top_elevation``
+   instead.
+
+   :param shape: Shape output calculated by IfcOpenShell
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Z value
+
+
+.. py:function:: get_shape_vertices(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+
+   Get the shape's vertices as a numpy array
+
+   Vertices are in global coordinates. If you do not have the shape, you can
+   use ``get_element_vertices``.
+
+   Results are a nested numpy array e.g. [[v1x, v1y, v1z], [v2x, v2y, v2z], ...]
+
+   :param shape: Shape output calculated by IfcOpenShell
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A numpy array listing all the vertices. Each vertex is a numpy array with XYZ coordinates.
+       Array shape: (n, 3), where n - number of vertices.
+
+
+.. py:function:: get_side_area(geometry: ifcopenshell.geom.ShapeType, axis: AXIS_LITERAL = 'Y', direction: Optional[ifcopenshell.util.shape_builder.VectorType] = None, angle: float = 90.0) -> float
+
+   Calculates the total surface area of surfaces that are visible from the specified axis
+
+   This is typically useful for calculating elevational areas. For example,
+   you might want to calculate the side area of a wall (i.e. only one side,
+   not both).
+
+   Surfaces do not need to be exactly perpendicular in the direction of the
+   specified axis. A surface is counted so long as it is visible from that
+   axis.
+
+   Note that this calculates the actual area, not the projected 2D area. If
+   you want the projected area, use ``get_footprint_area``.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :param axis: Either X, Y, or Z. Defaults to Y, which is used for standard
+       walls.
+   :param angle: Accept angle difference between face and axis, in degrees.
+       E.g. default angle 90 will find all faces with angle < 90 degrees.
+   :return: The surface area.
+
+
+.. py:function:: get_top_area(geometry: ifcopenshell.geom.ShapeType) -> float
+
+.. py:function:: get_top_elevation(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Gets the highest local Z ordinate of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Z value
+
+
+.. py:function:: get_total_edge_length(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the total length of edges in a given geometry.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The total length of all edges in the geometry.
+
+
+.. py:function:: get_vert_centroid(geometry: ifcopenshell.geom.ShapeType) -> tuple[float, float, float]
+
+   Calculates the average vertex centroid of the geometry
+
+   The centroid is in local coordinates relative to the object's placement.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: A tuple representing the XYZ centroid
+
+
+.. py:function:: get_vertices(geometry: ifcopenshell.geom.ShapeType, is_2d: bool = False) -> numpy.typing.NDArray[numpy.float64]
+
+   Get all the vertices as a numpy array
+
+   Vertices are in local coordinates.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :param is_2d: Set to True to to get XY coordinates only.
+   :return: A numpy array listing all the vertices and their coordinates.
+       Array shape: (n, 3), where n - number of vertices.
+
+
+.. py:function:: get_volume(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the total internal volume of a geometry
+
+   Volumes of non-manifold geometry will be unpredictable.
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The volume in m3
+
+
+.. py:function:: get_x(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the X length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The X dimension
+
+
+.. py:function:: get_y(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the Y length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Y dimension
+
+
+.. py:function:: get_z(geometry: ifcopenshell.geom.ShapeType) -> float
+
+   Calculates the Z length of the geometry
+
+   :param geometry: Geometry output calculated by IfcOpenShell
+   :return: The Z dimension
+
+
+.. py:function:: is_x(value: float, x: float, tolerance: Optional[float] = None) -> bool
+
+   Checks whether a value is equivalent to X given a tolerance
+
+   :param value: Input value
+   :param x: The value to compare to
+   :param tolerance: The tolerance to use. Defaults to 1e-6.
+   :return: True or false
+
+
+.. py:data:: AXIS_LITERAL
+
+.. py:data:: MatrixType
+
+   `npt.NDArray[np.float64]`
+
+
+.. py:data:: VECTOR_3D
+
+.. py:data:: tol
+   :value: 1e-06
+
+

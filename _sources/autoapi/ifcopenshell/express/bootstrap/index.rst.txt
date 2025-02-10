@@ -1,0 +1,163 @@
+:py:mod:`ifcopenshell.express.bootstrap`
+========================================
+
+.. py:module:: ifcopenshell.express.bootstrap
+
+
+Module Contents
+---------------
+
+.. py:class:: Concat(contents)
+
+   Bases: :py:obj:`Expression`
+
+
+   .. py:attribute:: op
+      :value: '+'
+
+
+
+.. py:class:: Expression(contents)
+
+   .. py:attribute:: contents
+
+
+.. py:class:: Keyword(contents)
+
+   .. py:attribute:: contents
+
+
+.. py:class:: Optional(contents)
+
+   Bases: :py:obj:`Expression`
+
+
+   .. py:attribute:: op
+      :value: 'Optional(%s)'
+
+
+
+.. py:class:: Repeated(contents)
+
+   Bases: :py:obj:`Expression`
+
+
+   .. py:attribute:: op
+      :value: 'ZeroOrMore(%s)'
+
+
+
+.. py:class:: Term(contents)
+
+   Bases: :py:obj:`Expression`
+
+
+   .. py:attribute:: op
+      :value: None
+
+
+
+.. py:class:: Terminal(contents)
+
+   .. py:attribute:: contents
+
+
+   .. py:attribute:: is_keyword
+
+
+.. py:class:: Union(contents)
+
+   Bases: :py:obj:`Expression`
+
+
+   .. py:attribute:: op
+      :value: '|'
+
+
+
+.. py:function:: find_bytype(expr, ty, li=None)
+
+.. py:data:: EQUALS
+
+.. py:data:: HASH
+
+.. py:data:: LBRACE
+
+.. py:data:: LBRACK
+
+.. py:data:: LPAREN
+
+.. py:data:: PERIOD
+
+.. py:data:: RBRACE
+
+.. py:data:: RBRACK
+
+.. py:data:: RPAREN
+
+.. py:data:: VBAR
+
+.. py:data:: actions
+
+.. py:data:: concat
+   :value: None
+
+
+.. py:data:: emitted
+
+.. py:data:: emitted_in_loop
+
+.. py:data:: expr
+
+.. py:data:: express
+   :value: None
+
+
+.. py:data:: expression
+
+.. py:data:: factor
+
+.. py:data:: grammar
+
+.. py:data:: identifier
+
+.. py:data:: keyword
+   :value: None
+
+
+.. py:data:: keywords
+
+.. py:data:: negated_keywords
+
+.. py:data:: no_action
+
+.. py:data:: optional
+   :value: None
+
+
+.. py:data:: repeated
+   :value: None
+
+
+.. py:data:: rule
+
+.. py:data:: statements
+   :value: []
+
+
+.. py:data:: term
+
+.. py:data:: terminal
+   :value: None
+
+
+.. py:data:: terminals
+
+.. py:data:: to_combine
+
+.. py:data:: to_emit
+
+.. py:data:: union
+   :value: None
+
+

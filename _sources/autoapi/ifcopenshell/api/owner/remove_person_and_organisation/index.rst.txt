@@ -1,0 +1,36 @@
+:py:mod:`ifcopenshell.api.owner.remove_person_and_organisation`
+===============================================================
+
+.. py:module:: ifcopenshell.api.owner.remove_person_and_organisation
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_person_and_organisation(file: ifcopenshell.file, person_and_organisation: ifcopenshell.entity_instance) -> None
+
+   Removes a person and organisation
+
+   Note that the underlying person and organisation is not removed, only
+   the "person and organisation" group.
+
+   :param person_and_organisation: The IfcPersonAndOrganization to remove.
+   :type person_and_organisation: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       person = ifcopenshell.api.owner.add_person(model,
+           identification="lecorbycorbycorb", family_name="Curbosiar", given_name="Le")
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+
+       user = ifcopenshell.api.owner.add_person_and_organisation(model,
+           person=person, organisation=organisation)
+
+       ifcopenshell.api.owner.remove_person_and_organisation(model, person_and_organisation=user)
+
+

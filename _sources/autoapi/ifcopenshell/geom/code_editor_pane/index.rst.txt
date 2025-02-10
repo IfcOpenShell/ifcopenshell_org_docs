@@ -1,0 +1,106 @@
+:py:mod:`ifcopenshell.geom.code_editor_pane`
+============================================
+
+.. py:module:: ifcopenshell.geom.code_editor_pane
+
+
+Module Contents
+---------------
+
+.. py:class:: StdoutRedirector(widget)
+
+   A class for redirecting stdout to this Text widget.
+
+
+   .. py:method:: write(myStr)
+
+
+   .. py:attribute:: isError
+      :value: False
+
+
+
+   .. py:attribute:: widget
+
+
+.. py:class:: code_edit(viewer, snippets=None)
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QWidget`
+
+
+   .. py:class:: Console
+
+      Bases: :py:obj:`code.InteractiveConsole`
+
+
+      Closely emulate the behavior of the interactive Python interpreter.
+
+      This class builds on InteractiveInterpreter and adds prompting
+      using the familiar sys.ps1 and sys.ps2, and input buffering.
+
+
+      Constructor.
+
+      The optional locals argument will be passed to the
+      InteractiveInterpreter base class.
+
+      The optional filename argument should specify the (file)name
+      of the input stream; it will show up in tracebacks.
+
+
+
+      .. py:method:: enter(source)
+
+
+
+   .. py:method:: load_file(f, **kwargs)
+
+
+   .. py:method:: replace_snippet(number=None)
+
+
+   .. py:method:: runCode()
+
+
+   .. py:method:: select(product)
+
+
+   .. py:attribute:: c
+      :value: None
+
+
+
+   .. py:attribute:: editor
+
+
+   .. py:attribute:: layout
+
+
+   .. py:attribute:: model
+      :value: None
+
+
+
+   .. py:attribute:: output
+
+
+   .. py:attribute:: runbutton
+
+
+   .. py:attribute:: snippets
+      :value: None
+
+
+
+   .. py:attribute:: tools
+
+
+   .. py:attribute:: viewer
+
+
+.. py:data:: QtWidgets
+
+.. py:data:: has_pyqode
+   :value: True
+
+

@@ -1,0 +1,22 @@
+:py:mod:`ifcopenshell.api.structural.remove_structural_analysis_model`
+======================================================================
+
+.. py:module:: ifcopenshell.api.structural.remove_structural_analysis_model
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_structural_analysis_model(file: ifcopenshell.file, structural_analysis_model: ifcopenshell.entity_instance) -> None
+
+   Removes an analysis model
+
+   Note that the contents of an analysis model are currently preserved.
+
+   :param structural_analysis_model: The IfcStructuralAnalysisModel to
+       remove.
+   :type structural_analysis_model: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+

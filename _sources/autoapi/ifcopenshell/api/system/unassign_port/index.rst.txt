@@ -1,0 +1,48 @@
+:py:mod:`ifcopenshell.api.system.unassign_port`
+===============================================
+
+.. py:module:: ifcopenshell.api.system.unassign_port
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: execute()
+
+
+   .. py:method:: execute_ifc2x3()
+
+
+.. py:function:: unassign_port(file: ifcopenshell.file, element: ifcopenshell.entity_instance, port: ifcopenshell.entity_instance) -> None
+
+   Unassigns a port to an element
+
+   Ports are typically always assigned to a distribution element, but in
+   some edge cases you may want to unassign the port to create an orphaned
+   port for cleaning or patchin purposes.
+
+   :param element: The IfcDistributionElement to unassign the port from.
+   :type element: ifcopenshell.entity_instance
+   :param port: The IfcDistributionPort you want to unassign.
+   :type port: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Create a duct
+       duct = ifcopenshell.api.root.create_entity(model,
+           ifc_class="IfcDuctSegment", predefined_type="RIGIDSEGMENT")
+
+       # Create 2 ports, one for either end.
+       port1 = ifcopenshell.api.system.add_port(model, element=duct)
+       port2 = ifcopenshell.api.system.add_port(model, element=duct)
+
+       # Unassign one port for some weird reason.
+       ifcopenshell.api.system.unassign_port(model, element=duct, port=port1)
+
+

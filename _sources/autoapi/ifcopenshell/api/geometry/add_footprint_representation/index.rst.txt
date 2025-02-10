@@ -1,0 +1,11 @@
+:py:mod:`ifcopenshell.api.geometry.add_footprint_representation`
+================================================================
+
+.. py:module:: ifcopenshell.api.geometry.add_footprint_representation
+
+
+Module Contents
+---------------
+
+.. py:function:: add_footprint_representation(file, context: ifcopenshell.entity_instance, curves: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
+

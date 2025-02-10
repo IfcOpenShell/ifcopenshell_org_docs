@@ -1,0 +1,58 @@
+:py:mod:`ifcopenshell.api.unit.add_derived_unit`
+================================================
+
+.. py:module:: ifcopenshell.api.unit.add_derived_unit
+
+
+Module Contents
+---------------
+
+.. py:function:: add_derived_unit(file: ifcopenshell.file, unit_type: str, userdefinedtype: str, attributes: dict[ifcopenshell.entity_instance, int]) -> ifcopenshell.entity_instance
+
+   Add a new Derive unit
+
+   The supported types are ANGULARVELOCITYUNIT, AREADENSITYUNIT, COMPOUNDPLANEANGLEUNIT,
+   DYNAMICVISCOSITYUNIT, HEATFLUXDENSITYUNIT, INTEGERCOUNTRATEUNIT, ISOTHERMALMOISTURECAPACITYUNIT,
+   KINEMATICVISCOSITYUNIT, LINEARVELOCITYUNIT, MASSDENSITYUNIT, MASSFLOWRATEUNIT, MOISTUREDIFFUSIVITYUNIT,
+   MOLECULARWEIGHTUNIT, SPECIFICHEATCAPACITYUNIT, THERMALADMITTANCEUNIT, THERMALCONDUCTANCEUNIT,
+   THERMALRESISTANCEUNIT, THERMALTRANSMITTANCEUNIT, VAPORPERMEABILITYUNIT, VOLUMETRICFLOWRATEUNIT,
+   ROTATIONALFREQUENCYUNIT, TORQUEUNIT, MOMENTOFINERTIAUNIT, LINEARMOMENTUNIT, LINEARFORCEUNIT,
+   PLANARFORCEUNIT, MODULUSOFELASTICITYUNIT, SHEARMODULUSUNIT, LINEARSTIFFNESSUNIT, ROTATIONALSTIFFNESSUNIT,
+   MODULUSOFSUBGRADEREACTIONUNIT, ACCELERATIONUNIT, CURVATUREUNIT, HEATINGVALUEUNIT, IONCONCENTRATIONUNIT,
+   LUMINOUSINTENSITYDISTRIBUTIONUNIT, MASSPERLENGTHUNIT, MODULUSOFLINEARSUBGRADEREACTIONUNIT,
+   MODULUSOFROTATIONALSUBGRADEREACTIONUNIT, PHUNIT, ROTATIONALMASSUNIT, SECTIONAREAINTEGRALUNIT,
+   SECTIONMODULUSUNIT, SOUNDPOWERLEVELUNIT, SOUNDPOWERUNIT, SOUNDPRESSURELEVELUNIT, SOUNDPRESSUREUNIT,
+   TEMPERATUREGRADIENTUNIT, TEMPERATURERATEOFCHANGEUNIT, THERMALEXPANSIONCOEFFICIENTUNIT, WARPINGCONSTANTUNIT,
+   WARPINGMOMENTUNIT, USERDEFINED.
+
+   In case of choosing USERDEFINED, the UserDefinedType parameter needs to be provided
+
+   :param unit_type: A type of unit chosen from the list above. For
+       example, choosing THERMALCONDUCTANCEUNIT will give you a Thermal conductance.
+   :type unit_type: str
+   :param userdefinedtype: The user defined type in case of choosing USERDEFINED, or None for no
+       user defined type.
+   :type userdefinedtype: str or None
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: The newly created IfcDerivedUnit
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Linear velocity in m/s
+       length = ifcopenshell.api.unit.add_si_unit(model, unit_type="LENGTHUNIT")
+       #2=IfcSIUnit(*,.LENGTHUNIT.,$,.METRE.)
+
+       time = ifcopenshell.api.unit.add_si_unit(model, unit_type="TIMEUNIT")
+       #4=IfcSIUnit(*,.TIMEUNIT.,$,.SECOND.)
+
+       linear_velocity = ifcopenshell.api.unit.add_derived_unit(model, 'LINEARVELOCITY', None, {length : 1, time : -1})
+       #10=IfcDerivedUnitElement(#2, 1)
+       #11=IfcDerivedUnitElement(#4, -1)
+       #12=IfcDerivedUnit((#10,#11),.LINEARVELOCITY.,$)
+
+
+

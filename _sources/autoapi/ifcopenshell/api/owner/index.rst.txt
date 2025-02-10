@@ -1,0 +1,783 @@
+:py:mod:`ifcopenshell.api.owner`
+================================
+
+.. py:module:: ifcopenshell.api.owner
+
+.. autoapi-nested-parse::
+
+   An element may have an owner, indicating who is responsible, liable, or
+   contactable regarding that element
+
+   Note that in IFC2X3, element ownership is mandatory and must be addressed prior
+   to the creation of any element at all. See :func:`create_owner_history` for
+   examples.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_actor/index.rst
+   add_address/index.rst
+   add_application/index.rst
+   add_organisation/index.rst
+   add_person/index.rst
+   add_person_and_organisation/index.rst
+   add_role/index.rst
+   assign_actor/index.rst
+   create_owner_history/index.rst
+   edit_actor/index.rst
+   edit_address/index.rst
+   edit_organisation/index.rst
+   edit_person/index.rst
+   edit_role/index.rst
+   remove_actor/index.rst
+   remove_address/index.rst
+   remove_application/index.rst
+   remove_organisation/index.rst
+   remove_person/index.rst
+   remove_person_and_organisation/index.rst
+   remove_role/index.rst
+   settings/index.rst
+   unassign_actor/index.rst
+   update_owner_history/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_actor(file: ifcopenshell.file, actor: ifcopenshell.entity_instance, ifc_class: ACTOR_TYPE = 'IfcActor') -> ifcopenshell.entity_instance
+
+   Adds a new actor
+
+   An actor is a person or an organisation who has a responsibility or role
+   to play in a project. Actor roles include design consultants,
+   architects, engineers, cost planners, suppliers, manufacturers,
+   warrantors, owners, subcontractors, etc.
+
+   Actors may either be project actors, who are responsible for the
+   delivery of the project, or occupants, who are responsible for the
+   consumption of the project.
+
+   Identifying and managing actors is critical for asset management, and
+   identifying liability for legal submissions.
+
+   :param actor: Most commonly, an IfcOrganization (in compliance with GDPR
+       requirements for non personally identifiable information), or an
+       IfcPerson if it is a sole individual, or an IfcPersonAndOrganization
+       if a specific person is liable within an organisation and must be
+       legally nominated.
+   :type actor: ifcopenshell.entity_instance
+   :param ifc_class: Either "IfcActor" or "IfcOccupant".
+   :type ifc_class: str, optional
+   :return: The newly created IfcActor or IfcOccupant
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Setup an organisation with a single role
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="ARCHITECT")
+
+       # Assign that organisation to a newly created actor
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
+
+
+.. py:function:: add_address(file: ifcopenshell.file, assigned_object: ifcopenshell.entity_instance, ifc_class: ADDRESS_TYPE = 'IfcPostalAddress') -> ifcopenshell.entity_instance
+
+   Add a new telecom or postal address to an organisation or person
+
+   A person or organisation may have associated contact details such as
+   phone numbers, mailing addresses, websites, email addresses, and instant
+   messaging handles. This information is critical in recording the contact
+   information of manufacturers and suppliers for facility management, or
+   liable actors.
+
+   There are two types of addresses, postal addresses for physical snail
+   mail, and telecom addresses for telephone or internet contact numbers
+   and addresses.
+
+   :param assigned_object: The IfcOrganization or IfcPerson the contact
+       address belongs to.
+   :type assigned_object: ifcopenshell.entity_instance
+   :param ifc_class: Either IfcPostalAddress or IfcTelecomAddress. Defaults
+       to IfcPostalAddress.
+   :type ifc_class: str, optional
+   :return: The new IfcPostalAddress or IfcTelecomAddress
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model)
+
+       # A snail mail address
+       postal = ifcopenshell.api.owner.add_address(model,
+           assigned_object=organisation, ifc_class="IfcPostalAddress")
+       ifcopenshell.api.owner.edit_address(model, address=postal,
+           attributes={"Purpose": "OFFICE", "AddressLines": ["42 Wallaby Way"],
+           "Town": "Sydney", "Region": "NSW", "PostalCode": "2000"})
+
+       # A phone or internet address
+       telecom = ifcopenshell.api.owner.add_address(model,
+           assigned_object=organisation, ifc_class="IfcTelecomAddress")
+       ifcopenshell.api.owner.edit_address(model, address=telecom,
+           attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
+           "ElectronicMailAddresses": ["bobthebuilder@example.com"],
+           "WWWHomePageURL": "https://thinkmoult.com"})
+
+
+.. py:function:: add_application(file: ifcopenshell.file, application_developer: Optional[ifcopenshell.entity_instance] = None, version: Optional[str] = None, application_full_name: str = 'IfcOpenShell', application_identifier: str = 'IfcOpenShell') -> ifcopenshell.entity_instance
+
+   Adds a new application
+
+   IFC data may be associated with an authoring application to identify
+   which application was responsible for editing or authoring the data. An
+   application is defined by the developing organisation, as well as a full
+   name and identifier. This is akin to how web browsers have an
+   identification string.
+
+   :param application_developer: The IfcOrganization responsible for
+       creating the application. Defaults to generating an IfcOpenShell
+       organisation if none is provided.
+   :type application_developer: ifcopenshell.entity_instance, optional
+   :param version: The version of the application. Defaults to the
+       ifcopenshell.version data if not specified.
+   :type version: str, optional
+   :param application_full_name: The name of the application
+   :type application_full_name: str, optional
+   :param application_identifier: An identification string for the
+       application intended for computers to read.
+   :type application_identifier: str, optional
+   :return: The newly created IfcApplication
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       application = ifcopenshell.api.owner.add_application(model)
+
+
+.. py:function:: add_organisation(file: ifcopenshell.file, identification: str = 'APTR', name: str = 'Aperture Science') -> ifcopenshell.entity_instance
+
+   Adds a new organisation
+
+   Organisations are the main way to identify manufacturers, suppliers, and
+   other actors who do not have a single representative or must not have
+   any personally identifiable information.
+
+   :param identification: The short code identifying the organisation.
+       Sometimes used in drawing naming schemes. Otherise used as a
+       canonicalised way of computers to identify the organisation. Like
+       their stock name.
+   :type identification: str, optional
+   :param name: The legal name of the organisation
+   :type name: str, optional
+   :return: The newly created IfcOrganization
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+
+
+.. py:function:: add_person(file: ifcopenshell.file, identification: str = 'HSeldon', family_name: str = 'Seldon', given_name: str = 'Hari') -> ifcopenshell.entity_instance
+
+   Adds a new person
+
+   Persons are used to identify a legal or liable representative of an
+   organisation or point of contact.
+
+   :param identification: The computer readable unique identification of
+       the person. For example, their username in a CDE or alias.
+   :type identification: str, optional
+   :param family_name: The family name
+   :type family_name: str, optional
+   :param given_name: The given name
+   :type given_name: str, optional
+   :return: The newly created IfcPerson
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       ifcopenshell.api.owner.add_person(model,
+           identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
+
+
+.. py:function:: add_person_and_organisation(file: ifcopenshell.file, person: ifcopenshell.entity_instance, organisation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Adds a paired person and organisation
+
+   A person and an organisation may be paired to create a representative
+   belonging to a company.
+
+   :param person: The IfcPerson being the representative of the
+       organisation.
+   :type person: ifcopenshell.entity_instance
+   :param organisation: The IfcOrganization it
+   :type organisation: ifcopenshell.entity_instance
+   :return: The newly created IfcPersonAndOrganization
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       person = ifcopenshell.api.owner.add_person(model,
+           identification="lecorbycorbycorb", family_name="Curbosiar", given_name="Le")
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+
+       ifcopenshell.api.owner.add_person_and_organisation(model,
+           person=person, organisation=organisation)
+
+
+.. py:function:: add_role(file: ifcopenshell.file, assigned_object: ifcopenshell.entity_instance, role: str = 'ARCHITECT') -> ifcopenshell.entity_instance
+
+   Adds and assigns a new role
+
+   People and organisations must play one or more roles on a project. Roles
+   include architects, engineers, subcontractors, clients, manufacturers,
+   etc. Typically these roles and their corresponding responsibilities will
+   be outlined in contractual documents.
+
+   This function will both add and assign the role to the person or
+   organisation.
+
+   :param assigned_object: The IfcPerson or IfcOrganization the role should
+       be assigned to.
+   :type assigned_object: ifcopenshell.entity_instance
+   :param role: The type of role, taken from the IFC documentation for
+       IfcActorRole, or a custom name. Defaults to "ARCHITECT".
+   :type role: str, optional
+   :return: The newly created IfcActorRole
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="ARCHITECT")
+
+
+.. py:function:: assign_actor(file: ifcopenshell.file, relating_actor: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Assigns an actor to an object
+
+   An actor may be assigned to objects which implies that the actor is
+   responsible for. This is most commonly used in facility management for
+   indicating the manufacturers, suppliers, and warrantors for product
+   types.
+
+   Here are a list of objects you may assign an actor to:
+
+   * IfcControl: Indicates project directives issued by the actor.
+   * IfcGroup: Indicates groups for which the actor is responsible.
+   * IfcProduct: Indicates products for which the actor is responsible.
+   * IfcProcess: Indicates processes for which the actor is responsible.
+   * IfcResource: Indicates resources for which the actor is responsible to
+       allocate, manage, or delegate. This is not the actor actually using
+       the resource or performing the work. For that type of actor, see
+       ifcopenshell.api.resource.assign_resource.
+
+   :param relating_actor: The IfcActor who is responsible for the object.
+   :type relating_actor: ifcopenshell.entity_instance
+   :param related_object: The object the actor is responsible for.
+   :type related_object: ifcopenshell.entity_instance
+   :return: The newly created IfcRelAssignsToActor relationship.
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # We need to procure and install 2 of this particular pump type in our facility.
+       pump_type = ifcopenshell.api.root.create_entity(model, ifc_class="IfcPumpType")
+
+       # Define who the manufacturer is
+       manufacturer = ifcopenshell.api.owner.add_organisation(model,
+           identification="PWP", name="Pumps With Power")
+       ifcopenshell.api.owner.add_role(model, assigned_object=manufacturer, role="MANUFACTURER")
+
+       # To help our facility manager, it's nice to provide contact details
+       # of the manufacturer so they know how to call when the pump breaks.
+       telecom = ifcopenshell.api.owner.add_address(model,
+           assigned_object=organisation, ifc_class="IfcTelecomAddress")
+       ifcopenshell.api.owner.edit_address(model, address=telecom,
+           attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
+           "ElectronicMailAddresses": ["contact@example.com"],
+           "WWWHomePageURL": "https://example.com"})
+
+       # Make the manufacturer responsible for that pump type.
+       ifcopenshell.api.owner.assign_actor(model,
+           relating_actor=manufacturer, related_object=pump_type)
+
+
+.. py:function:: create_owner_history(file: ifcopenshell.file) -> Union[ifcopenshell.entity_instance, None]
+
+   Creates a new owner history indicating an element was added
+
+   Any object in IFC with a unique ID and name (such as physical products,
+   tasks, calendars, etc) may have an owner associated with it. An owner is
+   a liable person and/or organisation which a bit of metadata indicating
+   whether they have created the object, edited the object, when the change
+   was made, and which application they used.
+
+   IFC does not offer a comprehensive specification for version control and
+   change tracking, as this is completely out of scope. However this
+   similar ability allows IFC to satisfy legal requirements where object
+   ownership, responsibilities, and permissions must be specified.
+   Recording the owner is mandatory in IFC2X3 but optional in IFC4. It is
+   not recommended to store this ownership data in IFC4 unless a legal
+   requirement is in place.
+
+   Because owner tracking is mandatory in IFC2X3, be aware that some
+   configuration may be required to work correctly. Read on.
+
+   To track the owner, at a minimum we have to know the application that
+   the element was authored from, as well as the user (person and
+   organisation) that made the change. The IfcOpenShell API is a low level
+   software library and will not know what application the API is being
+   called from, and nor does it have the responsibility to manage the
+   "active user" making edits, which may be as simple as hardcoding it to
+   "Bob" or even be as complex as integration with a CDE's authentication
+   system. As a result, the developer responsible to integrate with
+   IfcOpenShell is expected to overload the
+   ifcopenshell.api.owner.settings.get_user and
+   ifcopenshell.api.owner.settings.get_application functions.
+
+   It is not necessary to call this function directly if you are already
+   using other API calls. It is a low level function only available if you
+   are writing your own advanced scripts and want to take advantage of the
+   easier ownership tracking.
+
+   :return: The newly created IfcOwnerHistory element or `None` if it's
+       not IFC2X3 and user or application is not found in the current project.
+   :rtype: Union[ifcopenshell.entity_instance, None]
+
+   Example:
+
+   .. code:: python
+
+       # Let's imagine we're writing a small script, not large enough to be
+       # its own fully branded application. In this case, let's use the
+       # default application which is prepopulated with "IfcOpenShell" as
+       # the name and version.
+       application = ifcopenshell.api.owner.add_application(model)
+
+       # Let's imagine we run this as an automated QA process in an
+       # architectural firm. However, the results must be signed off by the
+       # registered architect who is liable for the project.
+       person = ifcopenshell.api.owner.add_person(model,
+           identification="LPARTEE", family_name="Partee", given_name="Leeable")
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       user = ifcopenshell.api.owner.add_person_and_organisation(model,
+           person=person, organisation=organisation)
+
+       # Let's configure our owner settings to hardcode always returning
+       # the application and user. In theory, you could build complex user
+       # access control lookup functions here, but this is simple enough.
+       ifcopenshell.api.owner.settings.get_user = lambda x: user
+       ifcopenshell.api.owner.settings.get_application = lambda x: application
+
+       # We've finished our ownership setup. Now let's start our script and
+       # create a space. Notice we don't actually call
+       # create_owner_history at all. This is already automatically handled
+       # by the API when necessary. Under the hood, the API is actually
+       # running this code on the IfcSpace element:
+       # element.OwnerHistory = ifcopenshell.api.owner.create_owner_history(model)
+       space = ifcopenshell.api.root.create_entity(model, ifc_class="IfcSpace")
+
+
+.. py:function:: edit_actor(file: ifcopenshell.file, actor: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcActor
+
+   For more information about the attributes and data types of an
+   IfcActor, consult the IFC documentation.
+
+   :param actor: The IfcActor entity you want to edit
+   :type actor: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Setup an organisation with a single role
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation)
+       ifcopenshell.api.owner.edit_role(model, role=role, attributes={"Role": "ARCHITECT"})
+
+       # Assign that organisation to a newly created actor
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
+
+       # Edit the description of the attribute.
+       ifcopenshell.api.actor.edit_actor(model,
+           actor=actor, attributes={"Description": "Responsible for buildings A, B, and C."})
+
+
+.. py:function:: edit_address(file: ifcopenshell.file, address: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcAddress
+
+   For more information about the attributes and data types of an
+   IfcAddress, consult the IFC documentation.
+
+   :param address: The IfcAddress entity you want to edit
+   :type address: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A snail mail address
+       postal = ifcopenshell.api.owner.add_address(model,
+           assigned_object=organisation, ifc_class="IfcPostalAddress")
+       ifcopenshell.api.owner.edit_address(model, address=postal,
+           attributes={"Purpose": "OFFICE", "AddressLines": ["42 Wallaby Way"],
+           "Town": "Sydney", "Region": "NSW", "PostalCode": "2000"})
+
+       # A phone or internet address
+       telecom = ifcopenshell.api.owner.add_address(model,
+           assigned_object=organisation, ifc_class="IfcTelecomAddress")
+       ifcopenshell.api.owner.edit_address(model, address=telecom,
+           attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
+           "ElectronicMailAddresses": ["bobthebuilder@example.com"],
+           "WWWHomePageURL": "https://thinkmoult.com"})
+
+
+.. py:function:: edit_organisation(file: ifcopenshell.file, organisation: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcOrganization
+
+   For more information about the attributes and data types of an
+   IfcOrganization, consult the IFC documentation.
+
+   :param organisation: The IfcOrganization entity you want to edit
+   :type organisation: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects With Ballpens")
+       ifcopenshell.api.owner.edit_organisation(model, organisation=organisation,
+           attributes={"name": "Architects Without Ballpens"})
+
+
+.. py:function:: edit_person(file: ifcopenshell.file, person: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcPerson
+
+   For more information about the attributes and data types of an
+   IfcPerson, consult the IFC documentation.
+
+   :param person: The IfcPerson entity you want to edit
+   :type person: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       person = ifcopenshell.api.owner.add_person(model,
+           identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
+       ifcopenshell.api.owner.edit_person(model, person=person,
+           attributes={"MiddleNames": ["The"], "FamilyName": "Builder"})
+
+
+.. py:function:: edit_role(file: ifcopenshell.file, role: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcActorRole
+
+   For more information about the attributes and data types of an
+   IfcActorRole, consult the IFC documentation.
+
+   :param role: The IfcActorRole entity you want to edit
+   :type role: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       person = ifcopenshell.api.owner.add_person(model,
+           identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
+
+       # By default, the role is an architect
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=person)
+
+       # But Bob is not an architect
+       ifcopenshell.api.owner.edit_role(model, role=role, attributes={"Role": "CONSTRUCTIONMANAGER"})
+
+
+.. py:function:: remove_actor(file: ifcopenshell.file, actor: ifcopenshell.entity_instance) -> None
+
+   Removes an actor
+
+   :param actor: The IfcActor to remove.
+   :type actor: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Setup an organisation with a single role
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation)
+       ifcopenshell.api.owner.edit_role(model, role=role, attributes={"Role": "ARCHITECT"})
+
+       # Assign that organisation to a newly created actor
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
+
+       # Actually we need ballpens on this project
+       ifcopenshell.api.owner.remove_actor(model, actor=actor)
+
+
+.. py:function:: remove_address(file: ifcopenshell.file, address: ifcopenshell.entity_instance) -> None
+
+   Removes an address
+
+   Naturally, any organisations or people using that address will have the
+   relationship removed.
+
+   :param address: The IfcAddress to remove.
+   :type address: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model)
+       address = ifcopenshell.api.owner.add_address(model,
+           assigned_object=organisation, ifc_class="IfcPostalAddress")
+
+       # Change our mind and delete it
+       ifcopenshell.api.owner.remove_address(model, address=address)
+
+
+.. py:function:: remove_application(file: ifcopenshell.file, application: ifcopenshell.entity_instance) -> None
+
+   Removes an application
+
+   Warning: removing an application may invalidate ownership histories.
+   Check whether or not the application is used anywhere prior to removal.
+
+   :param address: The IfcApplication to remove.
+   :type address: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       application = ifcopenshell.api.owner.add_application(model)
+       ifcopenshell.api.owner.remove_address(model, application=application)
+
+
+.. py:function:: remove_organisation(file: ifcopenshell.file, organisation: ifcopenshell.entity_instance) -> None
+
+   Remove an organisation
+
+   All roles and addresses assigned to the organisation will also be
+   removed.
+
+   :param organisation: The IfcOrganization to remove
+   :type organisation: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       ifcopenshell.api.owner.remove_organisation(model, organisation=organisation)
+
+
+.. py:function:: remove_person(file: ifcopenshell.file, person: ifcopenshell.entity_instance) -> None
+
+   Remove an person
+
+   All roles and addresses assigned to the person will also be
+   removed.
+   In IFC2X3 will also remove related inventories if `person` was
+   the only responsile person for them.
+
+   :param person: The IfcPerson to remove
+   :type person: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       ifcopenshell.api.owner.add_person(model,
+           identification="bobthebuilder", family_name="Thebuilder", given_name="Bob")
+       ifcopenshell.api.owner.remove_person(model, person=person)
+
+
+.. py:function:: remove_person_and_organisation(file: ifcopenshell.file, person_and_organisation: ifcopenshell.entity_instance) -> None
+
+   Removes a person and organisation
+
+   Note that the underlying person and organisation is not removed, only
+   the "person and organisation" group.
+
+   :param person_and_organisation: The IfcPersonAndOrganization to remove.
+   :type person_and_organisation: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       person = ifcopenshell.api.owner.add_person(model,
+           identification="lecorbycorbycorb", family_name="Curbosiar", given_name="Le")
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+
+       user = ifcopenshell.api.owner.add_person_and_organisation(model,
+           person=person, organisation=organisation)
+
+       ifcopenshell.api.owner.remove_person_and_organisation(model, person_and_organisation=user)
+
+
+.. py:function:: remove_role(file: ifcopenshell.file, role: ifcopenshell.entity_instance) -> None
+
+   Removes a role
+
+   People and organisations using the role will be untouched. This may
+   leave some of them without roles.
+
+   :param role: The IfcActorRole to remove.
+   :type role: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="AWB", name="Architects Without Ballpens")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="ARCHITECT")
+
+       # After running this, the organisation will have no role again
+       ifcopenshell.api.owner.remove_role(model, role=role)
+
+
+.. py:function:: unassign_actor(file: ifcopenshell.file, relating_actor: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> None
+
+   Unassigns an actor to an object
+
+   This means that the actor is no longer responsible for the object.
+
+   :param relating_actor: The IfcActor who is responsible for the object.
+   :type relating_actor: ifcopenshell.entity_instance
+   :param related_object: The object the actor is responsible for.
+   :type related_object: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # We need to procure and install 2 of this particular pump type in our facility.
+       pump_type = ifcopenshell.api.root.create_entity(model, ifc_class="IfcPumpType")
+
+       # Define who the manufacturer is
+       manufacturer = ifcopenshell.api.owner.add_organisation(model,
+           identification="PWP", name="Pumps With Power")
+       ifcopenshell.api.owner.add_role(model, assigned_object=manufacturer, role="MANUFACTURER")
+
+       # Make the manufacturer responsible for that pump type.
+       ifcopenshell.api.owner.assign_actor(model,
+           relating_actor=manufacturer, related_object=pump_type)
+
+       # Undo the assignment
+       ifcopenshell.api.owner.unassign_actor(model,
+           relating_actor=manufacturer, related_object=pump_type)
+
+
+.. py:function:: update_owner_history(file: ifcopenshell.file, element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+   Updates the owner that is assigned to an object
+
+   This ensures that the owner is tracked to have modified the object last,
+   including the time when the change occured. See
+   ifcopenshell.api.owner.create_owner_history for details.
+
+   :param element: The IfcRoot element to update the ownership details on
+       when a change is made.
+   :type element: ifcopenshell.entity_instance
+   :return: The updated IfcOwnerHistory element.
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # See ifcopenshell.api.owner.create_owner_history for setup
+       # [ ... example setup code ... ]
+
+       # We've finished our ownership setup. Now let's start our script and
+       # create a space. Notice we don't actually call
+       # create_owner_history at all. This is already automatically handled
+       # by the API when necessary. Under the hood, the API is actually
+       # running this code on the IfcSpace element:
+       # element.OwnerHistory = ifcopenshell.api.owner.create_owner_history(model)
+       space = ifcopenshell.api.root.create_entity(model, ifc_class="IfcSpace")
+
+       # Any edits we make will have ownership tracking automatically
+       # applied. There is no need to run any owner.update_owner_history
+       # API calls either.
+       ifcopenshell.api.attribute.edit_attributes(model, product=space, attributes={"Name": "Lobby"})
+
+

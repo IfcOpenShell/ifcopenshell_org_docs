@@ -1,0 +1,14 @@
+:py:mod:`ifcopenshell.api.resource.calculate_resource_usage`
+============================================================
+
+.. py:module:: ifcopenshell.api.resource.calculate_resource_usage
+
+
+Module Contents
+---------------
+
+.. py:function:: calculate_resource_usage(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
+
+   Calculates the number of resources required to perform scheduled work on a task.
+
+

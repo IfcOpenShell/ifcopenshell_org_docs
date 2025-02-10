@@ -1,0 +1,57 @@
+:py:mod:`ifcpatch.recipes.MergeProjects`
+========================================
+
+.. py:module:: ifcpatch.recipes.MergeProjects
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, filepaths: list[Union[str, ifcopenshell.file]])
+
+   
+   Merge two or more IFC models into one
+
+   Note that other than combining the two (or more) IfcProject elements into
+   one, no further processing will be done. This means that you may end up
+   with duplicate spatial hierarchies (i.e. 2 sites, 2 buildings, etc).
+
+   Will automatically convert length units in the second model to the main
+   model's unit before merging.
+
+   :param filepaths: The filepath(s) of the second (, third, ...) IFC model
+       to merge into the first. The first model is already specified as the
+       input to IfcPatch.
+   :filter_glob filepaths: *.ifc;*.ifczip;*.ifcxml
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "MergeProjects", "arguments": ["/path/to/model2.ifc"]})
+
+
+   .. py:method:: get_equivalent_existing_context(added_context: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+
+   .. py:method:: get_unit_name(ifc_file: ifcopenshell.file) -> str
+
+
+   .. py:method:: merge(other: ifcopenshell.file) -> None
+
+
+   .. py:method:: patch()
+
+
+   .. py:method:: reuse_existing_contexts() -> None
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: filepaths
+
+
+   .. py:attribute:: logger
+
+

@@ -1,0 +1,381 @@
+:py:mod:`ifcopenshell.api.unit`
+===============================
+
+.. py:module:: ifcopenshell.api.unit
+
+.. autoapi-nested-parse::
+
+   Define units (length, area, monetary, pressure, etc)
+
+   Units can be defined as a default project unit or used specifically for certain
+   properties. Units may be especially complex when dealing with services and
+   equipment.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_context_dependent_unit/index.rst
+   add_conversion_based_unit/index.rst
+   add_derived_unit/index.rst
+   add_monetary_unit/index.rst
+   add_si_unit/index.rst
+   assign_unit/index.rst
+   edit_derived_unit/index.rst
+   edit_monetary_unit/index.rst
+   edit_named_unit/index.rst
+   remove_unit/index.rst
+   unassign_unit/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_context_dependent_unit(file: ifcopenshell.file, unit_type: str = 'USERDEFINED', name: str = 'THINGAMAJIG', dimensions: tuple[int, int, int, int, int, int, int] = (0, 0, 0, 0, 0, 0, 0)) -> ifcopenshell.entity_instance
+
+   Add a new arbitrary unit that can only be interpreted in a project specific context
+
+   Occasionally the construction industry uses arbitrary units to quantify
+   objects, like "pairs" of door hardware, "palettes" or "boxes" of fixings
+   or equipment.
+
+   :param unit_type: Typically should be left as USERDEFINED, unless for
+       some bizarre reason you are redefining something you could use a
+       sensible normal unit for. In that case, firstly stop whatever you're
+       doing and have a hard think about your life, and then if life really
+       is going that badly for you, check out the IFC docs for IfcUnitEnum.
+   :type unit_type: str
+   :param name: Give your unit a name. X what? X bananas?
+   :type name: str
+   :param dimensions: Units typically measure one of 7 fundamental physical
+       dimensions: length, mass, time, electric current, temperature,
+       substance amount, or luminous intensity. These are represented as a
+       list of 7 integers, representing the exponents of each one of these
+       dimensions. For example, a length unit is (1, 0, 0, 0, 0, 0, 0),
+       where as an area unit is (2, 0, 0, 0, 0, 0, 0). A unit of meters per
+       second is (1, 0, -1, 0, 0, 0, 0). For context dependent units, it is
+       recommended to leave this as the default of (0, 0, 0, 0, 0, 0, 0).
+   :type dimensions: list[int]
+   :return: The new IfcContextDependentUnit
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Boxes of things
+       ifcopenshell.api.unit.add_context_dependent_unit(model, name="BOXES")
+
+
+.. py:function:: add_conversion_based_unit(file: ifcopenshell.file, name: str = 'foot', conversion_offset: Optional[float] = None) -> ifcopenshell.entity_instance
+
+   Add a conversion based unit
+
+   If you're in one of those countries who don't use SI units, you're
+   probably simply using SI units converted into another unit. If you want
+   to use _those_ units, you can create a conversion based unit with this
+   function. You can choose from one of: inch, foot, yard, mile, square
+   inch, square foot, square yard, acre, square mile, cubic inch, cubic
+   foot, cubic yard, litre, fluid ounce UK, fluid ounce US, pint UK, pint
+   US, gallon UK, gallon US, degree, ounce, pound, ton UK, ton US, lbf,
+   kip, psi, ksi, minute, hour, day, btu, and fahrenheit.
+
+   :param name: A converted name chosen from the list above.
+   :type name: str
+   :param conversion_offset: If you want to offset the conversion further
+       by a set number, you may specify it here. For example, fahrenheit is
+       1.8 * kelvin - 459.67. The -459.67 is the conversion offset. Note
+       that this is just an example and you don't actually need to specify
+       that for fahrenheit as it's built into this API function. For
+       advanced users only.
+   :type conversion_offset: float, optional
+   :return: The new IfcConversionBasedUnit or
+       IfcConversionBasedUnitWithOffset
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Some common imperial measurements
+       length = ifcopenshell.api.unit.add_conversion_based_unit(model, name="inch")
+       area = ifcopenshell.api.unit.add_conversion_based_unit(model, name="square foot")
+
+       # Make it our default units, if we are doing an imperial building
+       ifcopenshell.api.unit.assign_unit(model, units=[length, area])
+
+
+.. py:function:: add_derived_unit(file: ifcopenshell.file, unit_type: str, userdefinedtype: str, attributes: dict[ifcopenshell.entity_instance, int]) -> ifcopenshell.entity_instance
+
+   Add a new Derive unit
+
+   The supported types are ANGULARVELOCITYUNIT, AREADENSITYUNIT, COMPOUNDPLANEANGLEUNIT,
+   DYNAMICVISCOSITYUNIT, HEATFLUXDENSITYUNIT, INTEGERCOUNTRATEUNIT, ISOTHERMALMOISTURECAPACITYUNIT,
+   KINEMATICVISCOSITYUNIT, LINEARVELOCITYUNIT, MASSDENSITYUNIT, MASSFLOWRATEUNIT, MOISTUREDIFFUSIVITYUNIT,
+   MOLECULARWEIGHTUNIT, SPECIFICHEATCAPACITYUNIT, THERMALADMITTANCEUNIT, THERMALCONDUCTANCEUNIT,
+   THERMALRESISTANCEUNIT, THERMALTRANSMITTANCEUNIT, VAPORPERMEABILITYUNIT, VOLUMETRICFLOWRATEUNIT,
+   ROTATIONALFREQUENCYUNIT, TORQUEUNIT, MOMENTOFINERTIAUNIT, LINEARMOMENTUNIT, LINEARFORCEUNIT,
+   PLANARFORCEUNIT, MODULUSOFELASTICITYUNIT, SHEARMODULUSUNIT, LINEARSTIFFNESSUNIT, ROTATIONALSTIFFNESSUNIT,
+   MODULUSOFSUBGRADEREACTIONUNIT, ACCELERATIONUNIT, CURVATUREUNIT, HEATINGVALUEUNIT, IONCONCENTRATIONUNIT,
+   LUMINOUSINTENSITYDISTRIBUTIONUNIT, MASSPERLENGTHUNIT, MODULUSOFLINEARSUBGRADEREACTIONUNIT,
+   MODULUSOFROTATIONALSUBGRADEREACTIONUNIT, PHUNIT, ROTATIONALMASSUNIT, SECTIONAREAINTEGRALUNIT,
+   SECTIONMODULUSUNIT, SOUNDPOWERLEVELUNIT, SOUNDPOWERUNIT, SOUNDPRESSURELEVELUNIT, SOUNDPRESSUREUNIT,
+   TEMPERATUREGRADIENTUNIT, TEMPERATURERATEOFCHANGEUNIT, THERMALEXPANSIONCOEFFICIENTUNIT, WARPINGCONSTANTUNIT,
+   WARPINGMOMENTUNIT, USERDEFINED.
+
+   In case of choosing USERDEFINED, the UserDefinedType parameter needs to be provided
+
+   :param unit_type: A type of unit chosen from the list above. For
+       example, choosing THERMALCONDUCTANCEUNIT will give you a Thermal conductance.
+   :type unit_type: str
+   :param userdefinedtype: The user defined type in case of choosing USERDEFINED, or None for no
+       user defined type.
+   :type userdefinedtype: str or None
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: The newly created IfcDerivedUnit
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Linear velocity in m/s
+       length = ifcopenshell.api.unit.add_si_unit(model, unit_type="LENGTHUNIT")
+       #2=IfcSIUnit(*,.LENGTHUNIT.,$,.METRE.)
+
+       time = ifcopenshell.api.unit.add_si_unit(model, unit_type="TIMEUNIT")
+       #4=IfcSIUnit(*,.TIMEUNIT.,$,.SECOND.)
+
+       linear_velocity = ifcopenshell.api.unit.add_derived_unit(model, 'LINEARVELOCITY', None, {length : 1, time : -1})
+       #10=IfcDerivedUnitElement(#2, 1)
+       #11=IfcDerivedUnitElement(#4, -1)
+       #12=IfcDerivedUnit((#10,#11),.LINEARVELOCITY.,$)
+
+
+
+.. py:function:: add_monetary_unit(file: ifcopenshell.file, currency: str = 'DOLLARYDOO') -> ifcopenshell.entity_instance
+
+   Add a new currency
+
+   Currency units are useful in cost plans to know in what currency the
+   costs are calculated in. The currencies should follow ISO 4217, like
+   USD, GBP, AUD, MYR, etc.
+
+   :param currency: The currency code
+   :type currency: str
+   :return: The newly created IfcMonetaryUnit
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # If you do all your cost plans in Zimbabwean dollars then nobody
+       # knows how accurate the numbers are.
+       zwl = ifcopenshell.api.unit.add_monetary_unit(model, currency="ZWL")
+
+       # Make it our default currency
+       ifcopenshell.api.unit.assign_unit(model, units=[zwl])
+
+
+.. py:function:: add_si_unit(file: ifcopenshell.file, unit_type: str = 'LENGTHUNIT', prefix: Optional[str] = None) -> ifcopenshell.entity_instance
+
+   Add a new SI unit
+
+   The supported types are ABSORBEDDOSEUNIT, AMOUNTOFSUBSTANCEUNIT,
+   AREAUNIT, DOSEEQUIVALENTUNIT, ELECTRICCAPACITANCEUNIT,
+   ELECTRICCHARGEUNIT, ELECTRICCONDUCTANCEUNIT, ELECTRICCURRENTUNIT,
+   ELECTRICRESISTANCEUNIT, ELECTRICVOLTAGEUNIT, ENERGYUNIT, FORCEUNIT,
+   FREQUENCYUNIT, ILLUMINANCEUNIT, INDUCTANCEUNIT, LENGTHUNIT,
+   LUMINOUSFLUXUNIT, LUMINOUSINTENSITYUNIT, MAGNETICFLUXDENSITYUNIT,
+   MAGNETICFLUXUNIT, MASSUNIT, PLANEANGLEUNIT, POWERUNIT, PRESSUREUNIT,
+   RADIOACTIVITYUNIT, SOLIDANGLEUNIT, THERMODYNAMICTEMPERATUREUNIT,
+   TIMEUNIT, VOLUMEUNIT.
+
+   Prefixes supported are ATTO, CENTI, DECA, DECI, EXA, FEMTO, GIGA, HECTO,
+   KILO, MEGA, MICRO, MILLI, NANO, PETA, PICO, TERA.
+
+   :param unit_type: A type of unit chosen from the list above. For
+       example, choosing LENGTHUNIT will give you a metre.
+   :type unit_type: str
+   :param prefix: A prefix chosen from the list above, or None for no
+       prefix.
+   :type prefix: str,optional
+   :return: The newly created IfcSIUnit
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Millimeters and square meters
+       length = ifcopenshell.api.unit.add_si_unit(model, unit_type="LENGTHUNIT", prefix="MILLI")
+       area = ifcopenshell.api.unit.add_si_unit(model, unit_type="AREAUNIT")
+
+       # Make it our default units, if we are doing a metric building
+       ifcopenshell.api.unit.assign_unit(model, units=[length, area])
+
+
+.. py:function:: assign_unit(file: ifcopenshell.file, units: Optional[list[ifcopenshell.entity_instance]] = None, length: Optional[dict] = None, area: Optional[dict] = None, volume: Optional[dict] = None) -> ifcopenshell.entity_instance
+
+   Assign default project units
+
+   Whenever a unitised quantity is specified, such as a length, area,
+   voltage, pressure, etc, these project units are used by default.
+
+   It is also possible to override units for specific properties. For
+   example, generally you might want square metres for area measurements,
+   but you might want square millimeters for the measurements of the cross
+   sectional area of cables in cable trays. However, this function only
+   deals with the default project units.
+
+   :param units: A list of units to assign as project defaults. See
+       ifcopenshell.api.unit.add_si_unit, unit.add_conversion_based_unit,
+       and unit.add_monetary_unit for information on how to create units.
+   :return: The IfcUnitAssignment element
+
+   Example:
+
+   .. code:: python
+
+       # You need a project before you can assign units.
+       ifcopenshell.api.root.create_entity(model, ifc_class="IfcProject")
+
+       # Millimeters and square meters
+       length = ifcopenshell.api.unit.add_si_unit(model, unit_type="LENGTHUNIT", prefix="MILLI")
+       area = ifcopenshell.api.unit.add_si_unit(model, unit_type="AREAUNIT")
+
+       # Make it our default units, if we are doing a metric building
+       ifcopenshell.api.unit.assign_unit(model, units=[length, area])
+
+       # Alternatively, you may specify without any arguments to
+       # automatically create millimeters, square meters, and cubic meters
+       # as a convenience for testing purposes. Sorry imperial folks, we
+       # prioritise metric here.
+       ifcopenshell.api.unit.assign_unit(model)
+
+
+.. py:function:: edit_derived_unit(file: ifcopenshell.file, unit: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcDerivedUnit
+
+   For more information about the attributes and data types of an
+   IfcDerivedUnit, consult the IFC documentation.
+
+   :param unit: The IfcDerivedUnit entity you want to edit
+   :type unit: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+
+.. py:function:: edit_monetary_unit(file: ifcopenshell.file, unit: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcMonetaryUnit
+
+   For more information about the attributes and data types of an
+   IfcMonetaryUnit, consult the IFC documentation.
+
+   :param unit: The IfcMonetaryUnit entity you want to edit
+   :type unit: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # If you do all your cost plans in Zimbabwean dollars then nobody
+       # knows how accurate the numbers are.
+       zwl = ifcopenshell.api.unit.add_monetary_unit(model, currency="ZWL")
+
+       # Ah who are we kidding
+       ifcopenshell.api.unit.edit_monetary_unit(model, unit=zwl, attributes={"Currency": "USD"})
+
+
+.. py:function:: edit_named_unit(file: ifcopenshell.file, unit: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcNamedUnit
+
+   Named units include SI units, conversion based units (imperial units),
+   and context dependent units.
+
+   For more information about the attributes and data types of an
+   IfcNamedUnit, consult the IFC documentation.
+
+   :param unit: The IfcNamedUnit entity you want to edit
+   :type unit: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Boxes of things
+       unit = ifcopenshell.api.unit.add_context_dependent_unit(model, name="BOXES")
+
+       # Uh, crates? Boxes? Whatever.
+       ifcopenshell.api.unit.edit_named_unit(model, unit=unit, attibutes={"Name": "CRATES"})
+
+
+.. py:function:: remove_unit(file: ifcopenshell.file, unit: ifcopenshell.entity_instance) -> None
+
+   Remove a unit
+
+   Be very careful when a unit is removed, as it may mean that previously
+   defined quantities in the model completely lose their meaning.
+
+   :param unit: The unit element to remove
+   :type unit: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # What?
+       unit = ifcopenshell.api.unit.add_context_dependent_unit(model, name="HANDFULS")
+
+       # Yeah maybe not.
+       ifcopenshell.api.unit.remove_unit(model, unit=unit)
+
+
+.. py:function:: unassign_unit(file: ifcopenshell.file, units: Optional[list[ifcopenshell.entity_instance]] = None) -> None
+
+   Unassigns units as default units for the project
+
+   :param units: A list of units to assign as project defaults.
+   :type units: list[ifcopenshell.entity_instance],optional
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # You need a project before you can assign units.
+       ifcopenshell.api.root.create_entity(model, ifc_class="IfcProject")
+
+       # Millimeters and square meters
+       length = ifcopenshell.api.unit.add_si_unit(model, unit_type="LENGTHUNIT", prefix="MILLI")
+       area = ifcopenshell.api.unit.add_si_unit(model, unit_type="AREAUNIT")
+
+       # Make it our default units, if we are doing a metric building
+       ifcopenshell.api.unit.assign_unit(model, units=[length, area])
+
+       # Actually, we don't need areas.
+       ifcopenshell.api.unit.unassign_unit(model, units=[area])
+
+

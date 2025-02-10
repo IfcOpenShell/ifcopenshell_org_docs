@@ -1,0 +1,34 @@
+:py:mod:`ifcopenshell.api.system.edit_system`
+=============================================
+
+.. py:module:: ifcopenshell.api.system.edit_system
+
+
+Module Contents
+---------------
+
+.. py:function:: edit_system(file: ifcopenshell.file, system: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcSystem
+
+   For more information about the attributes and data types of an
+   IfcSystem, consult the IFC documentation.
+
+   :param system: The IfcSystem entity you want to edit
+   :type system: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # A completely empty distribution system
+       system = ifcopenshell.api.system.add_system(model)
+
+       # Change the name of the system to "HW" for Hot Water
+       ifcopenshell.api.system.edit_system(model, system=system, attributes={"Name": "HW"})
+
+

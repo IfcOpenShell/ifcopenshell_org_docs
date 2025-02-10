@@ -1,0 +1,38 @@
+:py:mod:`ifcopenshell.express.definitions`
+==========================================
+
+.. py:module:: ifcopenshell.express.definitions
+
+
+Module Contents
+---------------
+
+.. py:class:: Definitions(mapping)
+
+   Bases: :py:obj:`codegen.Base`
+
+
+   .. py:attribute:: file_name
+
+
+   .. py:attribute:: str
+      :value: Multiline-String
+
+      .. raw:: html
+
+         <details><summary>Show Value</summary>
+
+      .. code-block:: python
+
+         """
+         """
+
+      .. raw:: html
+
+         </details>
+
+
+
+
+.. py:data:: Generator
+

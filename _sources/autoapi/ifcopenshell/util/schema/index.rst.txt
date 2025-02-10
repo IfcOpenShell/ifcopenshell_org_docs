@@ -1,0 +1,171 @@
+:py:mod:`ifcopenshell.util.schema`
+==================================
+
+.. py:module:: ifcopenshell.util.schema
+
+
+Module Contents
+---------------
+
+.. py:class:: BatchReassignClass(file: ifcopenshell.file)
+
+   .. py:method:: purge() -> None
+
+
+   .. py:method:: reassign(element: ifcopenshell.entity_instance, new_class: str) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: unbatch()
+
+
+   .. py:attribute:: file
+
+
+.. py:class:: Migrator
+
+   .. py:method:: find_equivalent_attribute(new_element: ifcopenshell.entity_instance, attribute: ifcopenshell.ifcopenshell_wrapper.attribute, element: ifcopenshell.entity_instance, attributes_mapping: dict[str, dict[str, str]], reverse_mapping: bool = False) -> Union[Any, None]
+
+
+   .. py:method:: generate_default_value(attribute: ifcopenshell.ifcopenshell_wrapper.attribute, new_file: ifcopenshell.file) -> Any
+
+
+   .. py:method:: migrate(element: ifcopenshell.entity_instance, new_file: ifcopenshell.file) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: migrate_attribute(attribute: ifcopenshell.ifcopenshell_wrapper.attribute, element: ifcopenshell.entity_instance, new_file: ifcopenshell.file, new_element: ifcopenshell.entity_instance, new_element_schema: ifcopenshell.ifcopenshell_wrapper.declaration) -> None
+
+
+   .. py:method:: migrate_attributes(element: ifcopenshell.entity_instance, new_file: ifcopenshell.file, new_element: ifcopenshell.entity_instance, new_element_schema: ifcopenshell.ifcopenshell_wrapper.declaration) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: migrate_class(element: ifcopenshell.entity_instance, new_file: ifcopenshell.file) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: preprocess(old_file: ifcopenshell.file, new_file: ifcopenshell.file) -> None
+
+
+   .. py:attribute:: attribute_overrides
+      :type:  dict[int, dict[int, str]]
+
+
+   .. py:attribute:: attributes_mapping
+
+
+   .. py:attribute:: class_2x3_to_4
+
+
+   .. py:attribute:: class_4_to_2x3
+
+
+   .. py:attribute:: default_entities
+
+
+   .. py:attribute:: default_values
+
+
+   .. py:attribute:: migrated_ids
+      :type:  dict[int, int]
+
+
+.. py:function:: get_declaration(element: ifcopenshell.entity_instance)
+
+   Get the schema declaration of an actively used entity instance
+
+   IFC models are made out of instances (e.g. with a STEP ID) of entities
+   (e.g. IfcWall). Those entities are defined through a **Schema
+   Declaration**.
+
+   **Schema Declaration** objects can be used to query information about the
+   IFC schema itself, such as data types, enumeration values, and inheritance.
+
+   :param element: Any instance, typically from a loaded or created IFC model
+
+   Example:
+
+   .. code:: python
+
+       wall = model.createIfcWall()
+       declaration = ifcopenshell.util.schema.get_declaration(wall)
+       print(declaration.name()) # IfcWall
+       print(declaration.is_abstract()) # False
+       print(declaration.supertype().name()) # IfcBuildingElement
+
+
+.. py:function:: get_fallback_schema(version: str) -> str
+
+   fallback to the schema version we do have docs and mapping for,
+   needed to support IFC versions like 4X3_RC1, 4X1 etc
+
+
+.. py:function:: get_subtypes(declaration: ifcopenshell.ifcopenshell_wrapper.entity) -> list[ifcopenshell.ifcopenshell_wrapper.entity]
+
+   Get a flat list of subtype declarations
+
+   Abstract classes are skipped.
+
+   Inconsistently, the declaration itself is also added to this list. This
+   should be fixed exclude the declaration itself.
+
+   :param declaration: The declaration from the schema, as an entity.
+   :return: A list of subtypes in order from child to grandchild.
+
+   .. code:: python
+
+       schema = ifcopenshell.schema_by_name("IFC4")
+       declaration = schema.declaration_by_name("IfcFlowSegment")
+       print(ifcopenshell.util.schema.get_subtypes(declaration))
+       [<entity IfcFlowSegment>, <entity IfcCableCarrierSegment>, ..., <entity IfcPipeSegment>]
+
+
+.. py:function:: get_supertypes(declaration: ifcopenshell.ifcopenshell_wrapper.entity) -> list[ifcopenshell.ifcopenshell_wrapper.entity]
+
+   Gets a list of supertype declarations
+
+   :param declaration: The declaration from the schema, as an entity.
+   :return: A list of supertypes in order from parent to grandparent.
+
+   Example:
+
+   .. code:: python
+
+       wall = model.createIfcWall()
+       results = ifcopenshell.util.schema.get_supertypes(wall.wrapped_data.declaration().as_entity())
+       # [<entity IfcBuildingElement>, <entity IfcElement>, ..., <entity IfcRoot>]
+
+
+.. py:function:: is_a(declaration: ifcopenshell.ifcopenshell_wrapper.entity, ifc_class: str) -> bool
+
+   Checks if a schema declaration is a class
+
+   :param declaration: The declaration from the schema.
+   :param ifc_class: A case insensitive IFC class name (e.g. IfcRoot)
+   :return: True is the declaration is of that class
+
+   Example:
+
+   .. code:: python
+
+       wall = model.createIfcWall()
+       declaration = ifcopenshell.util.schema.get_declaration(wall)
+       ifcopenshell.util.schema.is_a(declaration, "IfcRoot") # True
+
+
+.. py:function:: reassign_class(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, new_class: str) -> ifcopenshell.entity_instance
+
+   Attempts to change the class (entity name) of `element` to `new_class` by
+   removing element and recreating a similar instance of type `new_class`
+   with the same id.
+
+   In certain cases it may affect the structure of inversely related instances:
+   - Multiple occurrences of reassigned instance within the same aggregate
+     (such as start and end-point of polyline)
+   - Occurrences of reassigned instance within an ordered aggregate
+     (such as IfcRelNests)
+
+   It's unlikely that this affects real-world usage of this function.
+
+
+.. py:data:: IFC_SCHEMA
+
+.. py:data:: cwd
+

@@ -1,0 +1,48 @@
+:py:mod:`ifcopenshell.api.profile.add_arbitrary_profile`
+========================================================
+
+.. py:module:: ifcopenshell.api.profile.add_arbitrary_profile
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: execute()
+
+
+.. py:function:: add_arbitrary_profile(file: ifcopenshell.file, profile: list[tuple[float, float]], name: Optional[str] = None) -> ifcopenshell.entity_instance
+
+   Adds a new arbitrary polyline-based profile
+
+   The profile is represented as a polyline defined by a list of
+   coordinates. Only straight segments are allowed. Coordinates must be
+   provided in SI meters.
+
+   To represent a closed curve, the first and last coordinate must be
+   identical.
+
+   :param profile: A list of coordinates
+   :type profile: list[tuple[float, float]]
+   :param name: If the profile is semantically significant (i.e. to be
+       managed and reused by the user) then it must be named. Otherwise,
+       this may be left as none.
+   :type name: str, optional
+   :return: The newly created IfcArbitraryClosedProfileDef
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # A 10mm by 100mm rectangle, such that might be used as a wooden
+       # skirting board or kick plate.
+       square = ifcopenshell.api.profile.add_arbitrary_profile(model,
+           profile=[(0., 0.), (.01, 0.), (.01, .1), (0., .1), (0., 0.)],
+           name="SK01 Profile")
+
+

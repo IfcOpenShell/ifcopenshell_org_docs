@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.structural.unassign_structural_analysis_model`
+========================================================================
+
+.. py:module:: ifcopenshell.api.structural.unassign_structural_analysis_model
+
+
+Module Contents
+---------------
+
+.. py:function:: unassign_structural_analysis_model(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], structural_analysis_model: ifcopenshell.entity_instance) -> None
+
+   Removes a relationship between a structural element and the analysis model
+
+   :param products: The structural elements that is part of the analysis.
+   :param structural_analysis_model: The IfcStructuralAnalysisModel that
+       the structural element is related to.
+   :return: None
+
+

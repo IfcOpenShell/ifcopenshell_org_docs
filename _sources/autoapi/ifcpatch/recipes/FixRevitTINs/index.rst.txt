@@ -1,0 +1,80 @@
+:py:mod:`ifcpatch.recipes.FixRevitTINs`
+=======================================
+
+.. py:module:: ifcpatch.recipes.FixRevitTINs
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: None, logger: logging.Logger, filepath: str, is_solid: bool = True)
+
+   
+   Fix missing or spot-coordinate bugged TINs loading in Revit
+
+   TINs exported from 12D or Civil 3D may contain dense or highly obtuse
+   triangles.  Although these will load in Revit, you will not be able to
+   use Revit's Spot Coordinate or Spot Elevation tool.
+
+   See bug: https://github.com/Autodesk/revit-ifc/issues/511
+
+   If `is_solid` is enabled, we assume the surface is represented as a
+   solid (e.g. I have come across surfaces which are extruded by 1mm from
+   Civil 3D). The solution will delete any faces with a Z normal less
+   than 0.5. In case the mesh has any side faces or thickness, this should
+   leave only the top surface which is relevant for spot coordinates and
+   elevations.
+
+   If `is_solid` is disabled, then we assume the surface has no thickness.
+   In this scenario, all faces with any normals pointing in a negative
+   global Z direction will be flipped. This is because Revit cannot
+   annotate backfaces.
+
+   Vertices closer than 10mm will also be merged to prevent dense
+   portions of the TIN at a minor sacrifice of surveying accuracy. It will
+   also triangulate all meshes to prevent non-coplanar surfaces, and
+   delete any obtuse triangles where one of their XY angles is less than
+   0.3 degrees.  Therefore the result will contain some minor "holes" in
+   the TIN, but these holes will only be in dense triangles that Revit
+   can't handle anyway and won't affect most coordination tasks.
+
+   Note that you may may want to run other tools like
+   OffsetObjectPlacements or ResetAbsoluteCoordinates to fix large
+   coordinates as these can also cause issues in Revit (such as inaccuracy
+   or inability to use the Spot Coordinate / Elevation tool).
+
+   This patch is designed to work on any TIN-like export, typically coming
+   from civil software. It also requires you to run it using Blender, as
+   the geometric modification uses the Blender geometry engine.
+
+   `filepath` argument is required for this recipe, `file` argument is
+   ignored.
+
+   :param filepath: The filepath of the IFC model. This is required to
+       load into Bonsai.
+   :filter_glob filepath: *.ifc;*.ifczip;*.ifcxml
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "recipe": "FixRevitTINs", "arguments": []})
+
+
+   .. py:method:: patch() -> None
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: filepath
+
+
+   .. py:attribute:: is_solid
+      :value: True
+
+
+
+   .. py:attribute:: logger
+
+

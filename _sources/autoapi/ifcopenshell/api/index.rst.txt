@@ -1,0 +1,148 @@
+:py:mod:`ifcopenshell.api`
+==========================
+
+.. py:module:: ifcopenshell.api
+
+.. autoapi-nested-parse::
+
+   High level IFC authoring and editing functions
+
+   Authoring, editing, and deleting IFC data requires a detailed understanding of
+   the rules of the IFC schema. This API module provides simple to use authoring
+   functions that hide this complexity from you. Things like managing differences
+   between IFC versions, tracking owernship changes, or cleaning up after orphaned
+   relationships are all handled automatically.
+
+   If you're new to IFC authoring, start by looking at the following APIs:
+
+   - See :func:`ifcopenshell.api.project.create_file` to create a new IFC.
+   - See :func:`ifcopenshell.api.root.create_entity` to create new entities, like
+     the mandatory IfcProject, and then an IfcSite, IfcWall, etc.
+   - See :func:`ifcopenshell.api.aggregate.assign_object` to create a spatial
+     hierarchy.
+   - See :func:`ifcopenshell.api.spatial.assign_container` to place physical
+     elements (e.g. walls) inside spatial elements (e.g. building storeys).
+
+   Also see how to `create a simple model from scratch
+   <https://docs.ifcopenshell.org/ifcopenshell-python/code_examples.html#create-a-simple-model-from-scratch>`_.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   aggregate/index.rst
+   attribute/index.rst
+   boundary/index.rst
+   classification/index.rst
+   constraint/index.rst
+   context/index.rst
+   control/index.rst
+   cost/index.rst
+   document/index.rst
+   drawing/index.rst
+   feature/index.rst
+   geometry/index.rst
+   georeference/index.rst
+   grid/index.rst
+   group/index.rst
+   layer/index.rst
+   library/index.rst
+   material/index.rst
+   nest/index.rst
+   owner/index.rst
+   profile/index.rst
+   project/index.rst
+   pset/index.rst
+   pset_template/index.rst
+   resource/index.rst
+   root/index.rst
+   sequence/index.rst
+   spatial/index.rst
+   structural/index.rst
+   style/index.rst
+   system/index.rst
+   type/index.rst
+   unit/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_post_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Add a post listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: add_pre_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Add a pre listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: extract_docs(module, usecase)
+
+.. py:function:: remove_all_listeners()
+
+.. py:function:: remove_post_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Remove a post listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: remove_pre_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+
+   Remove a pre listener
+
+   :param usecase_path: string, ifcopenshell api use case path
+   :param name: string, name of listener
+   :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
+
+
+.. py:function:: renamed_arguments_deprecation(usecase_path: str, settings: dict, arguments_remapped: dict[str, str]) -> tuple[str, dict]
+
+.. py:function:: run(usecase_path: str, ifc_file: Optional[ifcopenshell.file] = None, should_run_listeners: bool = True, **settings: Any) -> Any
+
+   This is deprecated and will be removed in a future version. Do not use this function.
+
+
+.. py:function:: serialise_settings(settings)
+
+.. py:function:: wrap_usecase(usecase_path, usecase)
+
+   Wraps an API function in pre/post listeners.
+
+
+.. py:function:: wrap_usecases(path, name)
+
+   This developer feature wraps an API module's usecases with listeners.
+
+
+.. py:data:: ARGUMENTS_DEPRECATION
+   :type:  dict[str, Callable[[str, dict[str, Any]], tuple[str, dict[str, Any]]]]
+
+.. py:data:: CACHED_USECASES
+   :type:  dict[str, Callable]
+
+.. py:data:: CACHED_USECASE_CLASSES
+   :type:  dict[str, Callable]
+
+.. py:data:: post_listeners
+   :type:  dict[str, dict]
+
+.. py:data:: pre_listeners
+   :type:  dict[str, dict]
+

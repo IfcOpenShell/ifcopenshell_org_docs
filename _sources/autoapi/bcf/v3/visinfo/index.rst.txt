@@ -1,0 +1,198 @@
+:py:mod:`bcf.v3.visinfo`
+========================
+
+.. py:module:: bcf.v3.visinfo
+
+
+Module Contents
+---------------
+
+.. py:class:: VisualizationInfoHandler(visualization_info: bcf.v3.model.VisualizationInfo, snapshot: Optional[bytes] = None, bitmaps: Optional[dict[str, bytes]] = None, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None)
+
+   Handle the VisualizationInfo and related objects.
+
+
+   .. py:method:: create_from_point_and_guids(position: numpy.typing.NDArray[numpy.float64], *guids: str, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> VisualizationInfoHandler
+      :classmethod:
+
+
+      Create a new VisualizationInfoHandler object from an IFC element.
+
+      Args:
+          position: target point coordinates.
+          *guids: One or more IFC element GUID.
+          xml_handler: The XML handler to use.
+
+      Returns:
+          The VisualizationInfoHandler object.
+
+
+
+   .. py:method:: create_new(element: ifcopenshell.entity_instance, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> VisualizationInfoHandler
+      :classmethod:
+
+
+      Create a new VisualizationInfoHandler object from an IFC element.
+
+      Args:
+          element: The IFC element to point at.
+          xml_handler: The XML handler to use.
+
+      Returns:
+          The VisualizationInfoHandler object.
+
+
+
+   .. py:method:: from_topic_viewpoints(topic_dir: zipfile.Path, vps: Iterable[bcf.v3.model.ViewPoint], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> dict[str, VisualizationInfoHandler]
+      :classmethod:
+
+
+      Create VisualizationInfoHandler objects of a Topic's ViewPoints.
+
+
+
+   .. py:method:: get_elements_visibility() -> Union[tuple[bool, list[str]], None]
+
+      Return viewpoint elements visibility settings.
+
+      Returns:
+          If viewpoint has no visibility settings, return `None`.
+          Otherwise return a tuple containing the default visibility
+          and a list of IFC element GUIDs listed as exceptions.
+
+          If default visibility is `True`, all elements are visible except the exceptions.
+
+          If default visibility is `False`, all elements are hidden except the exceptions.
+
+
+
+   .. py:method:: get_selected_guids() -> Union[list[str], None]
+
+      Return viewpoint selected elements IFC guids.
+
+      Returns:
+          If viewpoint has no selection settings, return `None`.
+          Otherwise return a list of selected elements IFC guids.
+
+
+
+   .. py:method:: load(topic_dir: zipfile.Path, vpt: bcf.v3.model.ViewPoint, xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> Optional[VisualizationInfoHandler]
+      :classmethod:
+
+
+      Load the VisualizationInfo and related objects from a BCF zip file.
+
+      Args:
+          topic_dir: The directory in the BCF zip file to load from.
+          vpt: The ViewPoint to load.
+          xml_handler: The XML handler to use to parse the VisualizationInfo.
+
+      Returns:
+          The VisualizationInfoHandler object.
+
+
+
+   .. py:method:: save(bcf_zip: bcf.inmemory_zipfile.ZipFileInterface, topic_dir: str, vpt: bcf.v3.model.ViewPoint) -> None
+
+      Save the VisualizationInfo and related objects to a BCF zip file.
+
+      Args:
+          bcf_zip: The BCF zip file to save to.
+          topic_dir: The directory in the BCF zip file to save to.
+          vpt: The ViewPoint to save.
+
+
+
+   .. py:method:: set_hidden_elements(elements: list[ifcopenshell.entity_instance]) -> None
+
+
+   .. py:method:: set_selected_elements(elements: list[ifcopenshell.entity_instance]) -> None
+
+
+   .. py:method:: set_visibility(elements: list[ifcopenshell.entity_instance], elements_visibility: Literal['VISIBLE', 'HIDDEN']) -> None
+
+
+   .. py:method:: set_visible_elements(elements: list[ifcopenshell.entity_instance]) -> None
+
+
+   .. py:attribute:: bitmaps
+
+
+   .. py:property:: guid
+      :type: str
+
+
+      Return the GUID of the visualization info.
+
+
+
+   .. py:attribute:: snapshot
+      :value: None
+
+
+
+   .. py:attribute:: visualization_info
+
+
+.. py:function:: build_camera(elem_placement: numpy.typing.NDArray[numpy.float64]) -> bcf.v3.model.PerspectiveCamera
+
+   Return a BCF camera for an IFC element placement matrix.
+
+   Args:
+       elem_placement: The IFC element placement as a rototranslation matrix.
+
+   Returns:
+       The BCF camera definition.
+
+
+.. py:function:: build_camera_from_vectors(camera_position: numpy.typing.NDArray[numpy.float64], camera_dir: numpy.typing.NDArray[numpy.float64], camera_up: numpy.typing.NDArray[numpy.float64]) -> bcf.v3.model.PerspectiveCamera
+
+   Return a BCF camera for an IFC element placement matrix.
+
+   Args:
+       camera_position: camera position array
+       camera_dir: camera direction versor
+       camera_up_vector: camera up versor
+
+   Returns:
+       The BCF camera definition.
+
+
+.. py:function:: build_components(*guids: str) -> bcf.v3.model.Components
+
+   Return the BCF components from an IFC element GUID.
+
+   Args:
+       *guids: One or more selected IFC element GUID.
+
+   Returns:
+       The BCF components definition.
+
+
+.. py:function:: build_viewpoint(element: ifcopenshell.entity_instance) -> bcf.v3.model.VisualizationInfo
+
+   Return a BCF viewpoint of an IFC element.
+
+   This function is cached to speed up the creation of multiple BCF topics regarding the same element.
+
+   Args:
+       element: The IFC element to point at.
+
+   Returns:
+       The BCF viewpoint definition.
+
+
+.. py:function:: build_viewpoint_from_position_and_guids(position: numpy.typing.NDArray[numpy.float64], *guids: str) -> bcf.v3.model.VisualizationInfo
+
+   Return a BCF viewpoint of an IFC element.
+
+   This function is cached to speed up the creation of multiple BCF topics regarding the same element.
+
+   Args:
+       position: target point coordinates.
+       *guids: One or more IFC element GUID.
+
+   Returns:
+       The BCF viewpoint definition.
+
+

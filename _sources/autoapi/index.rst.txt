@@ -1,0 +1,25 @@
+Python API Reference
+====================
+
+This page contains auto-generated API reference documentation [#f1]_.
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   /autoapi/bcf/index
+   /autoapi/bsdd/index
+   /autoapi/test/index
+   /autoapi/topic/index
+   /autoapi/model/index
+   /autoapi/ifccsv/index
+   /autoapi/visinfo/index
+   /autoapi/ifcdiff/index
+   /autoapi/ifcpatch/index
+   /autoapi/test_bsdd/index
+   /autoapi/ifctester/index
+   /autoapi/extensions/index
+   /autoapi/ifcopenshell/index
+   /autoapi/yml_to_classes/index
+
+.. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

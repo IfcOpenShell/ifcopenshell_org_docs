@@ -1,0 +1,435 @@
+:py:mod:`bcf.v3.model.markup`
+=============================
+
+.. py:module:: bcf.v3.model.markup
+
+
+Module Contents
+---------------
+
+.. py:class:: BimSnippet
+
+   .. py:attribute:: is_external
+      :type:  bool
+      :value: False
+
+
+
+   .. py:attribute:: reference
+      :type:  str
+
+
+   .. py:attribute:: reference_schema
+      :type:  str
+
+
+   .. py:attribute:: snippet_type
+      :type:  str
+
+
+.. py:class:: Comment
+
+   .. py:attribute:: author
+      :type:  str
+
+
+   .. py:attribute:: comment
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: date
+      :type:  xsdata.models.datatype.XmlDateTime
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+   .. py:attribute:: modified_author
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: modified_date
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
+      :value: None
+
+
+
+   .. py:attribute:: viewpoint
+      :type:  Optional[CommentViewpoint]
+      :value: None
+
+
+
+.. py:class:: CommentViewpoint
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+.. py:class:: DocumentReference
+
+   .. py:attribute:: description
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: document_guid
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+   .. py:attribute:: url
+      :type:  Optional[str]
+      :value: None
+
+
+
+.. py:class:: File
+
+   .. py:attribute:: date
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
+      :value: None
+
+
+
+   .. py:attribute:: filename
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: ifc_project
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: ifc_spatial_structure_element
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: is_external
+      :type:  bool
+      :value: True
+
+
+
+   .. py:attribute:: reference
+      :type:  Optional[str]
+      :value: None
+
+
+
+.. py:class:: Header
+
+   .. py:attribute:: files
+      :type:  Optional[HeaderFiles]
+      :value: None
+
+
+
+.. py:class:: HeaderFiles
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: file
+      :type:  List[File]
+      :value: []
+
+
+
+.. py:class:: Markup
+
+   .. py:attribute:: header
+      :type:  Optional[Header]
+      :value: None
+
+
+
+   .. py:attribute:: topic
+      :type:  Topic
+
+
+.. py:class:: Topic
+
+   .. py:attribute:: assigned_to
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: bim_snippet
+      :type:  Optional[BimSnippet]
+      :value: None
+
+
+
+   .. py:attribute:: comments
+      :type:  Optional[TopicComments]
+      :value: None
+
+
+
+   .. py:attribute:: creation_author
+      :type:  str
+
+
+   .. py:attribute:: creation_date
+      :type:  xsdata.models.datatype.XmlDateTime
+
+
+   .. py:attribute:: description
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: document_references
+      :type:  Optional[TopicDocumentReferences]
+      :value: None
+
+
+
+   .. py:attribute:: due_date
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
+      :value: None
+
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+   .. py:attribute:: index
+      :type:  Optional[int]
+      :value: None
+
+
+
+   .. py:attribute:: labels
+      :type:  Optional[TopicLabels]
+      :value: None
+
+
+
+   .. py:attribute:: modified_author
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: modified_date
+      :type:  Optional[xsdata.models.datatype.XmlDateTime]
+      :value: None
+
+
+
+   .. py:attribute:: priority
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: reference_links
+      :type:  Optional[TopicReferenceLinks]
+      :value: None
+
+
+
+   .. py:attribute:: related_topics
+      :type:  Optional[TopicRelatedTopics]
+      :value: None
+
+
+
+   .. py:attribute:: server_assigned_id
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: stage
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: title
+      :type:  str
+
+
+   .. py:attribute:: topic_status
+      :type:  str
+
+
+   .. py:attribute:: topic_type
+      :type:  str
+
+
+   .. py:attribute:: viewpoints
+      :type:  Optional[TopicViewpoints]
+      :value: None
+
+
+
+.. py:class:: TopicComments
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: comment
+      :type:  List[Comment]
+      :value: []
+
+
+
+.. py:class:: TopicDocumentReferences
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: document_reference
+      :type:  List[DocumentReference]
+      :value: []
+
+
+
+.. py:class:: TopicLabels
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: label
+      :type:  List[str]
+      :value: []
+
+
+
+.. py:class:: TopicReferenceLinks
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: reference_link
+      :type:  List[str]
+      :value: []
+
+
+
+.. py:class:: TopicRelatedTopics
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: related_topic
+      :type:  List[TopicRelatedTopicsRelatedTopic]
+      :value: []
+
+
+
+.. py:class:: TopicRelatedTopicsRelatedTopic
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+.. py:class:: TopicViewpoints
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: view_point
+      :type:  List[ViewPoint]
+      :value: []
+
+
+
+.. py:class:: ViewPoint
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+   .. py:attribute:: index
+      :type:  Optional[int]
+      :value: None
+
+
+
+   .. py:attribute:: snapshot
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: viewpoint
+      :type:  Optional[str]
+      :value: None
+
+
+

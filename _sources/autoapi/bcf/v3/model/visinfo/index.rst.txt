@@ -1,0 +1,441 @@
+:py:mod:`bcf.v3.model.visinfo`
+==============================
+
+.. py:module:: bcf.v3.model.visinfo
+
+
+Module Contents
+---------------
+
+.. py:class:: Bitmap
+
+   .. py:attribute:: format
+      :type:  BitmapFormat
+
+
+   .. py:attribute:: height
+      :type:  float
+
+
+   .. py:attribute:: location
+      :type:  Point
+
+
+   .. py:attribute:: normal
+      :type:  Direction
+
+
+   .. py:attribute:: reference
+      :type:  str
+
+
+   .. py:attribute:: up
+      :type:  Direction
+
+
+.. py:class:: BitmapFormat(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access:
+
+     >>> Color.RED
+     <Color.RED: 1>
+
+   - value lookup:
+
+     >>> Color(1)
+     <Color.RED: 1>
+
+   - name lookup:
+
+     >>> Color['RED']
+     <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+
+   .. py:attribute:: JPG
+      :value: 'jpg'
+
+
+
+   .. py:attribute:: PNG
+      :value: 'png'
+
+
+
+.. py:class:: ClippingPlane
+
+   .. py:attribute:: direction
+      :type:  Direction
+
+
+   .. py:attribute:: location
+      :type:  Point
+
+
+.. py:class:: Component
+
+   .. py:attribute:: authoring_tool_id
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: ifc_guid
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: originating_system
+      :type:  Optional[str]
+      :value: None
+
+
+
+.. py:class:: ComponentColoring
+
+   .. py:attribute:: color
+      :type:  List[ComponentColoringColor]
+      :value: []
+
+
+
+.. py:class:: ComponentColoringColor
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: color
+      :type:  str
+
+
+   .. py:attribute:: components
+      :type:  ComponentColoringColorComponents
+
+
+.. py:class:: ComponentColoringColorComponents
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: component
+      :type:  List[Component]
+      :value: []
+
+
+
+.. py:class:: ComponentSelection
+
+   .. py:attribute:: component
+      :type:  List[Component]
+      :value: []
+
+
+
+.. py:class:: ComponentVisibility
+
+   .. py:attribute:: default_visibility
+      :type:  bool
+      :value: False
+
+
+
+   .. py:attribute:: exceptions
+      :type:  Optional[ComponentVisibilityExceptions]
+      :value: None
+
+
+
+   .. py:attribute:: view_setup_hints
+      :type:  Optional[ViewSetupHints]
+      :value: None
+
+
+
+.. py:class:: ComponentVisibilityExceptions
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: component
+      :type:  List[Component]
+      :value: []
+
+
+
+.. py:class:: Components
+
+   .. py:attribute:: coloring
+      :type:  Optional[ComponentColoring]
+      :value: None
+
+
+
+   .. py:attribute:: selection
+      :type:  Optional[ComponentSelection]
+      :value: None
+
+
+
+   .. py:attribute:: visibility
+      :type:  Optional[ComponentVisibility]
+      :value: None
+
+
+
+.. py:class:: Direction
+
+   .. py:attribute:: x
+      :type:  float
+
+
+   .. py:attribute:: y
+      :type:  float
+
+
+   .. py:attribute:: z
+      :type:  float
+
+
+.. py:class:: Line
+
+   .. py:attribute:: end_point
+      :type:  Point
+
+
+   .. py:attribute:: start_point
+      :type:  Point
+
+
+.. py:class:: OrthogonalCamera
+
+   Attributes
+       camera_view_point:
+       camera_direction:
+       camera_up_vector:
+       view_to_world_scale: view's visible vertical size in meters
+       aspect_ratio: Proportional relationship between the width and
+           the height of the view (w/h).
+
+
+   .. py:attribute:: aspect_ratio
+      :type:  float
+
+
+   .. py:attribute:: camera_direction
+      :type:  Direction
+
+
+   .. py:attribute:: camera_up_vector
+      :type:  Direction
+
+
+   .. py:attribute:: camera_view_point
+      :type:  Point
+
+
+   .. py:attribute:: view_to_world_scale
+      :type:  float
+
+
+.. py:class:: PerspectiveCamera
+
+   Attributes
+       camera_view_point:
+       camera_direction:
+       camera_up_vector:
+       field_of_view: Vertical field of view, in degrees. It is
+           currently limited to a value between 45 and 60 degrees. This
+           limitation will be dropped in the next release and viewers
+           should be expect values outside this range in current
+           implementations.
+       aspect_ratio: Proportional relationship between the width and
+           the height of the view (w/h).
+
+
+   .. py:attribute:: aspect_ratio
+      :type:  float
+
+
+   .. py:attribute:: camera_direction
+      :type:  Direction
+
+
+   .. py:attribute:: camera_up_vector
+      :type:  Direction
+
+
+   .. py:attribute:: camera_view_point
+      :type:  Point
+
+
+   .. py:attribute:: field_of_view
+      :type:  float
+
+
+.. py:class:: Point
+
+   .. py:attribute:: x
+      :type:  float
+
+
+   .. py:attribute:: y
+      :type:  float
+
+
+   .. py:attribute:: z
+      :type:  float
+
+
+.. py:class:: ViewSetupHints
+
+   .. py:attribute:: openings_visible
+      :type:  bool
+      :value: False
+
+
+
+   .. py:attribute:: space_boundaries_visible
+      :type:  bool
+      :value: False
+
+
+
+   .. py:attribute:: spaces_visible
+      :type:  bool
+      :value: False
+
+
+
+.. py:class:: VisualizationInfo
+
+   VisualizationInfo documentation.
+
+
+   .. py:attribute:: bitmaps
+      :type:  Optional[VisualizationInfoBitmaps]
+      :value: None
+
+
+
+   .. py:attribute:: clipping_planes
+      :type:  Optional[VisualizationInfoClippingPlanes]
+      :value: None
+
+
+
+   .. py:attribute:: components
+      :type:  Optional[Components]
+      :value: None
+
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+   .. py:attribute:: lines
+      :type:  Optional[VisualizationInfoLines]
+      :value: None
+
+
+
+   .. py:attribute:: orthogonal_camera
+      :type:  Optional[OrthogonalCamera]
+      :value: None
+
+
+
+   .. py:attribute:: perspective_camera
+      :type:  Optional[PerspectiveCamera]
+      :value: None
+
+
+
+.. py:class:: VisualizationInfoBitmaps
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: bitmap
+      :type:  List[Bitmap]
+      :value: []
+
+
+
+.. py:class:: VisualizationInfoClippingPlanes
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: clipping_plane
+      :type:  List[ClippingPlane]
+      :value: []
+
+
+
+.. py:class:: VisualizationInfoLines
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: line
+      :type:  List[Line]
+      :value: []
+
+
+

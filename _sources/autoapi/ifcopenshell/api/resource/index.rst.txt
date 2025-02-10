@@ -1,0 +1,444 @@
+:py:mod:`ifcopenshell.api.resource`
+===================================
+
+.. py:module:: ifcopenshell.api.resource
+
+.. autoapi-nested-parse::
+
+   Manage construction and maintenance resources
+
+   Resources include equipment (cranes, etc), labour, material, and products. They
+   are typically referenced in construction planning, maintenance schedules, or
+   cost items.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_resource/index.rst
+   add_resource_quantity/index.rst
+   add_resource_time/index.rst
+   assign_resource/index.rst
+   calculate_resource_usage/index.rst
+   calculate_resource_work/index.rst
+   edit_resource/index.rst
+   edit_resource_quantity/index.rst
+   edit_resource_time/index.rst
+   remove_resource/index.rst
+   remove_resource_quantity/index.rst
+   unassign_resource/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_resource(file: ifcopenshell.file, parent_resource: Optional[ifcopenshell.entity_instance] = None, ifc_class: str = 'IfcCrewResource', name: Optional[str] = None, predefined_type: str = 'NOTDEFINED') -> ifcopenshell.entity_instance
+
+   Add a new construction resource
+
+   Construction resources may be managed and connected to cost schedules
+   and construction schedules. This allows calculations to be done on
+   resource utilisation, cost optimisation (e.g. labour rates), and
+   optioneering on build strategies.
+
+   There are typically two types of resources. Crew resources are resources
+   where you manage your own crew and you have full control over the
+   equipment, labour, products, and materials used by your crew.
+   Alternatively, there are subcontractor resources, where you simply
+   delegate all the details to a subcontractor and it is not decomposed
+   into further levels of detail.
+
+   This means when adding resources, you'd first either add a crew or
+   subcontract resource. If it is a crew resource, you'd then add child
+   resources to that crew, such as equipment (cranes, excavators, hoists,
+   etc), material (wood, concrete, etc), and labour (rigging crews,
+   formworkers, etc).
+
+   :param parent_resource: If this is a child resource (typically to a crew
+       resource), then nominate the parent IfcConstructionResource here.
+   :type parent_resource: ifcopenshell.entity_instance, optional
+   :param ifc_class: The class of resource chosen from
+       IfcConstructionEquipmentResource, IfcConstructionMaterialResource,
+       IfcConstructionProductResource, IfcCrewResource, IfcLaborResource,
+       or IfcSubContractResource.
+   :type ifc_class: str,optional
+   :param name: The name of the resource
+   :type name: str,optional
+   :param predefined_type: Consult the IFC documentation for the valid
+       predefined types for each type of resource class.
+   :type predefined_type: str,optional
+   :return: The newly created resource depending on the nominated IFC
+       class.
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some labour to our crew.
+       ifcopenshell.api.resource.add_resource(model, parent_resource=crew, ifc_class="IfcLaborResource")
+
+
+.. py:function:: add_resource_quantity(file: ifcopenshell.file, resource: ifcopenshell.entity_instance, ifc_class: str = 'IfcQuantityCount') -> ifcopenshell.entity_instance
+
+   Adds a quantity to a resource
+
+   The quantity of a resource represents the "unit quantity" of that
+   resource. For example, labour might be hired on a daily basis (8 hours).
+   There are different types of quantities (e.g. volume, count, or time).
+   Which quantity is used depends on the type of resource.  Material
+   resources may be quantified in terms of length, area, volume, or weight.
+   Equipment and labour resources are quantified in terms of time. Products
+   resources are quantified in terms of counts.
+
+   This base quantity is then used in other calculations.
+
+   :param resource: The IfcConstructionResource to add a quantity to.
+   :type resource: ifcopenshell.entity_instance
+   :param ifc_class: The type of quantity to add, chosen from
+       IfcQuantityArea (for material), IfcQuantityCount (for products),
+       IfcQuantityLength (for material), IfcQuantityTime (for equipment or
+       labour), IfcQuantityVolume (for material), and IfcQuantityWeight
+       (for material).
+   :type ifc_class: str,optional
+   :return: The newly created quantity depending on the IFC class
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some labour to our crew.
+       labour = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcLaborResource")
+
+       # Labour resource is quantified in terms of time.
+       quantity = ifcopenshell.api.resource.add_resource_quantity(model,
+           resource=labour, ifc_class="IfcQuantityTime")
+
+       # Store the time used in hours
+       ifcopenshell.api.resource.edit_resource_quantity(model,
+           physical_quantity=quantity, attributes={"TimeValue": 8.0})
+
+
+.. py:function:: add_resource_time(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Adds the time that a resource is used for
+
+   For labour and equipment resources, the total duration that the resource
+   is used for may be stored. This may either be input manually or
+   calculated parametrically. This is known as the resource time, and may
+   be used to calculate other parameters like resource utilisation.
+
+   :param resource: The IfcConstructionResource to record time for.
+   :type resource: ifcopenshell.entity_instance
+   :return: The newly created IfcResourceTime
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some labour to our crew.
+       labour = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcLaborResource")
+
+       # Labour resource is quantified in terms of time.
+       quantity = ifcopenshell.api.resource.add_resource_quantity(model,
+           resource=labour, ifc_class="IfcQuantityTime")
+
+       # Store the unit time used in hours
+       ifcopenshell.api.resource.edit_resource_quantity(model,
+           physical_quantity=quantity, attributes={"TimeValue": 8.0})
+
+       # Let's imagine we've used the resource for 2 days.
+       time = ifcopenshell.api.resource.add_resource_time(model, resource=labour)
+       ifcopenshell.api.resource.edit_resource_time(model,
+           resource_time=time, attributes={"ScheduleWork": "PT16H"})
+
+
+.. py:function:: assign_resource(file: ifcopenshell.file, relating_resource: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Assigns a resource to an object
+
+   Two types of objects are typically assigned to resources: products and
+   actors.
+
+   If a product is assigned to a resource, that means that the product
+   represents the resource on site. This may be represented via material
+   handling zones on a construction site, or equipment like cranes and
+   their physical locations.
+
+   If an actor is assigned to a resource, that means that the actor (person
+   or organisation) is the actor consuming the resource (e.g. if the
+   resource is material or equipment) or the actor performing the work
+   (e.g. if the resource is a labour resource).
+
+   :param relating_resource: The IfcResource to assign the object to.
+   :type relating_resource: ifcopenshell.entity_instance
+   :param related_object: The IfcProduct or IfcActor to assign to the
+       object.
+   :type related_object: ifcopenshell.entity_instance
+   :return: The newly created IfcRelAssignsToResource
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some a tower crane to our crew.
+       crane = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcConstructionEquipmentResource", name="Tower Crane 01")
+
+       # Our tower crane will be placed via this physical product.
+       product = ifcopenshell.api.root.create_entity(model,
+           ifc_class="IfcBuildingElementProxy", predefined_type="CRANE")
+
+       # Let's place our crane at some X, Y coordinates.
+       matrix = numpy.eye(4)
+       matrix[0][3], matrix[1][3] = 3.0, 4.0
+       ifcopenshell.api.geometry.edit_object_placement(model, product=crane, matrix=matrix)
+
+       # Let's assign our crane to the resource. The crane now represents
+       # the resource.
+       ifcopenshell.api.resource.assign_resource(model, relating_resource=crane, related_object=product)
+
+       # Setup an organisation actor who will operate the crane
+       organisation = ifcopenshell.api.owner.add_organisation(model,
+           identification="UCO", name="Unionised Crane Operators Pty Ltd")
+       role = ifcopenshell.api.owner.add_role(model, assigned_object=organisation, role="CREW")
+       actor = ifcopenshell.api.owner.add_actor(model, actor=organisation)
+
+       # This means that UCO is now our crane operator.
+       ifcopenshell.api.resource.assign_resource(model, relating_resource=crane, related_object=actor)
+
+
+.. py:function:: calculate_resource_usage(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
+
+   Calculates the number of resources required to perform scheduled work on a task.
+
+
+.. py:function:: calculate_resource_work(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
+
+   Calculates the work that a resource is used for
+
+   This is an unofficial parametric calculation that may be done on a
+   resource based on careful analysis of the relationships between the
+   costing, scheduling, and resource domains in IFC.
+
+   A resource may store a productivity rate in a property set called
+   EPset_Productivity. This stores three properties:
+
+   * BaseQuantityConsumed - a duration that the resource is consumed for.
+   * BaseQuantityProducedName - what quantity the resource can produce,
+       such as area or volume.
+   * BaseQuantityProducedValue - what value of that quantity the resource
+       can produce during that duration.
+
+   For example, a labour or equipment resource might produce 100m3 of
+   NetVolume every day (i.e. 8 hours are consumed).
+
+   Then, if a resource is assigned to a construction task, and that
+   construction task is assigned to concrete slabs totalling 200m3, we can
+   calculate that the resource consumes 16 hours of work.
+
+   This calculated work is stored against the resource as scheduled work
+   under the resource time data.
+
+   :param resource: The IfcConstructionResource that you want to calculate
+       the work performed.
+   :type resource: ifcopenshell.entity_instance
+   :return None:
+   :rtype: None:
+
+
+.. py:function:: edit_resource(file: ifcopenshell.file, resource: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcResource
+
+   For more information about the attributes and data types of an
+   IfcResource, consult the IFC documentation.
+
+   :param resource: The IfcResource entity you want to edit
+   :type resource: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Change the name of the resource to "Zone A Crew"
+       ifcopenshell.api.resource.edit_resource(model, resource=resource, attributes={"Name": "Foo"})
+
+
+.. py:function:: edit_resource_quantity(file: ifcopenshell.file, physical_quantity: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IFC quantity
+
+   For more information about the attributes and data types of an
+   IfC quantity, consult the IFC documentation.
+
+   :param physical_quantity: The IfC quantity entity you want to edit
+   :type physical_quantity: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some labour to our crew.
+       labour = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcLaborResource")
+
+       # Labour resource is quantified in terms of time.
+       ifcopenshell.api.resource.add_resource_quantity(model,
+           resource=labour, ifc_class="IfcQuantityTime")
+
+       # Store the time used in hours
+       ifcopenshell.api.resource.edit_resource_quantity(model,
+           physical_quantity=time, attributes={"TimeValue": 8.0})
+
+
+.. py:function:: edit_resource_time(file: ifcopenshell.file, resource_time: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcResourceTime
+
+   For more information about the attributes and data types of an
+   IfcResourceTime, consult the IFC documentation.
+
+   :param resource_time: The IfcResourceTime entity you want to edit
+   :type resource_time: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some labour to our crew.
+       labour = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcLaborResource")
+
+       # Labour resource is quantified in terms of time.
+       ifcopenshell.api.resource.add_resource_quantity(model,
+           resource=labour, ifc_class="IfcQuantityTime")
+
+       # Store the unit time used in hours
+       ifcopenshell.api.resource.edit_resource_quantity(model,
+           physical_quantity=time, attributes={"TimeValue": 8.0})
+
+       # Let's imagine we've used the resource for 2 days.
+       time = ifcopenshell.api.resource.add_resource_time(model, resource=labour)
+       ifcopenshell.api.resource.edit_resource_time(model,
+           resource_time=time, attributes={"ScheduleWork": "P16H"})
+
+
+.. py:function:: remove_resource(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
+
+   Removes a resource and all relationships
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Fire our crew
+       ifcopenshell.api.resource.remove_resource(model, resource=crew)
+
+
+.. py:function:: remove_resource_quantity(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
+
+   Removes the base quantity of a resource
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some labour to our crew.
+       labour = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcLaborResource")
+
+       # Labour resource is quantified in terms of time.
+       ifcopenshell.api.resource.add_resource_quantity(model,
+           resource=labour, ifc_class="IfcQuantityTime")
+
+       # Let's say we only want to store the resource but no quantities,
+       # let's clean up our mess and remove the quantity.
+       ifcopenshell.api.resource.remove_resource_quantity(model, resource=labour)
+
+
+.. py:function:: unassign_resource(file: ifcopenshell.file, relating_resource: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> None
+
+   Removes the relationship between a resource and object
+
+   :param relating_resource: The IfcResource to assign the object to.
+   :type relating_resource: ifcopenshell.entity_instance
+   :param related_object: The IfcProduct or IfcActor to assign to the
+       object.
+   :type related_object: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some a tower crane to our crew.
+       crane = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcConstructionEquipmentResource", name="Tower Crane 01")
+
+       # Our tower crane will be placed via this physical product.
+       product = ifcopenshell.api.root.create_entity(model,
+           ifc_class="IfcBuildingElementProxy", predefined_type="CRANE")
+
+       # Let's assign our crane to the resource. The crane now represents
+       # the resource.
+       ifcopenshell.api.resource.assign_resource(model,
+           relating_resource=crane, related_object=product)
+
+       # Undo it.
+       ifcopenshell.api.resource.unassign_resource(model,
+           relating_resource=crane, related_object=product)
+
+

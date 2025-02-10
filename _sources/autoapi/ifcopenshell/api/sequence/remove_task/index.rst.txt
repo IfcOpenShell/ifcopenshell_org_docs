@@ -1,0 +1,43 @@
+:py:mod:`ifcopenshell.api.sequence.remove_task`
+===============================================
+
+.. py:module:: ifcopenshell.api.sequence.remove_task
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> None
+
+   Removes a task
+
+   All subtasks are also removed recursively. Any relationships such as
+   sequences or controls are also removed.
+
+   :param task: The IfcTask to remove.
+   :type task: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       # Let's imagine we are creating a construction schedule. All tasks
+       # need to be part of a work schedule.
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
+
+       # Add a root task to represent the design milestones, and major
+       # project phases.
+       ifcopenshell.api.sequence.add_task(model,
+           work_schedule=schedule, name="Milestones", identification="A")
+       design = ifcopenshell.api.sequence.add_task(model,
+           work_schedule=schedule, name="Design", identification="B")
+       ifcopenshell.api.sequence.add_task(model,
+           work_schedule=schedule, name="Construction", identification="C")
+
+       # Ah, let's delete the design section, who needs it anyway we'll
+       # just fix it on site.
+       ifcopenshell.api.sequence.remove_task(model, task=design)
+
+

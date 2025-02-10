@@ -1,0 +1,33 @@
+:py:mod:`bcf.v3`
+================
+
+.. py:module:: bcf.v3
+
+.. autoapi-nested-parse::
+
+   BCF XML v3 handler.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   model/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bcfapi/index.rst
+   bcfxml/index.rst
+   document/index.rst
+   topic/index.rst
+   visinfo/index.rst
+
+

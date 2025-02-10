@@ -1,0 +1,33 @@
+:py:mod:`ifcopenshell.api.resource.remove_resource_quantity`
+============================================================
+
+.. py:module:: ifcopenshell.api.resource.remove_resource_quantity
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_resource_quantity(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
+
+   Removes the base quantity of a resource
+
+   Example:
+
+   .. code:: python
+
+       # Add our own crew
+       crew = ifcopenshell.api.resource.add_resource(model, ifc_class="IfcCrewResource")
+
+       # Add some labour to our crew.
+       labour = ifcopenshell.api.resource.add_resource(model,
+           parent_resource=crew, ifc_class="IfcLaborResource")
+
+       # Labour resource is quantified in terms of time.
+       ifcopenshell.api.resource.add_resource_quantity(model,
+           resource=labour, ifc_class="IfcQuantityTime")
+
+       # Let's say we only want to store the resource but no quantities,
+       # let's clean up our mess and remove the quantity.
+       ifcopenshell.api.resource.remove_resource_quantity(model, resource=labour)
+
+

@@ -1,0 +1,287 @@
+:py:mod:`ifcopenshell.api.classification`
+=========================================
+
+.. py:module:: ifcopenshell.api.classification
+
+.. autoapi-nested-parse::
+
+   Classification systems are a way of categorising objects
+
+   Although IFC itself comes with a built-in classification hierarchy (e.g.
+   IfcWall and its predefined types of PARTITIONING, etc), there are many external
+   or custom classification systems such as Uniclass, Omniclass and more. IFC is
+   able to integrate with any external classification system.
+
+   This API allows you to manage and assign external classification systems and
+   references.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_classification/index.rst
+   add_reference/index.rst
+   edit_classification/index.rst
+   edit_reference/index.rst
+   remove_classification/index.rst
+   remove_reference/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_classification(file: ifcopenshell.file, classification: Union[str, ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
+
+   Adds a new classification system to the project
+
+   External classification systems such as Uniclass or Omniclass are
+   ways of categorising elements in the AEC industry, typically
+   standardised or nominated by governments or companies. A system
+   typically contains a series of hierarchical reference codes and labels
+   like Pr_12_23_34.
+
+   Classifications may be applied to many things, not just physical
+   elements, such as doors and windows, spatial elements, tasks, cost
+   items, or even resources.
+
+   Prior to assigning classificaion references, you need to add the name
+   and metadata of the classification system that you will use in your
+   project. Classification systems may be revised over time, so this
+   metadata includes the edition date.
+
+   Common classification systems are provided as an IFC library which may
+   be downloaded from https://github.com/Moult/IfcClassification for your
+   convenience. It is advised to use these to ensure that the
+   classification metadata is standardised.
+
+   Adding a classification system will not add the entire hierarchy of
+   references available in the classification. References need to be added
+   separately. Typically, you'd only add the references that you use in
+   your project, see ifcopenshell.api.classification.add_reference for more
+   information.
+
+   :param classification: If a string is provided, it is assumed to be the
+       name of your classification system. This is necessary if you are
+       creating your own custom classification system. Alternatively, you
+       may provide an entity_instance of an IfcClassification from an IFC
+       classification library. The latter approach is preferred if you are
+       using a commonly known system such as Uniclass, as this will ensure
+       all metadata is added correctly.
+   :type classification: str,ifcopenshell.entity_instance
+   :return: The added IfcClassification element
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # Option 1: adding a custom clasification from scratch
+       ifcopenshell.api.classification.add_classification(model,
+           classification="MyCustomClassification")
+
+       # Option 2: adding a popular classification from a library
+       library = ifcopenshell.open("/path/to/Uniclass.ifc")
+       classification = library.by_type("IfcClassification")[0]
+       ifcopenshell.api.classification.add_classification(model,
+           classification=classification)
+
+
+.. py:function:: add_reference(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], reference: Optional[ifcopenshell.entity_instance] = None, identification: Optional[str] = None, name: Optional[str] = None, classification: Optional[ifcopenshell.entity_instance] = None, is_lightweight=True) -> Union[ifcopenshell.entity_instance, None]
+
+   Adds a new classification reference and assigns it to the list of products
+
+   A classification reference is a single entry such as "Pr_12_23_34" that
+   is part of an external classification system (such as Uniclass or
+   Omniclass).
+
+   References can be added to almost any object in IFC, including physical
+   objects, object types, properties, tasks, costs, resources, or even
+   resources such as profiles, documents, libraries, and so on.
+
+   Classification references can be added in two ways. Option 1) specify  a
+   custom arbitrary reference, where you have to manually specify the
+   identification (e.g. "Pr_12_23_45") and name (e.g. "Door Products").
+   Option 2) add a reference from an IFC classification library. The latter
+   is preferred if you are using a common classification system such as
+   Uniclass, as the library will be prepopulated with all the valid
+   classifications already.
+
+   Objects are allowed to have multiple classification references from
+   multiple classification systems. This means that adding a new reference
+   will not remove existing references.
+
+   References can be inherited from types. This means that if an
+   IfcWallType has a classification reference of Pr_12_23_34, then all
+   IfcWall occurrences of that type automatically get the same
+   classification of Pr_12_23_34. This means that it is more efficient to
+   assign to types where possible. If a classification reference is
+   assigned to both the type and an occurrence, then the assignment at the
+   occurrence will override the type classification.
+
+   :param product: The list of IFC objects, properties, or resources you want to
+       associate the classification reference to.
+   :type product: list[ifcopenshell.entity_instance]
+   :param reference: The classification reference entity taken from an
+       IFC classification library. If you supply this parameter, you will
+       use option 2.
+   :type reference: ifcopenshell.entity_instance, optional
+   :param identification: If you choose option 1 and do not specify a
+       reference, you may manually specify an identification code. The code
+       is typically a short identifier and may have punctuation to separate
+       the levels of hierarchy in the classificaion (e.g. Pr_12_23_34).
+   :type identification: str, optional
+   :param name: If you choose option 1 and do not specify a reference, you
+       may manually specify a name. The name is typically human readable.
+   :type name: str, optional
+   :param classification: The IfcClassification entity in your IFC model
+       (not the library, if you are doing option 2) that the reference is
+       part of.
+   :type classification: ifcopenshell.entity_instance
+   :param is_lightweight: If you are doing option 2, choose whether or not
+       to only add that particular reference (lighweight) or also add all
+       of its parent references in the classification hierarchy (not
+       lighweight). For example, adding a lightweight reference to
+       Pr_12_23_34 will only add Pr_12_23_34, but adding a heavy reference
+       to Pr_12_23_34 will also add Pr_12_23 and Pr_12. These parent
+       references merely help describe the "tree" of classifications, but
+       is generally unnecessary. Using lightweight classifications are
+       recommended and is the default.
+   :type is_lightweight: bool, optional
+
+   :raises TypeError: If file is IFC2X3 and `products` has non-IfcRoot elements.
+
+   :return: The newly added IfcClassificationReference
+       or `None` if `products` was empty list.
+   :rtype: Union[ifcopenshell.entity_instance, None]
+
+   Example:
+
+   .. code:: python
+
+       # Option 1: adding and assigning a new reference from scratch
+       wall_type = model.by_type("IfcWallType")[0]
+       classification = ifcopenshell.api.classification.add_classification(
+           model, classification="MyCustomClassification")
+       ifcopenshell.api.classification.add_reference(model,
+           products=[wall_type], classification=classification,
+           identification="W_01", name="Interior Walls")
+
+       # Option 2: adding a popular classification from a library
+       library = ifcopenshell.open("/path/to/Uniclass.ifc")
+       lib_classification = library.by_type("IfcClassification")[0]
+       classification = ifcopenshell.api.classification.add_classification(
+           model, classification=lib_classification)
+       reference = [r for r in library.by_type("IfcClassificationReference")
+           if r.Identification == "XYZ"][0]
+       ifcopenshell.api.classification.add_reference(model,
+           products=[wall_type], classification=classification,
+           reference=reference)
+
+
+.. py:function:: edit_classification(file: ifcopenshell.file, classification: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcClassification
+
+   For more information about the attributes and data types of an
+   IfcClassification, consult the IFC documentation.
+
+   :param classification: The IfcClassification entity you want to edit
+   :type classification: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       classification = model.by_type("IfcClassification")[0]
+       # Change the name of the classification system to "Foo"
+       ifcopenshell.api.classification.edit_classification(model,
+           classification=classification, attributes={"Name": "Foo"})
+
+
+.. py:function:: edit_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcClassificationReference
+
+   For more information about the attributes and data types of an
+   IfcClassificationReference, consult the IFC documentation.
+
+   :param reference: The IfcClassificationReference entity you want to edit
+   :type reference: ifcopenshell.entity_instance
+   :param attributes: a dictionary of attribute names and values.
+   :type attributes: dict
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       reference = model.by_type("IfcClassification")[0]
+       # Change the name of the reference to "Foo"
+       ifcopenshell.api.classification.edit_reference(model,
+           reference=reference, attributes={"Name": "Foo"})
+
+
+.. py:function:: remove_classification(file: ifcopenshell.file, classification: ifcopenshell.entity_instance) -> None
+
+   Removes an IfcClassification from the project and all references
+
+   The classification and all of its relationships, children references,
+   and relationships between objects and child references are completely
+   removed from a project.
+
+   :param classification: The IfcClassification entity you want to remove
+   :type classification: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       classification = model.by_type("IfcClassification")[0]
+       ifcopenshell.api.classification.remove_classification(model,
+           classification=classification)
+
+
+.. py:function:: remove_reference(file: ifcopenshell.file, reference: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> None
+
+   Removes a classification reference from the list of products
+
+   If the classification reference is no longer associated to any products,
+   the classification reference itself is also removed.
+
+   :param reference: The IfcClassificationReference entity of the
+       relationship you want to remove.
+   :type reference: ifcopenshell.entity_instance
+   :param product: The list fo object entities of the relationship you want to
+       remove.
+   :type product: list[ifcopenshell.entity_instance]
+
+   :raises TypeError: If file is IFC2X3 and `products` has non-IfcRoot elements.
+
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       wall_type = model.by_type("IfcWallType")[0]
+       classification = ifcopenshell.api.classification.add_classification(
+           model, classification="MyCustomClassification")
+       reference = ifcopenshell.api.classification.add_reference(model,
+           products=[wall_type], classification=classification,
+           identification="W_01", name="Interior Walls")
+       ifcopenshell.api.classification.remove_reference(model,
+           reference=reference, products=[wall_type])
+
+

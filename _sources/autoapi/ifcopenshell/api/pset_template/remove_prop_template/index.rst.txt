@@ -1,0 +1,36 @@
+:py:mod:`ifcopenshell.api.pset_template.remove_prop_template`
+=============================================================
+
+.. py:module:: ifcopenshell.api.pset_template.remove_prop_template
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_prop_template(file: ifcopenshell.file, prop_template: ifcopenshell.entity_instance) -> None
+
+   Removes a property template
+
+   Note that a property set template should always have at least one
+   property template to be valid, so take care when removing property
+   templates.
+
+   :param prop_template: The IfcSimplePropertyTemplate to remove.
+   :type prop_template: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+   Example:
+
+   .. code:: python
+
+       template = ifcopenshell.api.pset_template.add_pset_template(model, name="ABC_RiskFactors")
+
+       # Here's two propertes with just default values.
+       prop1 = ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template)
+       prop2 = ifcopenshell.api.pset_template.add_prop_template(model, pset_template=template)
+
+       # Let's remove the second one.
+       ifcopenshell.api.pset_template.remove_prop_template(model, prop_template=prop2)
+
+

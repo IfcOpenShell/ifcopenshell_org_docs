@@ -1,0 +1,22 @@
+:py:mod:`ifctester`
+===================
+
+.. py:module:: ifctester
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   facet/index.rst
+   ids/index.rst
+   reporter/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: open(filepath: str, validate: bool = False) -> Ids
+

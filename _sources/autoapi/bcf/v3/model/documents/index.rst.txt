@@ -1,0 +1,49 @@
+:py:mod:`bcf.v3.model.documents`
+================================
+
+.. py:module:: bcf.v3.model.documents
+
+
+Module Contents
+---------------
+
+.. py:class:: Document
+
+   .. py:attribute:: description
+      :type:  Optional[str]
+      :value: None
+
+
+
+   .. py:attribute:: filename
+      :type:  str
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+.. py:class:: DocumentInfo
+
+   .. py:attribute:: documents
+      :type:  Optional[DocumentInfoDocuments]
+      :value: None
+
+
+
+.. py:class:: DocumentInfoDocuments
+
+   .. py:class:: Meta
+
+      .. py:attribute:: global_type
+         :value: False
+
+
+
+
+   .. py:attribute:: document
+      :type:  List[Document]
+      :value: []
+
+
+

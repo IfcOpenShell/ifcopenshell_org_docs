@@ -1,0 +1,55 @@
+:py:mod:`ifcopenshell.api.profile.add_arbitrary_profile_with_voids`
+===================================================================
+
+.. py:module:: ifcopenshell.api.profile.add_arbitrary_profile_with_voids
+
+
+Module Contents
+---------------
+
+.. py:class:: Usecase
+
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: execute()
+
+
+.. py:function:: add_arbitrary_profile_with_voids(file: ifcopenshell.file, outer_profile: list[tuple[float, float]], inner_profiles: list[list[tuple[float, float]]], name: Optional[str] = None) -> ifcopenshell.entity_instance
+
+   Adds a new arbitrary polyline-based profile with voids
+
+   The outer profile is represented as a polyline defined by a list of
+   coordinates. Only straight segments are allowed. Coordinates must be
+   provided in SI meters.
+
+   To represent a closed curve, the first and last coordinate must be
+   identical.
+
+   The inner profiles are represented as a list of polylines.
+   Every polyline in defined by a list of coordinates.
+   Only straight segments are allowed. Coordinates must be
+   provided in SI meters.
+
+   :param outer_profile: A list of coordinates
+   :type profile: list[tuple[float, float]]
+   :param inner_profiles: A list of polylines
+   :type profile: list[list[tuple[float, float]]]
+   :param name: If the profile is semantically significant (i.e. to be
+       managed and reused by the user) then it must be named. Otherwise,
+       this may be left as none.
+   :type name: str, optional
+   :return: The newly created IfcArbitraryProfileDefWithVoids
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       # A 400mm by 400mm square with a 200mm by 200mm hole in it.
+       square_with_hole = ifcopenshell.api.profile.add_arbitrary_profile_with_voids(model,
+           outer_profile=[(0., 0.), (.4, 0.), (.4, .4), (0., .4), (0., 0.)],
+           inner_profiles=[[(0.1, 0.1), (0.3, 0.1), (0.3, 0.3), (0.1, 0.3), (0.1, 0.1)]],
+           name="SK01 Hole Profile")
+
+

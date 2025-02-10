@@ -1,0 +1,293 @@
+:py:mod:`ifcopenshell.api.geometry`
+===================================
+
+.. py:module:: ifcopenshell.api.geometry
+
+.. autoapi-nested-parse::
+
+   Create geometric representations and assign them to elements
+
+   These functions support both the creation of arbitrary geometry as well as
+   geometry that follows parametric rules (e.g. layered geometry or profiled
+   geometry extrusions).
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_axis_representation/index.rst
+   add_boolean/index.rst
+   add_door_representation/index.rst
+   add_footprint_representation/index.rst
+   add_mesh_representation/index.rst
+   add_profile_representation/index.rst
+   add_railing_representation/index.rst
+   add_representation/index.rst
+   add_shape_aspect/index.rst
+   add_slab_representation/index.rst
+   add_wall_representation/index.rst
+   add_window_representation/index.rst
+   assign_representation/index.rst
+   connect_element/index.rst
+   connect_path/index.rst
+   create_2pt_wall/index.rst
+   disconnect_element/index.rst
+   disconnect_path/index.rst
+   edit_object_placement/index.rst
+   map_representation/index.rst
+   remove_boolean/index.rst
+   remove_representation/index.rst
+   unassign_representation/index.rst
+   validate_type/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_axis_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, axis: tuple[COORD, COORD]) -> ifcopenshell.entity_instance
+
+   Adds a new axis representation
+
+   Certain objects are typically "axis-based", such as walls, beams,
+   and columns. This means you can represent them abstractly by simply
+   drawing a single line either in 2D (such as for walls) or 3D (for beams
+   and columns). Humans can understand this axis-based representation as
+   being a simplification of a layered extrusion or a profile that is being
+   extruded along that axis and joined to other elements.
+
+   Using an axis-based representation makes it easy for users and computers
+   to analyse connectivity and spatial relationships, as well as makes it
+   easy to parametrically edit these objects by simply stretching the start
+   or end of the axis.
+
+   For now, only simple straight line axes are supported, represented by a
+   start and end coordinate. The order is important. For walls, the start
+   must be at the minimum local X ordinate, and the end at the maximum
+   local X ordinate. For beams and columns, the start is at the minimum
+   local Z ordinate, and the end of the maximum local Z ordinate. The first
+   coordinate is the "start" and the second coordinate is the "end". This
+   stat and end is then used to determine any parametric junctions with
+   other elements.
+
+   Using an axis-representation is optional, but highly recommended for
+   "standard" representations of walls, beams, columns, and other
+   structural members. A rule of thumb is that if you can draw it as a line
+   on paper, you can probably represent it using an axis.
+
+   :param context: The IfcGeometricRepresentationContext that the
+       representation is part of. This must be either a
+       Model/Axis/GRAPH_VIEW (3D) or Plan/Axis/GRAPH_VIEW (2D).
+   :type context: ifcopenshell.entity_instance
+   :param axis: The axis, as a list of two coordinates, the coordinates
+       being either a list of 2 or 3 float coordinates depending on whether
+       the axis is 2D or 3D.
+   :type axis: list[list[float]]
+   :return: The newly created IfcShapeRepresentation entity
+   :rtype: ifcopenshell.entity_instance
+
+   Example:
+
+   .. code:: python
+
+       context = ifcopenshell.util.representation.get_context(model, "Plan", "Axis", "GRAPH_VIEW")
+       axis = ifcopenshell.api.geometry.add_axis_representation(model,
+           context=context, axis=[(0.0, 0.0), (1.0, 0.0)])
+
+
+.. py:function:: add_boolean(file: ifcopenshell.file, first_item: ifcopenshell.entity_instance, second_items: list[ifcopenshell.entity_instance], operator: Literal['DIFFERENCE', 'INTERSECTION', 'UNION'] = 'DIFFERENCE') -> list[ifcopenshell.entity_instance]
+
+   Adds a boolean operation to two or more representation items
+
+   If an IfcBooleanOperand is part of the top level items in an
+   IfcShapeRepresentation, it will be removed from that level whilst being
+   added to the IfcBooleanResult. This is because it is generally intuitive
+   that an item is either participating in a boolean operation, or being an
+   item in its own right, but not both.
+
+   However, if an IfcBooleanOperand is part of another boolean operation
+   already, it will not be removed from the existing operation. A new
+   operation will be created, and therefore it will participate in two
+   operations.
+
+   This function protects against recursive booleans.
+
+   After a boolean operation is made, since the items of
+   IfcShapeRepresentation may be modified, it is not guaranteed that the
+   RepresentationType is still valid. After performing all your booleans, it
+   is recommended to run :func:`ifcopenshell.api.geometry.validate_csg` to
+   ensure correctness.
+
+   :param first_item: The IfcBooleanOperand that the operation is performed upon
+   :param second_items: The IfcBooleanOperands that the operation will be
+       performed with, in the order given of the list.
+   :param operator: The type of boolean operation to perform
+   :return: A list of newly created IfcBooleanResult in the order of boolean
+       operations (based on the order of second items). If nothing was
+       created, the list will be empty.
+
+
+.. py:function:: add_footprint_representation(file, context: ifcopenshell.entity_instance, curves: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
+
+.. py:function:: add_mesh_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, vertices: list[COORD_3D], edges: list[tuple[int, int]] = None, faces: list[list[int]] = None, cooridnate_offset: Optional[COORD_3D] = None, unit_scale: Optional[float] = None, force_faceted_brep: bool = False) -> ifcopenshell.entity_instance
+
+.. py:function:: add_profile_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, profile: ifcopenshell.entity_instance, depth: float = 1.0, cardinal_point: Literal[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] = 5, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, placement_zx_axes: tuple[Union[VECTOR_3D, None], Union[VECTOR_3D, None]] = (None, None)) -> ifcopenshell.entity_instance
+
+.. py:function:: add_shape_aspect(file: ifcopenshell.file, name: str, items: list[ifcopenshell.entity_instance], representation: ifcopenshell.entity_instance, part_of_product: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
+
+   Adds a shape aspect to items that are part of a representation and product
+
+   Existing shape aspects will be reused where possible. If the items already
+   belong to another shape aspect with a different name, this relationship
+   will be purged.
+
+   Warning: it is not possible to add a shape aspect to types (i.e.
+   IfcRepresentationMap) in IFC2X3.
+
+   :param name: The name of the shape aspect. This is case sensitive.
+   :param items: IfcRepresentationItems that will be assigned to this aspect.
+   :param representation: The IfcShapeRepresentation that the items are in.
+   :param part_of_product: The IfcRepresentationMap or
+       IfcProductDefinitionShape that the representation is in.
+   :param description: A description to set for the shape aspect. It's usually
+       not necessary.
+   :return: The IfcShapeAspect
+
+
+.. py:function:: add_slab_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, depth: float = 0.2, direction_sense: str = 'POSITIVE', offset: float = 0.0, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, polyline: Optional[list[tuple[float, float]]] = None) -> ifcopenshell.entity_instance
+
+   Add a geometric representation for a slab.
+
+   :param context: The IfcGeometricRepresentationContext for the representation,
+       only Model/Body/MODEL_VIEW type of representations are currently supported.
+   :param depth: The slab depth, in meters.
+   :param x_angle: The slope angle along the slab's X-axis, in radians.
+   :param clippings: List of planes that define clipping half space solids.
+       Clippings can be `Clipping` objects or dictionaries of arguments for `Clipping.parse`.
+   :return: IfcShapeRepresentation.
+
+   Example:
+
+   .. code:: python
+
+       context = ifcopenshell.util.representation.get_context(ifc_file, "Model", "Body", "MODEL_VIEW")
+       clippings = [ifcopenshell.util.data.Clipping(location=(0.0, 0.0, 0.1), normal=(0.0, 0.0, 1.0),)]
+       representation = ifcopenshell.api.geometry.add_slab_representation(ifc_file, context, depth=0.2, clippings=clippings)
+       ifcopenshell.api.geometry.assign_representation(ifc_file, product=element, representation=representation)
+
+
+.. py:function:: add_wall_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, length: float = 1.0, height: float = 3.0, direction_sense: str = 'POSITIVE', offset: float = 0.0, thickness: float = 0.2, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, booleans: Optional[list[ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+
+   Add a geometric representation for a wall.
+
+   :param context: The IfcGeometricRepresentationContext for the representation,
+       only Model/Body/MODEL_VIEW type of representations are currently supported.
+   :param length: The length of the wall in meters.
+   :param height: The height of the wall in meters.
+   :param offset: The base offset distance of the wall from the origin.
+   :param thickness: The thickness of the wall in meters.
+   :param x_angle: The slope angle along the wall's X-axis, in radians.
+   :param clippings: List of clipping definitions. Clippings can be `Clipping` objects
+       or dictionaries of arguments for `Clipping.parse`.
+   :param booleans: List of any existing IfcBooleanResults.
+   :return: IfcShapeRepresentation.
+
+
+.. py:function:: assign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
+
+.. py:function:: connect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
+
+.. py:function:: connect_path(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, relating_connection: str = 'NOTDEFINED', related_connection: str = 'NOTDEFINED', description: Optional[str] = None) -> ifcopenshell.entity_instance
+
+.. py:function:: create_2pt_wall(file: ifcopenshell.file, element: ifcopenshell.entity_instance, context: ifcopenshell.entity_instance, p1: tuple[float, float], p2: tuple[float, float], elevation: float, height: float, thickness: float, is_si: bool = True) -> ifcopenshell.entity_instance
+
+   Create a wall between two points (p1 and p2).
+   A shortcut for geometry.add_wall_representation.
+
+   :param element: Wall IFC element.
+   :param context: IfcGeometricRepresentationContext for the representation.
+       only Model/Body/MODEL_VIEW type of representations are currently supported.
+   :param p1: The starting point (x, y) of the wall.
+   :param p2: The ending point (x, y) of the wall.
+   :param elevation: The base elevation (z-coordinate) for the wall.
+   :param height: The height of the wall.
+   :param thickness: The thickness of the wall.
+   :param is_si: If True, provided arguments units are treated as SI (meters).
+       If False, values are converted from project units to SI.
+   :return: IfcShapeRepresentation.
+
+
+.. py:function:: disconnect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance) -> None
+
+.. py:function:: disconnect_path(file: ifcopenshell.file, element: Optional[ifcopenshell.entity_instance] = None, connection_type: Optional[str] = None, relating_element: Optional[ifcopenshell.entity_instance] = None, related_element: Optional[ifcopenshell.entity_instance] = None) -> None
+
+   There are two options to use this API method:
+   - provide `element` (connected from) and `connection_type` that should be disconnected.
+   - provide connected elements to disconnect explicitly:
+   `relating_element` (connected from) and `related_element` (connected to)
+
+
+.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
+
+.. py:function:: map_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+.. py:function:: remove_boolean(file: ifcopenshell.file, item: ifcopenshell.entity_instance) -> None
+
+   Removes a boolean operation without deleting the operands
+
+   The first operand will replace the boolean result itself, and the second
+   operand will be reset as a top level representation item.
+
+   This may affect the Items of IfcShapeRepresentation, so it is recommended
+   to run :func:`ifcopenshell.api.geometry.validate_type` after all boolean
+   modifications are complete.
+
+   :param item: This may either be an IfcBooleanResult or an
+       IfcRepresentationItem that is participating in one or more boolean
+       results (in which case all are removed).
+
+
+.. py:function:: remove_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> None
+
+   Remove a representation.
+
+   Also purges representation items and their related elements
+   like IfcStyledItem, tessellated facesets colours and UV map.
+
+   :param representation: IfcRepresentation to remove.
+       Note that it's expected that IfcRepresentation won't be in use
+       before calling this method (in such elements as IfcProductRepresentation, IfcShapeAspect)
+       otherwise representation won't be removed.
+   :type representation: ifcopenshell.entity_instance
+   :return: None
+   :rtype: None
+
+
+.. py:function:: unassign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
+
+.. py:function:: validate_type(file: ifcopenshell.file, representation: ifcopenshell.entity_instance, preferred_item: ifcopenshell.entity_instance | None = None) -> bool
+
+   Validates the RepresentationType of an IfcShapeRepresentation
+
+   A shape representation has to identify its geometry using the
+   RepresentationType attribute. For example, if it holds tessellated
+   geometry, it should store "Tessellation" as its RepresentationType.
+
+   This function checks whether or not the RepresentationType is valid. This
+   is a wrapper around :func:`ifcopenshell.util.representation.guess_type`. It
+   will then set RepresentationType to the most appropriate value, or return
+   False otherwise. In addition, it also attempts to reconcile otherwise
+   invalid CSG geometry by unioning all remaining top level items to existing
+   boolean results.
+
+   :param representation: The IfcShapeRepresentation with Items
+   :param preferred_item: If the type is expected to be a CSG, this will be
+       the preferred item to union all remaining items to. If no preferred
+       item is provided, the first boolean result will be chosen.
+   :return: True if the representation type was set and it is a valid
+       combination, or False otherwise.
+
+
