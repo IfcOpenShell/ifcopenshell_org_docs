@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../../genindex.html" /><link rel="search" title="Search" href="../../../../../search.html" /><link rel="next" title="ifcopenshell.api.material.reorder_set_item" href="../reorder_set_item/index.html" /><link rel="prev" title="ifcopenshell.api.material.remove_material_set" href="../remove_material_set/index.html" />
 
     <link rel="shortcut icon" href="https://ifcopenshell.org/assets/images/logo.png"/><!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>ifcopenshell.api.material.remove_profile - IfcOpenShell 0.8.2 documentation</title>
+        <title>ifcopenshell.api.material.remove_profile - IfcOpenShell 0.8.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=aefb6c79" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
@@ -206,7 +206,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../../index.html"><div class="brand">IfcOpenShell 0.8.2 documentation</div></a>
+      <a href="../../../../../index.html"><div class="brand">IfcOpenShell 0.8.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -233,7 +233,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.8.2 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.8.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -923,19 +923,17 @@
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.material.remove_profile.remove_profile">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.material.remove_profile.</span></span><span class="sig-name descname"><span class="pre">remove_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.material.remove_profile.remove_profile" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.material.remove_profile.</span></span><span class="sig-name descname"><span class="pre">remove_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ifcopenshell.file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_remove_profile_def</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_remove_material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.material.remove_profile.remove_profile" title="Link to this definition">¶</a></dt>
 <dd><p>Removes a profile item from a profile set</p>
 <p>Note that it is invalid to have zero items in a set, so you should leave
 at least one profile to ensure a valid IFC dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>profile</strong> (<a class="reference internal" href="../../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><em>ifcopenshell.entity_instance</em></a>) – The IfcMaterialProfile entity you want to remove</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>profile</strong> – The IfcMaterialProfile entity you want to remove</p></li>
+<li><p><strong>should_remove_profile_def</strong> – If true, profile defs with no users will be removed</p></li>
+<li><p><strong>should_remove_material</strong> – If true, materials with no users will be removed</p></li>
+</ul>
 </dd>
 </dl>
 <p>Example:</p>
@@ -1053,7 +1051,7 @@ at least one profile to ensure a valid IFC dataset.</p>
       
     </aside>
   </div>
-</div><script src="../../../../../_static/documentation_options.js?v=dbee5847"></script>
+</div><script src="../../../../../_static/documentation_options.js?v=ec16d22d"></script>
     <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../_static/scripts/furo.js?v=5fa4622c"></script>

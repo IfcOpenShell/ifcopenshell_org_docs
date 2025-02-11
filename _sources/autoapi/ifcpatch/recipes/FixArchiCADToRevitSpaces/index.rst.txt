@@ -47,6 +47,7 @@ Module Contents
    Example:
 
    .. code:: python
+
        ifcpatch.execute({"input": "input.ifc", "recipe": "FixArchiCADToRevitSpaces", "arguments": []})
 
 

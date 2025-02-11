@@ -109,7 +109,7 @@ Module Contents
    :param element: An IfcProduct or IfcTypeProduct
 
 
-.. py:function:: guess_type(items: Sequence[ifcopenshell.entity_instance]) -> str | None
+.. py:function:: guess_type(items: Sequence[ifcopenshell.entity_instance]) -> Union[str, None]
 
    Guesses the appropriate RepresentationType attribute based on a list of items
 

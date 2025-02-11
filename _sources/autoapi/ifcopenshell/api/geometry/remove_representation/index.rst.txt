@@ -7,19 +7,21 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> None
+.. py:function:: remove_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance, should_keep_named_profiles: bool = True) -> None
 
    Remove a representation.
 
    Also purges representation items and their related elements
    like IfcStyledItem, tessellated facesets colours and UV map.
 
+   By default, named profiles are assumed to be significant (i.e. curated as
+   part of a profile library) and will not be removed.
+
    :param representation: IfcRepresentation to remove.
        Note that it's expected that IfcRepresentation won't be in use
        before calling this method (in such elements as IfcProductRepresentation, IfcShapeAspect)
        otherwise representation won't be removed.
-   :type representation: ifcopenshell.entity_instance
-   :return: None
-   :rtype: None
+   :param should_keep_named_profiles: If true, named profile defs will not be
+       removed as they are assumed to be significant.
 
 

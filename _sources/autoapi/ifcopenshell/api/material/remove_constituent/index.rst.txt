@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: remove_constituent(file: ifcopenshell.file, constituent: ifcopenshell.entity_instance) -> None
+.. py:function:: remove_constituent(file: ifcopenshell.file, constituent: ifcopenshell.entity_instance, should_remove_material: bool = False) -> None
 
    Removes a constituent from a constituent set
 
@@ -15,9 +15,7 @@ Module Contents
    at least one constituent to ensure a valid IFC dataset.
 
    :param constituent: The IfcMaterialConstituent entity you want to remove
-   :type constituent: ifcopenshell.entity_instance
-   :return: None
-   :rtype: None
+   :param should_remove_material: If true, materials with no users will be removed
 
    Example:
 

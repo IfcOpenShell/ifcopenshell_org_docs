@@ -44,7 +44,7 @@ Module Contents
 
 
 
-   .. py:method:: create_cartesian_point_list_from_vertices(vertices: list[bpy.types.MeshVertex], is_2d: bool = False, is_model_coords: bool = True) -> ifcopenshell.entity_instance
+   .. py:method:: create_cartesian_point_list_from_vertices(vertices: bpy.types.MeshVertices, is_2d: bool = False, is_model_coords: bool = True) -> ifcopenshell.entity_instance
 
 
    .. py:method:: create_circle_extrusion_representation() -> ifcopenshell.entity_instance
@@ -170,6 +170,10 @@ Module Contents
    .. py:method:: should_triangulate_face(face: bmesh.types.BMFace, threshold: float = EPSILON) -> bool
 
 
+   .. py:attribute:: coordinate_offset
+      :type:  Union[numpy.typing.NDArray[numpy.float64], None]
+
+
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
@@ -182,7 +186,7 @@ Module Contents
       :type:  dict[str, Any]
 
 
-.. py:function:: add_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, blender_object: bpy.types.Object, geometry: Union[bpy.types.Mesh, bpy.types.Curve], coordinate_offset: Optional[mathutils.Vector] = None, total_items: int = 1, unit_scale: Optional[float] = None, should_force_faceted_brep: bool = False, should_force_triangulation: bool = False, should_generate_uvs: bool = False, ifc_representation_class: Optional[Literal['IfcExtrudedAreaSolid/IfcRectangleProfileDef', 'IfcExtrudedAreaSolid/IfcCircleProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryClosedProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryProfileDefWithVoids', 'IfcExtrudedAreaSolid/IfcMaterialProfileSetUsage', 'IfcGeometricCurveSet/IfcTextLiteral', 'IfcTextLiteral']] = None, profile_set_usage: Optional[ifcopenshell.entity_instance] = None, text_literal: Optional[ifcopenshell.entity_instance] = None) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: add_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, blender_object: bpy.types.Object, geometry: Union[bpy.types.Mesh, bpy.types.Curve], coordinate_offset: Optional[numpy.typing.NDArray[numpy.float64]] = None, total_items: int = 1, unit_scale: Optional[float] = None, should_force_faceted_brep: bool = False, should_force_triangulation: bool = False, should_generate_uvs: bool = False, ifc_representation_class: Optional[Literal['IfcExtrudedAreaSolid/IfcRectangleProfileDef', 'IfcExtrudedAreaSolid/IfcCircleProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryClosedProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryProfileDefWithVoids', 'IfcExtrudedAreaSolid/IfcMaterialProfileSetUsage', 'IfcGeometricCurveSet/IfcTextLiteral', 'IfcTextLiteral']] = None, profile_set_usage: Optional[ifcopenshell.entity_instance] = None, text_literal: Optional[ifcopenshell.entity_instance] = None) -> Union[ifcopenshell.entity_instance, None]
 
    Add an IfcShapeRepresentation.
 
