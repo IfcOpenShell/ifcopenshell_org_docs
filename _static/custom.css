@@ -85,5 +85,5 @@ dl.py.property, dl.py.attribute, dl.py.method, dl.py.function {
 
 /* Workaround for highlighting issue in Furo */
 [role=main] .highlighted {
-    background-color: transparent !important;
+    -webkit-text-fill-color: initial !important;
 }
