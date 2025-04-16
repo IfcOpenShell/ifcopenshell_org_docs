@@ -56,7 +56,7 @@ Module Contents
    Returns the cost schedule of a cost item.
 
 
-.. py:function:: get_cost_schedule_types(file)
+.. py:function:: get_cost_schedule_types(file: ifcopenshell.file) -> list[dict[str, str]]
 
 .. py:function:: get_cost_values(cost_item: ifcopenshell.entity_instance) -> list[dict[str, str]]
 

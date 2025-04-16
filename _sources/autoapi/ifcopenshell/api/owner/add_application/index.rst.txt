@@ -15,6 +15,14 @@ Module Contents
    .. py:method:: execute()
 
 
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
 .. py:function:: add_application(file: ifcopenshell.file, application_developer: Optional[ifcopenshell.entity_instance] = None, version: Optional[str] = None, application_full_name: str = 'IfcOpenShell', application_identifier: str = 'IfcOpenShell') -> ifcopenshell.entity_instance
 
    Adds a new application

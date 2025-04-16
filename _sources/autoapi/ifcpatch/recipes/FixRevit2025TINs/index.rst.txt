@@ -1,0 +1,144 @@
+:py:mod:`ifcpatch.recipes.FixRevit2025TINs`
+===========================================
+
+.. py:module:: ifcpatch.recipes.FixRevit2025TINs
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: None, logger: logging.Logger, filepath: str, is_solid: bool = True, should_create_edges: bool = True)
+
+   
+   Fix missing or spot-coordinate bugged TINs loading in Revit
+
+   TINs exported from 12D or Civil 3D may contain dense or highly obtuse
+   triangles.  Although these will load in Revit, you will not be able to
+   use Revit's Spot Coordinate or Spot Elevation tool.
+
+   See bug: https://github.com/Autodesk/revit-ifc/issues/511
+
+   If `is_solid` is enabled, we assume the surface is represented as a
+   solid (e.g. I have come across surfaces which are extruded by 1mm from
+   Civil 3D). The solution will delete any faces with a Z normal less
+   than 0.5. In case the mesh has any side faces or thickness, this should
+   leave only the top surface which is relevant for spot coordinates and
+   elevations.
+
+   Vertices closer than 10mm will also be merged to prevent dense
+   portions of the TIN at a minor sacrifice of surveying accuracy. It will
+   also triangulate all meshes to prevent non-coplanar surfaces, and
+   delete any obtuse triangles where one of their XY angles is less than
+   0.3 degrees.  Therefore the result will contain some minor "holes" in
+   the TIN, but these holes will only be in dense triangles that Revit
+   can't handle anyway and won't affect most coordination tasks.
+
+   After that, it will:
+
+   1. Reassign everything to an IfcGeographicElement
+   2. Detect boundary edges and create an edge-only IfcVirtualElement.
+       Good for clean viz in Revit.
+   3. Create a copy of the object which has no sharp faces. This will
+       allow Revit's spot coordinate tool to work on any arbitrary face
+       surface. Note that Revit cannot snap to edges or vertices on this
+       object.
+   4. Create a copy of the obejct which has one artifically injected sharp
+       face. This trick allows Revit's spot coordinate tool to snap to
+       edges and points. However, Revit cannot sample an arbitrary
+       surface. By combining this object with the previous object, you get
+       the best of both worlds.
+
+   If you're thinking that this overlapping, Z-fighting, duplication of
+   objects with arbitrary almost-degenerate triangles being added is a
+   horrific abomination in the world of software workarounds, you are
+   absolutely correct.
+
+   This is a variation of FixRevitTINs which has been tested on Revit <=
+   2023. I've tested this one on Revit 2025 (the behaviour has changed).
+
+   Note that you may may want to run other tools like
+   OffsetObjectPlacements or ResetAbsoluteCoordinates to fix large
+   coordinates as these can also cause issues in Revit (such as inaccuracy
+   or inability to use the Spot Coordinate / Elevation tool).
+
+   This patch is designed to work on any TIN-like export, typically coming
+   from civil software. It also requires you to run it using Blender, as
+   the geometric modification uses the Blender geometry engine.
+
+   `filepath` argument is required for this recipe, `file` argument is
+   ignored.
+
+   :param filepath: The filepath of the IFC model. This is required to
+       load into Bonsai.
+   :param is_solid: If true, assume a thickness and delete anything that
+       isn't the top face.
+   :param should_create_edges: If true, a new IfcVirtualElement is created
+       representing the perimeter of the objects. This allows you to to
+       hide regular surface edges in Revit and only use the perimeter edge
+       for visualisation.
+   :filter_glob filepath: *.ifc;*.ifczip;*.ifcxml
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"input": "input.ifc", "recipe": "FixRevit2025TINs", "arguments": []})
+
+
+   .. py:method:: convert_si_to_unit(co)
+
+
+   .. py:method:: create_cartesian_point(x: float, y: float, z: Optional[float] = None, is_model_coords: bool = True) -> ifcopenshell.entity_instance
+
+      Create IfcCartesianPoint.
+
+      x, y, z coords are provided in SI units.
+
+
+
+   .. py:method:: create_cartesian_point_list_from_vertices(vertices) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_curves_from_curve(is_2d: bool = False, curve_object_data=None) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curves_from_curve_ifc2x3(is_2d: bool = False, curve_object_data=None) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curves_from_mesh(geom_data) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_curves_from_mesh_ifc2x3(geom_data) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: create_edge_sampleable_object(obj)
+
+
+   .. py:method:: create_edges(obj)
+
+
+   .. py:method:: create_face_sampleable_object(obj)
+
+
+   .. py:method:: patch() -> None
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: filepath
+
+
+   .. py:attribute:: is_solid
+      :value: True
+
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: should_create_edges
+      :value: True
+
+
+

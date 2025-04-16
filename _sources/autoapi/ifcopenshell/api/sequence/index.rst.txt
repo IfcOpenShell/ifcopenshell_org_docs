@@ -99,23 +99,16 @@ Package Contents
    :param work_schedule: The work schedule to group the task in, if the
        task is to be a top-level or root task. This is mutually exclusive
        with the parent_task parameter.
-   :type work_schedule: ifcopenshell.entity_instance, optional
    :param parent_task: The parent task, if the task is to be a subtask or
        child task. This is mutually exclusive with the work_schedule
        parameter.
-   :type parent_task: ifcopenshell.entity_instance, optioanl
    :param name: The name of the task.
-   :type name: str,optional
    :param description: The description of the task.
-   :type description: str,optional
    :param identification: The identification code of the task.
-   :type identification: str,optional
    :param predefined_type: The predefined type of the task. Common ones
        include CONSTRUCTION, DEMOLITION, or MAINTENANCE. Consultant the
        IFC documentation for IfcTaskTypeEnum for more information.
-   :type predefined_type: str
    :return: The newly created IfcTask
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -180,11 +173,8 @@ Package Contents
    (especially for maintenance tasks).
 
    :param task: The task to add time data to.
-   :type task: ifcopenshell.entity_instance
    :param is_recurring: Whether or not the time should recur.
-   :type is_recurring: bool
    :return: The newly created IfcTaskTime.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -229,17 +219,13 @@ Package Contents
 
    :param recurrence_pattern: The IfcRecurrencePattern to add the time
        period to. See ifcopenshell.api.sequence.assign_recurrence_pattern.
-   :type recurrence_pattern: ifcopenshell.entity_instance
    :param start_time: The start time of the time period, in a format
        compatible with IfcTime, such as an ISO format time string or a
        datetime.time object.
-   :type start_time: str,datetime.time
    :param end_time: The end time of the time period, in a format
        compatible with IfcTime, such as an ISO format time string or a
        datetime.time object.
-   :type end_time: str,datetime.time
    :return: The newly created IfcTimePeriod
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -284,12 +270,10 @@ Package Contents
 
    :param name: The name of the calendar. Typically something like
        "5 Day Working Week" or "24/7".
-   :type name: str, optional
    :param predefined_type: The type of calendar, typically used to more
        specifically define shifts, such as FIRSTSHIFT, SECONDSHIFT, or
        THIRDSHIFT. Leave as NOTDEFINED for basic calendar usage.
    :return: The newly created IfcWorkCalendar
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -339,15 +323,11 @@ Package Contents
 
    :param name: The name of the work plan. Recommended to be "Maintenance"
        or "Construction" for the two main purposes.
-   :type name: str, optional
    :param predefined_type: The type of work plan, used for baselining.
        Leave as "NOTDEFINED" if unsure.
-   :type predefined_type: str
    :param start_time: The earliest start time when the schedules grouped
        within the work plan are relevant.
-   :type start_time: str,datetime.time
    :return: The newly created IfcWorkPlan
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -421,12 +401,9 @@ Package Contents
 
    :param work_calendar: The IfcWorkCalendar to add the work or holiday
        time definition to.
-   :type work_calendar: ifcopenshell.entity_instance
    :param time_type: Either WorkingTimes or ExceptionTimes, depending on
        what you want to define.
-   :type time_type: str
    :return: The newly created IfcWorkTime
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -474,17 +451,13 @@ Package Contents
    are allowed.
 
    :param rel_sequence: The IfcRelSequence to assign the lag time to.
-   :type rel_sequence: ifcopenshell.entity_instance
    :param lag_value: An ISO standardised duration string.
-   :type lag_value: str
    :param duration_type: Choose from WORKTIME for the associated
        calendar-based lag times (this is the most common scenario and is
        recommended as a default), or ELAPSEDTIME to not follow the
        calendar. You may also choose NOTDEFINED but the behaviour of this
        is unclear.
-   :type duration_type: str
    :return: The newly created IfcLagTime
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -566,12 +539,9 @@ Package Contents
 
    :param relating_process: The IfcProcess (typically IfcTask) that the
        input, control, or resource is related to.
-   :type relating_process: ifcopenshell.entity_instance
    :param related_object: The IfcProduct (for input), IfcCostItem (for
        control) or IfcConstructionResource (for resource).
-   :type related_object: ifcopenshell.entity_instance
    :return: The newly created IfcRelAssignsToProcess relationship
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -610,12 +580,9 @@ Package Contents
 
    :param relating_product: The IfcProduct that was constructed as a result
        of the task.
-   :type relating_product: ifcopenshell.entity_instance
    :param related_object: The IfcProcess (typically IfcTask) of the
        construction task.
-   :type related_object: ifcopenshell.entity_instance
    :return: The newly created IfcRelAssignsToProduct relationship
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -680,11 +647,8 @@ Package Contents
    :param parent: Either an IfcTaskTimeRecurring if you are defining a
        recurring schedule for a task, or IfcWorkTime if you are defining a
        recurring pattern for a workdays or holidays in a calendar.
-   :type parent: ifcopenshell.entity_instance
    :param recurrence_type: One of the types of recurrences.
-   :type recurrence_type: str
    :return: The newly created IfcRecurrencePattern
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -749,13 +713,10 @@ Package Contents
    predecessor and successor tasks in the planning profession.
 
    :param relating_process: The previous / predecessor task.
-   :type relating_process: ifcopenshell.entity_instance
    :param related_process: The next / successor task.
-   :type related_process: ifcopenshell.entity_instance
    :param sequence_type: Choose from FINISH_START, FINISH_FINISH,
        START_START, or START_FINISH.
    :return: The newly created IfcRelSequence
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -808,7 +769,7 @@ Package Contents
        ifcopenshell.api.sequence.cascade_schedule(model, task=formwork)
 
 
-.. py:function:: assign_work_plan(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, work_plan: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: assign_work_plan(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, work_plan: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Assigns a work schedule to a work plan
 
@@ -817,11 +778,8 @@ Package Contents
 
    :param work_schedule: The IfcWorkSchedule that will be assigned to the
        work plan.
-   :type work_schedule: ifcopenshell.entity_instance
    :param work_plan: The IfcWorkPlan for the schedule to be assigned to.
-   :type work_plan: ifcopenshell.entity_instance
    :return: The IfcRelAggregates relationship
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -851,9 +809,7 @@ Package Contents
    then nothing happens.
 
    :param task: The IfcTask to calculate the duration for.
-   :type task: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -918,9 +874,7 @@ Package Contents
    be equivalent to be Tuesday 8am, for instance.
 
    :param task: The start task to begin cascading from.
-   :type task: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -995,11 +949,8 @@ Package Contents
    * Same Resource Relationships
 
    :param work_schedule: The planned work_schedule to baseline
-   :type work_schedule: ifcopenshell.entity_instance
    :param name: baseline work schedule name
-   :type name: str, optional
    :return: The baseline work_schedule
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -1012,7 +963,7 @@ Package Contents
        baseline_work_schedule = ifcopenshell.api.sequence.create_baseline(file, work_schedule=planned_work_schedule, name="Baseline 1")
 
 
-.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
 
    Duplicates a task in the project
 
@@ -1023,9 +974,7 @@ Package Contents
    * The copy will have duplicated nested tasks
 
    :param task: The task to be duplicated
-   :type task: ifcopenshell.entity_instance
    :return: The duplicated task or the list of duplicated tasks if the latter has children
-   :rtype: ifcopenshell.entity_instance or list of ifcopenshell.entity_instance
 
    Example:
    .. code:: python
@@ -1045,11 +994,8 @@ Package Contents
    IfcLagTime, consult the IFC documentation.
 
    :param lag_time: The IfcLagTime entity you want to edit
-   :type lag_time: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1101,11 +1047,8 @@ Package Contents
    IfcRecurrencePattern, consult the IFC documentation.
 
    :param recurrence_pattern: The IfcRecurrencePattern entity you want to edit
-   :type recurrence_pattern: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1135,11 +1078,8 @@ Package Contents
    IfcRelSequence, consult the IFC documentation.
 
    :param rel_sequence: The IfcRelSequence entity you want to edit
-   :type rel_sequence: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1176,11 +1116,8 @@ Package Contents
    IfcTask, consult the IFC documentation.
 
    :param task: The IfcTask entity you want to edit
-   :type task: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1207,11 +1144,8 @@ Package Contents
    IfcTaskTime, consult the IFC documentation.
 
    :param task_time: The IfcTaskTime entity you want to edit
-   :type task_time: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1239,11 +1173,8 @@ Package Contents
    IfcWorkCalendar, consult the IFC documentation.
 
    :param work_calendar: The IfcWorkCalendar entity you want to edit
-   :type work_calendar: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1265,11 +1196,8 @@ Package Contents
    IfcWorkPlan, consult the IFC documentation.
 
    :param work_plan: The IfcWorkPlan entity you want to edit
-   :type work_plan: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1291,11 +1219,8 @@ Package Contents
    IfcWorkSchedule, consult the IFC documentation.
 
    :param work_schedule: The IfcWorkSchedule entity you want to edit
-   :type work_schedule: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1321,11 +1246,8 @@ Package Contents
    IfcWorkTime, consult the IFC documentation.
 
    :param work_time: The IfcWorkTime entity you want to edit
-   :type work_time: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1353,9 +1275,7 @@ Package Contents
    sequences or controls are also removed.
 
    :param task: The IfcTask to remove.
-   :type task: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1384,9 +1304,7 @@ Package Contents
    Removes a time period
 
    :param time_period: The IfcTimePeriod to remove.
-   :type time_period: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1425,9 +1343,7 @@ Package Contents
    calendar.
 
    :param work_calendar: The IfcWorkCalendar to remove
-   :type work_calendar: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1448,9 +1364,7 @@ Package Contents
    removed.
 
    :param work_plan: The IfcWorkPlan to remove.
-   :type work_plan: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1520,9 +1434,7 @@ Package Contents
    The schedule is cascaded afterwards.
 
    :param rel_sequence: The sequence to remove the lag time from.
-   :type rel_sequence: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1560,11 +1472,8 @@ Package Contents
    See ifcopenshell.api.sequence.assign_process for details.
 
    :param relating_process: The IfcTask in the relationship.
-   :type relating_process: ifcopenshell.entity_instance
    :param related_object: The related object.
-   :type related_object: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1596,11 +1505,8 @@ Package Contents
    See ifcopenshell.api.sequence.assign_product for details.
 
    :param relating_product: The IfcProduct in the relationship.
-   :type relating_product: ifcopenshell.entity_instance
    :param related_object: The IfcTask in the relationship.
-   :type related_object: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1636,9 +1542,7 @@ Package Contents
    or replace IfcTaskTimeRecurring with IfcTaskTime).
 
    :param recurrence_pattern: The IfcRecurrencePattern to remove.
-   :type recurrence_pattern: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1664,11 +1568,8 @@ Package Contents
    Removes a sequence relationship between tasks
 
    :param relating_process: The previous / predecessor task.
-   :type relating_process: ifcopenshell.entity_instance
    :param related_process: The next / successor task.
-   :type related_process: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

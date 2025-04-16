@@ -26,12 +26,9 @@ Module Contents
 
    :param unit_type: A type of unit chosen from the list above. For
        example, choosing LENGTHUNIT will give you a metre.
-   :type unit_type: str
    :param prefix: A prefix chosen from the list above, or None for no
        prefix.
-   :type prefix: str,optional
    :return: The newly created IfcSIUnit
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

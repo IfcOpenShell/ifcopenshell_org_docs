@@ -1,0 +1,21 @@
+:py:mod:`ifcopenshell.api.alignment.get_child_alignments`
+=========================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_child_alignments
+
+
+Module Contents
+---------------
+
+.. py:function:: get_child_alignments(alignment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+
+   Returns the aggregated child alignments to this alignment
+
+   Example:
+
+   .. code:: python
+
+       alignment = model.by_type("IfcAlignment")[0]
+       children = ifcopenshell.api.alignment.get_child_alignments(alignment)
+
+

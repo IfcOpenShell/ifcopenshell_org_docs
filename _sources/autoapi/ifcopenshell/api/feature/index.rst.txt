@@ -124,11 +124,8 @@ Package Contents
    filled.
 
    :param opening: The IfcOpeningElement to fill with the element.
-   :type opening: ifcopenshell.entity_instance
    :param element: The IfcElement to be inserted into the opening.
-   :type element: ifcopenshell.entity_instance
    :return: The new IfcRelFillsElement relationship
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -226,9 +223,7 @@ Package Contents
    fills the opening.
 
    :param element: The element filling an opening.
-   :type element: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

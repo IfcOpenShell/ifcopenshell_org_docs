@@ -1,0 +1,34 @@
+:py:mod:`ifcpatch.recipes.MergeStyles`
+======================================
+
+.. py:module:: ifcpatch.recipes.MergeStyles
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file, logger)
+
+   
+   Merge identical styles together
+
+   Some software may create an obscene number of styles instead of reusing
+   them properly. This patch merges all IfcPresentationStyle,
+   IfcSurfaceStyleShading, and IfcColourRgb if they are identical.
+
+   Example:
+
+   .. code:: python
+
+       ifcpatch.execute({"file": model, "recipe": "MergeStyles", "arguments": []})
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+

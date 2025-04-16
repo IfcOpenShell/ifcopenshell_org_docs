@@ -9,22 +9,26 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: copy_direct_attributes(to_element)
+   .. py:method:: copy_direct_attributes(to_element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: copy_indirect_attributes(from_element, to_element)
+   .. py:method:: copy_indirect_attributes(from_element: ifcopenshell.entity_instance, to_element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: copy_object_placements(element)
+   .. py:method:: copy_object_placements(element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: copy_psets(element)
+   .. py:method:: copy_psets(element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: remove_representations(element)
+   .. py:method:: remove_representations(element: ifcopenshell.entity_instance) -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: copy_class(file: ifcopenshell.file, product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -56,9 +60,7 @@ Module Contents
      connections are still valid.
 
    :param product: The IfcProduct to copy.
-   :type param: ifcopenshell.entity_instance
    :return: The copied product
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

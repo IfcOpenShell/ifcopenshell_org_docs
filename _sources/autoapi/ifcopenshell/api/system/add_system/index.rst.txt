@@ -21,9 +21,7 @@ Module Contents
        security systems. Alternatively you may choose IfcBuildingSystem for
        specialised building facade systems or similar. For IFC2X3, choose
        IfcSystem.
-   :type ifc_class: str
    :return: The newly created IfcSystem.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

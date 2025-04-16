@@ -54,6 +54,124 @@ Package Contents
       :type:  str
 
 
+.. py:class:: DocstringData
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: description
+      :type:  str
+
+
+   .. py:attribute:: filter_glob
+      :type:  dict[str, str]
+
+
+   .. py:attribute:: name
+      :type:  str
+
+
+   .. py:attribute:: output
+      :type:  Union[str, None]
+
+
+   .. py:attribute:: param
+      :type:  dict[str, str]
+
+
+.. py:class:: InputDoc
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: default
+      :type:  typing_extensions.NotRequired[Any]
+
+
+   .. py:attribute:: description
+      :type:  str
+
+
+   .. py:attribute:: enum_items
+      :type:  typing_extensions.NotRequired[list[str]]
+
+
+   .. py:attribute:: filter_glob
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: generic_type
+      :type:  typing_extensions.NotRequired[str]
+
+
+   .. py:attribute:: name
+      :type:  str
+
+
+   .. py:attribute:: type
+      :type:  Union[str, list[str]]
+
+
+.. py:class:: PatcherDoc
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: class_
+      :type:  type
+
+
+   .. py:attribute:: description
+      :type:  str
+
+
+   .. py:attribute:: inputs
+      :type:  dict[str, InputDoc]
+
+
+   .. py:attribute:: output
+      :type:  Union[str, None]
+
+
 .. py:function:: execute(args: ArgumentsDict) -> Union[ifcopenshell.file, str]
 
    Execute a patch recipe
@@ -64,7 +182,7 @@ Package Contents
 
    :param args: A dictionary of arguments, corresponding to the parameters
        listed subsequent to this in this docstring.
-   :type args: dict
+   :type args: ArgumentsDict
    :param file: An IFC model to apply the patch recipe to.
        Required for most recipes except the ones that require `input`.
    :type file: ifcopenshell.file, optional
@@ -97,7 +215,7 @@ Package Contents
        ifcpatch.write(output, "output.ifc")
 
 
-.. py:function:: extract_docs(submodule_name: str, cls_name: str, method_name: str = '__init__', boilerplate_args: Optional[Iterable[str]] = None) -> Union[dict[str, Any], None]
+.. py:function:: extract_docs(submodule_name: str, cls_name: str, method_name: str = '__init__', boilerplate_args: Optional[Sequence[str]] = None) -> Union[PatcherDoc, None]
 
    Extract class docstrings and method arguments
 
@@ -106,6 +224,8 @@ Package Contents
    :param method_name: Class Method name from which to extract arguments
    :param boilerplate_args: String iterable containing arguments that shall not be parsed
 
+
+.. py:function:: parse_docstring(docstring: str) -> DocstringData
 
 .. py:function:: write(output: Union[ifcopenshell.file, str], filepath: str) -> None
 

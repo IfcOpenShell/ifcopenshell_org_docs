@@ -11,6 +11,9 @@ Module Contents
 
    Removes the base quantity of a resource
 
+   :param resource: The IfcConstructionResource to remove the quantity from.
+   :return: None
+
    Example:
 
    .. code:: python

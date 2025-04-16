@@ -15,9 +15,7 @@ Module Contents
    boundary and its connection geometry is removed.
 
    :param boundary: The IfcRelSpaceBoundary you want to remove.
-   :type boundary: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

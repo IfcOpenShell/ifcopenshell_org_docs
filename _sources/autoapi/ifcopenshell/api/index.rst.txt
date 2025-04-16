@@ -35,6 +35,7 @@ Subpackages
    :maxdepth: 1
 
    aggregate/index.rst
+   alignment/index.rst
    attribute/index.rst
    boundary/index.rst
    classification/index.rst
@@ -90,7 +91,7 @@ Package Contents
    :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
 
 
-.. py:function:: extract_docs(module, usecase)
+.. py:function:: extract_docs(module: str, usecase: str) -> dict[str, Any]
 
 .. py:function:: remove_all_listeners()
 

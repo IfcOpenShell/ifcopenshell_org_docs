@@ -23,13 +23,10 @@ Module Contents
    managing any cost items.
 
    :param name: The name of the cost schedule.
-   :type name: str, optional
    :param predefined_type: The predefined type of the cost schedule, chosen
        from a valid type in the IFC documentation for
        IfcCostScheduleTypeEnum
-   :type predefined_type: str, optional
    :return: The newly created IfcCostSchedule entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

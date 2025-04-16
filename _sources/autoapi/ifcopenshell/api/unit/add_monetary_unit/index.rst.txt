@@ -16,9 +16,7 @@ Module Contents
    USD, GBP, AUD, MYR, etc.
 
    :param currency: The currency code
-   :type currency: str
    :return: The newly created IfcMonetaryUnit
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

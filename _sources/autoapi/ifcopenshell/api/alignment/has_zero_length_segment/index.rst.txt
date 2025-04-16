@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.alignment.has_zero_length_segment`
+============================================================
+
+.. py:module:: ifcopenshell.api.alignment.has_zero_length_segment
+
+
+Module Contents
+---------------
+
+.. py:function:: has_zero_length_segment(entity: ifcopenshell.entity_instance) -> bool
+
+   Returns true if the entity ends with a zero length segment. If the entity is an IfcCompositeCurve the IfcCurveSegment.Transition must be DISCONTINUOUS
+
+   :param entity: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant or IfcCompositeCurve
+   :return: True if the zero length segment is present
+
+

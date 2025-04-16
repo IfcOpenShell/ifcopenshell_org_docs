@@ -37,7 +37,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_port(file: ifcopenshell.file, element: Optional[ifcopenshell.entity_instance] = None) -> None
+.. py:function:: add_port(file: ifcopenshell.file, element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Adds a new distribution port to an element
 
@@ -52,9 +52,7 @@ Package Contents
 
    :param element: The IfcDistributionElement you want to add a
        distribution port to.
-   :type element: ifcopenshell.entity_instance, optional
    :return: The newly created IfcDistributionPort
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -83,9 +81,7 @@ Package Contents
        security systems. Alternatively you may choose IfcBuildingSystem for
        specialised building facade systems or similar. For IFC2X3, choose
        IfcSystem.
-   :type ifc_class: str
    :return: The newly created IfcSystem.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -104,12 +100,9 @@ Package Contents
 
    :param related_flow_control: IfcDistributionControlElement
        which may be used to impart control on the flow element
-   :type related_flow_control: ifcopenshell.entity_instance
    :param relating_flow_element: The IfcDistributionFlowElement that is being controlled / sensed
-   :type relating_flow_element: ifcopenshell.entity_instance
    :return: Matching or newly created IfcRelFlowControlElements. If control
        is already assigned to some other element method will return None.
-   :rtype: ifcopenshell.entity_instance, None
 
    Example:
 
@@ -131,12 +124,9 @@ Package Contents
    it may be useful when patching up models.
 
    :param element: The IfcDistributionElement to assign the port to.
-   :type element: ifcopenshell.entity_instance
    :param port: The IfcDistributionPort you want to assign.
-   :type port: ifcopenshell.entity_instance
    :return: The IfcRelNests relationship, or the
        IfcRelConnectsPortToElement for IFC2X3.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -157,19 +147,16 @@ Package Contents
        ifcopenshell.api.system.assign_port(model, element=duct, port=port1)
 
 
-.. py:function:: assign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
+.. py:function:: assign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Assigns distribution elements to a system
 
    Note that it is not necessary to assign distribution ports to a system.
 
    :param products: The list of IfcDistributionElements to assign to the system.
-   :type products: list[ifcopenshell.entity_instance]
    :param system: The IfcSystem you want to assign the element to.
-   :type system: ifcopenshell.entity_instance
    :return: The IfcRelAssignsToGroup relationship
        or `None` if `products` was empty list.
-   :rtype: [ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -310,11 +297,8 @@ Package Contents
    IfcSystem, consult the IFC documentation.
 
    :param system: The IfcSystem entity you want to edit
-   :type system: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -334,9 +318,7 @@ Package Contents
    All the distribution elements within the system are retained.
 
    :param system: The IfcSystem to remove.
-   :type system: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -355,11 +337,8 @@ Package Contents
 
    :param related_flow_control: IfcDistributionControlElement controling the
        flow element
-   :type related_flow_control: ifcopenshell.entity_instance
    :param relating_flow_element: The IfcDistributionFlowElement that is being controlled
-   :type relating_flow_element: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -387,11 +366,8 @@ Package Contents
    port for cleaning or patchin purposes.
 
    :param element: The IfcDistributionElement to unassign the port from.
-   :type element: ifcopenshell.entity_instance
    :param port: The IfcDistributionPort you want to unassign.
-   :type port: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -414,11 +390,8 @@ Package Contents
    Unassigns list of products from a system
 
    :param products: The list of IfcDistributionElements to unassign from the system.
-   :type products: list[ifcopenshell.entity_instance]
    :param system: The IfcSystem you want to unassign the element from.
-   :type system: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

@@ -22,15 +22,12 @@ Module Contents
    This base quantity is then used in other calculations.
 
    :param resource: The IfcConstructionResource to add a quantity to.
-   :type resource: ifcopenshell.entity_instance
    :param ifc_class: The type of quantity to add, chosen from
        IfcQuantityArea (for material), IfcQuantityCount (for products),
        IfcQuantityLength (for material), IfcQuantityTime (for equipment or
        labour), IfcQuantityVolume (for material), and IfcQuantityWeight
        (for material).
-   :type ifc_class: str,optional
    :return: The newly created quantity depending on the IFC class
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

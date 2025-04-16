@@ -47,9 +47,7 @@ Module Contents
    ``get_mappeditem_transformation`` instead.
 
    :param item: The IfcCartesianTransformationOperator entity
-   :type item: ifcopenshell.entity_instance
    :return: A 4x4 numpy transformation matrix
-   :rtype: MatrixType
 
 
 .. py:function:: get_local_placement(placement: Optional[ifcopenshell.entity_instance] = None) -> MatrixType

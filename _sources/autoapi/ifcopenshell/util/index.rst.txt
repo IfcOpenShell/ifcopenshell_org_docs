@@ -62,6 +62,7 @@ Submodules
    sequence/index.rst
    shape/index.rst
    shape_builder/index.rst
+   stationing/index.rst
    system/index.rst
    type/index.rst
    unit/index.rst

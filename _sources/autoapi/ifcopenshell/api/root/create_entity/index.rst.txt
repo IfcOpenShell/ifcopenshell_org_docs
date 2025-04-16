@@ -9,13 +9,17 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(ifc_class: str, predefined_type: Optional[str] = None, name: Optional[str] = None) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: handle_2x3_defaults(element)
+   .. py:method:: handle_2x3_defaults(element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: handle_4_defaults(element)
+   .. py:method:: handle_4_defaults(element: ifcopenshell.entity_instance) -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: create_entity(file: ifcopenshell.file, ifc_class: str = 'IfcBuildingElementProxy', predefined_type: Optional[str] = None, name: Optional[str] = None) -> ifcopenshell.entity_instance
@@ -35,15 +39,11 @@ Module Contents
    operation type but many people forget.
 
    :param ifc_class: Any rooted IFC class.
-   :type ifc_class: str,optional
    :param predefined_type: Any built-in or user-defined predefined type that
        is applicable to that IFC class. For user-defined predefined types
        just enter in any value and the API will handle it automatically.
-   :type predefined_type: str,optional
    :param name: The name of the new element.
-   :type name: str,optional
    :return: The newly created element based on the specified IFC class.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

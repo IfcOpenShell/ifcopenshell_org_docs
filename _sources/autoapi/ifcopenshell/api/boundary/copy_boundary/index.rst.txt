@@ -12,9 +12,7 @@ Module Contents
    Copies a space boundary
 
    :param boundary: The IfcRelSpaceBoundary you want to copy.
-   :type boundary: ifcopenshell.entity_instance
    :return: Duplicate of the IfcRelSpaceBoundary
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

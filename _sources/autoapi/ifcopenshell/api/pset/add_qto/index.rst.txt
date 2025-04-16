@@ -15,6 +15,14 @@ Module Contents
    .. py:method:: execute()
 
 
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
 .. py:function:: add_qto(file: ifcopenshell.file, product: ifcopenshell.entity_instance, name: str) -> ifcopenshell.entity_instance
 
    Adds a new quantity set to a product

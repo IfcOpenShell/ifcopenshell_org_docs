@@ -9,7 +9,7 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute() -> ifcopenshell.entity_instance
+   .. py:method:: execute(representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
    .. py:method:: get_mapping_source() -> ifcopenshell.entity_instance
@@ -17,10 +17,6 @@ Module Contents
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
 
 
 .. py:function:: map_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance

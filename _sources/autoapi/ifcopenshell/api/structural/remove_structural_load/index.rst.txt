@@ -12,8 +12,6 @@ Module Contents
    Removes a structural load
 
    :param structural_load: The IfcStructuralLoad to remove.
-   :type structural_load: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 

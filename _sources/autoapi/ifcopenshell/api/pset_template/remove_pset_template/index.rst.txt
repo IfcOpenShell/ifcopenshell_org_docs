@@ -15,9 +15,7 @@ Module Contents
    along with it.
 
    :param pset_template: The IfcPropertySetTemplate to remove.
-   :type pset_template: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

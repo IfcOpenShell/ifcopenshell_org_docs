@@ -7,9 +7,9 @@
 Module Contents
 ---------------
 
-.. py:function:: get_brick_type(element)
+.. py:function:: get_brick_type(element: ifcopenshell.entity_instance) -> Union[str, None]
 
-.. py:function:: get_element_feeds(element)
+.. py:function:: get_element_feeds(element: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
 
 .. py:data:: cwd
 

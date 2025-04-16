@@ -9,10 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(classification: ifcopenshell.entity_instance) -> None
 
 
    .. py:method:: get_references(classification: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: remove_classification(file: ifcopenshell.file, classification: ifcopenshell.entity_instance) -> None
@@ -24,9 +28,7 @@ Module Contents
    removed from a project.
 
    :param classification: The IfcClassification entity you want to remove
-   :type classification: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

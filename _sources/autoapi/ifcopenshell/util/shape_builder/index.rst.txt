@@ -282,7 +282,7 @@ Module Contents
 
 
 
-   .. py:method:: mesh(points: list[list[float]], faces: list[list[int]]) -> ifcopenshell.entity_instance
+   .. py:method:: mesh(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
 
 
    .. py:method:: mirror(curve_or_item: Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]], mirror_axes: Union[VectorType, SequenceOfVectors] = (1.0, 1.0), mirror_point: VectorType = (0.0, 0.0), create_copy: bool = False, placement_matrix: Optional[numpy.ndarray] = None) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
@@ -437,6 +437,18 @@ Module Contents
 
 
 
+   .. py:method:: triangulated_face_set(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
+
+      Generate an IfcTriangulatedFaceSet
+
+      Note that this is not available in IFC2X3.
+
+      :param points: list of 3d coordinates
+      :param faces: list of triangles consisted of point indices (points indices starting from 0)
+      :return: IfcTriangulatedFaceSet
+
+
+
    .. py:attribute:: file
 
 
@@ -455,6 +467,17 @@ Module Contents
    that's safe to save IFC attribute.
 
    Basically converting all numbers in sequences to Python floats.
+
+
+.. py:function:: intersect_x_axis_2d(p1: VectorType, p2: VectorType, y=0) -> Optional[float]
+
+   Intersect a line defined by 2 points to a horizontal line defined by y
+
+   Useful for axis-aligned intersection checks.
+
+   :param p1: First 2D point of the line, order doesn't matter
+   :param p2: Second 2D point of the line, order doesn't matter
+   :param y: Intersect at this y value (i.e. defaults to y=0)
 
 
 .. py:function:: is_x(value: float, x: float, si_conversion: Optional[float] = None) -> bool

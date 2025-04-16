@@ -20,9 +20,7 @@ Module Contents
 
    :param ifc_class: The subclass of IfcParameterizedProfileDef that you'd
        like to create.
-   :type ifc_class: str
    :return: The newly created element depending on the specified ifc_class.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

@@ -1,0 +1,18 @@
+:py:mod:`ifcopenshell.api.alignment.add_segment_to_layout`
+==========================================================
+
+.. py:module:: ifcopenshell.api.alignment.add_segment_to_layout
+
+
+Module Contents
+---------------
+
+.. py:function:: add_segment_to_layout(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, segment: ifcopenshell.entity_instance) -> None
+
+   Adds a segment to a layout alignment (horizontal, vertical, or cant)
+
+   :param alignment: The alignment
+   :param segment: The segment to be appended
+   :return: None
+
+

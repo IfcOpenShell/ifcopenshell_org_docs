@@ -91,10 +91,13 @@ Module Contents
        print(declaration.supertype().name()) # IfcBuildingElement
 
 
-.. py:function:: get_fallback_schema(version: str) -> str
+.. py:function:: get_fallback_schema(version: str) -> IFC_SCHEMA
 
-   fallback to the schema version we do have docs and mapping for,
-   needed to support IFC versions like 4X3_RC1, 4X1 etc
+   Fallback to the schema version we do have docs and mapping for.
+
+   Needed to support IFC versions like 4X3_RC1, 4X1 etc.
+
+   :param version: Typically a string from ``ifcopenshell.file.schema_identifier``, e.g. IFC4X3_ADD2
 
 
 .. py:function:: get_subtypes(declaration: ifcopenshell.ifcopenshell_wrapper.entity) -> list[ifcopenshell.ifcopenshell_wrapper.entity]
@@ -150,7 +153,7 @@ Module Contents
        ifcopenshell.util.schema.is_a(declaration, "IfcRoot") # True
 
 
-.. py:function:: reassign_class(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, new_class: str) -> ifcopenshell.entity_instance
+.. py:function:: reassign_class(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance, new_class: str) -> ifcopenshell.entity_instance
 
    Attempts to change the class (entity name) of `element` to `new_class` by
    removing element and recreating a similar instance of type `new_class`
@@ -163,6 +166,8 @@ Module Contents
      (such as IfcRelNests)
 
    It's unlikely that this affects real-world usage of this function.
+
+   :raises ValueError: If ``new_class`` does not exist in the provided file schema.
 
 
 .. py:data:: IFC_SCHEMA

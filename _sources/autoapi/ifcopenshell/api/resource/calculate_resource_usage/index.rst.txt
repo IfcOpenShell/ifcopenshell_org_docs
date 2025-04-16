@@ -11,4 +11,7 @@ Module Contents
 
    Calculates the number of resources required to perform scheduled work on a task.
 
+   :param resource: The IfcConstructionResource to calculate the usage for.
+   :return: None
+
 

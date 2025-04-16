@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file, logger, ifc_class='IfcSite')
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, ifc_class: str = 'IfcSite')
 
    
    Resets the location of a spatial element to 0,0,0
@@ -17,7 +17,6 @@ Module Contents
    to 0,0,0.
 
    :param ifc_class: The class of spatial element to reset coordinates for.
-   :type ifc_class: str
 
    Example:
 
@@ -27,13 +26,13 @@ Module Contents
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetSpatialElementLocations", "arguments": ["IfcSite"]})
 
 
-   .. py:method:: find_decomposed_ifc_class(element, ifc_class)
+   .. py:method:: find_decomposed_ifc_class(element: ifcopenshell.entity_instance, ifc_class: str) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: patch()
+   .. py:method:: patch() -> None
 
 
-   .. py:method:: patch_placement_to_origin(element)
+   .. py:method:: patch_placement_to_origin(element: ifcopenshell.entity_instance) -> None
 
 
    .. py:attribute:: file

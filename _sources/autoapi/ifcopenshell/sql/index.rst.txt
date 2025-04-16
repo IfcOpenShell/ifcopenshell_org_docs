@@ -40,12 +40,10 @@ Module Contents
       Return an IFC entity instance filtered by IFC ID.
 
       :param id: STEP numerical identifier
-      :type id: int
 
       :raises RuntimeError: If `id` is not found.
 
       :returns: An ifcopenshell.entity_instance
-      :rtype: ifcopenshell.entity_instance
 
 
 
@@ -56,14 +54,11 @@ Module Contents
       If an IFC type class has subclasses, all entities of those subclasses are also returned.
 
       :param type: The case insensitive type of IFC class to return.
-      :type type: string
       :param include_subtypes: Whether or not to return subtypes of the IFC class
-      :type include_subtypes: bool
 
       :raises RuntimeError: If `type` is not found in IFC schema.
 
       :returns: A list of ifcopenshell.entity_instance objects
-      :rtype: list[ifcopenshell.entity_instance]
 
 
 
@@ -246,8 +241,6 @@ Module Contents
    .. py:method:: id() -> int
 
       Return the STEP numerical identifier
-
-      :rtype: int
 
 
 

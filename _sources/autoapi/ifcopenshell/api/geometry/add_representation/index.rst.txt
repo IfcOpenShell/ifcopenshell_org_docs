@@ -158,6 +158,9 @@ Module Contents
    .. py:method:: execute() -> Union[ifcopenshell.entity_instance, None]
 
 
+   .. py:method:: get_spline_points(spline: bpy.types.Spline) -> list[Union[bpy.types.SplinePoint, bpy.types.BezierSplinePoint]]
+
+
    .. py:method:: is_camera_landscape() -> bool
 
 
@@ -170,12 +173,20 @@ Module Contents
    .. py:method:: should_triangulate_face(face: bmesh.types.BMFace, threshold: float = EPSILON) -> bool
 
 
+   .. py:attribute:: blender_object
+      :type:  bpy.types.Object
+
+
    .. py:attribute:: coordinate_offset
       :type:  Union[numpy.typing.NDArray[numpy.float64], None]
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
+
+
+   .. py:attribute:: geometry
+      :type:  Union[bpy.types.Mesh, bpy.types.Curve]
 
 
    .. py:attribute:: ifc_vertices

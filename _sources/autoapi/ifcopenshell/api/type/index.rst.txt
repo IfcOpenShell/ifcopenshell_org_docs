@@ -91,18 +91,14 @@ Package Contents
    ambiguous, unknown or are so bespoke as to have no logical type.
 
    :param related_objects: The IfcElement occurrences.
-   :type related_objects: list[ifcopenshell.entity_instance]
    :param relating_type: The IfcElementType type.
-   :type relating_type: ifcopenshell.entity_instance
    :param should_map_representations: If a type has a representation map,
        IFC requires all occurrences to map those representations. Some IFC
        vendors might disobey this, or you might want to handle it
        yourusecase. In this scenario, you may set this to False.
        This also enabled adding material usages mapping.
-   :type should_map_representations: bool
    :return: The IfcRelDefinesByType relationship
        or `None` if `related_objects` was empty list.
-   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -184,11 +180,8 @@ Package Contents
    be used to ensure consistency of the occurrence's representations.
 
    :param related_object: The IfcElement occurrence.
-   :type related_object: ifcopenshell.entity_instance
    :param relating_type: The IfcElementType type.
-   :type relating_type: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -244,9 +237,7 @@ Package Contents
    and material usages associated with the previously assigned type.
 
    :param related_objects: List of IfcElement occurrences.
-   :type related_objects: list[ifcopenshell.entity_instance]
    :return: None
-   :rtype: None
 
    Example:
 

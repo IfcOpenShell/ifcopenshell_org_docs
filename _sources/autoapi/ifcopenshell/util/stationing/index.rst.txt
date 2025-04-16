@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.util.stationing`
+======================================
+
+.. py:module:: ifcopenshell.util.stationing
+
+
+Module Contents
+---------------
+
+.. py:function:: station_as_string(station: float, plus_seperator=3, accuracy=3)
+
+   Returns a stringized version of a station. Example 100.0 is 1+00.00 as a stationing string
+   @param station: the station to be stringized
+   @param plus_seperator: location of the '+' symbol relative to the decimal place (typically 2 for US units and 3 for SI units)
+   @param accuracy: number of digits following the decimal place
+
+

@@ -15,7 +15,7 @@ Module Contents
    .. py:method:: copy_sequence_relationship(original_tasks, duplicated_tasks)
 
 
-   .. py:method:: create_object_reference(relating_object, related_object)
+   .. py:method:: create_object_reference(relating_object: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
    .. py:method:: duplicate_task(task)
@@ -24,7 +24,15 @@ Module Contents
    .. py:method:: execute()
 
 
-.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
+.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
 
    Duplicates a task in the project
 
@@ -35,9 +43,7 @@ Module Contents
    * The copy will have duplicated nested tasks
 
    :param task: The task to be duplicated
-   :type task: ifcopenshell.entity_instance
    :return: The duplicated task or the list of duplicated tasks if the latter has children
-   :rtype: ifcopenshell.entity_instance or list of ifcopenshell.entity_instance
 
    Example:
    .. code:: python

@@ -60,20 +60,15 @@ Package Contents
 
    :param parent_resource: If this is a child resource (typically to a crew
        resource), then nominate the parent IfcConstructionResource here.
-   :type parent_resource: ifcopenshell.entity_instance, optional
    :param ifc_class: The class of resource chosen from
        IfcConstructionEquipmentResource, IfcConstructionMaterialResource,
        IfcConstructionProductResource, IfcCrewResource, IfcLaborResource,
        or IfcSubContractResource.
-   :type ifc_class: str,optional
    :param name: The name of the resource
-   :type name: str,optional
    :param predefined_type: Consult the IFC documentation for the valid
        predefined types for each type of resource class.
-   :type predefined_type: str,optional
    :return: The newly created resource depending on the nominated IFC
        class.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -101,15 +96,12 @@ Package Contents
    This base quantity is then used in other calculations.
 
    :param resource: The IfcConstructionResource to add a quantity to.
-   :type resource: ifcopenshell.entity_instance
    :param ifc_class: The type of quantity to add, chosen from
        IfcQuantityArea (for material), IfcQuantityCount (for products),
        IfcQuantityLength (for material), IfcQuantityTime (for equipment or
        labour), IfcQuantityVolume (for material), and IfcQuantityWeight
        (for material).
-   :type ifc_class: str,optional
    :return: The newly created quantity depending on the IFC class
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -188,12 +180,9 @@ Package Contents
    (e.g. if the resource is a labour resource).
 
    :param relating_resource: The IfcResource to assign the object to.
-   :type relating_resource: ifcopenshell.entity_instance
    :param related_object: The IfcProduct or IfcActor to assign to the
        object.
-   :type related_object: ifcopenshell.entity_instance
    :return: The newly created IfcRelAssignsToResource
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -232,6 +221,9 @@ Package Contents
 .. py:function:: calculate_resource_usage(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
 
    Calculates the number of resources required to perform scheduled work on a task.
+
+   :param resource: The IfcConstructionResource to calculate the usage for.
+   :return: None
 
 
 .. py:function:: calculate_resource_work(file: ifcopenshell.file, resource: ifcopenshell.entity_instance) -> None
@@ -276,11 +268,8 @@ Package Contents
    IfcResource, consult the IFC documentation.
 
    :param resource: The IfcResource entity you want to edit
-   :type resource: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -301,11 +290,8 @@ Package Contents
    IfC quantity, consult the IFC documentation.
 
    :param physical_quantity: The IfC quantity entity you want to edit
-   :type physical_quantity: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -335,11 +321,8 @@ Package Contents
    IfcResourceTime, consult the IFC documentation.
 
    :param resource_time: The IfcResourceTime entity you want to edit
-   :type resource_time: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -385,6 +368,9 @@ Package Contents
 
    Removes the base quantity of a resource
 
+   :param resource: The IfcConstructionResource to remove the quantity from.
+   :return: None
+
    Example:
 
    .. code:: python
@@ -410,12 +396,9 @@ Package Contents
    Removes the relationship between a resource and object
 
    :param relating_resource: The IfcResource to assign the object to.
-   :type relating_resource: ifcopenshell.entity_instance
    :param related_object: The IfcProduct or IfcActor to assign to the
        object.
-   :type related_object: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

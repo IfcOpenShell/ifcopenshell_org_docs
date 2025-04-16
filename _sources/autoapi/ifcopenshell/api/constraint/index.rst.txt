@@ -42,9 +42,7 @@ Package Contents
    to meet the objective of the constraint.
 
    :param objective: The IfcObjective that this metric is a benchmark of.
-   :type objective: ifcopenshell.entity_instance
    :return: The newly created IfcMetric entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -72,7 +70,6 @@ Package Contents
    quantities. See ifcopenshell.api.constraint.add_metric for more information.
 
    :return: The newly created IfcObjective entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -100,12 +97,9 @@ Package Contents
 
    :param products: The list of products the constraint applies to. This is anything
        which can have properties or quantities.
-   :type products: list[ifcopenshell.entity_instance]
    :param constraint: The IfcObjective constraint
-   :type constraint: ifcopenshell.entity_instance
    :return: The new or updated IfcRelAssociatesConstraint relationship
        or `None` if `products` was an empty list.
-   :rtype: ifcopenshell.entity_instance
 
 
 .. py:function:: edit_metric(file: ifcopenshell.file, metric: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -116,11 +110,8 @@ Package Contents
    IfcMetric, consult the IFC documentation.
 
    :param metric: The IfcMetric you want to edit.
-   :type metric: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -141,11 +132,8 @@ Package Contents
    IfcObjective, consult the IFC documentation.
 
    :param objective: The IfcObjective you want to edit.
-   :type objective: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -210,10 +198,7 @@ Package Contents
    other products.
 
    :param products: The list of products the constraint applies to.
-   :type products: list[ifcopenshell.entity_instance]
    :param constraint: The IfcObjective constraint
-   :type constraint: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 

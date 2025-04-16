@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.alignment.create_segment_representations`
+===================================================================
+
+.. py:module:: ifcopenshell.api.alignment.create_segment_representations
+
+
+Module Contents
+---------------
+
+.. py:function:: create_segment_representations(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> None
+
+   Creates curve segment representations for the alignment for IFC CT 4.1.7.1.1.4. The alignment is expected to have representations
+   for "Axis/Curve2D" (horizontal only) or "FootPrint/Curve2D" and "Axis/Curve3D" (horizontal + vertical/cant). There is the additional
+   expectation that there is a 1-to-1 relationship between IfcAlignmentSegment and IfcCurveSegment.
+   That is, no Helmert curves in the alignment which have a 1-to-2 relationship
+
+   :param alignment: The alignment to create segment representations.
+
+

@@ -133,9 +133,7 @@ Module Contents
       If the entity already exists, it is not re-added. Existence of entity is checked by it's `.identity()`.
 
       :param inst: The entity instance to add
-      :type inst: ifcopenshell.entity_instance
       :returns: An ifcopenshell.entity_instance
-      :rtype: ifcopenshell.entity_instance
 
 
 
@@ -156,13 +154,10 @@ Module Contents
       Return an IFC entity instance filtered by IFC GUID.
 
       :param guid: GlobalId value in 22-character encoded form
-      :type guid: string
 
       :raises RuntimeError: If `guid` is not found.
 
       :returns: An ifcopenshell.entity_instance
-      :rtype: ifcopenshell.entity_instance
-
 
 
 
@@ -171,12 +166,10 @@ Module Contents
       Return an IFC entity instance filtered by IFC ID.
 
       :param id: STEP numerical identifier
-      :type id: int
 
       :raises RuntimeError: If `id` is not found.
 
       :returns: An ifcopenshell.entity_instance
-      :rtype: ifcopenshell.entity_instance
 
 
 
@@ -187,14 +180,11 @@ Module Contents
       If an IFC type class has subclasses, all entities of those subclasses are also returned.
 
       :param type: The case insensitive type of IFC class to return.
-      :type type: string
       :param include_subtypes: Whether or not to return subtypes of the IFC class
-      :type include_subtypes: bool
 
       :raises RuntimeError: If `type` is not found in IFC schema.
 
       :returns: A list of ifcopenshell.entity_instance objects
-      :rtype: list[ifcopenshell.entity_instance]
 
 
 
@@ -209,7 +199,6 @@ Module Contents
       of those methods.
 
       :param type: Case insensitive name of the IFC class
-      :type type: string
       :param args: The positional arguments of the IFC class
       :param kwargs: The keyword arguments of the IFC class
       :returns: An entity instance
@@ -271,9 +260,7 @@ Module Contents
       significantly faster.
 
       :param inst: The entity instance to get inverse relationships
-      :type inst: ifcopenshell.entity_instance
       :returns: The total number of references
-      :rtype: int
 
 
 
@@ -289,8 +276,6 @@ Module Contents
       the reference to the deleted will be removed from the aggregate.
 
       :param inst: The entity instance to delete
-      :type inst: ifcopenshell.entity_instance
-      :rtype: None
 
 
 
@@ -328,9 +313,7 @@ Module Contents
           if None.  Supported formats : .ifc, .ifcXML, .ifcZIP (equivalent to
           format=".ifc" with zipped=True) For zipped .ifcXML use
           format=".ifcXML" with zipped=True
-      :type format: str
       :param zipped: zip the file after it is written
-      :type zipped: bool
 
       Example:
 

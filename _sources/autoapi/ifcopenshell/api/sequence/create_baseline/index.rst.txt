@@ -9,13 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: create_baseline_reference(relating_object, related_object)
+   .. py:method:: create_baseline_reference(relating_object: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_baseline_work_schedule(work_schedule)
+   .. py:method:: execute(work_schedule: ifcopenshell.entity_instance, name: Union[str, None]) -> None
 
 
-   .. py:method:: execute()
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> None
@@ -34,11 +35,8 @@ Module Contents
    * Same Resource Relationships
 
    :param work_schedule: The planned work_schedule to baseline
-   :type work_schedule: ifcopenshell.entity_instance
    :param name: baseline work schedule name
-   :type name: str, optional
    :return: The baseline work_schedule
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

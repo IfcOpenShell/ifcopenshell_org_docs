@@ -9,16 +9,20 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: edit_colour_or_factor(name, value)
+   .. py:method:: edit_colour_or_factor(name: str, value: Union[dict[str, Any], ifcopenshell.entity_instance, None])
 
 
-   .. py:method:: edit_colour_rgb(name, value: dict)
+   .. py:method:: edit_colour_rgb(name: str, value: dict[str, Any])
 
 
-   .. py:method:: edit_specular_highlight(value)
+   .. py:method:: edit_specular_highlight(value: Union[dict[str, Any], None]) -> None
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(style: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: edit_surface_style(file: ifcopenshell.file, style: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -37,11 +41,8 @@ Module Contents
    example below.
 
    :param style: The IfcPresentationStyle entity you want to edit
-   :type style: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 

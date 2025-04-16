@@ -29,7 +29,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_arbitrary_profile(file: ifcopenshell.file, profile: list[tuple[float, float]], name: Optional[str] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_arbitrary_profile(file: ifcopenshell.file, profile: ifcopenshell.util.shape_builder.SequenceOfVectors, name: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Adds a new arbitrary polyline-based profile
 
@@ -41,13 +41,10 @@ Package Contents
    identical.
 
    :param profile: A list of coordinates
-   :type profile: list[tuple[float, float]]
    :param name: If the profile is semantically significant (i.e. to be
        managed and reused by the user) then it must be named. Otherwise,
        this may be left as none.
-   :type name: str, optional
    :return: The newly created IfcArbitraryClosedProfileDef
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -60,7 +57,7 @@ Package Contents
            name="SK01 Profile")
 
 
-.. py:function:: add_arbitrary_profile_with_voids(file: ifcopenshell.file, outer_profile: list[tuple[float, float]], inner_profiles: list[list[tuple[float, float]]], name: Optional[str] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_arbitrary_profile_with_voids(file: ifcopenshell.file, outer_profile: ifcopenshell.util.shape_builder.SequenceOfVectors, inner_profiles: list[ifcopenshell.util.shape_builder.SequenceOfVectors], name: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Adds a new arbitrary polyline-based profile with voids
 
@@ -77,15 +74,11 @@ Package Contents
    provided in SI meters.
 
    :param outer_profile: A list of coordinates
-   :type profile: list[tuple[float, float]]
    :param inner_profiles: A list of polylines
-   :type profile: list[list[tuple[float, float]]]
    :param name: If the profile is semantically significant (i.e. to be
        managed and reused by the user) then it must be named. Otherwise,
        this may be left as none.
-   :type name: str, optional
    :return: The newly created IfcArbitraryProfileDefWithVoids
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -111,9 +104,7 @@ Package Contents
 
    :param ifc_class: The subclass of IfcParameterizedProfileDef that you'd
        like to create.
-   :type ifc_class: str
    :return: The newly created element depending on the specified ifc_class.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -152,11 +143,8 @@ Package Contents
    IfcProfileDef, consult the IFC documentation.
 
    :param profile: The IfcProfileDef entity you want to edit
-   :type profile: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 

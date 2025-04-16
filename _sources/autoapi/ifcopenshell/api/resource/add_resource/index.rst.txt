@@ -31,20 +31,15 @@ Module Contents
 
    :param parent_resource: If this is a child resource (typically to a crew
        resource), then nominate the parent IfcConstructionResource here.
-   :type parent_resource: ifcopenshell.entity_instance, optional
    :param ifc_class: The class of resource chosen from
        IfcConstructionEquipmentResource, IfcConstructionMaterialResource,
        IfcConstructionProductResource, IfcCrewResource, IfcLaborResource,
        or IfcSubContractResource.
-   :type ifc_class: str,optional
    :param name: The name of the resource
-   :type name: str,optional
    :param predefined_type: Consult the IFC documentation for the valid
        predefined types for each type of resource class.
-   :type predefined_type: str,optional
    :return: The newly created resource depending on the nominated IFC
        class.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

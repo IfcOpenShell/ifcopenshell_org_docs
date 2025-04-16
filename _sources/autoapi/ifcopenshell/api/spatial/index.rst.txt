@@ -67,13 +67,11 @@ Package Contents
    previous aggregation, containment, or nesting relationships it may have.
 
    :param products: A list of physical IfcElements existing in the space.
-   :type products: list[ifcopenshell.entity_instance]
    :param relating_structure: The IfcSpatialStructureElement element, such
        as IfcBuilding, IfcBuildingStorey, or IfcSpace that the element
        exists in.
    :return: The IfcRelContainedInSpatialStructure relationship instance
        or `None` if `products` was empty list.
-   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -107,12 +105,10 @@ Package Contents
    Dereferences a list of products and space
 
    :param products: The list of physical IfcElements that exists in the space.
-   :type products: list[ifcopenshell.entity_instance]
    :param relating_structure: The IfcSpatialStructureElement element, such
        as IfcBuilding, IfcBuildingStorey, or IfcSpace that the element
        exists in.
    :return: None
-   :rtype: None
 
    Example:
 
@@ -167,14 +163,11 @@ Package Contents
    spaces simultaneously.
 
    :param products: The list of physical IfcElements that exists in the space.
-   :type products: list[ifcopenshell.entity_instance]
    :param relating_structure: The IfcSpatialStructureElement element, such
        as IfcBuilding, IfcBuildingStorey, or IfcSpace that the element
        exists in.
-   :type relating_structure: ifcopenshell.entity_instance
    :return: The IfcRelReferencedInSpatialStructure relationship instance
        or `None` if `products` was an empty list.
-   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -212,9 +205,7 @@ Package Contents
    Unassigns a container from products.
 
    :param product: A list of IfcProducts to remove the containment from.
-   :type product: list[ifcopenshell.entity_instance]
    :return: None
-   :rtype: None
 
    Example:
 

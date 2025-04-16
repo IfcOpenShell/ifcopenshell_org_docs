@@ -9,27 +9,23 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: apply_clippings(first_operand)
+   .. py:method:: apply_clippings(first_operand: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: convert_si_to_unit(co)
+   .. py:method:: convert_si_to_unit(co: float) -> float
 
 
-   .. py:method:: create_item()
+   .. py:method:: create_item() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(context: ifcopenshell.entity_instance, depth: float, direction_sense: str, offset: float, x_angle: float, clippings: list[Union[ifcopenshell.util.data.Clipping, ifcopenshell.entity_instance]], polyline: Optional[list[tuple[float, float]]]) -> ifcopenshell.entity_instance
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: add_slab_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, depth: float = 0.2, direction_sense: str = 'POSITIVE', offset: float = 0.0, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, polyline: Optional[list[tuple[float, float]]] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_slab_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, depth: float = 0.2, direction_sense: str = 'POSITIVE', offset: float = 0.0, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, ifcopenshell.entity_instance]]] = None, polyline: Optional[list[tuple[float, float]]] = None) -> ifcopenshell.entity_instance
 
    Add a geometric representation for a slab.
 

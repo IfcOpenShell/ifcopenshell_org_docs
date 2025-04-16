@@ -1,0 +1,15 @@
+:py:mod:`ifcopenshell.api.alignment.update_curve_segment_transition_code`
+=========================================================================
+
+.. py:module:: ifcopenshell.api.alignment.update_curve_segment_transition_code
+
+
+Module Contents
+---------------
+
+.. py:function:: update_curve_segment_transition_code(prev_segment: ifcopenshell.entity_instance, segment: ifcopenshell.entity_instance) -> None
+
+   Updates IfcCurveSegment.Transition of prev_segment based on a comparison of
+   the position, ref. direction, and curvature at the end of the prev_segment and the start of segment.
+
+

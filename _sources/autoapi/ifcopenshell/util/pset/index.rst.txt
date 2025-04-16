@@ -7,6 +7,27 @@
 Module Contents
 ---------------
 
+.. py:class:: ApplicableEntity
+
+   Bases: :py:obj:`NamedTuple`
+
+
+   .. py:attribute:: ifc_class
+      :type:  str
+
+
+   .. py:attribute:: performance_history
+      :type:  bool
+
+
+   .. py:attribute:: predefined_type
+      :type:  Union[str, None]
+
+
+   .. py:attribute:: value
+      :type:  str
+
+
 .. py:class:: PsetQto(schema_identifier: str, templates=None)
 
    .. py:method:: get_applicable(ifc_class='', predefined_type='', pset_only=False, qto_only=False, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[ifcopenshell.entity_instance.entity_instance]
@@ -24,10 +45,14 @@ Module Contents
    .. py:method:: is_applicable(entity: ifcopenshell.ifcopenshell_wrapper.entity, applicables: str, predefined_type: str = '', template_type: str = 'NOTDEFINED', schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> bool
 
       applicables can have multiple possible patterns :
-      IfcBoilerType                               (IfcClass)
-      IfcBoilerType/STEAM                         (IfcClass/PREDEFINEDTYPE)
-      IfcBoilerType[PerformanceHistory]           (IfcClass[PerformanceHistory])
-      IfcBoilerType/STEAM[PerformanceHistory]     (IfcClass/PREDEFINEDTYPE[PerformanceHistory])
+
+      .. code-block:: text
+
+          IfcBoilerType                               (IfcClass)
+          IfcBoilerType/STEAM                         (IfcClass/PREDEFINEDTYPE)
+          IfcBoilerType[PerformanceHistory]           (IfcClass[PerformanceHistory])
+          IfcBoilerType/STEAM[PerformanceHistory]     (IfcClass/PREDEFINEDTYPE[PerformanceHistory])
+
 
 
 
@@ -45,6 +70,11 @@ Module Contents
    .. py:attribute:: templates_path
 
 
+.. py:function:: convert_applicable_entities_to_query(applicable_entities: list[ApplicableEntity]) -> str
+
+   Get query supported by :func:`ifcopenshell.util.selector.filter_elements`.
+
+
 .. py:function:: get_pset_template_type(pset_template: ifcopenshell.entity_instance.entity_instance) -> Literal['PSET', 'QTO', None]
 
    Get the type of the pset template.
@@ -52,6 +82,14 @@ Module Contents
 
 
 .. py:function:: get_template(schema: str) -> PsetQto
+
+.. py:function:: parse_applicable_entity(applicable_entity: str) -> list[ApplicableEntity]
+
+   Parse ApplicableEntity string query to tuples.
+
+   :param applicable_entity: IfcPropertySetTemplate.ApplicableEntity query.
+   :return: List of ApplicableEntity tuples.
+
 
 .. py:data:: templates
    :type:  dict[str, PsetQto]

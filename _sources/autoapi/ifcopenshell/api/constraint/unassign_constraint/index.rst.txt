@@ -9,10 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(products_: list[ifcopenshell.entity_instance], constraint: ifcopenshell.entity_instance)
 
 
-   .. py:method:: get_constraint_rels() -> list[ifcopenshell.entity_instance]
+   .. py:method:: get_constraint_rels(cosntraint: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: unassign_constraint(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], constraint: ifcopenshell.entity_instance) -> None
@@ -23,10 +27,7 @@ Module Contents
    other products.
 
    :param products: The list of products the constraint applies to.
-   :type products: list[ifcopenshell.entity_instance]
    :param constraint: The IfcObjective constraint
-   :type constraint: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 

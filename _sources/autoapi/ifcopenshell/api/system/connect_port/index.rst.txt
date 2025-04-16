@@ -30,6 +30,14 @@ Module Contents
    .. py:method:: set_realising_element()
 
 
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
 .. py:function:: connect_port(file: ifcopenshell.file, port1: ifcopenshell.entity_instance, port2: ifcopenshell.entity_instance, direction: str = 'NOTDEFINED', element: Optional[ifcopenshell.entity_instance] = None) -> None
 
    Connects two ports together

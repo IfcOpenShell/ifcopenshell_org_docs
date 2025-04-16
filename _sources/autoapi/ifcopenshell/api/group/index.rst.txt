@@ -42,12 +42,9 @@ Package Contents
    or structural load groups, which group together loads for structural
    analysis, or inventories, which are groups of assets.
 
-   :param Name: The name of the group. Defaults to "Unnamed"
-   :type Name: str, optional
+   :param name: The name of the group. Defaults to "Unnamed"
    :param description: The description of the purpose of the group.
-   :type description: str, optional
    :return: The newly created IfcGroup
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -64,12 +61,9 @@ Package Contents
    twice.
 
    :param products: A list of IfcProduct elements to assign to the group
-   :type products: list[ifcopenshell.entity_instance]
    :param group: The IfcGroup to assign the products to
-   :type group: ifcopenshell.entity_instance
    :return: The IfcRelAssignsToGroup relationship
        or `None` if `products` was empty list.
-   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -88,11 +82,8 @@ Package Contents
    IfcGroup, consult the IFC documentation.
 
    :param group: The IfcGroup entity you want to edit
-   :type group: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 

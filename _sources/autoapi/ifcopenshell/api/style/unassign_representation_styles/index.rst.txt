@@ -19,6 +19,14 @@ Module Contents
 
 
 
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
 .. py:function:: unassign_representation_styles(file: ifcopenshell.file, shape_representation: ifcopenshell.entity_instance, styles: list[ifcopenshell.entity_instance], should_use_presentation_style_assignment: bool = False) -> None
 
    Unassigns styles directly assigned to an object representation

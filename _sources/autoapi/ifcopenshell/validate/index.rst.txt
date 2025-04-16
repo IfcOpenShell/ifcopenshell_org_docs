@@ -14,11 +14,20 @@
 
        python -m ifcopenshell.validate /path/to/model.ifc --rules
 
-   Available flags:
+   ```
+   $ python -m ifcopenshell.validate -h
+   usage: validate.py [-h] [--rules] [--json] [--fields] [--spf] files [files ...]
 
-   - ``--rules``: Also check express rules.
-   - ``--json``: Produce JSON output.
-   - ``--fields``: Output more detailed information about failed entities (available only with ``--json``).
+   positional arguments:
+     files       The IFC file to validate.
+
+   options:
+     -h, --help  show this help message and exit
+     --rules     Run express rules.
+     --json      Output in JSON format.
+     --fields    Output more detailed information about failed entities (only with --json).
+     --spf       Output entities in SPF format (only with --json).
+   ```
 
 
 
@@ -78,7 +87,7 @@ Module Contents
    .. py:method:: log(level, message, *args)
 
 
-   .. py:method:: set_state(key, value)
+   .. py:method:: set_state(key: str, value: Any)
 
 
    .. py:attribute:: state
@@ -107,6 +116,20 @@ Module Contents
 
 
 .. py:function:: annotate_inst_attr_pos(inst: Union[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.HeaderEntity], pos: int, entity_str: str = '') -> str
+
+   Add a caret annotation to the entity string at the given attribute index.
+
+   :param inst: Instance to annotate.
+   :param pos: Attribute index to annotate.
+   :param entity_str: Entity string to annotate. If not provided, ``str(inst)`` is used.
+
+   Example:
+
+   .. code:: python
+       annotate_inst_attr_pos(inst, 2)
+       # #7=IfcApplication(#6,'0.8.1-alpha241113-xxxxxxx','Bonsai','Bonsai')
+       #                                                  ^^^^^^^^
+
 
 .. py:function:: assert_valid(attr_type: attribute_types, val: Any, schema: schema_definition, no_throw=False, attr: Optional[attribute] = None)
 
@@ -159,6 +182,8 @@ Module Contents
 
    :return: `None` if guid is valid, otherwise a string with an error message.
 
+
+.. py:function:: validate_ifc_applications(f: ifcopenshell.file, logger: logging.Logger) -> None
 
 .. py:function:: validate_ifc_header(f: ifcopenshell.file, logger: logging.Logger) -> None
 

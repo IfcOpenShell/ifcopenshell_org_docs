@@ -32,6 +32,11 @@ Module Contents
 
 .. py:class:: serializers
 
+   .. py:method:: guess_from_extension(filepath: str)
+      :classmethod:
+
+
+
    .. py:method:: obj(out_filename: Union[str, serializers], mtl_filename: Union[str, serializers], geometry_settings: serializers.obj.settings, settings: serializer_settings) -> ifcopenshell.ifcopenshell_wrapper.WaveFrontOBJSerializer
       :staticmethod:
 
@@ -48,6 +53,9 @@ Module Contents
 
 
    .. py:attribute:: buffer
+
+
+   .. py:attribute:: collada
 
 
    .. py:attribute:: gltf
@@ -79,6 +87,20 @@ Module Contents
    Pythonic interface mixin to the settings modules and
    to provide an additional setting to enable pythonOCC
    when available
+
+
+   .. py:method:: apply_namespace(namespace) -> None
+
+      Accepts an argparse.Namespace object, enumerates over the values in this namespace and
+      writes them to the settings when available
+
+
+
+   .. py:method:: build_parser(parser) -> None
+
+      Accepts an argparse.ArgumentParser object, enumerates the settings in this container and
+      adds argument parser rules for each.
+
 
 
    .. py:method:: get(k: SETTING) -> Any

@@ -55,7 +55,7 @@ Module Contents
    .. py:method:: import_ods(ifc_file, table, attributes, null, empty, bool_true, bool_false, concat) -> None
 
 
-   .. py:method:: import_pd(ifc_file, df, attributes=None, null='-', empty='', bool_true='YES', bool_false='NO', concat=', ') -> None
+   .. py:method:: import_pd(ifc_file: ifcopenshell.file, df: pandas.DataFrame, attributes: Optional[list[Union[str, None]]] = None, null: str = '-', empty: str = '', bool_true: str = 'YES', bool_false: str = 'NO', concat: str = ', ') -> None
 
 
    .. py:method:: import_xlsx(ifc_file, table, attributes, null, empty, bool_true, bool_false, concat) -> None

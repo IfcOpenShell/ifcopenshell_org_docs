@@ -88,9 +88,7 @@ Package Contents
 
    :param information: The IfcDocumentInformation that the reference will
        be created for
-   :type information: ifcopenshell.entity_instance
    :return: The newly created IfcDocumentReference entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -129,15 +127,12 @@ Package Contents
 
    :param product: The list of objects to associate the document to. This could be
        almost any sensible object in IFC.
-   :type product: list[ifcopenshell.entity_instance]
    :param document: The IfcDocumentReference to associate to, or
        alternatively an IfcDocumentInformation, though this is not
        recommended.
-   :type document: ifcopenshell.entity_instance
    :return: The IfcRelAssociatesDocument relationship
        or `None` if `products` was an empty list or all products were
        already assigned to the `document`.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -162,11 +157,8 @@ Package Contents
    IfcDocumentInformation, consult the IFC documentation.
 
    :param reference: The IfcDocumentInformation entity you want to edit
-   :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -187,11 +179,8 @@ Package Contents
    IfcDocumentReference, consult the IFC documentation.
 
    :param reference: The IfcDocumentReference entity you want to edit
-   :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -254,12 +243,9 @@ Package Contents
 
    :param product: The list of objects that the document reference or information is
        related to.
-   :type product: list[ifcopenshell.entity_instance]
    :param document: The IfcDocumentReference (typically) or in rare cases
        the IfcDocumentInformation that is associated with the product
-   :type document: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

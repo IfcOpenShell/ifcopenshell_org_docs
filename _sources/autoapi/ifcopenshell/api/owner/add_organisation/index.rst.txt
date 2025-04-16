@@ -19,11 +19,8 @@ Module Contents
        Sometimes used in drawing naming schemes. Otherise used as a
        canonicalised way of computers to identify the organisation. Like
        their stock name.
-   :type identification: str, optional
    :param name: The legal name of the organisation
-   :type name: str, optional
    :return: The newly created IfcOrganization
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

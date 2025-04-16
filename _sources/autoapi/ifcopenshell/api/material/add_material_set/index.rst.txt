@@ -47,14 +47,11 @@ Module Contents
 
    :param name: The name of the material set, which may be purely
        descriptive or annotated in drawings. Defaults to "Unnamed".
-   :type name: str, optional
    :param set_type: What type of set you want to create, chosen from
        IfcMaterialLayerSet, IfcMaterialProfileSet,
        IfcMaterialConstituentSet, or IfcMaterialList. Defaults to
        IfcMaterialConstituentSet.
-   :type set_type: str, optional
    :return: The newly created material set element
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

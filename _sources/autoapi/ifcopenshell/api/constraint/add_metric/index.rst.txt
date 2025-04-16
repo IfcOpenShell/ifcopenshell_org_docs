@@ -17,9 +17,7 @@ Module Contents
    to meet the objective of the constraint.
 
    :param objective: The IfcObjective that this metric is a benchmark of.
-   :type objective: ifcopenshell.entity_instance
    :return: The newly created IfcMetric entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

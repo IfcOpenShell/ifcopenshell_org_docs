@@ -13,11 +13,8 @@ Module Contents
 
    :param related_flow_control: IfcDistributionControlElement controling the
        flow element
-   :type related_flow_control: ifcopenshell.entity_instance
    :param relating_flow_element: The IfcDistributionFlowElement that is being controlled
-   :type relating_flow_element: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

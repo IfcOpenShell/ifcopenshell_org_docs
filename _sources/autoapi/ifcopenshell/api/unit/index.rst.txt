@@ -48,9 +48,7 @@ Package Contents
        sensible normal unit for. In that case, firstly stop whatever you're
        doing and have a hard think about your life, and then if life really
        is going that badly for you, check out the IFC docs for IfcUnitEnum.
-   :type unit_type: str
    :param name: Give your unit a name. X what? X bananas?
-   :type name: str
    :param dimensions: Units typically measure one of 7 fundamental physical
        dimensions: length, mass, time, electric current, temperature,
        substance amount, or luminous intensity. These are represented as a
@@ -59,9 +57,7 @@ Package Contents
        where as an area unit is (2, 0, 0, 0, 0, 0, 0). A unit of meters per
        second is (1, 0, -1, 0, 0, 0, 0). For context dependent units, it is
        recommended to leave this as the default of (0, 0, 0, 0, 0, 0, 0).
-   :type dimensions: list[int]
    :return: The new IfcContextDependentUnit
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -85,17 +81,14 @@ Package Contents
    kip, psi, ksi, minute, hour, day, btu, and fahrenheit.
 
    :param name: A converted name chosen from the list above.
-   :type name: str
    :param conversion_offset: If you want to offset the conversion further
        by a set number, you may specify it here. For example, fahrenheit is
        1.8 * kelvin - 459.67. The -459.67 is the conversion offset. Note
        that this is just an example and you don't actually need to specify
        that for fahrenheit as it's built into this API function. For
        advanced users only.
-   :type conversion_offset: float, optional
    :return: The new IfcConversionBasedUnit or
        IfcConversionBasedUnitWithOffset
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -134,11 +127,8 @@ Package Contents
    :type unit_type: str
    :param userdefinedtype: The user defined type in case of choosing USERDEFINED, or None for no
        user defined type.
-   :type userdefinedtype: str or None
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: The newly created IfcDerivedUnit
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -167,9 +157,7 @@ Package Contents
    USD, GBP, AUD, MYR, etc.
 
    :param currency: The currency code
-   :type currency: str
    :return: The newly created IfcMonetaryUnit
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -202,12 +190,9 @@ Package Contents
 
    :param unit_type: A type of unit chosen from the list above. For
        example, choosing LENGTHUNIT will give you a metre.
-   :type unit_type: str
    :param prefix: A prefix chosen from the list above, or None for no
        prefix.
-   :type prefix: str,optional
    :return: The newly created IfcSIUnit
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -268,11 +253,8 @@ Package Contents
    IfcDerivedUnit, consult the IFC documentation.
 
    :param unit: The IfcDerivedUnit entity you want to edit
-   :type unit: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
 
 .. py:function:: edit_monetary_unit(file: ifcopenshell.file, unit: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -283,11 +265,8 @@ Package Contents
    IfcMonetaryUnit, consult the IFC documentation.
 
    :param unit: The IfcMonetaryUnit entity you want to edit
-   :type unit: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -312,11 +291,8 @@ Package Contents
    IfcNamedUnit, consult the IFC documentation.
 
    :param unit: The IfcNamedUnit entity you want to edit
-   :type unit: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -337,9 +313,7 @@ Package Contents
    defined quantities in the model completely lose their meaning.
 
    :param unit: The unit element to remove
-   :type unit: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -357,9 +331,7 @@ Package Contents
    Unassigns units as default units for the project
 
    :param units: A list of units to assign as project defaults.
-   :type units: list[ifcopenshell.entity_instance],optional
    :return: None
-   :rtype: None
 
    Example:
 

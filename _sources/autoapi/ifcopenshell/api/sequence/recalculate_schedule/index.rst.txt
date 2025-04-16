@@ -9,28 +9,32 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: add_node(task)
+   .. py:method:: add_node(task: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: backward_pass(node)
+   .. py:method:: backward_pass(node) -> bool
 
 
-   .. py:method:: build_network_graph()
+   .. py:method:: build_network_graph() -> None
 
 
-   .. py:method:: calculate_free_float(predecessor_date, successor_date, lag_time, predecessor_data, successor_data)
+   .. py:method:: calculate_free_float(predecessor_date: datetime.datetime, successor_date: datetime.datetime, lag_time: int, predecessor_data: dict, successor_data: dict) -> datetime.timedelta
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(work_schedule: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: forward_pass(node)
+   .. py:method:: forward_pass(node) -> bool
 
 
-   .. py:method:: offset_date(date, days, node)
+   .. py:method:: offset_date(date: datetime.datetime, days: int, node: dict) -> datetime.datetime
 
 
-   .. py:method:: update_task_times()
+   .. py:method:: update_task_times() -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: recalculate_schedule(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance) -> None
@@ -46,9 +50,7 @@ Module Contents
    error.
 
    :param work_schedule: The IfcWorkSchedule to perform the calculation on.
-   :type work_schedule: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

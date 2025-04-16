@@ -1,0 +1,14 @@
+:py:mod:`ifcopenshell.api.alignment.get_alignment_layouts`
+==========================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_alignment_layouts
+
+
+Module Contents
+---------------
+
+.. py:function:: get_alignment_layouts(alignment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+
+   Returns the layout alignments nested to this alignment
+
+

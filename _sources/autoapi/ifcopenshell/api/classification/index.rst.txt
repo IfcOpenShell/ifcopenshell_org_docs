@@ -71,9 +71,7 @@ Package Contents
        classification library. The latter approach is preferred if you are
        using a commonly known system such as Uniclass, as this will ensure
        all metadata is added correctly.
-   :type classification: str,ifcopenshell.entity_instance
    :return: The added IfcClassification element
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -124,23 +122,18 @@ Package Contents
 
    :param product: The list of IFC objects, properties, or resources you want to
        associate the classification reference to.
-   :type product: list[ifcopenshell.entity_instance]
    :param reference: The classification reference entity taken from an
        IFC classification library. If you supply this parameter, you will
        use option 2.
-   :type reference: ifcopenshell.entity_instance, optional
    :param identification: If you choose option 1 and do not specify a
        reference, you may manually specify an identification code. The code
        is typically a short identifier and may have punctuation to separate
        the levels of hierarchy in the classificaion (e.g. Pr_12_23_34).
-   :type identification: str, optional
    :param name: If you choose option 1 and do not specify a reference, you
        may manually specify a name. The name is typically human readable.
-   :type name: str, optional
    :param classification: The IfcClassification entity in your IFC model
        (not the library, if you are doing option 2) that the reference is
        part of.
-   :type classification: ifcopenshell.entity_instance
    :param is_lightweight: If you are doing option 2, choose whether or not
        to only add that particular reference (lighweight) or also add all
        of its parent references in the classification hierarchy (not
@@ -150,13 +143,11 @@ Package Contents
        references merely help describe the "tree" of classifications, but
        is generally unnecessary. Using lightweight classifications are
        recommended and is the default.
-   :type is_lightweight: bool, optional
 
    :raises TypeError: If file is IFC2X3 and `products` has non-IfcRoot elements.
 
    :return: The newly added IfcClassificationReference
        or `None` if `products` was empty list.
-   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -190,11 +181,8 @@ Package Contents
    IfcClassification, consult the IFC documentation.
 
    :param classification: The IfcClassification entity you want to edit
-   :type classification: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -214,11 +202,8 @@ Package Contents
    IfcClassificationReference, consult the IFC documentation.
 
    :param reference: The IfcClassificationReference entity you want to edit
-   :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -239,9 +224,7 @@ Package Contents
    removed from a project.
 
    :param classification: The IfcClassification entity you want to remove
-   :type classification: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -261,15 +244,12 @@ Package Contents
 
    :param reference: The IfcClassificationReference entity of the
        relationship you want to remove.
-   :type reference: ifcopenshell.entity_instance
    :param product: The list fo object entities of the relationship you want to
        remove.
-   :type product: list[ifcopenshell.entity_instance]
 
    :raises TypeError: If file is IFC2X3 and `products` has non-IfcRoot elements.
 
    :return: None
-   :rtype: None
 
    Example:
 

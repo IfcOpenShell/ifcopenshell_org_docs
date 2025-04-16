@@ -32,11 +32,8 @@ Module Contents
    :type unit_type: str
    :param userdefinedtype: The user defined type in case of choosing USERDEFINED, or None for no
        user defined type.
-   :type userdefinedtype: str or None
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: The newly created IfcDerivedUnit
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

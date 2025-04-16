@@ -9,10 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: delete_reference(reference)
+   .. py:method:: delete_reference(reference: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(metric: ifcopenshell.entity_instance) -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: remove_metric(file: ifcopenshell.file, metric: ifcopenshell.entity_instance) -> None

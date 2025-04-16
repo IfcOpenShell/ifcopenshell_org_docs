@@ -25,6 +25,36 @@ Submodules
 Package Contents
 ----------------
 
+.. py:function:: create_axis_curve(file: ifcopenshell.file, *, p1: ifcopenshell.util.shape_builder.VectorType, p2: ifcopenshell.util.shape_builder.VectorType, grid_axis: ifcopenshell.entity_instance, is_si: bool = True) -> None
+
+   Adds curve geometry to a grid axis to represent the axis extents
+
+   An IFC grid will have a minimum of two axes (typically perpendicular). Each
+   axis will then have a line which represents the extents of the axis.
+
+   :param p1: The first point of the grid axis
+   :param p2: The second point of the grid axis
+   :param grid_axis: The IfcGridAxis element to add geometry to.
+   :param is_si: If true, the points are in meters, not project units
+
+   Example:
+
+   .. code:: python
+
+       # A pretty standard rectangular grid, with only two axes.
+       grid = ifcopenshell.api.root.create_entity(model, ifc_class="IfcGrid")
+       axis_a = ifcopenshell.api.grid.create_grid_axis(model,
+           axis_tag="A", uvw_axes="UAxes", grid=grid)
+       axis_1 = ifcopenshell.api.grid.create_grid_axis(model,
+           axis_tag="1", uvw_axes="VAxes", grid=grid)
+
+       # By convention, alphabetic grids are horizontal, and numeric are vertical
+       ifcopenshell.api.grid.create_axis_curve(
+           model, p1=np.array((0., 0., 0.)), p2=np.array((10., 0., 0.)), grid_axis=axis_a)
+       ifcopenshell.api.grid.create_axis_curve(
+           model, p1=np.array((0., 0., 0.)), p2=np.array((0., 10., 0.)), grid_axis=axis_1)
+
+
 .. py:function:: create_grid_axis(file: ifcopenshell.file, grid: ifcopenshell.entity_instance, axis_tag: str = 'A', same_sense: bool = True, uvw_axes: Literal['UAxes', 'VAxes', 'WAxes'] = 'UAxes') -> ifcopenshell.entity_instance
 
    Adds a new grid axis to a grid
@@ -81,9 +111,7 @@ Package Contents
    Removes a grid axis from a grid
 
    :param axis: The IfcGridAxis you want to remove.
-   :type axis: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

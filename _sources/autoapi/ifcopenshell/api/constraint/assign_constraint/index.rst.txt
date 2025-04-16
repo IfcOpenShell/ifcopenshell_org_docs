@@ -9,10 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(products: list[ifcopenshell.entity_instance], constraint: ifcopenshell.entity_instance)
 
 
-   .. py:method:: get_constraint_rels() -> list[ifcopenshell.entity_instance]
+   .. py:method:: get_constraint_rels(constraint: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: assign_constraint(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], constraint: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
@@ -29,11 +33,8 @@ Module Contents
 
    :param products: The list of products the constraint applies to. This is anything
        which can have properties or quantities.
-   :type products: list[ifcopenshell.entity_instance]
    :param constraint: The IfcObjective constraint
-   :type constraint: ifcopenshell.entity_instance
    :return: The new or updated IfcRelAssociatesConstraint relationship
        or `None` if `products` was an empty list.
-   :rtype: ifcopenshell.entity_instance
 
 

@@ -18,7 +18,6 @@ Module Contents
    quantities. See ifcopenshell.api.constraint.add_metric for more information.
 
    :return: The newly created IfcObjective entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

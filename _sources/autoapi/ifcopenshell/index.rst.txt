@@ -62,7 +62,6 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   alignment/index.rst
    draw/index.rst
    entity_instance/index.rst
    file/index.rst
@@ -127,8 +126,6 @@ Package Contents
       Return the name of a positional attribute of the element
 
       :param attr_idx: The index of the attribute
-      :type attr_idx: int
-      :rtype: string
 
 
 
@@ -137,8 +134,6 @@ Package Contents
       Return the data type of a positional attribute of the element
 
       :param attr: The index or name of the attribute
-      :type attr: Union[int, str]
-      :rtype: string
 
 
 
@@ -203,7 +198,7 @@ Package Contents
 
 
 
-   .. py:method:: get_info_2(include_identifier: bool = True, recursive: bool = False, return_type: type[dict] = dict, ignore: Iterable[str] = ()) -> dict[str, Any]
+   .. py:method:: get_info_2(include_identifier: bool = True, recursive: bool = False, return_type: type[dict] = dict, ignore: Sequence[str] = ()) -> dict[str, Any]
 
       More perfomant version of `.get_info()` but with limited arguments values.
 
@@ -220,8 +215,6 @@ Package Contents
 
       Return the STEP numerical identifier
 
-      :rtype: int
-
 
 
    .. py:method:: is_a() -> str
@@ -237,9 +230,7 @@ Package Contents
           returned IFC class name should include schema name
           (e.g. "IFC4.IfcWall" if `True` and "IfcWall" if `False`).
           If omitted will act as `False`.
-      :type args: Union[str, bool]
       :returns: Either the name of the class, or a boolean if it passes the check
-      :rtype: Union[str, bool]
 
       Example:
 
@@ -290,14 +281,10 @@ Package Contents
 
       :param f: A callable that takes a single argument and returns a boolean
           value. It represents the condition.
-      :type f: Callable
       :param g: A callable that takes a single argument and returns a
           transformed value. It represents the transformation.
-      :type g: Callable
       :param value: Any object, the input value to be processed
-      :type value: Any
       :return: Transformed value
-      :rtype: Any
 
       Example:
 
@@ -361,12 +348,10 @@ Package Contents
       Return an IFC entity instance filtered by IFC ID.
 
       :param id: STEP numerical identifier
-      :type id: int
 
       :raises RuntimeError: If `id` is not found.
 
       :returns: An ifcopenshell.entity_instance
-      :rtype: ifcopenshell.entity_instance
 
 
 
@@ -377,14 +362,11 @@ Package Contents
       If an IFC type class has subclasses, all entities of those subclasses are also returned.
 
       :param type: The case insensitive type of IFC class to return.
-      :type type: string
       :param include_subtypes: Whether or not to return subtypes of the IFC class
-      :type include_subtypes: bool
 
       :raises RuntimeError: If `type` is not found in IFC schema.
 
       :returns: A list of ifcopenshell.entity_instance objects
-      :rtype: list[ifcopenshell.entity_instance]
 
 
 
@@ -567,8 +549,6 @@ Package Contents
    .. py:method:: id() -> int
 
       Return the STEP numerical identifier
-
-      :rtype: int
 
 
 

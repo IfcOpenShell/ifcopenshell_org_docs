@@ -109,12 +109,9 @@ Package Contents
    using another API call.
 
    :param cost_item: The IfcCostItem to add the quantity to
-   :type cost_item: ifcopenshell.entity_instance
    :param ifc_class: The type of quantity to add
-   :type ifc_class: str, optional
    :return: The newly created quantity entity, chosen from the ifc_class
        parameter
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -148,13 +145,10 @@ Package Contents
    managing any cost items.
 
    :param name: The name of the cost schedule.
-   :type name: str, optional
    :param predefined_type: The predefined type of the cost schedule, chosen
        from a valid type in the IFC documentation for
        IfcCostScheduleTypeEnum
-   :type predefined_type: str, optional
    :return: The newly created IfcCostSchedule entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -194,9 +188,7 @@ Package Contents
    :param parent: A parent IfcCostItem, if specifying a price directly to a
        cost item, or a top-level price component. Alternatively, this can
        be set to a IfcCostValue, if specifying price subcomponents.
-   :type parent: ifcopenshell.entity_instance
    :return: The newly created IfcCostValue
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -318,11 +310,8 @@ Package Contents
    rates as a "template" to quickly populate your rates from.
 
    :param cost_item: The IfcCostItem that you want to copy the values to
-   :type cost_item: ifcopenshell.entity_instance
    :param cost_rate: The IfcCostItem that you want to copy the values from
-   :type cost_rate: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -419,9 +408,7 @@ Package Contents
    * The copy will have duplicated nested cost items
 
    :param cost_item: The cost item to be duplicated
-   :type cost_item: ifcopenshell.entity_instance
    :return: The duplicated cost item or the list of duplicated cost items if the latter has children
-   :rtype: ifcopenshell.entity_instance or list[ifcopenshell.entity_instance]
 
    Example:
    .. code:: python
@@ -444,11 +431,8 @@ Package Contents
    parametrically linked, so if one value changes, the other will not.
 
    :param source: The IfcCostItem to copy cost values from
-   :type source: ifcopenshell.entity_instance
    :param destination: The IfcCostItem to copy cost values from
-   :type destination: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -476,11 +460,8 @@ Package Contents
    IfcCostItem, consult the IFC documentation.
 
    :param cost_item: The IfcCostItem entity you want to edit
-   :type cost_item: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -499,11 +480,8 @@ Package Contents
    IfcPhysicalQuantity, consult the IFC documentation.
 
    :param physical_quantity: The IfcPhysicalQuantity entity you want to edit
-   :type physical_quantity: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -530,11 +508,8 @@ Package Contents
    IfcCostSchedule, consult the IFC documentation.
 
    :param cost_schedule: The IfcCostSchedule entity you want to edit
-   :type cost_schedule: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -553,11 +528,8 @@ Package Contents
    IfcCostValue, consult the IFC documentation.
 
    :param cost_value: The IfcCostValue entity you want to edit
-   :type cost_value: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -610,9 +582,7 @@ Package Contents
    retained.
 
    :param cost_item: The IfcCostItem entity you want to remove
-   :type cost_item: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -632,11 +602,8 @@ Package Contents
    removed.
 
    :param cost_item: The IfcCostItem that the quantity is assigned to
-   :type cost_item: ifcopenshell.entity_instance
    :param physical_quantity: The IfcPhysicalQuantity to remove
-   :type physical_quantity: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -681,11 +648,8 @@ Package Contents
 
    :param parent: The IfcCostItem, IfcConstructionResource, or IfcCostValue
        that the IfcCostValue is assigned to.
-   :type parent: ifcopenshell.entity_instance
    :param cost_value: The IfcCostValue that you want to remove
-   :type parent: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -712,12 +676,9 @@ Package Contents
    have any impact on the cost item.
 
    :param cost_item: The IfcCostItem to remove quantities from
-   :type cost_item: ifcopenshell.entity_instance
    :param products: A list of IfcProducts that may have parametrically
        connected quantities to the cost item
-   :type products: list[ifcopenshell.entity_instance]
    :return: None
-   :rtype: None
 
    Example:
 

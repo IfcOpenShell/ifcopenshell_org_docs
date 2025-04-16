@@ -1,0 +1,26 @@
+:py:mod:`ifcopenshell.api.alignment.get_curve`
+==============================================
+
+.. py:module:: ifcopenshell.api.alignment.get_curve
+
+
+Module Contents
+---------------
+
+.. py:function:: get_curve(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the geometric representation curve for an alignment.
+   A horizontal only will have a curve of type IfcCompositeCurve
+   A horizontal+vertical will have a curve of type IfcGradientCurve
+   A horizontal+vertical+cant will have a curve of tyep IfcSegmentedReferenceCurve
+
+   :param alignment: The alignment
+   :return: The geometric representation of the alignemnt or None if the alignment does not have a representation
+
+   Example:
+
+   .. code:: python
+       alignment = model.by_type("IfcAlignment")[0]
+       gradient_curve = ifcopenshell.api.alignment.get_curve(alignment)
+
+

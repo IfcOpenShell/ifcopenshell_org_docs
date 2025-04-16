@@ -12,9 +12,7 @@ Module Contents
    Removes an actor
 
    :param actor: The IfcActor to remove.
-   :type actor: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

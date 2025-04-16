@@ -1,0 +1,14 @@
+:py:mod:`ifcopenshell.api.alignment.get_axis_subcontext`
+========================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_axis_subcontext
+
+
+Module Contents
+---------------
+
+.. py:function:: get_axis_subcontext(file: ifcopenshell.file) -> ifcopenshell.entity_instance
+
+   Returns the IfcGeometricRepresentationSubContext for Model, Axis, MODEL_VIEW. If one does not exist, it is created.
+
+

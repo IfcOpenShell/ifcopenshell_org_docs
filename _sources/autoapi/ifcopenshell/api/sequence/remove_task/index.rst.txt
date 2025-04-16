@@ -15,9 +15,7 @@ Module Contents
    sequences or controls are also removed.
 
    :param task: The IfcTask to remove.
-   :type task: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.alignment.map_alignment_horizontal_segment`
+=====================================================================
+
+.. py:module:: ifcopenshell.api.alignment.map_alignment_horizontal_segment
+
+
+Module Contents
+---------------
+
+.. py:function:: map_alignment_horizontal_segment(file: ifcopenshell.file, segment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+
+   Creates IfcCurveSegment entities for the represention of the supplied IfcAlignmentHorizontalSegment business logic entity instance.
+   A pair of entities is returned because a single business logic segment of type HELMERTCURVE maps to two representaiton entities.
+
+   The IfcCurveSegment.Transition transition code is set to DISCONTINUOUS
+
+

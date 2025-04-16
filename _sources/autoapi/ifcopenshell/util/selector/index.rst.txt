@@ -230,6 +230,8 @@ Module Contents
        set enum values from string values.
 
 
+.. py:data:: EllipsisType
+
 .. py:data:: filter_elements_grammar
 
 .. py:data:: format_grammar

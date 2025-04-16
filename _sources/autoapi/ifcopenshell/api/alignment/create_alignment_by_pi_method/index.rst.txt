@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.alignment.create_alignment_by_pi_method`
+==================================================================
+
+.. py:module:: ifcopenshell.api.alignment.create_alignment_by_pi_method
+
+
+Module Contents
+---------------
+
+.. py:function:: create_alignment_by_pi_method(file: ifcopenshell.file, alignment_name: str, hpoints: Sequence[Sequence[float]], radii: Sequence[float], vpoints: Sequence[Sequence[float]] = None, lengths: Sequence[float] = None, alignment_description: str = None) -> ifcopenshell.entity_instance
+
+   Create an alignment using the PI layout method for both horizontal and vertical alignments.
+   If vpoints and lengths are omitted, only a horizontal alignment is created. Only the business logic
+   entities are creaed. Use create_geometric_representation() to create the geometric entities.
+
+   :param alignment_name: value for Name attribute
+   :param points: (X,Y) pairs denoting the location of the horizontal PIs, including start and end
+   :param radii: radii values to use for transition
+   :param vpoints: (distance_along, Z_height) pairs denoting the location of the vertical PIs, including start and end.
+   :param lengths: parabolic vertical curve horizontal length values to use for transition
+   :param alignment_description: value for Description attribute
+   :return: Returns an IfcAlignment
+
+

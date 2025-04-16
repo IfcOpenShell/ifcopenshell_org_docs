@@ -34,7 +34,6 @@ Module Contents
    :param attribute: The name of the attribute to merge element types based
        on. Typically this will be "Tag" as it stores the unique ID from the
        proprietary BIM software.
-   :type attribute: str
 
    Example:
 

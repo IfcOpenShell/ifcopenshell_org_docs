@@ -23,17 +23,13 @@ Module Contents
 
    :param recurrence_pattern: The IfcRecurrencePattern to add the time
        period to. See ifcopenshell.api.sequence.assign_recurrence_pattern.
-   :type recurrence_pattern: ifcopenshell.entity_instance
    :param start_time: The start time of the time period, in a format
        compatible with IfcTime, such as an ISO format time string or a
        datetime.time object.
-   :type start_time: str,datetime.time
    :param end_time: The end time of the time period, in a format
        compatible with IfcTime, such as an ISO format time string or a
        datetime.time object.
-   :type end_time: str,datetime.time
    :return: The newly created IfcTimePeriod
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

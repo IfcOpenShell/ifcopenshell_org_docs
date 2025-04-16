@@ -9,22 +9,58 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: convert_si_to_unit(co)
+   .. py:method:: create_faceted_brep() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_faceted_brep()
+   .. py:method:: create_mesh_representation() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_mesh_representation()
+   .. py:method:: create_polygonal_face_set() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_polygonal_face_set()
+   .. py:method:: execute(context: ifcopenshell.entity_instance, vertices: numpy.typing.NDArray[numpy.float64], faces: list[list[list[int]]], force_faceted_brep: bool) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
-.. py:function:: add_mesh_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, vertices: list[COORD_3D], edges: list[tuple[int, int]] = None, faces: list[list[int]] = None, cooridnate_offset: Optional[COORD_3D] = None, unit_scale: Optional[float] = None, force_faceted_brep: bool = False) -> ifcopenshell.entity_instance
+   .. py:attribute:: vertices
+      :type:  numpy.typing.NDArray[numpy.float64]
+
+      In project units.
+
+
+
+.. py:function:: add_mesh_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, vertices: list[ifcopenshell.util.shape_builder.SequenceOfVectors], edges: Optional[list[list[tuple[int, int]]]] = None, faces: list[list[list[int]]] = None, coordinate_offset: Optional[ifcopenshell.util.shape_builder.VectorType] = None, unit_scale: Optional[float] = None, force_faceted_brep: bool = False) -> ifcopenshell.entity_instance
+
+   Add a mesh representation.
+
+   Vertices, edges, and faces are given in the form of: ``[item1, item2, item3, ...]``.
+   Each ``itemN`` is a sublist representing data for a separate IfcRepresentationItem to add.
+
+   You can provide either ``edges`` or ``faces``, no need to provide both.
+   But currently ``edges`` argument is not supported.
+
+   :param context: The IfcGeometricRepresentationContext for the representation.
+   :param vertices: A list of coordinates.
+       where ``itemN = [(0., 0., 0.), (1., 1., 1.), (x, y, z), ...]``
+   :param edges: A list of edges, represented by vertex index pairs
+       where ``itemN = [(0, 1), (1, 2), (v1, v2), ...]``
+   :param faces: A list of polygons, represented by vertex indices.
+       where ``itemN = [(0, 1, 2), (5, 4, 2, 3), (v1, v2, v3, ... vN), ...]``
+   :param coordinate_offset: Optionally apply a vector offset to all coordinates.
+       In project units.
+   :param unit_scale: Scale factor for ``vertices`` units.
+
+       If omitted, it is assumed that ``vertices`` are in SI units.
+
+       If other value is provided ``vertices`` coords will be divided by ``unit_scale``.
+   :param force_faceted_brep: Force using IfcFacetedBreps instead of IfcPolygonalFaceSets.
+   :return: IfcShapeRepresentation.
+
 
 .. py:data:: COORD_3D
+
+.. py:data:: T
 

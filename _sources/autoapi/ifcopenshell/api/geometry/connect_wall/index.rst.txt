@@ -1,0 +1,11 @@
+:py:mod:`ifcopenshell.api.geometry.connect_wall`
+================================================
+
+.. py:module:: ifcopenshell.api.geometry.connect_wall
+
+
+Module Contents
+---------------
+
+.. py:function:: connect_wall(file: ifcopenshell.file, wall1: ifcopenshell.entity_instance, wall2: ifcopenshell.entity_instance, is_atpath: bool = False) -> Optional[ifcopenshell.entity_instance]
+

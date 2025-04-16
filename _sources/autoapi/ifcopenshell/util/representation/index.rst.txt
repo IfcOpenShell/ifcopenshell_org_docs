@@ -82,13 +82,29 @@ Module Contents
    you may want to prioritise visualising certain contexts over others,
    determined by the context type, identifier, target view, and target scale.
 
-   The default prioritises subcontexts, then contexts. It then prioritises 3D,
-   then 2D. It then prioritises bodies, then others. It also prioritises model
-   views, then plan views, then others.
+   The default prioritises 3D, then 2D. It then prioritises subcontexts, then
+   contexts. It then prioritises bodies, then others. It also prioritises
+   model views, then plan views, then others.
 
    :param ifc_file: The model containing contexts
    :return: A list of IfcGeometricRepresentationContext (or SubContext) from
        high priority to low priority.
+
+
+.. py:function:: get_reference_line(wall: ifcopenshell.entity_instance, fallback_length: float = 1.0) -> list[numpy.typing.NDArray]
+
+   Fetch the reference axis that goes in the +X direction
+
+   A base line will then be offset from this reference line based on the
+   material usage. From that base line, the layer thicknesses will offset
+   again, and be extruded to form the body representation.
+
+   :param wall: ifcopenshell.entity_instance
+   :param fallback_length: If there is no reference axis, assume it starts at
+       the object placement (i.e. 0.0, 0.0) and extends for this fallback
+       length along the +X axis.
+   :return: A list of two 2D coordinates representing the start and end of the
+       axis. The axis always goes in the +X direction.
 
 
 .. py:function:: get_representation(element: ifcopenshell.entity_instance, context: Union[ifcopenshell.entity_instance, CONTEXT_TYPE], subcontext: Optional[REPRESENTATION_IDENTIFIER] = None, target_view: Optional[TARGET_VIEW] = None) -> Union[ifcopenshell.entity_instance, None]

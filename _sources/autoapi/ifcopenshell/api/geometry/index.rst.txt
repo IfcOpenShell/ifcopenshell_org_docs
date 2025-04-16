@@ -34,11 +34,13 @@ Submodules
    assign_representation/index.rst
    connect_element/index.rst
    connect_path/index.rst
+   connect_wall/index.rst
    create_2pt_wall/index.rst
    disconnect_element/index.rst
    disconnect_path/index.rst
    edit_object_placement/index.rst
    map_representation/index.rst
+   regenerate_wall_representation/index.rst
    remove_boolean/index.rst
    remove_representation/index.rst
    unassign_representation/index.rst
@@ -81,13 +83,10 @@ Package Contents
    :param context: The IfcGeometricRepresentationContext that the
        representation is part of. This must be either a
        Model/Axis/GRAPH_VIEW (3D) or Plan/Axis/GRAPH_VIEW (2D).
-   :type context: ifcopenshell.entity_instance
    :param axis: The axis, as a list of two coordinates, the coordinates
        being either a list of 2 or 3 float coordinates depending on whether
        the axis is 2D or 3D.
-   :type axis: list[list[float]]
    :return: The newly created IfcShapeRepresentation entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -130,11 +129,95 @@ Package Contents
        created, the list will be empty.
 
 
+.. py:function:: add_door_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, operation_type: DOOR_TYPE = 'SINGLE_SWING_LEFT', lining_properties: Optional[Union[DoorLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[Union[DoorPanelProperties, dict[str, Any]]] = None, part_of_product: Optional[ifcopenshell.entity_instance] = None, unit_scale: Optional[float] = None) -> Union[ifcopenshell.entity_instance, None]
+
+   Add a geometric representation for a door.
+
+   units in usecase_settings expected to be in ifc project units
+
+   :param context: IfcGeometricRepresentationContext for the representation.
+   :param overall_height: Overall door height. Defaults to 2m.
+   :param overall_width: Overall door width. Defaults to 0.9m.
+   :param operation_type: Type of the door. Defaults to SINGLE_SWING_LEFT.
+   :param lining_properties: DoorLiningProperties or a dictionary to create one.
+       See DoorLiningProperties description for details.
+   :param panel_properties: DoorPanelProperties or a dictionary to create one.
+       See DoorPanelProperties description for details.
+   :param unit_scale: The unit scale as calculated by
+       ifcopenshell.util.unit.calculate_unit_scale. If not provided, it
+       will be automatically calculated for you.
+   :return: IfcShapeRepresentation for a door.
+
+
 .. py:function:: add_footprint_representation(file, context: ifcopenshell.entity_instance, curves: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
 
-.. py:function:: add_mesh_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, vertices: list[COORD_3D], edges: list[tuple[int, int]] = None, faces: list[list[int]] = None, cooridnate_offset: Optional[COORD_3D] = None, unit_scale: Optional[float] = None, force_faceted_brep: bool = False) -> ifcopenshell.entity_instance
+.. py:function:: add_mesh_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, vertices: list[ifcopenshell.util.shape_builder.SequenceOfVectors], edges: Optional[list[list[tuple[int, int]]]] = None, faces: list[list[list[int]]] = None, coordinate_offset: Optional[ifcopenshell.util.shape_builder.VectorType] = None, unit_scale: Optional[float] = None, force_faceted_brep: bool = False) -> ifcopenshell.entity_instance
 
-.. py:function:: add_profile_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, profile: ifcopenshell.entity_instance, depth: float = 1.0, cardinal_point: Literal[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] = 5, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, placement_zx_axes: tuple[Union[VECTOR_3D, None], Union[VECTOR_3D, None]] = (None, None)) -> ifcopenshell.entity_instance
+   Add a mesh representation.
+
+   Vertices, edges, and faces are given in the form of: ``[item1, item2, item3, ...]``.
+   Each ``itemN`` is a sublist representing data for a separate IfcRepresentationItem to add.
+
+   You can provide either ``edges`` or ``faces``, no need to provide both.
+   But currently ``edges`` argument is not supported.
+
+   :param context: The IfcGeometricRepresentationContext for the representation.
+   :param vertices: A list of coordinates.
+       where ``itemN = [(0., 0., 0.), (1., 1., 1.), (x, y, z), ...]``
+   :param edges: A list of edges, represented by vertex index pairs
+       where ``itemN = [(0, 1), (1, 2), (v1, v2), ...]``
+   :param faces: A list of polygons, represented by vertex indices.
+       where ``itemN = [(0, 1, 2), (5, 4, 2, 3), (v1, v2, v3, ... vN), ...]``
+   :param coordinate_offset: Optionally apply a vector offset to all coordinates.
+       In project units.
+   :param unit_scale: Scale factor for ``vertices`` units.
+
+       If omitted, it is assumed that ``vertices`` are in SI units.
+
+       If other value is provided ``vertices`` coords will be divided by ``unit_scale``.
+   :param force_faceted_brep: Force using IfcFacetedBreps instead of IfcPolygonalFaceSets.
+   :return: IfcShapeRepresentation.
+
+
+.. py:function:: add_profile_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, profile: ifcopenshell.entity_instance, depth: float = 1.0, cardinal_point: Union[CardinalPoint, None] = 5, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, placement_zx_axes: tuple[Union[VECTOR_3D, None], Union[VECTOR_3D, None]] = (None, None)) -> ifcopenshell.entity_instance
+
+   Add profile representation.
+
+   :param context: The IfcGeometricRepresentationContext for the representation,
+       only Model/Body/MODEL_VIEW type of representations are currently supported.
+   :param profile: The IfcProfileDef to extrude.
+   :param depth: The depth of the extrusion in meters.
+   :param cardinal_point: The cardinal point of the profile.
+   :param clippings: A list of planes that define clipping half space solids.
+       Planes are defined either by Clipping objects
+       or by dictionaries of arguments for `Clipping.parse`.
+   :param placement_zx_axes: A tuple of two vectors that define the placement of the profile.
+       The first vector is the Z axis, the second vector is the X axis.
+   :return: IfcShapeRepresentation.
+
+
+.. py:function:: add_railing_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, railing_type: Literal['WALL_MOUNTED_HANDRAIL'] = 'WALL_MOUNTED_HANDRAIL', railing_path: ifcopenshell.util.shape_builder.SequenceOfVectors, use_manual_supports: bool = False, support_spacing: Optional[float] = None, railing_diameter: Optional[float] = None, clear_width: Optional[float] = None, terminal_type: TERMINAL_TYPE = '180', height: Optional[float] = None, looped_path: bool = False, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
+
+   Units are expected to be in IFC project units.
+
+   :param context: IfcGeometricRepresentationContext for the representation.
+   :param railing_type: Type of the railing. Defaults to "WALL_MOUNTED_HANDRAIL".
+   :param railing_path: A list of points coordinates for the railing path,
+       coordinates are expected to be at the top of the railing, not at the center.
+       If not provided, default path [(0, 0, 1), (1, 0, 1), (2, 0, 1)] (in meters) will be used
+   :param use_manual_supports: If enabled, supports are added on every vertex on the edges of the railing path.
+       If disabled, supports are added automatically based on the support spacing. Default to False.
+   :param support_spacing: Distance between supports if automatic supports are used. Defaults to 1m.
+   :param railing_diameter: Railing diameter. Defaults to 50mm.
+   :param clear_width: Clear width between the railing and the wall. Defaults to 40mm.
+   :param terminal_type: type of the cap. Defaults to "180".
+   :param height: defaults to 1m
+   :param looped_path: Whether to end the railing on the first point of `railing_path`. Defaults to False.
+   :param unit_scale: The unit scale as calculated by
+       ifcopenshell.util.unit.calculate_unit_scale. If not provided, it
+       will be automatically calculated for you.
+   :return: IfcShapeRepresentation for a railing.
+
 
 .. py:function:: add_shape_aspect(file: ifcopenshell.file, name: str, items: list[ifcopenshell.entity_instance], representation: ifcopenshell.entity_instance, part_of_product: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
 
@@ -157,7 +240,7 @@ Package Contents
    :return: The IfcShapeAspect
 
 
-.. py:function:: add_slab_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, depth: float = 0.2, direction_sense: str = 'POSITIVE', offset: float = 0.0, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, polyline: Optional[list[tuple[float, float]]] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_slab_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, depth: float = 0.2, direction_sense: str = 'POSITIVE', offset: float = 0.0, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, ifcopenshell.entity_instance]]] = None, polyline: Optional[list[tuple[float, float]]] = None) -> ifcopenshell.entity_instance
 
    Add a geometric representation for a slab.
 
@@ -196,11 +279,31 @@ Package Contents
    :return: IfcShapeRepresentation.
 
 
+.. py:function:: add_window_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, partition_type: WINDOW_TYPE = 'SINGLE_PANEL', lining_properties: Optional[Union[WindowLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[list[Union[WindowPanelProperties, dict[str, Any]]]] = None, part_of_product: Optional[ifcopenshell.entity_instance] = None, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
+
+   units in usecase_settings expected to be in ifc project units
+
+   :param context: IfcGeometricRepresentationContext for the representation.
+   :param overall_height: Overall window height. Defaults to 0.9m.
+   :param overall_width: Overall window width. Defaults to 0.6m.
+   :param partition_type: Type of the window. Defaults to SINGLE_PANEL.
+   :param lining_properties: WindowLiningProperties or a dictionary to create one.
+       See WindowLiningProperties description for details.
+   :param panel_properties: A list of WindowPanelProperties or dictionaries to create one.
+       See WindowPanelProperties description for details.
+   :param unit_scale: The unit scale as calculated by
+       ifcopenshell.util.unit.calculate_unit_scale. If not provided, it
+       will be automatically calculated for you.
+   :return: IfcShapeRepresentation for a window.
+
+
 .. py:function:: assign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
 
 .. py:function:: connect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
 
 .. py:function:: connect_path(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, relating_connection: str = 'NOTDEFINED', related_connection: str = 'NOTDEFINED', description: Optional[str] = None) -> ifcopenshell.entity_instance
+
+.. py:function:: connect_wall(file: ifcopenshell.file, wall1: ifcopenshell.entity_instance, wall2: ifcopenshell.entity_instance, is_atpath: bool = False) -> Optional[ifcopenshell.entity_instance]
 
 .. py:function:: create_2pt_wall(file: ifcopenshell.file, element: ifcopenshell.entity_instance, context: ifcopenshell.entity_instance, p1: tuple[float, float], p2: tuple[float, float], elevation: float, height: float, thickness: float, is_si: bool = True) -> ifcopenshell.entity_instance
 
@@ -232,7 +335,76 @@ Package Contents
 
 .. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
 
+   Changes the object placement matrix of an element
+
+   The placement matrix is a 4x4 matrix describing the location and
+   orientation of an element in 3D. See
+   https://docs.ifcopenshell.org/ifcopenshell-python/geometry_creation.html#object-placements
+   for more details.
+
+   This only supports local placements. Grid and linear placements are not
+   supported.
+
+   :param matrix: A 4x4 matrix in numpy. If left blank, it is the identity
+       matrix (equivalent to ``np.eye(4)``).
+   :param is_si: If True, the matrix is given in SI units. If false, in
+       project units.
+   :param should_transform_children: A child element is a nested element,
+       opening, filling, etc. If true, child elements will move along with the
+       parent. If false, child elements will stay where they are. Because most
+       placements in IFC are relative, this means that if a child moves, we
+       actually don't change their placement.
+   :return: The new or updated IfcLocalPlacement entity
+
+
 .. py:function:: map_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+.. py:function:: regenerate_wall_representation(file: ifcopenshell.file, wall: ifcopenshell.entity_instance, length: float = 1.0, height: float = 1.0, angle: Optional[float] = None) -> ifcopenshell.entity_instance
+
+   Regenerate the body representation of a wall taking into account connections.
+
+   IFC defines how a standard (case) wall should behave that has a material
+   layer set and connections to other walls using IfcRelConnectsPathElements.
+   This function will regenerate the body geometry of a wall taking into
+   account the notches, butts, mitres, etc in the wall due to connections with
+   other walls.
+
+   A standard wall has a 2D axis line as well as parameters defined in terms
+   of layer thicknesses and priorities. The body geometry is defined as a 2D
+   XY profile which is extruded in the +Z direction. For this function to
+   work, a wall must have these defined and the project must have an axis and
+   body representation context.
+
+   For non-sloped walls, a 2D profile is generated and extruded in the +Z
+   direction. The profile may be a composite profile, if the wall is split due
+   to wall joins along the path of the wall that protrude all the way through
+   the wall.
+
+   For sloped walls, a basic rectangular 2D profile is extruded, and then
+   additional extrusions are generated for each connection that boolean
+   difference the base extrusion.
+
+   This will also update the axis line representation (e.g. trim the axis line
+   to any connections).
+
+   The wall's object placement will also be updated such that the placement is
+   equivalent to the axis line's start point (which therefore becomes (0.0,
+   0.0)). This is a logical, consistent, and useful placement coordinate
+   (especially for apps that can pivot using this point).
+
+   All this functionality relies on the Plan/Axis/GRAPH_VIEW representation
+   context. It will be created if it does not exist.
+
+   :param wall: The IfcWall for the representation,
+       only Model/Body/MODEL_VIEW type of representations are currently supported.
+   :param length: If the wall doesn't have an axis length, this is the default
+       length in SI units.
+   :param height: If the wall doesn't already have a height, this is the
+       default height in SI units.
+   :param angle: If the wall doesn't already have a slope, this is the default
+       angle in radians. Left as none or 0 defines no slope.
+   :return: The newly generated body IfcShapeRepresentation
+
 
 .. py:function:: remove_boolean(file: ifcopenshell.file, item: ifcopenshell.entity_instance) -> None
 

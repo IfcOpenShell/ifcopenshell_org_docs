@@ -70,11 +70,8 @@ Package Contents
        IfcPerson if it is a sole individual, or an IfcPersonAndOrganization
        if a specific person is liable within an organisation and must be
        legally nominated.
-   :type actor: ifcopenshell.entity_instance
    :param ifc_class: Either "IfcActor" or "IfcOccupant".
-   :type ifc_class: str, optional
    :return: The newly created IfcActor or IfcOccupant
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -105,12 +102,9 @@ Package Contents
 
    :param assigned_object: The IfcOrganization or IfcPerson the contact
        address belongs to.
-   :type assigned_object: ifcopenshell.entity_instance
    :param ifc_class: Either IfcPostalAddress or IfcTelecomAddress. Defaults
        to IfcPostalAddress.
-   :type ifc_class: str, optional
    :return: The new IfcPostalAddress or IfcTelecomAddress
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -178,11 +172,8 @@ Package Contents
        Sometimes used in drawing naming schemes. Otherise used as a
        canonicalised way of computers to identify the organisation. Like
        their stock name.
-   :type identification: str, optional
    :param name: The legal name of the organisation
-   :type name: str, optional
    :return: The newly created IfcOrganization
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -201,13 +192,9 @@ Package Contents
 
    :param identification: The computer readable unique identification of
        the person. For example, their username in a CDE or alias.
-   :type identification: str, optional
    :param family_name: The family name
-   :type family_name: str, optional
    :param given_name: The given name
-   :type given_name: str, optional
    :return: The newly created IfcPerson
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -226,11 +213,8 @@ Package Contents
 
    :param person: The IfcPerson being the representative of the
        organisation.
-   :type person: ifcopenshell.entity_instance
    :param organisation: The IfcOrganization it
-   :type organisation: ifcopenshell.entity_instance
    :return: The newly created IfcPersonAndOrganization
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -296,11 +280,8 @@ Package Contents
        ifcopenshell.api.resource.assign_resource.
 
    :param relating_actor: The IfcActor who is responsible for the object.
-   :type relating_actor: ifcopenshell.entity_instance
    :param related_object: The object the actor is responsible for.
-   :type related_object: ifcopenshell.entity_instance
    :return: The newly created IfcRelAssignsToActor relationship.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -413,11 +394,8 @@ Package Contents
    IfcActor, consult the IFC documentation.
 
    :param actor: The IfcActor entity you want to edit
-   :type actor: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -445,11 +423,8 @@ Package Contents
    IfcAddress, consult the IFC documentation.
 
    :param address: The IfcAddress entity you want to edit
-   :type address: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -479,11 +454,8 @@ Package Contents
    IfcOrganization, consult the IFC documentation.
 
    :param organisation: The IfcOrganization entity you want to edit
-   :type organisation: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -503,11 +475,8 @@ Package Contents
    IfcPerson, consult the IFC documentation.
 
    :param person: The IfcPerson entity you want to edit
-   :type person: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -527,11 +496,8 @@ Package Contents
    IfcActorRole, consult the IFC documentation.
 
    :param role: The IfcActorRole entity you want to edit
-   :type role: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -552,9 +518,7 @@ Package Contents
    Removes an actor
 
    :param actor: The IfcActor to remove.
-   :type actor: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -581,9 +545,7 @@ Package Contents
    relationship removed.
 
    :param address: The IfcAddress to remove.
-   :type address: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -605,9 +567,7 @@ Package Contents
    Check whether or not the application is used anywhere prior to removal.
 
    :param address: The IfcApplication to remove.
-   :type address: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -625,9 +585,7 @@ Package Contents
    removed.
 
    :param organisation: The IfcOrganization to remove
-   :type organisation: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -648,9 +606,7 @@ Package Contents
    the only responsile person for them.
 
    :param person: The IfcPerson to remove
-   :type person: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -669,9 +625,7 @@ Package Contents
    the "person and organisation" group.
 
    :param person_and_organisation: The IfcPersonAndOrganization to remove.
-   :type person_and_organisation: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -696,9 +650,7 @@ Package Contents
    leave some of them without roles.
 
    :param role: The IfcActorRole to remove.
-   :type role: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -719,11 +671,8 @@ Package Contents
    This means that the actor is no longer responsible for the object.
 
    :param relating_actor: The IfcActor who is responsible for the object.
-   :type relating_actor: ifcopenshell.entity_instance
    :param related_object: The object the actor is responsible for.
-   :type related_object: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

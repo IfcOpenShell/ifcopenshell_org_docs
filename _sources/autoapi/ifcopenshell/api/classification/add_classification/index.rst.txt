@@ -9,13 +9,17 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: add_from_library()
+   .. py:method:: add_from_library() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(classification: Union[str, ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: relate_to_project(classification)
+   .. py:method:: relate_to_project(classification: ifcopenshell.entity_instance) -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: add_classification(file: ifcopenshell.file, classification: Union[str, ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
@@ -55,9 +59,7 @@ Module Contents
        classification library. The latter approach is preferred if you are
        using a commonly known system such as Uniclass, as this will ensure
        all metadata is added correctly.
-   :type classification: str,ifcopenshell.entity_instance
    :return: The added IfcClassification element
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

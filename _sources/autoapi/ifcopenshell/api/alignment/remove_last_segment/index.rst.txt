@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.alignment.remove_last_segment`
+========================================================
+
+.. py:module:: ifcopenshell.api.alignment.remove_last_segment
+
+
+Module Contents
+---------------
+
+.. py:function:: remove_last_segment(file: ifcopenshell.file, entity: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Removes the last segment from the end of entity.
+
+   :param entity: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant or IfcCompositeCurve
+   :return: The segment
+
+

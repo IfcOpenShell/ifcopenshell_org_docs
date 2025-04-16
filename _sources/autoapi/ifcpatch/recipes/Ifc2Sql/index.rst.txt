@@ -7,34 +7,34 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file, logger, sql_type: SQLTypes = 'SQLite', host: str = 'localhost', username: str = 'root', password: str = 'pass', database: str = 'test', full_schema: bool = True, is_strict: bool = False, should_expand: bool = False, should_get_inverses: bool = True, should_get_psets: bool = True, should_get_geometry: bool = True, should_skip_geometry_data: bool = False)
+.. py:class:: Patcher(file, logger, sql_type: SQLTypes = 'SQLite', host: str = 'localhost', username: str = 'root', password: str = 'pass', database: str = f'{DEFAULT_DATABASE_NAME}.sqlite', full_schema: bool = True, is_strict: bool = False, should_expand: bool = False, should_get_inverses: bool = True, should_get_psets: bool = True, should_get_geometry: bool = True, should_skip_geometry_data: bool = False)
 
    
    Convert an IFC-SPF model to SQLite or MySQL.
 
-   There are certain controls which are hardcoded in this recipe that you
-   may modify, including:
-
-   - full_schema: if True, will create tables for all IFC classes,
-     regardless if they are used or not in the dataset. If False, will
-     only create tables for classes in the dataset.
-   - is_strict: whether or not to enforce null or not null. If your
-     dataset might contain invalid data, set this to False.
-   - should_expand: if True, entities with attributes containing lists of
-     entities will be separated into multiple rows. This means the ifc_id
-     is no longer a unique primary key. If False, lists will be stored as
-     JSON.
-   - should_get_psets: if True, a separate psets table will be created to
-     make it easy to query properties. This is in addition to regular IFC
-     tables like IfcPropertySet.
-   - should_get_geometry: Whether or not to process and store explicit
-     geometry data as a blob in a separate geometry and shape table.
-   - should_skip_geometry_data: Whether or not to also create tables for
-     IfcRepresentation and IfcRepresentationItem classes. These tables are
-     unnecessary if you are not interested in geometry.
-
    :param sql_type: Choose between "SQLite" or "MySQL"
-   :type sql_type: typing.Literal["SQLite", "MySQL"]
+   :param database: Database path to save the SQL database to (already existing or not).
+       Could also be a directory, then the database will be stored
+       using default filename (e.g. 'database.sqlite').
+   :filter_glob database: *.db;*.sqlite
+   :param full_schema: if True, will create tables for all IFC classes,
+       regardless if they are used or not in the dataset. If False, will
+       only create tables for classes in the dataset.
+   :param is_strict: whether or not to enforce null or not null. If your
+       dataset might contain invalid data, set this to False.
+   :param should_expand: if True, entities with attributes containing lists of
+       entities will be separated into multiple rows. This means the ifc_id
+       is no longer a unique primary key. If False, lists will be stored as
+       JSON.
+   :param should_get_psets: if True, a separate psets table will be created to
+       make it easy to query properties. This is in addition to regular IFC
+       tables like IfcPropertySet.
+   :param should_get_geometry: Whether or not to process and store explicit
+       geometry data as a blob in a separate geometry and shape table.
+   :param should_skip_geometry_data: Whether or not to also create tables for
+       IfcRepresentation and IfcRepresentationItem classes. These tables are
+       unnecessary if you are not interested in geometry.
+
 
    Example:
 
@@ -83,7 +83,7 @@ Module Contents
 
 
    .. py:attribute:: database
-      :value: 'test'
+      :value: 'database.sqlite'
 
 
 
@@ -139,6 +139,7 @@ Module Contents
 
 
    .. py:attribute:: sql_type
+      :type:  Literal['sqlite', 'mysql']
       :value: ''
 
 
@@ -148,7 +149,9 @@ Module Contents
 
 
 
-.. py:data:: SQLTypes
+.. py:data:: DEFAULT_DATABASE_NAME
+   :value: 'database'
+
 
 .. py:data:: SQLTypes
 

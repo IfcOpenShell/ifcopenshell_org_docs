@@ -1,0 +1,422 @@
+:py:mod:`ifcopenshell.api.alignment`
+====================================
+
+.. py:module:: ifcopenshell.api.alignment
+
+.. autoapi-nested-parse::
+
+   Manages alignment layout (business logical) and alignment geometry (geometric representations).
+
+   This API does not determine alignment parameters based on rules, such as minimum curve radius as a function of design speed or sight distance.
+
+   This API is under development and subject to code breaking changes in the future.
+
+   Presently, this API supports:
+       1. Creating alignments, both horizontal and vertical, using the PI method. Alignment definition can be read from a CSV file.
+       2. Adding business logic and geometric segments to the end of an alignment
+       3. Adding and removing the zero length segment at the end of alignments
+       4. Creating geometric representations from a business logical definition
+       5. Mapping individual business logical segments to geometric segments (complete for horizontal, missing clothoid for vertical, not implemented for cant)
+       6. Using curve geometry to determine IfcCurveSegment.Transition transition code.
+       7. Utility functions for printing business logical and geometric representations, as well as minimumal geometry evaluations
+
+   Future versions of this API will support:
+       1. Defining alignments using the PI method, including transition spirals
+       2. Updating horizontal curve definitions by revising transition spiral parameters and circular curve radii
+       3. Updating vertical curve definitions by revising horizontal length of curves
+       4. Removing a segment at any location along a curve
+       5. Adding a segment at any location along a curve
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_segment_to_curve/index.rst
+   add_segment_to_layout/index.rst
+   add_stationing_to_alignment/index.rst
+   add_vertical_alignment/index.rst
+   add_vertical_alignment_by_pi_method/index.rst
+   add_zero_length_segment/index.rst
+   create_alignment_by_pi_method/index.rst
+   create_alignment_from_csv/index.rst
+   create_geometric_representation/index.rst
+   create_horizontal_alignment_by_pi_method/index.rst
+   create_segment_representations/index.rst
+   create_vertical_alignment_by_pi_method/index.rst
+   distance_along_from_station/index.rst
+   get_alignment_layouts/index.rst
+   get_axis_subcontext/index.rst
+   get_basis_curve/index.rst
+   get_child_alignments/index.rst
+   get_curve/index.rst
+   get_parent_alignment/index.rst
+   has_zero_length_segment/index.rst
+   map_alignment_cant_segment/index.rst
+   map_alignment_horizontal_segment/index.rst
+   map_alignment_segments/index.rst
+   map_alignment_vertical_segment/index.rst
+   name_segments/index.rst
+   remove_last_segment/index.rst
+   remove_zero_length_segment/index.rst
+   update_curve_segment_transition_code/index.rst
+   util/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_segment_to_curve(file: ifcopenshell.file, segment: ifcopenshell.entity_instance, composite_curve: ifcopenshell.entity_instance) -> None
+
+   Adds a segment to a composite curve. The segment must not belong to another composite curve (len(segment.UsingCurves) == 0).
+   If the composite curve does not have any segments, the segment is simply appended to the curve.
+   If the composite curve has segments, the position, ref. direction, and curvature at the end of the last segment is
+   compared to the position, ref. direction and curvature at the start of the new segment. The IfcCurveSegment.Transition of the last curve segment is updated.
+
+   :param segment: The segment to be added to the curve
+   :param composite_curve: The curve receiving the segment
+   :return: None
+
+
+.. py:function:: add_segment_to_layout(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, segment: ifcopenshell.entity_instance) -> None
+
+   Adds a segment to a layout alignment (horizontal, vertical, or cant)
+
+   :param alignment: The alignment
+   :param segment: The segment to be appended
+   :return: None
+
+
+.. py:function:: add_stationing_to_alignment(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, start_station: float) -> None
+
+   Adds stationing to an alignment by creating an IfcReferent with the Pset_Stationing property set to establish the stationing at the start of the alignment.
+   Note - this function assumes the stationing has not been previously defined
+
+   :param alignment: the alignment to be stationed
+   :param start_station: station value at the start of the alignment
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       alignment = model.by_type("IfcAlignment")[0]
+       ifcopenshell.api.alignment.add_stationing_to_alignment(model,alignment=alignment,start_station=100.0)
+
+
+.. py:function:: add_vertical_alignment(file: ifcopenshell.file, parent_alignment: ifcopenshell.entity_instance, vertical_alignment: ifcopenshell.entity_instance) -> None
+
+   Adds a vertical alignment to a previously created alignment.
+
+   If this is the first vertical alignment assigned to the parent_alignment the IFC CT 4.1.4.4.1.1 Alignment Layout - Horizontal, Vertical and Cant
+   is followed. If this is the second or subsequent vertical alignment assigned to the parent_alignment the
+   IFC CT 4.1.4.4.1.2 Alignment Layout - Reusing Horizontal Layout is followed.
+
+   When the second vertical alignment is added, the structure of the IFC model must transition from one concept template to the other.
+   Specifically, the following occurs:
+
+   1) The first child IfcAlignment is created and is IfcRelAggregates with the parent alignment.
+   2) The first vertical alignment is unassigned from the IfcRelNests of the parent alignment and assigned to the new child alignment IfcRelNests
+   3) A second child IfcAlignment is created ant is is IfcRelAggregates with the parent alignment.
+   4) The vertical_alignment is assigned to the second child alignment
+
+   For the third and subsequent vertical alignments, a new child alignment is created and aggregated to the parent alignment and an IfcAlignmentVertical is created
+   from vpoints and lengths and assigned to the new child alignment.
+
+   If the parent_alignment has a geometric representation, a geometric representation will be created for the vertical alignment.
+
+   :param parent_alignment: The parent alignment
+   :param vertical_alignment: The vertical alignment to be added
+   :return: None
+
+
+.. py:function:: add_vertical_alignment_by_pi_method(file: ifcopenshell.file, parent_alignment: ifcopenshell.entity_instance, vpoints: Sequence[Sequence[float]], lengths: Sequence[float]) -> None
+
+   Adds a vertical alignment to a previously created alignment using the PI method.
+
+   If this is the first vertical alignment assigned to the parent_alignment the IFC CT 4.1.4.4.1.1 Alignment Layout - Horizontal, Vertical and Cant
+   is followed. If this is the second or subsequent vertical alignment assigned to the parent_alignment the
+   IFC CT 4.1.4.4.1.2 Alignment Layout - Reusing Horizontal Layout is followed.
+
+   When the second vertical alignment is added, the structure of the IFC model must transition from one concept template to the other.
+   Specifically, the following occurs:
+
+   1) The first child IfcAlignment is created and is IfcRelAggregates with the parent alignment.
+   2) The first vertical alignment is unassigned from the IfcRelNests of the parent alignment and assigned to the new child alignment IfcRelNests
+   3) A second child IfcAlignment is created and it is IfcRelAggregates with the parent alignment.
+   4) An IfcAlignmentVertical is created from vpoints and lengths and it is assigned to the second child alignment
+
+   For the third and subsequent vertical alignments, a new child alignment is created and aggregated to the parent alignment and an IfcAlignmentVertical is created
+   from vpoints and lengths and assigned to the new child alignment.
+
+   If the parent_alignment has a geometric representation, a geometric representation will be created for the vertical alignment.
+
+   :param parent_alignment: The parent alignment
+   :param vpoints: A sequence of (D,Z) points where D is distance along horizontal and Z is elevation
+   :param: lengths: Lengths of parabolic vertical curves occuring at each VPI
+   :return: None
+
+
+.. py:function:: add_zero_length_segment(file: ifcopenshell.file, entity: ifcopenshell.entity_instance) -> None
+
+   Adds a zero length segment to the end of entity.
+
+   :param entity: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant or IfcCompositeCurve (or subtype)
+   :return: None
+
+
+.. py:function:: create_alignment_by_pi_method(file: ifcopenshell.file, alignment_name: str, hpoints: Sequence[Sequence[float]], radii: Sequence[float], vpoints: Sequence[Sequence[float]] = None, lengths: Sequence[float] = None, alignment_description: str = None) -> ifcopenshell.entity_instance
+
+   Create an alignment using the PI layout method for both horizontal and vertical alignments.
+   If vpoints and lengths are omitted, only a horizontal alignment is created. Only the business logic
+   entities are creaed. Use create_geometric_representation() to create the geometric entities.
+
+   :param alignment_name: value for Name attribute
+   :param points: (X,Y) pairs denoting the location of the horizontal PIs, including start and end
+   :param radii: radii values to use for transition
+   :param vpoints: (distance_along, Z_height) pairs denoting the location of the vertical PIs, including start and end.
+   :param lengths: parabolic vertical curve horizontal length values to use for transition
+   :param alignment_description: value for Description attribute
+   :return: Returns an IfcAlignment
+
+
+.. py:function:: create_alignment_from_csv(file: ifcopenshell.file, filepath: str) -> ifcopenshell.entity_instance
+
+   Creates an alignment from PI data stored in a CSV file. Only the business logic
+   entities are creaed. Use create_geometric_representation() to create the geometric entities.
+
+   The format of the file is:
+
+       X1,Y1,R1,X2,Y2,R2 ... Xn-1,Yn-1,Rn-1,Xn,Yn
+
+       D1,Z1,L1,D2,Z2,L2 ... Dn-1,Zn-1,Ln-1,Dn,Zn
+
+       D1,Z1,L1,D2,Z2,L2 ... Dn-1,Zn-1,Ln-1,Dn,Zn
+
+       ...
+
+   where:
+       X,Y are PI coordinates
+
+       R is the horizontal circular curve radius
+
+       D,Z are VPI coordinates as "Distance Along","Elevation"
+
+       L is the horizontal length of a parabolic vertical transition curve
+
+       R1 and Rn, as well as L1 and Ln are placeholders and not used. They are recommended to have values of 0.0.
+
+       R2 and Rn-2 are the radii of the first and last horizontal curves.
+
+       L2 and Ln-2 are the length of the first and last vertical curves.
+
+   The CSV file contains one horizontal alignment, zero, one, or more vertical alignments
+
+   :param filepath: path the to CSV file
+   :return: IfcAlignment
+
+
+.. py:function:: create_geometric_representation(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> None
+
+   Create geometric representation for the alignment.
+
+   There are 5 different cases:
+
+   1) Horizontal only
+   2) Horizontal + Vertical
+   3) Horizontal + Vertical + Cant
+   4) Vertical only (this occurs when horizontal is reused from a parent alignment)
+   5) Vertical + Cant (this occurs when horizontal is reused from a parent alignment)
+
+   :param alignment: The alignment for which the representation is being created
+   :return: None
+
+
+.. py:function:: create_horizontal_alignment_by_pi_method(file: ifcopenshell.file, name: str, hpoints: Sequence[Sequence[float]], radii: Sequence[float]) -> ifcopenshell.entity_instance
+
+   Create a horizontal alignment using the PI layout method.
+
+   :param name: value for Name attribute
+   :param hpoints: (X, Y) pairs denoting the location of the horizontal PIs, including start (POB) and end (POE).
+   :param radii: radius values to use for transition
+   :return: Returns a IfcAlignmentHorizontal
+
+
+.. py:function:: create_vertical_alignment_by_pi_method(file: ifcopenshell.file, name: str, vpoints: Sequence[Sequence[float]], lengths: Sequence[float]) -> ifcopenshell.entity_instance
+
+   Create a vertical alignment using the PI layout method.
+
+   :param name: value for Name attribute
+   :param base_curve: base curve representing the 2D projection of the gradient curve
+   :param vpoints: (distance_along, Z_height) pairs denoting the location of the vertical PIs, including start and end.
+   :param lengths: horizontal length of parabolic vertical curves
+   :return: IfcAlignmentHorizontal
+
+
+.. py:function:: distance_along_from_station(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, station: float) -> float
+
+   Given a station, returns the distance along the horizontal alignment.
+
+   If the alignment does not have stationing defined with an IfcReferent, the start of the alignment is assumed
+   to be at station 0.0. That is, the station is the distance along.
+
+   .. note:: The current implementation does not account for station equations and assumes stationing is increasing along the alignment.
+
+   :param alignment: the alignment
+   :param station: station value
+   :return: distance along the horizontal alignment
+
+   Example:
+
+   .. code:: python
+
+       alignment = model.by_type("IfcAlignment")[0] # alignment with start station 1+00.00
+       dist_along = ifcopenshell.api.alignment.distance_along_from_station(model,alignment=alignment,station=200.0)
+       print(dist_along) # 100.00
+
+
+.. py:function:: get_alignment_layouts(alignment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+
+   Returns the layout alignments nested to this alignment
+
+
+.. py:function:: get_axis_subcontext(file: ifcopenshell.file) -> ifcopenshell.entity_instance
+
+   Returns the IfcGeometricRepresentationSubContext for Model, Axis, MODEL_VIEW. If one does not exist, it is created.
+
+
+.. py:function:: get_basis_curve(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the basis curve for an alignment. This curve is the geometric representation that is used
+   as the basis curve for vertical and cant alignments.
+
+   :param alignment: The alignment
+   :return: The geometric representation that is used as a basis curve, typically an IfcCompositeCurve, or None if the alignment does not have a representation
+
+   Example:
+
+   .. code:: python
+       alignment = model.by_type("IfcAlignment")[0]
+       composite_curve = ifcopenshell.api.alignment.get_basis_curve(alignment)
+
+
+.. py:function:: get_child_alignments(alignment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+
+   Returns the aggregated child alignments to this alignment
+
+   Example:
+
+   .. code:: python
+
+       alignment = model.by_type("IfcAlignment")[0]
+       children = ifcopenshell.api.alignment.get_child_alignments(alignment)
+
+
+.. py:function:: get_curve(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the geometric representation curve for an alignment.
+   A horizontal only will have a curve of type IfcCompositeCurve
+   A horizontal+vertical will have a curve of type IfcGradientCurve
+   A horizontal+vertical+cant will have a curve of tyep IfcSegmentedReferenceCurve
+
+   :param alignment: The alignment
+   :return: The geometric representation of the alignemnt or None if the alignment does not have a representation
+
+   Example:
+
+   .. code:: python
+       alignment = model.by_type("IfcAlignment")[0]
+       gradient_curve = ifcopenshell.api.alignment.get_curve(alignment)
+
+
+.. py:function:: get_parent_alignment(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the parent alignment. When multiple vertical alignments share a horizontal alignment
+   the horizontal alignment is nested to the parent alignment, a child alignment is aggregated
+   to the parent alignment for each vertical alignment, and the vertical alignment is nested with
+   its child alignment.
+
+   Example:
+
+   .. code:: python
+       alignment = model.by_type("IfcAlignment")[0]
+       parent = ifcopenshell.api.alignment.get_parent_alignment(alignment)
+
+
+.. py:function:: has_zero_length_segment(entity: ifcopenshell.entity_instance) -> bool
+
+   Returns true if the entity ends with a zero length segment. If the entity is an IfcCompositeCurve the IfcCurveSegment.Transition must be DISCONTINUOUS
+
+   :param entity: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant or IfcCompositeCurve
+   :return: True if the zero length segment is present
+
+
+.. py:function:: map_alignment_cant_segment(file: ifcopenshell.file, segment: ifcopenshell.entity_instance, rail_head_distance: float) -> Sequence[ifcopenshell.entity_instance]
+
+   Creates IfcCurveSegment entities for the represention of the supplied IfcAlignmentCantSegment business logic entity instance.
+   A pair of entities is returned because a single business logic segment of type HELMERTCURVE maps to two representaiton entities.
+
+   The IfcCurveSegment.Transition transition code is set to DISCONTINUOUS.
+
+
+.. py:function:: map_alignment_horizontal_segment(file: ifcopenshell.file, segment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+
+   Creates IfcCurveSegment entities for the represention of the supplied IfcAlignmentHorizontalSegment business logic entity instance.
+   A pair of entities is returned because a single business logic segment of type HELMERTCURVE maps to two representaiton entities.
+
+   The IfcCurveSegment.Transition transition code is set to DISCONTINUOUS
+
+
+.. py:function:: map_alignment_segments(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, composite_curve: ifcopenshell.entity_instance) -> None
+
+   Creates IfcCurveSegment entities for the supplied alignment business logic entity instance and assigns them to the composite curve.
+   End-Start points of adjacent segments are evaluated and the IfcCurveSegment.Transition is set.
+
+   This function does not create an IfcShapeRepresentation. Use create_geometric_representation to create all the representations
+   for an alignment. This function only populates the composite curve with IfcCurveSegment entities.
+
+   :param alignment: The business logic alignment, expected to be IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :param composite_curve: The IfcCompositeCurve (or subclass) which will receive the IfcCurveSegment
+   :return: None
+
+
+.. py:function:: map_alignment_vertical_segment(file: ifcopenshell.file, segment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+
+   Creates IfcCurveSegment entities for the represention of the supplied IfcAlignmentVerticalSegment business logic entity instance.
+   A pair of entities is returned for consistency with map_alignment_horizontal_segment and map_alignment_cant_segment.
+
+
+
+.. py:function:: name_segments(prefix: str, alignment: ifcopenshell.entity_instance) -> None
+
+   Sets the segment name like ("H1" for horizontal, "V1" for vertical, "C1" for cant)
+
+   :param prefix: The naming prefix
+   :param alignment: The alignment whose segments are to be named. This should be a IfcAlignmentHorizontal, IfcAlignmentVertical or IfcAlignmentCant
+
+
+.. py:function:: remove_last_segment(file: ifcopenshell.file, entity: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Removes the last segment from the end of entity.
+
+   :param entity: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant or IfcCompositeCurve
+   :return: The segment
+
+
+.. py:function:: remove_zero_length_segment(file: ifcopenshell.file, entity: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Removes the zero length segment from the end of entity.
+
+   :param entity: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant or IfcCompositeCurve
+   :return: The zero length segment
+
+
+.. py:function:: update_curve_segment_transition_code(prev_segment: ifcopenshell.entity_instance, segment: ifcopenshell.entity_instance) -> None
+
+   Updates IfcCurveSegment.Transition of prev_segment based on a comparison of
+   the position, ref. direction, and curvature at the end of the prev_segment and the start of segment.
+
+

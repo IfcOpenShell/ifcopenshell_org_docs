@@ -44,7 +44,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_structural_activity(file: ifcopenshell.file, applied_load: ifcopenshell.entity_instance, structural_member: ifcopenshell.entity_instance, ifc_class: str = 'IfcStructuralPlanarAction', predefined_type: str = 'CONST', global_or_local: Literal['GLOBAL_COORDS', 'LOCAL_COORDS'] = 'GLOBAL_COORDS') -> None
+.. py:function:: add_structural_activity(file: ifcopenshell.file, applied_load: ifcopenshell.entity_instance, structural_member: ifcopenshell.entity_instance, ifc_class: str = 'IfcStructuralPlanarAction', predefined_type: str = 'CONST', global_or_local: Literal['GLOBAL_COORDS', 'LOCAL_COORDS'] = 'GLOBAL_COORDS') -> ifcopenshell.entity_instance
 
    Adds a new structural activity
 
@@ -56,24 +56,18 @@ Package Contents
    a structural member.
 
    :param ifc_class: Choose from any subtype of IfcStructuralActivity.
-   :type ifc_class: str
    :param predefined_type: View the IFC documentation for what valid
        predefined types may be chosen.
-   :type predefined_type: str
    :param global_or_local: The location coordinates of the load is always
        defined locally relative to the structural member the activity is
        assigned to. However, the directions of the applied load may either
        be specified globally or locally depending on how this argument is
        set. Choose from GLOBAL_COORDS or LOCAL_COORDS.
-   :type global_or_local: str
    :param applied_load: The IfcStructuralLoad that is applied in this
        activity.
-   :type applied_load: ifcopenshell.entity_instance
    :param structural_member: The IfcStructuralMember that the load is
        applied to.
-   :type structural_member: ifcopenshell.entity_instance
    :return: The newly created entity based on the ifc_class
-   :rtype: ifcopenshell.entity_instance
 
 
 .. py:function:: add_structural_analysis_model(file: ifcopenshell.file) -> ifcopenshell.entity_instance
@@ -106,18 +100,14 @@ Package Contents
    edge condition, and surface connections will have a face condition.
 
    :param name: The name of the boundary condition.
-   :type name: str,optional
    :param connection: The IfcStructuralConnection to apply the boundary
        condition to. This will determine the type of condition that is
        created. If no connection is supplied, an orphan boundary condition
        will be created using the ifc_class that you specify.
-   :type connection: ifcopenshell.entity_instance,optional
    :param ifc_class: The class of IfcBoundaryCondition to create, only
        relevant if you do not specify a connection and want to create an
        orphaned boundary condition.
-   :type ifc_class: str,optional
    :return: The newly created IfcBoundaryCondition
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -191,12 +181,9 @@ Package Contents
 
    :param relating_structural_member: The IfcStructuralMember to have a
        connection added to it.
-   :type relating_structural_member: ifcopenshell.entity_instance
    :param related_structural_connection: The IfcStructuralConnection to add
        to the IfcStructuralMember.
-   :type related_structural_connection: ifcopenshell.entity_instance
    :return: The IfcRelConnectsStructuralMember relationship
-   :rtype: ifcopenshell.entity_instance
 
 
 .. py:function:: assign_structural_analysis_model(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], structural_analysis_model: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
@@ -217,11 +204,8 @@ Package Contents
    IfcStructuralAnalysisModel, consult the IFC documentation.
 
    :param structural_analysis_model: The IfcStructuralAnalysisModel entity you want to edit
-   :type structural_analysis_model: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
 
 .. py:function:: edit_structural_boundary_condition(file: ifcopenshell.file, condition: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -232,40 +216,30 @@ Package Contents
    IfcBoundaryCondition, consult the IFC documentation.
 
    :param condition: The IfcBoundaryCondition entity you want to edit
-   :type condition: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
 
-.. py:function:: edit_structural_connection_cs(file: ifcopenshell.file, structural_item: ifcopenshell.entity_instance, axis: tuple[float, float, float] = (0.0, 0.0, 1.0), ref_direction: tuple[float, float, float] = (1.0, 0.0, 0.0)) -> None
+.. py:function:: edit_structural_connection_cs(file: ifcopenshell.file, structural_item: ifcopenshell.entity_instance, axis: ifcopenshell.util.shape_builder.VectorType = (0.0, 0.0, 1.0), ref_direction: ifcopenshell.util.shape_builder.VectorType = (1.0, 0.0, 0.0)) -> None
 
    Edits the coordinate system of a structural connection
 
    :param structural_item: The IfcStructuralItem you want to modify.
-   :type structural_item: ifcopenshell.entity_instance
    :param axis: The unit Z axis vector defined as a list of 3 floats.
        Defaults to (0., 0., 1.).
-   :type axis: tuple[float, float, float]
    :param ref_direction: The unit X axis vector defined as a list of 3
        floats. Defaults to (1., 0., 0.).
-   :type ref_direction: tuple[float, float, float]
    :return: None
-   :rtype: None
 
 
-.. py:function:: edit_structural_item_axis(file: ifcopenshell.file, structural_item: ifcopenshell.entity_instance, axis: tuple[float, float, float] = (0.0, 0.0, 1.0)) -> None
+.. py:function:: edit_structural_item_axis(file: ifcopenshell.file, structural_item: ifcopenshell.entity_instance, axis: ifcopenshell.util.shape_builder.VectorType = (0.0, 0.0, 1.0)) -> None
 
    Edits the coordinate system of a structural connection
 
    :param structural_item: The IfcStructuralItem you want to modify.
-   :type structural_item: ifcopenshell.entity_instance
    :param axis: The unit Z axis vector defined as a list of 3 floats.
        Defaults to (0., 0., 1.).
-   :type axis: tuple[float, float, float]
    :return: None
-   :rtype: None
 
 
 .. py:function:: edit_structural_load(file: ifcopenshell.file, structural_load: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -276,11 +250,8 @@ Package Contents
    IfcStructuralLoad, consult the IFC documentation.
 
    :param structural_load: The IfcStructuralLoad entity you want to edit
-   :type structural_load: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
 
 .. py:function:: edit_structural_load_case(file: ifcopenshell.file, load_case: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -291,11 +262,8 @@ Package Contents
    IfcStructuralLoadCase, consult the IFC documentation.
 
    :param load_case: The IfcStructuralLoadCase entity you want to edit
-   :type load_case: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
 
 .. py:function:: remove_structural_analysis_model(file: ifcopenshell.file, structural_analysis_model: ifcopenshell.entity_instance) -> None
@@ -306,22 +274,17 @@ Package Contents
 
    :param structural_analysis_model: The IfcStructuralAnalysisModel to
        remove.
-   :type structural_analysis_model: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 
 .. py:function:: remove_structural_boundary_condition(file: ifcopenshell.file, connection: Optional[ifcopenshell.entity_instance] = None, boundary_condition: Optional[ifcopenshell.entity_instance] = None) -> None
 
-   Removes a condition from a connection, or an orphased boundary condition
+   Removes a condition from a connection, or an orphaned boundary condition
 
    :param connection: The IfcStructuralConnection to remove the condition
        from. If omitted, it is assumed to be an orphaned condition.
-   :type connection: ifcopenshell.entity_instance,optional
    :param boundary_condition: The IfcBoundaryCondition to remove.
-   :type boundary_condition: ifcopenshell.entity_instance, optional.
    :return: None
-   :rtype: None
 
 
 .. py:function:: remove_structural_connection_condition(file: ifcopenshell.file, relation: ifcopenshell.entity_instance) -> None
@@ -331,9 +294,7 @@ Package Contents
    The condition and the member itself is preserved.
 
    :param relation: The IfcRelConnectsStructuralMember to remove.
-   :type relation: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 
 .. py:function:: remove_structural_load(file: ifcopenshell.file, structural_load: ifcopenshell.entity_instance) -> None
@@ -341,9 +302,7 @@ Package Contents
    Removes a structural load
 
    :param structural_load: The IfcStructuralLoad to remove.
-   :type structural_load: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 
 .. py:function:: remove_structural_load_case(file: ifcopenshell.file, load_case: ifcopenshell.entity_instance) -> None
@@ -351,9 +310,7 @@ Package Contents
    Removes a structural load case
 
    :param load_case: The IfcStructuralLoadCase to remove.
-   :type load_case: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 
 .. py:function:: remove_structural_load_group(file: ifcopenshell.file, load_group: ifcopenshell.entity_instance) -> None
@@ -361,9 +318,7 @@ Package Contents
    Removes a structural load group
 
    :param load_group: The IfcStructuralLoadGroup to remove.
-   :type load_group: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
 
 .. py:function:: unassign_structural_analysis_model(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], structural_analysis_model: ifcopenshell.entity_instance) -> None

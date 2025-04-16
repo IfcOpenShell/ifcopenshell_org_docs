@@ -191,11 +191,8 @@ Package Contents
    IfcGeometricRepresentationContext, consult the IFC documentation.
 
    :param context: The IfcGeometricRepresentationContext entity you want to edit
-   :type context: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -220,9 +217,7 @@ Package Contents
    removed. If a context is removed, then any subcontexts are also removed.
 
    :param context: The IfcGeometricRepresentationContext entity to remove
-   :type context: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

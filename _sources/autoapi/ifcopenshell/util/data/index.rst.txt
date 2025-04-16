@@ -9,7 +9,7 @@ Module Contents
 
 .. py:class:: Clipping
 
-   .. py:method:: apply(ifc_file: ifcopenshell.file, first_operand: ifcopenshell.entity_instance, unit_scale: float) -> ifcopenshell.entity_instance
+   .. py:method:: apply(ifc_file: Union[ifcopenshell.file, None], first_operand: ifcopenshell.entity_instance, unit_scale: float) -> ifcopenshell.entity_instance
 
       Applies the clipping data as an IfcBooleanClippingResult to an operand
 
@@ -20,7 +20,7 @@ Module Contents
 
 
 
-   .. py:method:: parse(raw_data: Any) -> Union[ifcopenshell.entity_instance, Clipping, None]
+   .. py:method:: parse(raw_data: Union[ifcopenshell.entity_instance, Clipping, dict[str, Any]]) -> Union[ifcopenshell.entity_instance, Clipping]
       :classmethod:
 
 

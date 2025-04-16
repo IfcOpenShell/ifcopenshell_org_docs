@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.alignment.create_horizontal_alignment_by_pi_method`
+=============================================================================
+
+.. py:module:: ifcopenshell.api.alignment.create_horizontal_alignment_by_pi_method
+
+
+Module Contents
+---------------
+
+.. py:function:: create_horizontal_alignment_by_pi_method(file: ifcopenshell.file, name: str, hpoints: Sequence[Sequence[float]], radii: Sequence[float]) -> ifcopenshell.entity_instance
+
+   Create a horizontal alignment using the PI layout method.
+
+   :param name: value for Name attribute
+   :param hpoints: (X, Y) pairs denoting the location of the horizontal PIs, including start (POB) and end (POE).
+   :param radii: radius values to use for transition
+   :return: Returns a IfcAlignmentHorizontal
+
+

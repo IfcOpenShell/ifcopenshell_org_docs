@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: assign_work_plan(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, work_plan: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: assign_work_plan(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, work_plan: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Assigns a work schedule to a work plan
 
@@ -16,11 +16,8 @@ Module Contents
 
    :param work_schedule: The IfcWorkSchedule that will be assigned to the
        work plan.
-   :type work_schedule: ifcopenshell.entity_instance
    :param work_plan: The IfcWorkPlan for the schedule to be assigned to.
-   :type work_plan: ifcopenshell.entity_instance
    :return: The IfcRelAggregates relationship
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

@@ -9,13 +9,17 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: convert_si_to_unit(co)
+   .. py:method:: convert_si_to_unit(co: numpy.typing.NDArray) -> numpy.typing.NDArray
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(outer_profile: numpy.typing.NDArray, inner_profiles: list[numpy.typing.NDArray], name: Union[str, None])
 
 
-.. py:function:: add_arbitrary_profile_with_voids(file: ifcopenshell.file, outer_profile: list[tuple[float, float]], inner_profiles: list[list[tuple[float, float]]], name: Optional[str] = None) -> ifcopenshell.entity_instance
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+.. py:function:: add_arbitrary_profile_with_voids(file: ifcopenshell.file, outer_profile: ifcopenshell.util.shape_builder.SequenceOfVectors, inner_profiles: list[ifcopenshell.util.shape_builder.SequenceOfVectors], name: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Adds a new arbitrary polyline-based profile with voids
 
@@ -32,15 +36,11 @@ Module Contents
    provided in SI meters.
 
    :param outer_profile: A list of coordinates
-   :type profile: list[tuple[float, float]]
    :param inner_profiles: A list of polylines
-   :type profile: list[list[tuple[float, float]]]
    :param name: If the profile is semantically significant (i.e. to be
        managed and reused by the user) then it must be named. Otherwise,
        this may be left as none.
-   :type name: str, optional
    :return: The newly created IfcArbitraryProfileDefWithVoids
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

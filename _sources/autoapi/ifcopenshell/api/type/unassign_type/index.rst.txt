@@ -15,9 +15,7 @@ Module Contents
    and material usages associated with the previously assigned type.
 
    :param related_objects: List of IfcElement occurrences.
-   :type related_objects: list[ifcopenshell.entity_instance]
    :return: None
-   :rtype: None
 
    Example:
 

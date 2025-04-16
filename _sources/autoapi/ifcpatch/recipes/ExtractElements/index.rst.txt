@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcWall')
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcWall', assume_asset_uniqueness_by_name: bool = True)
 
    
    Extract certain elements into a new model
@@ -17,7 +17,14 @@ Module Contents
    in a model and save it as a new model.
 
    :param query: A query to select the subset of IFC elements.
-   :type query: str
+   :param assume_asset_uniqueness_by_name: Avoid adding assets (profiles, materials, styles)
+       with the same name multiple times. Which helps in avoiding duplicated assets.
+       -----
+       Note that it assumes different project assets use different names
+       (you can run IFC Assets Validation to confirm).
+       If they're not and this option is enabled, it may lead to confusing results
+       (mixed up profiles, materials, styles).
+       So either need to ensure assets naming is unique or disable this option.
 
    Example:
 
@@ -55,6 +62,11 @@ Module Contents
 
 
    .. py:method:: patch()
+
+
+   .. py:attribute:: assume_asset_uniqueness_by_name
+      :value: True
+
 
 
    .. py:attribute:: file

@@ -16,6 +16,14 @@ Module Contents
    .. py:method:: execute()
 
 
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
+
+
+   .. py:attribute:: settings
+      :type:  dict[str, Any]
+
+
 .. py:class:: WindowLiningProperties
 
    .. py:method:: initialize_properties(unit_scale: float) -> None
@@ -195,7 +203,7 @@ Module Contents
 
 
 
-.. py:function:: add_window_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, partition_type: WINDOW_TYPE = 'SINGLE_PANEL', lining_properties: Optional[Union[WindowLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[list[Union[WindowPanelProperties, dict[str, Any]]]] = None, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_window_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, partition_type: WINDOW_TYPE = 'SINGLE_PANEL', lining_properties: Optional[Union[WindowLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[list[Union[WindowPanelProperties, dict[str, Any]]]] = None, part_of_product: Optional[ifcopenshell.entity_instance] = None, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
 
    units in usecase_settings expected to be in ifc project units
 
@@ -213,7 +221,7 @@ Module Contents
    :return: IfcShapeRepresentation for a window.
 
 
-.. py:function:: create_ifc_window(builder: ifcopenshell.util.shape_builder.ShapeBuilder, lining_size: numpy.ndarray, lining_thickness: list[float], lining_to_panel_offset_x: float, lining_to_panel_offset_y_full: float, frame_size: numpy.ndarray, frame_thickness: float, glass_thickness: float, position: numpy.ndarray, x_offsets: Optional[list[float]] = None) -> tuple[list[ifcopenshell.entity_instance], list[ifcopenshell.entity_instance], list[ifcopenshell.entity_instance]]
+.. py:function:: create_ifc_window(builder: ifcopenshell.util.shape_builder.ShapeBuilder, lining_size: numpy.ndarray, lining_thickness: list[float], lining_to_panel_offset_x: float, lining_to_panel_offset_y_full: float, frame_size: numpy.ndarray, frame_thickness: float, glass_thickness: float, position: numpy.ndarray, x_offsets: Optional[list[float]] = None) -> dict[str, list[ifcopenshell.entity_instance]]
 
    `lining_thickness` and `x_offsets` are expected to be defined as a list,
    similarly to `create_ifc_window_frame_simple` `thickness` argument

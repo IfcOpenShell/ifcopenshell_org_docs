@@ -50,6 +50,7 @@ Submodules
    remove_material_set/index.rst
    remove_profile/index.rst
    reorder_set_item/index.rst
+   set_shape_aspect_constituents/index.rst
    unassign_material/index.rst
 
 
@@ -198,11 +199,8 @@ Package Contents
 
    :param material_list: The IfcMaterialList the material should be added
        to.
-   :type material_list: ifcopenshell.entity_instance
    :param material: The IfcMaterial to add to the list
-   :type material: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -274,13 +272,9 @@ Package Contents
 
    :param name: The name of the material, typically tagged in a finishes
        drawing or schedule.
-   :type name: str, optional
    :param category: The category of the material.
-   :type category: str, optional
    :param description: A description of the material.
-   :type description: str, optional
    :return: The newly created IfcMaterial
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -338,14 +332,11 @@ Package Contents
 
    :param name: The name of the material set, which may be purely
        descriptive or annotated in drawings. Defaults to "Unnamed".
-   :type name: str, optional
    :param set_type: What type of set you want to create, chosen from
        IfcMaterialLayerSet, IfcMaterialProfileSet,
        IfcMaterialConstituentSet, or IfcMaterialList. Defaults to
        IfcMaterialConstituentSet.
-   :type set_type: str, optional
    :return: The newly created material set element
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -427,7 +418,7 @@ Package Contents
 
        # First, let's create a material set. This will later be assigned
        # to our beam type element.
-       material_set = ifcopenshell.api.material.add_profile_set(model,
+       material_set = ifcopenshell.api.material.add_material_set(model,
            name="B1", set_type="IfcMaterialProfileSet")
 
        # Create a steel material.
@@ -485,28 +476,22 @@ Package Contents
 
    :param products: The list of IfcProducts to assign the material or material set
        to.
-   :type products: list[ifcopenshell.entity_instance]
    :param type: Choose from "IfcMaterial", "IfcMaterialConstituentSet",
        "IfcMaterialLayerSet", "IfcMaterialLayerSetUsage",
        "IfcMaterialProfileSet", "IfcMaterialProfileSetUsage", or
        "IfcMaterialList". Note that "Set Usages" may only be assigned to
        occurrences, not types. Defaults to "IfcMaterial".
-   :type type: str
    :param material: The IfcMaterial or material set you are assigning here.
        If type is Usage then no need to provide `material`, it will be deduced
        from the element type automatically.
        If IfcMaterial is provided as material and type is not IfcMaterial,
        provided material will be ignored except for IfcMaterialList
        where it will be used as part of the list.
-   :type material: ifcopenshell.entity_instance, optional
    :return: IfcRelAssociatesMaterial entity
        or a list of IfcRelAssociatesMaterial entities
        (possible if `type` is Usage
        and `products` require different Usages)
        or `None` if `products` was empty list.
-   :rtype: Union[
-       ifcopenshell.entity_instance,
-       list[ifcopenshell.entity_instance], None]
 
    Example:
 
@@ -598,7 +583,7 @@ Package Contents
 
        # First, let's create a material set. This will later be assigned
        # to our beam type element.
-       material_set = ifcopenshell.api.material.add_profile_set(model,
+       material_set = ifcopenshell.api.material.add_material_set(model,
            name="B1", set_type="IfcMaterialProfileSet")
 
        # Create a steel material.
@@ -606,7 +591,7 @@ Package Contents
 
        # Create an I-beam profile curve. Notice how we name our profiles
        # based on standardised steel profile names.
-       hea100 = usecase.file.create_entity(
+       hea100 = model.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA100", ProfileType="AREA",
            OverallWidth=100, OverallDepth=96, WebThickness=5, FlangeThickness=8, FilletRadius=12,
        )
@@ -634,7 +619,7 @@ Package Contents
        # Now let's change the profile to a HEA200 standard profile instead.
        # This will automatically change the body representation that we
        # just added as well to a HEA200 profile.
-       hea200 = usecase.file.create_entity(
+       hea200 = model.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA200", ProfileType="AREA",
            OverallWidth=200, OverallDepth=190, WebThickness=6.5, FlangeThickness=10, FilletRadius=18,
        )
@@ -675,11 +660,8 @@ Package Contents
    IfcMaterial, consult the IFC documentation.
 
    :param element: The IfcMaterial entity you want to edit
-   :type element: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -698,13 +680,9 @@ Package Contents
    IfcMaterialConstituent, consult the IFC documentation.
 
    :param constituent: The IfcMaterialConstituent entity you want to edit
-   :type constituent: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
    :param material: The IfcMaterial entity you want to change the constituent to
-   :type material: ifcopenshell.entity_instance, optional
    :return: None
-   :rtype: None
 
    Example:
 
@@ -741,14 +719,10 @@ Package Contents
    IfcMaterialLayer, consult the IFC documentation.
 
    :param layer: The IfcMaterialLayer entity you want to edit
-   :type layer: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
    :param material: The IfcMaterial entity you want the layer to be made
        from.
-   :type material: ifcopenshell.entity_instance, optional
    :return: None
-   :rtype: None
 
    Example:
 
@@ -785,11 +759,8 @@ Package Contents
    IfcMaterialLayerSetUsage, consult the IFC documentation.
 
    :param usage: The IfcMaterialLayerSetUsage entity you want to edit
-   :type usage: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -845,24 +816,19 @@ Package Contents
    IfcMaterialProfile, consult the IFC documentation.
 
    :param profile: The IfcMaterialProfile entity you want to edit
-   :type profile: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict, optional
    :param profile_def: The IfcProfileDef entity the profile curve should be
        extruded from.
-   :type profile_def: ifcopenshell.entity_instance, optional
    :param material: The IfcMaterial entity you want to change the profile
        to be made from.
-   :type material: ifcopenshell.entity_instance, optional
    :return: None
-   :rtype: None
 
    Example:
 
    .. code:: python
 
        # Let's create a material set to store our profiles.
-       material_set = ifcopenshell.api.material.add_profile_set(model,
+       material_set = ifcopenshell.api.material.add_material_set(model,
            name="B1", set_type="IfcMaterialProfileSet")
 
        # Create a couple steel materials.
@@ -905,11 +871,8 @@ Package Contents
    IfcMaterialProfileSetUsage, consult the IFC documentation.
 
    :param usage: The IfcMaterialProfileSetUsage entity you want to edit
-   :type usage: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -922,7 +885,7 @@ Package Contents
 
        # First, let's create a material set. This will later be assigned
        # to our beam type element.
-       material_set = ifcopenshell.api.material.add_profile_set(model,
+       material_set = ifcopenshell.api.material.add_material_set(model,
            name="B1", set_type="IfcMaterialProfileSet")
 
        # Create a steel material.
@@ -930,7 +893,7 @@ Package Contents
 
        # Create an I-beam profile curve. Notice how we name our profiles
        # based on standardised steel profile names.
-       hea100 = usecase.file.create_entity(
+       hea100 = model.create_entity(
            "IfcIShapeProfileDef", ProfileName="HEA100", ProfileType="AREA",
            OverallWidth=100, OverallDepth=96, WebThickness=5, FlangeThickness=8, FilletRadius=12,
        )
@@ -946,7 +909,7 @@ Package Contents
 
        # Let's create an occurrence of this beam.
        beam = ifcopenshell.api.root.create_entity(model, ifc_class="IfcBeam", name="B1.01")
-       rel = ifcopenshell.api.material.assign_material(model,
+       rel = ifcopenshell.api.material.assign_material(model, material=material_set,
            products=[beam], type="IfcMaterialProfileSetUsage")
 
        # Let's give a 1000mm long beam body representation.
@@ -1076,9 +1039,7 @@ Package Contents
    take care of this situation themselves.
 
    :param material: The IfcMaterial entity you want to remove
-   :type material: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1096,14 +1057,14 @@ Package Contents
    Removes a material set
 
    All set items, such as layers, profiles, or constituents will also be
-   removed. However, the materials and profile curves used by the layers,
+   removed. All set usages are also removed.
+
+   However, the materials and profile curves used by the layers,
    profiles and constituents will not be removed.
 
    :param material: The IfcMaterialLayerSet, IfcMaterialConstituentSet,
        IfcMaterialProfileSet entity you want to remove.
-   :type material: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1143,7 +1104,7 @@ Package Contents
    .. code:: python
 
        # First, let's create a material set.
-       material_set = ifcopenshell.api.material.add_profile_set(model,
+       material_set = ifcopenshell.api.material.add_material_set(model,
            name="B1", set_type="IfcMaterialProfileSet")
 
        # Create a steel material.
@@ -1209,6 +1170,64 @@ Package Contents
            material_set=material_set, old_index=0, new_index=1)
 
 
+.. py:function:: set_shape_aspect_constituents(file: ifcopenshell.file, *, element: ifcopenshell.entity_instance, context: ifcopenshell.entity_instance, materials: dict[str, ifcopenshell.entity_instance]) -> None
+
+   Assigns a material constituent set and sets styles based on shape aspects
+
+   An IFC element may be assigned to a set of material constituents. For
+   example, a window may have a framing material and a glazing material. Each
+   constituent may have a name, such as "Framing" (which may be assigned to an
+   "Aluminium" material), and "Glazing" (assigned to a "Laminated Low-e Glass"
+   material).
+
+   An IFC element's geometry may be composed of multiple geometric items.
+   These geometric items may have names, known as "Shape Aspects".  For
+   example a solid extrusion for the framing named "Framing" and a solid
+   extrusion for the glass panel named "Glazing".
+
+   A material may be associated with a style (i.e. colour). For example, a
+   grey style for the "Aluminium" material and a transparent blue style for
+   the "Laminated Low-e Glass" material.
+
+   These three concepts of material constituents, shape aspects, and
+   associated styles are correlated. For example, if the name (e.g. "Framing")
+   of a material constituent and a shape aspect correlate, that means that the
+   geometric item inherits the style (i.e. grey).
+
+   This function lets you specify named material constituents, and it'll
+   create a constituent set assigned to the element with those names. It'll
+   then find any geometric representation items with shape aspects matching
+   those names, and assign the correlating style.
+
+   If an assigned material constituent set already exists matching those
+   values, it will be reused. If the values do not match, the existing
+   material constituent set will be removed if it is not used by anything
+   else.
+
+   :param element: The IfcProduct or IfcTypeProduct
+   :param context: The IfcGeometricRepresentationContext, typically the body
+       context. You can get this via
+       :func:`ifcopenshell.util.representation.get_context`.
+   :param materials: The key is the name of the constituent, and the value is
+       the IfcMaterial.
+
+   Example:
+
+   .. code:: python
+
+       # Create two materials
+       aluminium = ifcopenshell.api.material.add_material(model, name="AL01", category="aluminium")
+       glass = ifcopenshell.api.material.add_material(model, name="GLZ01", category="glass")
+
+       # Auto assign material constituents and styles to items based on shape aspects
+       ifcopenshell.api.material.set_shape_aspect_constituents(
+           model, element=window, context=body, materials={
+               "Framing": aluminium
+               "Lining": aluminium
+               "Glazing": glass
+           })
+
+
 .. py:function:: unassign_material(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance]) -> None
 
    Removes any material relationship with the list of products
@@ -1219,10 +1238,11 @@ Package Contents
 
    If the product does not have a material, nothing happens.
 
+   Unassigning a LayerSet or ProfileSet from the product type will also
+   remove all Usages of the set.
+
    :param products: The list IfcProducts that may or may not have a material
-   :type product: list[ifcopenshell.entity_instance]
    :return: None
-   :rtype: None
 
    Example:
 

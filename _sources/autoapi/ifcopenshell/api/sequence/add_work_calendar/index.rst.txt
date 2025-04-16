@@ -24,12 +24,10 @@ Module Contents
 
    :param name: The name of the calendar. Typically something like
        "5 Day Working Week" or "24/7".
-   :type name: str, optional
    :param predefined_type: The type of calendar, typically used to more
        specifically define shifts, such as FIRSTSHIFT, SECONDSHIFT, or
        THIRDSHIFT. Leave as NOTDEFINED for basic calendar usage.
    :return: The newly created IfcWorkCalendar
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

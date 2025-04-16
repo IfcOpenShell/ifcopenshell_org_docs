@@ -7,7 +7,21 @@
 Module Contents
 ---------------
 
-.. py:class:: SafeRemovalContext(ifc_file: ifcopenshell.file, reuse_identities: dict[int, ifcopenshell.entity_instance])
+.. py:class:: SafeRemovalContext(ifc_file: ifcopenshell.file, reuse_identities: dict[int, ifcopenshell.entity_instance], assume_asset_uniqueness_by_name: bool)
+
+   Context manager to ensure `remove_deep` won't create invalid entities
+   in `reuse_identities` leading to possible crashes.
+
+   Should be always used if removing an entity that was possibly added by `file_add`.
+
+
+   .. py:attribute:: assume_asset_uniqueness_by_name
+      :type:  bool
+
+      If `False`, then all job is done by `file.add`
+      and we don't need to worry about invalid entities.
+
+
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
@@ -21,8 +35,21 @@ Module Contents
 
    .. py:method:: add_element(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
+      Add element and check all it's subgraph inverses.
+
+
 
    .. py:method:: add_inverse_element(element: ifcopenshell.entity_instance) -> None
+
+      Add inverse element.
+
+      Inverse elements are requiring different method than ``file_add``
+      because they can reference many other assets that we are not
+      interested in.
+
+      E.g. a IfcRelAssociatesMaterial referencing products unrelated
+      to the current asset.
+
 
 
    .. py:method:: append_cost_schedule()
@@ -48,6 +75,9 @@ Module Contents
 
    .. py:method:: check_inverses(element: ifcopenshell.entity_instance) -> None
 
+      Add inverse elements for the whitelisted inverse attributes.
+
+
 
    .. py:method:: create_equivalent_context(added_context: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
@@ -70,6 +100,17 @@ Module Contents
 
    .. py:method:: get_existing_element(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
+      Get existing element for a library element.
+
+      Return element if it was already added with ``add_element``
+      or if it's not necessary (model already has a replacement for it).
+
+      Note that if element is returned, it will be accepted as-is,
+      it's subgraph inverses won't be checked.
+
+      Return ``None`` if element wasn't added before and needs to be added.
+
+
 
    .. py:method:: has_whitelisted_inverses(element: ifcopenshell.entity_instance) -> bool
 
@@ -83,12 +124,26 @@ Module Contents
    .. py:method:: reuse_existing_contexts() -> None
 
 
+   .. py:attribute:: added_elements
+      :type:  dict[int, ifcopenshell.entity_instance]
+
+      Elements added with ``add_element``.
+
+
+
    .. py:attribute:: assume_asset_uniqueness_by_name
       :type:  bool
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
+
+
+   .. py:attribute:: reuse_identities
+      :type:  dict[int, ifcopenshell.entity_instance]
+
+      Mapping of old element ids to new elements, usually fiiled by ``file_add``.
+
 
 
    .. py:attribute:: settings

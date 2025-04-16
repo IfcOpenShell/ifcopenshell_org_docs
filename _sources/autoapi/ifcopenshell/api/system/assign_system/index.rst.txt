@@ -7,19 +7,16 @@
 Module Contents
 ---------------
 
-.. py:function:: assign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> None
+.. py:function:: assign_system(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], system: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Assigns distribution elements to a system
 
    Note that it is not necessary to assign distribution ports to a system.
 
    :param products: The list of IfcDistributionElements to assign to the system.
-   :type products: list[ifcopenshell.entity_instance]
    :param system: The IfcSystem you want to assign the element to.
-   :type system: ifcopenshell.entity_instance
    :return: The IfcRelAssignsToGroup relationship
        or `None` if `products` was empty list.
-   :rtype: [ifcopenshell.entity_instance, None]
 
    Example:
 

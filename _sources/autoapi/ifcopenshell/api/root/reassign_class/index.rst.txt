@@ -9,7 +9,7 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(product: ifcopenshell.entity_instance, ifc_class: str, predefined_type: Union[str, None], occurrence_class: Union[str, None]) -> ifcopenshell.entity_instance
 
 
    .. py:method:: reassign_class(element: ifcopenshell.entity_instance, ifc_class: str, predefined_type: Union[str, None]) -> ifcopenshell.entity_instance
@@ -25,7 +25,7 @@ Module Contents
       :type:  ifcopenshell.file
 
 
-.. py:function:: reassign_class(file: ifcopenshell.file, product: ifcopenshell.entity_instance, ifc_class: str = 'IfcBuildingElementProxy', predefined_type: Optional[str] = None) -> ifcopenshell.entity_instance
+.. py:function:: reassign_class(file: ifcopenshell.file, product: ifcopenshell.entity_instance, ifc_class: str = 'IfcBuildingElementProxy', predefined_type: Optional[str] = None, occurrence_class: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Changes the class of a product
 
@@ -47,10 +47,14 @@ Module Contents
    Reassigning type class to occurrence (and vice versa) is supported.
 
    :param product: The IfcProduct that you want to change the class of.
-   :type product: ifcopenshell.entity_instance
    :param ifc_class: The new IFC class you want to change it to.
    :param predefined_type: In case you want to change the predefined type
        too. User defined types are also allowed, just type what you want.
+   :param occurrence_class: IFC class to assign to occurrences in case
+       if provided ``ifc_class`` is IfcTypeProduct.
+       If omitted, class will be deduced automatically from the type.
+       Only really needed in IFC2X3, since in IFC4+ there is no ambiguity on
+       what class to assign to occurrences.
    :return: The newly modified product.
 
    Example:

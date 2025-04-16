@@ -48,12 +48,9 @@ Package Contents
    in 3D.
 
    :param relating_product: The IfcProduct the object is related to
-   :type relating_product: ifcopenshell.entity_instance
    :param related_object: The object (typically IfcAnnotation) that the
        product is related to
-   :type related_object: ifcopenshell.entity_instance
    :return: The created IfcRelAssignsToProduct relationship
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -73,11 +70,8 @@ Package Contents
    IfcTextLiteral, consult the IFC documentation.
 
    :param reference: The IfcTextLiteral entity you want to edit
-   :type reference: ifcopenshell.entity_instance
    :param attributes: a dictionary of attribute names and values.
-   :type attributes: dict
    :return: None
-   :rtype: None
 
    Example:
 
@@ -98,12 +92,9 @@ Package Contents
    object later or leave the annotation as a "dumb" annotation.
 
    :param relating_product: The IfcProduct the object is related to
-   :type relating_product: ifcopenshell.entity_instance
    :param related_object: The object (typically IfcAnnotation) that the
        product is related to
-   :type related_object: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

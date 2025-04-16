@@ -9,10 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(related_objects: list[ifcopenshell.entity_instance], relating_type: ifcopenshell.entity_instance, should_map_representations: bool)
 
 
-   .. py:method:: map_material_usages(related_objects: Iterable[ifcopenshell.entity_instance]) -> None
+   .. py:method:: map_material_usages(related_objects: list[ifcopenshell.entity_instance], relating_type: ifcopenshell.entity_instance) -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: assign_type(file: ifcopenshell.file, related_objects: list[ifcopenshell.entity_instance], relating_type: ifcopenshell.entity_instance, should_map_representations=True) -> Union[ifcopenshell.entity_instance, None]
@@ -78,18 +82,14 @@ Module Contents
    ambiguous, unknown or are so bespoke as to have no logical type.
 
    :param related_objects: The IfcElement occurrences.
-   :type related_objects: list[ifcopenshell.entity_instance]
    :param relating_type: The IfcElementType type.
-   :type relating_type: ifcopenshell.entity_instance
    :param should_map_representations: If a type has a representation map,
        IFC requires all occurrences to map those representations. Some IFC
        vendors might disobey this, or you might want to handle it
        yourusecase. In this scenario, you may set this to False.
        This also enabled adding material usages mapping.
-   :type should_map_representations: bool
    :return: The IfcRelDefinesByType relationship
        or `None` if `related_objects` was empty list.
-   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 

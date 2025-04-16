@@ -1,0 +1,22 @@
+:py:mod:`ifcopenshell.api.alignment.map_alignment_segments`
+===========================================================
+
+.. py:module:: ifcopenshell.api.alignment.map_alignment_segments
+
+
+Module Contents
+---------------
+
+.. py:function:: map_alignment_segments(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, composite_curve: ifcopenshell.entity_instance) -> None
+
+   Creates IfcCurveSegment entities for the supplied alignment business logic entity instance and assigns them to the composite curve.
+   End-Start points of adjacent segments are evaluated and the IfcCurveSegment.Transition is set.
+
+   This function does not create an IfcShapeRepresentation. Use create_geometric_representation to create all the representations
+   for an alignment. This function only populates the composite curve with IfcCurveSegment entities.
+
+   :param alignment: The business logic alignment, expected to be IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :param composite_curve: The IfcCompositeCurve (or subclass) which will receive the IfcCurveSegment
+   :return: None
+
+

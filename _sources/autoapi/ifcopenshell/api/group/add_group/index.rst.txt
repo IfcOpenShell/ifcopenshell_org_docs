@@ -19,12 +19,9 @@ Module Contents
    or structural load groups, which group together loads for structural
    analysis, or inventories, which are groups of assets.
 
-   :param Name: The name of the group. Defaults to "Unnamed"
-   :type Name: str, optional
+   :param name: The name of the group. Defaults to "Unnamed"
    :param description: The description of the purpose of the group.
-   :type description: str, optional
    :return: The newly created IfcGroup
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

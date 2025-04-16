@@ -18,9 +18,7 @@ Module Contents
    or replace IfcTaskTimeRecurring with IfcTaskTime).
 
    :param recurrence_pattern: The IfcRecurrencePattern to remove.
-   :type recurrence_pattern: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

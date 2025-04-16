@@ -9,10 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(cost_item: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> None
 
 
-   .. py:method:: update_cost_item_count()
+   .. py:method:: update_cost_item_count(cost_item: ifcopenshell.entity_instance) -> None
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: unassign_cost_item_quantity(file: ifcopenshell.file, cost_item: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> None
@@ -25,12 +29,9 @@ Module Contents
    have any impact on the cost item.
 
    :param cost_item: The IfcCostItem to remove quantities from
-   :type cost_item: ifcopenshell.entity_instance
    :param products: A list of IfcProducts that may have parametrically
        connected quantities to the cost item
-   :type products: list[ifcopenshell.entity_instance]
    :return: None
-   :rtype: None
 
    Example:
 

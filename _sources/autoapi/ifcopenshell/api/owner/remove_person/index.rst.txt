@@ -17,9 +17,7 @@ Module Contents
    the only responsile person for them.
 
    :param person: The IfcPerson to remove
-   :type person: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

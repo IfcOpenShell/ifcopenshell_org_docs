@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.alignment.get_basis_curve`
+====================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_basis_curve
+
+
+Module Contents
+---------------
+
+.. py:function:: get_basis_curve(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the basis curve for an alignment. This curve is the geometric representation that is used
+   as the basis curve for vertical and cant alignments.
+
+   :param alignment: The alignment
+   :return: The geometric representation that is used as a basis curve, typically an IfcCompositeCurve, or None if the alignment does not have a representation
+
+   Example:
+
+   .. code:: python
+       alignment = model.by_type("IfcAlignment")[0]
+       composite_curve = ifcopenshell.api.alignment.get_basis_curve(alignment)
+
+

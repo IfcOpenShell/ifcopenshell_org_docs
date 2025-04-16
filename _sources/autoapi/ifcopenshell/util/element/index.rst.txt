@@ -54,7 +54,7 @@ Module Contents
        print(element1) # Don't call element1!
 
 
-.. py:function:: copy(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: copy(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Copy a single element. Any referenced elements are not copied.
 
@@ -65,7 +65,7 @@ Module Contents
    :return: The newly copied element
 
 
-.. py:function:: copy_deep(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, exclude: Optional[Sequence[str]] = None, exclude_callback: Optional[Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+.. py:function:: copy_deep(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance, exclude: Optional[Sequence[str]] = None, exclude_callback: Optional[Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
 
    Recursively copy an element and all of its directly related subelements.
 
@@ -171,7 +171,16 @@ Module Contents
        decomposition = ifcopenshell.util.element.get_decomposition(element)
 
 
-.. py:function:: get_elements_by_layer(ifc_file: ifcopenshell.file, layer: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
+.. py:function:: get_element_mass_density(element: ifcopenshell.entity_instance) -> Union[float, None]
+
+   Calculate object mass density based on material's Pset_MaterialCommon.MassDensity.
+
+   :param element: IFC element entity.
+   :return: ``float`` mass density in project units if calculation was successful, ``None`` if element either
+       doesn't have a material or this type of material is not supported.
+
+
+.. py:function:: get_elements_by_layer(ifc_file: Union[ifcopenshell.file, None], layer: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
 
    Get all the elements that are used by a presentation layer
 
@@ -180,7 +189,7 @@ Module Contents
    :return: The elements using the geometric representation
 
 
-.. py:function:: get_elements_by_material(ifc_file: ifcopenshell.file, material: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
+.. py:function:: get_elements_by_material(ifc_file: Union[ifcopenshell.file, None], material: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
 
    Retrieves the elements related to a material.
 
@@ -215,7 +224,7 @@ Module Contents
    Retrieve the elements (or element types) that are using the provided property set.
 
 
-.. py:function:: get_elements_by_representation(ifc_file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
+.. py:function:: get_elements_by_representation(ifc_file: Union[ifcopenshell.file, None], representation: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
 
    Gets all elements using a geometric representation
 
@@ -231,7 +240,7 @@ Module Contents
        elements = ifcopenshell.util.element.get_elements_by_representation(file, representation)
 
 
-.. py:function:: get_elements_by_style(ifc_file: ifcopenshell.file, style: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
+.. py:function:: get_elements_by_style(ifc_file: Union[ifcopenshell.file, None], style: ifcopenshell.entity_instance) -> set[ifcopenshell.entity_instance]
 
    Retrieves the elements whose geometric representation uses a style
 
@@ -294,7 +303,7 @@ Module Contents
        group = ifcopenshell.util.element.get_groups(element)[0]
 
 
-.. py:function:: get_layers(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+.. py:function:: get_layers(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
    Get the CAD layers that an element is part of
 
@@ -372,6 +381,16 @@ Module Contents
        aggregate = ifcopenshell.util.element.get_nest(element)
 
 
+.. py:function:: get_openings(element: ifcopenshell.entity_instance) -> Generator[ifcopenshell.entity_instance, None, None]
+
+   Get element openings as IfcRelVoidsElements.
+
+   Use `.RelatedOpeningElement` to get the opening element.
+
+   :param element: IfcElement.
+   :return: Generator of IfcRelVoidsElements.
+
+
 .. py:function:: get_parent(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Get the parent in the spatial heirarchy
@@ -415,7 +434,7 @@ Module Contents
        parts = ifcopenshell.util.element.get_parts(element)
 
 
-.. py:function:: get_predefined_type(element: ifcopenshell.entity_instance) -> str
+.. py:function:: get_predefined_type(element: ifcopenshell.entity_instance) -> Union[str, None]
 
    Retrieves the PrefefinedType attribute of an element.
 
@@ -540,11 +559,14 @@ Module Contents
        print(ifcopenshell.util.element.get_referenced_structures(element))
 
 
-.. py:function:: get_shape_aspects(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+.. py:function:: get_shape_aspects(element: ifcopenshell.entity_instance, should_inherit: bool = True) -> list[ifcopenshell.entity_instance]
 
    Get element's shape aspects.
 
    :param element: IfcProduct or IfcTypeProduct.
+   :param should_inherit: If True, the shape aspects of the element's type will be considered.
+       Useful in cases when IfcShapeAspects are assigned to the type's IfcRepresentationMap
+       instead of the element's IfcProductDefinitionShape.
    :return: The associated shape aspects of the element.
 
    Example:
@@ -638,6 +660,14 @@ Module Contents
 
 .. py:function:: has_element_reference(value: Any, element: ifcopenshell.entity_instance) -> bool
 
+.. py:function:: has_openings(element: ifcopenshell.entity_instance) -> bool
+
+   Check if the element has openings.
+
+   :param element: IfcElement.
+   :return: True if element has openings.
+
+
 .. py:function:: has_property(product: ifcopenshell.entity_instance, property_name: str) -> bool
 
    Check if a product has a property with a given name.
@@ -654,14 +684,14 @@ Module Contents
        has_property = ifcopenshell.util.element.has_property(product, "NetArea")
 
 
-.. py:function:: remove_deep(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance) -> None
+.. py:function:: remove_deep(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance) -> None
 
    Recursively purges a subgraph safely.
 
    Do not use, use remove_deep2() instead.
 
 
-.. py:function:: remove_deep2(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, also_consider: list[ifcopenshell.entity_instance] = [], do_not_delete: list[ifcopenshell.entity_instance] = []) -> None
+.. py:function:: remove_deep2(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance, also_consider: list[ifcopenshell.entity_instance] = [], do_not_delete: set[ifcopenshell.entity_instance] = set()) -> None
 
    Recursively purges a subgraph safely, starting at an element
 
@@ -689,6 +719,8 @@ Module Contents
 
    :param ifc_file: The IFC file object
    :param also_consider: elements to also consider as a part of a subgraph
+       Order could matter for perfomance - elements that reference `element`
+       directly should go first for the better performance.
    :param do_not_delete: elements to protect from deletion
    :param element: The starting element that defines the subgraph
 

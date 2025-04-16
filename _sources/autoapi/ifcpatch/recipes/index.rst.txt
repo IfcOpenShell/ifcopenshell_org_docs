@@ -19,11 +19,13 @@ Submodules
    ExtractPropertiesToSQLite/index.rst
    FixArchiCADToRevitDoorSwings/index.rst
    FixArchiCADToRevitSpaces/index.rst
+   FixRevit2025TINs/index.rst
    FixRevitClassificationCodeTypes/index.rst
    FixRevitTINs/index.rst
    Ifc2Sql/index.rst
    MergeDuplicateTypes/index.rst
    MergeProjects/index.rst
+   MergeStyles/index.rst
    Migrate/index.rst
    OffsetObjectPlacements/index.rst
    OffsetStoreyElevations/index.rst

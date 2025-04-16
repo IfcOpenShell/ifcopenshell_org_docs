@@ -9,22 +9,26 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: cascade_task(task, is_first_task=False, task_sequence=None)
+   .. py:method:: cascade_task(task: ifcopenshell.entity_instance, is_first_task: bool = False, task_sequence: Optional[list[ifcopenshell.entity_instance]] = None) -> None
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(task: ifcopenshell.entity_instance)
 
 
-   .. py:method:: get_calendar(task)
+   .. py:method:: get_calendar(task: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: get_lag_time_days(lag_time)
+   .. py:method:: get_lag_time_days(lag_time: ifcopenshell.entity_instance) -> int
 
 
-   .. py:method:: get_task_time_attribute(task, attribute)
+   .. py:method:: get_task_time_attribute(task: ifcopenshell.entity_instance, attribute: str) -> Union[datetime.datetime, None]
 
 
-   .. py:method:: offset_date(date, days, duration_type, calendar)
+   .. py:method:: offset_date(date: datetime.datetime, days: int, duration_type: ifcopenshell.util.sequence.DURATION_TYPE, calendar: ifcopenshell.entity_instance) -> datetime.datetime
+
+
+   .. py:attribute:: file
+      :type:  ifcopenshell.file
 
 
 .. py:function:: cascade_schedule(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> None
@@ -48,9 +52,7 @@ Module Contents
    be equivalent to be Tuesday 8am, for instance.
 
    :param task: The start task to begin cascading from.
-   :type task: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
