@@ -256,6 +256,8 @@ Module Contents
    mm to meters shortcut for readability
 
 
+.. py:data:: DATACLASS_SLOTS
+
 .. py:data:: DOOR_TYPE
 
 .. py:data:: SUPPORTED_DOOR_TYPES

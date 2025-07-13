@@ -7,7 +7,13 @@
 Module Contents
 ---------------
 
-.. py:function:: create(filename: Optional[str] = None, timestring: Optional[str] = None, organization: Optional[str] = None, creator: Optional[str] = None, schema_identifier: Optional[str] = None, application_version: Optional[str] = None, timestamp: Optional[str] = None, application: Optional[str] = None, project_globalid: Optional[str] = None, project_name: Optional[str] = None) -> ifcopenshell.file.file
+.. py:function:: create(filename: Optional[str] = None, timestring: Optional[str] = None, organization: Optional[str] = None, creator: Optional[str] = None, schema_identifier: Optional[str] = None, application_version: Optional[str] = None, timestamp: Optional[str] = None, application: Optional[str] = None, project_globalid: Optional[str] = None, project_name: Optional[str] = None, mvd: Optional[str] = None) -> ifcopenshell.file.file
+
+.. py:function:: get_pep440_version(ifcopenshell_wrapper_version)
+
+   Returns a PEP 440-compliant version string, valid for use with
+   `packaging.version.parse()` and compliant with the Validation Service header policy.
+
 
 .. py:data:: DEFAULTS
 
@@ -22,7 +28,7 @@ Module Contents
 
       """ISO-10303-21;
       HEADER;
-      FILE_DESCRIPTION(('ViewDefinition [CoordinationView]'),'2;1');
+      FILE_DESCRIPTION(('ViewDefinition [%(mvd)s]'),'2;1');
       FILE_NAME('%(filename)s','%(timestring)s',('%(creator)s'),('%(organization)s'),'%(application)s','%(application)s','');
       FILE_SCHEMA(('%(schema_identifier)s'));
       ENDSEC;

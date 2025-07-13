@@ -1,0 +1,14 @@
+:py:mod:`ifcopenshell.api.alignment.get_horizontal_layout`
+==========================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_horizontal_layout
+
+
+Module Contents
+---------------
+
+.. py:function:: get_horizontal_layout(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the IfcAlignmentHorizontal assocated with this alignment
+
+

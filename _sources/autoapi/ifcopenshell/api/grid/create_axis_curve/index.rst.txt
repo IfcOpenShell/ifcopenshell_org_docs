@@ -14,6 +14,10 @@ Module Contents
    An IFC grid will have a minimum of two axes (typically perpendicular). Each
    axis will then have a line which represents the extents of the axis.
 
+   Points are provided as 3D coordinates in world space.
+   During axis creation, the coordinates will be localized relative to IfcGrid
+   and saved as 2D.
+
    :param p1: The first point of the grid axis
    :param p2: The second point of the grid axis
    :param grid_axis: The IfcGridAxis element to add geometry to.

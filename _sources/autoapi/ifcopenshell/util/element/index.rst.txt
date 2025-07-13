@@ -65,7 +65,7 @@ Module Contents
    :return: The newly copied element
 
 
-.. py:function:: copy_deep(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance, exclude: Optional[Sequence[str]] = None, exclude_callback: Optional[Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+.. py:function:: copy_deep(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance, exclude: Optional[collections.abc.Sequence[str]] = None, exclude_callback: Optional[Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
 
    Recursively copy an element and all of its directly related subelements.
 
@@ -381,7 +381,7 @@ Module Contents
        aggregate = ifcopenshell.util.element.get_nest(element)
 
 
-.. py:function:: get_openings(element: ifcopenshell.entity_instance) -> Generator[ifcopenshell.entity_instance, None, None]
+.. py:function:: get_openings(element: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance, None, None]
 
    Get element openings as IfcRelVoidsElements.
 

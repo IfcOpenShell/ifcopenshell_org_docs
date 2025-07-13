@@ -7,7 +7,10 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, unit: LengthUnit = 'METER')
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None, unit: LengthUnit = 'METER')
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Converts the length unit of a model to the specified unit
@@ -16,7 +19,6 @@ Module Contents
    Allowed imperial units include INCH, FOOT, MILE.
 
    :param unit: The name of the desired unit, defaults to "METER"
-   :type unit: LengthUnit
 
    Example:
 
@@ -32,14 +34,8 @@ Module Contents
    .. py:method:: patch()
 
 
-   .. py:attribute:: file
-
-
    .. py:attribute:: file_patched
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: logger
 
 
    .. py:attribute:: unit

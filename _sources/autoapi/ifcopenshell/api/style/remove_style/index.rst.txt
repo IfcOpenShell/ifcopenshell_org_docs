@@ -9,7 +9,7 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute(style: ifcopenshell.entity_instance, do_not_delete: Iterable[ifcopenshell.entity_instance] = ()) -> None
+   .. py:method:: execute(style: ifcopenshell.entity_instance, do_not_delete: collections.abc.Iterable[ifcopenshell.entity_instance] = ()) -> None
 
 
    .. py:method:: purge_fill_area_style_hatching(fill_area_style_hatching: ifcopenshell.entity_instance, style: ifcopenshell.entity_instance) -> None

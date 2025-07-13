@@ -28,7 +28,7 @@ Module Contents
       :type:  str
 
 
-.. py:class:: PsetQto(schema_identifier: str, templates=None)
+.. py:class:: PsetQto(schema_identifier: str, templates: Optional[list[ifcopenshell.file]] = None)
 
    .. py:method:: get_applicable(ifc_class='', predefined_type='', pset_only=False, qto_only=False, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[ifcopenshell.entity_instance.entity_instance]
 
@@ -60,11 +60,12 @@ Module Contents
 
 
    .. py:attribute:: schema
+      :value: None
+
 
 
    .. py:attribute:: templates
-      :value: None
-
+      :type:  list[ifcopenshell.file]
 
 
    .. py:attribute:: templates_path

@@ -42,8 +42,10 @@ Module Contents
 
 
    .. py:attribute:: document
-      :type:  List[Document]
+      :type:  list[Document]
       :value: []
 
 
+
+.. py:data:: DATACLASS_KWARGS
 

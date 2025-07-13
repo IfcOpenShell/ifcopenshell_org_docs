@@ -15,9 +15,7 @@ Module Contents
    removed.
 
    :param reference: The IfcLibraryReference entity you want to remove
-   :type reference: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

@@ -102,9 +102,7 @@ Package Contents
    the group will be removed.
 
    :param group: The IfcGroup entity you want to remove
-   :type group: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -121,11 +119,8 @@ Package Contents
    If the product isn't assigned to the group, nothing will happen.
 
    :param products: A list of IfcProduct elements to unassign from the group
-   :type products: list[ifcopenshell.entity_instance]
    :param group: The IfcGroup to unassign from
-   :type group: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -147,11 +142,8 @@ Package Contents
    removed.
 
    :param products: A list of IfcProduct elements to assign to the group
-   :type products: list[ifcopenshell.entity_instance]
    :param group: The IfcGroup to assign the products to
-   :type group: ifcopenshell.entity_instance
    :return: The IfcRelAssignsToGroup relationship
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

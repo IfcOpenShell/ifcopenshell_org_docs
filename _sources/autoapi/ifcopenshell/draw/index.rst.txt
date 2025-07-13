@@ -116,6 +116,12 @@ Module Contents
 
 
 
+   .. py:attribute:: mirror_y
+      :type:  bool
+      :value: False
+
+
+
    .. py:attribute:: prefilter
       :type:  bool
       :value: True
@@ -170,7 +176,7 @@ Module Contents
 
 
 
-.. py:function:: main(settings: draw_settings, files: list[ifcopenshell.file], iterators: Sequence[ifcopenshell.geom.iterator] = (), merge_projection: bool = True, progress_function: Callable = DO_NOTHING)
+.. py:function:: main(settings: draw_settings, files: list[ifcopenshell.file], iterators: collections.abc.Sequence[ifcopenshell.geom.iterator] = (), merge_projection: bool = True, progress_function: collections.abc.Callable = DO_NOTHING)
 
 .. py:data:: DO_NOTHING
 

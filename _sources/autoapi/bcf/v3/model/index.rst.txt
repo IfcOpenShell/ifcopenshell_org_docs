@@ -205,7 +205,7 @@ Package Contents
 .. py:class:: ComponentColoring
 
    .. py:attribute:: color
-      :type:  List[ComponentColoringColor]
+      :type:  list[ComponentColoringColor]
       :value: []
 
 
@@ -239,7 +239,7 @@ Package Contents
 
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -247,7 +247,7 @@ Package Contents
 .. py:class:: ComponentSelection
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -283,7 +283,7 @@ Package Contents
 
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -357,7 +357,7 @@ Package Contents
 
 
    .. py:attribute:: document
-      :type:  List[Document]
+      :type:  list[Document]
       :value: []
 
 
@@ -441,7 +441,7 @@ Package Contents
 
 
    .. py:attribute:: priority
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -457,7 +457,7 @@ Package Contents
 
 
    .. py:attribute:: snippet_type
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -473,7 +473,7 @@ Package Contents
 
 
    .. py:attribute:: stage
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -489,7 +489,7 @@ Package Contents
 
 
    .. py:attribute:: topic_label
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -505,7 +505,7 @@ Package Contents
 
 
    .. py:attribute:: topic_status
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -521,7 +521,7 @@ Package Contents
 
 
    .. py:attribute:: topic_type
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -537,7 +537,7 @@ Package Contents
 
 
    .. py:attribute:: user
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -599,7 +599,7 @@ Package Contents
 
 
    .. py:attribute:: file
-      :type:  List[File]
+      :type:  list[File]
       :value: []
 
 
@@ -857,7 +857,7 @@ Package Contents
 
 
    .. py:attribute:: comment
-      :type:  List[Comment]
+      :type:  list[Comment]
       :value: []
 
 
@@ -873,7 +873,7 @@ Package Contents
 
 
    .. py:attribute:: document_reference
-      :type:  List[DocumentReference]
+      :type:  list[DocumentReference]
       :value: []
 
 
@@ -889,7 +889,7 @@ Package Contents
 
 
    .. py:attribute:: label
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -905,7 +905,7 @@ Package Contents
 
 
    .. py:attribute:: reference_link
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -921,7 +921,7 @@ Package Contents
 
 
    .. py:attribute:: related_topic
-      :type:  List[TopicRelatedTopicsRelatedTopic]
+      :type:  list[TopicRelatedTopicsRelatedTopic]
       :value: []
 
 
@@ -951,7 +951,7 @@ Package Contents
 
 
    .. py:attribute:: view_point
-      :type:  List[ViewPoint]
+      :type:  list[ViewPoint]
       :value: []
 
 
@@ -1062,7 +1062,7 @@ Package Contents
 
 
    .. py:attribute:: bitmap
-      :type:  List[Bitmap]
+      :type:  list[Bitmap]
       :value: []
 
 
@@ -1078,7 +1078,7 @@ Package Contents
 
 
    .. py:attribute:: clipping_plane
-      :type:  List[ClippingPlane]
+      :type:  list[ClippingPlane]
       :value: []
 
 
@@ -1094,7 +1094,7 @@ Package Contents
 
 
    .. py:attribute:: line
-      :type:  List[Line]
+      :type:  list[Line]
       :value: []
 
 

@@ -176,7 +176,7 @@ Package Contents
 .. py:class:: ComponentColoring
 
    .. py:attribute:: color
-      :type:  List[ComponentColoringColor]
+      :type:  list[ComponentColoringColor]
       :value: []
 
 
@@ -198,7 +198,7 @@ Package Contents
 
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -206,7 +206,7 @@ Package Contents
 .. py:class:: ComponentSelection
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -236,7 +236,7 @@ Package Contents
 
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -282,7 +282,7 @@ Package Contents
 .. py:class:: Header
 
    .. py:attribute:: file
-      :type:  List[HeaderFile]
+      :type:  list[HeaderFile]
       :value: []
 
 
@@ -346,7 +346,7 @@ Package Contents
 .. py:class:: Markup
 
    .. py:attribute:: comment
-      :type:  List[Comment]
+      :type:  list[Comment]
       :value: []
 
 
@@ -362,7 +362,7 @@ Package Contents
 
 
    .. py:attribute:: viewpoints
-      :type:  List[ViewPoint]
+      :type:  list[ViewPoint]
       :value: []
 
 
@@ -487,7 +487,7 @@ Package Contents
 
 
    .. py:attribute:: document_reference
-      :type:  List[TopicDocumentReference]
+      :type:  list[TopicDocumentReference]
       :value: []
 
 
@@ -509,7 +509,7 @@ Package Contents
 
 
    .. py:attribute:: labels
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -533,13 +533,13 @@ Package Contents
 
 
    .. py:attribute:: reference_link
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
 
    .. py:attribute:: related_topic
-      :type:  List[TopicRelatedTopic]
+      :type:  list[TopicRelatedTopic]
       :value: []
 
 
@@ -678,7 +678,7 @@ Package Contents
 
 
    .. py:attribute:: bitmap
-      :type:  List[VisualizationInfoBitmap]
+      :type:  list[VisualizationInfoBitmap]
       :value: []
 
 
@@ -762,7 +762,7 @@ Package Contents
 
 
    .. py:attribute:: clipping_plane
-      :type:  List[ClippingPlane]
+      :type:  list[ClippingPlane]
       :value: []
 
 
@@ -778,7 +778,7 @@ Package Contents
 
 
    .. py:attribute:: line
-      :type:  List[Line]
+      :type:  list[Line]
       :value: []
 
 

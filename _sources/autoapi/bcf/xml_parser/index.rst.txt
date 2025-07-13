@@ -20,7 +20,7 @@ Module Contents
    XML Parser and serializer wrapper.
 
 
-   .. py:method:: parse(xml: bytes, clazz: Type[T]) -> T
+   .. py:method:: parse(xml: bytes, clazz: type[T]) -> T
 
       Parse an XML file to an object.
 
@@ -48,7 +48,7 @@ Module Contents
    XML Parser and serializer wrapper.
 
 
-   .. py:method:: parse(xml: bytes, clazz: Type[T]) -> T
+   .. py:method:: parse(xml: bytes, clazz: type[T]) -> T
 
       Parse an XML file to an object.
 

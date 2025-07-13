@@ -14,9 +14,7 @@ Module Contents
    All tasks in the work schedule are also removed recursively.
 
    :param work_schedule: The IfcWorkSchedule to remove.
-   :type work_schedule: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

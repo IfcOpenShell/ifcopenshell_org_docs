@@ -37,9 +37,7 @@ Module Contents
    to a particular table and row within that database.
 
    :param name: The name of the library
-   :type name: str
    :return: The newly created IfcLibraryInformation
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

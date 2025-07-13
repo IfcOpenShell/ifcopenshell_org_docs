@@ -7,7 +7,10 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4')
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4')
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Migrate from one IFC version to another
@@ -16,7 +19,6 @@ Module Contents
    possible. Upgrading to IFC4 is more stable than downgrading to IFC2X3.
 
    :param schema: The schema identifier of the IFC version to migrate to.
-   :type schema: str
 
    Example:
 
@@ -27,12 +29,6 @@ Module Contents
 
 
    .. py:method:: patch()
-
-
-   .. py:attribute:: file
-
-
-   .. py:attribute:: logger
 
 
    .. py:attribute:: schema

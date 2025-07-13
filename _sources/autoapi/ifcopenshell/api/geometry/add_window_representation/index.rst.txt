@@ -246,7 +246,11 @@ Module Contents
    similarly to `create_ifc_window_frame_simple` `thickness` argument
 
 
+.. py:data:: DATACLASS_SLOTS
+
 .. py:data:: DEFAULT_PANEL_SCHEMAS
 
 .. py:data:: WINDOW_TYPE
+
+.. py:data:: ZIP_STRICT
 

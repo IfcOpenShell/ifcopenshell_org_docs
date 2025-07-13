@@ -129,9 +129,15 @@ Module Contents
       :value: []
 
 
+      Reversed chronological order - from newest to oldest.
+
+
 
    .. py:attribute:: history
       :value: []
+
+
+      Chronological order - from oldest to newest.
 
 
 
@@ -213,10 +219,14 @@ Module Contents
 
        print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
 
+   :param e: Wrapper's ``entity_instance`` or a tuple ``(schema_identifier, ifc_class)``.
+
 
    .. py:method:: get_info(include_identifier=True, recursive=False, return_type=dict, ignore=(), scalar_only=False) -> dict[str, Any]
 
       Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
+
+      Resulting dictionary keys: 'id', 'type', all entity attribute names.
 
       :param include_identifier: Whether or not to include the STEP numerical identifier
       :param recursive: Whether or not to convert referenced IFC elements into dictionaries too. All attributes also apply recursively

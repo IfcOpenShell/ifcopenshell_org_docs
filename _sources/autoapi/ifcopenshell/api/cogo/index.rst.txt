@@ -1,0 +1,88 @@
+:py:mod:`ifcopenshell.api.cogo`
+===============================
+
+.. py:module:: ifcopenshell.api.cogo
+
+.. autoapi-nested-parse::
+
+   Coordinate Geometry (cogo) functions primarily for survey points and control monument for layout, parcels, etc.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   add_survey_point/index.rst
+   assign_survey_point/index.rst
+   bearing2dd/index.rst
+   edit_survey_point/index.rst
+
+
+Package Contents
+----------------
+
+.. py:function:: add_survey_point(file: ifcopenshell.file, survey_point: ifcopenshell.entity_instance, site: Union[ifcopenshell.entity_instance, None] = None) -> ifcopenshell.entity_instance
+
+   Adds a single survey point to the model based on IFC Concept Template 4.1.7.1.2.5.
+   Survey points are located relative to IfcRepresentationContext.WorldCoordinateSystem
+
+   :param survey_point: The survey point
+   :return: an IfcAnnotation entity
+
+   Example:
+
+   .. code:: python
+
+       annotation = ifcopenshell.api.cogo.add_survey_point(file,file.createIfcCartesianPoint(4000.0,3500.0)))
+
+
+.. py:function:: assign_survey_point(annotation: ifcopenshell.entity_instance, survey_point: ifcopenshell.entity_instance)
+
+   Assigns a coordinate point to a survey point annotation
+
+   :param annotaton: The survey point annotation
+   :param survey_point: The survey point
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       annotation = ifcopenshell.api.cogo.add_survey_point(file,file.createIfcCartesianPoint(4000.0,3500.0)))
+       ifcopenshell.api.cogo.assign_surve_point(annotation,file.createIfcCartesianPoint(4000.0,3500.0,100.0))
+
+
+.. py:function:: bearing2dd(bearing: str) -> float
+
+   Converts a quadrant bearing string to decimal degrees
+
+   The format of the string is "N|S dd (mm (ss.s)) E|W"
+   where:
+   N|S is N or S for North or South
+   dd is degree (required)
+   mm is minute (optional, but required if second is provided)
+   ss.s is second (required)
+   E|W is E or W for East or West
+
+   :param str: the bearing string
+   :return: Angle in radian
+
+
+.. py:function:: edit_survey_point(annotation: ifcopenshell.entity_instance, x: float, y: float, z: float = 0.0)
+
+   Edits the location of a previously defined survey point
+
+   :param survey_point: The survey point
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       annotation = ifcopenshell.api.cogo.add_survey_point(file,file.createIfcCartesianPoint(4000.0,3500.0)))
+       ifcopenshell.api.cogo.edit_surve_point(annotation,3500.0,2000.0)
+
+

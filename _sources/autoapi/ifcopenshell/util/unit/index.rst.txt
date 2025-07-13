@@ -129,7 +129,7 @@ Module Contents
        unit defined.
 
 
-.. py:function:: get_property_table_unit(prop: ifcopenshell.entity_instance, ifc_file: Union[ifcopenshell.file, None], use_cache: bool = False) -> Dict[str, Union[ifcopenshell.entity_instance, None]]
+.. py:function:: get_property_table_unit(prop: ifcopenshell.entity_instance, ifc_file: Union[ifcopenshell.file, None], use_cache: bool = False) -> dict[str, Union[ifcopenshell.entity_instance, None]]
 
    Gets the unit definition of a property table
 
@@ -203,7 +203,7 @@ Module Contents
 
 .. py:function:: is_attr_type(content_type: ifcopenshell.ifcopenshell_wrapper.parameter_type, ifc_unit_type_name: str, include_select_types: bool = True) -> Union[ifcopenshell.ifcopenshell_wrapper.type_declaration, None]
 
-.. py:function:: iter_element_and_attributes_per_type(ifc_file: ifcopenshell.file, attr_type_name: str) -> Generator[tuple[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.attribute, Union[FloatOrSequenceOfFloats, ifcopenshell.entity_instance]], None, None]
+.. py:function:: iter_element_and_attributes_per_type(ifc_file: ifcopenshell.file, attr_type_name: str) -> collections.abc.Generator[tuple[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.attribute, Union[FloatOrSequenceOfFloats, ifcopenshell.entity_instance]], None, None]
 
 .. py:data:: FloatOrSequenceOfFloats
 

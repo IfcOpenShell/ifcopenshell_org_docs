@@ -17,7 +17,7 @@ Module Contents
 
 
 
-.. py:function:: get_all_nested_tasks(task: ifcopenshell.entity_instance) -> Iterator[ifcopenshell.entity_instance]
+.. py:function:: get_all_nested_tasks(task: ifcopenshell.entity_instance) -> collections.abc.Iterator[ifcopenshell.entity_instance]
 
 .. py:function:: get_calendar(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 

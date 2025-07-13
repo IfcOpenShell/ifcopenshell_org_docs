@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: entity_instance(e, file=None)
+.. py:class:: entity_instance(e: Union[ifcopenshell.ifcopenshell_wrapper.entity_instance, tuple[str, str]], file: Union[ifcopenshell.file, None] = None)
 
    Represents an entity (wall, slab, property, etc) of an IFC model
 
@@ -50,6 +50,8 @@ Module Contents
        print(wall[3]) # My Wall
 
        print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
+
+   :param e: Wrapper's ``entity_instance`` or a tuple ``(schema_identifier, ifc_class)``.
 
 
    .. py:method:: attribute_name(attr_idx: int) -> str
@@ -105,9 +107,11 @@ Module Contents
 
 
 
-   .. py:method:: get_info(include_identifier: bool = True, recursive: bool = False, return_type: Union[type[dict], type] = dict, ignore: Sequence[str] = (), scalar_only: bool = False) -> dict[str, Any]
+   .. py:method:: get_info(include_identifier: bool = True, recursive: bool = False, return_type: Union[type[dict], type] = dict, ignore: collections.abc.Sequence[str] = (), scalar_only: bool = False) -> dict[str, Any]
 
       Return a dictionary of the entity_instance's properties (Python and IFC) and their values.
+
+      Resulting dictionary keys: 'id', 'type', all entity attribute names.
 
       :param include_identifier: Whether or not to include the STEP numerical identifier
       :param recursive: Whether or not to convert referenced IFC elements into dictionaries too. All attributes also apply recursively
@@ -129,7 +133,7 @@ Module Contents
 
 
 
-   .. py:method:: get_info_2(include_identifier: bool = True, recursive: bool = False, return_type: type[dict] = dict, ignore: Sequence[str] = ()) -> dict[str, Any]
+   .. py:method:: get_info_2(include_identifier: bool = True, recursive: bool = False, return_type: type[dict] = dict, ignore: collections.abc.Sequence[str] = ()) -> dict[str, Any]
 
       More perfomant version of `.get_info()` but with limited arguments values.
 
@@ -201,7 +205,7 @@ Module Contents
 
 
 
-   .. py:method:: walk(f: Callable[[Any], bool], g: Callable[[Any], Any], value: Any) -> Any
+   .. py:method:: walk(f: collections.abc.Callable[[Any], bool], g: collections.abc.Callable[[Any], Any], value: Any) -> Any
       :staticmethod:
 
 
@@ -234,12 +238,18 @@ Module Contents
 
 
 
-   .. py:method:: wrap_value(v, file)
+   .. py:method:: wrap_value(v, file: ifcopenshell.file)
       :staticmethod:
 
 
 
    .. py:property:: file
+
+
+   .. py:attribute:: method_list
+      :type:  Union[MethodList, None]
+      :value: None
+
 
 
    .. py:attribute:: wrapped_data
@@ -251,6 +261,11 @@ Module Contents
 .. py:function:: set_derived_attribute(*args)
 
 .. py:function:: set_unsupported_attribute(*args)
+
+.. py:data:: MethodList
+
+   List of setter methods for class attributes.
+
 
 .. py:data:: T
 

@@ -1,0 +1,25 @@
+:py:mod:`ifcopenshell.api.cogo.bearing2dd`
+==========================================
+
+.. py:module:: ifcopenshell.api.cogo.bearing2dd
+
+
+Module Contents
+---------------
+
+.. py:function:: bearing2dd(bearing: str) -> float
+
+   Converts a quadrant bearing string to decimal degrees
+
+   The format of the string is "N|S dd (mm (ss.s)) E|W"
+   where:
+   N|S is N or S for North or South
+   dd is degree (required)
+   mm is minute (optional, but required if second is provided)
+   ss.s is second (required)
+   E|W is E or W for East or West
+
+   :param str: the bearing string
+   :return: Angle in radian
+
+

@@ -119,7 +119,7 @@ Module Contents
 .. py:class:: ComponentColoring
 
    .. py:attribute:: color
-      :type:  List[ComponentColoringColor]
+      :type:  list[ComponentColoringColor]
       :value: []
 
 
@@ -153,7 +153,7 @@ Module Contents
 
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -161,7 +161,7 @@ Module Contents
 .. py:class:: ComponentSelection
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -197,7 +197,7 @@ Module Contents
 
 
    .. py:attribute:: component
-      :type:  List[Component]
+      :type:  list[Component]
       :value: []
 
 
@@ -402,7 +402,7 @@ Module Contents
 
 
    .. py:attribute:: bitmap
-      :type:  List[Bitmap]
+      :type:  list[Bitmap]
       :value: []
 
 
@@ -418,7 +418,7 @@ Module Contents
 
 
    .. py:attribute:: clipping_plane
-      :type:  List[ClippingPlane]
+      :type:  list[ClippingPlane]
       :value: []
 
 
@@ -434,8 +434,10 @@ Module Contents
 
 
    .. py:attribute:: line
-      :type:  List[Line]
+      :type:  list[Line]
       :value: []
 
 
+
+.. py:data:: DATACLASS_KWARGS
 

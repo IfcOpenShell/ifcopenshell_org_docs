@@ -62,9 +62,7 @@ Package Contents
    to a particular table and row within that database.
 
    :param name: The name of the library
-   :type name: str
    :return: The newly created IfcLibraryInformation
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -90,9 +88,7 @@ Package Contents
    library's references.
 
    :param library: The IfcLibraryInformation element to add a reference to
-   :type library: ifcopenshell.entity_instance
    :return: The newly created IfcLibraryReference element
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -190,9 +186,7 @@ Package Contents
    products which have relationships to this library will not be removed.
 
    :param library: The IfcLibraryInformation entity you want to remove
-   :type library: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -210,9 +204,7 @@ Package Contents
    removed.
 
    :param reference: The IfcLibraryReference entity you want to remove
-   :type reference: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

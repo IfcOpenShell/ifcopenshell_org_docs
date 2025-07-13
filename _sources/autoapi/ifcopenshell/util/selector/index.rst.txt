@@ -219,7 +219,7 @@ Module Contents
 
 .. py:function:: get_element_value(element: ifcopenshell.entity_instance, query: str) -> Any
 
-.. py:function:: set_element_value(ifc_file: ifcopenshell.file, element: Union[ifcopenshell.entity_instance, dict[str, Any], Iterable[ifcopenshell.entity_instance], None], query: Union[str, list[str]], value: Any, *, concat: str = ', ') -> None
+.. py:function:: set_element_value(ifc_file: ifcopenshell.file, element: Union[ifcopenshell.entity_instance, dict[str, Any], collections.abc.Iterable[ifcopenshell.entity_instance], None], query: Union[str, list[str]], value: Any, *, concat: str = ', ') -> None
 
    Set element value based on the provided query.
 

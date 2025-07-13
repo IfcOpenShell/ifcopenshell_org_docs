@@ -9,31 +9,31 @@ Module Contents
 
 .. py:class:: BcfClient(foundation_client: FoundationClient)
 
-   .. py:method:: create_comments(project_id: str = '', topic_id: str = '', data: Any = None, params: Any = None) -> Tuple[int, str]
+   .. py:method:: create_comments(project_id: str = '', topic_id: str = '', data: Any = None, params: Any = None) -> tuple[int, str]
 
 
    .. py:method:: create_document(project_id: str = '', topic_id: str = '', guid: Optional[str] = None, files: Any = None, data: Any = None) -> int
 
 
-   .. py:method:: create_document_reference(project_id: str = '', topic_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: create_document_reference(project_id: str = '', topic_id: str = '', data: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: create_topic(project_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: create_topic(project_id: str = '', data: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: create_viewpoints(project_id: str = '', topic_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: create_viewpoints(project_id: str = '', topic_id: str = '', data: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: delete(endpoint: str, params: Any = None) -> Tuple[int, str]
+   .. py:method:: delete(endpoint: str, params: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: delete_comment(project_id: str = '', topic_id: str = '', comment_id: str = '') -> Tuple[int, str]
+   .. py:method:: delete_comment(project_id: str = '', topic_id: str = '', comment_id: str = '') -> tuple[int, str]
 
 
-   .. py:method:: delete_topic(project_id: str = '', topic_id: str = '') -> Tuple[int, str]
+   .. py:method:: delete_topic(project_id: str = '', topic_id: str = '') -> tuple[int, str]
 
 
-   .. py:method:: delete_viewpoint(project_id: str = '', topic_id: str = '', viewpoint_id: str = '') -> Tuple[int, str]
+   .. py:method:: delete_viewpoint(project_id: str = '', topic_id: str = '', viewpoint_id: str = '') -> tuple[int, str]
 
 
    .. py:method:: get(endpoint: str, params: Any = None, is_auth_required: bool = False) -> Any
@@ -57,7 +57,7 @@ Module Contents
    .. py:method:: get_comments_events(project_id: str = '') -> list[Any]
 
 
-   .. py:method:: get_document(project_id: str = '', topic_id: str = '', document_id: str = '') -> Tuple[int, str]
+   .. py:method:: get_document(project_id: str = '', topic_id: str = '', document_id: str = '') -> tuple[int, str]
 
 
    .. py:method:: get_document_references(project_id: str = '', topic_id: str = '') -> list[Any]
@@ -90,7 +90,7 @@ Module Contents
    .. py:method:: get_snapshot(project_id: str = '', topic_id: str = '', viewpoint_id: str = '') -> str
 
 
-   .. py:method:: get_snippet(project_id: str = '', topic_id: str = '') -> Tuple[int, str]
+   .. py:method:: get_snippet(project_id: str = '', topic_id: str = '') -> tuple[int, str]
 
 
    .. py:method:: get_topic(project_id: str = '', topic_id: str = '') -> dict[str, Any]
@@ -114,34 +114,34 @@ Module Contents
    .. py:method:: get_visibility(project_id: str = '', topic_id: str = '', viewpoint_id: str = '') -> dict[str, Any]
 
 
-   .. py:method:: post(endpoint: str, data: Any = None, params: Any = None) -> Tuple[int, str]
+   .. py:method:: post(endpoint: str, data: Any = None, params: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: put(endpoint: str, data: Any = None, params: Any = None) -> Tuple[int, str]
+   .. py:method:: put(endpoint: str, data: Any = None, params: Any = None) -> tuple[int, str]
 
 
    .. py:method:: set_version(version: dict[str, str]) -> None
 
 
-   .. py:method:: update_comment(project_id: str = '', topic_id: str = '', comment_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: update_comment(project_id: str = '', topic_id: str = '', comment_id: str = '', data: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: update_document_references(project_id: str = '', topic_id: str = '', document_reference_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: update_document_references(project_id: str = '', topic_id: str = '', document_reference_id: str = '', data: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: update_files(project_id: str = '', topic_id: str = '', data: Any = None, params: Any = None) -> Tuple[int, str]
+   .. py:method:: update_files(project_id: str = '', topic_id: str = '', data: Any = None, params: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: update_project(project_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: update_project(project_id: str = '', data: Any = None) -> tuple[int, str]
 
 
-   .. py:method:: update_related_topics(project_id: str = '', topic_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: update_related_topics(project_id: str = '', topic_id: str = '', data: Any = None) -> tuple[int, str]
 
 
    .. py:method:: update_snippet(project_id: str = '', topic_id: str = '', files: Any = None, data: Any = None) -> int
 
 
-   .. py:method:: update_topic(project_id: str = '', topic_id: str = '', data: Any = None) -> Tuple[int, str]
+   .. py:method:: update_topic(project_id: str = '', topic_id: str = '', data: Any = None) -> tuple[int, str]
 
 
    .. py:attribute:: baseurl

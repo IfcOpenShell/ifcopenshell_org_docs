@@ -22,7 +22,7 @@ Module Contents
 
 .. py:class:: Ids(title: Optional[str] = 'Untitled', copyright=None, version=None, description=None, author=None, date=None, purpose=None, milestone=None)
 
-   .. py:method:: asdict()
+   .. py:method:: asdict() -> dict[str, Any]
 
 
    .. py:method:: parse(data)
@@ -50,17 +50,18 @@ Module Contents
 
 
    .. py:attribute:: info
+      :type:  dict[str, Any]
 
 
    .. py:attribute:: specifications
-      :type:  List[Specification]
+      :type:  list[Specification]
       :value: []
 
 
 
 .. py:class:: Specification(name='Unnamed', minOccurs=0, maxOccurs='unbounded', ifcVersion=['IFC2X3', 'IFC4', 'IFC4X3_ADD2'], identifier=None, description=None, instructions=None)
 
-   .. py:method:: asdict()
+   .. py:method:: asdict() -> dict[str, Any]
 
 
    .. py:method:: check_ifc_version(ifc_file: ifcopenshell.file) -> bool
@@ -85,7 +86,7 @@ Module Contents
 
 
    .. py:attribute:: applicability
-      :type:  List[ifctester.facet.Facet]
+      :type:  list[ifctester.facet.Facet]
       :value: []
 
 
@@ -147,7 +148,7 @@ Module Contents
 
 
    .. py:attribute:: requirements
-      :type:  List[ifctester.facet.Facet]
+      :type:  list[ifctester.facet.Facet]
       :value: []
 
 

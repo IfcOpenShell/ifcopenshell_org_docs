@@ -35,7 +35,7 @@ Package Contents
 
 
    .. py:attribute:: arguments
-      :type:  typing_extensions.NotRequired[Sequence[Any]]
+      :type:  typing_extensions.NotRequired[collections.abc.Sequence[Any]]
 
 
    .. py:attribute:: file
@@ -52,6 +52,22 @@ Package Contents
 
    .. py:attribute:: recipe
       :type:  str
+
+
+.. py:class:: BasePatcher(file: ifcopenshell.file, logger: Union[logging.Logger, None])
+
+   .. py:method:: get_output() -> Union[ifcopenshell.file, str, None]
+
+
+   .. py:method:: patch() -> None
+      :abstractmethod:
+
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
 
 
 .. py:class:: DocstringData
@@ -172,7 +188,9 @@ Package Contents
       :type:  Union[str, None]
 
 
-.. py:function:: execute(args: ArgumentsDict) -> Union[ifcopenshell.file, str]
+.. py:function:: ensure_logger(logger: Union[logging.Logger, None] = None) -> logging.Logger
+
+.. py:function:: execute(args: ArgumentsDict) -> Union[ifcopenshell.file, str, None]
 
    Execute a patch recipe
 
@@ -215,7 +233,7 @@ Package Contents
        ifcpatch.write(output, "output.ifc")
 
 
-.. py:function:: extract_docs(submodule_name: str, cls_name: str, method_name: str = '__init__', boilerplate_args: Optional[Sequence[str]] = None) -> Union[PatcherDoc, None]
+.. py:function:: extract_docs(submodule_name: str, cls_name: str, method_name: str = '__init__', boilerplate_args: Optional[collections.abc.Sequence[str]] = None) -> Union[PatcherDoc, None]
 
    Extract class docstrings and method arguments
 
@@ -227,19 +245,16 @@ Package Contents
 
 .. py:function:: parse_docstring(docstring: str) -> DocstringData
 
-.. py:function:: write(output: Union[ifcopenshell.file, str], filepath: str) -> None
+.. py:function:: write(output: Union[ifcopenshell.file, str, None], filepath: Union[pathlib.Path, str]) -> None
 
    Write the output of an IFC patch to a file
 
    Typically a patch output would be a patched IFC model file object, or as a
    string. This function lets you agnostically write that output to a filepath.
 
-   :param output: The results from ifcpatch.execute()
-   :type output: ifcopenshell.file.file,str
+   :param output: The results from ``ifcpatch.execute()`` / ``Patcher.get_output()``
    :param filepath: A filepath to where the results of the patched model should
        be written to.
-   :type filepath: str
    :return: None
-   :rtype: None
 
 

@@ -7,12 +7,64 @@
 Module Contents
 ---------------
 
+.. py:class:: BaseData
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: description
+      :type:  str
+
+
+   .. py:attribute:: spec_url
+      :type:  str
+
+
+.. py:class:: ClassesSuggestions
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: name
+      :type:  str
+
+
+   .. py:attribute:: predefined_type
+      :type:  NotRequired[str]
+
+
 .. py:class:: DocExtractor
 
    .. py:method:: clean_description(description)
 
 
-   .. py:method:: clean_highlighted_words(text)
+   .. py:method:: clean_highlighted_words(text: str) -> str
 
 
    .. py:method:: extract_ifc2x3()
@@ -60,25 +112,141 @@ Module Contents
    .. py:method:: setup_ifc4_reference_lookup()
 
 
-.. py:function:: get_attribute_doc(version, entity, attribute, recursive=True)
+.. py:class:: EntityData
 
-.. py:function:: get_class_suggestions(version, class_name)
+   Bases: :py:obj:`BaseData`
 
-.. py:function:: get_db(version)
 
-.. py:function:: get_entity_doc(version, entity_name, recursive=True)
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: attributes
+      :type:  NotRequired[dict[str, str]]
+
+
+   .. py:attribute:: predefined_types
+      :type:  NotRequired[dict[str, str]]
+
+
+.. py:class:: PropertyData
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: children
+      :type:  NotRequired[dict[str, PropertyData]]
+
+
+   .. py:attribute:: description
+      :type:  str
+
+
+.. py:class:: PsetData
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: description
+      :type:  NotRequired[str]
+
+
+   .. py:attribute:: properties
+      :type:  dict[str, str]
+
+
+   .. py:attribute:: spec_url
+      :type:  NotRequired[str]
+
+
+.. py:class:: SchemaData
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: classes_suggestions
+      :type:  dict[str, ClassesSuggestions]
+
+
+   .. py:attribute:: entities
+      :type:  dict[str, EntityData]
+
+
+   .. py:attribute:: properties
+      :type:  dict[str, PsetData]
+
+
+   .. py:attribute:: types
+      :type:  dict[str, BaseData]
+
+
+.. py:function:: get_attribute_doc(version: ifcopenshell.util.schema.IFC_SCHEMA, entity: str, attribute: str, recursive=True) -> Union[str, None]
+
+.. py:function:: get_class_suggestions(version: ifcopenshell.util.schema.IFC_SCHEMA, class_name: str) -> Union[ClassesSuggestions, None]
+
+.. py:function:: get_db(version: ifcopenshell.util.schema.IFC_SCHEMA) -> Union[SchemaData, None]
+
+.. py:function:: get_entity_doc(version: ifcopenshell.util.schema.IFC_SCHEMA, entity_name: str, recursive: bool = True) -> Union[EntityData, None]
 
 .. py:function:: get_inverse_attributes(el)
 
-.. py:function:: get_predefined_type_doc(version, entity, predefined_type)
+.. py:function:: get_predefined_type_doc(version: ifcopenshell.util.schema.IFC_SCHEMA, entity: str, predefined_type: str) -> Union[str, None]
 
-.. py:function:: get_property_doc(version, pset, prop)
+.. py:function:: get_property_doc(version: ifcopenshell.util.schema.IFC_SCHEMA, pset: str, prop: str) -> Union[str, None]
 
-.. py:function:: get_property_set_doc(version, pset)
+.. py:function:: get_property_set_doc(version: ifcopenshell.util.schema.IFC_SCHEMA, pset: str) -> Union[PsetData, None]
 
 .. py:function:: get_schema_by_name(version: str) -> ifcopenshell.ifcopenshell_wrapper.schema_definition
 
-.. py:function:: get_type_doc(version, ifc_type)
+.. py:function:: get_type_doc(version: ifcopenshell.util.schema.IFC_SCHEMA, ifc_type: str) -> Union[BaseData, None]
 
 .. py:function:: run_doc_api_examples()
 
@@ -97,11 +265,12 @@ Module Contents
 
 
 .. py:data:: SCHEMA_FILES
-   :type:  dict[SUPPORTED_SCHEMA, dict]
+   :type:  dict[SUPPORTED_SCHEMA, dict[str, pathlib.Path]]
 
 .. py:data:: SUPPORTED_SCHEMA
 
 .. py:data:: db
+   :type:  dict[SUPPORTED_SCHEMA, SchemaData]
    :value: None
 
 

@@ -118,14 +118,14 @@ Module Contents
    :return: The first IfcShapeRepresentation matching the criteria.
 
 
-.. py:function:: get_representations_iter(element: ifcopenshell.entity_instance) -> Generator[ifcopenshell.entity_instance, None, None]
+.. py:function:: get_representations_iter(element: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance, None, None]
 
    Get an iterator with element's IfcShapeRepresentations.
 
    :param element: An IfcProduct or IfcTypeProduct
 
 
-.. py:function:: guess_type(items: Sequence[ifcopenshell.entity_instance]) -> Union[str, None]
+.. py:function:: guess_type(items: collections.abc.Sequence[ifcopenshell.entity_instance]) -> Union[str, None]
 
    Guesses the appropriate RepresentationType attribute based on a list of items
 
@@ -143,7 +143,7 @@ Module Contents
    :param target_view: A TargetView string, or any if left blank.
 
 
-.. py:function:: resolve_base_items(representation: ifcopenshell.entity_instance) -> Generator[ifcopenshell.entity_instance, None, None]
+.. py:function:: resolve_base_items(representation: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance, None, None]
 
    Resolve representation to it's base items resolving mapped items and boolean results to it's operands.
 

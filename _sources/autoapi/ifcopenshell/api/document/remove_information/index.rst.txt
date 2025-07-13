@@ -14,9 +14,7 @@ Module Contents
    All references and associations are also removed.
 
    :param information: The IfcDocumentInformation to remove
-   :type information: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

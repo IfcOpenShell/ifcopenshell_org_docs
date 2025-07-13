@@ -7,7 +7,10 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, query: str = 'IfcWall', assume_asset_uniqueness_by_name: bool = True)
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None, query: str = 'IfcWall', assume_asset_uniqueness_by_name: bool = True)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Extract certain elements into a new model
@@ -67,12 +70,6 @@ Module Contents
    .. py:attribute:: assume_asset_uniqueness_by_name
       :value: True
 
-
-
-   .. py:attribute:: file
-
-
-   .. py:attribute:: logger
 
 
    .. py:attribute:: query

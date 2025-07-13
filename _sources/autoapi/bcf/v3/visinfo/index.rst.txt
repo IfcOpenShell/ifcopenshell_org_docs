@@ -43,7 +43,7 @@ Module Contents
 
 
 
-   .. py:method:: from_topic_viewpoints(topic_dir: zipfile.Path, vps: Iterable[bcf.v3.model.ViewPoint], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> dict[str, VisualizationInfoHandler]
+   .. py:method:: from_topic_viewpoints(topic_dir: zipfile.Path, vps: collections.abc.Iterable[bcf.v3.model.ViewPoint], xml_handler: Optional[bcf.xml_parser.AbstractXmlParserSerializer] = None) -> dict[str, VisualizationInfoHandler]
       :classmethod:
 
 

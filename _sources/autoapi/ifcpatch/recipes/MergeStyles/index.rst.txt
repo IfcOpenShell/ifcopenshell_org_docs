@@ -7,7 +7,10 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file, logger)
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Merge identical styles together
@@ -24,11 +27,5 @@ Module Contents
 
 
    .. py:method:: patch()
-
-
-   .. py:attribute:: file
-
-
-   .. py:attribute:: logger
 
 

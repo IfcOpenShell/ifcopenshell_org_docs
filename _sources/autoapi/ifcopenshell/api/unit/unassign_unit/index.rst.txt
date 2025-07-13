@@ -11,7 +11,7 @@ Module Contents
 
    Unassigns units as default units for the project
 
-   :param units: A list of units to assign as project defaults.
+   :param units: A list of units to unassign as project defaults.
    :return: None
 
    Example:

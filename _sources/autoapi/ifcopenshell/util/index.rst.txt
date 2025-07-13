@@ -53,6 +53,7 @@ Submodules
    generate_pset_templates/index.rst
    geolocation/index.rst
    ifc4x3dev_scrape_data_for_docs/index.rst
+   mvd_info/index.rst
    placement/index.rst
    pset/index.rst
    representation/index.rst

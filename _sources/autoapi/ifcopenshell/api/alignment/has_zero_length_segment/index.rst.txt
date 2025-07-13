@@ -7,11 +7,11 @@
 Module Contents
 ---------------
 
-.. py:function:: has_zero_length_segment(entity: ifcopenshell.entity_instance) -> bool
+.. py:function:: has_zero_length_segment(layout: ifcopenshell.entity_instance) -> bool
 
-   Returns true if the entity ends with a zero length segment. If the entity is an IfcCompositeCurve the IfcCurveSegment.Transition must be DISCONTINUOUS
+   Returns true if the layout ends with a zero length segment.
 
-   :param entity: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant or IfcCompositeCurve
+   :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
    :return: True if the zero length segment is present
 
 

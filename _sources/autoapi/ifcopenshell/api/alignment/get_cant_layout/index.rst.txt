@@ -1,0 +1,14 @@
+:py:mod:`ifcopenshell.api.alignment.get_cant_layout`
+====================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_cant_layout
+
+
+Module Contents
+---------------
+
+.. py:function:: get_cant_layout(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the IfcAlignmentCant assocated with this alignment
+
+

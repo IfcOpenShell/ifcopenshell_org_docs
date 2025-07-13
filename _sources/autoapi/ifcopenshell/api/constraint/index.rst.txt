@@ -154,9 +154,7 @@ Package Contents
    unclear.
 
    :param constraint: The IfcObjective you want to remove.
-   :type constraint: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -175,9 +173,7 @@ Package Contents
    and objectives.
 
    :param metric: The IfcMetric you want to remove.
-   :type metric: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

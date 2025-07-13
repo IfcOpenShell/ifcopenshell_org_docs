@@ -1,0 +1,21 @@
+:py:mod:`ifcopenshell.api.alignment.layout_horizontal_alignment_by_pi_method`
+=============================================================================
+
+.. py:module:: ifcopenshell.api.alignment.layout_horizontal_alignment_by_pi_method
+
+
+Module Contents
+---------------
+
+.. py:function:: layout_horizontal_alignment_by_pi_method(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, hpoints: collections.abc.Sequence[collections.abc.Sequence[float]], radii: collections.abc.Sequence[float]) -> None
+
+   Appends IfcAlignmentHorizontalSegment to a previously defined IfcAlignmentHorizontal using the PI layout method.
+   The zero length segment is updated.
+
+   :param file: file
+   :param layout: An IfcAlignmentHorizontal layout
+   :param hpoints: (X, Y) pairs denoting the location of the horizontal PIs, including start (POB) and end (POE).
+   :param radii: radius values to use for transition
+   :return: None
+
+

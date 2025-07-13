@@ -1,0 +1,33 @@
+:py:mod:`ifcopenshell.api.alignment.add_vertical_layout`
+========================================================
+
+.. py:module:: ifcopenshell.api.alignment.add_vertical_layout
+
+
+Module Contents
+---------------
+
+.. py:function:: add_vertical_layout(file: ifcopenshell.file, parent_alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Adds a vertical layout to a previously created alignment.
+
+   If this is the first vertical layout assigned to the parent_alignment the IFC CT 4.1.4.4.1.1 Alignment Layout - Horizontal, Vertical and Cant
+   is followed. If this is the second or subsequent vertical layout assigned to the parent_alignment the
+   IFC CT 4.1.4.4.1.2 Alignment Layout - Reusing Horizontal Layout is followed.
+
+   When the second vertical layout is added, the structure of the IFC model must transition from one concept template to the other.
+   Specifically, the following occurs:
+
+   1) The first child IfcAlignment is created and is IfcRelAggregates with the parent alignment.
+   2) The first vertical layout is unassigned from the IfcRelNests of the parent alignment and is IfcRelNests to the new child alignment.
+   3) A second child IfcAlignment is created and it is IfcRelAggregates with the parent alignment.
+   4) The vertical layout is IfcRelNests to the second child alignment
+
+   For the third and subsequent vertical layouts, a new child alignment is created and aggregated to the parent alignment.
+
+   A zero segment length terminated IfcGradientCurve is created for the new vertical layout
+
+   :param parent_alignment: The parent alignment
+   :return: The new vertical layout, including the manditory zero length segment
+
+

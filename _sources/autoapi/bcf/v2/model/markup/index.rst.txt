@@ -80,7 +80,7 @@ Module Contents
 .. py:class:: Header
 
    .. py:attribute:: file
-      :type:  List[HeaderFile]
+      :type:  list[HeaderFile]
       :value: []
 
 
@@ -134,7 +134,7 @@ Module Contents
 .. py:class:: Markup
 
    .. py:attribute:: comment
-      :type:  List[Comment]
+      :type:  list[Comment]
       :value: []
 
 
@@ -150,7 +150,7 @@ Module Contents
 
 
    .. py:attribute:: viewpoints
-      :type:  List[ViewPoint]
+      :type:  list[ViewPoint]
       :value: []
 
 
@@ -184,7 +184,7 @@ Module Contents
 
 
    .. py:attribute:: document_reference
-      :type:  List[TopicDocumentReference]
+      :type:  list[TopicDocumentReference]
       :value: []
 
 
@@ -206,7 +206,7 @@ Module Contents
 
 
    .. py:attribute:: labels
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -230,13 +230,13 @@ Module Contents
 
 
    .. py:attribute:: reference_link
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
 
    .. py:attribute:: related_topic
-      :type:  List[TopicRelatedTopic]
+      :type:  list[TopicRelatedTopic]
       :value: []
 
 
@@ -334,4 +334,6 @@ Module Contents
       :value: None
 
 
+
+.. py:data:: DATACLASS_KWARGS
 

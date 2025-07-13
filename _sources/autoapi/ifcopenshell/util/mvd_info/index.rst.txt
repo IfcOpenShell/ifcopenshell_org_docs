@@ -1,0 +1,147 @@
+:py:mod:`ifcopenshell.util.mvd_info`
+====================================
+
+.. py:module:: ifcopenshell.util.mvd_info
+
+
+Module Contents
+---------------
+
+.. py:class:: AutoCommitList(iterable, callback, formatter=None)
+
+   Bases: :py:obj:`list`
+
+
+   ensures keyword attributes are written back to ifcopenshell.file.header
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:method:: append(item)
+
+      Append object to the end of the list.
+
+
+
+   .. py:method:: clear()
+
+      Remove all items from list.
+
+
+
+   .. py:method:: extend(iterable)
+
+      Extend list by appending elements from the iterable.
+
+
+
+   .. py:method:: insert(index, item)
+
+      Insert object before index.
+
+
+
+   .. py:method:: pop(index=-1)
+
+      Remove and return item at index (default last).
+
+      Raises IndexError if list is empty or index is out of range.
+
+
+
+   .. py:method:: remove(item)
+
+      Remove first occurrence of value.
+
+      Raises ValueError if the value is not present.
+
+
+
+.. py:class:: DictionaryHandler(initial_data, mvdinfo, keyword)
+
+   Bases: :py:obj:`dict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:class:: MvdInfo(header)
+
+   .. py:property:: comments
+
+
+   .. py:property:: description
+      :type: list[str]
+
+
+
+   .. py:property:: exchange_requirements
+
+
+   .. py:property:: keywords
+
+
+   .. py:property:: options
+
+
+   .. py:property:: view_definitions
+
+
+.. py:data:: LARK_AVAILABLE
+   :value: True
+
+
+.. py:data:: mvd_grammar
+   :value: Multiline-String
+
+   .. raw:: html
+
+      <details><summary>Show Value</summary>
+
+   .. code-block:: python
+
+      """
+              start: entry+
+      
+              entry: "ViewDefinition" "[" simple_value_list "]"   -> view_definition
+                  | "Comment" "[" simple_value_list "]" -> comment
+                  | "ExchangeRequirement" "[" other_keyword "]" -> exchangerequirement
+                  | "Option" "[" other_keyword "]" -> option
+                  | GENERIC_KEYWORD "[" dynamic_option_word "]" -> dynamic_option
+      
+              GENERIC_KEYWORD: /[A-Za-z0-9_]+/
+      
+              simple_value_list: value ("," value)*
+      
+              value_list_set: value_set (";" value_set)*
+      
+              value_set: set_name ":" simple_value_list
+      
+              set_name: /[A-Za-z0-9_]+/
+      
+              value: /[A-Za-z0-9 _\.-]+/
+      
+              other_keyword: /[^\[\]]+/  
+              
+              dynamic_option_word: /[^\[\]]+/ 
+      
+              %import common.WS
+              %ignore WS
+          """
+
+   .. raw:: html
+
+      </details>
+
+
+

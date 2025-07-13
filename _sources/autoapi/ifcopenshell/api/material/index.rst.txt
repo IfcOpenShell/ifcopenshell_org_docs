@@ -566,11 +566,8 @@ Package Contents
    :param material_profile: The IfcMaterialProfile to change the profile
        curve of. See ifcopenshell.api.material.add_profile to see how to
        create profiles.
-   :type material_profile: ifcopenshell.entity_instance
    :param profile: The IfcProfileDef to set the profile item's curve to.
-   :type profile: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1003,12 +1000,9 @@ Package Contents
 
    :param material_list: The IfcMaterialList entity you want to remove an
        item from.
-   :type material_list: ifcopenshell.entity_instance
    :param material_index: The index of the material you want to remove from
        the list. Starts counting at 0. Defaults to 0.
-   :type material_index: int, optional
    :return: None
-   :rtype: None
 
    Example:
 
@@ -1140,15 +1134,11 @@ Package Contents
 
    :param material_set: The IfcMaterialSet which you want to reorder an
        item in.
-   :type material_set: ifcopenshell.entity_instance
    :param old_index: The index of the item you want to move. This starts
        counting from 0.
-   :type old_index: int
    :param new_index: The index of the new position the item will move to.
        This starts counting from 0.
-   :type new_index: int
    :return: None
-   :rtype: None
 
    Example:
 

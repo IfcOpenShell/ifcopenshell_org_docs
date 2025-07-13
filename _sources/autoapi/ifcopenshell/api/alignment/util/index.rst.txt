@@ -36,8 +36,18 @@ Module Contents
    Debugging function to print alignment decomposition
 
 
+.. py:function:: print_alignment_deep(alignment, indent=0)
+
+   Debugging function to print alignment decomposition, including layout segments
+
+
 .. py:function:: print_composite_curve(curve)
 
    Debugging function to print composite curve segments
+
+
+.. py:function:: print_composite_curve_deep(curve)
+
+   Debugging function to print composite curve segments, including curve segment details
 
 

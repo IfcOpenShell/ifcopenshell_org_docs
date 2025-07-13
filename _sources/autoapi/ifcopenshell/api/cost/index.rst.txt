@@ -56,13 +56,10 @@ Package Contents
    :param cost_schedule: If the cost item is to be added as a root or top
        level cost item to a cost schedule, the IfcCostSchedule may be
        specified. This is mutually exlclusive to the cost_item parameter.
-   :type cost_schedule: ifcopenshell.entity_instance, optional.
    :param cost_item: If the cost item is to be added as a subitem to an
        existing cost item, the parent IfcCostItem may be specified. This is
        mutually exclusive to the cost_schedule parameter.
-   :type cost_item: ifcopenshell.entity_instance, optional
    :return: The newly created IfcCostItem
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -254,18 +251,16 @@ Package Contents
 
    If cost item has just 1 quantity and it's IfcQuantityCount, API will
    assume that quantity is used for counting controlled objects
-   and it will recalculate the quantity value at the end of the API call.
+   and it will recalculate the quantity value at the end of the API call
+   as long as the RelatedObjects are not IfcConstructionResource which do not
+   count towards the cost item (they only provide value).
 
    :param cost_item: The IfcCostItem to assign parametric quantities to
-   :type cost_item: ifcopenshell.entity_instance
    :param products: The IfcObjects to assign parametric quantities to
-   :type products: list[ifcopenshell.entity_instance]
    :param prop_name: The name of the quantity. If this is not specified,
        then it is assumed that there is no calculated quantity, and the
        number of objects are counted instead.
-   :type prop_name: str, optional
    :return: None
-   :rtype: None
 
    Example:
 
@@ -353,9 +348,7 @@ Package Contents
    previously existing values are removed.
 
    :param cost_item: The IfcCostItem to calculate
-   :type cost_item: ifccopenshell.entity_instance.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -555,11 +548,8 @@ Package Contents
    For more information, see ifcopenshell.util.cost
 
    :param cost_value: The IfcCostValue to set the values of
-   :type cost_value: ifcopenshell.entity_instance
    :param formula: The formula following the language of ifcopenshell.util.cost
-   :type formula: str
    :return: None
-   :rtype: None
 
    Example:
 
@@ -626,9 +616,7 @@ Package Contents
    including all cost items.
 
    :param cost_schedule: The IfcCostSchedule entity you want to remove
-   :type cost_schedule: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

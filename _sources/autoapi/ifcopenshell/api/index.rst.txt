@@ -39,6 +39,7 @@ Subpackages
    attribute/index.rst
    boundary/index.rst
    classification/index.rst
+   cogo/index.rst
    constraint/index.rst
    context/index.rst
    control/index.rst

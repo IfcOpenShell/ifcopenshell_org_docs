@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.cogo.edit_survey_point`
+=================================================
+
+.. py:module:: ifcopenshell.api.cogo.edit_survey_point
+
+
+Module Contents
+---------------
+
+.. py:function:: edit_survey_point(annotation: ifcopenshell.entity_instance, x: float, y: float, z: float = 0.0)
+
+   Edits the location of a previously defined survey point
+
+   :param survey_point: The survey point
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       annotation = ifcopenshell.api.cogo.add_survey_point(file,file.createIfcCartesianPoint(4000.0,3500.0)))
+       ifcopenshell.api.cogo.edit_surve_point(annotation,3500.0,2000.0)
+
+

@@ -1,0 +1,21 @@
+:py:mod:`ifcopenshell.api.alignment.get_layout_segments`
+========================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_layout_segments
+
+
+Module Contents
+---------------
+
+.. py:function:: get_layout_segments(layout: ifcopenshell.entity_instance) -> collections.abc.Sequence[ifcopenshell.entity_instance]
+
+   Returns the IfcAlignmentSegment nested to this alignment layout
+
+   Example:
+
+   .. code:: python
+
+       horizontal = model.by_type("IfcAlignmentHorizontal")[0]
+       segments = ifcopenshell.api.alignment.get_layout_segments(horizontal)
+
+

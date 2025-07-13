@@ -7,9 +7,9 @@
 Module Contents
 ---------------
 
-.. py:function:: get_child_alignments(alignment: ifcopenshell.entity_instance) -> Sequence[ifcopenshell.entity_instance]
+.. py:function:: get_child_alignments(alignment: ifcopenshell.entity_instance) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
-   Returns the aggregated child alignments to this alignment
+   Returns the aggregated child alignments to this alignment per CT 4.1.4.4.1.2 Alignment Layout - Reusing Horizontal Layout
 
    Example:
 

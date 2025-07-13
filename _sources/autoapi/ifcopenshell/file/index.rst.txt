@@ -7,6 +7,19 @@
 Module Contents
 ---------------
 
+.. py:exception:: UndoSystemError(message: str, transaction: Transaction)
+
+   Bases: :py:obj:`Exception`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: transaction
+
+
 .. py:class:: Transaction(ifc_file: file)
 
    .. py:method:: batch() -> None
@@ -15,7 +28,7 @@ Module Contents
    .. py:method:: commit() -> None
 
 
-   .. py:method:: get_element_inverses(element)
+   .. py:method:: get_element_inverses(element: ifcopenshell.entity_instance) -> ElementInverses
 
 
    .. py:method:: has_element_reference(value: Any, element: ifcopenshell.entity_instance) -> bool
@@ -27,7 +40,7 @@ Module Contents
    .. py:method:: serialise_entity_instance(element: ifcopenshell.entity_instance) -> dict[str, Any]
 
 
-   .. py:method:: serialise_value(element, value)
+   .. py:method:: serialise_value(element, value) -> Any
 
 
    .. py:method:: store_create(element: ifcopenshell.entity_instance) -> None
@@ -42,10 +55,11 @@ Module Contents
    .. py:method:: unbatch() -> None
 
 
-   .. py:method:: unserialise_value(element, value)
+   .. py:method:: unserialise_value(element, value) -> Any
 
 
    .. py:attribute:: batch_delete_ids
+      :type:  set[int]
 
 
    .. py:attribute:: batch_delete_index
@@ -54,8 +68,7 @@ Module Contents
 
 
    .. py:attribute:: batch_inverses
-      :value: []
-
+      :type:  list[ElementInverses]
 
 
    .. py:attribute:: file
@@ -68,8 +81,7 @@ Module Contents
 
 
    .. py:attribute:: operations
-      :value: []
-
+      :type:  list[TransactionOperation]
 
 
 .. py:class:: file(f: Optional[ifcopenshell.ifcopenshell_wrapper.file] = None, schema: Optional[ifcopenshell.util.schema.IFC_SCHEMA] = None, schema_version: Optional[tuple[int, int, int, int]] = None)
@@ -188,7 +200,7 @@ Module Contents
 
 
 
-   .. py:method:: create_entity(type: str, *args, **kwargs) -> ifcopenshell.entity_instance
+   .. py:method:: create_entity(type: str, *args: Any, **kwargs: Any) -> ifcopenshell.entity_instance
 
       Create a new IFC entity in the file.
 
@@ -223,7 +235,7 @@ Module Contents
    .. py:method:: end_transaction() -> None
 
 
-   .. py:method:: from_pointer(v) -> file
+   .. py:method:: from_pointer(address: int) -> file
       :staticmethod:
 
 
@@ -328,12 +340,20 @@ Module Contents
 
 
    .. py:attribute:: future
-      :value: []
+      :type:  list[Transaction]
 
+      Reversed chronological order - from newest to oldest.
+
+
+
+   .. py:attribute:: header
+      :type:  ifcopenshell.ifcopenshell_wrapper.IfcSpfHeader
 
 
    .. py:attribute:: history
-      :value: []
+      :type:  list[Transaction]
+
+      Chronological order - from oldest to newest.
 
 
 
@@ -341,6 +361,9 @@ Module Contents
       :type:  int
       :value: 64
 
+
+
+   .. py:property:: mvd
 
 
    .. py:property:: schema
@@ -396,6 +419,8 @@ Module Contents
 
 .. py:data:: INVALID_SYNTAX
 
+.. py:data:: InverseReference
+
 .. py:data:: NO_HEADER
 
 .. py:data:: READ_ERROR
@@ -403,4 +428,10 @@ Module Contents
 .. py:data:: UNSUPPORTED_SCHEMA
 
 .. py:data:: file_dict
+   :type:  dict[int, weakref.ReferenceType[file]]
+
+   Mapping of internal IfcFile pointer addressed to existing ``ifcopenshell.file``.
+
+   Needed only to quickly access related from ``entity_instance`` it's ``file``.
+
 

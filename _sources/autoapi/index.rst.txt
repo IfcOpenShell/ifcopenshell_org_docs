@@ -10,8 +10,8 @@ This page contains auto-generated API reference documentation [#f1]_.
    /autoapi/bcf/index
    /autoapi/bsdd/index
    /autoapi/test/index
-   /autoapi/model/index
    /autoapi/topic/index
+   /autoapi/model/index
    /autoapi/ifccsv/index
    /autoapi/visinfo/index
    /autoapi/ifcdiff/index
@@ -20,6 +20,7 @@ This page contains auto-generated API reference documentation [#f1]_.
    /autoapi/ifctester/index
    /autoapi/extensions/index
    /autoapi/ifcopenshell/index
+   /autoapi/validate_stub/index
    /autoapi/yml_to_classes/index
 
 .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

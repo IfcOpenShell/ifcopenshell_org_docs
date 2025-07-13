@@ -34,13 +34,13 @@ Module Contents
    - IfcMaterialConstituent: https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD2_TC1/HTML/schema/ifcmaterialresource/lexical/ifcmaterialconstituent.htm
 
 
-   .. py:method:: calculate_constituent_widths(constituents: List[ifcopenshell.entity_instance], elements: set[ifcopenshell.entity_instance], unit_scale: float) -> Tuple[Dict[ifcopenshell.entity_instance, float], float]
+   .. py:method:: calculate_constituent_widths(constituents: list[ifcopenshell.entity_instance], elements: set[ifcopenshell.entity_instance], unit_scale: float) -> tuple[dict[ifcopenshell.entity_instance, float], float]
 
       Calculate the widths of constituents based on associated quantities.
 
 
 
-   .. py:method:: get_element_quantities(element: ifcopenshell.entity_instance) -> Dict[str, float]
+   .. py:method:: get_element_quantities(element: ifcopenshell.entity_instance) -> dict[str, float]
 
       Get width quantities for an element.
 

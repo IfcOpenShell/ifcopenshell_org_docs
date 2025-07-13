@@ -47,9 +47,7 @@ Package Contents
    is considered the latest version and the children are older revisions.
 
    :param parent: The parent document, if necessary.
-   :type parent: ifcopenshell.entity_instance, optional
    :return: The newly created IfcDocumentInformation entity
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -203,9 +201,7 @@ Package Contents
    All references and associations are also removed.
 
    :param information: The IfcDocumentInformation to remove
-   :type information: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 
@@ -224,9 +220,7 @@ Package Contents
    All associations with objects are removed.
 
    :param reference: The IfcDocumentReference to remove
-   :type reference: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

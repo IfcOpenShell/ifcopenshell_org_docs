@@ -115,12 +115,12 @@ Module Contents
    .. py:attribute:: message
 
 
-.. py:function:: annotate_inst_attr_pos(inst: Union[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.HeaderEntity], pos: int, entity_str: str = '') -> str
+.. py:function:: annotate_inst_attr_pos(inst: Union[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.HeaderEntity], pos: Union[int, tuple[int, Ellipsis]], entity_str: str = '') -> str
 
    Add a caret annotation to the entity string at the given attribute index.
 
    :param inst: Instance to annotate.
-   :param pos: Attribute index to annotate.
+   :param pos: Attribute index or a tuple of them to annotate.
    :param entity_str: Entity string to annotate. If not provided, ``str(inst)`` is used.
 
    Example:
@@ -137,15 +137,20 @@ Module Contents
 
 .. py:function:: format(val: Any) -> str
 
-.. py:function:: get_entity_attributes(schema: schema_definition, entity: str) -> tuple[entity_type, tuple[attribute]]
+.. py:function:: get_entity_attributes(schema: schema_definition, entity: str) -> tuple[entity_type, tuple[attribute, Ellipsis]]
 
 .. py:function:: get_select_members(schema: schema_definition, ty: select_type) -> set[str]
 
 .. py:function:: handle_exception(exc_type, exc_value, exc_traceback)
 
-.. py:function:: log_internal_cpp_errors(f: ifcopenshell.file, filename: str, logger: logging.Logger) -> None
+.. py:function:: log_internal_cpp_errors(f: ifcopenshell.file, filename: str, logger: Union[logging.Logger, json_logger]) -> None
 
-.. py:function:: validate(f: Union[ifcopenshell.file, str], logger: logging.Logger, express_rules=False) -> None
+.. py:function:: to_string_header_entity(header_entity)
+
+   Recreate IFC header string representation, like FILE_NAME(...)
+
+
+.. py:function:: validate(f: Union[ifcopenshell.file, str], logger: Union[logging.Logger, json_logger], express_rules=False) -> None
 
    For an IFC population model `f` (or filepath to such a file) validate whether the entity attribute values are correctly supplied. As this
    is a function that is applied after a file has been parsed, certain types of errors in syntax, duplicate
@@ -183,9 +188,11 @@ Module Contents
    :return: `None` if guid is valid, otherwise a string with an error message.
 
 
-.. py:function:: validate_ifc_applications(f: ifcopenshell.file, logger: logging.Logger) -> None
+.. py:function:: validate_ifc_applications(f: ifcopenshell.file, logger: Union[logging.Logger, json_logger]) -> None
 
-.. py:function:: validate_ifc_header(f: ifcopenshell.file, logger: logging.Logger) -> None
+.. py:function:: validate_ifc_header(f: Union[ifcopenshell.file, ifcopenshell.simple_spf.file], logger: Union[logging.Logger, json_logger]) -> None
+
+.. py:data:: EllipsisType
 
 .. py:data:: aggregation_type
 
@@ -194,7 +201,7 @@ Module Contents
 .. py:data:: attribute_types
 
 .. py:data:: entity_attribute_map
-   :type:  dict[tuple[str, str], tuple[entity_type, tuple[attribute]]]
+   :type:  dict[tuple[str, str], tuple[entity_type, tuple[attribute, Ellipsis]]]
 
 .. py:data:: entity_type
 

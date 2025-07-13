@@ -186,7 +186,7 @@ Module Contents
 
 
    .. py:attribute:: geometry
-      :type:  Union[bpy.types.Mesh, bpy.types.Curve]
+      :type:  Union[bpy.types.Mesh, bpy.types.Curve, bpy.types.Camera]
 
 
    .. py:attribute:: ifc_vertices

@@ -67,6 +67,6 @@ Module Contents
 
        # Now specifically our wall's only item only will be coloured grey.
        ifcopenshell.api.style.assign_item_style(model,
-           shape_representation=representation, style=style, item=representation.Items[0])
+           style=style, item=representation.Items[0])
 
 

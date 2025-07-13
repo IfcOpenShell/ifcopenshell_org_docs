@@ -62,7 +62,7 @@ Module Contents
 
 
    .. py:attribute:: priority
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -78,7 +78,7 @@ Module Contents
 
 
    .. py:attribute:: snippet_type
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -94,7 +94,7 @@ Module Contents
 
 
    .. py:attribute:: stage
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -110,7 +110,7 @@ Module Contents
 
 
    .. py:attribute:: topic_label
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -126,7 +126,7 @@ Module Contents
 
 
    .. py:attribute:: topic_status
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -142,7 +142,7 @@ Module Contents
 
 
    .. py:attribute:: topic_type
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
@@ -158,8 +158,10 @@ Module Contents
 
 
    .. py:attribute:: user
-      :type:  List[str]
+      :type:  list[str]
       :value: []
 
 
+
+.. py:data:: DATACLASS_KWARGS
 

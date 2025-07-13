@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_layer_with_style(file: ifcopenshell.file, name: str = 'Unnamed', on: IfcLogical = 'UNKNOWN', frozen: IfcLogical = 'UNKNOWN', blocked: IfcLogical = 'UNKNOWN', styles: Sequence[ifcopenshell.entity_instance] = ()) -> ifcopenshell.entity_instance
+.. py:function:: add_layer_with_style(file: ifcopenshell.file, name: str = 'Unnamed', on: IfcLogical = 'UNKNOWN', frozen: IfcLogical = 'UNKNOWN', blocked: IfcLogical = 'UNKNOWN', styles: collections.abc.Sequence[ifcopenshell.entity_instance] = ()) -> ifcopenshell.entity_instance
 
    Adds a new layer with style
 

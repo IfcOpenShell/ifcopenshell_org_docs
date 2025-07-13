@@ -15,9 +15,7 @@ Module Contents
    the group will be removed.
 
    :param group: The IfcGroup entity you want to remove
-   :type group: ifcopenshell.entity_instance
    :return: None
-   :rtype: None
 
    Example:
 

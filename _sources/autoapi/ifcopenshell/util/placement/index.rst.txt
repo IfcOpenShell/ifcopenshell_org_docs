@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: a2p(o: Iterable[float], z: Iterable[float], x: Iterable[float]) -> MatrixType
+.. py:function:: a2p(o: collections.abc.Iterable[float], z: collections.abc.Iterable[float], x: collections.abc.Iterable[float]) -> MatrixType
 
    Converts a location, X, and Z axis vector to a 4x4 transformation matrix
 
@@ -15,13 +15,9 @@ Module Contents
    provide the Y axis.
 
    :param o: The origin (i.e. location) of the matrix
-   :type o: iterable[float]
    :param z: The +Z vector / axis of the matrix
-   :type z: iterable[float]
    :param x: The +X vector / axis of the matrix
-   :type x: iterable[float]
    :return: A 4x4 numpy matrix
-   :rtype: MatrixType
 
 
 .. py:function:: get_axis2placement(placement: ifcopenshell.entity_instance) -> MatrixType
@@ -34,9 +30,7 @@ Module Contents
    should use ``get_local_placement`` instead.
 
    :param placement: The IfcLocalPlacement enitity
-   :type placement: ifcopenshell.entity_instance
    :return: A 4x4 numpy matrix
-   :rtype: MatrixType
 
 
 .. py:function:: get_cartesiantransformationoperator3d(inst: ifcopenshell.entity_instance) -> MatrixType
@@ -72,9 +66,7 @@ Module Contents
        matrix = ifcopenshell.util.placement.get_local_placement(placement)
 
    :param placement: The IfcLocalPlacement entity
-   :type placement: ifcopenshell.entity_instance, optional
    :return: A 4x4 numpy matrix
-   :rtype: MatrixType
 
 
 .. py:function:: get_mappeditem_transformation(item: ifcopenshell.entity_instance) -> MatrixType
@@ -86,9 +78,7 @@ Module Contents
    transformation matrix.
 
    :param item: The IfcMappedItem entity
-   :type item: ifcopenshell.entity_instance
    :return: A 4x4 numpy transformation matrix
-   :rtype: MatrixType
 
 
 .. py:function:: get_storey_elevation(storey: ifcopenshell.entity_instance) -> float
@@ -99,9 +89,7 @@ Module Contents
    its placement, or as a fallback the ``Elevation`` attribute.
 
    :param storey: The IfcBuildingStorey entity
-   :type storey: ifcopenshell.entity_instance
    :return: The elevation in project units
-   :rtype: float
 
 
 .. py:function:: rotation(angle: float, axis: Literal['X', 'Y', 'Z'], is_degrees=True) -> MatrixType
@@ -109,14 +97,10 @@ Module Contents
    Create a 4x4 numpy matrix representing an euler rotation
 
    :param angle: The angle of rotation
-   :type angle: float
    :param axis: The axis to rotate around, either X, Y, or Z.
-   :type axis: str
    :param is_degrees: Whether or not the angle is specified in degrees or
        radians. Defaults to true (i.e. degrees).
-   :type is_degrees: bool
    :return: A 4x4 numpy rotation matrix
-   :rtype: MatrixType
 
 
 .. py:data:: MatrixType

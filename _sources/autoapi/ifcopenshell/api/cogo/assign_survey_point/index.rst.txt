@@ -1,0 +1,25 @@
+:py:mod:`ifcopenshell.api.cogo.assign_survey_point`
+===================================================
+
+.. py:module:: ifcopenshell.api.cogo.assign_survey_point
+
+
+Module Contents
+---------------
+
+.. py:function:: assign_survey_point(annotation: ifcopenshell.entity_instance, survey_point: ifcopenshell.entity_instance)
+
+   Assigns a coordinate point to a survey point annotation
+
+   :param annotaton: The survey point annotation
+   :param survey_point: The survey point
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       annotation = ifcopenshell.api.cogo.add_survey_point(file,file.createIfcCartesianPoint(4000.0,3500.0)))
+       ifcopenshell.api.cogo.assign_surve_point(annotation,file.createIfcCartesianPoint(4000.0,3500.0,100.0))
+
+

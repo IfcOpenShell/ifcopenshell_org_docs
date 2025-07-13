@@ -54,7 +54,7 @@ Module Contents
 
 
 
-   .. py:method:: create_ellipse_curve(x_axis_radius: float, y_axis_radius: float, position: VectorType = (0.0, 0.0), trim_points: SequenceOfVectors = (), ref_x_direction: VectorType = (1.0, 0.0), trim_points_mask: Sequence[int] = ()) -> ifcopenshell.entity_instance
+   .. py:method:: create_ellipse_curve(x_axis_radius: float, y_axis_radius: float, position: VectorType = (0.0, 0.0), trim_points: SequenceOfVectors = (), ref_x_direction: VectorType = (1.0, 0.0), trim_points_mask: collections.abc.Sequence[int] = ()) -> ifcopenshell.entity_instance
 
       Ellipse trimming points should be specified in counter clockwise order.
 
@@ -96,6 +96,16 @@ Module Contents
 
 
    .. py:method:: deep_copy(element: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: edge(start: VectorType = (0.0, 0.0, 0.0), end: VectorType = (1.0, 0.0, 0.0)) -> ifcopenshell.entity_instance
+
+      Create a topological edge
+
+      :param start: The start coordinates of the vertex.
+      :param end: The end coordinates of the vertex.
+      :return: IfcEdge
+
 
 
    .. py:method:: extrude(profile_or_curve: ifcopenshell.entity_instance, magnitude: float = 1.0, position: VectorType = (0.0, 0.0, 0.0), extrusion_vector: VectorType = (0.0, 0.0, 1.0), position_z_axis: VectorType = (0.0, 0.0, 1.0), position_x_axis: VectorType = (1.0, 0.0, 0.0), position_y_axis: Optional[VectorType] = None) -> ifcopenshell.entity_instance
@@ -150,7 +160,19 @@ Module Contents
 
 
 
-   .. py:method:: faceted_brep(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
+   .. py:method:: face(points: SequenceOfVectors) -> ifcopenshell.entity_instance
+
+      Create a single topological face
+
+      There are many types of faces, but for now we only support planar
+      polyloop defined faces with an outer boundary.
+
+      :param points: ordered list of 3d coordinates representing the outer boundary
+      :return: IfcFace
+
+
+
+   .. py:method:: faceted_brep(points: SequenceOfVectors, faces: collections.abc.Sequence[collections.abc.Sequence[int]]) -> ifcopenshell.entity_instance
 
       Generate an IfcFacetedBrep with a closed shell
 
@@ -184,7 +206,7 @@ Module Contents
 
 
 
-   .. py:method:: get_representation(context: ifcopenshell.entity_instance, items: Union[ifcopenshell.entity_instance, Sequence[ifcopenshell.entity_instance]], representation_type: Optional[str] = None) -> ifcopenshell.entity_instance
+   .. py:method:: get_representation(context: ifcopenshell.entity_instance, items: Union[ifcopenshell.entity_instance, collections.abc.Sequence[ifcopenshell.entity_instance]], representation_type: Optional[str] = None) -> ifcopenshell.entity_instance
 
       Create IFC representation for the specified context and items.
 
@@ -196,7 +218,7 @@ Module Contents
 
 
 
-   .. py:method:: get_simple_2dcurve_data(coords: SequenceOfVectors, fillets: Sequence[int] = (), fillet_radius: Union[float, Sequence[float]] = (), closed: bool = True, create_ifc_curve: bool = False) -> tuple[list[VectorType], list[list[int]], Union[ifcopenshell.entity_instance, None]]
+   .. py:method:: get_simple_2dcurve_data(coords: SequenceOfVectors, fillets: collections.abc.Sequence[int] = (), fillet_radius: Union[float, collections.abc.Sequence[float]] = (), closed: bool = True, create_ifc_curve: bool = False) -> tuple[list[VectorType], list[list[int]], Union[ifcopenshell.entity_instance, None]]
 
       Creates simple 2D curve from set of 2d coords and list of points with fillets.
       Simple curve means that all fillets are based on 90 degree angle.
@@ -213,7 +235,7 @@ Module Contents
 
 
 
-   .. py:method:: get_trim_points_from_mask(x_axis_radius: float, y_axis_radius: float, trim_points_mask: Sequence[int], position_offset: Optional[VectorType] = None) -> numpy.ndarray
+   .. py:method:: get_trim_points_from_mask(x_axis_radius: float, y_axis_radius: float, trim_points_mask: collections.abc.Sequence[int], position_offset: Optional[VectorType] = None) -> numpy.ndarray
 
       Handy way to get edge points of the ellipse like shape of a given radiuses.
 
@@ -282,7 +304,7 @@ Module Contents
 
 
 
-   .. py:method:: mesh(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
+   .. py:method:: mesh(points: SequenceOfVectors, faces: collections.abc.Sequence[collections.abc.Sequence[int]]) -> ifcopenshell.entity_instance
 
 
    .. py:method:: mirror(curve_or_item: Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]], mirror_axes: Union[VectorType, SequenceOfVectors] = (1.0, 1.0), mirror_point: VectorType = (0.0, 0.0), create_copy: bool = False, placement_matrix: Optional[numpy.ndarray] = None) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
@@ -319,7 +341,7 @@ Module Contents
 
 
 
-   .. py:method:: polygonal_face_set(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
+   .. py:method:: polygonal_face_set(points: SequenceOfVectors, faces: collections.abc.Sequence[collections.abc.Sequence[int]]) -> ifcopenshell.entity_instance
 
       Generate an IfcPolygonalFaceSet
 
@@ -331,7 +353,7 @@ Module Contents
 
 
 
-   .. py:method:: polyline(points: SequenceOfVectors, closed: bool = False, position_offset: Optional[VectorType] = None, arc_points: Sequence[int] = ()) -> ifcopenshell.entity_instance
+   .. py:method:: polyline(points: SequenceOfVectors, closed: bool = False, position_offset: Optional[VectorType] = None, arc_points: collections.abc.Sequence[int] = ()) -> ifcopenshell.entity_instance
 
       Generate an IfcIndexedPolyCurve based on the provided points.
 
@@ -361,7 +383,7 @@ Module Contents
 
 
 
-   .. py:method:: profile(outer_curve: ifcopenshell.entity_instance, name: Optional[str] = None, inner_curves: Sequence[ifcopenshell.entity_instance] = (), profile_type: str = 'AREA') -> ifcopenshell.entity_instance
+   .. py:method:: profile(outer_curve: ifcopenshell.entity_instance, name: Optional[str] = None, inner_curves: collections.abc.Sequence[ifcopenshell.entity_instance] = (), profile_type: str = 'AREA') -> ifcopenshell.entity_instance
 
       Create a profile.
 
@@ -383,7 +405,7 @@ Module Contents
 
 
 
-   .. py:method:: rotate(curve_or_item: Union[ifcopenshell.entity_instance, Sequence[ifcopenshell.entity_instance]], angle: float = 90.0, pivot_point: VectorType = (0.0, 0.0), counter_clockwise: bool = False, create_copy: bool = False) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
+   .. py:method:: rotate(curve_or_item: Union[ifcopenshell.entity_instance, collections.abc.Sequence[ifcopenshell.entity_instance]], angle: float = 90.0, pivot_point: VectorType = (0.0, 0.0), counter_clockwise: bool = False, create_copy: bool = False) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
 
       Rotate curve/representaiton item/representation.
 
@@ -426,7 +448,7 @@ Module Contents
 
 
 
-   .. py:method:: translate(curve_or_item: Union[ifcopenshell.entity_instance, Sequence[ifcopenshell.entity_instance]], translation: VectorType, create_copy: bool = False) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
+   .. py:method:: translate(curve_or_item: Union[ifcopenshell.entity_instance, collections.abc.Sequence[ifcopenshell.entity_instance]], translation: VectorType, create_copy: bool = False) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
 
       Translate curve/representaiton item/representation.
 
@@ -437,7 +459,7 @@ Module Contents
 
 
 
-   .. py:method:: triangulated_face_set(points: SequenceOfVectors, faces: Sequence[Sequence[int]]) -> ifcopenshell.entity_instance
+   .. py:method:: triangulated_face_set(points: SequenceOfVectors, faces: collections.abc.Sequence[collections.abc.Sequence[int]]) -> ifcopenshell.entity_instance
 
       Generate an IfcTriangulatedFaceSet
 
@@ -446,6 +468,17 @@ Module Contents
       :param points: list of 3d coordinates
       :param faces: list of triangles consisted of point indices (points indices starting from 0)
       :return: IfcTriangulatedFaceSet
+
+
+
+   .. py:method:: vertex(position: VectorType = (0.0, 0.0, 0.0)) -> ifcopenshell.entity_instance
+
+      Create a topological vertex
+
+      Commonly used in structural point elements.
+
+      :param position: The 3D coordinate of the vertex
+      :return: IfcVertexPoint
 
 
 
@@ -492,6 +525,12 @@ Module Contents
 
    Get signed angle between 2D vectors in radians (clockwise is positive).
    Designed to work similar to `Vector.angle_signed`.
+
+
+.. py:function:: np_apply_matrix(vectors: SequenceOfVectors, matrix: numpy.typing.NDArray) -> numpy.typing.NDArray
+
+   :param vectors: Nx3 array of vectors.
+   :param matrix: 4x4 transformation matrix.
 
 
 .. py:function:: np_intersect_line_line(v1: VectorType, v2: VectorType, v3: VectorType, v4: VectorType) -> tuple[numpy.ndarray, numpy.ndarray]

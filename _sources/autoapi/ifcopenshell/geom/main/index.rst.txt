@@ -14,6 +14,12 @@ Module Contents
 
    .. py:method:: get()
 
+      Get last processed element.
+
+
+
+   .. py:method:: get_task_products()
+
 
    .. py:attribute:: settings
 
@@ -146,13 +152,23 @@ Module Contents
    .. py:method:: add_iterator(iterator: tree.add_iterator.iterator) -> None
 
 
-   .. py:method:: clash_clearance_many(set_a: Iterable[ifcopenshell.entity_instance.entity_instance], set_b: Iterable[ifcopenshell.entity_instance.entity_instance], clearance: float = 0.05, check_all: bool = False)
+   .. py:method:: clash_clearance_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], clearance: float = 0.05, check_all: bool = False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, Ellipsis]
 
 
-   .. py:method:: clash_collision_many(set_a: Iterable[ifcopenshell.entity_instance.entity_instance], set_b: Iterable[ifcopenshell.entity_instance.entity_instance], allow_touching=False)
+   .. py:method:: clash_collision_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], allow_touching=False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, Ellipsis]
 
 
-   .. py:method:: clash_intersection_many(set_a: Iterable[ifcopenshell.entity_instance.entity_instance], set_b: Iterable[ifcopenshell.entity_instance.entity_instance], tolerance: float = 0.002, check_all: bool = True)
+   .. py:method:: clash_intersection_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], tolerance: float = 0.002, check_all: bool = True) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, Ellipsis]
+
+
+   .. py:method:: get_clash_type(clash_type_i: int) -> ClashType
+      :staticmethod:
+
+
+      Convert clash type index to a readable string format.
+
+      :param clash_type_i: Type index that comes from ``clash.clash_type``.
+
 
 
    .. py:method:: select(value: Union[ifcopenshell.entity_instance.entity_instance, ifcopenshell.ifcopenshell_wrapper.BRepElement, tuple[float, float, float], OCC.Core.TopoDS.TopoDS_Shape], **kwargs) -> list[ifcopenshell.entity_instance.entity_instance]
@@ -161,15 +177,13 @@ Module Contents
    .. py:method:: select_box(value, **kwargs) -> list[ifcopenshell.entity_instance.entity_instance]
 
 
-.. py:function:: consume_iterator(it: iterator, with_progress: Literal[False] = False) -> Generator[IteratorOutput, None, None]
-                 consume_iterator(it: iterator, with_progress: Literal[True]) -> Generator[tuple[int, IteratorOutput], None, None]
-                 consume_iterator(it: iterator, with_progress: bool) -> Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
+.. py:function:: consume_iterator(it: iterator, with_progress: Literal[False] = False) -> collections.abc.Generator[IteratorOutput, None, None]
+                 consume_iterator(it: iterator, with_progress: Literal[True]) -> collections.abc.Generator[tuple[int, IteratorOutput], None, None]
+                 consume_iterator(it: iterator, with_progress: bool) -> collections.abc.Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
 
 .. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance.entity_instance, repr: Optional[ifcopenshell.entity_instance.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.Transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
 
-   Return a geometric representation from STEP-based IFCREPRESENTATIONSHAPE
-   or
-   Return an OpenCASCADE BRep if 'use-python-opencascade' is True
+   Returns a geometric interpretation of the IFC entity instance
 
    Note that in Python, you must store a reference to the element returned by this function to prevent garbage
    collection when you access its children. See #1124.
@@ -220,9 +234,9 @@ Module Contents
                    print("Shape creation failed")
 
 
-.. py:function:: iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: Literal[False] = False, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Generator[IteratorOutput, None, None]
-                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: Literal[True] = True, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Generator[tuple[int, IteratorOutput], None, None]
-                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: bool = False, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
+.. py:function:: iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: Literal[False] = False, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> collections.abc.Generator[IteratorOutput, None, None]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: Literal[True] = True, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> collections.abc.Generator[tuple[int, IteratorOutput], None, None]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: bool = False, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> collections.abc.Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
 
    Get a geometry iterator for the provided file.
 
@@ -232,11 +246,29 @@ Module Contents
 
 .. py:function:: make_shape_function(fn)
 
+.. py:function:: map_shape(settings: map_shape.settings, inst: ifcopenshell.entity_instance.entity_instance) -> ifcopenshell.ifcopenshell_wrapper.item
+
+   Returns an interpretation of the geometry encoded as per IfcOpenShell's taxonomy layer.
+   In many cases this is somewhat equivalent to the raw IFC data (but schema-agnostic in C++), but
+   in other cases such as IfcParameterizedProfileDef the returned item is the equivalent
+   of an explicit composite curve.
+
+   >>> point = ifc_file.by_type('IfcCartesianPoint')[0]
+   >>> ifcopenshell.geom.map_shape(ifcopenshell.geom.settings(), point).components
+   (0.0, 0.0, 0.0)
+
+
 .. py:function:: transform_string(v: Union[str, serializers.buffer]) -> serializers.buffer
 
 .. py:function:: wrap_shape_creation(settings, shape)
 
-.. py:function:: wrap_shape_creation(settings, shape)
+.. py:function:: wrap_shape_creation(settings: wrap_shape_creation.settings, shape: ifcopenshell.ifcopenshell_wrapper.Element)
+
+.. py:data:: CLASH_TYPE_ITEMS
+   :value: ('protrusion', 'pierce', 'collision', 'clearance')
+
+
+.. py:data:: ClashType
 
 .. py:data:: GEOMETRY_LIBRARY
 

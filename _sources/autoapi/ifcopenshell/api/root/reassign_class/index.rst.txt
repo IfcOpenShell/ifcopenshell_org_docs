@@ -17,6 +17,15 @@ Module Contents
 
    .. py:method:: simple_reassignment(element: ifcopenshell.entity_instance, ifc_class: str, predefined_type: Union[str, None]) -> ifcopenshell.entity_instance
 
+      Simple class reassignment doesn't involve changing class type.
+
+      E.g. IfcWindow (IfcProduct class) -> IfcWall (other IfcProduct class).
+
+      Changing class type (e.g. IfcWindowType -> IfcWindow) is more complex
+      as it requires to recreate some entities / assign them in different way
+      (e.g. representations, property sets and their rels).
+
+
 
    .. py:method:: switch_between_class_types(element: ifcopenshell.entity_instance, switch_type: Literal['occurrence_to_type', 'type_to_occurrence'], ifc_class: str, predefined_type: Union[str, None]) -> ifcopenshell.entity_instance
 

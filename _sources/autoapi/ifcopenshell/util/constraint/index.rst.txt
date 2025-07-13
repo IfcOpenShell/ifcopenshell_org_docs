@@ -12,9 +12,7 @@ Module Contents
    Retrieves the elements constrained by a `constraint`.
 
    :param product: The IFC element.
-   :type product: ifcopenshell.entity_instance
    :return: Set of elements constrained by a `constrant`.
-   :rtype: set[ifcopenshell.entity_instance]
 
 
 .. py:function:: get_constraints(product: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
@@ -22,9 +20,7 @@ Module Contents
    Retrieves the constraints assigned to the `product`.
 
    :param product: The IFC element.
-   :type product: ifcopenshell.entity_instance
    :return: List of assigned constraints.
-   :rtype: list[ifcopenshell.entity_instance]
 
 
 .. py:function:: get_metric_constraints(resource: ifcopenshell.entity_instance, attribute) -> Union[list[ifcopenshell.entity_instance], None]
@@ -36,9 +32,7 @@ Module Contents
    Retrieves the list of nested constraints for a IfcObjective `constraint`.
 
    :param product: IfcObjective constraint.
-   :type product: ifcopenshell.entity_instance
    :return: List of nested constraints.
-   :rtype: list[ifcopenshell.entity_instance]
 
 
 .. py:function:: is_attribute_locked(product: ifcopenshell.entity_instance, attribute) -> bool

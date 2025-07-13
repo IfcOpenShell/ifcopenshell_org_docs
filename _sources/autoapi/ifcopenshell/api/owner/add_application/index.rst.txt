@@ -9,18 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: create_application_organisation()
+   .. py:method:: create_application_organisation() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(application_developer: Union[ifcopenshell.entity_instance, None], version: str, application_full_name: str, application_identifier: str) -> ifcopenshell.entity_instance
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
 
 
 .. py:function:: add_application(file: ifcopenshell.file, application_developer: Optional[ifcopenshell.entity_instance] = None, version: Optional[str] = None, application_full_name: str = 'IfcOpenShell', application_identifier: str = 'IfcOpenShell') -> ifcopenshell.entity_instance
@@ -36,17 +32,12 @@ Module Contents
    :param application_developer: The IfcOrganization responsible for
        creating the application. Defaults to generating an IfcOpenShell
        organisation if none is provided.
-   :type application_developer: ifcopenshell.entity_instance, optional
    :param version: The version of the application. Defaults to the
        ifcopenshell.version data if not specified.
-   :type version: str, optional
    :param application_full_name: The name of the application
-   :type application_full_name: str, optional
    :param application_identifier: An identification string for the
        application intended for computers to read.
-   :type application_identifier: str, optional
    :return: The newly created IfcApplication
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 

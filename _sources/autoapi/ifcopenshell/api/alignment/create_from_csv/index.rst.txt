@@ -1,0 +1,44 @@
+:py:mod:`ifcopenshell.api.alignment.create_from_csv`
+====================================================
+
+.. py:module:: ifcopenshell.api.alignment.create_from_csv
+
+
+Module Contents
+---------------
+
+.. py:function:: create_from_csv(file: ifcopenshell.file, filepath: str) -> ifcopenshell.entity_instance
+
+   Creates an alignment from PI data stored in a CSV file.
+
+   The format of the file is:
+
+       X1,Y1,R1,X2,Y2,R2 ... Xn-1,Yn-1,Rn-1,Xn,Yn
+
+       D1,Z1,L1,D2,Z2,L2 ... Dn-1,Zn-1,Ln-1,Dn,Zn
+
+       D1,Z1,L1,D2,Z2,L2 ... Dn-1,Zn-1,Ln-1,Dn,Zn
+
+       ...
+
+   where:
+       X,Y are PI coordinates
+
+       R is the horizontal circular curve radius
+
+       D,Z are VPI coordinates as "Distance Along","Elevation"
+
+       L is the horizontal length of a parabolic vertical transition curve
+
+       R1 and Rn, as well as L1 and Ln are placeholders and not used. They are recommended to have values of 0.0.
+
+       R2 and Rn-2 are the radii of the first and last horizontal curves.
+
+       L2 and Ln-2 are the length of the first and last vertical curves.
+
+   The CSV file contains one horizontal alignment, zero, one, or more vertical alignments
+
+   :param filepath: path the to CSV file
+   :return: IfcAlignment
+
+

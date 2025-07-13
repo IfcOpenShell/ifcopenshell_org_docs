@@ -1,0 +1,21 @@
+:py:mod:`ifcopenshell.api.alignment.layout_vertical_alignment_by_pi_method`
+===========================================================================
+
+.. py:module:: ifcopenshell.api.alignment.layout_vertical_alignment_by_pi_method
+
+
+Module Contents
+---------------
+
+.. py:function:: layout_vertical_alignment_by_pi_method(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, vpoints: collections.abc.Sequence[collections.abc.Sequence[float]], lengths: collections.abc.Sequence[float]) -> None
+
+   Appends IfcAlignmentVerticalSegment to a previously defined IfcAlignmentVertical using the PI layout method.
+   The zero length segment is updated.
+
+   :param file: file
+   :param layout: An IfcAlignmentVertical layout
+   :param vpoints: (distance_along, Z_height) pairs denoting the location of the vertical PIs, including start and end.
+   :param lengths: horizontal length of parabolic vertical curves
+   :return: None
+
+

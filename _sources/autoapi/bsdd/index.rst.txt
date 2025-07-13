@@ -691,7 +691,7 @@ Module Contents
 
 
 
-   .. py:method:: get_classes(dictionary_uri: str, use_nested_classes: bool = True, class_type: ClassTypes = 'Class', language_code: str = '', version: int = 1, offset=0, limit=1000) -> DictionaryClassesResponseContractV1
+   .. py:method:: get_classes(dictionary_uri: str, use_nested_classes: bool = True, class_type: ClassTypes = 'Class', search_text: str = '', related_ifc_entity: str = '', language_code: str = '', version: int = 1, offset=0, limit=1000) -> DictionaryClassesResponseContractV1
 
       Get Dictionary with tree of classes
       This API replaces Domain
@@ -705,7 +705,7 @@ Module Contents
 
 
 
-   .. py:method:: get_dictionary(dictionary_uri: str = '', version: int = 1) -> DictionaryResponseContractV1
+   .. py:method:: get_dictionary(dictionary_uri: str = '', include_test_dictionaries: bool = 'False', version: int = 1) -> DictionaryResponseContractV1
 
       Get list of available Dictionaries
       This API replaces Domain
@@ -722,7 +722,7 @@ Module Contents
    .. py:method:: get_new_access_token()
 
 
-   .. py:method:: get_properties(dictionary_uri: str, offset: int = 0, limit: int = 100, language_code: str = '', version: int = 1) -> DictionaryPropertiesResponseContractV1
+   .. py:method:: get_properties(dictionary_uri: str, search_text: str = '', offset: int = 0, limit: int = 100, language_code: str = '', version: int = 1) -> DictionaryPropertiesResponseContractV1
 
       Get Dictionary with its properties
 
@@ -2029,7 +2029,7 @@ Module Contents
       :type:  typing_extensions.NotRequired[str]
 
 
-.. py:function:: apply_ifc_classification_properties(ifc_file, element, classificationProperties)
+.. py:function:: apply_ifc_classification_properties(ifc_file: ifcopenshell.file, element: ifcopenshell.entity_instance, classificationProperties: dict[str, Any]) -> None
 
 .. py:data:: ClassTypes
 

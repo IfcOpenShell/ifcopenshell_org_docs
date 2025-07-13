@@ -136,7 +136,7 @@ Module Contents
        # [<entity IfcBuildingElement>, <entity IfcElement>, ..., <entity IfcRoot>]
 
 
-.. py:function:: is_a(declaration: ifcopenshell.ifcopenshell_wrapper.entity, ifc_class: str) -> bool
+.. py:function:: is_a(declaration: ifcopenshell.ifcopenshell_wrapper.declaration, ifc_class: str) -> bool
 
    Checks if a schema declaration is a class
 

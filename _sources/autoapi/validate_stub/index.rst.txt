@@ -1,0 +1,33 @@
+:py:mod:`validate_stub`
+=======================
+
+.. py:module:: validate_stub
+
+.. autoapi-nested-parse::
+
+   Script to ensure ifcopenshell_wrapper.pyi and ifcopenshell_wrapper.py work in sync.
+
+   Things we do check:
+   - all symbols from the wrapper present in the stub and vice versa
+   - functions and methods signatures
+   - read-only and settable properties, staticmethods
+   - class hierarchy
+
+
+
+Module Contents
+---------------
+
+.. py:function:: format_diff(lines: list[str]) -> None
+
+.. py:function:: get_function_node_name(node: ast.FunctionDef) -> Union[SubnameType, None]
+
+   :return: Function node name as ``SubnameType``  or ``None``, if function wasn't processed and can be skipped.
+
+
+.. py:function:: get_names_tree_lines(tree: ast.Module) -> list[str]
+
+.. py:function:: main() -> None
+
+.. py:data:: SubnameType
+

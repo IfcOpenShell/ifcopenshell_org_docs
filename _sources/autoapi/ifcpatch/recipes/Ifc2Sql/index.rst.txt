@@ -7,15 +7,21 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file, logger, sql_type: SQLTypes = 'SQLite', host: str = 'localhost', username: str = 'root', password: str = 'pass', database: str = f'{DEFAULT_DATABASE_NAME}.sqlite', full_schema: bool = True, is_strict: bool = False, should_expand: bool = False, should_get_inverses: bool = True, should_get_psets: bool = True, should_get_geometry: bool = True, should_skip_geometry_data: bool = False)
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None, sql_type: SQLTypes = 'SQLite', host: str = 'localhost', username: str = 'root', password: str = 'pass', database: str = DEFAULT_DATABASE_NAME, full_schema: bool = True, is_strict: bool = False, should_expand: bool = False, should_get_inverses: bool = True, should_get_psets: bool = True, should_get_geometry: bool = True, should_skip_geometry_data: bool = False)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Convert an IFC-SPF model to SQLite or MySQL.
 
    :param sql_type: Choose between "SQLite" or "MySQL"
-   :param database: Database path to save the SQL database to (already existing or not).
+   :param database: Database filepath / name.
+       For SQLite - database path to save the SQL database to (already existing or not).
        Could also be a directory, then the database will be stored
        using default filename (e.g. 'database.sqlite').
+       If filepath is missing fitting suffix, it will be added.
+       For MySQL - database name.
    :filter_glob database: *.db;*.sqlite
    :param full_schema: if True, will create tables for all IFC classes,
        regardless if they are used or not in the dataset. If False, will
@@ -26,6 +32,8 @@ Module Contents
        entities will be separated into multiple rows. This means the ifc_id
        is no longer a unique primary key. If False, lists will be stored as
        JSON.
+   :param should_get_inverses: if True, a list of entity inverses ids will be stored
+       in a separate column as a json string.
    :param should_get_psets: if True, a separate psets table will be created to
        make it easy to query properties. This is in addition to regular IFC
        tables like IfcPropertySet.
@@ -44,6 +52,9 @@ Module Contents
        sqlite_temp_filepath = ifcpatch.execute(
            {"input": "input.ifc", "file": model, "recipe": "Ifc2Sql", "arguments": ["sqlite"]}
        )
+
+
+   .. py:method:: check_existing_ifc_database() -> None
 
 
    .. py:method:: create_geometry() -> None
@@ -67,7 +78,27 @@ Module Contents
    .. py:method:: create_sqlite_table(ifc_class: str, declaration: ifcopenshell.ifcopenshell_wrapper.declaration) -> None
 
 
+   .. py:method:: get_output() -> Union[str, None]
+
+      Return resulting database filepath for sqlite and ``None`` for mysql.
+
+
+
    .. py:method:: get_permutations(lst: list[Any], indexes: list[int]) -> list[Any]
+
+      Original row (`lst`):
+      ```
+      ifc_id, x, (a, b), (c,d)
+      ```
+
+      Resulting permutations:
+      ```
+      ifc_id, x, a, c
+      ifc_id, x, a, d
+      ifc_id, x, b, c
+      ifc_id, x, b, d
+      ```
+
 
 
    .. py:method:: insert_data(ifc_class: str) -> None
@@ -83,16 +114,17 @@ Module Contents
 
 
    .. py:attribute:: database
-      :value: 'database.sqlite'
+      :value: 'database'
 
-
-
-   .. py:attribute:: file
 
 
    .. py:attribute:: full_schema
       :value: True
 
+
+
+   .. py:attribute:: geometry_rows
+      :type:  dict[str, tuple[str, bytes, bytes, bytes, bytes, str]]
 
 
    .. py:attribute:: host
@@ -106,11 +138,28 @@ Module Contents
 
 
    .. py:attribute:: logger
+      :value: None
+
+
+
+   .. py:attribute:: my_sql_classes_json_attrs
+      :type:  dict[str, list[int]]
+
+      Mapping ifc_class -> list of attr indices.
+
+      Needed to mark json attributes
+      that should be converted to string explicitly
+      (mysql doesn't convert them automatically, unlike sqlite)
+
 
 
    .. py:attribute:: password
       :value: 'pass'
 
+
+
+   .. py:attribute:: shape_rows
+      :type:  dict[int, tuple[int, list[float], list[float], list[float], bytes, str]]
 
 
    .. py:attribute:: should_expand

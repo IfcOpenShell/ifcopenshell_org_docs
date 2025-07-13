@@ -31,6 +31,7 @@ Submodules
    create_owner_history/index.rst
    edit_actor/index.rst
    edit_address/index.rst
+   edit_application/index.rst
    edit_organisation/index.rst
    edit_person/index.rst
    edit_role/index.rst
@@ -141,17 +142,12 @@ Package Contents
    :param application_developer: The IfcOrganization responsible for
        creating the application. Defaults to generating an IfcOpenShell
        organisation if none is provided.
-   :type application_developer: ifcopenshell.entity_instance, optional
    :param version: The version of the application. Defaults to the
        ifcopenshell.version data if not specified.
-   :type version: str, optional
    :param application_full_name: The name of the application
-   :type application_full_name: str, optional
    :param application_identifier: An identification string for the
        application intended for computers to read.
-   :type application_identifier: str, optional
    :return: The newly created IfcApplication
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -243,12 +239,9 @@ Package Contents
 
    :param assigned_object: The IfcPerson or IfcOrganization the role should
        be assigned to.
-   :type assigned_object: ifcopenshell.entity_instance
    :param role: The type of role, taken from the IFC documentation for
        IfcActorRole, or a custom name. Defaults to "ARCHITECT".
-   :type role: str, optional
    :return: The newly created IfcActorRole
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
@@ -349,7 +342,6 @@ Package Contents
 
    :return: The newly created IfcOwnerHistory element or `None` if it's
        not IFC2X3 and user or application is not found in the current project.
-   :rtype: Union[ifcopenshell.entity_instance, None]
 
    Example:
 
@@ -444,6 +436,27 @@ Package Contents
            attributes={"Purpose": "OFFICE", "TelephoneNumbers": ["+61432466949"],
            "ElectronicMailAddresses": ["bobthebuilder@example.com"],
            "WWWHomePageURL": "https://thinkmoult.com"})
+
+
+.. py:function:: edit_application(file: ifcopenshell.file, application: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
+
+   Edits the attributes of an IfcApplication
+
+   For more information about the attributes and data types of an
+   IfcApplication, consult the IFC documentation.
+
+   :param application: The IfcApplication entity you want to edit
+   :param attributes: a dictionary of attribute names and values.
+   :return: None
+
+   Example:
+
+   .. code:: python
+
+       application = ifcopenshell.api.owner.add_application(model,
+           application_full_name="My App")
+       ifcopenshell.api.owner.edit_application(model, application=application,
+           attributes={"ApplicationFullName": "My App New Name"})
 
 
 .. py:function:: edit_organisation(file: ifcopenshell.file, organisation: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -705,9 +718,7 @@ Package Contents
 
    :param element: The IfcRoot element to update the ownership details on
        when a change is made.
-   :type element: ifcopenshell.entity_instance
    :return: The updated IfcOwnerHistory element.
-   :rtype: ifcopenshell.entity_instance
 
    Example:
 
