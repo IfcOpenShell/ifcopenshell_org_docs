@@ -145,7 +145,7 @@ Module Contents
        The BCF camera definition.
 
 
-.. py:function:: build_camera_from_vectors(camera_position: numpy.typing.NDArray[numpy.float64], camera_dir: numpy.typing.NDArray[numpy.float64], camera_up: numpy.typing.NDArray[numpy.float64]) -> bcf.v2.model.PerspectiveCamera
+.. py:function:: build_camera_from_vectors(camera_position: list[float], camera_dir: list[float], camera_up: list[float]) -> bcf.v2.model.PerspectiveCamera
 
    Return a BCF camera for an IFC element placement matrix.
 

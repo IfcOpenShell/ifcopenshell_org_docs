@@ -37,5 +37,3 @@ Module Contents
        item = ifcopenshell.api.cost.add_cost_item(model, cost_schedule=schedule)
 
 
-.. py:function:: createIfcDateAndTime(file: ifcopenshell.file, dt: datetime.datetime)
-

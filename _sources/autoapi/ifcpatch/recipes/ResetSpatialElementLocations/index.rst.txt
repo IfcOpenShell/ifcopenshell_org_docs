@@ -7,26 +7,32 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, ifc_class: str = 'IfcSite')
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, ifc_class: str = '', only_xy: bool = True)
 
    
-   Resets the location of a spatial element to 0,0,0
+   Resets the location of non-geometric spatial elements to 0,0,0
 
-   Another more specialised patch to fix incorrect coordinate usage is to
-   reset the location of spatial elements (sites, buildings, storeys) back
-   to 0,0,0.
+   Often, non-geometric spatial elements are located at arbitrary
+   locations relative to the model. Because they are non-geometric but
+   still contain placements, many users do not realise that their
+   coordinates are actually ver far away and can cause precision issues if
+   "fit all in view" is used.
 
-   :param ifc_class: The class of spatial element to reset coordinates for.
+   This patch lets you selectively reset the location of spatial elements
+   (sites, buildings, storeys) back to 0,0,0. This is typically done after
+   other coordinate operation patches. Alternatively, consider using the
+   SetFalseOrigin patch which can do this operation built-in.
+
+   :param ifc_class: The class of spatial element to reset coordinates
+       for. Leave blank if you want to reset everything.
+   :param only_xy: If True, only the X and Y coordinates will be affected.
 
    Example:
 
    .. code:: python
 
        # All IfcSites will shift back to 0,0,0.
-       ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "ResetSpatialElementLocations", "arguments": ["IfcSite"]})
-
-
-   .. py:method:: find_decomposed_ifc_class(element: ifcopenshell.entity_instance, ifc_class: str) -> list[ifcopenshell.entity_instance]
+       ifcpatch.execute({"file": model, "recipe": "ResetSpatialElementLocations", "arguments": ["IfcSite"]})
 
 
    .. py:method:: patch() -> None
@@ -39,10 +45,15 @@ Module Contents
 
 
    .. py:attribute:: ifc_class
-      :value: 'IfcSite'
+      :value: ''
 
 
 
    .. py:attribute:: logger
+
+
+   .. py:attribute:: only_xy
+      :value: True
+
 
 

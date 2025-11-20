@@ -18,6 +18,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   add_date_time/index.rst
    add_task/index.rst
    add_task_time/index.rst
    add_time_period/index.rst
@@ -33,6 +34,7 @@ Submodules
    assign_work_plan/index.rst
    calculate_task_duration/index.rst
    cascade_schedule/index.rst
+   copy_work_schedule/index.rst
    create_baseline/index.rst
    duplicate_task/index.rst
    edit_lag_time/index.rst
@@ -60,6 +62,30 @@ Submodules
 
 Package Contents
 ----------------
+
+.. py:function:: add_date_time(file: ifcopenshell.file, dt: datetime.datetime) -> Union[str, ifcopenshell.entity_instance]
+
+   Add a new date time.
+
+   Depending on ``file``'s schema method will:
+   - IFC2X3 - create IfcDateAndTime entity
+   - IFC4+  - create IfcDatetime formatted string
+
+   :param dt: datetime to convert to IFC.
+   :return: IfcDateAndTime entity or IfcDatetime string.
+
+   Example:
+
+   .. code:: python
+
+       dt = datetime(2025, 3, 1, 12, 31, 24)
+       datetime_ifc = ifcopenshell.api.sequence.add_date_time(self.file, dt)
+
+       # IFC2X3: #1=IfcDateAndTime(#2,#3)
+       # IFC4+: "2025-03-01T12:31:24"
+       print(datetime_ifc)
+
+
 
 .. py:function:: add_task(file: ifcopenshell.file, work_schedule: Optional[ifcopenshell.entity_instance] = None, parent_task: Optional[ifcopenshell.entity_instance] = None, name: Optional[str] = None, description: Optional[str] = None, identification: Optional[str] = None, predefined_type: str = 'NOTDEFINED') -> ifcopenshell.entity_instance
 
@@ -307,7 +333,7 @@ Package Contents
        # We associate the calendar with the construction root task. All
        # subtasks underneath the construction work task will also inherit
        # this calendar by default (though you can override them).
-       ifcopenshell.api.control.assign_control(model, relating_control=calendar, related_object=task)
+       ifcopenshell.api.control.assign_control(model, relating_control=calendar, related_objects=[task])
 
 
 .. py:function:: add_work_plan(file: ifcopenshell.file, name: Optional[str] = None, predefined_type: str = 'NOTDEFINED', start_time: Optional[Union[str, datetime.time]] = None) -> ifcopenshell.entity_instance
@@ -341,7 +367,7 @@ Package Contents
            name="Construction Schedule A", work_plan=work_plan)
 
 
-.. py:function:: add_work_schedule(file: ifcopenshell.file, name: str = 'Unnamed', predefined_type: str = 'NOTDEFINED', object_type=None, start_time: Optional[Union[str, datetime.time]] = None, work_plan: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_work_schedule(file: ifcopenshell.file, name: str = 'Unnamed', predefined_type: str = 'NOTDEFINED', object_type: Union[str, None] = None, start_time: Optional[Union[str, datetime.time]] = None, work_plan: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Add a new work schedule
 
@@ -353,6 +379,8 @@ Package Contents
        BASELINE, and PLANNED. Typically you would start with PLANNED, then
        convert to a BASELINE when changes are made with separate schedules,
        then have a parallel ACTUAL schedule.
+   :param object_type: Work schedule Object Type. Should be provided
+       in case if ``predefined_type`` is USERDEFINED.
    :param start_time: The earlier start time when the schedule is relevant.
        May be represented with an ISO standard string.
    :param work_plan: The IfcWorkPlan the schedule will be part of. If not
@@ -928,6 +956,23 @@ Package Contents
        ifcopenshell.api.sequence.recalculate_schedule(model, work_schedule=schedule)
 
 
+.. py:function:: copy_work_schedule(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Copy a work schedule.
+
+   :param work_schedule: IfcWorkSchedule to copy.
+   :return: The duplicated IfcWorkSchedule entity.
+
+   Example:
+
+   .. code:: python
+
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model,
+           name="Construction Schedule A", work_plan=work_plan)
+       new_schedule = ifcopenshell.api.sequence.copy_work_schedule(model, schedule)
+
+
 .. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> None
 
    Creates a baseline for your Work Schedule
@@ -958,7 +1003,7 @@ Package Contents
        baseline_work_schedule = ifcopenshell.api.sequence.create_baseline(file, work_schedule=planned_work_schedule, name="Baseline 1")
 
 
-.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
+.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> tuple[list[ifcopenshell.entity_instance], list[ifcopenshell.entity_instance]]
 
    Duplicates a task in the project
 
@@ -969,16 +1014,23 @@ Package Contents
    * The copy will have duplicated nested tasks
 
    :param task: The task to be duplicated
-   :return: The duplicated task or the list of duplicated tasks if the latter has children
+   :return: A tuple that consists of two lists of tasks:
+
+       - Original task and it's nested tasks.
+       - Their corresponding duplicated tasks.
 
    Example:
    .. code:: python
 
        # We have a task
-       original_task = Task(name="Design new feature", deadline="2023-03-01")
+       original_task = ifcopenshell.api.sequence.add_task(
+           model, work_schedule=work_schedule,
+           name="Design new feature",
+       )
 
        # And now we have two
-       duplicated_task = project.duplicate_task(original_task)
+       original_tasks, duplicated_tasks = ifcopenshell.api.sequence.duplicate_task(original_task)
+       print(duplicated_tasks[0])  # A copy of ``original_task``.
 
 
 .. py:function:: edit_lag_time(file: ifcopenshell.file, lag_time: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None

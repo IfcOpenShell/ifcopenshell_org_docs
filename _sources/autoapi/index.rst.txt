@@ -21,6 +21,5 @@ This page contains auto-generated API reference documentation [#f1]_.
    /autoapi/extensions/index
    /autoapi/ifcopenshell/index
    /autoapi/validate_stub/index
-   /autoapi/yml_to_classes/index
 
 .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

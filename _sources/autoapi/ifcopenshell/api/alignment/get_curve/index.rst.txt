@@ -10,6 +10,7 @@ Module Contents
 .. py:function:: get_curve(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Returns the geometric representation curve for an alignment.
+   An alignment without layouts will have a curve of type IfcPolyLine or IfcIndexedPolyCurve
    A horizontal only will have a curve of type IfcCompositeCurve
    A horizontal+vertical will have a curve of type IfcGradientCurve
    A horizontal+vertical+cant will have a curve of tyep IfcSegmentedReferenceCurve

@@ -1,0 +1,33 @@
+:py:mod:`ifcopenshell.api.sequence.add_date_time`
+=================================================
+
+.. py:module:: ifcopenshell.api.sequence.add_date_time
+
+
+Module Contents
+---------------
+
+.. py:function:: add_date_time(file: ifcopenshell.file, dt: datetime.datetime) -> Union[str, ifcopenshell.entity_instance]
+
+   Add a new date time.
+
+   Depending on ``file``'s schema method will:
+   - IFC2X3 - create IfcDateAndTime entity
+   - IFC4+  - create IfcDatetime formatted string
+
+   :param dt: datetime to convert to IFC.
+   :return: IfcDateAndTime entity or IfcDatetime string.
+
+   Example:
+
+   .. code:: python
+
+       dt = datetime(2025, 3, 1, 12, 31, 24)
+       datetime_ifc = ifcopenshell.api.sequence.add_date_time(self.file, dt)
+
+       # IFC2X3: #1=IfcDateAndTime(#2,#3)
+       # IFC4+: "2025-03-01T12:31:24"
+       print(datetime_ifc)
+
+
+

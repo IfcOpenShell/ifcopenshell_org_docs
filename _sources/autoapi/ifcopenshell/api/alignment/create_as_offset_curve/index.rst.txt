@@ -1,0 +1,22 @@
+:py:mod:`ifcopenshell.api.alignment.create_as_offset_curve`
+===========================================================
+
+.. py:module:: ifcopenshell.api.alignment.create_as_offset_curve
+
+
+Module Contents
+---------------
+
+.. py:function:: create_as_offset_curve(file: ifcopenshell.file, name: str, offsets: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: float = 0.0) -> ifcopenshell.entity_instance
+
+   Creates a new IfcAlignment with an IfcOffsetCurveByDistances representation.
+
+   The IfcAlignment is aggreated to IfcProject
+
+   :param file:
+   :param name: name assigned to IfcAlignment.Name
+   :param offsets: offsets from the basis curve that defines the offset curve, expected to be IfcOffsetCurveByDistances.
+   :param start_station: station value at the start of the alignment
+   :return: Returns an IfcAlignment
+
+

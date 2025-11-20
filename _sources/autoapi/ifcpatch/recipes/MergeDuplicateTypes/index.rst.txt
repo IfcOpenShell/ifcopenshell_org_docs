@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, attribute: str = 'Tag')
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, attribute: str = 'Tag', should_merge_null: bool = True)
 
    
    Merge duplicate element types via the Tag or another attribute
@@ -34,6 +34,8 @@ Module Contents
    :param attribute: The name of the attribute to merge element types based
        on. Typically this will be "Tag" as it stores the unique ID from the
        proprietary BIM software.
+   :param should_merge_null: If True, all elements with an empty attribute
+       will be merged. If False, they will be kept separate.
 
    Example:
 
@@ -61,5 +63,10 @@ Module Contents
 
 
    .. py:attribute:: logger
+
+
+   .. py:attribute:: should_merge_null
+      :value: True
+
 
 

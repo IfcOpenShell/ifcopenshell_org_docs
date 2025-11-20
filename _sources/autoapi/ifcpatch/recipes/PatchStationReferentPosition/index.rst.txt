@@ -1,0 +1,31 @@
+:py:mod:`ifcpatch.recipes.PatchStationReferentPosition`
+=======================================================
+
+.. py:module:: ifcpatch.recipes.PatchStationReferentPosition
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
+
+   
+   Adds a zero length segments to alignment layouts
+
+   Example:
+
+   .. code:: python
+
+       model = ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "PatchStationReferentPosition"})
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: file_patched
+      :type:  ifcopenshell.file
+
+

@@ -1,0 +1,20 @@
+:py:mod:`ifcopenshell.api.alignment.add_zero_length_segment`
+============================================================
+
+.. py:module:: ifcopenshell.api.alignment.add_zero_length_segment
+
+
+Module Contents
+---------------
+
+.. py:function:: add_zero_length_segment(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, include_referent: bool = True) -> bool
+
+   Adds a zero length segment to the end of a layout.
+
+   If the layout already has a zero length segment, nothing is changed.
+
+   :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant, IfcCompositeCurve, IfcGradientCurve, IfcSegmentedReferenceCurve
+   :param include_referent: If True, an IfcReferent representing the ending point of the layout is included for IfcLinearElement layouts (i.e. business logic)
+   :return: True if segment is added
+
+

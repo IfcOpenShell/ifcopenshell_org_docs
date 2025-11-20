@@ -1,0 +1,31 @@
+:py:mod:`ifcpatch.recipes.AddLinearPlacementFallbackPosition`
+=============================================================
+
+.. py:module:: ifcpatch.recipes.AddLinearPlacementFallbackPosition
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
+
+   
+   Adds the IfcLinearPlacement.CartesianPosition fallback position to all of the IfcLinearPlacement objects in the file
+
+   Example:
+
+   .. code:: python
+
+       model = ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "AddLinearPlacementFallbackPosition"})
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: file_patched
+      :type:  ifcopenshell.file
+
+

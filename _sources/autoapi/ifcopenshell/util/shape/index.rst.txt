@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: get_area(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_area(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the surface area of the geometry
 
@@ -46,7 +46,7 @@ Module Contents
        maxz]))
 
 
-.. py:function:: get_bbox_centroid(geometry: ifcopenshell.geom.ShapeType) -> tuple[float, float, float]
+.. py:function:: get_bbox_centroid(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> tuple[float, float, float]
 
    Calculates the bounding box centroid of the geometry
 
@@ -56,7 +56,7 @@ Module Contents
    :return: A tuple representing the XYZ centroid
 
 
-.. py:function:: get_bottom_elevation(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_bottom_elevation(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the lowest local Z ordinate of the geometry
 
@@ -64,7 +64,7 @@ Module Contents
    :return: The Z value
 
 
-.. py:function:: get_edges(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+.. py:function:: get_edges(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.int32]
 
    Get all the edges as a numpy array
 
@@ -79,7 +79,7 @@ Module Contents
        Array shape: (n, 2), where n - number of edges.
 
 
-.. py:function:: get_edges_representation_item_ids(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+.. py:function:: get_edges_representation_item_ids(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.int32]
 
    Get representation item ids for the geometry edges.
 
@@ -87,7 +87,7 @@ Module Contents
    since it's possible that geometry will have elements with and without faces.
 
 
-.. py:function:: get_element_bbox_centroid(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_element_bbox_centroid(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.float64]
 
    Calculates the element's bounding box centroid
 
@@ -99,7 +99,7 @@ Module Contents
    :return: A tuple representing the XYZ centroid
 
 
-.. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the lowest global Z ordinate of the element
 
@@ -111,7 +111,7 @@ Module Contents
    :return: The Z value
 
 
-.. py:function:: get_element_top_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_element_top_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the highest global Z ordinate of the element
 
@@ -123,7 +123,7 @@ Module Contents
    :return: The Z value
 
 
-.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.float64]
 
    Get the element's vertices as a numpy array
 
@@ -145,7 +145,7 @@ Module Contents
    :return: A list of extrusion representation items or `None` if element has no representation.
 
 
-.. py:function:: get_faces(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+.. py:function:: get_faces(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.int32]
 
    Get all the faces as a numpy array
 
@@ -159,7 +159,7 @@ Module Contents
        Array shape: (n, 3), where n - number of faces.
 
 
-.. py:function:: get_faces_material_style_ids(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+.. py:function:: get_faces_material_style_ids(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.int32]
 
    Get material styles ids for the geometry faces.
 
@@ -167,12 +167,12 @@ Module Contents
    If face has no style assigned, index -1 is used.
 
 
-.. py:function:: get_faces_representation_item_ids(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.int32]
+.. py:function:: get_faces_representation_item_ids(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.int32]
 
    Get representation item ids for the geometry faces.
 
 
-.. py:function:: get_footprint_area(geometry: ifcopenshell.geom.ShapeType, axis: AXIS_LITERAL = 'Z', direction: Optional[VECTOR_3D] = None) -> float
+.. py:function:: get_footprint_area(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation, axis: AXIS_LITERAL = 'Z', direction: Optional[VECTOR_3D] = None) -> float
 
    Calculates the total footprint (i.e. projected) surface area visible from along an axis
 
@@ -194,7 +194,7 @@ Module Contents
    :return: The surface area.
 
 
-.. py:function:: get_footprint_perimeter(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_footprint_perimeter(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the footprint perimeter of the geometry
 
@@ -205,7 +205,7 @@ Module Contents
    :return: The perimeter length
 
 
-.. py:function:: get_material_colors(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_material_colors(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.float64]
 
    Get material colors as a numpy array.
 
@@ -213,7 +213,7 @@ Module Contents
        Array shape: (1, 4).
 
 
-.. py:function:: get_max_side_area(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_max_side_area(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Returns the maximum X, Y, or Z side area
 
@@ -223,7 +223,7 @@ Module Contents
    :return: The maximum surface area from either the X, Y, or Z axis.
 
 
-.. py:function:: get_max_xy(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_max_xy(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the maximum X or Y length of the geometry
 
@@ -231,7 +231,7 @@ Module Contents
    :return: The maximum possible value out of the X and Y dimension
 
 
-.. py:function:: get_max_xyz(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_max_xyz(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the maximum X, Y, or Z length of the geometry
 
@@ -239,7 +239,7 @@ Module Contents
    :return: The maximum possible value out of the X, Y, and Z dimension
 
 
-.. py:function:: get_min_xyz(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_min_xyz(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the minimum X, Y, or Z length of the geometry
 
@@ -247,7 +247,7 @@ Module Contents
    :return: The minimum possible value out of the X, Y, and Z dimension
 
 
-.. py:function:: get_normals(geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_normals(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.float64]
 
    Get vertex normals as a numpy array.
 
@@ -257,7 +257,7 @@ Module Contents
        Array shape: (1, 3).
 
 
-.. py:function:: get_outer_surface_area(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_outer_surface_area(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the outer surface area (i.e. all sides except for top and bottom)
 
@@ -279,7 +279,7 @@ Module Contents
    :return: A list of profiles
 
 
-.. py:function:: get_shape_bbox_centroid(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_shape_bbox_centroid(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.float64]
 
    Calculates the shape's bounding box centroid
 
@@ -291,7 +291,7 @@ Module Contents
    :return: A tuple representing the XYZ centroid
 
 
-.. py:function:: get_shape_bottom_elevation(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_shape_bottom_elevation(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the lowest global Z ordinate of the shape
 
@@ -303,7 +303,7 @@ Module Contents
    :return: The Z value
 
 
-.. py:function:: get_shape_material_styles(geometry: ifcopenshell.geom.ShapeType) -> tuple[ifcopenshell.ifcopenshell_wrapper.style, Ellipsis]
+.. py:function:: get_shape_material_styles(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> tuple[ifcopenshell.ifcopenshell_wrapper.style, Ellipsis]
 
    Get list of material styles.
 
@@ -316,7 +316,7 @@ Module Contents
    :return: A 4x4 numpy array representing the transformation matrix
 
 
-.. py:function:: get_shape_top_elevation(shape: ifcopenshell.geom.ShapeType, geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_shape_top_elevation(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the highest global Z ordinate of the shape
 
@@ -328,7 +328,7 @@ Module Contents
    :return: The Z value
 
 
-.. py:function:: get_shape_vertices(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.geom.ShapeType) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_shape_vertices(shape: ifcopenshell.geom.ShapeElementType, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> numpy.typing.NDArray[numpy.float64]
 
    Get the shape's vertices as a numpy array
 
@@ -343,7 +343,7 @@ Module Contents
        Array shape: (n, 3), where n - number of vertices.
 
 
-.. py:function:: get_side_area(geometry: ifcopenshell.geom.ShapeType, axis: AXIS_LITERAL = 'Y', direction: Optional[ifcopenshell.util.shape_builder.VectorType] = None, angle: float = 90.0) -> float
+.. py:function:: get_side_area(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation, axis: AXIS_LITERAL = 'Y', direction: Optional[ifcopenshell.util.shape_builder.VectorType] = None, angle: float = 90.0) -> float
 
    Calculates the total surface area of surfaces that are visible from the specified axis
 
@@ -366,9 +366,9 @@ Module Contents
    :return: The surface area.
 
 
-.. py:function:: get_top_area(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_top_area(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
-.. py:function:: get_top_elevation(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_top_elevation(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Gets the highest local Z ordinate of the geometry
 
@@ -376,7 +376,7 @@ Module Contents
    :return: The Z value
 
 
-.. py:function:: get_total_edge_length(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_total_edge_length(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the total length of edges in a given geometry.
 
@@ -384,7 +384,7 @@ Module Contents
    :return: The total length of all edges in the geometry.
 
 
-.. py:function:: get_vert_centroid(geometry: ifcopenshell.geom.ShapeType) -> tuple[float, float, float]
+.. py:function:: get_vert_centroid(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> tuple[float, float, float]
 
    Calculates the average vertex centroid of the geometry
 
@@ -394,7 +394,7 @@ Module Contents
    :return: A tuple representing the XYZ centroid
 
 
-.. py:function:: get_vertices(geometry: ifcopenshell.geom.ShapeType, is_2d: bool = False) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_vertices(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation, is_2d: bool = False) -> numpy.typing.NDArray[numpy.float64]
 
    Get all the vertices as a numpy array
 
@@ -406,7 +406,7 @@ Module Contents
        Array shape: (n, 3), where n - number of vertices.
 
 
-.. py:function:: get_volume(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_volume(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the total internal volume of a geometry
 
@@ -416,7 +416,7 @@ Module Contents
    :return: The volume in m3
 
 
-.. py:function:: get_x(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_x(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the X length of the geometry
 
@@ -424,7 +424,7 @@ Module Contents
    :return: The X dimension
 
 
-.. py:function:: get_y(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_y(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the Y length of the geometry
 
@@ -432,7 +432,7 @@ Module Contents
    :return: The Y dimension
 
 
-.. py:function:: get_z(geometry: ifcopenshell.geom.ShapeType) -> float
+.. py:function:: get_z(geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> float
 
    Calculates the Z length of the geometry
 

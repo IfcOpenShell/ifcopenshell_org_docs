@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_parameterized_profile(file: ifcopenshell.file, ifc_class: str) -> ifcopenshell.entity_instance
+.. py:function:: add_parameterized_profile(file: ifcopenshell.file, ifc_class: str, profile_type: str = 'AREA') -> ifcopenshell.entity_instance
 
    Adds a new parameterised profile
 
@@ -20,6 +20,7 @@ Module Contents
 
    :param ifc_class: The subclass of IfcParameterizedProfileDef that you'd
        like to create.
+   :param profile_type:
    :return: The newly created element depending on the specified ifc_class.
 
    Example:
@@ -30,4 +31,6 @@ Module Contents
            ifc_class="IfcCircleProfileDef")
        circle.Radius = 1.
 
+
+.. py:data:: ProfileType
 

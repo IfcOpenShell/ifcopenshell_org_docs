@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file, logger, name: str = 'EPSG:1234', x: Union[str, float] = '0', y: Union[str, float] = '0', z: Union[str, float] = '0', e: Union[str, float] = '0', n: Union[str, float] = '0', h: Union[str, float] = '0', gn_angle: Union[str, float] = '0', rotate_angle: Union[str, float] = '0')
+.. py:class:: Patcher(file, logger, name: str = 'EPSG:1234', x: Union[str, float] = '0', y: Union[str, float] = '0', z: Union[str, float] = '0', e: Union[str, float] = '0', n: Union[str, float] = '0', h: Union[str, float] = '0', gn_angle: Union[str, float] = '0', rotate_angle: Union[str, float] = '0', reset_spatial_elements: bool = True)
 
    
    Sets local coordinates XYZ as a (false) origin that correlates to map coordinates ENH
@@ -68,6 +68,11 @@ Module Contents
 
    .. py:attribute:: name
       :value: 'EPSG:1234'
+
+
+
+   .. py:attribute:: reset_spatial_elements
+      :value: True
 
 
 

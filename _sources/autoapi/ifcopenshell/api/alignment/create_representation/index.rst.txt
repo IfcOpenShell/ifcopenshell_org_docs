@@ -1,0 +1,21 @@
+:py:mod:`ifcopenshell.api.alignment.create_representation`
+==========================================================
+
+.. py:module:: ifcopenshell.api.alignment.create_representation
+
+
+Module Contents
+---------------
+
+.. py:function:: create_representation(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> None
+
+   Creates the geometric representation of an alignment if it does not already exist.
+   This function is intended to be used when a model has only the semantic definition of an alignment
+   and you want to add the geometric representation.
+
+   If the alignments are complete, it is recommended that add_zero_length_segment is called after this method to ensure
+   the proper structure of the semantic and geometric definitions of the alignment
+
+   :param alignment: The alignment to create the representation.
+
+

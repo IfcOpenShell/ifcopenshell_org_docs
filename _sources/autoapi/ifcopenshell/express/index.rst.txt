@@ -11,6 +11,7 @@ Submodules
    :maxdepth: 1
 
    bootstrap/index.rst
+   cat/index.rst
    codegen/index.rst
    definitions/index.rst
    documentation/index.rst

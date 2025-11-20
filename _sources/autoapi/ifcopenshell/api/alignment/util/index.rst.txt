@@ -51,3 +51,5 @@ Module Contents
    Debugging function to print composite curve segments, including curve segment details
 
 
+.. py:function:: print_positioned_products(file: ifcopenshell.file)
+

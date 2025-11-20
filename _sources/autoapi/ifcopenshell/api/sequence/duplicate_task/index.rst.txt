@@ -9,30 +9,34 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: copy_indirect_attributes(from_element, to_element)
+   .. py:method:: copy_indirect_attributes(from_element: ifcopenshell.entity_instance, to_element: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: copy_sequence_relationship(original_tasks, duplicated_tasks)
+   .. py:method:: copy_sequence_relationship() -> None
 
 
    .. py:method:: create_object_reference(relating_object: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: duplicate_task(task)
+   .. py:method:: duplicate_task(task: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(task: ifcopenshell.entity_instance) -> tuple[list[ifcopenshell.entity_instance], list[ifcopenshell.entity_instance]]
+
+
+   .. py:attribute:: current
+      :type:  list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: duplicate
+      :type:  list[ifcopenshell.entity_instance]
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance]]
+.. py:function:: duplicate_task(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> tuple[list[ifcopenshell.entity_instance], list[ifcopenshell.entity_instance]]
 
    Duplicates a task in the project
 
@@ -43,15 +47,22 @@ Module Contents
    * The copy will have duplicated nested tasks
 
    :param task: The task to be duplicated
-   :return: The duplicated task or the list of duplicated tasks if the latter has children
+   :return: A tuple that consists of two lists of tasks:
+
+       - Original task and it's nested tasks.
+       - Their corresponding duplicated tasks.
 
    Example:
    .. code:: python
 
        # We have a task
-       original_task = Task(name="Design new feature", deadline="2023-03-01")
+       original_task = ifcopenshell.api.sequence.add_task(
+           model, work_schedule=work_schedule,
+           name="Design new feature",
+       )
 
        # And now we have two
-       duplicated_task = project.duplicate_task(original_task)
+       original_tasks, duplicated_tasks = ifcopenshell.api.sequence.duplicate_task(original_task)
+       print(duplicated_tasks[0])  # A copy of ``original_task``.
 
 

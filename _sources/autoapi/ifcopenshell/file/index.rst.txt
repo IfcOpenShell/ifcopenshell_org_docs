@@ -322,9 +322,8 @@ Module Contents
       Write ifc model to file.
 
       :param format: Force use of a specific format. Guessed from file name
-          if None.  Supported formats : .ifc, .ifcXML, .ifcZIP (equivalent to
-          format=".ifc" with zipped=True) For zipped .ifcXML use
-          format=".ifcXML" with zipped=True
+          if None.  Supported formats : .ifc, .ifcZIP (equivalent to
+          format=".ifc" with zipped=True)
       :param zipped: zip the file after it is written
 
       Example:
@@ -332,10 +331,8 @@ Module Contents
       .. code:: python
 
           model.write("path/to/model.ifc")
-          model.write("path/to/model.ifcXML")
           model.write("path/to/model.ifcZIP")
-          model.write("path/to/model.ifcZIP", format=".ifcXML", zipped=True)
-          model.write("path/to/model.anyextension", format=".ifcXML")
+          model.write("path/to/model.anyextension", format=".ifc")
 
 
 
@@ -346,8 +343,9 @@ Module Contents
 
 
 
-   .. py:attribute:: header
-      :type:  ifcopenshell.ifcopenshell_wrapper.IfcSpfHeader
+   .. py:property:: header
+      :type: file_header
+
 
 
    .. py:attribute:: history
@@ -360,6 +358,19 @@ Module Contents
    .. py:attribute:: history_size
       :type:  int
       :value: 64
+
+
+
+   .. py:property:: identifier
+      :type: tuple[int, int]
+
+
+      Pair of C++ file pointer address and creation time stamp to uniquely identify a file
+      over the life time of ifcopenshell module that should be mostly safe except in pathological
+      cases
+
+      Returns:
+          tuple[int, int]: Pair of C++ file pointer address and creation time stamp
 
 
 
@@ -392,6 +403,15 @@ Module Contents
 
 
 
+   .. py:property:: storage
+      :type: Optional[rocksdb_file_storage]
+
+
+      Returns:
+          Optional[rocksdb_file_storage]: underlying key-value store interface when opened as a RocksDB-backed file
+
+
+
    .. py:attribute:: to_delete
       :type:  Union[set[ifcopenshell.entity_instance], None]
       :value: None
@@ -415,6 +435,81 @@ Module Contents
       :type:  ifcopenshell.ifcopenshell_wrapper.file
 
 
+.. py:class:: file_header(file, header_data)
+
+   .. py:attribute:: file
+
+
+   .. py:property:: file_description
+      :type: ifcopenshell.entity_instance.entity_instance
+
+
+
+   .. py:property:: file_name
+      :type: ifcopenshell.entity_instance.entity_instance
+
+
+
+   .. py:property:: file_schema
+      :type: ifcopenshell.entity_instance.entity_instance
+
+
+
+   .. py:attribute:: header_data
+
+
+.. py:class:: rocksdb_file_storage(file, prefix='')
+
+   .. py:method:: by_id(name)
+
+
+   .. py:method:: by_type(ty: str)
+
+
+   .. py:method:: items()
+
+
+   .. py:method:: prefix(prefix)
+
+
+   .. py:method:: read(key)
+
+
+   .. py:method:: schema() -> ifcopenshell.util.schema.IFC_SCHEMA
+
+      General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
+   .. py:method:: schema_identifier()
+
+      Full IFC schema version: IFC2X3_TC1, IFC4_ADD2, IFC4X3_ADD2, etc.
+
+
+
+   .. py:attribute:: file
+
+
+.. py:class:: rocksdb_lazy_instance(storage, name)
+
+   .. py:method:: id()
+
+
+   .. py:method:: is_a()
+
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: storage
+
+
+.. py:function:: attribute_lookup(schema_name, entity_name)
+
+.. py:function:: consume_buffer(val, inner)
+
+.. py:function:: entity_name_lookup(schema_name, index)
+
 .. py:data:: HEADER_FIELDS
 
 .. py:data:: INVALID_SYNTAX
@@ -425,12 +520,17 @@ Module Contents
 
 .. py:data:: READ_ERROR
 
+.. py:data:: UNKNOWN
+
 .. py:data:: UNSUPPORTED_SCHEMA
 
-.. py:data:: file_dict
-   :type:  dict[int, weakref.ReferenceType[file]]
+.. py:data:: binary_deserializers
 
-   Mapping of internal IfcFile pointer addressed to existing ``ifcopenshell.file``.
+.. py:data:: file_dict
+   :type:  dict[int, tuple[weakref.ReferenceType[file], int]]
+
+   Mapping of internal IfcFile pointer address to existing ``ifcopenshell.file``
+   and the timestamp when it was created.
 
    Needed only to quickly access related from ``entity_instance`` it's ``file``.
 

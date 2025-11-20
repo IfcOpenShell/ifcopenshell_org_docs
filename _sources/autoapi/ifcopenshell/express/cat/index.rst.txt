@@ -1,0 +1,13 @@
+:py:mod:`ifcopenshell.express.cat`
+==================================
+
+.. py:module:: ifcopenshell.express.cat
+
+
+Module Contents
+---------------
+
+.. py:data:: b
+
+.. py:data:: files
+

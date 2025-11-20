@@ -7,15 +7,14 @@
 Module Contents
 ---------------
 
-.. py:function:: unassign_control(file: ifcopenshell.file, relating_control: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: unassign_control(file: ifcopenshell.file, relating_control: ifcopenshell.entity_instance, related_objects: list[ifcopenshell.entity_instance]) -> None
 
    Unassigns a planning control or constraint to an object
 
    :param relating_control: The IfcControl entity that is creating the
        control or constraint
-   :param related_object: The IfcObjectDefinition that is being controlled
-   :return: If the control still is related to other objects, the
-       IfcRelAssignsToControl is returned, otherwise None.
+   :param related_objects: The list IfcObjectDefinitions that is being controlled
+   :return: None
 
    Example:
 
@@ -27,10 +26,10 @@ Module Contents
        cost_item = ifcopenshell.api.cost.add_cost_item(model,
            cost_schedule=schedule)
        ifcopenshell.api.control.assign_control(model,
-           relating_control=cost_item, related_object=wall)
+           relating_control=cost_item, related_objects=[wall])
 
        # And now let's change our mind
        ifcopenshell.api.control.unassign_control(model,
-           relating_control=cost_item, related_object=wall)
+           relating_control=cost_item, related_objects=[wall])
 
 

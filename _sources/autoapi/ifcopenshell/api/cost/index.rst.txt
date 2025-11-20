@@ -29,6 +29,7 @@ Submodules
    calculate_cost_item_resource_value/index.rst
    copy_cost_item/index.rst
    copy_cost_item_values/index.rst
+   copy_cost_schedule/index.rst
    edit_cost_item/index.rst
    edit_cost_item_quantity/index.rst
    edit_cost_schedule/index.rst
@@ -118,7 +119,7 @@ Package Contents
        schedule = ifcopenshell.api.cost.add_cost_schedule(model)
        item = ifcopenshell.api.cost.add_cost_item(model, cost_schedule=schedule)
        ifcopenshell.api.control.assign_control(model,
-           relating_control=item, related_object=chair)
+           relating_control=item, related_objects=[chair])
 
        # Let's assume we want to count the amount of chairs to calculate our cost item
        # Because this is an IfcQuantityCount the count will be automatically set to "1" chair
@@ -365,7 +366,7 @@ Package Contents
        concrete = ifcopenshell.api.resource.add_resource(model,
            ifc_class="IfcConstructionMaterialResource", parent_resource=crew)
        ifcopenshell.api.control.assign_control(model,
-           relating_control=item, related_object=concrete)
+           relating_control=item, related_objects=[concrete])
        # ... which has a unit price of 42.0 per m3
        value = ifcopenshell.api.cost.add_cost_value(model, parent=concrete)
        ifcopenshell.api.cost.edit_cost_value(model, cost_value=value,
@@ -380,7 +381,7 @@ Package Contents
        equipment = ifcopenshell.api.resource.add_resource(model,
            ifc_class="IfcConstructionEquipmentResource", parent_resource=crew)
        ifcopenshell.api.control.assign_control(model,
-           relating_control=item, related_object=equipment)
+           relating_control=item, related_objects=[equipment])
        # ... with a fixed price of 50,000
        value = ifcopenshell.api.cost.add_cost_value(model, parent=concrete)
        ifcopenshell.api.cost.edit_cost_value(model, cost_value=value,
@@ -443,6 +444,21 @@ Package Contents
 
        # Let's copy the value from one item to another
        ifcopenshell.api.cost.copy_cost_item_values(model, source=item1, destination=item2)
+
+
+.. py:function:: copy_cost_schedule(file: ifcopenshell.file, cost_schedule: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Copy a cost schedule.
+
+   :param cost_schedule: IfcCostSchedule to copy.
+   :return: The duplicated IfcCostSchedule entity
+
+   Example:
+
+   .. code:: python
+
+       schedule = ifcopenshell.api.cost.add_cost_schedule(model)
+       new_schedule = ifcopenshell.api.cost.copy_cost_schedule(schedule)
 
 
 .. py:function:: edit_cost_item(file: ifcopenshell.file, cost_item: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None

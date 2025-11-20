@@ -7,7 +7,10 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file, logger)
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Fix missing door swings in Revit when viewing ArchiCAD IFCs
@@ -39,12 +42,6 @@ Module Contents
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "FixArchiCADToRevitDoorSwings", "arguments": []})
 
 
-   .. py:method:: patch()
-
-
-   .. py:attribute:: file
-
-
-   .. py:attribute:: logger
+   .. py:method:: patch() -> None
 
 

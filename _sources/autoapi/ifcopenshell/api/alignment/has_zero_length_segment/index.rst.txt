@@ -11,7 +11,7 @@ Module Contents
 
    Returns true if the layout ends with a zero length segment.
 
-   :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant, IfcCompositeCurve, IfcGradientCurve, or IfcSegmentedReferenceCurve
    :return: True if the zero length segment is present
 
 

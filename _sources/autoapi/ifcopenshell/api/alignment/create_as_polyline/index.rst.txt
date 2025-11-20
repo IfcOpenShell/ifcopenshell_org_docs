@@ -1,0 +1,22 @@
+:py:mod:`ifcopenshell.api.alignment.create_as_polyline`
+=======================================================
+
+.. py:module:: ifcopenshell.api.alignment.create_as_polyline
+
+
+Module Contents
+---------------
+
+.. py:function:: create_as_polyline(file: ifcopenshell.file, name: str, points: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: float = 0.0) -> ifcopenshell.entity_instance
+
+   Creates a new IfcAlignment with an IfcPolyline representation.
+
+   The IfcAlignment is aggreated to IfcProject
+
+   :param file:
+   :param name: name assigned to IfcAlignment.Name
+   :param points: sequence of points defining the polyline
+   :param start_station: station value at the start of the alignment
+   :return: Returns an IfcAlignment
+
+

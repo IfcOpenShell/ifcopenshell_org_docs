@@ -44,45 +44,54 @@ Submodules
 
    add_stationing_referent/index.rst
    add_vertical_layout/index.rst
-   create_alignment/index.rst
+   add_zero_length_segment/index.rst
+   create/index.rst
+   create_as_offset_curve/index.rst
+   create_as_polyline/index.rst
    create_by_pi_method/index.rst
    create_from_csv/index.rst
    create_layout_segment/index.rst
+   create_representation/index.rst
    create_segment_representations/index.rst
    distance_along_from_station/index.rst
    get_alignment/index.rst
+   get_alignment_layout_nest/index.rst
    get_alignment_layouts/index.rst
-   get_alignment_station/index.rst
+   get_alignment_segment_nest/index.rst
+   get_alignment_start_station/index.rst
    get_axis_subcontext/index.rst
    get_basis_curve/index.rst
    get_cant_layout/index.rst
    get_child_alignments/index.rst
    get_curve/index.rst
+   get_curve_segment_transition_code/index.rst
    get_horizontal_layout/index.rst
    get_layout_curve/index.rst
    get_layout_segments/index.rst
+   get_mapped_segments/index.rst
    get_parent_alignment/index.rst
+   get_referent_nest/index.rst
    get_vertical_layout/index.rst
    has_zero_length_segment/index.rst
    layout_horizontal_alignment_by_pi_method/index.rst
    layout_vertical_alignment_by_pi_method/index.rst
    name_segments/index.rst
+   update_fallback_position/index.rst
    util/index.rst
 
 
 Package Contents
 ----------------
 
-.. py:function:: add_stationing_referent(file: ifcopenshell.file, element: ifcopenshell.entity_instance, basis_curve: ifcopenshell.entity_instance, distance_along: float, station: float, name: str) -> ifcopenshell.entity_instance
+.. py:function:: add_stationing_referent(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, name: str, positioned_product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-   Adds an IfcReferent to the element with the Pset_Stationing property set.
-   If element is an IfcAlignment, IfcReferent.PredefinedType is set to "STATION", otherwise "POSITION"
+   Adds an IfcReferent to the alignment with the Pset_Stationing property set.
 
-   :param element: the element to receive the referent, expected to be an IfcAlignment or IfcAlignmentSegment
-   :param basis_curve: the basis curve for positining
-   :param distance_along: distance along the basis curve
+   :param alignment: the alignment to receive the referent
+   :param distance_along: distance along the alignment basis curve
    :param station: station value
    :param name: name to assign to IfcReferent.Name, typically a stringized version of the station value
+   :param positioned_product: the product whose position is informed by the referent
    :return: referent
 
    Example:
@@ -90,8 +99,7 @@ Package Contents
    .. code:: python
 
        alignment = model.by_type("IfcAlignment")[0]
-       basis_curve = ifcopenshell.api.alignment.get_basis_curve(alignment)
-       ifcopenshell.api.alignment.add_stationing_referent(model,entity=alignment,basis_curve=basis_curve,distance_along=0.0,station=100.0)
+       ifcopenshell.api.alignment.add_stationing_referent(model,alignment=alignment,distance_along=0.0,station=100.0)
 
 
 .. py:function:: add_vertical_layout(file: ifcopenshell.file, parent_alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -118,22 +126,65 @@ Package Contents
    :return: The new vertical layout, including the manditory zero length segment
 
 
-.. py:function:: create(file: ifcopenshell.file, name: str, include_vertical: bool = False, include_cant: bool = False, start_station: float = 0.0) -> ifcopenshell.entity_instance
+.. py:function:: add_zero_length_segment(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, include_referent: bool = True) -> bool
 
-   Creates a new IfcAlignment with an IfcRelNests nesting an IfcReferent (for stationing) and IfcAlignmentHorizontal. The nest relationship can optionally
-   include IfcAlignmentVertical and IfcAlignmentCant. Geometric representations for the alignment layouts (IfcCompositeCurve,
-   IfcGradientCurve, IfcSegmentedReferenceCurve) are created as well.
+   Adds a zero length segment to the end of a layout.
 
-   Zero length segments are added at the end.
+   If the layout already has a zero length segment, nothing is changed.
 
-   The IfcAlignment is aggreated to IfcProject
+   :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant, IfcCompositeCurve, IfcGradientCurve, IfcSegmentedReferenceCurve
+   :param include_referent: If True, an IfcReferent representing the ending point of the layout is included for IfcLinearElement layouts (i.e. business logic)
+   :return: True if segment is added
 
-   Use get_horizontal_layout(alignment) to get the IfcAlignmentHorizontal layout.
+
+.. py:function:: create(file: ifcopenshell.file, name: str, include_vertical: bool = False, include_cant: bool = False, include_geometry: bool = True, start_station: float = 0.0) -> ifcopenshell.entity_instance
+
+   Creates a new alignment with a horizontal layout. Optionally, vertical and cant layouts can be created as well.
+   The geometric representations are created as well, unless they are explicitly excluded.
+   Zero length segments are added at the end of the layouts and geometric representations.
+   The alignment is automatically aggreated to the project if it exists.
+
+   Use get_horizontal_layout(alignment), get_vertical_layout(alignment) and get_cant_layout(alignment) to get the
+    corresponding IfcAlignmentHorizontal, IfcAlignmentVertical, and IfcAlignmentCant layout entities.
+
+   If the alignment has Viennese Bend transition curves, create the segments in the cant layout before the horizontal layout using create_layout_segment().
+   The horizontal geometry in the Viennese Bend transition curves depends on the Viennese Bend cant parameters. create_layout_segment() automatically creates
+   the geometric representation from the semantic definition. The horizontal segment geometric representation will fail if the cant segment is not defined.
+
+   If geometric representations are created, the alignment stationing referent is also created using the start_station value. IfcReferent.ObjectPlacement
+   is required for linear positiion elements and IfcLinearPlacement is defined relative to alignment curve geometry.
 
    :param file:
    :param name: name assigned to IfcAlignment.Name
-   :param include_vertical: If True, IfcAlignmentVertical and IfcGradientCurve are created
-   :param include_cant: If True, IfcAlignmentCant and IfcSegmentedReferenceCurve are created
+   :param include_vertical: If True, IfcAlignmentVertical is created. IfcGradientCurve is created if include_geometry is True
+   :param include_cant: If True, IfcAlignmentCant is created. IfcSegmentedReferenceCurve is created if include_geometry is True
+   :param include_geometry: If True, the geometric representations are added
+   :param start_station: station value at the start of the alignment.
+   :return: Returns an IfcAlignment
+
+
+.. py:function:: create_as_offset_curve(file: ifcopenshell.file, name: str, offsets: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: float = 0.0) -> ifcopenshell.entity_instance
+
+   Creates a new IfcAlignment with an IfcOffsetCurveByDistances representation.
+
+   The IfcAlignment is aggreated to IfcProject
+
+   :param file:
+   :param name: name assigned to IfcAlignment.Name
+   :param offsets: offsets from the basis curve that defines the offset curve, expected to be IfcOffsetCurveByDistances.
+   :param start_station: station value at the start of the alignment
+   :return: Returns an IfcAlignment
+
+
+.. py:function:: create_as_polyline(file: ifcopenshell.file, name: str, points: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: float = 0.0) -> ifcopenshell.entity_instance
+
+   Creates a new IfcAlignment with an IfcPolyline representation.
+
+   The IfcAlignment is aggreated to IfcProject
+
+   :param file:
+   :param name: name assigned to IfcAlignment.Name
+   :param points: sequence of points defining the polyline
    :param start_station: station value at the start of the alignment
    :return: Returns an IfcAlignment
 
@@ -186,14 +237,26 @@ Package Contents
    :return: IfcAlignment
 
 
-.. py:function:: create_layout_segment(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, design_parameters: ifcopenshell.entity_instance) -> numpy.array
+.. py:function:: create_layout_segment(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, design_parameters: ifcopenshell.entity_instance) -> Union[numpy.array, None]
 
    Creates a new IfcAlignmentSegment using the IfcAlignmentParameterSegment design parameters.
-   The new segment is appended to the layout alignment and the corresponding IfcCurveSegment is created in the geometric representation
+   The new segment is appended to the layout alignment and the corresponding IfcCurveSegment is created in the geometric representation if it exists.
 
    :param layout: The layout to receive the new layout segment. This parameter is expected to be IfcAlignmentHorizontal, IfcAlignmentVertical or IfcAlignmentCant
    :param design_parameters: The parameters defining the segment. Expected to be the appropreate subclass of IfcAlignmentParameterSegment
-   :return: 4x4 matrix at end of segment as np.array intended to be used as the start point geometry for the next segment.
+   :return: 4x4 matrix at end of segment as np.array intended to be used as the start point geometry for the next segment or None if there is the geometric representation is not defined.
+
+
+.. py:function:: create_representation(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> None
+
+   Creates the geometric representation of an alignment if it does not already exist.
+   This function is intended to be used when a model has only the semantic definition of an alignment
+   and you want to add the geometric representation.
+
+   If the alignments are complete, it is recommended that add_zero_length_segment is called after this method to ensure
+   the proper structure of the semantic and geometric definitions of the alignment
+
+   :param alignment: The alignment to create the representation.
 
 
 .. py:function:: create_segment_representations(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> None
@@ -233,16 +296,32 @@ Package Contents
    Returns the alignment that nests this layout
 
 
+.. py:function:: get_alignment_layout_nest(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Searches for the IfcRelNest that contains IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+
+   :param alignment: the alignment
+   :return: Returns the IfcRelNests containing the alignment layout
+
+
 .. py:function:: get_alignment_layouts(alignment: ifcopenshell.entity_instance) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
    Returns the layout alignments nested to this alignment
 
 
-.. py:function:: get_alignment_station(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> float
+.. py:function:: get_alignment_segment_nest(layout: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-   Returns the start station of the alignment. If the alignment is nested by an IfcReferent
-   the referent is checked for PredefinedType of STATION and an occurance of Pset_Stationing.Station,
-   otherwise start station is taken to be 0.0.
+   Searches for the IfcRelNest that contains IfcAlignmentSegment
+
+   :param layout: an alignment layout, expected to be one of IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :return: Returns the IfcRelNests
+
+
+.. py:function:: get_alignment_start_station(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> float
+
+   Returns the start station of the alignment. The starting station is defined by the first nested IfcReferent.
+   This is interpreted to mean the first IfcReferent with an occurance of Pset_Stationing.Station,
+   otherwise returns 0.0.
 
 
 .. py:function:: get_axis_subcontext(file: ifcopenshell.file) -> ifcopenshell.entity_instance
@@ -285,6 +364,7 @@ Package Contents
 .. py:function:: get_curve(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Returns the geometric representation curve for an alignment.
+   An alignment without layouts will have a curve of type IfcPolyLine or IfcIndexedPolyCurve
    A horizontal only will have a curve of type IfcCompositeCurve
    A horizontal+vertical will have a curve of type IfcGradientCurve
    A horizontal+vertical+cant will have a curve of tyep IfcSegmentedReferenceCurve
@@ -297,6 +377,17 @@ Package Contents
    .. code:: python
        alignment = model.by_type("IfcAlignment")[0]
        gradient_curve = ifcopenshell.api.alignment.get_curve(alignment)
+
+
+.. py:function:: get_curve_segment_transition_code(segment: ifcopenshell.entity_instance, next_segment: ifcopenshell.entity_instance, position_tolerance: float = 0.001) -> str
+
+   Returns the IfcCurveSegment.Transition of segment based on a comparison of
+   the position, ref. direction, and curvature at the end of the segment and the start of next_segment.
+
+   :param segment: segment for which the position curve is being being determined
+   :param next_segment: next segment
+   :param position_tolerance: tolerance used for evaluation positions. The default is 1mm
+   :return: the transition code
 
 
 .. py:function:: get_horizontal_layout(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -346,6 +437,15 @@ Package Contents
        parent = ifcopenshell.api.alignment.get_parent_alignment(alignment)
 
 
+.. py:function:: get_referent_nest(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Searches for the IfcRelNest that contains IfcReferent. If one is not found, a empty IfcRelNests is created.
+
+   :param file:
+   :param alignment: The IfcAlignment which hosts IfcReferent
+   :return: Returns the IfcRelNests.
+
+
 .. py:function:: get_vertical_layout(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Returns the IfcAlignmentVertical assocated with this alignment
@@ -355,7 +455,7 @@ Package Contents
 
    Returns true if the layout ends with a zero length segment.
 
-   :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant, IfcCompositeCurve, IfcGradientCurve, or IfcSegmentedReferenceCurve
    :return: True if the zero length segment is present
 
 
@@ -411,5 +511,15 @@ Package Contents
    * prev_segment != None and segment != None - this indicates an intermediate segment so a name representitive of the transition is returned
 
    Setting any or all of the callbacks to None causes the default naming to be used.
+
+
+.. py:function:: update_fallback_position(file: ifcopenshell.file, lp: ifcopenshell.entity_instance)
+
+   Updates the IfcLinearPlacement.CartesianPoint fallback position.
+
+   If the CartesianPosition is not assigned to the IfcLinearPlacement, one will be created
+
+   :param lp: The linear placement
+   :return: None
 
 

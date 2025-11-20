@@ -260,7 +260,7 @@ Module Contents
       }
       
       %(schema_name)s::%(name)s::operator %(schema_name)s::%(name)s::Value() const {
-          return (%(schema_name)s::%(name)s::Value) data_.storage_.get<EnumerationReference>(0).index();
+          return (%(schema_name)s::%(name)s::Value) ((EnumerationReference) get_attribute_value(0)).index();
       }
       """
 
@@ -275,11 +275,11 @@ Module Contents
 
 
 .. py:data:: get_attr_stmt
-   :value: '%(null_check)s %(non_optional_type)s v = data_.get_attribute_value(%(index)d); return v;'
+   :value: '%(null_check)s %(non_optional_type)s v = get_attribute_value(%(index)d); return v;'
 
 
 .. py:data:: get_attr_stmt_array
-   :value: '%(null_check)s aggregate_of_instance::ptr es = data_.get_attribute_value(%(index)d); return...
+   :value: '%(null_check)s aggregate_of_instance::ptr es = get_attribute_value(%(index)d); return es->as<...
 
 
 .. py:data:: get_attr_stmt_entity
@@ -287,11 +287,11 @@ Module Contents
 
 
 .. py:data:: get_attr_stmt_enum
-   :value: '%(null_check)s return %(non_optional_type)s::FromString(data_.get_attribute_value(%(index)d));'
+   :value: '%(null_check)s return %(non_optional_type)s::FromString(get_attribute_value(%(index)d));'
 
 
 .. py:data:: get_attr_stmt_nested_array
-   :value: '%(null_check)s aggregate_of_aggregate_of_instance::ptr es =...
+   :value: '%(null_check)s aggregate_of_aggregate_of_instance::ptr es = get_attribute_value(%(index)d);...
 
 
 .. py:data:: get_inverse
@@ -415,7 +415,7 @@ Module Contents
 
 
 .. py:data:: optional_attr_stmt
-   :value: 'return !data_.get_attribute_value(%(index)d).isNull();'
+   :value: 'return !get_attribute_value(%(index)d).isNull();'
 
 
 .. py:data:: optional_attribute_description
@@ -538,7 +538,7 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_argument
-   :value: 'return data_.get_attribute_value(i);'
+   :value: 'return get_attribute_value(i);'
 
 
 .. py:data:: simpletype_impl_argument_type
@@ -546,11 +546,11 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_cast
-   :value: 'return data_.get_attribute_value(0);'
+   :value: 'return get_attribute_value(0);'
 
 
 .. py:data:: simpletype_impl_cast_templated
-   :value: 'aggregate_of_instance::ptr es = data_.get_attribute_value(0); return es->as< %(underlying_type)s >();'
+   :value: 'aggregate_of_instance::ptr es = get_attribute_value(0); return es->as< %(underlying_type)s >();'
 
 
 .. py:data:: simpletype_impl_class

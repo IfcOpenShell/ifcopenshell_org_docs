@@ -157,24 +157,27 @@ Module Contents
    :return: The elevation in project length units.
 
 
-.. py:function:: dd2dms(dd: float, use_ms: bool = False) -> Union[tuple[float, float, float, float], tuple[float, float, float]]
+.. py:function:: dd2dms(dd: float, use_us: bool = False) -> Union[tuple[int, int, int, int], tuple[int, int, float]]
 
-   Convert decimal degrees to degrees, minutes, and (milli)seconds format
+   Convert decimal degrees to degrees, minutes, and (micro)seconds format
 
    :param dd: The decimal degrees
-   :param use_ms: True if to include milliseconds and false otherwise. Defaults to false.
-   :return: The angle in a tuple of either 3 or 4 values, being degrees,
-       minutes, seconds, and optionally milliseconds.
+   :param use_us: True if to include microseconds and false otherwise. Defaults to false.
+   :return: The angle in a tuple of either 3 or 4 values,
+       4 values: integer number of degrees, integer number of minutes, integer number of seconds and integer number of microseconds
+       3 values: integer number of degrees, integer number of minutes, and a float number for seconds
+   :note: the tuple follows the format of IfcCompoundPlaneAngleMeasure. Namely all of its components are either positive or negative.
 
 
-.. py:function:: dms2dd(degrees: int, minutes: int, seconds: int, ms: int = 0) -> float
+.. py:function:: dms2dd(degrees: int, minutes: int, seconds: int, us: int = 0) -> float
 
-   Convert degrees, minutes, and (milli)seconds to decimal degrees
+   Convert degrees, minutes, and (micro)seconds to decimal degrees
+   All components must be either positive or negative.
 
    :param degrees: The degrees component
    :param minutes: The minutes component
    :param seconds: The seconds component
-   :param ms: The milliseconds component
+   :param us: The microseconds component
    :return: The angle in decimal degrees.
 
 

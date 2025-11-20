@@ -1,0 +1,16 @@
+:py:mod:`ifcopenshell.api.alignment.get_alignment_start_station`
+================================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_alignment_start_station
+
+
+Module Contents
+---------------
+
+.. py:function:: get_alignment_start_station(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> float
+
+   Returns the start station of the alignment. The starting station is defined by the first nested IfcReferent.
+   This is interpreted to mean the first IfcReferent with an occurance of Pset_Stationing.Station,
+   otherwise returns 0.0.
+
+

@@ -7,6 +7,108 @@
 Module Contents
 ---------------
 
+.. py:class:: GeometryCache
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: geometry
+      :type:  dict[str, GeometryCacheGeometry]
+
+
+   .. py:attribute:: shapes
+      :type:  dict[int, GeometryCacheShape]
+
+
+.. py:class:: GeometryCacheGeometry
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: edges
+      :type:  numpy.typing.NDArray[numpy.int32]
+
+
+   .. py:attribute:: faces
+      :type:  numpy.typing.NDArray[numpy.int32]
+
+
+   .. py:attribute:: material_ids
+      :type:  numpy.typing.NDArray[numpy.int32]
+
+
+   .. py:attribute:: materials
+      :type:  list[int]
+
+
+   .. py:attribute:: verts
+      :type:  numpy.typing.NDArray[numpy.float64]
+
+
+.. py:class:: GeometryCacheShape
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: co
+      :type:  list[float]
+
+      Object location.
+
+
+
+   .. py:attribute:: geometry
+      :type:  Union[str, None]
+
+      Element's geometry id (same value as in ``Representation.id``).
+
+      Is set to ``None` when no geometry is available for the element.
+
+
+
+   .. py:attribute:: matrix
+      :type:  numpy.typing.NDArray[numpy.float64]
+
+
 .. py:class:: sqlite(filepath: str)
 
    Bases: :py:obj:`ifcopenshell.file.file`
@@ -71,7 +173,7 @@ Module Contents
 
 
 
-   .. py:method:: get_geometry(ids: list[int]) -> dict[str, dict]
+   .. py:method:: get_geometry(ids: list[int]) -> GeometryCache
 
 
    .. py:method:: get_inverse(inst: sqlite_entity, allow_duplicate: bool = False, with_attribute_indices: bool = False) -> set[sqlite_entity]
@@ -133,6 +235,11 @@ Module Contents
 
 
 
+   .. py:property:: header
+      :type: types.SimpleNamespace
+
+
+
    .. py:attribute:: history
       :value: []
 
@@ -153,12 +260,26 @@ Module Contents
    .. py:attribute:: ifc_schema
 
 
-   .. py:attribute:: schema
-      :type:  ifcopenshell.util.schema.IFC_SCHEMA
-      :value: 'IFC4'
+   .. py:attribute:: mvd_str
+      :type:  str
+
+      As in `header.file_description.description`.
+
+
+
+   .. py:property:: schema
+      :type: ifcopenshell.util.schema.IFC_SCHEMA
 
 
       General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
+   .. py:property:: schema_identifier
+      :type: str
+
+
+      Full IFC schema version: IFC2X3_TC1, IFC4_ADD2, IFC4X3_ADD2, etc.
 
 
 
@@ -167,8 +288,8 @@ Module Contents
 
 
 
-   .. py:attribute:: wrapped_data
-      :value: None
+   .. py:property:: wrapped_data
+      :type: NoReturn
 
 
 
@@ -255,6 +376,11 @@ Module Contents
 
 
    .. py:method:: unserialise_value(value)
+
+
+   .. py:property:: file
+      :type: sqlite
+
 
 
    .. py:attribute:: sqlite_wrapper

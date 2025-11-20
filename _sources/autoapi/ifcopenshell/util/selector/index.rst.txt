@@ -120,6 +120,9 @@ Module Contents
    .. py:method:: NUMBER(args)
 
 
+   .. py:method:: boolean(args)
+
+
    .. py:method:: concat(args)
 
 

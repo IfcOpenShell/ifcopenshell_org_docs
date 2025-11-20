@@ -7,9 +7,9 @@
 Module Contents
 ---------------
 
-.. py:function:: assign_control(file: ifcopenshell.file, relating_control: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: assign_control(file: ifcopenshell.file, relating_control: ifcopenshell.entity_instance, related_objects: list[ifcopenshell.entity_instance]) -> Union[ifcopenshell.entity_instance, None]
 
-   Assigns a planning control or constraint to an object
+   Assigns a planning control or constraint to a list of objects.
 
    IFC can describe concepts that control other objects. For example, a
    planning calendar controls the availability of working days for
@@ -24,7 +24,7 @@ Module Contents
 
    :param relating_control: The IfcControl entity that is creating the
        control or constraint
-   :param related_object: The IfcObjectDefinition that is being controlled
+   :param related_objects: The list of IfcObjectDefinition that is being controlled
    :return: The newly created IfcRelAssignsToControl. If relationship already
        existed before and wasn't changed then returns None.
 
@@ -41,7 +41,7 @@ Module Contents
        # All subtasks will inherit this calendar, so assigning a single
        # calendar to the root task effectively defines a "default" calendar
        ifcopenshell.api.control.assign_control(model,
-           relating_control=calendar, related_object=task)
+           relating_control=calendar, related_objects=[task])
 
        # Another common example might be relating a cost item and a product
        wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
@@ -49,6 +49,6 @@ Module Contents
        cost_item = ifcopenshell.api.cost.add_cost_item(model,
            cost_schedule=schedule)
        ifcopenshell.api.control.assign_control(model,
-           relating_control=cost_item, related_object=wall)
+           relating_control=cost_item, related_objects=[wall])
 
 

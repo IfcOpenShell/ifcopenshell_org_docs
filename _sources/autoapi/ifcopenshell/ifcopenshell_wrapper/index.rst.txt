@@ -64,20 +64,6 @@ Module Contents
    .. py:property:: volume
 
 
-.. py:class:: CgalEmitOriginalEdges
-
-   .. py:attribute:: defaultvalue
-      :type:  Any
-
-
-   .. py:attribute:: description
-      :type:  Any
-
-
-   .. py:attribute:: name
-      :type:  Any
-
-
 .. py:class:: ColladaSerializer
 
    Bases: :py:obj:`WriteOnlyGeometrySerializer`
@@ -107,20 +93,6 @@ Module Contents
    .. py:method:: writeHeader()
 
 
-.. py:class:: ComputeCurvature
-
-   .. py:attribute:: defaultvalue
-      :type:  Any
-
-
-   .. py:attribute:: description
-      :type:  Any
-
-
-   .. py:attribute:: name
-      :type:  Any
-
-
 .. py:class:: ConversionResult
 
    .. py:method:: ItemId()
@@ -139,6 +111,9 @@ Module Contents
 
 
    .. py:method:: append(trsf)
+
+
+   .. py:method:: apply_transform(unit_scale)
 
 
    .. py:method:: hasStyle()
@@ -171,6 +146,9 @@ Module Contents
 
 
    .. py:method:: box()
+
+
+   .. py:method:: concat(arg2)
 
 
    .. py:method:: convex_decomposition()
@@ -236,6 +214,9 @@ Module Contents
    .. py:method:: subtract(arg2)
 
 
+   .. py:method:: surface_area_along_direction(tol, arg3, along_x, along_y, along_z)
+
+
    .. py:method:: surface_genus()
 
 
@@ -243,6 +224,9 @@ Module Contents
 
 
    .. py:method:: volume()
+
+
+   .. py:method:: wrap_in_compound()
 
 
 .. py:class:: DoubleArray3
@@ -289,23 +273,52 @@ Module Contents
 
 
    .. py:property:: context
+      :type: str
+
+
+      Element's geometry context.
+
+      E.g 'Body':
+
 
 
    .. py:property:: guid
+      :type: str
+
+
+      Mirroring IfcRoot.GlobalId.
+
 
 
    .. py:property:: id
       :type: int
 
 
+      Element's STEP ID.
+
+
 
    .. py:property:: name
+      :type: str
+
+
+      Mirroring IfcRoot.Name.
+
 
 
    .. py:property:: parent_id
+      :type: int
+
+
+      Parent object STEP id.
+
+      E.g. IfcBuildingStorey that element's in.
+
 
 
    .. py:property:: product
+      :type: entity_instance
+
 
 
    .. py:property:: transformation
@@ -319,92 +332,23 @@ Module Contents
 
 
    .. py:property:: type
+      :type: str
+
+
+      Element's IFC Class.
+
+      E.g. 'IfcWall'.
+
 
 
    .. py:property:: unique_id
+      :type: str
 
 
-.. py:class:: FileDescription
+      Interal unique id for the element.
 
-   Bases: :py:obj:`HeaderEntity`
+      E.g. 'product-186f8dc2-070c-46e1-a65b-a435a043ba3e-body'.
 
-
-   .. py:attribute:: description
-      :type:  tuple[str, Ellipsis]
-
-
-   .. py:attribute:: implementation_level
-      :type:  str
-
-
-.. py:class:: FileName
-
-   Bases: :py:obj:`HeaderEntity`
-
-
-   .. py:attribute:: author
-      :type:  tuple[str, Ellipsis]
-
-
-   .. py:attribute:: authorization
-      :type:  str
-
-
-   .. py:attribute:: name
-      :type:  str
-
-
-   .. py:attribute:: organization
-      :type:  tuple[str, Ellipsis]
-
-
-   .. py:attribute:: originating_system
-      :type:  str
-
-
-   .. py:attribute:: preprocessor_version
-      :type:  str
-
-
-   .. py:attribute:: time_stamp
-      :type:  str
-
-
-.. py:class:: FileSchema
-
-   Bases: :py:obj:`HeaderEntity`
-
-
-   .. py:attribute:: schema_identifiers
-      :type:  Any
-
-
-.. py:class:: FunctionStepParam
-
-   .. py:attribute:: defaultvalue
-      :type:  Any
-
-
-   .. py:attribute:: description
-      :type:  Any
-
-
-   .. py:attribute:: name
-      :type:  Any
-
-
-.. py:class:: FunctionStepType
-
-   .. py:attribute:: defaultvalue
-      :type:  Any
-
-
-   .. py:attribute:: description
-      :type:  Any
-
-
-   .. py:attribute:: name
-      :type:  Any
 
 
 .. py:class:: GeometrySerializer
@@ -481,7 +425,7 @@ Module Contents
    .. py:method:: ready()
 
 
-   .. py:method:: remove(guid)
+   .. py:method:: remove(guid: str) -> None
 
 
    .. py:method:: setFile(arg2)
@@ -494,17 +438,6 @@ Module Contents
 
 
    .. py:method:: writeHeader()
-
-
-.. py:class:: HeaderEntity
-
-   .. py:method:: getArgument(index)
-
-
-   .. py:method:: getArgumentCount()
-
-
-   .. py:method:: toString(upper)
 
 
 .. py:class:: IfcBaseEntity
@@ -547,7 +480,20 @@ Module Contents
 
 .. py:class:: IfcSpfHeader
 
+   IFC Header definition:
+   https://standards.buildingsmart.org/documents/Implementation/ImplementationGuide_IFCHeaderData_Version_1.0.2.pdf
+
+
    .. py:method:: file(*args)
+
+
+   .. py:method:: file_description_py()
+
+
+   .. py:method:: file_name_py()
+
+
+   .. py:method:: file_schema_py()
 
 
    .. py:method:: read()
@@ -559,27 +505,37 @@ Module Contents
    .. py:method:: write(out)
 
 
-   .. py:property:: file_description
-      :type: FileDescription
+.. py:class:: InstanceStreamer
+
+   .. py:method:: bypassTypes(type_names)
 
 
-
-   .. py:property:: file_name
-      :type: FileName
+   .. py:method:: bypassed_instances()
 
 
-
-   .. py:property:: file_schema
-
-
-.. py:class:: InstanceReference
-
-   .. py:attribute:: file_offset
-      :type:  Any
+   .. py:method:: hasSemicolon()
 
 
-   .. py:attribute:: v
-      :type:  Any
+   .. py:method:: inverses(*args)
+
+
+   .. py:method:: pushPage(page)
+
+
+   .. py:method:: readInstancePy(type_as_declaration_instance)
+
+
+   .. py:method:: references(*args)
+
+
+   .. py:method:: semicolonCount()
+
+
+   .. py:method:: status()
+
+
+   .. py:attribute:: coerce_attribute_count
+      :type:  bool
 
 
 .. py:class:: Iterator
@@ -617,6 +573,12 @@ Module Contents
    .. py:method:: get_object(id)
 
 
+   .. py:method:: get_task_items()
+
+
+   .. py:method:: get_task_products()
+
+
    .. py:method:: had_error_processing_elements()
 
 
@@ -649,7 +611,7 @@ Module Contents
 
 
 
-   .. py:method:: set_cache(cache: GeometrySerializer)
+   .. py:method:: set_cache(cache: Union[GeometrySerializer, None]) -> None
 
 
    .. py:method:: unit_magnitude()
@@ -663,6 +625,24 @@ Module Contents
 
 
    .. py:attribute:: processed_
+      :type:  Any
+
+
+.. py:class:: JsonSerializer
+
+   .. py:method:: finalize()
+
+
+   .. py:method:: ready()
+
+
+   .. py:method:: setFile(arg2)
+
+
+   .. py:method:: writeHeader()
+
+
+   .. py:attribute:: JSON_DIALECT_CREOOX
       :type:  Any
 
 
@@ -709,6 +689,34 @@ Module Contents
       - 2432 - mapped representation id
       - 2468 - IfcRelVoidsElement
 
+
+
+.. py:class:: RocksDBPrefixIterator
+
+   .. py:method:: key()
+
+
+   .. py:method:: next()
+
+
+   .. py:method:: valid()
+
+
+   .. py:method:: value()
+
+
+.. py:class:: RocksDbSerializer
+
+   .. py:method:: finalize()
+
+
+   .. py:method:: ready()
+
+
+   .. py:method:: setFile(arg2)
+
+
+   .. py:method:: writeHeader()
 
 
 .. py:class:: Serialization
@@ -1013,9 +1021,6 @@ Module Contents
 
 
 
-   .. py:method:: edges_item_ids() -> tuple[int, Ellipsis]
-
-
    .. py:method:: empty(settings)
       :staticmethod:
 
@@ -1043,6 +1048,11 @@ Module Contents
 
    .. py:property:: edges_buffer
       :type: bytes
+
+
+
+   .. py:property:: edges_item_ids
+      :type: tuple[int, Ellipsis]
 
 
 
@@ -1131,20 +1141,6 @@ Module Contents
 
 
 
-.. py:class:: TriangulationType
-
-   .. py:attribute:: defaultvalue
-      :type:  Any
-
-
-   .. py:attribute:: description
-      :type:  Any
-
-
-   .. py:attribute:: name
-      :type:  Any
-
-
 .. py:class:: TtlWktSerializer
 
    Bases: :py:obj:`WriteOnlyGeometrySerializer`
@@ -1223,13 +1219,6 @@ Module Contents
 
 
    .. py:method:: writeHeader()
-
-
-.. py:class:: XmlSerializerFactory
-
-   .. py:method:: implementations()
-      :staticmethod:
-
 
 
 .. py:class:: abstract_arrangement
@@ -1583,25 +1572,30 @@ Module Contents
    Bases: :py:obj:`item`
 
 
-   .. py:method:: b()
+   .. py:method:: b() -> float
 
 
-   .. py:method:: calc_hash()
+   .. py:method:: calc_hash() -> int
 
 
-   .. py:method:: clone_()
+   .. py:method:: clone_() -> typing_extensions.Self
 
 
-   .. py:method:: g()
+   .. py:method:: g() -> float
 
 
-   .. py:method:: kind()
+   .. py:method:: kind() -> int
 
 
-   .. py:method:: r()
+   .. py:method:: r() -> float
 
 
    .. py:property:: components
+      :type: tuple[float, float, float]
+
+
+      RGB tuple.
+
 
 
 .. py:class:: context
@@ -1852,6 +1846,9 @@ Module Contents
    .. py:method:: get_attribute_names()
 
 
+   .. py:method:: get_attribute_value(index)
+
+
    .. py:method:: get_inverse(a)
 
 
@@ -1912,6 +1909,9 @@ Module Contents
    .. py:method:: setArgumentAsString(i, a)
 
 
+   .. py:method:: set_attribute_value(*args)
+
+
    .. py:method:: toString(arg2, upper)
 
 
@@ -1961,6 +1961,8 @@ Module Contents
       Get a string for the index in enum.
 
 
+
+.. py:class:: equal_functor
 
 .. py:class:: extrusion
 
@@ -2022,6 +2024,9 @@ Module Contents
    .. py:method:: addEntities(entities)
 
 
+   .. py:method:: add_type_ref(new_entity)
+
+
    .. py:method:: batch() -> None
 
       Enable batch mode.
@@ -2044,6 +2049,9 @@ Module Contents
    .. py:method:: build_inverses()
 
 
+   .. py:method:: build_inverses_(arg2)
+
+
    .. py:method:: by_guid(guid: str) -> entity_instance
 
 
@@ -2054,6 +2062,12 @@ Module Contents
 
 
    .. py:method:: by_type_excl_subtypes(*args)
+
+
+   .. py:method:: bypass_type(type_name)
+
+
+   .. py:method:: create(decl)
 
 
    .. py:method:: createTimestamp()
@@ -2112,24 +2126,40 @@ Module Contents
    .. py:method:: good()
 
 
-   .. py:method:: guid_map(*args)
-      :staticmethod:
+   .. py:method:: header(*args) -> IfcSpfHeader
+
+      Internal IfcSpfHeader instance, always prefer ``ifcopenshell.file.header`` instead.
 
 
 
    .. py:method:: ifcroot_type() -> entity
 
 
-   .. py:method:: internal_guid_map()
+   .. py:method:: initialize(*args)
 
 
-   .. py:method:: load(entity_instance_name, entity, arg4, attribute_index)
+   .. py:method:: key_value_store_iter(prefix)
+
+
+   .. py:method:: key_value_store_query(key)
+
+
+   .. py:method:: process_deletion_inverse(inst)
 
 
    .. py:method:: recalculate_id_counter()
 
 
    .. py:method:: remove(entity: entity_instance) -> None
+
+
+   .. py:method:: remove_type_ref(new_entity)
+
+
+   .. py:method:: reset_identity_cache()
+
+
+   .. py:method:: storage_mode()
 
 
    .. py:method:: to_string()
@@ -2145,21 +2175,12 @@ Module Contents
 
 
 
-   .. py:method:: try_read_semicolon()
-
-
    .. py:method:: types() -> tuple[str, Ellipsis]
 
       Return a tuple of classes present in the file.
 
       E.g. `("IfcWallType", "IfcWall", "IfcArbitraryClosedProfileDef", ...)`.
 
-
-
-   .. py:method:: types_begin()
-
-
-   .. py:method:: types_end()
 
 
    .. py:method:: unbatch() -> None
@@ -2171,32 +2192,19 @@ Module Contents
    .. py:method:: write(fn)
 
 
-   .. py:attribute:: ATTRIBUTE_INDEX
-      :type:  Any
+   .. py:attribute:: calculate_unit_factors
+      :type:  bool
 
 
-   .. py:attribute:: INSTANCE_ID
-      :type:  Any
+   .. py:attribute:: check_existance_before_adding
+      :type:  bool
 
 
-   .. py:attribute:: INSTANCE_TYPE
-      :type:  Any
-
-
-   .. py:attribute:: guid_map_
-      :type:  Any
-
-
-   .. py:property:: header
-      :type: IfcSpfHeader
-
+   .. py:attribute:: instantiate_typed_instances
+      :type:  bool
 
 
    .. py:property:: schema
-
-
-   .. py:attribute:: stream
-      :type:  Any
 
 
 .. py:class:: file_open_status
@@ -2205,23 +2213,27 @@ Module Contents
 
 
    .. py:attribute:: INVALID_SYNTAX
-      :type:  Any
+      :type:  int
 
 
    .. py:attribute:: NO_HEADER
-      :type:  Any
+      :type:  int
 
 
    .. py:attribute:: READ_ERROR
-      :type:  Any
+      :type:  int
 
 
    .. py:attribute:: SUCCESS
-      :type:  Any
+      :type:  int
+
+
+   .. py:attribute:: UNKNOWN
+      :type:  int
 
 
    .. py:attribute:: UNSUPPORTED_SCHEMA
-      :type:  Any
+      :type:  int
 
 
 .. py:class:: fn_evaluator
@@ -2306,9 +2318,34 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: geometry_exception
+.. py:class:: geometry_conversion_result
 
-   .. py:method:: what()
+   .. py:attribute:: breps
+      :type:  Any
+
+
+   .. py:attribute:: elements
+      :type:  Any
+
+
+   .. py:attribute:: index
+      :type:  Any
+
+
+   .. py:attribute:: item
+      :type:  Any
+
+
+   .. py:attribute:: products
+      :type:  Any
+
+
+   .. py:attribute:: products_2
+      :type:  Any
+
+
+   .. py:attribute:: representation
+      :type:  Any
 
 
 .. py:class:: gradient_function
@@ -2336,6 +2373,8 @@ Module Contents
 
    .. py:method:: start()
 
+
+.. py:class:: hash_functor
 
 .. py:class:: horizontal_plan_at_element
 
@@ -2384,7 +2423,7 @@ Module Contents
    .. py:method:: calc_hash()
 
 
-   .. py:method:: clone_()
+   .. py:method:: clone_() -> typing_extensions.Self
 
 
    .. py:method:: hash()
@@ -2394,6 +2433,9 @@ Module Contents
 
 
    .. py:method:: kind()
+
+      Internal enum item index.
+
 
 
    .. py:method:: reverse()
@@ -2490,6 +2532,9 @@ Module Contents
    .. py:method:: calculate_linear_edge_curves()
 
 
+   .. py:method:: centroid()
+
+
    .. py:method:: clone_()
 
 
@@ -2532,6 +2577,15 @@ Module Contents
 
 
    .. py:method:: kind()
+
+      Internal enum item index.
+
+
+
+   .. py:method:: post_multiply_scale(s)
+
+
+   .. py:method:: pre_multiply_scale(s)
 
 
    .. py:method:: translation_part()
@@ -2587,6 +2641,9 @@ Module Contents
 
 
    .. py:method:: kind()
+
+      Internal enum item index.
+
 
 
 .. py:class:: offset_curve
@@ -2908,6 +2965,9 @@ Module Contents
    .. py:method:: calc_hash()
 
 
+   .. py:method:: centroid()
+
+
    .. py:method:: clone_()
 
 
@@ -3010,19 +3070,22 @@ Module Contents
    Bases: :py:obj:`item`
 
 
-   .. py:method:: calc_hash()
+   .. py:method:: calc_hash() -> int
 
 
-   .. py:method:: clone_()
+   .. py:method:: clone_() -> typing_extensions.Self
 
 
-   .. py:method:: get_color()
+   .. py:method:: get_color() -> colour
+
+      "Return surface color if it's used, otherwise return diffuse color.
 
 
-   .. py:method:: has_specularity()
+
+   .. py:method:: has_specularity() -> bool
 
 
-   .. py:method:: has_transparency()
+   .. py:method:: has_transparency() -> bool
 
 
    .. py:method:: instance_id() -> int
@@ -3031,42 +3094,54 @@ Module Contents
       - IFC style id if style assigned to the representation items directly
       or through material with a style;
       - IFC material id if both true:
-      - element has a material without a style;
-      - there are parts of the geometry that has no other style assigned to them;
+          - element has a material without a style;
+          - there are parts of the geometry that has no other style assigned to them;
       - -1 in case if there is no material;
       - 0 in case if there are default materials used.
 
 
 
-   .. py:method:: kind()
+   .. py:method:: kind() -> int
+
+      Internal enum item index.
+
 
 
    .. py:attribute:: diffuse
-      :type:  Any
+      :type:  colour
 
 
    .. py:attribute:: name
-      :type:  Any
+      :type:  str
+
+      E.g. 'IfcSurfaceStyleShading-218', where 218 is style's STEP id.
+
 
 
    .. py:attribute:: specular
-      :type:  Any
+      :type:  colour
 
 
    .. py:attribute:: specularity
-      :type:  Any
+      :type:  float
+
+      Can be `float('nan')`
+
 
 
    .. py:attribute:: surface
-      :type:  Any
+      :type:  colour
 
 
    .. py:attribute:: transparency
-      :type:  Any
+      :type:  float
+
+      Can be `float('nan')`
+
 
 
    .. py:attribute:: use_surface_color
-      :type:  Any
+      :type:  bool
 
 
 .. py:class:: surface
@@ -3544,16 +3619,13 @@ Module Contents
       :type:  Any
 
 
-   .. py:attribute:: surface
+   .. py:attribute:: direction
       :type:  Any
 
 
-.. py:class:: too_many_faces_exception
+   .. py:attribute:: surface
+      :type:  Any
 
-   Bases: :py:obj:`geometry_exception`
-
-
-.. py:class:: topology_error
 
 .. py:class:: torus
 
@@ -3678,15 +3750,21 @@ Module Contents
    .. py:method:: declared_type()
 
 
+.. py:class:: uninitialized_tag
+
 .. py:function:: arrange_polygons(polygons)
 
 .. py:function:: clear_schemas()
+
+.. py:function:: construct_iterator(geometry_library, settings, file, num_threads)
 
 .. py:function:: construct_iterator_with_include_exclude(geometry_library, settings, file, elems, include, num_threads)
 
 .. py:function:: construct_iterator_with_include_exclude_globalid(geometry_library, settings, file, elems, include, num_threads)
 
 .. py:function:: construct_iterator_with_include_exclude_id(geometry_library, settings, file, elems, include, num_threads)
+
+.. py:function:: convert_loop_to_function_item(loop)
 
 .. py:function:: create_box(*args)
 
@@ -3702,6 +3780,8 @@ Module Contents
 
 .. py:function:: get_log()
 
+.. py:function:: guess_file_type(fn)
+
 .. py:function:: helmert_curve_point(A0, A1, A2, s)
 
 .. py:function:: kind_to_string(k)
@@ -3716,7 +3796,7 @@ Module Contents
 
 .. py:function:: new_IfcBaseClass(schema_identifier: str, name: str) -> entity_instance
 
-.. py:function:: open(fn)
+.. py:function:: open(fn, readonly)
 
 .. py:function:: parse_ifcxml(filename)
 
@@ -3737,6 +3817,8 @@ Module Contents
 .. py:function:: set_log_format_json()
 
 .. py:function:: set_log_format_text()
+
+.. py:function:: stream_from_string(data)
 
 .. py:function:: svg_to_line_segments(data, class_name)
 
@@ -3822,6 +3904,24 @@ Module Contents
    :type:  Any
 
 .. py:data:: FILTERED_CARTESIAN_QUOTIENT
+   :type:  Any
+
+.. py:data:: FT_AUTODETECT
+   :type:  Any
+
+.. py:data:: FT_IFCSPF
+   :type:  Any
+
+.. py:data:: FT_IFCXML
+   :type:  Any
+
+.. py:data:: FT_IFCZIP
+   :type:  Any
+
+.. py:data:: FT_ROCKSDB
+   :type:  Any
+
+.. py:data:: FT_UNKNOWN
    :type:  Any
 
 .. py:data:: FUNCTION_ITEM

@@ -1,0 +1,15 @@
+:py:mod:`ifcopenshell.api.alignment.get_mapped_segments`
+========================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_mapped_segments
+
+
+Module Contents
+---------------
+
+.. py:function:: get_mapped_segments(layout_segment: ifcopenshell.entity_instance) -> collections.abc.Sequence[ifcopenshell.entity_instance]
+
+   From an IfcAlignmentSegment, returns the related IfcCurveSegment. Typically the sequence has one entity,
+   however there will be two for Helmert curve
+
+

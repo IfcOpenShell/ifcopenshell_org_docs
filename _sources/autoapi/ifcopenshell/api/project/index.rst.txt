@@ -120,6 +120,8 @@ Package Contents
 
    Declares the list of elements to the project
 
+   Feature was added in IFC4.
+
    All data in a model must be directly or indirectly related to the
    project. Most data is indirectly related, existing instead within the
    spatial decomposition tree. Other data, such as types, may be declared

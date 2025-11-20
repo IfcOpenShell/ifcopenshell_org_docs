@@ -18,12 +18,6 @@ Module Contents
    .. py:method:: convert_unit_to_si(co: NPArrayOfFloats) -> NPArrayOfFloats
 
 
-   .. py:method:: create_cartesian_point(co: NPArrayOfFloats) -> ifcopenshell.entity_instance
-
-
-   .. py:method:: create_ifc_axis_2_placement_3d(point: NPArrayOfFloats, up: NPArrayOfFloats, forward: NPArrayOfFloats) -> ifcopenshell.entity_instance
-
-
    .. py:method:: execute()
 
 

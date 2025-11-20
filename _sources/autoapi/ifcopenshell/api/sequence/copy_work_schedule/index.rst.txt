@@ -1,0 +1,26 @@
+:py:mod:`ifcopenshell.api.sequence.copy_work_schedule`
+======================================================
+
+.. py:module:: ifcopenshell.api.sequence.copy_work_schedule
+
+
+Module Contents
+---------------
+
+.. py:function:: copy_work_schedule(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Copy a work schedule.
+
+   :param work_schedule: IfcWorkSchedule to copy.
+   :return: The duplicated IfcWorkSchedule entity.
+
+   Example:
+
+   .. code:: python
+
+       work_plan = ifcopenshell.api.sequence.add_work_plan(model, name="Construction")
+       schedule = ifcopenshell.api.sequence.add_work_schedule(model,
+           name="Construction Schedule A", work_plan=work_plan)
+       new_schedule = ifcopenshell.api.sequence.copy_work_schedule(model, schedule)
+
+

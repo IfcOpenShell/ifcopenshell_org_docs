@@ -1,0 +1,148 @@
+:py:mod:`ifcopenshell.geom.stats`
+=================================
+
+.. py:module:: ifcopenshell.geom.stats
+
+
+Module Contents
+---------------
+
+.. py:class:: BooleanResultCounter(exclude_union=True)
+
+   .. py:method:: count(decl, values)
+
+
+   .. py:method:: print(out=sys.stdout)
+
+
+   .. py:attribute:: exclude_union
+      :value: True
+
+
+
+   .. py:attribute:: total
+      :value: 0
+
+
+
+.. py:class:: ProductCounter(only_with_representation=True)
+
+   .. py:method:: count(decl, values)
+
+
+   .. py:method:: print(out=sys.stdout)
+
+
+   .. py:attribute:: counts
+
+
+   .. py:attribute:: counts_excl
+
+
+   .. py:attribute:: only_with_representation
+      :value: True
+
+
+
+   .. py:attribute:: total
+      :value: 0
+
+
+
+.. py:class:: StatsCollector
+
+   .. py:method:: feed(data: str)
+
+
+   .. py:method:: feedFromFile(f: Optional[IO[str]] = None)
+
+
+   .. py:method:: fromFilePath(fn, page_size: int = 102400)
+      :staticmethod:
+
+
+
+   .. py:method:: includeElementTypesBasedOnBudget(priorities: dict, budget)
+
+
+   .. py:method:: next()
+
+
+   .. py:method:: print(out=sys.stdout)
+
+
+   .. py:method:: process()
+
+
+   .. py:attribute:: counters
+      :type:  list
+
+
+   .. py:attribute:: file_stream
+      :type:  Optional[IO[str]]
+
+
+   .. py:attribute:: finalized
+      :type:  bool
+      :value: False
+
+
+
+   .. py:attribute:: needs_data
+      :type:  bool
+      :value: False
+
+
+
+   .. py:attribute:: num_semis
+      :type:  int
+      :value: 0
+
+
+
+   .. py:attribute:: page_size
+      :type:  Optional[int]
+
+
+   .. py:attribute:: streamer
+      :type:  ifcopenshell.geom.ifcopenshell_wrapper.InstanceStreamer
+
+
+.. py:class:: TransformDefaultDict(keyfunc=lambda x: x, default_factory=None)
+
+   
+   Similar to collections.defaultdict, but allows for storing
+   non-hashable keys by means of a transform function
+
+
+   .. py:method:: clear()
+
+
+   .. py:method:: get(key, default=None)
+
+
+   .. py:method:: items()
+
+
+   .. py:method:: keys()
+
+
+   .. py:method:: setdefault(key, default=None)
+
+
+   .. py:method:: update(other)
+
+
+   .. py:method:: values()
+
+
+   .. py:attribute:: default_factory
+      :value: None
+
+
+
+   .. py:attribute:: keyfunc
+
+
+.. py:data:: collector
+

@@ -243,3 +243,7 @@ Module Contents
 
 .. py:data:: APPENDABLE_ASSET_TYPES
 
+.. py:data:: MATERIAL_SETS
+   :value: ('IfcMaterialLayerSet', 'IfcMaterialConstituentSet', 'IfcMaterialProfileSet')
+
+

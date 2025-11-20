@@ -92,6 +92,8 @@ Package Contents
    :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
 
 
+.. py:function:: batching_argument_deprecation(usecase_path: str, settings: dict, prev_argument: str, new_argument: str, replace_usecase: Optional[str] = None) -> tuple[str, dict]
+
 .. py:function:: extract_docs(module: str, usecase: str) -> dict[str, Any]
 
 .. py:function:: remove_all_listeners()

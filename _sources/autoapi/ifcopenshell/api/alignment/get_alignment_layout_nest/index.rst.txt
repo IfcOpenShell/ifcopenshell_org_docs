@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.api.alignment.get_alignment_layout_nest`
+==============================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_alignment_layout_nest
+
+
+Module Contents
+---------------
+
+.. py:function:: get_alignment_layout_nest(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Searches for the IfcRelNest that contains IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+
+   :param alignment: the alignment
+   :return: Returns the IfcRelNests containing the alignment layout
+
+

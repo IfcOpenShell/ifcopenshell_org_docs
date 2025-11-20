@@ -7,16 +7,15 @@
 Module Contents
 ---------------
 
-.. py:function:: add_stationing_referent(file: ifcopenshell.file, element: ifcopenshell.entity_instance, basis_curve: ifcopenshell.entity_instance, distance_along: float, station: float, name: str) -> ifcopenshell.entity_instance
+.. py:function:: add_stationing_referent(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, name: str, positioned_product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-   Adds an IfcReferent to the element with the Pset_Stationing property set.
-   If element is an IfcAlignment, IfcReferent.PredefinedType is set to "STATION", otherwise "POSITION"
+   Adds an IfcReferent to the alignment with the Pset_Stationing property set.
 
-   :param element: the element to receive the referent, expected to be an IfcAlignment or IfcAlignmentSegment
-   :param basis_curve: the basis curve for positining
-   :param distance_along: distance along the basis curve
+   :param alignment: the alignment to receive the referent
+   :param distance_along: distance along the alignment basis curve
    :param station: station value
    :param name: name to assign to IfcReferent.Name, typically a stringized version of the station value
+   :param positioned_product: the product whose position is informed by the referent
    :return: referent
 
    Example:
@@ -24,7 +23,6 @@ Module Contents
    .. code:: python
 
        alignment = model.by_type("IfcAlignment")[0]
-       basis_curve = ifcopenshell.api.alignment.get_basis_curve(alignment)
-       ifcopenshell.api.alignment.add_stationing_referent(model,entity=alignment,basis_curve=basis_curve,distance_along=0.0,station=100.0)
+       ifcopenshell.api.alignment.add_stationing_referent(model,alignment=alignment,distance_along=0.0,station=100.0)
 
 

@@ -17,11 +17,9 @@ Module Contents
 
 
 
-.. py:function:: get_all_nested_tasks(task: ifcopenshell.entity_instance) -> collections.abc.Iterator[ifcopenshell.entity_instance]
+.. py:function:: get_all_nested_tasks(task: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance]
 
 .. py:function:: get_calendar(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
-
-.. py:function:: get_direct_task_outputs(task: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
 .. py:function:: get_nested_tasks(task: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
@@ -63,19 +61,17 @@ Module Contents
 
 .. py:function:: get_root_tasks(work_schedule: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
-.. py:function:: get_root_tasks_ids(work_schedule: ifcopenshell.entity_instance) -> list[int]
-
 .. py:function:: get_sequence_assignment(task: ifcopenshell.entity_instance, sequence='successor')
 
 .. py:function:: get_soonest_working_day(start, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance)
 
 .. py:function:: get_start_or_finish_date(start, duration, duration_type: DURATION_TYPE, calendar: ifcopenshell.entity_instance, date_type: Literal['START', 'FINISH'] = 'FINISH')
 
-.. py:function:: get_task_inputs(task: ifcopenshell.entity_instance, is_deep: bool = False) -> list[ifcopenshell.entity_instance]
+.. py:function:: get_task_inputs(task: ifcopenshell.entity_instance, is_recursive: bool = False) -> set[ifcopenshell.entity_instance]
 
-.. py:function:: get_task_outputs(task: ifcopenshell.entity_instance, is_deep: bool = False) -> list[ifcopenshell.entity_instance]
+.. py:function:: get_task_outputs(task: ifcopenshell.entity_instance, is_recursive: bool = False) -> set[ifcopenshell.entity_instance]
 
-.. py:function:: get_task_resources(task: ifcopenshell.entity_instance, is_deep: bool = False) -> list[ifcopenshell.entity_instance]
+.. py:function:: get_task_resources(task: ifcopenshell.entity_instance, is_recursive: bool = False) -> set[ifcopenshell.entity_instance]
 
 .. py:function:: get_task_work_schedule(task: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
@@ -83,17 +79,18 @@ Module Contents
 
    Get all tasks assigned to or referenced by the given product.
 
-   Args:
-       product: An object that is assigned tasks or references tasks.
-       schedule: An optional string representing the schedule name to filter tasks by.
+   :param product: An object that is assigned tasks or references tasks.
+   :param schedule: An optional string representing the schedule name to filter tasks by.
 
-   Returns:
-       A tuple of two lists:
-       - The first list contains all tasks assigned to the product.
-       - The second list contains all tasks referenced by the product that are part of the given schedule.
+   :return: A tuple of two lists:
+   - The first list contains all tasks assigned to the product.
+   - The second list contains all tasks referenced by the product that are part of the given schedule.
 
 
-.. py:function:: get_work_schedule_tasks(work_schedule: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+.. py:function:: get_work_schedule_tasks(work_schedule: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance]
+
+   Get all work schedule tasks, including the nested ones.
+
 
 .. py:function:: guess_date_range(work_schedule: ifcopenshell.entity_instance)
 

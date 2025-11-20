@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.alignment.update_fallback_position`
+=============================================================
+
+.. py:module:: ifcopenshell.api.alignment.update_fallback_position
+
+
+Module Contents
+---------------
+
+.. py:function:: update_fallback_position(file: ifcopenshell.file, lp: ifcopenshell.entity_instance)
+
+   Updates the IfcLinearPlacement.CartesianPoint fallback position.
+
+   If the CartesianPosition is not assigned to the IfcLinearPlacement, one will be created
+
+   :param lp: The linear placement
+   :return: None
+
+

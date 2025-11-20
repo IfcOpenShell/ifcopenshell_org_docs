@@ -1,0 +1,45 @@
+:py:mod:`ifcpatch.recipes.AGS2IFC`
+==================================
+
+.. py:module:: ifcpatch.recipes.AGS2IFC
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file, logger, ags_file: str, docs_dir: str = '.')
+
+   
+   Converts AGS to IFC
+
+   This is for AGS version 3.
+
+   :param ags_file: The AGS file to convert.
+   :filter_glob ags_file: *.ags
+   :param docs_dir: The directory URI where documents are stored
+
+   Example:
+
+   .. code:: python
+
+       result = ifcpatch.execute({"input": fn, "file": model, "recipe": "ExtractPropertiesToSQLite"})
+       ifcpatch.write(result, "output.sqlite")
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: ags_file
+
+
+   .. py:attribute:: docs_dir
+      :value: '.'
+
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: logger
+
+

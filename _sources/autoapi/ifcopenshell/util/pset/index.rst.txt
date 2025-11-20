@@ -28,9 +28,12 @@ Module Contents
       :type:  str
 
 
-.. py:class:: PsetQto(schema_identifier: str, templates: Optional[list[ifcopenshell.file]] = None)
+.. py:class:: PsetQto(schema: ifcopenshell.util.schema.IFC_SCHEMA, templates: Optional[list[ifcopenshell.file]] = None)
 
    .. py:method:: get_applicable(ifc_class='', predefined_type='', pset_only=False, qto_only=False, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[ifcopenshell.entity_instance.entity_instance]
+
+      Get applicable property set templates.
+
 
 
    .. py:method:: get_applicable_names(ifc_class: str, predefined_type: str = '', pset_only: bool = False, qto_only: bool = False, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[str]
@@ -69,6 +72,7 @@ Module Contents
 
 
    .. py:attribute:: templates_path
+      :type:  dict[ifcopenshell.util.schema.IFC_SCHEMA, str]
 
 
 .. py:function:: convert_applicable_entities_to_query(applicable_entities: list[ApplicableEntity]) -> str
@@ -82,7 +86,10 @@ Module Contents
    If type is mixed or not defined, return None.
 
 
-.. py:function:: get_template(schema: str) -> PsetQto
+.. py:function:: get_template(schema_identiier: str) -> PsetQto
+
+   :param schema_identiier: As in ``file.schema_identifier``, not ``file.schema``.
+
 
 .. py:function:: parse_applicable_entity(applicable_entity: str) -> list[ApplicableEntity]
 
@@ -93,5 +100,5 @@ Module Contents
 
 
 .. py:data:: templates
-   :type:  dict[str, PsetQto]
+   :type:  dict[ifcopenshell.util.schema.IFC_SCHEMA, PsetQto]
 

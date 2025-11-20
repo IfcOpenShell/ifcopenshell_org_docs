@@ -1,0 +1,31 @@
+:py:mod:`ifcpatch.recipes.AddGeometricRepresentationToAlignment`
+================================================================
+
+.. py:module:: ifcpatch.recipes.AddGeometricRepresentationToAlignment
+
+
+Module Contents
+---------------
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
+
+   
+   Adds the geometric representation to a layout
+
+   Example:
+
+   .. code:: python
+
+       model = ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "AddGeometricRepresentationAlignment"})
+
+
+   .. py:method:: patch()
+
+
+   .. py:attribute:: file_patched
+      :type:  ifcopenshell.file
+
+

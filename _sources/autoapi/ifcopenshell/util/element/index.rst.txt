@@ -154,6 +154,21 @@ Module Contents
        container = ifcopenshell.util.element.get_container(element)
 
 
+.. py:function:: get_controls(element: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance]
+
+   Retrieves the controls of an element.
+
+   :param element: The IFC element
+   :return: Generator of IfcControl elements assigned to the element.
+
+   Example:
+
+   .. code:: python
+
+       task = file.by_type("IfcTask")[0]
+       control = ifcopenshell.util.element.get_controls(task)[0]
+
+
 .. py:function:: get_decomposition(element: ifcopenshell.entity_instance, is_recursive=True) -> set[ifcopenshell.entity_instance]
 
    Retrieves all subelements of an element based on the spatial decomposition
@@ -682,6 +697,21 @@ Module Contents
 
        product = file.by_type("IfcWall")[0]
        has_property = ifcopenshell.util.element.has_property(product, "NetArea")
+
+
+.. py:function:: is_userdefined_type(element: ifcopenshell.entity_instance) -> bool
+
+   Checks if the predefined type is userdefined
+
+   :param element: The IFC Element entity
+   :return: True if userdefined
+
+   Example:
+
+   .. code:: python
+
+       element = ifcopenshell.by_type("IfcWall")[0]
+       is_userdefined_type = ifcopenshell.util.element.is_userdefined_type(element)
 
 
 .. py:function:: remove_deep(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance) -> None

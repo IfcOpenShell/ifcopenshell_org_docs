@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:class:: Bcf(ids: ifctester.ids.Ids)
+.. py:class:: Bcf(ids: ifctester.ids.Ids, hide_skipped=False)
 
    Bases: :py:obj:`Json`
 
@@ -46,7 +46,7 @@ Module Contents
 
 
 
-.. py:class:: Html(ids: ifctester.ids.Ids)
+.. py:class:: Html(ids: ifctester.ids.Ids, hide_skipped: bool = False)
 
    Bases: :py:obj:`Json`
 
@@ -71,7 +71,7 @@ Module Contents
 
 
 
-.. py:class:: Json(ids: ifctester.ids.Ids)
+.. py:class:: Json(ids: ifctester.ids.Ids, hide_skipped=False)
 
    Bases: :py:obj:`Reporter`
 
@@ -180,6 +180,10 @@ Module Contents
 
    .. py:attribute:: filepath
       :type:  str
+
+
+   .. py:attribute:: hide_skipped
+      :type:  bool
 
 
    .. py:attribute:: percent_checks_pass
@@ -330,6 +334,10 @@ Module Contents
       :type:  list[str]
 
 
+   .. py:attribute:: cardinality
+      :type:  str
+
+
    .. py:attribute:: description
       :type:  str
 
@@ -352,10 +360,6 @@ Module Contents
 
    .. py:attribute:: percent_checks_pass
       :type:  ResultsPercent
-
-
-   .. py:attribute:: required
-      :type:  bool
 
 
    .. py:attribute:: requirements

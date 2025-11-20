@@ -1,0 +1,17 @@
+:py:mod:`ifcopenshell.util.profiler`
+====================================
+
+.. py:module:: ifcopenshell.util.profiler
+
+
+Module Contents
+---------------
+
+.. py:class:: Profiler(task)
+
+   A python context manager timing utility, useful for measure functions performances
+
+
+   .. py:attribute:: task
+
+

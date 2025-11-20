@@ -1,0 +1,18 @@
+:py:mod:`ifcopenshell.api.alignment.get_referent_nest`
+======================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_referent_nest
+
+
+Module Contents
+---------------
+
+.. py:function:: get_referent_nest(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Searches for the IfcRelNest that contains IfcReferent. If one is not found, a empty IfcRelNests is created.
+
+   :param file:
+   :param alignment: The IfcAlignment which hosts IfcReferent
+   :return: Returns the IfcRelNests.
+
+

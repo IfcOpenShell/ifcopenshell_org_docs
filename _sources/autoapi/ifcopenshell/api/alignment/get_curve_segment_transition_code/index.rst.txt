@@ -1,0 +1,20 @@
+:py:mod:`ifcopenshell.api.alignment.get_curve_segment_transition_code`
+======================================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_curve_segment_transition_code
+
+
+Module Contents
+---------------
+
+.. py:function:: get_curve_segment_transition_code(segment: ifcopenshell.entity_instance, next_segment: ifcopenshell.entity_instance, position_tolerance: float = 0.001) -> str
+
+   Returns the IfcCurveSegment.Transition of segment based on a comparison of
+   the position, ref. direction, and curvature at the end of the segment and the start of next_segment.
+
+   :param segment: segment for which the position curve is being being determined
+   :param next_segment: next segment
+   :param position_tolerance: tolerance used for evaluation positions. The default is 1mm
+   :return: the transition code
+
+

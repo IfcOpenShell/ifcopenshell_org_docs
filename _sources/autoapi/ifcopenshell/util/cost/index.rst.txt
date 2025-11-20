@@ -29,7 +29,9 @@ Module Contents
 
 .. py:function:: calculate_applied_value(root_element: ifcopenshell.entity_instance, cost_value: ifcopenshell.entity_instance, category_filter: Optional[str] = None) -> float
 
-.. py:function:: get_all_nested_cost_items(cost_item: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance, None, None]
+.. py:function:: get_all_nested_cost_items(cost_item: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance]
+
+.. py:function:: get_assigned_rate_cost_item(cost_item: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 .. py:function:: get_cost_assignments_by_type(cost_item: ifcopenshell.entity_instance, filter_by_type: Optional[FILTER_BY_TYPE] = None) -> list[ifcopenshell.entity_instance]
 
@@ -39,11 +41,9 @@ Module Contents
 
    Returns a list of cost items related to the given product.
 
-   Args:
-       product: An object of class IfcProduct representing a product.
+   :param product: An object of class IfcProduct representing a product.
 
-   Returns:
-       A list of IfcCostItem objects representing the cost items related to the product.
+   :return: A list of IfcCostItem objects representing the cost items related to the product.
 
 
 .. py:function:: get_cost_rate(file: ifcopenshell.ifcopenshell_wrapper.file, cost_item: ifcopenshell.entity_instance) -> Optional[ifcopenshell.entity_instance]
@@ -68,7 +68,10 @@ Module Contents
 
 .. py:function:: get_root_cost_items(cost_schedule: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
-.. py:function:: get_schedule_cost_items(cost_schedule: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance, None, None]
+.. py:function:: get_schedule_cost_items(cost_schedule: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance]
+
+   Get all cost schedule cost items, including the nested ones.
+
 
 .. py:function:: get_total_quantity(root_element: ifcopenshell.entity_instance) -> Union[float, None]
 

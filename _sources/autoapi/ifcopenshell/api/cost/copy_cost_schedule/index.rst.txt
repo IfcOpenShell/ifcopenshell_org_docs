@@ -1,0 +1,24 @@
+:py:mod:`ifcopenshell.api.cost.copy_cost_schedule`
+==================================================
+
+.. py:module:: ifcopenshell.api.cost.copy_cost_schedule
+
+
+Module Contents
+---------------
+
+.. py:function:: copy_cost_schedule(file: ifcopenshell.file, cost_schedule: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Copy a cost schedule.
+
+   :param cost_schedule: IfcCostSchedule to copy.
+   :return: The duplicated IfcCostSchedule entity
+
+   Example:
+
+   .. code:: python
+
+       schedule = ifcopenshell.api.cost.add_cost_schedule(model)
+       new_schedule = ifcopenshell.api.cost.copy_cost_schedule(schedule)
+
+

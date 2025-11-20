@@ -167,13 +167,11 @@ Package Contents
           return op(a, b)
       TypeError: '<' not supported between instances of 'int' and 'str'
 
-      Args:
-          other (_type_): Right hand side (or lhs when reverse = True)
-          op (_type_): The comparison operator (likely from the operator module)
-          reverse (bool, optional): When true swaps lhs and rhs. Defaults to False.
+      :param other: Right hand side (or lhs when reverse = True)
+      :param op: The comparison operator (likely from the operator module)
+      :param reverse: When true swaps lhs and rhs. Defaults to False.
 
-      Returns:
-          bool: The comparison predicate applied to self and other
+      :return: bool: The comparison predicate applied to self and other
 
 
 
@@ -254,8 +252,7 @@ Package Contents
 
       Tests whether the instance is an entity type as opposed to a simple data type.
 
-      Returns:
-          bool: True if the instance is an entity
+      :return: True if the instance is an entity
 
 
 
@@ -564,9 +561,8 @@ Package Contents
       Write ifc model to file.
 
       :param format: Force use of a specific format. Guessed from file name
-          if None.  Supported formats : .ifc, .ifcXML, .ifcZIP (equivalent to
-          format=".ifc" with zipped=True) For zipped .ifcXML use
-          format=".ifcXML" with zipped=True
+          if None.  Supported formats : .ifc, .ifcZIP (equivalent to
+          format=".ifc" with zipped=True)
       :param zipped: zip the file after it is written
 
       Example:
@@ -574,10 +570,8 @@ Package Contents
       .. code:: python
 
           model.write("path/to/model.ifc")
-          model.write("path/to/model.ifcXML")
           model.write("path/to/model.ifcZIP")
-          model.write("path/to/model.ifcZIP", format=".ifcXML", zipped=True)
-          model.write("path/to/model.anyextension", format=".ifcXML")
+          model.write("path/to/model.anyextension", format=".ifc")
 
 
 
@@ -588,8 +582,9 @@ Package Contents
 
 
 
-   .. py:attribute:: header
-      :type:  ifcopenshell.ifcopenshell_wrapper.IfcSpfHeader
+   .. py:property:: header
+      :type: file_header
+
 
 
    .. py:attribute:: history
@@ -602,6 +597,19 @@ Package Contents
    .. py:attribute:: history_size
       :type:  int
       :value: 64
+
+
+
+   .. py:property:: identifier
+      :type: tuple[int, int]
+
+
+      Pair of C++ file pointer address and creation time stamp to uniquely identify a file
+      over the life time of ifcopenshell module that should be mostly safe except in pathological
+      cases
+
+      Returns:
+          tuple[int, int]: Pair of C++ file pointer address and creation time stamp
 
 
 
@@ -631,6 +639,15 @@ Package Contents
       Numeric representation of the full IFC schema version.
 
       E.g. IFC4X3_ADD2 is represented as (4, 3, 2, 0).
+
+
+
+   .. py:property:: storage
+      :type: Optional[rocksdb_file_storage]
+
+
+      Returns:
+          Optional[rocksdb_file_storage]: underlying key-value store interface when opened as a RocksDB-backed file
 
 
 
@@ -721,7 +738,7 @@ Package Contents
 
 
 
-   .. py:method:: get_geometry(ids: list[int]) -> dict[str, dict]
+   .. py:method:: get_geometry(ids: list[int]) -> GeometryCache
 
 
    .. py:method:: get_inverse(inst: sqlite_entity, allow_duplicate: bool = False, with_attribute_indices: bool = False) -> set[sqlite_entity]
@@ -783,6 +800,11 @@ Package Contents
 
 
 
+   .. py:property:: header
+      :type: types.SimpleNamespace
+
+
+
    .. py:attribute:: history
       :value: []
 
@@ -803,12 +825,26 @@ Package Contents
    .. py:attribute:: ifc_schema
 
 
-   .. py:attribute:: schema
-      :type:  ifcopenshell.util.schema.IFC_SCHEMA
-      :value: 'IFC4'
+   .. py:attribute:: mvd_str
+      :type:  str
+
+      As in `header.file_description.description`.
+
+
+
+   .. py:property:: schema
+      :type: ifcopenshell.util.schema.IFC_SCHEMA
 
 
       General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
+   .. py:property:: schema_identifier
+      :type: str
+
+
+      Full IFC schema version: IFC2X3_TC1, IFC4_ADD2, IFC4X3_ADD2, etc.
 
 
 
@@ -817,8 +853,8 @@ Package Contents
 
 
 
-   .. py:attribute:: wrapped_data
-      :value: None
+   .. py:property:: wrapped_data
+      :type: NoReturn
 
 
 
@@ -905,6 +941,11 @@ Package Contents
 
 
    .. py:method:: unserialise_value(value)
+
+
+   .. py:property:: file
+      :type: sqlite
+
 
 
    .. py:attribute:: sqlite_wrapper

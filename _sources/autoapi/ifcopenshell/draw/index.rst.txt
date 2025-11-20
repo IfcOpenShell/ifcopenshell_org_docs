@@ -20,6 +20,12 @@ Module Contents
 
 
 
+   .. py:attribute:: arrange_zones
+      :type:  bool
+      :value: False
+
+
+
    .. py:attribute:: auto_elevation
       :type:  bool
       :value: False
@@ -51,8 +57,8 @@ Module Contents
 
 
    .. py:attribute:: css
-      :type:  bool
-      :value: True
+      :type:  str
+      :value: ''
 
 
 
@@ -152,6 +158,12 @@ Module Contents
 
 
 
+   .. py:attribute:: storey_filter
+      :type:  str
+      :value: ''
+
+
+
    .. py:attribute:: storey_heights
       :type:  str
       :value: 'none'
@@ -174,6 +186,23 @@ Module Contents
       :type:  float
       :value: 297.0
 
+
+
+   .. py:attribute:: zone_filter
+      :type:  str
+      :value: ''
+
+
+
+   .. py:attribute:: zone_label
+      :type:  str
+      :value: ''
+
+
+
+.. py:class:: type_unsafe_value(value)
+
+   .. py:attribute:: value
 
 
 .. py:function:: main(settings: draw_settings, files: list[ifcopenshell.file], iterators: collections.abc.Sequence[ifcopenshell.geom.iterator] = (), merge_projection: bool = True, progress_function: collections.abc.Callable = DO_NOTHING)

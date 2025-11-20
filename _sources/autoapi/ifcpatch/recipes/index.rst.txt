@@ -10,6 +10,10 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   AGS2IFC/index.rst
+   AddGeometricRepresentationToAlignment/index.rst
+   AddLinearPlacementFallbackPosition/index.rst
+   AddZeroLengthSegmentToAlignment/index.rst
    AssignConstituentFractions/index.rst
    ConvertLengthUnit/index.rst
    ConvertNestToAggregate/index.rst
@@ -30,6 +34,7 @@ Submodules
    OffsetObjectPlacements/index.rst
    OffsetStoreyElevations/index.rst
    Optimise/index.rst
+   PatchStationReferentPosition/index.rst
    PurgeData/index.rst
    RecycleNonRootedElements/index.rst
    RegenerateGlobalIds/index.rst

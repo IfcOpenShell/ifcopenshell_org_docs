@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: camera_vectors_from_element_placement(elem_placement: numpy.typing.NDArray[numpy.float64]) -> tuple[numpy.typing.NDArray[numpy.float64], numpy.typing.NDArray[numpy.float64], numpy.typing.NDArray[numpy.float64]]
+.. py:function:: camera_vectors_from_element_placement(elem_placement: numpy.typing.NDArray[numpy.float64]) -> tuple[list[float], list[float], list[float]]
 
    Calculate the vectors of a camera pointing to an element.
 
@@ -18,7 +18,7 @@ Module Contents
        Camera position, direction and up vectors
 
 
-.. py:function:: camera_vectors_from_target_position(target_position: numpy.typing.NDArray[numpy.float64], offset: Optional[numpy.typing.NDArray[numpy.float64]] = None) -> tuple[numpy.typing.NDArray[numpy.float64], numpy.typing.NDArray[numpy.float64], numpy.typing.NDArray[numpy.float64]]
+.. py:function:: camera_vectors_from_target_position(target_position: numpy.typing.NDArray[numpy.float64], offset: Optional[numpy.typing.NDArray[numpy.float64]] = None) -> tuple[list[float], list[float], list[float]]
 
    Calculate the vectors of a camera pointing to a target point.
 

@@ -54,6 +54,9 @@ Module Contents
        )
 
 
+   .. py:method:: add_geometry_row(geometry_id: str, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> None
+
+
    .. py:method:: check_existing_ifc_database() -> None
 
 
@@ -159,7 +162,7 @@ Module Contents
 
 
    .. py:attribute:: shape_rows
-      :type:  dict[int, tuple[int, list[float], list[float], list[float], bytes, str]]
+      :type:  dict[int, tuple[int, float, float, float, bytes, Union[str, None]]]
 
 
    .. py:attribute:: should_expand

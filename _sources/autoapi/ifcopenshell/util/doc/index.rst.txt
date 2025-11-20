@@ -56,7 +56,7 @@ Module Contents
 
 
    .. py:attribute:: predefined_type
-      :type:  NotRequired[str]
+      :type:  typing_extensions.NotRequired[str]
 
 
 .. py:class:: DocExtractor
@@ -131,11 +131,11 @@ Module Contents
 
 
    .. py:attribute:: attributes
-      :type:  NotRequired[dict[str, str]]
+      :type:  typing_extensions.NotRequired[dict[str, str]]
 
 
    .. py:attribute:: predefined_types
-      :type:  NotRequired[dict[str, str]]
+      :type:  typing_extensions.NotRequired[dict[str, str]]
 
 
 .. py:class:: PropertyData
@@ -157,7 +157,7 @@ Module Contents
 
 
    .. py:attribute:: children
-      :type:  NotRequired[dict[str, PropertyData]]
+      :type:  typing_extensions.NotRequired[dict[str, PropertyData]]
 
 
    .. py:attribute:: description
@@ -183,7 +183,7 @@ Module Contents
 
 
    .. py:attribute:: description
-      :type:  NotRequired[str]
+      :type:  typing_extensions.NotRequired[str]
 
 
    .. py:attribute:: properties
@@ -191,7 +191,7 @@ Module Contents
 
 
    .. py:attribute:: spec_url
-      :type:  NotRequired[str]
+      :type:  typing_extensions.NotRequired[str]
 
 
 .. py:class:: SchemaData

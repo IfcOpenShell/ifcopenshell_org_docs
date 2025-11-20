@@ -14,20 +14,21 @@
 
        python -m ifcopenshell.validate /path/to/model.ifc --rules
 
-   ```
-   $ python -m ifcopenshell.validate -h
-   usage: validate.py [-h] [--rules] [--json] [--fields] [--spf] files [files ...]
+   .. code-block:: console
 
-   positional arguments:
-     files       The IFC file to validate.
+       python -m ifcopenshell.validate -h
 
-   options:
-     -h, --help  show this help message and exit
-     --rules     Run express rules.
-     --json      Output in JSON format.
-     --fields    Output more detailed information about failed entities (only with --json).
-     --spf       Output entities in SPF format (only with --json).
-   ```
+       usage: validate.py [-h] [--rules] [--json] [--fields] [--spf] files [files ...]
+
+       positional arguments:
+         files       The IFC file to validate.
+
+       options:
+         -h, --help  show this help message and exit
+         --rules     Run express rules.
+         --json      Output in JSON format.
+         --fields    Output more detailed information about failed entities (only with --json).
+         --spf       Output entities in SPF format (only with --json).
 
 
 
@@ -115,7 +116,7 @@ Module Contents
    .. py:attribute:: message
 
 
-.. py:function:: annotate_inst_attr_pos(inst: Union[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.HeaderEntity], pos: Union[int, tuple[int, Ellipsis]], entity_str: str = '') -> str
+.. py:function:: annotate_inst_attr_pos(inst: ifcopenshell.entity_instance, pos: Union[int, tuple[int, Ellipsis]], entity_str: str = '') -> str
 
    Add a caret annotation to the entity string at the given attribute index.
 
@@ -143,7 +144,7 @@ Module Contents
 
 .. py:function:: handle_exception(exc_type, exc_value, exc_traceback)
 
-.. py:function:: log_internal_cpp_errors(f: ifcopenshell.file, filename: str, logger: Union[logging.Logger, json_logger]) -> None
+.. py:function:: log_internal_cpp_errors(f: Optional[ifcopenshell.file], filename: str, logger: Union[logging.Logger, json_logger], log_content: Optional[str] = None) -> None
 
 .. py:function:: to_string_header_entity(header_entity)
 
