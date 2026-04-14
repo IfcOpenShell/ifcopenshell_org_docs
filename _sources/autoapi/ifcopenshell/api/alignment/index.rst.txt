@@ -171,7 +171,7 @@ Package Contents
 
    :param file:
    :param name: name assigned to IfcAlignment.Name
-   :param offsets: offsets from the basis curve that defines the offset curve, expected to be IfcOffsetCurveByDistances.
+   :param offsets: offsets from the basis curve that defines the offset curve, expected to be IfcPointByDistanceExpression.
    :param start_station: station value at the start of the alignment
    :return: Returns an IfcAlignment
 
@@ -421,6 +421,12 @@ Package Contents
 
        horizontal = model.by_type("IfcAlignmentHorizontal")[0]
        segments = ifcopenshell.api.alignment.get_layout_segments(horizontal)
+
+
+.. py:function:: get_mapped_segments(layout_segment: ifcopenshell.entity_instance) -> collections.abc.Sequence[ifcopenshell.entity_instance]
+
+   From an IfcAlignmentSegment, returns the related IfcCurveSegment. Typically the sequence has one entity,
+   however there will be two for Helmert curve
 
 
 .. py:function:: get_parent_alignment(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance

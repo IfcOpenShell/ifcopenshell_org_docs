@@ -1,0 +1,34 @@
+:py:mod:`ifcopenshell.api.structural.assign_product`
+====================================================
+
+.. py:module:: ifcopenshell.api.structural.assign_product
+
+
+Module Contents
+---------------
+
+.. py:function:: assign_product(file: ifcopenshell.file, relating_product: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Links an object to a product via IfcRelAssignsToProduct
+
+   Typically used to associate a physical building element with a structural
+   analysis member (IfcStructuralSurfaceMember, IfcStructuralCurveMember) so
+   that analysis results can be traced back to the physical model.
+
+   :param relating_product: The IfcProduct that the object is assigned to,
+       typically an IfcStructuralMember.
+   :param related_object: The IfcObjectDefinition being assigned, typically
+       a physical building element such as an IfcWall or IfcSlab.
+   :return: The IfcRelAssignsToProduct relationship.
+
+   Example:
+
+   .. code:: python
+
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+       member = ifcopenshell.api.root.create_entity(
+           model, ifc_class="IfcStructuralSurfaceMember")
+       ifcopenshell.api.structural.assign_product(model,
+           relating_product=member, related_object=wall)
+
+

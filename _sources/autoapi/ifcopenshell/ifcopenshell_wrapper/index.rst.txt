@@ -7,12 +7,12 @@
 Module Contents
 ---------------
 
-.. py:class:: BRep
+.. py:class:: BRep(settings, entity, id, shapes)
 
    Bases: :py:obj:`Representation`
 
 
-   .. py:method:: as_compound(force_meters)
+   .. py:method:: as_compound(force_meters=False)
 
 
    .. py:method:: begin()
@@ -42,7 +42,7 @@ Module Contents
    .. py:method:: size()
 
 
-.. py:class:: BRepElement
+.. py:class:: BRepElement(id, parent_id, name, type, guid, context, trsf, geometry, product)
 
    Bases: :py:obj:`Element`
 
@@ -64,7 +64,7 @@ Module Contents
    .. py:property:: volume
 
 
-.. py:class:: ColladaSerializer
+.. py:class:: ColladaSerializer(dae_filename, geometry_settings, settings)
 
    Bases: :py:obj:`WriteOnlyGeometrySerializer`
 
@@ -93,7 +93,7 @@ Module Contents
    .. py:method:: writeHeader()
 
 
-.. py:class:: ConversionResult
+.. py:class:: ConversionResult(*args)
 
    .. py:method:: ItemId()
 
@@ -113,7 +113,7 @@ Module Contents
    .. py:method:: append(trsf)
 
 
-   .. py:method:: apply_transform(unit_scale)
+   .. py:method:: apply_transform(unit_scale=1.0)
 
 
    .. py:method:: hasStyle()
@@ -125,7 +125,7 @@ Module Contents
    .. py:method:: setStyle(newStyle)
 
 
-.. py:class:: ConversionResultShape
+.. py:class:: ConversionResultShape(*args, **kwargs)
 
    .. py:method:: Serialize(place, arg3)
 
@@ -229,7 +229,7 @@ Module Contents
    .. py:method:: wrap_in_compound()
 
 
-.. py:class:: DoubleArray3
+.. py:class:: DoubleArray3(*args)
 
    .. py:method:: back()
 
@@ -264,7 +264,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: Element
+.. py:class:: Element(settings, id, parent_id, name, type, guid, context, trsf, product)
 
    .. py:method:: SetParents(newparents)
 
@@ -351,7 +351,7 @@ Module Contents
 
 
 
-.. py:class:: GeometrySerializer
+.. py:class:: GeometrySerializer(*args, **kwargs)
 
    .. py:method:: geometry_settings(*args)
 
@@ -382,7 +382,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: GltfSerializer
+.. py:class:: GltfSerializer(filename, geometry_settings, settings)
 
    Bases: :py:obj:`WriteOnlyGeometrySerializer`
 
@@ -408,7 +408,7 @@ Module Contents
    .. py:method:: writeHeader()
 
 
-.. py:class:: HdfSerializer
+.. py:class:: HdfSerializer(hdf_filename, geometry_settings, settings, read_only=False)
 
    Bases: :py:obj:`GeometrySerializer`
 
@@ -440,7 +440,7 @@ Module Contents
    .. py:method:: writeHeader()
 
 
-.. py:class:: IfcBaseEntity
+.. py:class:: IfcBaseEntity(*args, **kwargs)
 
    Bases: :py:obj:`entity_instance`
 
@@ -460,7 +460,7 @@ Module Contents
    .. py:method:: set_id(i)
 
 
-.. py:class:: IfcBaseType
+.. py:class:: IfcBaseType(*args, **kwargs)
 
    Bases: :py:obj:`entity_instance`
 
@@ -468,9 +468,9 @@ Module Contents
    .. py:method:: declaration()
 
 
-.. py:class:: IfcEntityInstanceData
+.. py:class:: IfcEntityInstanceData(*args, **kwargs)
 
-.. py:class:: IfcLateBoundEntity
+.. py:class:: IfcLateBoundEntity(decl, data)
 
    Bases: :py:obj:`IfcBaseEntity`
 
@@ -478,7 +478,7 @@ Module Contents
    .. py:method:: declaration()
 
 
-.. py:class:: IfcSpfHeader
+.. py:class:: IfcSpfHeader(*args)
 
    IFC Header definition:
    https://standards.buildingsmart.org/documents/Implementation/ImplementationGuide_IFCHeaderData_Version_1.0.2.pdf
@@ -505,7 +505,7 @@ Module Contents
    .. py:method:: write(out)
 
 
-.. py:class:: InstanceStreamer
+.. py:class:: InstanceStreamer(*args)
 
    .. py:method:: bypassTypes(type_names)
 
@@ -522,7 +522,7 @@ Module Contents
    .. py:method:: pushPage(page)
 
 
-   .. py:method:: readInstancePy(type_as_declaration_instance)
+   .. py:method:: readInstancePy(type_as_declaration_instance=False)
 
 
    .. py:method:: references(*args)
@@ -538,7 +538,7 @@ Module Contents
       :type:  bool
 
 
-.. py:class:: Iterator
+.. py:class:: Iterator(*args)
 
    .. py:method:: bounds_max()
 
@@ -628,7 +628,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: JsonSerializer
+.. py:class:: JsonSerializer(*args)
 
    .. py:method:: finalize()
 
@@ -646,7 +646,21 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: OpaqueCoordinate_3
+.. py:class:: MakeVolume
+
+   .. py:attribute:: defaultvalue
+      :type:  Any
+
+
+   .. py:attribute:: description
+      :type:  Any
+
+
+   .. py:attribute:: name
+      :type:  Any
+
+
+.. py:class:: OpaqueCoordinate_3(*args)
 
    .. py:method:: get(i)
 
@@ -654,7 +668,7 @@ Module Contents
    .. py:method:: set(i, n)
 
 
-.. py:class:: OpaqueCoordinate_4
+.. py:class:: OpaqueCoordinate_4(*args)
 
    .. py:method:: get(i)
 
@@ -662,7 +676,7 @@ Module Contents
    .. py:method:: set(i, n)
 
 
-.. py:class:: OpaqueNumber
+.. py:class:: OpaqueNumber(*args, **kwargs)
 
    .. py:method:: clone()
 
@@ -673,7 +687,7 @@ Module Contents
    .. py:method:: to_string()
 
 
-.. py:class:: Representation
+.. py:class:: Representation(settings, entity, id)
 
    .. py:method:: entity()
 
@@ -691,7 +705,7 @@ Module Contents
 
 
 
-.. py:class:: RocksDBPrefixIterator
+.. py:class:: RocksDBPrefixIterator(storage, prefix)
 
    .. py:method:: key()
 
@@ -705,21 +719,21 @@ Module Contents
    .. py:method:: value()
 
 
-.. py:class:: RocksDbSerializer
+.. py:class:: RocksDbSerializer(*args)
 
-   .. py:method:: finalize()
-
-
-   .. py:method:: ready()
+   .. py:method:: finalize() -> None
 
 
-   .. py:method:: setFile(arg2)
+   .. py:method:: ready() -> bool
 
 
-   .. py:method:: writeHeader()
+   .. py:method:: setFile(arg2) -> None
 
 
-.. py:class:: Serialization
+   .. py:method:: writeHeader() -> None
+
+
+.. py:class:: Serialization(brep)
 
    Bases: :py:obj:`Representation`
 
@@ -733,7 +747,7 @@ Module Contents
    .. py:property:: surface_styles
 
 
-.. py:class:: SerializedElement
+.. py:class:: SerializedElement(shape_model)
 
    Bases: :py:obj:`Element`
 
@@ -771,7 +785,7 @@ Module Contents
    .. py:method:: setting_names()
 
 
-.. py:class:: SvgSerializer
+.. py:class:: SvgSerializer(out_filename, geometry_settings, settings)
 
    Bases: :py:obj:`WriteOnlyGeometrySerializer`
 
@@ -902,10 +916,10 @@ Module Contents
    .. py:method:: setScale(s)
 
 
-   .. py:method:: setSectionHeight(h, storey)
+   .. py:method:: setSectionHeight(h, storey=None)
 
 
-   .. py:method:: setSectionHeightsFromStoreys(offset)
+   .. py:method:: setSectionHeightsFromStoreys(offset=1.2)
 
 
    .. py:method:: setSectionRef(s)
@@ -962,7 +976,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: SwigPyIterator
+.. py:class:: SwigPyIterator(*args, **kwargs)
 
    .. py:method:: advance(n)
 
@@ -970,7 +984,7 @@ Module Contents
    .. py:method:: copy()
 
 
-   .. py:method:: decr(n)
+   .. py:method:: decr(n=1)
 
 
    .. py:method:: distance(x)
@@ -979,7 +993,7 @@ Module Contents
    .. py:method:: equal(x)
 
 
-   .. py:method:: incr(n)
+   .. py:method:: incr(n=1)
 
 
    .. py:method:: next()
@@ -991,7 +1005,7 @@ Module Contents
    .. py:method:: value()
 
 
-.. py:class:: Transformation
+.. py:class:: Transformation(settings, matrix)
 
    .. py:method:: data()
 
@@ -999,7 +1013,7 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: Triangulation
+.. py:class:: Triangulation(*args)
 
    Bases: :py:obj:`Representation`
 
@@ -1128,7 +1142,7 @@ Module Contents
 
 
 
-.. py:class:: TriangulationElement
+.. py:class:: TriangulationElement(*args)
 
    Bases: :py:obj:`Element`
 
@@ -1141,7 +1155,7 @@ Module Contents
 
 
 
-.. py:class:: TtlWktSerializer
+.. py:class:: TtlWktSerializer(filename, geometry_settings, settings)
 
    Bases: :py:obj:`WriteOnlyGeometrySerializer`
 
@@ -1161,7 +1175,7 @@ Module Contents
    .. py:method:: setUnitNameAndMagnitude(arg2, arg3)
 
 
-   .. py:method:: ttl_object_id(o, postfix)
+   .. py:method:: ttl_object_id(o, postfix=None)
 
 
    .. py:method:: write(*args)
@@ -1170,7 +1184,7 @@ Module Contents
    .. py:method:: writeHeader()
 
 
-.. py:class:: WaveFrontOBJSerializer
+.. py:class:: WaveFrontOBJSerializer(obj_filename, mtl_filename, geometry_settings, settings)
 
    Bases: :py:obj:`WriteOnlyGeometrySerializer`
 
@@ -1199,7 +1213,7 @@ Module Contents
    .. py:method:: writeMaterial(style)
 
 
-.. py:class:: WriteOnlyGeometrySerializer
+.. py:class:: WriteOnlyGeometrySerializer(*args, **kwargs)
 
    Bases: :py:obj:`GeometrySerializer`
 
@@ -1207,7 +1221,7 @@ Module Contents
    .. py:method:: read(*args)
 
 
-.. py:class:: XmlSerializer
+.. py:class:: XmlSerializer(file, xml_filename)
 
    .. py:method:: finalize()
 
@@ -1221,7 +1235,7 @@ Module Contents
    .. py:method:: writeHeader()
 
 
-.. py:class:: abstract_arrangement
+.. py:class:: abstract_arrangement(*args, **kwargs)
 
    .. py:method:: get_face_pairs()
 
@@ -1238,7 +1252,7 @@ Module Contents
    .. py:method:: write(polygons, progress)
 
 
-.. py:class:: aggregation_type
+.. py:class:: aggregation_type(type_of_aggregation, bound1, bound2, type_of_element)
 
    Bases: :py:obj:`parameter_type`
 
@@ -1277,7 +1291,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: attribute
+.. py:class:: attribute(name, type_of_attribute, optional)
 
    .. py:method:: name() -> str
 
@@ -1393,7 +1407,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: buffer
+.. py:class:: buffer(*args)
 
    .. py:method:: filename()
 
@@ -1404,7 +1418,7 @@ Module Contents
    .. py:method:: is_ready()
 
 
-.. py:class:: cant_function
+.. py:class:: cant_function(*args)
 
    Bases: :py:obj:`function_item`
 
@@ -1482,7 +1496,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: clashes
+.. py:class:: clashes(*args)
 
    .. py:method:: append(x)
 
@@ -1567,7 +1581,7 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: colour
+.. py:class:: colour(*args)
 
    Bases: :py:obj:`item`
 
@@ -1578,7 +1592,7 @@ Module Contents
    .. py:method:: calc_hash() -> int
 
 
-   .. py:method:: clone_() -> typing_extensions.Self
+   .. py:method:: clone_() -> Self
 
 
    .. py:method:: g() -> float
@@ -1598,7 +1612,7 @@ Module Contents
 
 
 
-.. py:class:: context
+.. py:class:: context(*args)
 
    .. py:method:: add(segments)
 
@@ -1621,12 +1635,12 @@ Module Contents
    .. py:method:: write(arg2)
 
 
-.. py:class:: curve
+.. py:class:: curve(*args, **kwargs)
 
    Bases: :py:obj:`geom_item`
 
 
-   .. py:method:: print_impl(o, classname, indent)
+   .. py:method:: print_impl(o, classname, indent=0)
 
 
 .. py:class:: cylinder
@@ -1650,7 +1664,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: declaration
+.. py:class:: declaration(name, index_in_schema)
 
    .. py:method:: as_entity() -> Union[entity, None]
 
@@ -1682,7 +1696,7 @@ Module Contents
    .. py:method:: type()
 
 
-.. py:class:: direction3
+.. py:class:: direction3(*args)
 
    .. py:method:: calc_hash()
 
@@ -1706,7 +1720,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: edge
+.. py:class:: edge(*args)
 
    Bases: :py:obj:`trimmed_curve`
 
@@ -1720,7 +1734,7 @@ Module Contents
    .. py:method:: kind()
 
 
-.. py:class:: ellipse
+.. py:class:: ellipse(*args, **kwargs)
 
    Bases: :py:obj:`curve`
 
@@ -1745,7 +1759,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: entity
+.. py:class:: entity(name, is_abstract, index_in_schema, supertype)
 
    Bases: :py:obj:`declaration`
 
@@ -1804,7 +1818,7 @@ Module Contents
    .. py:method:: supertype() -> Union[entity, None]
 
 
-.. py:class:: entity_instance
+.. py:class:: entity_instance(*args, **kwargs)
 
    .. py:method:: data(*args)
 
@@ -1912,10 +1926,10 @@ Module Contents
    .. py:method:: set_attribute_value(*args)
 
 
-   .. py:method:: toString(arg2, upper)
+   .. py:method:: toString(arg2, upper=False)
 
 
-   .. py:method:: to_string(valid_spf)
+   .. py:method:: to_string(valid_spf=True)
 
 
    .. py:method:: unset_attribute_value(i)
@@ -1936,7 +1950,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: enumeration_type
+.. py:class:: enumeration_type(name, index_in_schema, enumeration_items)
 
    Bases: :py:obj:`declaration`
 
@@ -1964,7 +1978,7 @@ Module Contents
 
 .. py:class:: equal_functor
 
-.. py:class:: extrusion
+.. py:class:: extrusion(m, basis, dir, d)
 
    Bases: :py:obj:`sweep`
 
@@ -2013,12 +2027,12 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: file
+.. py:class:: file(*args)
 
    .. py:method:: FreshId()
 
 
-   .. py:method:: add(entity: entity_instance, id: int) -> entity_instance
+   .. py:method:: add(entity: entity_instance, id: int = -1) -> entity_instance
 
 
    .. py:method:: addEntities(entities)
@@ -2064,7 +2078,7 @@ Module Contents
    .. py:method:: by_type_excl_subtypes(*args)
 
 
-   .. py:method:: bypass_type(type_name)
+   .. py:method:: bypass_type(type_name: str) -> None
 
 
    .. py:method:: create(decl)
@@ -2165,12 +2179,12 @@ Module Contents
    .. py:method:: to_string()
 
 
-   .. py:method:: traverse(instance: entity_instance, max_level: int) -> tuple[entity_instance, Ellipsis]
+   .. py:method:: traverse(instance: entity_instance, max_level: int = -1) -> tuple[entity_instance, Ellipsis]
       :staticmethod:
 
 
 
-   .. py:method:: traverse_breadth_first(instance: entity_instance, max_level: int) -> tuple[entity_instance, Ellipsis]
+   .. py:method:: traverse_breadth_first(instance: entity_instance, max_level: int = -1) -> tuple[entity_instance, Ellipsis]
       :staticmethod:
 
 
@@ -2207,7 +2221,7 @@ Module Contents
    .. py:property:: schema
 
 
-.. py:class:: file_open_status
+.. py:class:: file_open_status(*args)
 
    .. py:method:: value()
 
@@ -2236,7 +2250,7 @@ Module Contents
       :type:  int
 
 
-.. py:class:: fn_evaluator
+.. py:class:: fn_evaluator(*args, **kwargs)
 
    .. py:method:: clone()
 
@@ -2257,7 +2271,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: function_item
+.. py:class:: function_item(*args, **kwargs)
 
    Bases: :py:obj:`implicit_item`
 
@@ -2277,7 +2291,7 @@ Module Contents
    .. py:method:: start()
 
 
-.. py:class:: function_item_evaluator
+.. py:class:: function_item_evaluator(*args)
 
    .. py:method:: evaluate(*args)
 
@@ -2285,7 +2299,7 @@ Module Contents
    .. py:method:: evaluation_points(*args)
 
 
-.. py:class:: functor_item
+.. py:class:: functor_item(*args)
 
    Bases: :py:obj:`function_item`
 
@@ -2305,7 +2319,7 @@ Module Contents
    .. py:method:: start()
 
 
-.. py:class:: geom_item
+.. py:class:: geom_item(*args, **kwargs)
 
    Bases: :py:obj:`item`
 
@@ -2348,7 +2362,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: gradient_function
+.. py:class:: gradient_function(*args)
 
    Bases: :py:obj:`function_item`
 
@@ -2378,12 +2392,12 @@ Module Contents
 
 .. py:class:: horizontal_plan_at_element
 
-.. py:class:: implicit_item
+.. py:class:: implicit_item(*args, **kwargs)
 
    Bases: :py:obj:`geom_item`
 
 
-.. py:class:: inverse_attribute
+.. py:class:: inverse_attribute(name, type_of_aggregation, bound1, bound2, entity_reference, attribute_reference)
 
    .. py:method:: attribute_reference()
 
@@ -2418,12 +2432,12 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: item
+.. py:class:: item(*args, **kwargs)
 
    .. py:method:: calc_hash()
 
 
-   .. py:method:: clone_() -> typing_extensions.Self
+   .. py:method:: clone_() -> Self
 
 
    .. py:method:: hash()
@@ -2451,7 +2465,7 @@ Module Contents
 
 .. py:class:: less_functor
 
-.. py:class:: line
+.. py:class:: line(*args, **kwargs)
 
    Bases: :py:obj:`curve`
 
@@ -2468,7 +2482,7 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: line_segment
+.. py:class:: line_segment(*args)
 
    .. py:method:: back()
 
@@ -2558,11 +2572,15 @@ Module Contents
       :type:  Any
 
 
-   .. py:attribute:: fi
+   .. py:attribute:: function_item
       :type:  Any
 
 
-.. py:class:: matrix4
+   .. py:attribute:: tags
+      :type:  Any
+
+
+.. py:class:: matrix4(*args)
 
    Bases: :py:obj:`item`
 
@@ -2618,7 +2636,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: named_type
+.. py:class:: named_type(declared_type)
 
    Bases: :py:obj:`parameter_type`
 
@@ -2629,7 +2647,7 @@ Module Contents
    .. py:method:: declared_type() -> declaration
 
 
-.. py:class:: node
+.. py:class:: node(*args, **kwargs)
 
    Bases: :py:obj:`item`
 
@@ -2646,7 +2664,7 @@ Module Contents
 
 
 
-.. py:class:: offset_curve
+.. py:class:: offset_curve(*args, **kwargs)
 
    Bases: :py:obj:`curve`
 
@@ -2672,7 +2690,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: offset_function
+.. py:class:: offset_function(*args)
 
    Bases: :py:obj:`function_item`
 
@@ -2709,7 +2727,7 @@ Module Contents
    .. py:method:: as_simple_type() -> Union[simple_type, None]
 
 
-.. py:class:: piecewise_function
+.. py:class:: piecewise_function(*args)
 
    Bases: :py:obj:`function_item`
 
@@ -2761,7 +2779,7 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: point3
+.. py:class:: point3(*args)
 
    .. py:method:: calc_hash()
 
@@ -2819,7 +2837,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: ray_intersection_results
+.. py:class:: ray_intersection_results(*args)
 
    .. py:method:: append(x)
 
@@ -2887,7 +2905,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: revolve
+.. py:class:: revolve(m, basis, pnt, dir, a)
 
    Bases: :py:obj:`sweep`
 
@@ -2916,7 +2934,7 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: schema_definition
+.. py:class:: schema_definition(name, declarations, factory)
 
    .. py:method:: declaration_by_name(*args: str) -> declaration
 
@@ -2949,7 +2967,7 @@ Module Contents
    .. py:method:: type_declarations() -> tuple[type_declaration, Ellipsis]
 
 
-.. py:class:: select_type
+.. py:class:: select_type(name, index_in_schema, select_list)
 
    Bases: :py:obj:`declaration`
 
@@ -2984,7 +3002,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: simple_type
+.. py:class:: simple_type(declared_type)
 
    Bases: :py:obj:`parameter_type`
 
@@ -3065,7 +3083,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: style
+.. py:class:: style(*args)
 
    Bases: :py:obj:`item`
 
@@ -3073,7 +3091,7 @@ Module Contents
    .. py:method:: calc_hash() -> int
 
 
-   .. py:method:: clone_() -> typing_extensions.Self
+   .. py:method:: clone_() -> Self
 
 
    .. py:method:: get_color() -> colour
@@ -3144,12 +3162,12 @@ Module Contents
       :type:  bool
 
 
-.. py:class:: surface
+.. py:class:: surface(*args, **kwargs)
 
    Bases: :py:obj:`geom_item`
 
 
-.. py:class:: svg_groups_of_line_segments
+.. py:class:: svg_groups_of_line_segments(*args)
 
    .. py:method:: append(x)
 
@@ -3217,7 +3235,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: svg_groups_of_polygons
+.. py:class:: svg_groups_of_polygons(*args)
 
    .. py:method:: append(x)
 
@@ -3285,7 +3303,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: svg_line_segments
+.. py:class:: svg_line_segments(*args)
 
    .. py:method:: append(x)
 
@@ -3353,7 +3371,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: svg_loop
+.. py:class:: svg_loop(*args)
 
    .. py:method:: append(x)
 
@@ -3421,7 +3439,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: svg_loops
+.. py:class:: svg_loops(*args)
 
    .. py:method:: append(x)
 
@@ -3489,7 +3507,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: svg_point
+.. py:class:: svg_point(*args)
 
    .. py:method:: back()
 
@@ -3524,7 +3542,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: svg_polygons
+.. py:class:: svg_polygons(*args)
 
    .. py:method:: append(x)
 
@@ -3592,7 +3610,7 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: sweep
+.. py:class:: sweep(*args, **kwargs)
 
    Bases: :py:obj:`geom_item`
 
@@ -3601,7 +3619,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: sweep_along_curve
+.. py:class:: sweep_along_curve(*args)
 
    Bases: :py:obj:`sweep`
 
@@ -3627,7 +3645,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: torus
+.. py:class:: torus(*args, **kwargs)
 
    Bases: :py:obj:`surface`
 
@@ -3652,7 +3670,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: tree
+.. py:class:: tree(*args)
 
    .. py:method:: add_element(*args)
 
@@ -3689,7 +3707,7 @@ Module Contents
    .. py:method:: select_box(*args)
 
 
-   .. py:method:: select_ray(p0, d, length)
+   .. py:method:: select_ray(p0, d, length=1000.0)
 
 
    .. py:method:: styles()
@@ -3706,7 +3724,7 @@ Module Contents
    .. py:method:: write_h5()
 
 
-.. py:class:: trimmed_curve
+.. py:class:: trimmed_curve(*args, **kwargs)
 
    Bases: :py:obj:`geom_item`
 
@@ -3736,7 +3754,7 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: type_declaration
+.. py:class:: type_declaration(name, index_in_schema, declared_type)
 
    Bases: :py:obj:`declaration`
 
@@ -3776,7 +3794,7 @@ Module Contents
 
 .. py:function:: get_feature(x)
 
-.. py:function:: get_info_cpp(v, include_identifier)
+.. py:function:: get_info_cpp(v, include_identifier=True)
 
 .. py:function:: get_log()
 
@@ -3796,7 +3814,7 @@ Module Contents
 
 .. py:function:: new_IfcBaseClass(schema_identifier: str, name: str) -> entity_instance
 
-.. py:function:: open(fn, readonly)
+.. py:function:: open(fn: str, readonly: bool = False) -> file
 
 .. py:function:: parse_ifcxml(filename)
 
@@ -3810,7 +3828,7 @@ Module Contents
 
 .. py:function:: schema_names() -> tuple[str, Ellipsis]
 
-.. py:function:: serialise(schema_name, shape_str, advanced)
+.. py:function:: serialise(schema_name, shape_str, advanced=True)
 
 .. py:function:: set_feature(x, v)
 

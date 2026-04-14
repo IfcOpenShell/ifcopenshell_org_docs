@@ -457,8 +457,6 @@ Module Contents
    `npt.NDArray[np.float64]`
 
 
-.. py:data:: VECTOR_3D
-
 .. py:data:: tol
    :value: 1e-06
 

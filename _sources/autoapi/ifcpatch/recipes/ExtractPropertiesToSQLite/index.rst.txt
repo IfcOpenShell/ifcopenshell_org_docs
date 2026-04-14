@@ -7,7 +7,39 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file, logger)
+.. py:class:: ElementRow
+
+   Bases: :py:obj:`NamedTuple`
+
+
+   .. py:attribute:: class_
+      :type:  str
+
+
+   .. py:attribute:: description
+      :type:  str | None
+
+
+   .. py:attribute:: element_id
+      :type:  int
+
+
+   .. py:attribute:: guid
+      :type:  str
+
+
+   .. py:attribute:: name
+      :type:  str | None
+
+
+   .. py:attribute:: predefined_type
+      :type:  str | None
+
+
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger | None = None)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Extracts properties and relationships from a IFC-SPF model to SQLite.
@@ -26,9 +58,41 @@ Module Contents
    .. py:method:: patch()
 
 
-   .. py:attribute:: file
+.. py:class:: PropertyRow
+
+   Bases: :py:obj:`NamedTuple`
 
 
-   .. py:attribute:: logger
+   .. py:attribute:: element_id
+      :type:  int
+
+
+   .. py:attribute:: name
+      :type:  str
+
+
+   .. py:attribute:: pset_name
+      :type:  str
+
+
+   .. py:attribute:: value
+      :type:  str
+
+
+.. py:class:: RelationshipRow
+
+   Bases: :py:obj:`NamedTuple`
+
+
+   .. py:attribute:: element_id
+      :type:  int
+
+
+   .. py:attribute:: rel_ifc_class
+      :type:  str
+
+
+   .. py:attribute:: to_id
+      :type:  int
 
 

@@ -884,9 +884,9 @@ Package Contents
    (0.0, 0.0, 0.0)
 
 
-.. py:function:: open(path: Union[os.PathLike, str], format: Optional[str] = None, *, should_stream: Literal[False] = False) -> Union[file.file, sql.sqlite]
-                 open(path: Union[os.PathLike, str], format: Optional[str] = None, *, should_stream: Literal[True]) -> stream.stream
-                 open(path: Union[os.PathLike, str], format: Optional[str] = None, *, should_stream: bool = False, readonly: bool = False) -> Union[file.file, sql.sqlite, stream.stream]
+.. py:function:: open(path: Union[os.PathLike, str], format: SupportedFormat = None, *, should_stream: Literal[False] = False) -> Union[file.file, sql.sqlite]
+                 open(path: Union[os.PathLike, str], format: SupportedFormat = None, *, should_stream: Literal[True]) -> stream.stream
+                 open(path: Union[os.PathLike, str], format: SupportedFormat = None, *, should_stream: bool = False, readonly: bool = False) -> Union[file.file, sql.sqlite, stream.stream]
 
    Loads an IFC dataset from a filepath
 
@@ -894,8 +894,7 @@ Package Contents
        for reading large files.
 
    You can specify a file format. If no format is given, it is guessed from
-   its extension. Currently supported specified format: .ifc | .ifcZIP |
-   .ifcXML.
+   its extension.
 
    You can then filter by element ID, class, etc, and subscript by id or guid.
 

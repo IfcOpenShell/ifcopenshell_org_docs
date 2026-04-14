@@ -7,7 +7,10 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger, filepaths: list[Union[str, ifcopenshell.file]])
+.. py:class:: Patcher(file: ifcopenshell.file, logger: logging.Logger | None = None, filepaths: collections.abc.Sequence[Union[str, ifcopenshell.file]] = ())
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Merge two or more IFC models into one
@@ -46,12 +49,8 @@ Module Contents
    .. py:method:: reuse_existing_contexts() -> None
 
 
-   .. py:attribute:: file
-
-
    .. py:attribute:: filepaths
+      :value: ()
 
-
-   .. py:attribute:: logger
 
 

@@ -1,0 +1,50 @@
+:py:mod:`ifcopenshell.api.geometry.clip_solid_bounded`
+======================================================
+
+.. py:module:: ifcopenshell.api.geometry.clip_solid_bounded
+
+
+Module Contents
+---------------
+
+.. py:function:: clip_solid_bounded(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: Sequence[float], normal: Sequence[float], boundary_points: Sequence[Sequence[float]], boundary_position: Sequence[float] = (0.0, 0.0, 0.0), element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+
+   Clip a solid with a polygonally bounded half-space, returning an IfcBooleanClippingResult.
+
+   Like :func:`clip_solid`, but the boolean subtraction is restricted to the
+   region enclosed by ``boundary_points`` rather than extending across the
+   entire half-space.  The clipping plane is still infinite, but material is
+   only removed within the extruded footprint of the polygon.
+
+   The ``normal`` convention is the same as :func:`clip_solid`: it points
+   toward the **removed** material.
+
+   After clipping, set the parent ``IfcShapeRepresentation``
+   ``RepresentationType`` to ``"Clipping"``.
+
+   Example::
+
+       bcr = ifcopenshell.api.run(
+           "geometry.clip_solid_bounded", model,
+           item=extrusion,
+           location=[2.5, 0.0, 2.0],
+           normal=[0.6, 0.0, 0.8],
+           boundary_points=[[2.0, 0.0], [3.0, 0.0], [3.0, 2.0], [2.0, 2.0]],
+       )
+
+   :param item: The solid to clip (``IfcSweptAreaSolid``, ``IfcSweptDiskSolid``,
+       or ``IfcBooleanClippingResult``).
+   :param location: A point on the clipping plane in the representation's
+       local coordinate system.
+   :param normal: Plane normal pointing toward the material to be removed.
+   :param boundary_points: 2D ``[x, y]`` points defining the closed polygonal
+       boundary in the coordinate system of ``boundary_position``.  The polygon
+       is automatically closed — do not repeat the first point.
+   :param boundary_position: 3D origin of the boundary coordinate system
+       (axes default to the global X/Y/Z directions).  Defaults to the origin.
+   :param element: If provided, the resulting ``IfcBooleanClippingResult`` is
+       registered in the element's ``BBIM_Boolean`` property set so that
+       :func:`regenerate_wall_representation` preserves it during regeneration.
+   :return: The resulting ``IfcBooleanClippingResult``.
+
+

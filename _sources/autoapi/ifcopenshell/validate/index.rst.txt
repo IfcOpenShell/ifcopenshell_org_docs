@@ -193,8 +193,6 @@ Module Contents
 
 .. py:function:: validate_ifc_header(f: Union[ifcopenshell.file, ifcopenshell.simple_spf.file], logger: Union[logging.Logger, json_logger]) -> None
 
-.. py:data:: EllipsisType
-
 .. py:data:: aggregation_type
 
 .. py:data:: attribute

@@ -11,9 +11,9 @@ Module Contents
 
    Removes a property template
 
-   Note that a property set template should always have at least one
-   property template to be valid, so take care when removing property
-   templates.
+   Note that a property set template should always have at least one property
+   template to be valid. So a property set template will not be removed if it
+   is the only template ina a property ste template.
 
    :param prop_template: The IfcSimplePropertyTemplate to remove.
    :return: None

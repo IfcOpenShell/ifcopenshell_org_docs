@@ -25,7 +25,9 @@ Submodules
    add_structural_load_case/index.rst
    add_structural_load_group/index.rst
    add_structural_member_connection/index.rst
+   assign_product/index.rst
    assign_structural_analysis_model/index.rst
+   assign_to_building/index.rst
    edit_structural_analysis_model/index.rst
    edit_structural_boundary_condition/index.rst
    edit_structural_connection_cs/index.rst
@@ -174,6 +176,31 @@ Package Contents
    :return: The IfcRelConnectsStructuralMember relationship
 
 
+.. py:function:: assign_product(file: ifcopenshell.file, relating_product: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Links an object to a product via IfcRelAssignsToProduct
+
+   Typically used to associate a physical building element with a structural
+   analysis member (IfcStructuralSurfaceMember, IfcStructuralCurveMember) so
+   that analysis results can be traced back to the physical model.
+
+   :param relating_product: The IfcProduct that the object is assigned to,
+       typically an IfcStructuralMember.
+   :param related_object: The IfcObjectDefinition being assigned, typically
+       a physical building element such as an IfcWall or IfcSlab.
+   :return: The IfcRelAssignsToProduct relationship.
+
+   Example:
+
+   .. code:: python
+
+       wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
+       member = ifcopenshell.api.root.create_entity(
+           model, ifc_class="IfcStructuralSurfaceMember")
+       ifcopenshell.api.structural.assign_product(model,
+           relating_product=member, related_object=wall)
+
+
 .. py:function:: assign_structural_analysis_model(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], structural_analysis_model: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Assigns a load or structural member to an analysis model
@@ -182,6 +209,31 @@ Package Contents
    :param structural_analysis_model: The IfcStructuralAnalysisModel that
        the structural element is related to.
    :return: The IfcRelAssignsToGroup relationship
+
+
+.. py:function:: assign_to_building(file: ifcopenshell.file, structural_analysis_model: ifcopenshell.entity_instance, building: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Associates a structural analysis model with a building via IfcRelServicesBuildings
+
+   The existing :func:`assign_structural_analysis_model` handles
+   IfcRelAssignsToGroup (linking structural members to the analysis model).
+   This function handles the separate model-to-building relationship, which
+   records which building the structural analysis model serves.
+
+   :param structural_analysis_model: The IfcStructuralAnalysisModel to
+       associate with the building.
+   :param building: The IfcBuilding (or other IfcSpatialStructureElement)
+       that the structural analysis model serves.
+   :return: The IfcRelServicesBuildings relationship.
+
+   Example:
+
+   .. code:: python
+
+       building = ifcopenshell.util.selector.filter_elements(model, "IfcBuilding")[0]
+       model_ = ifcopenshell.api.structural.add_structural_analysis_model(model)
+       ifcopenshell.api.structural.assign_to_building(model,
+           structural_analysis_model=model_, building=building)
 
 
 .. py:function:: edit_structural_analysis_model(file: ifcopenshell.file, structural_analysis_model: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None

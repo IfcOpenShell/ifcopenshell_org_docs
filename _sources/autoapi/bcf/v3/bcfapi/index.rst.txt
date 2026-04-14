@@ -99,7 +99,7 @@ Module Contents
    .. py:method:: get_topic_events(project_id: str = '', topic_id: str = '') -> list[Any]
 
 
-   .. py:method:: get_topics(project_id: str = '', topics: str = '', query_string: Optional[str] = None) -> list[Any]
+   .. py:method:: get_topics(project_id: str = '', topics: str = '', query_string: Optional[str] = None) -> None
 
 
    .. py:method:: get_topics_events(project_id: str = '') -> list[Any]

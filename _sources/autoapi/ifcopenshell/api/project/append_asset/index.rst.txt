@@ -121,6 +121,12 @@ Module Contents
 
 
 
+   .. py:method:: material_sets_are_equal(set1: ifcopenshell.entity_instance, set2: ifcopenshell.entity_instance) -> bool
+
+      Check if two material sets are structurally equivalent.
+
+
+
    .. py:method:: reuse_existing_contexts() -> None
 
 
@@ -242,6 +248,7 @@ Module Contents
 .. py:data:: APPENDABLE_ASSET
 
 .. py:data:: APPENDABLE_ASSET_TYPES
+   :type:  tuple[APPENDABLE_ASSET, Ellipsis]
 
 .. py:data:: MATERIAL_SETS
    :value: ('IfcMaterialLayerSet', 'IfcMaterialConstituentSet', 'IfcMaterialProfileSet')

@@ -216,6 +216,11 @@ Module Contents
    :return: A tuple of three ordinates representing XYZ.
 
 
+.. py:function:: get_crs(ifc_file: ifcopenshell.file) -> dict[str, Any]
+
+   Get CRS information from an IFC file.
+
+
 .. py:function:: get_grid_north(ifc_file: ifcopenshell.file) -> float
 
    Get an angle pointing to map grid north

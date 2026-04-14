@@ -13,6 +13,10 @@ Module Contents
 
 .. py:function:: test_get_class()
 
+.. py:function:: test_get_class_properties()
+
+.. py:function:: test_get_class_relations()
+
 .. py:function:: test_get_dictionary()
 
 .. py:function:: test_get_ifc_classes()

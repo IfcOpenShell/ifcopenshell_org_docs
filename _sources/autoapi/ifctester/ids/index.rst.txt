@@ -7,166 +7,199 @@
 Module Contents
 ---------------
 
-.. py:exception:: IdsXmlValidationError(xml_error: xmlschema.validators.exceptions.XMLSchemaValidationError, message: str)
+.. py:class:: Attribute(name='Name', value=None, cardinality: Cardinality = 'required', instructions=None)
 
-   Bases: :py:obj:`Exception`
-
-
-   Common base class for all non-exit exceptions.
-
-   Initialize self.  See help(type(self)) for accurate signature.
+   Bases: :py:obj:`Facet`
 
 
-   .. py:attribute:: xml_error
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
 
 
-.. py:class:: Ids(title: Optional[str] = 'Untitled', copyright=None, version=None, description=None, author=None, date=None, purpose=None, milestone=None)
+   .. py:attribute:: applicability_templates
+      :value: ['Data where the {name} is {value}', 'Data where the {name} is provided']
+
+
+
+   .. py:attribute:: parameters
+      :value: ['name', 'value', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['The {name} shall not be {value}', 'The {name} shall not be provided']
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['The {name} shall be {value}', 'The {name} shall be provided']
+
+
+
+.. py:class:: Classification(value=None, system=None, uri=None, cardinality: Cardinality = 'required', instructions=None)
+
+   Bases: :py:obj:`Facet`
+
+
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: applicability_templates
+      :value: ['Data having a {system} reference of {value}', 'Data classified using {system}', 'Data...
+
+
+
+   .. py:attribute:: parameters
+      :value: ['value', 'system', '@uri', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['Shall not have a {system} reference of {value}', 'Shall not be classified using {system}',...
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['Shall have a {system} reference of {value}', 'Shall be classified using {system}', 'Shall be...
+
+
+
+.. py:class:: Entity(name='IFCWALL', predefinedType=None, instructions=None)
+
+   Bases: :py:obj:`Facet`
+
+
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: applicability_templates
+      :value: ['All {name} data of type {predefinedType}', 'All {name} data']
+
+
+
+   .. py:attribute:: parameters
+      :value: ['name', 'predefinedType', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['Shall not be {name} data of type {predefinedType}', 'Shall not be {name} data']
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['Shall be {name} data of type {predefinedType}', 'Shall be {name} data']
+
+
+
+.. py:class:: Material(value=None, uri=None, cardinality: Cardinality = 'required', instructions=None)
+
+   Bases: :py:obj:`Facet`
+
+
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:attribute:: applicability_templates
+      :value: ['All data with a {value} material', 'All data with a material']
+
+
+
+   .. py:attribute:: parameters
+      :value: ['value', '@uri', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['Shall not have a material of {value}', 'Shall not have a material']
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['Shall have a material of {value}', 'Shall have a material']
+
+
+
+.. py:class:: PartOf(name='IFCWALL', predefinedType=None, relation=None, cardinality: Cardinality = 'required', instructions=None)
+
+   Bases: :py:obj:`Facet`
+
+
+   .. py:method:: asdict(clause_type: str) -> dict[str, Any]
+
+
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: get_parent(element)
+
+
+   .. py:method:: parse(xml)
+
+
+   .. py:attribute:: applicability_templates
+      :value: ['An element with an {relation} relationship with an {name}', 'An element with an {relation}...
+
+
+
+   .. py:attribute:: parameters
+      :value: ['name', 'predefinedType', '@relation', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['An element must not have an {relation} relationship with an {name}', 'An element must not have...
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['An element must have an {relation} relationship with an {name} of predefined type...
+
+
+
+.. py:class:: Property(propertySet='Property_Set', baseName='PropertyName', value=None, dataType=None, uri=None, cardinality: Cardinality = 'required', instructions=None)
+
+   Bases: :py:obj:`Facet`
+
+
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: get_properties(pset)
+
+
+   .. py:attribute:: applicability_templates
+      :value: ['Elements with {baseName} data of {value} in the dataset {propertySet}', 'Elements with...
+
+
+
+   .. py:attribute:: parameters
+      :value: ['propertySet', 'baseName', 'value', '@dataType', '@uri', '@cardinality', '@instructions']
+
+
+
+   .. py:attribute:: prohibited_templates
+      :value: ['{baseName} data shall not be {value} and in the dataset {propertySet}', '{baseName} data shall...
+
+
+
+   .. py:attribute:: requirement_templates
+      :value: ['{baseName} data shall be {value} and in the dataset {propertySet}', '{baseName} data shall be...
+
+
+
+.. py:class:: Restriction(options=None, base='string')
 
    .. py:method:: asdict() -> dict[str, Any]
-
-
-   .. py:method:: parse(data)
-
-
-   .. py:method:: to_string()
-
-
-   .. py:method:: to_xml(filepath='output.xml')
-
-
-   .. py:method:: validate(ifc_file: ifcopenshell.file, should_filter_version: bool = False, filepath: Optional[str] = None) -> None
-
-
-   .. py:attribute:: filename
-      :type:  Optional[str]
-      :value: None
-
-
-
-   .. py:attribute:: filepath
-      :type:  Optional[str]
-      :value: None
-
-
-
-   .. py:attribute:: info
-      :type:  dict[str, Any]
-
-
-   .. py:attribute:: specifications
-      :type:  list[Specification]
-      :value: []
-
-
-
-.. py:class:: Specification(name='Unnamed', minOccurs=0, maxOccurs='unbounded', ifcVersion=['IFC2X3', 'IFC4', 'IFC4X3_ADD2'], identifier=None, description=None, instructions=None)
-
-   .. py:method:: asdict() -> dict[str, Any]
-
-
-   .. py:method:: check_ifc_version(ifc_file: ifcopenshell.file) -> bool
-
-
-   .. py:method:: get_usage() -> ifctester.facet.Cardinality
 
 
    .. py:method:: parse(ids_dict)
 
 
-   .. py:method:: parse_clause(clause)
-
-
-   .. py:method:: reset_status()
-
-
-   .. py:method:: set_usage(usage: ifctester.facet.Cardinality) -> None
-
-
-   .. py:method:: validate(ifc_file: ifcopenshell.file, should_filter_version: bool = False) -> None
-
-
-   .. py:attribute:: applicability
-      :type:  list[ifctester.facet.Facet]
-      :value: []
+   .. py:attribute:: base
+      :value: 'string'
 
 
 
-   .. py:attribute:: applicable_entities
-      :type:  list[ifcopenshell.entity_instance]
-      :value: []
-
-
-
-   .. py:attribute:: description
-      :value: None
-
-
-
-   .. py:attribute:: failed_entities
-      :type:  set[ifcopenshell.entity_instance]
-
-
-   .. py:attribute:: identifier
-      :value: None
-
-
-
-   .. py:attribute:: ifcVersion
-      :value: ['IFC2X3', 'IFC4', 'IFC4X3_ADD2']
-
-
-
-   .. py:attribute:: instructions
-      :value: None
-
-
-
-   .. py:attribute:: is_ifc_version
-      :value: None
-
-
-
-   .. py:attribute:: maxOccurs
-      :type:  Union[int, str]
-      :value: 'unbounded'
-
-
-
-   .. py:attribute:: minOccurs
-      :type:  Union[int, str]
-      :value: 0
-
-
-
-   .. py:attribute:: name
-      :value: 'Unnamed'
-
-
-
-   .. py:attribute:: passed_entities
-      :type:  set[ifcopenshell.entity_instance]
-
-
-   .. py:attribute:: requirements
-      :type:  list[ifctester.facet.Facet]
-      :value: []
-
-
-
-   .. py:attribute:: status
-      :value: None
-
-
-
-.. py:function:: from_string(xml: str, validate: bool = False) -> Ids
-
-.. py:function:: get_schema()
-
-.. py:function:: open(filepath: str, validate: bool = False) -> Ids
-
-.. py:data:: cwd
-
-.. py:data:: schema
-   :value: None
+   .. py:attribute:: options
 
 

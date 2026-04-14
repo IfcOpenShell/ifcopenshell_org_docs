@@ -29,12 +29,16 @@ Submodules
    add_representation/index.rst
    add_shape_aspect/index.rst
    add_slab_representation/index.rst
+   add_topology_representation/index.rst
    add_wall_representation/index.rst
    add_window_representation/index.rst
    assign_representation/index.rst
+   clip_solid/index.rst
+   clip_solid_bounded/index.rst
    connect_element/index.rst
    connect_path/index.rst
    connect_wall/index.rst
+   copy_representation/index.rst
    create_2pt_wall/index.rst
    disconnect_element/index.rst
    disconnect_path/index.rst
@@ -100,17 +104,6 @@ Package Contents
 .. py:function:: add_boolean(file: ifcopenshell.file, first_item: ifcopenshell.entity_instance, second_items: list[ifcopenshell.entity_instance], operator: Literal['DIFFERENCE', 'INTERSECTION', 'UNION'] = 'DIFFERENCE') -> list[ifcopenshell.entity_instance]
 
    Adds a boolean operation to two or more representation items
-
-   If an IfcBooleanOperand is part of the top level items in an
-   IfcShapeRepresentation, it will be removed from that level whilst being
-   added to the IfcBooleanResult. This is because it is generally intuitive
-   that an item is either participating in a boolean operation, or being an
-   item in its own right, but not both.
-
-   However, if an IfcBooleanOperand is part of another boolean operation
-   already, it will not be removed from the existing operation. A new
-   operation will be created, and therefore it will participate in two
-   operations.
 
    This function protects against recursive booleans.
 
@@ -262,6 +255,42 @@ Package Contents
        ifcopenshell.api.geometry.assign_representation(ifc_file, product=element, representation=representation)
 
 
+.. py:function:: add_topology_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, item: ifcopenshell.entity_instance, representation_identifier: Optional[str] = None, representation_type: Optional[str] = None) -> ifcopenshell.entity_instance
+
+   Adds an IfcTopologyRepresentation for a structural element
+
+   Structural analysis elements (IfcStructuralSurfaceMember,
+   IfcStructuralCurveMember) use topology representations rather than solid
+   geometry. This is analogous to :func:`add_axis_representation` and
+   :func:`add_profile_representation` but produces an
+   IfcTopologyRepresentation instead of an IfcShapeRepresentation.
+
+   The representation type ("Face", "Edge", "Vertex") is inferred from the
+   item's IFC class if not provided explicitly.
+
+   :param context: The IfcGeometricRepresentationContext for the
+       representation, typically a Reference context.
+   :param item: The IfcTopologicalRepresentationItem (e.g. IfcFaceSurface,
+       IfcEdge) to include in the representation.
+   :param representation_identifier: The RepresentationIdentifier string.
+       Defaults to the context's ContextIdentifier.
+   :param representation_type: The RepresentationType string ("Face",
+       "Edge", "Vertex"). Inferred from item class if not given.
+   :return: The newly created IfcTopologyRepresentation entity.
+
+   Example:
+
+   .. code:: python
+
+       context = ifcopenshell.util.representation.get_context(
+           model, "Model", "Reference", "GRAPH_VIEW")
+       face = model.createIfcFaceSurface(bounds, surface, True)
+       rep = ifcopenshell.api.geometry.add_topology_representation(
+           model, context=context, item=face)
+       ifcopenshell.api.geometry.assign_representation(
+           model, product=member, representation=rep)
+
+
 .. py:function:: add_wall_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, length: float = 1.0, height: float = 3.0, direction_sense: str = 'POSITIVE', offset: float = 0.0, thickness: float = 0.2, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, booleans: Optional[list[ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
 
    Add a geometric representation for a wall.
@@ -274,7 +303,9 @@ Package Contents
    :param thickness: The thickness of the wall in meters.
    :param x_angle: The slope angle along the wall's X-axis, in radians.
    :param clippings: List of clipping definitions. Clippings can be `Clipping` objects
-       or dictionaries of arguments for `Clipping.parse`.
+       or dictionaries of arguments for `Clipping.parse`. Each clipping has a
+       ``normal`` that points toward the removed material (the discarded side),
+       not toward the kept material; see :func:`clip_solid` for details.
    :param booleans: List of any existing IfcBooleanResults.
    :return: IfcShapeRepresentation.
 
@@ -299,11 +330,125 @@ Package Contents
 
 .. py:function:: assign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
 
+.. py:function:: clip_solid(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: Sequence[float], normal: Sequence[float], element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+
+   Clip a solid with a half-space plane, returning an IfcBooleanClippingResult.
+
+   Convenience wrapper around :class:`ifcopenshell.util.data.Clipping` for
+   use with any solid.  This is the same convention used by the ``clippings``
+   parameter of :func:`add_wall_representation`.
+
+   .. warning::
+
+       The ``normal`` points toward the **removed** material (the discarded
+       side), not toward the kept material.  For a slope clip the normal
+       points upward into the removed wedge above the slope line.  For a
+       side mitre the normal points outward away from the wall body.
+
+   After clipping, set the parent ``IfcShapeRepresentation``
+   ``RepresentationType`` to ``"Clipping"``.
+
+   Example — trim an extruded solid to a lean-to slope (removed material is
+   above the slope)::
+
+       bcr = ifcopenshell.api.run(
+           "geometry.clip_solid", model,
+           item=extrusion,
+           location=[0.0, 0.0, 3.26],
+           normal=[0.419, 0.0, 0.908],  # points UP toward removed material
+       )
+
+   :param item: The solid to clip (``IfcSweptAreaSolid``, ``IfcSweptDiskSolid``,
+       or ``IfcBooleanClippingResult``).
+   :param location: A point on the clipping plane in the representation's
+       local coordinate system.
+   :param normal: Plane normal pointing toward the material to be removed
+       (see warning above).
+   :param element: If provided, the resulting ``IfcBooleanClippingResult`` is
+       registered in the element's ``BBIM_Boolean`` property set so that
+       :func:`regenerate_wall_representation` preserves it during regeneration.
+   :return: The resulting ``IfcBooleanClippingResult``.
+
+
+.. py:function:: clip_solid_bounded(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: Sequence[float], normal: Sequence[float], boundary_points: Sequence[Sequence[float]], boundary_position: Sequence[float] = (0.0, 0.0, 0.0), element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+
+   Clip a solid with a polygonally bounded half-space, returning an IfcBooleanClippingResult.
+
+   Like :func:`clip_solid`, but the boolean subtraction is restricted to the
+   region enclosed by ``boundary_points`` rather than extending across the
+   entire half-space.  The clipping plane is still infinite, but material is
+   only removed within the extruded footprint of the polygon.
+
+   The ``normal`` convention is the same as :func:`clip_solid`: it points
+   toward the **removed** material.
+
+   After clipping, set the parent ``IfcShapeRepresentation``
+   ``RepresentationType`` to ``"Clipping"``.
+
+   Example::
+
+       bcr = ifcopenshell.api.run(
+           "geometry.clip_solid_bounded", model,
+           item=extrusion,
+           location=[2.5, 0.0, 2.0],
+           normal=[0.6, 0.0, 0.8],
+           boundary_points=[[2.0, 0.0], [3.0, 0.0], [3.0, 2.0], [2.0, 2.0]],
+       )
+
+   :param item: The solid to clip (``IfcSweptAreaSolid``, ``IfcSweptDiskSolid``,
+       or ``IfcBooleanClippingResult``).
+   :param location: A point on the clipping plane in the representation's
+       local coordinate system.
+   :param normal: Plane normal pointing toward the material to be removed.
+   :param boundary_points: 2D ``[x, y]`` points defining the closed polygonal
+       boundary in the coordinate system of ``boundary_position``.  The polygon
+       is automatically closed — do not repeat the first point.
+   :param boundary_position: 3D origin of the boundary coordinate system
+       (axes default to the global X/Y/Z directions).  Defaults to the origin.
+   :param element: If provided, the resulting ``IfcBooleanClippingResult`` is
+       registered in the element's ``BBIM_Boolean`` property set so that
+       :func:`regenerate_wall_representation` preserves it during regeneration.
+   :return: The resulting ``IfcBooleanClippingResult``.
+
+
 .. py:function:: connect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
 
-.. py:function:: connect_path(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, relating_connection: str = 'NOTDEFINED', related_connection: str = 'NOTDEFINED', description: Optional[str] = None) -> ifcopenshell.entity_instance
+.. py:function:: connect_path(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, relating_connection: str = 'NOTDEFINED', related_connection: str = 'NOTDEFINED', description: Optional[str] = None, connection_geometry: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
 .. py:function:: connect_wall(file: ifcopenshell.file, wall1: ifcopenshell.entity_instance, wall2: ifcopenshell.entity_instance, is_atpath: bool = False) -> Optional[ifcopenshell.entity_instance]
+
+.. py:function:: copy_representation(file: ifcopenshell.file, source: ifcopenshell.entity_instance, target: ifcopenshell.entity_instance, context_identifier: str = 'Body') -> Optional[ifcopenshell.entity_instance]
+
+   Copy a geometric representation from one element to another.
+
+   Finds the named representation on ``source``, deep-copies its entity
+   graph (geometry items, profiles, placements, etc.), and assigns the copy
+   to ``target``.  Representation contexts are shared rather than copied.
+   If ``target`` already has a matching representation it is removed and
+   replaced.
+
+   If no matching representation is found on ``source``, returns ``None``
+   and leaves ``target`` unchanged.
+
+   :param source: The element to copy the representation from.
+   :param target: The element to assign the copied representation to.
+   :param context_identifier: The RepresentationIdentifier to look up on
+       ``source`` (e.g. ``"Body"``, ``"Axis"``, ``"Box"``).
+       Defaults to ``"Body"``.
+   :return: The newly created IfcShapeRepresentation, or None if no
+       matching representation was found on ``source``.
+
+   Example:
+
+   .. code:: python
+
+       wall_a = model.by_id(1)
+       wall_b = model.by_id(2)
+
+       # Give wall_b the same body geometry as wall_a.
+       ifcopenshell.api.geometry.copy_representation(model,
+           source=wall_a, target=wall_b)
+
 
 .. py:function:: create_2pt_wall(file: ifcopenshell.file, element: ifcopenshell.entity_instance, context: ifcopenshell.entity_instance, p1: tuple[float, float], p2: tuple[float, float], elevation: float, height: float, thickness: float, is_si: bool = True) -> ifcopenshell.entity_instance
 
@@ -350,10 +495,11 @@ Package Contents
    :param is_si: If True, the matrix is given in SI units. If false, in
        project units.
    :param should_transform_children: A child element is a nested element,
-       opening, filling, etc. If true, child elements will move along with the
-       parent. If false, child elements will stay where they are. Because most
-       placements in IFC are relative, this means that if a child moves, we
-       actually don't change their placement.
+       opening, filling, etc. If True, child elements move along with the
+       parent; pass True when moving an assembly (roof, furniture group, etc.)
+       and you want all children to follow. If False (default), child elements
+       keep their current world positions; their local placements are rewritten
+       to compensate for the parent move.
    :return: The new or updated IfcLocalPlacement entity
 
 
@@ -383,6 +529,12 @@ Package Contents
    For sloped walls, a basic rectangular 2D profile is extruded, and then
    additional extrusions are generated for each connection that boolean
    difference the base extrusion.
+
+   Clippings applied via :func:`geometry.clip_solid` or
+   :func:`geometry.clip_solid_bounded` are preserved only if the ``element``
+   parameter was passed when creating them, which registers the result in the
+   ``BBIM_Boolean`` property set.  Clippings created without that parameter
+   are silently discarded during regeneration.
 
    This will also update the axis line representation (e.g. trim the axis line
    to any connections).

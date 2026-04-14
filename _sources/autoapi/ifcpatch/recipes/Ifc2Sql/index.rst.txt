@@ -140,11 +140,6 @@ Module Contents
 
 
 
-   .. py:attribute:: logger
-      :value: None
-
-
-
    .. py:attribute:: my_sql_classes_json_attrs
       :type:  dict[str, list[int]]
 

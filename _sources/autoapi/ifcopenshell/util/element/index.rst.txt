@@ -7,6 +7,34 @@
 Module Contents
 ---------------
 
+.. py:class:: PrioritisedLayer
+
+   Bases: :py:obj:`tuple`
+
+
+   .. py:attribute:: material
+
+
+   .. py:attribute:: priority
+
+
+   .. py:attribute:: thickness
+
+
+.. py:class:: PrioritisedProfile
+
+   Bases: :py:obj:`tuple`
+
+
+   .. py:attribute:: material
+
+
+   .. py:attribute:: priority
+
+
+   .. py:attribute:: profile
+
+
 .. py:class:: ReferenceData
 
    Bases: :py:obj:`tuple`
@@ -65,7 +93,7 @@ Module Contents
    :return: The newly copied element
 
 
-.. py:function:: copy_deep(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance, exclude: Optional[collections.abc.Sequence[str]] = None, exclude_callback: Optional[Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+.. py:function:: copy_deep(ifc_file: Union[ifcopenshell.file, None], element: ifcopenshell.entity_instance, exclude: Optional[collections.abc.Sequence[str]] = None, exclude_callback: Optional[collections.abc.Callable[[ifcopenshell.entity_instance], bool]] = None, copied_entities: Optional[dict[int, ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
 
    Recursively copy an element and all of its directly related subelements.
 
@@ -361,6 +389,33 @@ Module Contents
        material = ifcopenshell.util.element.get_material(element)
 
 
+.. py:function:: get_material_layers(element: ifcopenshell.entity_instance) -> list[PrioritisedLayer]
+
+   Retrieves all material layers assigned to an element.
+   :param element: The IFC element
+   :return: A list of IfcMaterialLayer entities
+
+   Example:
+   .. code:: python
+       element = ifcopenshell.by_type("IfcWall")[0]
+       material_layers = ifcopenshell.util.element.get_material_layers(element)
+
+
+.. py:function:: get_material_profiles(element: ifcopenshell.entity_instance) -> list[PrioritisedProfile]
+
+   Retrieves all material profiles assigned to an element.
+
+   :param element: The IFC element
+   :return: A list of IfcMaterialProfile entities
+
+   Example:
+
+   .. code:: python
+
+       element = ifcopenshell.by_type("IfcBeam")[0]
+       material_profiles = ifcopenshell.util.element.get_material_profiles(element)
+
+
 .. py:function:: get_materials(element: ifcopenshell.entity_instance, should_inherit: bool = True) -> list[ifcopenshell.entity_instance]
 
    Gets individual materials of an element
@@ -406,7 +461,7 @@ Module Contents
    :return: Generator of IfcRelVoidsElements.
 
 
-.. py:function:: get_parent(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: get_parent(element: ifcopenshell.entity_instance, ifc_class: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
 
    Get the parent in the spatial heirarchy
 
@@ -424,6 +479,8 @@ Module Contents
    - Voiding: the opening voids another physical element, such as a hole in a wall
 
    :param element: Any physical or spatial element in the tree
+   :param ifc_class: Optionally filter the type of parent you're after. For
+       example, you may be after the storey, not a space.
    :return: Its parent. This must exist for any valid file, or None if we've reached the IfcProject.
 
    Example:

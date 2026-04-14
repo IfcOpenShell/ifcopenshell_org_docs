@@ -109,9 +109,13 @@ Module Contents
       :type:  list[set[ifcopenshell.entity_instance]]
 
 
-.. py:class:: FormatTransformer
+.. py:class:: FormatTransformer(element=None)
 
    Bases: :py:obj:`lark.Transformer`
+
+
+   
+   Initialize transformer with optional element for variable substitution
 
 
    .. py:method:: ESCAPED_STRING(args)
@@ -120,10 +124,25 @@ Module Contents
    .. py:method:: NUMBER(args)
 
 
+   .. py:method:: add(args)
+
+      Handle addition operation
+
+
+
    .. py:method:: boolean(args)
 
 
    .. py:method:: concat(args)
+
+
+   .. py:method:: divide(args)
+
+      Handle division operation
+
+
+
+   .. py:method:: expression(args)
 
 
    .. py:method:: format_length(args)
@@ -138,16 +157,37 @@ Module Contents
    .. py:method:: int(args: list[str]) -> str
 
 
+   .. py:method:: join(args)
+
+
    .. py:method:: lower(args)
 
 
    .. py:method:: metric_length(args)
 
 
+   .. py:method:: multiply(args)
+
+      Handle multiplication operation
+
+
+
    .. py:method:: number(args)
 
 
+   .. py:method:: query_path(args)
+
+      Extract the query path from variable
+
+
+
+   .. py:method:: reverse(args)
+
+
    .. py:method:: round(args)
+
+
+   .. py:method:: sort(args)
 
 
    .. py:method:: start(args)
@@ -156,10 +196,27 @@ Module Contents
    .. py:method:: substr(args)
 
 
+   .. py:method:: subtract(args)
+
+      Handle subtraction operation
+
+
+
    .. py:method:: title(args)
 
 
    .. py:method:: upper(args)
+
+
+   .. py:method:: variable(args)
+
+      Handle variable substitution like {{z}} or {{Pset_Wall.FireRating}}
+
+
+
+   .. py:attribute:: element
+      :value: None
+
 
 
 .. py:class:: GetElementTransformer
@@ -218,7 +275,18 @@ Module Contents
        print(elements)
 
 
-.. py:function:: format(query: str) -> str
+.. py:function:: format(query: str, element: Optional[ifcopenshell.entity_instance] = None) -> str
+
+   Format a query string with optional element context for variable substitution.
+
+   :param query: Format query string (can include {{variable}} placeholders)
+   :param element: Optional IFC element for variable substitution
+   :return: Formatted string
+
+   Example:
+       format("{{z}} / 2", element)  # Substitutes element's z value
+       format("imperial_length({{z}} / 2, 4)", element)  # Uses z in calculation
+
 
 .. py:function:: get_element_value(element: ifcopenshell.entity_instance, query: str) -> Any
 
@@ -232,8 +300,6 @@ Module Contents
    :param concat: Concatenation symbol, used only to deserialize property
        set enum values from string values.
 
-
-.. py:data:: EllipsisType
 
 .. py:data:: filter_elements_grammar
 

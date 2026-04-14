@@ -111,13 +111,13 @@ Module Contents
    .. py:method:: create_curves_from_mesh_ifc2x3(geom_data) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: create_edge_sampleable_object(obj)
+   .. py:method:: create_edge_sampleable_object(obj: bpy.types.Object) -> None
 
 
-   .. py:method:: create_edges(obj)
+   .. py:method:: create_edges(obj: bpy.types.Object) -> None
 
 
-   .. py:method:: create_face_sampleable_object(obj)
+   .. py:method:: create_face_sampleable_object(obj: bpy.types.Object) -> None
 
 
    .. py:method:: patch() -> None

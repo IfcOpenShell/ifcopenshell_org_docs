@@ -82,6 +82,9 @@ Module Contents
    .. py:method:: report() -> Results
 
 
+   .. py:method:: report_applicable_entities(specification: ifctester.ids.Specification) -> list[ResultsEntity]
+
+
    .. py:method:: report_failed_entities(requirement: ifctester.facet.Facet) -> list[ResultsEntity]
 
 
@@ -334,6 +337,10 @@ Module Contents
       :type:  list[str]
 
 
+   .. py:attribute:: applicable_entities
+      :type:  list[ResultsEntity]
+
+
    .. py:attribute:: cardinality
       :type:  str
 
@@ -347,6 +354,10 @@ Module Contents
 
 
    .. py:attribute:: is_ifc_version
+      :type:  bool
+
+
+   .. py:attribute:: is_skipped
       :type:  bool
 
 

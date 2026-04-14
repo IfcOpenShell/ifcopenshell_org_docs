@@ -13,5 +13,3 @@ Module Contents
       :type:  str
 
 
-.. py:data:: DATACLASS_KWARGS
-

@@ -26,23 +26,23 @@ Module Contents
 
 
    .. py:attribute:: description
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: implementation_level
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: name
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: schema_name
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: time_stamp
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
 .. py:class:: IfcHeaderExtractor(filepath: str)

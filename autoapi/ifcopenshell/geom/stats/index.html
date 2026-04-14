@@ -6,10 +6,10 @@
 <link rel="index" title="Index" href="../../../../genindex.html"><link rel="search" title="Search" href="../../../../search.html"><link rel="next" title="ifcopenshell.util" href="../../util/index.html"><link rel="prev" title="ifcopenshell.geom.occ_utils" href="../occ_utils/index.html">
         <link rel="prefetch" href="https://ifcopenshell.org/assets/images/logo.png" as="image">
 
-    <link rel="shortcut icon" href="https://ifcopenshell.org/assets/images/logo.png"><!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
-        <title>ifcopenshell.geom.stats - IfcOpenShell 0.8.4 documentation</title>
+    <link rel="shortcut icon" href="https://ifcopenshell.org/assets/images/logo.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>ifcopenshell.geom.stats - IfcOpenShell 0.8.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -202,7 +202,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.8.4 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">IfcOpenShell 0.8.5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -226,7 +226,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.8.4 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.8.5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -283,9 +283,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../ifcclash.html">IfcClash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ifccsv.html">IfcCSV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ifcdiff.html">IfcDiff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ifcedit.html">IfcEdit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ifcfm.html">IfcFM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ifcmax.html">IfcMax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ifcmcp.html">IfcMCP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../ifcpatch.html">IfcPatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ifcquery.html">IfcQuery</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../ifcsverchok.html">IfcSverchok</a><input aria-label="Toggle navigation of IfcSverchok" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ifcsverchok/installation.html">Installation</a></li>
 </ul>
@@ -338,8 +341,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../bsdd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../topic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">topic</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../topic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">topic</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ifccsv/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifccsv</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../visinfo/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">visinfo</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../ifcdiff/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcdiff</span></code></a></li>
@@ -549,12 +552,16 @@
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/add_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/add_shape_aspect/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_shape_aspect</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/add_slab_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_slab_representation</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/geometry/add_topology_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_topology_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/add_wall_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_wall_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/add_window_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_window_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/assign_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.assign_representation</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/geometry/clip_solid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.clip_solid</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/geometry/clip_solid_bounded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.clip_solid_bounded</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/connect_element/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.connect_element</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/connect_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.connect_path</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/connect_wall/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.connect_wall</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/geometry/copy_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.copy_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/create_2pt_wall/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.create_2pt_wall</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/disconnect_element/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.disconnect_element</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/geometry/disconnect_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.disconnect_path</span></code></a></li>
@@ -789,7 +796,9 @@
 <li class="toctree-l5"><a class="reference internal" href="../../api/structural/add_structural_load_case/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.add_structural_load_case</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/structural/add_structural_load_group/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.add_structural_load_group</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/structural/add_structural_member_connection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.add_structural_member_connection</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/structural/assign_product/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.assign_product</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/structural/assign_structural_analysis_model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.assign_structural_analysis_model</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/structural/assign_to_building/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.assign_to_building</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/structural/edit_structural_analysis_model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.edit_structural_analysis_model</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/structural/edit_structural_boundary_condition/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.edit_structural_boundary_condition</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../api/structural/edit_structural_connection_cs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.edit_structural_connection_cs</span></code></a></li>
@@ -980,7 +989,7 @@
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.BooleanResultCounter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">BooleanResultCounter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_union</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.BooleanResultCounter" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">BooleanResultCounter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_union</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.BooleanResultCounter" title="Link to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.BooleanResultCounter.count">
 <span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.BooleanResultCounter.count" title="Link to this definition">¶</a></dt>
@@ -993,19 +1002,19 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.BooleanResultCounter.exclude_union">
-<span class="sig-name descname"><span class="pre">exclude_union</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.BooleanResultCounter.exclude_union" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">exclude_union</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.BooleanResultCounter.exclude_union" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.BooleanResultCounter.total">
-<span class="sig-name descname"><span class="pre">total</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.BooleanResultCounter.total" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">total</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.BooleanResultCounter.total" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.ProductCounter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">ProductCounter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">only_with_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.ProductCounter" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">ProductCounter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">only_with_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.ProductCounter" title="Link to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.ProductCounter.count">
 <span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.ProductCounter.count" title="Link to this definition">¶</a></dt>
@@ -1028,32 +1037,32 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.ProductCounter.only_with_representation">
-<span class="sig-name descname"><span class="pre">only_with_representation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.ProductCounter.only_with_representation" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">only_with_representation</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.ProductCounter.only_with_representation" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.ProductCounter.total">
-<span class="sig-name descname"><span class="pre">total</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.ProductCounter.total" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">total</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.ProductCounter.total" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">StatsCollector</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">StatsCollector</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector" title="Link to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.feed">
-<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.feed" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../express/definitions/index.html#ifcopenshell.express.definitions.Definitions.str" title="ifcopenshell.express.definitions.Definitions.str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.feed" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.feedFromFile">
-<span class="sig-name descname"><span class="pre">feedFromFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.feedFromFile" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">feedFromFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../express/definitions/index.html#ifcopenshell.express.definitions.Definitions.str" title="ifcopenshell.express.definitions.Definitions.str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.feedFromFile" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.fromFilePath">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromFilePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">page_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">102400</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.fromFilePath" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromFilePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">page_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">102400</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.fromFilePath" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1078,44 +1087,44 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.counters">
-<span class="sig-name descname"><span class="pre">counters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.counters" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">counters</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.counters" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.file_stream">
-<span class="sig-name descname"><span class="pre">file_stream</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.file_stream" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">file_stream</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../express/definitions/index.html#ifcopenshell.express.definitions.Definitions.str" title="ifcopenshell.express.definitions.Definitions.str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.file_stream" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.finalized">
-<span class="sig-name descname"><span class="pre">finalized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.finalized" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalized</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.finalized" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.needs_data">
-<span class="sig-name descname"><span class="pre">needs_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.needs_data" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">needs_data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.needs_data" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.num_semis">
-<span class="sig-name descname"><span class="pre">num_semis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.num_semis" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">num_semis</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.num_semis" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.page_size">
-<span class="sig-name descname"><span class="pre">page_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.page_size" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">page_size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.page_size" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.StatsCollector.streamer">
-<span class="sig-name descname"><span class="pre">streamer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ifcopenshell.geom.ifcopenshell_wrapper.InstanceStreamer</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.streamer" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">streamer</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ifcopenshell.geom.ifcopenshell_wrapper.InstanceStreamer</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.StatsCollector.streamer" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.TransformDefaultDict">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">TransformDefaultDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyfunc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.TransformDefaultDict" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifcopenshell.geom.stats.</span></span><span class="sig-name descname"><span class="pre">TransformDefaultDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyfunc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifcopenshell.geom.stats.TransformDefaultDict" title="Link to this definition">¶</a></dt>
 <dd><p>Similar to collections.defaultdict, but allows for storing
 non-hashable keys by means of a transform function</p>
 <dl class="py method">
@@ -1155,7 +1164,7 @@ non-hashable keys by means of a transform function</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifcopenshell.geom.stats.TransformDefaultDict.default_factory">
-<span class="sig-name descname"><span class="pre">default_factory</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ifcopenshell.geom.stats.TransformDefaultDict.default_factory" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">default_factory</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#ifcopenshell.geom.stats.TransformDefaultDict.default_factory" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1202,7 +1211,7 @@ non-hashable keys by means of a transform function</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2011-2025 IfcOpenShell Contributors
+                Copyright &#169; 2011-2026 IfcOpenShell Contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -1299,9 +1308,9 @@ non-hashable keys by means of a transform function</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=b41f4c93"></script>
-    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script src="../../../../_static/documentation_options.js?v=1067c88a"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>

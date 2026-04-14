@@ -35,19 +35,19 @@ Package Contents
 
 
    .. py:attribute:: arguments
-      :type:  typing_extensions.NotRequired[collections.abc.Sequence[Any]]
+      :type:  NotRequired[collections.abc.Sequence[Any]]
 
 
    .. py:attribute:: file
-      :type:  typing_extensions.NotRequired[ifcopenshell.file]
+      :type:  NotRequired[ifcopenshell.file]
 
 
    .. py:attribute:: input
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: log
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: recipe
@@ -127,7 +127,7 @@ Package Contents
 
 
    .. py:attribute:: default
-      :type:  typing_extensions.NotRequired[Any]
+      :type:  NotRequired[Any]
 
 
    .. py:attribute:: description
@@ -135,15 +135,15 @@ Package Contents
 
 
    .. py:attribute:: enum_items
-      :type:  typing_extensions.NotRequired[list[str]]
+      :type:  NotRequired[list[str]]
 
 
    .. py:attribute:: filter_glob
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: generic_type
-      :type:  typing_extensions.NotRequired[str]
+      :type:  NotRequired[str]
 
 
    .. py:attribute:: name

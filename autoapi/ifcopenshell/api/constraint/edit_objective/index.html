@@ -6,10 +6,10 @@
 <link rel="index" title="Index" href="../../../../../genindex.html"><link rel="search" title="Search" href="../../../../../search.html"><link rel="next" title="ifcopenshell.api.constraint.remove_constraint" href="../remove_constraint/index.html"><link rel="prev" title="ifcopenshell.api.constraint.edit_metric" href="../edit_metric/index.html">
         <link rel="prefetch" href="https://ifcopenshell.org/assets/images/logo.png" as="image">
 
-    <link rel="shortcut icon" href="https://ifcopenshell.org/assets/images/logo.png"><!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
-        <title>ifcopenshell.api.constraint.edit_objective - IfcOpenShell 0.8.4 documentation</title>
+    <link rel="shortcut icon" href="https://ifcopenshell.org/assets/images/logo.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>ifcopenshell.api.constraint.edit_objective - IfcOpenShell 0.8.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=aefb6c79" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -202,7 +202,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../../index.html"><div class="brand">IfcOpenShell 0.8.4 documentation</div></a>
+      <a href="../../../../../index.html"><div class="brand">IfcOpenShell 0.8.5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -226,7 +226,7 @@
     <img class="sidebar-logo" src="https://ifcopenshell.org/assets/images/logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">IfcOpenShell 0.8.4 documentation</span>
+  <span class="sidebar-brand-text">IfcOpenShell 0.8.5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -283,9 +283,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../ifcclash.html">IfcClash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../ifccsv.html">IfcCSV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../ifcdiff.html">IfcDiff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../ifcedit.html">IfcEdit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../ifcfm.html">IfcFM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../ifcmax.html">IfcMax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../ifcmcp.html">IfcMCP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../ifcpatch.html">IfcPatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../ifcquery.html">IfcQuery</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../ifcsverchok.html">IfcSverchok</a><input aria-label="Toggle navigation of IfcSverchok" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../ifcsverchok/installation.html">Installation</a></li>
 </ul>
@@ -338,8 +341,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../bsdd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsdd</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../topic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">topic</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../topic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">topic</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ifccsv/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifccsv</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../visinfo/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">visinfo</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../ifcdiff/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcdiff</span></code></a></li>
@@ -549,12 +552,16 @@
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/add_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/add_shape_aspect/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_shape_aspect</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/add_slab_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_slab_representation</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../geometry/add_topology_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_topology_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/add_wall_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_wall_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/add_window_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.add_window_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/assign_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.assign_representation</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../geometry/clip_solid/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.clip_solid</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../geometry/clip_solid_bounded/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.clip_solid_bounded</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/connect_element/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.connect_element</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/connect_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.connect_path</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/connect_wall/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.connect_wall</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../geometry/copy_representation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.copy_representation</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/create_2pt_wall/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.create_2pt_wall</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/disconnect_element/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.disconnect_element</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../geometry/disconnect_path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.geometry.disconnect_path</span></code></a></li>
@@ -789,7 +796,9 @@
 <li class="toctree-l5"><a class="reference internal" href="../../structural/add_structural_load_case/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.add_structural_load_case</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../structural/add_structural_load_group/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.add_structural_load_group</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../structural/add_structural_member_connection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.add_structural_member_connection</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../structural/assign_product/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.assign_product</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../structural/assign_structural_analysis_model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.assign_structural_analysis_model</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../structural/assign_to_building/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.assign_to_building</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../structural/edit_structural_analysis_model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.edit_structural_analysis_model</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../structural/edit_structural_boundary_condition/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.edit_structural_boundary_condition</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../structural/edit_structural_connection_cs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ifcopenshell.api.structural.edit_structural_connection_cs</span></code></a></li>
@@ -980,7 +989,7 @@
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifcopenshell.api.constraint.edit_objective.edit_objective">
-<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.constraint.edit_objective.</span></span><span class="sig-name descname"><span class="pre">edit_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.constraint.edit_objective.edit_objective" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifcopenshell.api.constraint.edit_objective.</span></span><span class="sig-name descname"><span class="pre">edit_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../index.html#ifcopenshell.file" title="ifcopenshell.file"><span class="pre">ifcopenshell.file</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../index.html#ifcopenshell.entity_instance" title="ifcopenshell.entity_instance"><span class="pre">ifcopenshell.entity_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../../express/definitions/index.html#ifcopenshell.express.definitions.Definitions.str" title="ifcopenshell.express.definitions.Definitions.str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ifcopenshell.api.constraint.edit_objective.edit_objective" title="Link to this definition">¶</a></dt>
 <dd><p>Edit the attributes of a objective</p>
 <p>For more information about the attributes and data types of an
 IfcObjective, consult the IFC documentation.</p>
@@ -1035,7 +1044,7 @@ IfcObjective, consult the IFC documentation.</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2011-2025 IfcOpenShell Contributors
+                Copyright &#169; 2011-2026 IfcOpenShell Contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -1087,9 +1096,9 @@ IfcObjective, consult the IFC documentation.</p>
       
     </aside>
   </div>
-</div><script src="../../../../../_static/documentation_options.js?v=b41f4c93"></script>
-    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script src="../../../../../_static/documentation_options.js?v=1067c88a"></script>
+    <script src="../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../../_static/copybutton.js?v=f281be69"></script>

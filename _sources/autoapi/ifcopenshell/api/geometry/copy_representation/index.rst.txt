@@ -1,0 +1,42 @@
+:py:mod:`ifcopenshell.api.geometry.copy_representation`
+=======================================================
+
+.. py:module:: ifcopenshell.api.geometry.copy_representation
+
+
+Module Contents
+---------------
+
+.. py:function:: copy_representation(file: ifcopenshell.file, source: ifcopenshell.entity_instance, target: ifcopenshell.entity_instance, context_identifier: str = 'Body') -> Optional[ifcopenshell.entity_instance]
+
+   Copy a geometric representation from one element to another.
+
+   Finds the named representation on ``source``, deep-copies its entity
+   graph (geometry items, profiles, placements, etc.), and assigns the copy
+   to ``target``.  Representation contexts are shared rather than copied.
+   If ``target`` already has a matching representation it is removed and
+   replaced.
+
+   If no matching representation is found on ``source``, returns ``None``
+   and leaves ``target`` unchanged.
+
+   :param source: The element to copy the representation from.
+   :param target: The element to assign the copied representation to.
+   :param context_identifier: The RepresentationIdentifier to look up on
+       ``source`` (e.g. ``"Body"``, ``"Axis"``, ``"Box"``).
+       Defaults to ``"Body"``.
+   :return: The newly created IfcShapeRepresentation, or None if no
+       matching representation was found on ``source``.
+
+   Example:
+
+   .. code:: python
+
+       wall_a = model.by_id(1)
+       wall_b = model.by_id(2)
+
+       # Give wall_b the same body geometry as wall_a.
+       ifcopenshell.api.geometry.copy_representation(model,
+           source=wall_a, target=wall_b)
+
+

@@ -74,7 +74,7 @@ Subpackages
 Package Contents
 ----------------
 
-.. py:function:: add_post_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+.. py:function:: add_post_listener(usecase_path: str, name: str, callback: collections.abc.Callable[[str, ifcopenshell.file, dict], None]) -> None
 
    Add a post listener
 
@@ -83,7 +83,7 @@ Package Contents
    :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
 
 
-.. py:function:: add_pre_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+.. py:function:: add_pre_listener(usecase_path: str, name: str, callback: collections.abc.Callable[[str, ifcopenshell.file, dict], None]) -> None
 
    Add a pre listener
 
@@ -98,7 +98,7 @@ Package Contents
 
 .. py:function:: remove_all_listeners()
 
-.. py:function:: remove_post_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+.. py:function:: remove_post_listener(usecase_path: str, name: str, callback: collections.abc.Callable[[str, ifcopenshell.file, dict], None]) -> None
 
    Remove a post listener
 
@@ -107,7 +107,7 @@ Package Contents
    :param callback: callback function with 3 arguments: `usecase_path`, `ifc_file`, `settings`
 
 
-.. py:function:: remove_pre_listener(usecase_path: str, name: str, callback: Callable[[str, ifcopenshell.file, dict], None]) -> None
+.. py:function:: remove_pre_listener(usecase_path: str, name: str, callback: collections.abc.Callable[[str, ifcopenshell.file, dict], None]) -> None
 
    Remove a pre listener
 
@@ -136,13 +136,13 @@ Package Contents
 
 
 .. py:data:: ARGUMENTS_DEPRECATION
-   :type:  dict[str, Callable[[str, dict[str, Any]], tuple[str, dict[str, Any]]]]
+   :type:  dict[str, collections.abc.Callable[[str, dict[str, Any]], tuple[str, dict[str, Any]]]]
 
 .. py:data:: CACHED_USECASES
-   :type:  dict[str, Callable]
+   :type:  dict[str, collections.abc.Callable]
 
 .. py:data:: CACHED_USECASE_CLASSES
-   :type:  dict[str, Callable]
+   :type:  dict[str, collections.abc.Callable]
 
 .. py:data:: post_listeners
    :type:  dict[str, dict]

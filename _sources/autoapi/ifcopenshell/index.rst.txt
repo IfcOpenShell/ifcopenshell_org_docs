@@ -674,6 +674,20 @@ Package Contents
       :type:  ifcopenshell.ifcopenshell_wrapper.file
 
 
+.. py:class:: rocksdb_lazy_instance(storage, name)
+
+   .. py:method:: id()
+
+
+   .. py:method:: is_a()
+
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: storage
+
+
 .. py:class:: sqlite(filepath: str)
 
    Bases: :py:obj:`ifcopenshell.file.file`

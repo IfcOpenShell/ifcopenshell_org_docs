@@ -7,12 +7,9 @@
 Module Contents
 ---------------
 
-.. py:function:: edit_attributes(file: ifcopenshell.file, entity: ifcopenshell.entity_instance, relating_space: ifcopenshell.entity_instance, related_building_element: ifcopenshell.entity_instance, parent_boundary: Optional[ifcopenshell.entity_instance] = None, corresponding_boundary: Optional[ifcopenshell.entity_instance] = None) -> None
+.. py:function:: edit_attributes(file: ifcopenshell.file, entity: ifcopenshell.entity_instance, relating_space: ifcopenshell.entity_instance, related_building_element: ifcopenshell.entity_instance, parent_boundary: Optional[ifcopenshell.entity_instance] = None, corresponding_boundary: Optional[ifcopenshell.entity_instance] = None, physical_or_virtual: str = 'NOTDEFINED', internal_or_external: str = 'NOTDEFINED') -> None
 
    Modify the relationships of a space boundary relationship
-
-   Currently this function is quite minimal and offers no advantage to
-   manual assignment of the space boundary attributes.
 
    :param entity: The IfcRelSpaceBoundary to modify
    :param relating_space: The IfcSpace or IfcExternalSpatialElement that
@@ -25,6 +22,11 @@ Module Contents
    :param corresponding_boundary: The other IfcRelSpaceBoundary on the
        other side of the related element. The pair together represents a
        thermal boundary. This only applies to 2nd level boundaries.
+   :param physical_or_virtual: IfcPhysicalOrVirtualEnum value: "PHYSICAL",
+       "VIRTUAL", or "NOTDEFINED".
+   :param internal_or_external: IfcInternalOrExternalEnum value:
+       "INTERNAL", "EXTERNAL", "EXTERNAL_EARTH", "EXTERNAL_WATER",
+       "EXTERNAL_FIRE", or "NOTDEFINED".
    :return: None
 
 
