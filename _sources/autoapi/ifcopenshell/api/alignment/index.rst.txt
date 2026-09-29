@@ -11,9 +11,11 @@
    is created and maintained automatically. The manditory zero length segment for the semantic and geometric definitions
    are automatically created and maintained.
 
-   Alignments are created with stationing referents. Each layout segment is assigned a position referent that informs about
-   the start point of the segment. An example is the point of curvature of a horizontal circular curve. The referent is
-   nested to the segment representing the circular arc and is named with a indicator of the position and the station, e.g. "P.C. (145+98.32)"
+   Stationing is defined explicitly by calling add_stationing_referent() after the layout segments (and therefore the
+   basis curve geometry) exist - create() does not add one. update_key_point_referents() assigns each layout segment a
+   position referent that informs about the start point of the segment. An example is the point of curvature of a
+   horizontal circular curve. The referent is nested to the segment representing the circular arc and is named with the
+   alignment name and an indicator of the position and the station, e.g. "MyAlignment 145+98.32 (P.C.)"
 
    This API does not determine alignment parameters based on rules, such as minimum curve radius as a function of design speed or sight distance.
 
@@ -23,7 +25,7 @@
        1. Creating alignments, both horizontal and vertical, using the PI method. Alignment definition can be read from a CSV file.
        2. Creating alignments segment by segment.
        3. Automatic creation of geometric definitions (IfcCompositeCurve, IfcGradientCurve, IfcSegmentedReferenceCurve)
-       4. Automatic definition of stationing
+       4. Explicit definition of stationing, including station equations and reverse (decreasing) stationing
        5. Automatic definition of alignment transition point referents
        6. Utility functions for printing business logical and geometric representations, as well as minimal geometry evaluations
 
@@ -42,6 +44,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   add_positioning_referent/index.rst
    add_stationing_referent/index.rst
    add_vertical_layout/index.rst
    add_zero_length_segment/index.rst
@@ -64,28 +67,33 @@ Submodules
    get_cant_layout/index.rst
    get_child_alignments/index.rst
    get_curve/index.rst
+   get_curve_segment/index.rst
    get_curve_segment_transition_code/index.rst
    get_horizontal_layout/index.rst
+   get_layout/index.rst
    get_layout_curve/index.rst
    get_layout_segments/index.rst
    get_mapped_segments/index.rst
    get_parent_alignment/index.rst
-   get_referent_nest/index.rst
+   get_stationing_nest/index.rst
    get_vertical_layout/index.rst
    has_zero_length_segment/index.rst
    layout_horizontal_alignment_by_pi_method/index.rst
    layout_vertical_alignment_by_pi_method/index.rst
    name_segments/index.rst
+   update_alignment_parameter_segment_tags/index.rst
+   update_end_point/index.rst
    update_fallback_position/index.rst
+   update_key_point_referents/index.rst
    util/index.rst
 
 
 Package Contents
 ----------------
 
-.. py:function:: add_stationing_referent(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, name: str, positioned_product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: add_positioning_referent(file: ifcopenshell.file, name: str, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, positioned_product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-   Adds an IfcReferent to the alignment with the Pset_Stationing property set.
+   Semantically defines the position of a product along an alignment by adding an IfcReferent to the alignment that defines the stationing system.
 
    :param alignment: the alignment to receive the referent
    :param distance_along: distance along the alignment basis curve
@@ -99,7 +107,39 @@ Package Contents
    .. code:: python
 
        alignment = model.by_type("IfcAlignment")[0]
-       ifcopenshell.api.alignment.add_stationing_referent(model,alignment=alignment,distance_along=0.0,station=100.0)
+       pier = model.by_type("IfcBridgePart")[0]
+       ifcopenshell.api.alignment.add_positioning_referent(model,name="Pier 1 Sta 1+00",alignment=alignment,distance_along=0.0,station=100.0,positioned_product=pier)
+
+
+.. py:function:: add_stationing_referent(file: ifcopenshell.file, name: str, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, incoming_station: Optional[float] = None, has_increasing_station: Optional[bool] = None, on_basis_curve: Optional[bool] = None) -> ifcopenshell.entity_instance
+
+   Adds an IfcReferent to the alignment that defines the stationing system.
+
+   Call this once with ``distance_along=0.0`` to define the starting station, and again
+   for each station equation. If the alignment has no geometry yet, the referent is
+   placed with an IfcLocalPlacement at the global origin; once the basis curve has real
+   segments it is placed with an IfcLinearPlacement at ``distance_along`` on that curve.
+   create_representation() restates an origin-placed starting referent onto the curve
+   when geometry is added later.
+
+   :param name: name to assign to IfcReferent.Name, typically a stringized version of the station value
+   :param alignment: the alignment to receive the referent
+   :param distance_along: distance along the alignment basis curve
+   :param station: station value
+   :param incoming_station: station value of the incoming segment, only set to specify a station equation
+   :param has_increasing_station: sets Pset_Stationing.HasIncreasingStation, which records the direction of
+       stationing for the referents nested after this one. Leave None (the default) or pass True for the
+       common case where station values increase with distance along; pass False on the starting referent
+       of a reverse-stationed alignment, where station values decrease as distance along increases.
+   :param on_basis_curve: whether the referent is positioned on the basis curve or the alignment curve, if None the function will default to the basis curve
+   :return: referent
+
+   Example:
+
+   .. code:: python
+
+       alignment = model.by_type("IfcAlignment")[0]
+       ifcopenshell.api.alignment.add_stationing_referent(model,name="1+00.0",alignment=alignment,distance_along=0.0,station=100.0)
 
 
 .. py:function:: add_vertical_layout(file: ifcopenshell.file, parent_alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -126,18 +166,17 @@ Package Contents
    :return: The new vertical layout, including the manditory zero length segment
 
 
-.. py:function:: add_zero_length_segment(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, include_referent: bool = True) -> bool
+.. py:function:: add_zero_length_segment(file: ifcopenshell.file, layout: ifcopenshell.entity_instance) -> bool
 
    Adds a zero length segment to the end of a layout.
 
    If the layout already has a zero length segment, nothing is changed.
 
    :param layout: An IfcAlignmentHorizontal, IfcAlignmentVertical, IfcAlignmentCant, IfcCompositeCurve, IfcGradientCurve, IfcSegmentedReferenceCurve
-   :param include_referent: If True, an IfcReferent representing the ending point of the layout is included for IfcLinearElement layouts (i.e. business logic)
    :return: True if segment is added
 
 
-.. py:function:: create(file: ifcopenshell.file, name: str, include_vertical: bool = False, include_cant: bool = False, include_geometry: bool = True, start_station: float = 0.0) -> ifcopenshell.entity_instance
+.. py:function:: create(file: ifcopenshell.file, name: str, include_vertical: bool = False, include_cant: bool = False, include_geometry: bool = True) -> ifcopenshell.entity_instance
 
    Creates a new alignment with a horizontal layout. Optionally, vertical and cant layouts can be created as well.
    The geometric representations are created as well, unless they are explicitly excluded.
@@ -151,15 +190,15 @@ Package Contents
    The horizontal geometry in the Viennese Bend transition curves depends on the Viennese Bend cant parameters. create_layout_segment() automatically creates
    the geometric representation from the semantic definition. The horizontal segment geometric representation will fail if the cant segment is not defined.
 
-   If geometric representations are created, the alignment stationing referent is also created using the start_station value. IfcReferent.ObjectPlacement
-   is required for linear positiion elements and IfcLinearPlacement is defined relative to alignment curve geometry.
+   This function does not define the alignment's stationing. Call add_stationing_referent() once the layout
+   segments (and therefore the basis curve geometry) exist to place the starting-station IfcReferent, and again
+   for any station equations. Until stationing is defined, get_alignment_start_station() reports 0.0.
 
    :param file:
    :param name: name assigned to IfcAlignment.Name
    :param include_vertical: If True, IfcAlignmentVertical is created. IfcGradientCurve is created if include_geometry is True
    :param include_cant: If True, IfcAlignmentCant is created. IfcSegmentedReferenceCurve is created if include_geometry is True
    :param include_geometry: If True, the geometric representations are added
-   :param start_station: station value at the start of the alignment.
    :return: Returns an IfcAlignment
 
 
@@ -176,20 +215,26 @@ Package Contents
    :return: Returns an IfcAlignment
 
 
-.. py:function:: create_as_polyline(file: ifcopenshell.file, name: str, points: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: float = 0.0) -> ifcopenshell.entity_instance
+.. py:function:: create_as_polyline(file: ifcopenshell.file, name: str, points: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: Optional[float] = None) -> ifcopenshell.entity_instance
 
    Creates a new IfcAlignment with an IfcPolyline representation.
 
    The IfcAlignment is aggreated to IfcProject
 
+   If start_station is given, a STATION IfcReferent named "<alignment name> <station>"
+   (e.g. "MyAlignment 49+00.00") is added at distance along 0.0 - the same naming
+   convention update_key_point_referents() uses for its own referents, so every referent
+   nested under an alignment is identifiable by name alone. If None (the default), no
+   stationing referent is created.
+
    :param file:
    :param name: name assigned to IfcAlignment.Name
    :param points: sequence of points defining the polyline
-   :param start_station: station value at the start of the alignment
+   :param start_station: station value at the start of the alignment, or None for no stationing referent
    :return: Returns an IfcAlignment
 
 
-.. py:function:: create_by_pi_method(file: ifcopenshell.file, name: str, hpoints: collections.abc.Sequence[collections.abc.Sequence[float]], radii: collections.abc.Sequence[float], vpoints: collections.abc.Sequence[collections.abc.Sequence[float]] = None, lengths: collections.abc.Sequence[float] = None, start_station: float = 0.0) -> ifcopenshell.entity_instance
+.. py:function:: create_by_pi_method(file: ifcopenshell.file, name: str, hpoints: collections.abc.Sequence[collections.abc.Sequence[float]], radii: collections.abc.Sequence[float], vpoints: collections.abc.Sequence[collections.abc.Sequence[float]] = None, lengths: collections.abc.Sequence[float] = None, start_station: Optional[float] = None) -> ifcopenshell.entity_instance
 
    Create an alignment using the PI layout method for both horizontal and vertical alignments.
    If vpoints and lengths are omitted, only a horizontal alignment is created.
@@ -199,10 +244,13 @@ Package Contents
    :param radii: radii values to use for transition
    :param vpoints: (distance_along, Z_height) pairs denoting the location of the vertical PIs, including start and end.
    :param lengths: parabolic vertical curve horizontal length values to use for transition
+   :param start_station: if given, the starting station value. A STATION IfcReferent named
+       "<name> <station string>" is added at distance along 0.0 once the geometry exists. If None
+       (the default), no stationing referent is created and get_alignment_start_station() reports 0.0.
    :return: Returns an IfcAlignment
 
 
-.. py:function:: create_from_csv(file: ifcopenshell.file, filepath: str) -> ifcopenshell.entity_instance
+.. py:function:: create_from_csv(file: ifcopenshell.file, filepath: str, start_station: Optional[float] = None) -> ifcopenshell.entity_instance
 
    Creates an alignment from PI data stored in a CSV file.
 
@@ -234,6 +282,8 @@ Package Contents
    The CSV file contains one horizontal alignment, zero, one, or more vertical alignments
 
    :param filepath: path the to CSV file
+   :param start_station: if given, the starting station value; a STATION IfcReferent is added at
+       distance along 0.0 once the geometry exists. If None (the default), no stationing referent is created.
    :return: IfcAlignment
 
 
@@ -253,8 +303,13 @@ Package Contents
    This function is intended to be used when a model has only the semantic definition of an alignment
    and you want to add the geometric representation.
 
-   If the alignments are complete, it is recommended that add_zero_length_segment is called after this method to ensure
-   the proper structure of the semantic and geometric definitions of the alignment
+   If the alignments are complete, it is recommended that add_zero_length_segment is called before this method to ensure
+   the proper structure of the semantic and geometric definitions of the alignment.
+
+   It is presumed that the alignment does not have any geometric representation. However, if the alignment has stationing defined,
+   the referent defining the stationing is not related to the alignment geometry (it can't be because the geometry doesn't exist yet).
+   When the geometric representation is created, the referent is updated to have an IfcLinearPlacement that references the basis curve geometry.
+   This function assumes the referent defines the stationing at the start of the alignment, and therefore sets the IfcLinearPlacement.RelativePlacement.Location.DistanceAlong to 0.0.
 
    :param alignment: The alignment to create the representation.
 
@@ -269,18 +324,35 @@ Package Contents
    :param alignment: The alignment to create segment representations.
 
 
-.. py:function:: distance_along_from_station(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, station: float) -> float
+.. py:function:: distance_along_from_station(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, station: float) -> Optional[float]
 
    Given a station, returns the distance along the horizontal alignment.
 
    If the alignment does not have stationing defined with an IfcReferent, the start of the alignment is assumed
    to be at station 0.0. That is, the station is the distance along.
 
-   .. note:: The current implementation does not account for station equations and assumes stationing is increasing along the alignment.
+   Station equations (where Pset_Stationing.IncomingStation is set on a referent) and reverse
+   (decreasing) stationing (where Pset_Stationing.HasIncreasingStation is False) are taken into account.
+
+   For each STATION referent nested to the alignment, DistanceAlong (D) and the outgoing station (S, i.e.
+   Pset_Stationing.Station) are read off and sorted by DistanceAlong. A direction sign is tracked while
+   walking the sorted referents: it starts at +1 and is set to +1 or -1 at any referent that carries an
+   explicit Pset_Stationing.HasIncreasingStation, so each referent's region has a sign sigma of +1
+   (increasing) or -1 (decreasing). HasIncreasingStation may flip any number of times along the alignment -
+   unrealistic, but valid IFC, and handled. The governing referent is the last one, by DistanceAlong, for
+   which sigma * (station - S) >= 0, and the distance along is D + sigma * (station - S).
+
+   If the station falls within a gap introduced by a station equation - that is, it was skipped over by the
+   equation - there is no distance along that corresponds to it, and None is returned.
+
+   Note that an overlap station equation - or a HasIncreasingStation direction reversal, which creates an
+   equivalent overlap zone - causes a range of stations to correspond to two (or more) distinct distances
+   along the alignment. This implementation returns the most downstream one (largest DistanceAlong), i.e.
+   the match in the region following the last equation / reversal.
 
    :param alignment: the alignment
    :param station: station value
-   :return: distance along the horizontal alignment
+   :return: distance along the horizontal alignment, or None if the station falls inside a station equation gap
 
    Example:
 
@@ -379,6 +451,18 @@ Package Contents
        gradient_curve = ifcopenshell.api.alignment.get_curve(alignment)
 
 
+.. py:function:: get_curve_segment(layout: ifcopenshell.entity_instance, segment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the IfcCurveSegment associated with the given alignment segment. If the curve segment does not exist, None is returned.
+
+   Example:
+
+   .. code:: python
+
+       horizontal = model.by_type("IfcAlignmentHorizontal")[0]
+       curve_segment = ifcopenshell.api.alignment.get_curve_segment(horizontal, alignment_segment)
+
+
 .. py:function:: get_curve_segment_transition_code(segment: ifcopenshell.entity_instance, next_segment: ifcopenshell.entity_instance, position_tolerance: float = 0.001) -> str
 
    Returns the IfcCurveSegment.Transition of segment based on a comparison of
@@ -393,6 +477,11 @@ Package Contents
 .. py:function:: get_horizontal_layout(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
    Returns the IfcAlignmentHorizontal assocated with this alignment
+
+
+.. py:function:: get_layout(segment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Retrieves the layout to which an alignment segment belongs.
 
 
 .. py:function:: get_layout_curve(layout: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -443,13 +532,19 @@ Package Contents
        parent = ifcopenshell.api.alignment.get_parent_alignment(alignment)
 
 
-.. py:function:: get_referent_nest(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: get_stationing_nest(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-   Searches for the IfcRelNest that contains IfcReferent. If one is not found, a empty IfcRelNests is created.
+   Searches for the IfcRelNests that defines the alignment's stationing scheme.
+
+   The returned nest is nested to the IfcAlignment and its RelatedObjects contains only the
+   IfcReferent(s) (PredefinedType="STATION") that establish the alignment's starting station and
+   any station equations along it, as created by add_stationing_referent. It does not contain any
+   other kind of referent (e.g. key-point referents from update_key_point_referents live in their
+   own, separate IfcRelNests).
 
    :param file:
-   :param alignment: The IfcAlignment which hosts IfcReferent
-   :return: Returns the IfcRelNests.
+   :param alignment: The IfcAlignment which hosts the stationing IfcReferent(s)
+   :return: Returns the IfcRelNests or None
 
 
 .. py:function:: get_vertical_layout(alignment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
@@ -499,9 +594,10 @@ Package Contents
 
 .. py:function:: register_referent_name_callback(horizontal=None, vertical=None, cant=None)
 
-   Referents are automatically created at the start of each horizontal, vertical, and cant segment.
-   The referents represent key points in the alignment layout such as Point of Curvature, Point of Tangent, and others.
-   Different juristicions use different naming systems for these key points.
+   Referents are created at the start of each horizontal, vertical, and cant segment by
+   ifcopenshell.api.alignment.update_key_point_referents. The referents represent key points in the
+   alignment layout such as Point of Curvature, Point of Tangent, and others. Different
+   juristicions use different naming systems for these key points.
 
    The referent name callback functions provide a customizable method for naming these referents. If a callback is registered,
    it is called when creating the referent name, otherwise the default naming is used.
@@ -512,11 +608,55 @@ Package Contents
 
    The callback function returns a string that is used in the referent name for the referent at the start of `segment`.
    The callback must accomodate the following cases:
-   * prev_segment = None and segment != None - this indicates the last segment so the "End of Alignment" name is returned
-   * prev_segment != None and segment == None - this indicates the first segment so the "Beginning of Alignment" name is returned
+   * prev_segment = None and segment != None - this indicates the first segment so the "Beginning of Alignment" name is returned
+   * prev_segment != None and segment == None - this indicates the last segment so the "End of Alignment" name is returned
    * prev_segment != None and segment != None - this indicates an intermediate segment so a name representitive of the transition is returned
 
    Setting any or all of the callbacks to None causes the default naming to be used.
+
+
+.. py:function:: update_alignment_parameter_segment_tags(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, label_end_tag: bool = False) -> None
+
+   Sets IfcAlignmentParameterSegment.StartTag (and, optionally, EndTag) for every segment
+   transition in an alignment layout. Unlike update_key_point_referents, this does not create any
+   IfcReferent or IfcRelNests -- it only mutates the StartTag/EndTag string attributes already
+   present on each segment's DesignParameters.
+
+   Every real segment's StartTag is set to a computed tag describing the point where it begins,
+   using the same label-and-station format as update_key_point_referents' Name minus the alignment
+   name (via _get_key_point_tag), e.g. "145+98.32 (P.C.)". The first segment's StartTag comes from
+   the "Beginning of Alignment" boundary label.
+
+   EndTag is left untouched unless `label_end_tag` is True. When enabled, for each transition
+   between two consecutive segments, the outgoing segment's EndTag is set to the same tag as the
+   incoming segment's StartTag (they describe the same physical point), and the last segment's
+   EndTag is set from the "End of Alignment" boundary label.
+
+   Labels come from _get_segment_start_point_label -- if a callback has been registered via
+   register_referent_name_callback(), its output is used instead of the built-in labels, exactly as
+   in update_key_point_referents.
+
+   :param layout: IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :param label_end_tag: if True, also sets EndTag on every real segment. If False (default),
+       EndTag is left untouched.
+   :return: None -- this function mutates segment.DesignParameters.StartTag/EndTag in place
+
+   Example:
+
+   .. code:: python
+
+       horizontal = ifcopenshell.api.alignment.get_horizontal_layout(alignment)
+       ifcopenshell.api.alignment.update_alignment_parameter_segment_tags(model, horizontal)
+
+
+.. py:function:: update_end_point(file: ifcopenshell.file, curve: ifcopenshell.entity_instance)
+
+   Updates the IfcGradientCurve.EndPoint and IfcSegmentedReferenceCurve.EndPoint.
+
+   If the curve does not have a zero length segment, one is added. The EndPoint is then updated to match the placement of the zero length segment.
+
+   :param curve: The gradient curve or segmented reference curve
+   :return: None
 
 
 .. py:function:: update_fallback_position(file: ifcopenshell.file, lp: ifcopenshell.entity_instance)
@@ -527,5 +667,62 @@ Package Contents
 
    :param lp: The linear placement
    :return: None
+
+
+.. py:function:: update_key_point_referents(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, rel_nests: Optional[ifcopenshell.entity_instance] = None, clear: bool = False) -> ifcopenshell.entity_instance
+
+   Creates IfcReferent key-point markers for every segment transition in an alignment layout.
+
+   Labels are derived from _get_segment_start_point_label (e.g. "P.C.", "P.T.", "P.O.B.",
+   "P.V.C.", ...), and combined with the alignment name and station to build the Name, e.g.
+   "MyAlignment 145+98.32 (P.C.)". Different jurisdictions use
+   different naming systems for these key points -- register_referent_name_callback() lets a
+   caller override the default horizontal/vertical/cant labeling before calling this function; if
+   a callback is registered, its output is used here instead of the built-in labels. Referents are
+   nested to `rel_nests`, an IfcRelNests distinct from the layout's segment nest (found via
+   get_alignment_segment_nest) and from the alignment's stationing nest (found via
+   get_stationing_nest) -- key-point referents never belong in either of those.
+
+   :param layout: IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :param rel_nests: an existing IfcRelNests to (re)populate; its RelatingObject must be an
+       IfcAlignment (TypeError is raised otherwise), but need not be the IfcAlignment that
+       directly nests `layout` -- passing an ancestor's own IfcRelNests is supported
+       specifically so that a vertical/cant layout living under a child IfcAlignment (per CT
+       4.1.4.4.1.2, once a second vertical layout is added) can still have its key-point
+       referents named after and nested to the top-level parent alignment, matching how the
+       alignment's horizontal key points are named, rather than a generic "Child of X" name.
+       When `rel_nests` is given, `rel_nests.RelatingObject` -- not `layout`'s own direct
+       parent -- is used for both the created referents' Name and the returned IfcRelNests. If
+       omitted, a new IfcRelNests is always created and related to `layout`'s own direct
+       parent alignment -- there is no implicit search for or reuse of a previously created
+       nest. Callers who want to regenerate into an existing nest must pass it back in
+       explicitly via `rel_nests`.
+   :param clear: if True, deletes all IfcReferent currently in rel_nests.RelatedObjects (and their
+       Pset_Stationing) before regenerating. If False (default), new referents are appended to
+       whatever already exists -- no deduplication.
+   :return: the IfcRelNests, with RelatedObjects sorted ascending by Pset_Stationing.Station
+
+   Example:
+
+   .. code:: python
+
+       horizontal = ifcopenshell.api.alignment.get_horizontal_layout(alignment)
+       nest = ifcopenshell.api.alignment.update_key_point_referents(model, horizontal)
+
+   Example, with custom labels for a jurisdiction that doesn't use the built-in abbreviations:
+
+   .. code:: python
+
+       def my_horizontal_labels(prev_segment, segment):
+           if prev_segment is None:
+               return "Start"
+           if segment is None:
+               return "End"
+           return "Curve Point"  # a name representative of the prev_segment -> segment transition
+
+       ifcopenshell.api.alignment.register_referent_name_callback(horizontal=my_horizontal_labels)
+       horizontal = ifcopenshell.api.alignment.get_horizontal_layout(alignment)
+       nest = ifcopenshell.api.alignment.update_key_point_referents(model, horizontal)
+       # nest.RelatedObjects[0].Name ends with "(Start)" instead of the default "(P.O.B.)"
 
 

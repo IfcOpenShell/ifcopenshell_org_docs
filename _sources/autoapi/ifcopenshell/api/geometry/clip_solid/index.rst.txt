@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: clip_solid(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: Sequence[float], normal: Sequence[float], element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+.. py:function:: clip_solid(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: collections.abc.Sequence[float], normal: collections.abc.Sequence[float], element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Clip a solid with a half-space plane, returning an IfcBooleanClippingResult.
 

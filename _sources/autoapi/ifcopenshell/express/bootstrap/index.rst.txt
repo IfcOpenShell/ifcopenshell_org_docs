@@ -100,8 +100,6 @@ Module Contents
 .. py:data:: actions
 
 .. py:data:: concat
-   :value: None
-
 
 .. py:data:: emitted
 
@@ -110,8 +108,6 @@ Module Contents
 .. py:data:: expr
 
 .. py:data:: express
-   :value: None
-
 
 .. py:data:: expression
 
@@ -122,8 +118,6 @@ Module Contents
 .. py:data:: identifier
 
 .. py:data:: keyword
-   :value: None
-
 
 .. py:data:: keywords
 
@@ -132,12 +126,8 @@ Module Contents
 .. py:data:: no_action
 
 .. py:data:: optional
-   :value: None
-
 
 .. py:data:: repeated
-   :value: None
-
 
 .. py:data:: rule
 
@@ -148,8 +138,6 @@ Module Contents
 .. py:data:: term
 
 .. py:data:: terminal
-   :value: None
-
 
 .. py:data:: terminals
 
@@ -157,7 +145,7 @@ Module Contents
 
 .. py:data:: to_emit
 
-.. py:data:: union
-   :value: None
+.. py:data:: to_original_text
 
+.. py:data:: union
 

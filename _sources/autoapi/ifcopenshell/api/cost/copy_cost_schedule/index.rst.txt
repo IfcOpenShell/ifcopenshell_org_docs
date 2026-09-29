@@ -19,6 +19,6 @@ Module Contents
    .. code:: python
 
        schedule = ifcopenshell.api.cost.add_cost_schedule(model)
-       new_schedule = ifcopenshell.api.cost.copy_cost_schedule(schedule)
+       new_schedule = ifcopenshell.api.cost.copy_cost_schedule(model, schedule)
 
 

@@ -21,7 +21,21 @@ Module Contents
    .. py:attribute:: file
 
 
-.. py:class:: Migrator
+.. py:class:: Migrator(*, fallback_element_to_proxy: bool = False)
+
+   
+   Construct a schema migrator.
+
+   :param fallback_element_to_proxy: When ``True`` and the target schema is
+       IFC2X3, IFC4 entity classes that have no direct IFC2X3 equivalent
+       but inherit from ``IfcElement`` / ``IfcElementType`` are migrated as
+       ``IfcBuildingElementProxy`` / ``IfcBuildingElementProxyType``
+       respectively, instead of raising. Caller code is then responsible
+       for preserving the lost original class information out-of-band (the
+       ``Migrate`` ifcpatch recipe encodes it into ``ObjectType``).
+       Defaults to ``False`` so non-recipe callers keep the strict
+       failure-on-unmappable contract.
+
 
    .. py:method:: find_equivalent_attribute(new_element: ifcopenshell.entity_instance, attribute: ifcopenshell.ifcopenshell_wrapper.attribute, element: ifcopenshell.entity_instance, attributes_mapping: dict[str, dict[str, str]], reverse_mapping: bool = False) -> Union[Any, None]
 
@@ -63,8 +77,27 @@ Module Contents
    .. py:attribute:: default_values
 
 
+   .. py:attribute:: fallback_element_to_proxy
+      :value: False
+
+
+
    .. py:attribute:: migrated_ids
       :type:  dict[int, int]
+
+
+.. py:function:: geometry_classes_introduced_after(target_schema: IFC_SCHEMA, source_schema: IFC_SCHEMA = 'IFC4') -> frozenset[str]
+
+   ``IfcRepresentationItem`` subclasses present in ``source_schema`` but
+   missing in ``target_schema``.
+
+   Derived from the loaded schema declarations once per (source, target) pair
+   and cached. The result is the canonical set of geometry classes a
+   downgrade from ``source_schema`` to ``target_schema`` must convert
+   (``IfcPolygonalFaceSet``, ``IfcTriangulatedFaceSet``, ``IfcAdvancedBrep``,
+   B-splines, advanced surfaces, alignment curves on IFC4X3 → 2X3, …) or
+   purge. Defaults match the IFC4 → IFC2X3 case for backwards compatibility
+   with the original caller.
 
 
 .. py:function:: get_declaration(element: ifcopenshell.entity_instance)
@@ -132,8 +165,17 @@ Module Contents
    .. code:: python
 
        wall = model.createIfcWall()
-       results = ifcopenshell.util.schema.get_supertypes(wall.wrapped_data.declaration().as_entity())
+       results = ifcopenshell.util.schema.get_supertypes(wall.declaration.as_entity())
        # [<entity IfcBuildingElement>, <entity IfcElement>, ..., <entity IfcRoot>]
+
+
+.. py:function:: ifc4_only_geometry_classes() -> frozenset[str]
+
+   Backwards-compatible alias for the IFC4 → IFC2X3 geometry-gap set.
+
+   New code should call :func:`geometry_classes_introduced_after` with the
+   explicit (target, source) pair so IFC4X3 → IFC2X3 downgrades pick up the
+   additional IFC4X3-only geometry classes.
 
 
 .. py:function:: is_a(declaration: ifcopenshell.ifcopenshell_wrapper.declaration, ifc_class: str) -> bool

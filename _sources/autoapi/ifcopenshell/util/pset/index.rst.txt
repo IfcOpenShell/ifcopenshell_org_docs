@@ -30,7 +30,7 @@ Module Contents
 
 .. py:class:: PsetQto(schema: ifcopenshell.util.schema.IFC_SCHEMA, templates: Optional[list[ifcopenshell.file]] = None)
 
-   .. py:method:: get_applicable(ifc_class='', predefined_type='', pset_only=False, qto_only=False, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[ifcopenshell.entity_instance.entity_instance]
+   .. py:method:: get_applicable(ifc_class='', predefined_type='', pset_only=False, qto_only=False, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[ifcopenshell.entity_instance]
 
       Get applicable property set templates.
 
@@ -42,7 +42,7 @@ Module Contents
 
 
 
-   .. py:method:: get_by_name(name: str) -> Optional[ifcopenshell.entity_instance.entity_instance]
+   .. py:method:: get_by_name(name: str) -> Optional[ifcopenshell.entity_instance]
 
 
    .. py:method:: is_applicable(entity: ifcopenshell.ifcopenshell_wrapper.entity, applicables: str, predefined_type: str = '', template_type: str = 'NOTDEFINED', schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> bool
@@ -80,7 +80,7 @@ Module Contents
    Get query supported by :func:`ifcopenshell.util.selector.filter_elements`.
 
 
-.. py:function:: get_pset_template_type(pset_template: ifcopenshell.entity_instance.entity_instance) -> Literal['PSET', 'QTO', None]
+.. py:function:: get_pset_template_type(pset_template: ifcopenshell.entity_instance) -> Literal['PSET', 'QTO', None]
 
    Get the type of the pset template.
    If type is mixed or not defined, return None.

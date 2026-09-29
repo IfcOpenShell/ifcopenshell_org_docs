@@ -1035,7 +1035,7 @@ Module Contents
 
 
 
-   .. py:method:: get_dictionary(dictionary_uri: str = '', include_test_dictionaries: bool = 'False', version: int = 1) -> DictionaryResponseContractV1
+   .. py:method:: get_dictionary(dictionary_uri: str = '', include_test_dictionaries: bool = False, version: int = 1) -> DictionaryResponseContractV1
 
       Get list of available Dictionaries
       This API replaces Domain
@@ -1148,6 +1148,9 @@ Module Contents
 
 
    .. py:attribute:: refresh_token_expires_on
+
+
+   .. py:attribute:: session
 
 
    .. py:attribute:: token_endpoint

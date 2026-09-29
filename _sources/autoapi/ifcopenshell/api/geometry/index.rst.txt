@@ -54,6 +54,73 @@ Submodules
 Package Contents
 ----------------
 
+.. py:class:: RailingSupport
+
+   Pure-geometry description of a single wall-mount support.
+
+   A support consists of:
+
+   - A 3-point polyline (base at the handrail, mid-arc, floor end)
+     swept into a cylinder of radius ``arc_radius``.
+   - A short disk extrusion (wall-attachment plate) at the floor end.
+
+   All values are in IFC project units.
+
+
+   .. py:attribute:: arc_polyline
+      :type:  numpy.ndarray
+
+
+   .. py:attribute:: arc_radius
+      :type:  float
+
+
+   .. py:attribute:: disk_depth
+      :type:  float
+
+
+   .. py:attribute:: disk_position
+      :type:  numpy.ndarray
+
+
+   .. py:attribute:: disk_radius
+      :type:  float
+
+
+   .. py:attribute:: disk_z_rotation
+      :type:  float
+
+
+.. py:class:: WallMountedHandrailGeometry
+
+   Pure-geometry description of a wall-mounted handrail.
+
+   Decoupled from any IFC entity creation. The shared data structure is
+   consumed by the IFC-representation wrapper and by viewport-only previews
+   in authoring add-ons that need to update mesh state without mutating the
+   IFC file.
+
+   All values are in IFC project units.
+
+
+   .. py:attribute:: handrail_arc_point_indices
+      :type:  list[int]
+
+
+   .. py:attribute:: handrail_polyline
+      :type:  numpy.ndarray
+
+
+   .. py:attribute:: handrail_radius
+      :type:  float
+
+
+   .. py:attribute:: supports
+      :type:  list[RailingSupport]
+      :value: []
+
+
+
 .. py:function:: add_axis_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, axis: tuple[COORD, COORD]) -> ifcopenshell.entity_instance
 
    Adds a new axis representation
@@ -189,12 +256,11 @@ Package Contents
    :return: IfcShapeRepresentation.
 
 
-.. py:function:: add_railing_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, railing_type: Literal['WALL_MOUNTED_HANDRAIL'] = 'WALL_MOUNTED_HANDRAIL', railing_path: ifcopenshell.util.shape_builder.SequenceOfVectors, use_manual_supports: bool = False, support_spacing: Optional[float] = None, railing_diameter: Optional[float] = None, clear_width: Optional[float] = None, terminal_type: TERMINAL_TYPE = '180', height: Optional[float] = None, looped_path: bool = False, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_railing_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, railing_path: ifcopenshell.util.shape_builder.SequenceOfVectors, use_manual_supports: bool = False, support_spacing: Optional[float] = None, railing_diameter: Optional[float] = None, clear_width: Optional[float] = None, terminal_type: TERMINAL_TYPE = '180', height: Optional[float] = None, looped_path: bool = False, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
 
    Units are expected to be in IFC project units.
 
    :param context: IfcGeometricRepresentationContext for the representation.
-   :param railing_type: Type of the railing. Defaults to "WALL_MOUNTED_HANDRAIL".
    :param railing_path: A list of points coordinates for the railing path,
        coordinates are expected to be at the top of the railing, not at the center.
        If not provided, default path [(0, 0, 1), (1, 0, 1), (2, 0, 1)] (in meters) will be used
@@ -203,7 +269,7 @@ Package Contents
    :param support_spacing: Distance between supports if automatic supports are used. Defaults to 1m.
    :param railing_diameter: Railing diameter. Defaults to 50mm.
    :param clear_width: Clear width between the railing and the wall. Defaults to 40mm.
-   :param terminal_type: type of the cap. Defaults to "180".
+   :param terminal_type: type of the cap, or "NONE" for no cap. Defaults to "180".
    :param height: defaults to 1m
    :param looped_path: Whether to end the railing on the first point of `railing_path`. Defaults to False.
    :param unit_scale: The unit scale as calculated by
@@ -330,7 +396,7 @@ Package Contents
 
 .. py:function:: assign_representation(file: ifcopenshell.file, product: ifcopenshell.entity_instance, representation: ifcopenshell.entity_instance) -> None
 
-.. py:function:: clip_solid(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: Sequence[float], normal: Sequence[float], element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+.. py:function:: clip_solid(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: collections.abc.Sequence[float], normal: collections.abc.Sequence[float], element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Clip a solid with a half-space plane, returning an IfcBooleanClippingResult.
 
@@ -370,7 +436,7 @@ Package Contents
    :return: The resulting ``IfcBooleanClippingResult``.
 
 
-.. py:function:: clip_solid_bounded(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: Sequence[float], normal: Sequence[float], boundary_points: Sequence[Sequence[float]], boundary_position: Sequence[float] = (0.0, 0.0, 0.0), element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+.. py:function:: clip_solid_bounded(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: collections.abc.Sequence[float], normal: collections.abc.Sequence[float], boundary_points: collections.abc.Sequence[collections.abc.Sequence[float]], boundary_position: collections.abc.Sequence[float] = (0.0, 0.0, 0.0), element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Clip a solid with a polygonally bounded half-space, returning an IfcBooleanClippingResult.
 
@@ -409,6 +475,48 @@ Package Contents
        registered in the element's ``BBIM_Boolean`` property set so that
        :func:`regenerate_wall_representation` preserves it during regeneration.
    :return: The resulting ``IfcBooleanClippingResult``.
+
+
+.. py:function:: compute_wall_mounted_handrail_geometry(*, railing_path: ifcopenshell.util.shape_builder.SequenceOfVectors, support_spacing: float, railing_diameter: float, clear_width: float, height: float, use_manual_supports: bool = False, terminal_type: TERMINAL_TYPE = '180', looped_path: bool = False, unit_scale: float = 1.0) -> WallMountedHandrailGeometry
+
+   Compute pure geometric data for a wall-mounted handrail.
+
+   The result can be wrapped into an ``IfcShapeRepresentation`` by the
+   railing-representation API, or converted directly to a Blender bmesh
+   (or any other viewport mesh) for a live preview that does not mutate
+   the IFC file.
+
+   Geometric inputs (``railing_path``, ``support_spacing``,
+   ``railing_diameter``, ``clear_width``, ``height``) are expected in IFC
+   project units. ``unit_scale`` is used only to convert hard-coded
+   millimetre constants (fillet radius, support rod radius, etc.) into
+   project units.
+
+   Constraints:
+
+   - ``railing_path`` must contain at least 2 points.
+   - ``railing_diameter`` must be > 0.
+   - ``height`` must be ≥ ``railing_diameter / 2`` (otherwise the
+     ``TO_FLOOR`` / ``TO_END_POST_AND_FLOOR`` caps extrude upward
+     instead of down).
+   - ``clear_width`` must be > 0 (otherwise the support wraps backward
+     into the wall).
+
+   :param railing_path: Sequence of 3D points along the top of the
+       handrail (not the centre).
+   :param support_spacing: Distance between automatic supports.
+   :param railing_diameter: Handrail tube diameter.
+   :param clear_width: Clear gap between the wall and the handrail tube.
+   :param height: Total railing height (top of handrail to floor).
+   :param use_manual_supports: If true, one support is placed on every
+       non-collinear vertex of ``railing_path``; if false, supports are
+       distributed automatically by ``support_spacing``.
+   :param terminal_type: Style of the terminal end cap, or ``"NONE"`` for
+       no cap. Ignored when ``looped_path=True`` (no open ends to cap).
+   :param looped_path: If true, the railing closes on its first point.
+   :param unit_scale: Output of
+       :func:`ifcopenshell.util.unit.calculate_unit_scale`. Defaults to
+       1.0 (i.e. inputs are already in metres).
 
 
 .. py:function:: connect_element(file: ifcopenshell.file, relating_element: ifcopenshell.entity_instance, related_element: ifcopenshell.entity_instance, description: Optional[str] = None) -> ifcopenshell.entity_instance
@@ -505,7 +613,7 @@ Package Contents
 
 .. py:function:: map_representation(file: ifcopenshell.file, representation: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
-.. py:function:: regenerate_wall_representation(file: ifcopenshell.file, wall: ifcopenshell.entity_instance, length: float = 1.0, height: float = 1.0, angle: Optional[float] = None) -> ifcopenshell.entity_instance
+.. py:function:: regenerate_wall_representation(file: ifcopenshell.file, wall: ifcopenshell.entity_instance, length: float = 1.0, height: float = 1.0, angle: Optional[float] = None) -> Optional[ifcopenshell.entity_instance]
 
    Regenerate the body representation of a wall taking into account connections.
 
@@ -555,7 +663,10 @@ Package Contents
        default height in SI units.
    :param angle: If the wall doesn't already have a slope, this is the default
        angle in radians. Left as none or 0 defines no slope.
-   :return: The newly generated body IfcShapeRepresentation
+   :return: The newly generated body IfcShapeRepresentation, or ``None`` if
+       the wall has no ``IfcMaterialLayerSet`` (the layer-set rebuild is the
+       only mode this function knows; without layers there is nothing to
+       regenerate and callers should leave the existing representation alone).
 
 
 .. py:function:: remove_boolean(file: ifcopenshell.file, item: ifcopenshell.entity_instance) -> None
@@ -616,4 +727,6 @@ Package Contents
    :return: True if the representation type was set and it is a valid
        combination, or False otherwise.
 
+
+.. py:data:: TERMINAL_TYPE
 

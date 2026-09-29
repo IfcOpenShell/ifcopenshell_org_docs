@@ -112,6 +112,26 @@ Module Contents
    :return: The newly copied element
 
 
+.. py:function:: get_adhered_element(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+
+   If the element is a surface feature, get the element it adheres to
+
+   In IFC4.3 an IfcSurfaceFeature (such as a road marking) adheres to a host
+   element through the IfcRelAdheresToElement relationship. This is a [1:1]
+   cardinality hierarchical relationship, in the same family as aggregation,
+   containment and nesting.
+
+   :param element: The IfcSurfaceFeature
+   :return: The host element that the surface feature adheres to
+
+   Example:
+
+   .. code:: python
+
+       marking = file.by_type("IfcSurfaceFeature")[0]
+       host = ifcopenshell.util.element.get_adhered_element(marking)
+
+
 .. py:function:: get_aggregate(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Retrieves the aggregate parent of an element.
@@ -201,7 +221,8 @@ Module Contents
 
    Retrieves all subelements of an element based on the spatial decomposition
    hierarchy. This includes all subspaces and elements contained in subspaces,
-   parts of an aggregate, all openings, and all fills of any openings.
+   parts of an aggregate, all openings, all fills of any openings, and any
+   surface features adhering to an element (IFC4.3 and above).
 
    :param element: The IFC element
    :return: The decomposition of the element
@@ -451,7 +472,7 @@ Module Contents
        aggregate = ifcopenshell.util.element.get_nest(element)
 
 
-.. py:function:: get_openings(element: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance, None, None]
+.. py:function:: get_openings(element: ifcopenshell.entity_instance) -> collections.abc.Generator[ifcopenshell.entity_instance]
 
    Get element openings as IfcRelVoidsElements.
 
@@ -477,6 +498,8 @@ Module Contents
    - Nesting: components are attached to a host parent
    - Filling: the physical element fills an opening, such as a window filling a hole
    - Voiding: the opening voids another physical element, such as a hole in a wall
+   - Adherence: a surface feature adheres to a host element, such as a road
+     marking adhering to a road course (IFC4.3 and above)
 
    :param element: Any physical or spatial element in the tree
    :param ifc_class: Optionally filter the type of parent you're after. For
@@ -681,6 +704,24 @@ Module Contents
        styles = ifcopenshell.util.element.get_styles(wall)
 
 
+.. py:function:: get_surface_features(element: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
+
+   Retrieves the surface features that adhere to an element.
+
+   In IFC4.3 an IfcSurfaceFeature (such as a road marking) adheres to a host
+   element through the IfcRelAdheresToElement relationship.
+
+   :param element: The IFC element
+   :return: The surface features adhering to the element
+
+   Example:
+
+   .. code:: python
+
+       element = file.by_type("IfcCourse")[0]
+       markings = ifcopenshell.util.element.get_surface_features(element)
+
+
 .. py:function:: get_type(element: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
 
    Retrieves the construction type element of an element occurrence.
@@ -794,8 +835,9 @@ Module Contents
    it is used elsewhere.
 
    For simple subgraphs, traverse() is sufficient to fully represent all
-   related subelements. When it isn't, the ``also_consider`` argument may be
-   used. These are typically inverses futher down the subelement chain.
+   related subelements. If it doesn't, you can specify these outside inverses
+   with ``also_consider``. These are typically inverses futher down the
+   subelement chain. (e.g. a IfcStyledItem)
 
    Note that remove_deep2 will _not_ remove elements in also_consider. Instead,
    it is only used as a consideration for whether or not an element has all
@@ -805,9 +847,10 @@ Module Contents
    subgraph but are protected from deletion.
 
    :param ifc_file: The IFC file object
-   :param also_consider: elements to also consider as a part of a subgraph
-       Order could matter for perfomance - elements that reference `element`
-       directly should go first for the better performance.
+   :param also_consider: elements that are considered to be part of the
+       subgraph even though traverse() doesn't reach them.  Order could matter
+       for performance - elements that reference `element` directly should go
+       first for the better performance.
    :param do_not_delete: elements to protect from deletion
    :param element: The starting element that defines the subgraph
 

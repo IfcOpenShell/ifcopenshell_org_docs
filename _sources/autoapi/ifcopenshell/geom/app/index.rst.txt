@@ -145,11 +145,6 @@ Module Contents
       .. py:attribute:: ais_to_product
 
 
-      .. py:attribute:: counter
-         :value: 0
-
-
-
       .. py:attribute:: instanceSelected
 
 
@@ -282,8 +277,6 @@ Module Contents
 
    .. py:attribute:: signals
 
-
-.. py:data:: QString
 
 .. py:data:: USE_OCCT_HANDLE
    :value: False

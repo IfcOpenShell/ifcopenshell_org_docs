@@ -248,7 +248,7 @@ Module Contents
 .. py:data:: APPENDABLE_ASSET
 
 .. py:data:: APPENDABLE_ASSET_TYPES
-   :type:  tuple[APPENDABLE_ASSET, Ellipsis]
+   :type:  tuple[APPENDABLE_ASSET, ...]
 
 .. py:data:: MATERIAL_SETS
    :value: ('IfcMaterialLayerSet', 'IfcMaterialConstituentSet', 'IfcMaterialProfileSet')

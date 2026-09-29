@@ -10,12 +10,13 @@ This page contains auto-generated API reference documentation [#f1]_.
    /autoapi/bcf/index
    /autoapi/bsdd/index
    /autoapi/test/index
-   /autoapi/model/index
    /autoapi/topic/index
+   /autoapi/model/index
    /autoapi/ifccsv/index
    /autoapi/visinfo/index
    /autoapi/ifcdiff/index
    /autoapi/ifcpatch/index
+   /autoapi/sync_stub/index
    /autoapi/test_bsdd/index
    /autoapi/ifctester/index
    /autoapi/extensions/index

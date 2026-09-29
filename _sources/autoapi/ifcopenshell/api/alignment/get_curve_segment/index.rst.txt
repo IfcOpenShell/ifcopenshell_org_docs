@@ -1,0 +1,21 @@
+:py:mod:`ifcopenshell.api.alignment.get_curve_segment`
+======================================================
+
+.. py:module:: ifcopenshell.api.alignment.get_curve_segment
+
+
+Module Contents
+---------------
+
+.. py:function:: get_curve_segment(layout: ifcopenshell.entity_instance, segment: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Returns the IfcCurveSegment associated with the given alignment segment. If the curve segment does not exist, None is returned.
+
+   Example:
+
+   .. code:: python
+
+       horizontal = model.by_type("IfcAlignmentHorizontal")[0]
+       curve_segment = ifcopenshell.api.alignment.get_curve_segment(horizontal, alignment_segment)
+
+

@@ -98,8 +98,6 @@ Module Contents
 
 
 .. py:data:: LARK_AVAILABLE
-   :value: True
-
 
 .. py:data:: mvd_grammar
    :value: Multiline-String

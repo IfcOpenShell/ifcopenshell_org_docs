@@ -24,6 +24,22 @@ Module Contents
    .. py:method:: load_qto_template() -> None
 
 
+   .. py:method:: unpack_unit_value(value_candidate)
+      :staticmethod:
+
+
+      Returns tuple of the format: (Unit, NominalValue)
+
+      NOTE: a dict value_candidate is ambiguous with the IfcPhysicalComplexQuantity spec
+      convention ({"Discrimination": ..., "HasQuantities": ...}) used elsewhere in this
+      module -- callers must check for that case (absence of a "Unit" key) before calling
+      this. Unit is the module-level _NO_UNIT sentinel when no Unit was specified at all
+      (bare value, or a dict without a "Unit" key), so that callers can distinguish "leave
+      the existing Unit untouched" from an explicit `{"Unit": None, ...}` (clear the
+      existing Unit override, falling back to the project default).
+
+
+
    .. py:method:: update_existing_properties() -> None
 
 

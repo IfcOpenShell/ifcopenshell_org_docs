@@ -230,7 +230,7 @@ Package Contents
            cost_value=subvalue2, attributes={"AppliedValue": 3.0})
 
 
-.. py:function:: assign_cost_item_quantity(file: ifcopenshell.file, cost_item: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance], prop_name: str = '') -> None
+.. py:function:: assign_cost_item_quantity(file: ifcopenshell.file, cost_item: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance], prop_name: str = '', formula: str = '', ifc_class: str = 'IfcQuantityLength') -> None
 
    Adds a cost item quantity that is parametrically connected to a product
 
@@ -261,6 +261,12 @@ Package Contents
    :param prop_name: The name of the quantity. If this is not specified,
        then it is assumed that there is no calculated quantity, and the
        number of objects are counted instead.
+   :param formula: The string that contains the formula
+   :param ifc_class: The quantity class of the calculated value if the formula is
+       specified. Can be ['IfcQuantityCount', 'IfcQuantityNumber',
+       'IfcQuantityLength', 'IfcQuantityArea', 'IfcQuantityVolume',
+       'IfcQuantityWeight', 'IfcQuantityTime']. Check
+       ifcopenshell.util.unit.QUANTITY_CLASS for more info.
    :return: None
 
    Example:
@@ -288,6 +294,18 @@ Package Contents
        # item.
        ifcopenshell.api.cost.assign_cost_item_quantity(model,
            cost_item=item, products=[slab], prop_name="NetVolume")
+
+       # Now let's use the formula in order to calculate the quantity value.
+       # For example, let's say that a IfcWall has the reinfocement volume ratio
+       # stored in the Pset_ConcreteElementGeneral.ReinforcementVolumeRatio
+       # and of course it has also the gross volume stored in the
+       # Qto_WallBaseQuantities.GrossVolume. So we can add an IfcQuantity that stores the
+       # reinforcement volume calculated with reinfocement volume ratio * gross volume.
+       ifcopenshell.api.cost.assign_cost_item_quantity(model,
+           cost_item=item, products=[wall],
+           formula="Pset_ConcreteElementGeneral.ReinforcementVolumeRatio * NetVolume"
+           ifc_class="IfcQuantityVolume")
+
 
 
 .. py:function:: assign_cost_value(file: ifcopenshell.file, cost_item: ifcopenshell.entity_instance, cost_rate: ifcopenshell.entity_instance) -> None
@@ -458,7 +476,7 @@ Package Contents
    .. code:: python
 
        schedule = ifcopenshell.api.cost.add_cost_schedule(model)
-       new_schedule = ifcopenshell.api.cost.copy_cost_schedule(schedule)
+       new_schedule = ifcopenshell.api.cost.copy_cost_schedule(model, schedule)
 
 
 .. py:function:: edit_cost_item(file: ifcopenshell.file, cost_item: ifcopenshell.entity_instance, attributes: dict[str, Any]) -> None
@@ -620,7 +638,7 @@ Package Contents
        quantity = ifcopenshell.api.cost.add_cost_item_quantity(model,
            cost_item=item, ifc_class="IfcQuantityVolume")
        # Let's change our mind and delete it
-       ifcopenshell.api.cost.remove_cost_item(model,
+       ifcopenshell.api.cost.remove_cost_item_quantity(model,
            cost_item=item, physical_quantity=quantity)
 
 

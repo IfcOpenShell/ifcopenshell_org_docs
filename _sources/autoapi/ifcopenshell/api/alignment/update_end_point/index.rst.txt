@@ -1,0 +1,19 @@
+:py:mod:`ifcopenshell.api.alignment.update_end_point`
+=====================================================
+
+.. py:module:: ifcopenshell.api.alignment.update_end_point
+
+
+Module Contents
+---------------
+
+.. py:function:: update_end_point(file: ifcopenshell.file, curve: ifcopenshell.entity_instance)
+
+   Updates the IfcGradientCurve.EndPoint and IfcSegmentedReferenceCurve.EndPoint.
+
+   If the curve does not have a zero length segment, one is added. The EndPoint is then updated to match the placement of the zero length segment.
+
+   :param curve: The gradient curve or segmented reference curve
+   :return: None
+
+

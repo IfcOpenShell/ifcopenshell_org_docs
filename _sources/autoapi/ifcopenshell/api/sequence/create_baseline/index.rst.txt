@@ -12,14 +12,14 @@ Module Contents
    .. py:method:: create_baseline_reference(relating_object: ifcopenshell.entity_instance, related_object: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute(work_schedule: ifcopenshell.entity_instance, name: Union[str, None]) -> None
+   .. py:method:: execute(work_schedule: ifcopenshell.entity_instance, name: Union[str, None]) -> ifcopenshell.entity_instance
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-.. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> None
+.. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Creates a baseline for your Work Schedule
 
@@ -34,7 +34,7 @@ Module Contents
    * Same Construction Resources
    * Same Resource Relationships
 
-   :param work_schedule: The planned work_schedule to baseline
+   :param work_schedule: The planned work schedule to baseline
    :param name: baseline work schedule name
    :return: The baseline work_schedule
 
@@ -43,7 +43,7 @@ Module Contents
    .. code:: python
 
        # We have a Work Schedule
-       planned_work_schedule = WorkSchedule(name="Design new feature",predefinedType="PLANNED", deadline="2023-03-01")
+       planned_work_schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Planned Construction Schedule")
 
        # And now we have a baseline for our Work Schedule
        baseline_work_schedule = ifcopenshell.api.sequence.create_baseline(file, work_schedule=planned_work_schedule, name="Baseline 1")

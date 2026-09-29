@@ -23,8 +23,10 @@ Module Contents
 
    :param old: IFC file object for the old model
    :param new: IFC file object for the new model
-   :param relationships: List of relationships to check. None means that only
-       geometry is compared. See RELATIONSHIP_TYPE for available relationships.
+   :param relationships: List of relationships to check. None means that
+       attributes and geometry are compared, so changes such as a modified or
+       removed PredefinedType are reported. See RELATIONSHIP_TYPE for available
+       relationships.
    :param is_shallow: True if you want only the first difference to be listed.
        False if you want all differences to be checked. Choosing False means
        that comparisons will take longer.
@@ -111,7 +113,7 @@ Module Contents
 
 
    .. py:attribute:: relationships
-      :value: ['geometry']
+      :value: ['attributes', 'geometry']
 
 
 

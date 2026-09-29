@@ -830,7 +830,7 @@ Package Contents
        schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Construction Schedule A")
 
        # ... you can assign the work plan afterwards.
-       ifcopenshell.api.sequence.assign_work_plan(work_schedule=schedule, work_plan=work_plan)
+       ifcopenshell.api.sequence.assign_work_plan(model, work_schedule=schedule, work_plan=work_plan)
 
 
 .. py:function:: calculate_task_duration(file: ifcopenshell.file, task: ifcopenshell.entity_instance) -> None
@@ -988,7 +988,7 @@ Package Contents
        new_schedule = ifcopenshell.api.sequence.copy_work_schedule(model, schedule)
 
 
-.. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> None
+.. py:function:: create_baseline(file: ifcopenshell.file, work_schedule: ifcopenshell.entity_instance, name: Optional[str] = None) -> ifcopenshell.entity_instance
 
    Creates a baseline for your Work Schedule
 
@@ -1003,7 +1003,7 @@ Package Contents
    * Same Construction Resources
    * Same Resource Relationships
 
-   :param work_schedule: The planned work_schedule to baseline
+   :param work_schedule: The planned work schedule to baseline
    :param name: baseline work schedule name
    :return: The baseline work_schedule
 
@@ -1012,7 +1012,7 @@ Package Contents
    .. code:: python
 
        # We have a Work Schedule
-       planned_work_schedule = WorkSchedule(name="Design new feature",predefinedType="PLANNED", deadline="2023-03-01")
+       planned_work_schedule = ifcopenshell.api.sequence.add_work_schedule(model, name="Planned Construction Schedule")
 
        # And now we have a baseline for our Work Schedule
        baseline_work_schedule = ifcopenshell.api.sequence.create_baseline(file, work_schedule=planned_work_schedule, name="Baseline 1")
@@ -1583,10 +1583,10 @@ Package Contents
        wall = ifcopenshell.api.root.create_entity(model, ifc_class="IfcWall")
 
        # Let's construct that wall!
-       ifcopenshell.api.sequence.assign_product(relating_product=wall, related_object=task)
+       ifcopenshell.api.sequence.assign_product(model, relating_product=wall, related_object=task)
 
        # Change our mind.
-       ifcopenshell.api.sequence.unassign_product(relating_product=wall, related_object=task)
+       ifcopenshell.api.sequence.unassign_product(model, relating_product=wall, related_object=task)
 
 
 .. py:function:: unassign_recurrence_pattern(file: ifcopenshell.file, recurrence_pattern: ifcopenshell.entity_instance) -> None
@@ -1618,15 +1618,24 @@ Package Contents
            parent=work_time, recurrence_type="WEEKLY")
 
        # Change our mind, let's just maintain it whenever we feel like it.
-       ifcopenshell.api.sequence.unassign_recurrence_pattern(recurrence_pattern=pattern)
+       ifcopenshell.api.sequence.unassign_recurrence_pattern(model, recurrence_pattern=pattern)
 
 
-.. py:function:: unassign_sequence(file: ifcopenshell.file, relating_process: ifcopenshell.entity_instance, related_process: ifcopenshell.entity_instance) -> None
+.. py:function:: unassign_sequence(file: ifcopenshell.file, relating_process: ifcopenshell.entity_instance, related_process: ifcopenshell.entity_instance, sequence_type: Optional[str] = None) -> None
 
    Removes a sequence relationship between tasks
 
+   Two tasks may be sequenced more than once with different types — see
+   :func:`ifcopenshell.api.sequence.assign_sequence` — so removing "the"
+   relationship between a pair is ambiguous. Left unspecified, every sequence
+   between the two is removed, which is what "make them unrelated" means and
+   what this did before the parameter existed. Name a type to remove only that
+   one and leave any others in place.
+
    :param relating_process: The previous / predecessor task.
    :param related_process: The next / successor task.
+   :param sequence_type: Optionally, remove only the sequence of this type.
+       Choose from FINISH_START, FINISH_FINISH, START_START, or START_FINISH.
    :return: None
 
    Example:

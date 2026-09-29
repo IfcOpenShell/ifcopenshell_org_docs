@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: create(filename: Optional[str] = None, timestring: Optional[str] = None, organization: Optional[str] = None, creator: Optional[str] = None, schema_identifier: Optional[str] = None, application_version: Optional[str] = None, timestamp: Optional[str] = None, application: Optional[str] = None, project_globalid: Optional[str] = None, project_name: Optional[str] = None, mvd: Optional[str] = None) -> ifcopenshell.file.file
+.. py:function:: create(filename: Optional[str] = None, timestring: Optional[str] = None, organization: Optional[str] = None, creator: Optional[str] = None, schema_identifier: Optional[str] = None, application_version: Optional[str] = None, timestamp: Optional[str] = None, application: Optional[str] = None, project_globalid: Optional[str] = None, project_name: Optional[str] = None, mvd: Optional[str] = None) -> ifcopenshell.file
 
 .. py:function:: get_pep440_version(ifcopenshell_wrapper_version)
 

@@ -25,9 +25,22 @@ Module Contents
    :return: Function node name as ``SubnameType``  or ``None``, if function wasn't processed and can be skipped.
 
 
+.. py:function:: get_names_tree(tree: ast.Module) -> dict[str, set[SubnameType]]
+
 .. py:function:: get_names_tree_lines(tree: ast.Module) -> list[str]
 
 .. py:function:: main() -> None
+
+.. py:function:: signature_from_docstring(name: str, doc: Union[str, None], is_method: bool) -> Union[str, None]
+
+   Rebuild the proxy ``def`` signature SWIG would have generated from an autodoc docstring.
+
+   One prototype whose defaults are all Python literals becomes named
+   parameters; several prototypes (overloads), or a default SWIG cannot
+   express as a literal such as an enum, become ``*args``, which is what SWIG
+   does. Checked against every ``def`` of a wrapper built without
+   ``-fastproxy``: 773 of 773 signatures rebuild identically.
+
 
 .. py:data:: SubnameType
 

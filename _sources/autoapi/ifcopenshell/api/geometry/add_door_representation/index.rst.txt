@@ -251,11 +251,6 @@ Module Contents
    `thickness` can be also defined just as 1 float value.
 
 
-.. py:function:: mm(x: float) -> float
-
-   mm to meters shortcut for readability
-
-
 .. py:data:: DOOR_TYPE
 
 .. py:data:: SUPPORTED_DOOR_TYPES

@@ -13,10 +13,39 @@ Module Contents
 
 
    
-   Migrate from one IFC version to another
+   Migrate from one IFC version to another.
 
-   Note that this is experimental and will try to preserve as much data as
-   possible. Upgrading to IFC4 is more stable than downgrading to IFC2X3.
+   The recipe iterates every entity in the source file and rewrites it
+   into a new file with the target schema, delegating per-entity class /
+   attribute translation to :class:`ifcopenshell.util.schema.Migrator`.
+   Upgrades (IFC2X3 → IFC4, IFC4 → IFC4X3) are best supported because the
+   target schema is a superset; downgrades are lossy by definition (see
+   below). Entities that fail to migrate are collected; on completion a
+   summary ``RuntimeError`` is raised listing up to 20 failures.
+
+   IFC4 → IFC2X3 downgrade additionally runs a preprocessing pipeline so
+   IFC4-only geometry and element classes survive the schema gap:
+
+   - ``IfcIndexedPolyCurve`` (including arc segments, approximated by a
+     chord polyline) is flattened to ``IfcPolyline``.
+   - ``IfcPolygonalFaceSet`` and ``IfcTriangulatedFaceSet`` are converted
+     directly to ``IfcFacetedBrep`` at the entity level, preserving the
+     original mesh topology.
+   - Orphan IFC4-only geometry instances left over after the rewires are
+     purged so the migration loop does not trip on them.
+   - IFC4-only ``IfcElement`` subclasses (``IfcLamp``, ``IfcPipeSegment``,
+     ``IfcGeographicElement``, …) fall back to ``IfcBuildingElementProxy``
+     via the Migrator's ``fallback_element_to_proxy`` opt-in. The
+     original class and ``PredefinedType`` are encoded into
+     ``ObjectType`` (e.g. ``"IfcLamp/COMPACTFLUORESCENT"``) when
+     ``ObjectType`` is empty, so the type information survives the
+     downgrade.
+
+   Non-element IFC4-only entities (relationships, geometry items outside
+   any product, …) that have no direct equivalent still raise
+   ``NotImplementedError`` from the Migrator with the failing class and
+   inverse references named, instead of the cryptic
+   ``Entity with name '' not found in schema 'IFC2X3'``.
 
    :param schema: The schema identifier of the IFC version to migrate to.
 

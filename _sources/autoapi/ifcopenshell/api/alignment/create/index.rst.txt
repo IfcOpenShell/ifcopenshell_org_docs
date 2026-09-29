@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: create(file: ifcopenshell.file, name: str, include_vertical: bool = False, include_cant: bool = False, include_geometry: bool = True, start_station: float = 0.0) -> ifcopenshell.entity_instance
+.. py:function:: create(file: ifcopenshell.file, name: str, include_vertical: bool = False, include_cant: bool = False, include_geometry: bool = True) -> ifcopenshell.entity_instance
 
    Creates a new alignment with a horizontal layout. Optionally, vertical and cant layouts can be created as well.
    The geometric representations are created as well, unless they are explicitly excluded.
@@ -21,15 +21,15 @@ Module Contents
    The horizontal geometry in the Viennese Bend transition curves depends on the Viennese Bend cant parameters. create_layout_segment() automatically creates
    the geometric representation from the semantic definition. The horizontal segment geometric representation will fail if the cant segment is not defined.
 
-   If geometric representations are created, the alignment stationing referent is also created using the start_station value. IfcReferent.ObjectPlacement
-   is required for linear positiion elements and IfcLinearPlacement is defined relative to alignment curve geometry.
+   This function does not define the alignment's stationing. Call add_stationing_referent() once the layout
+   segments (and therefore the basis curve geometry) exist to place the starting-station IfcReferent, and again
+   for any station equations. Until stationing is defined, get_alignment_start_station() reports 0.0.
 
    :param file:
    :param name: name assigned to IfcAlignment.Name
    :param include_vertical: If True, IfcAlignmentVertical is created. IfcGradientCurve is created if include_geometry is True
    :param include_cant: If True, IfcAlignmentCant is created. IfcSegmentedReferenceCurve is created if include_geometry is True
    :param include_geometry: If True, the geometric representations are added
-   :param start_station: station value at the start of the alignment.
    :return: Returns an IfcAlignment
 
 

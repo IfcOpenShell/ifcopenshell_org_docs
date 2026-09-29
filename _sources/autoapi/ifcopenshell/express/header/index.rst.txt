@@ -23,7 +23,3 @@ Module Contents
 
 .. py:data:: Generator
 
-.. py:data:: USE_VIRTUAL_INHERITANCE
-   :value: True
-
-

@@ -1,0 +1,66 @@
+:py:mod:`ifcopenshell.api.alignment.update_key_point_referents`
+===============================================================
+
+.. py:module:: ifcopenshell.api.alignment.update_key_point_referents
+
+
+Module Contents
+---------------
+
+.. py:function:: update_key_point_referents(file: ifcopenshell.file, layout: ifcopenshell.entity_instance, rel_nests: Optional[ifcopenshell.entity_instance] = None, clear: bool = False) -> ifcopenshell.entity_instance
+
+   Creates IfcReferent key-point markers for every segment transition in an alignment layout.
+
+   Labels are derived from _get_segment_start_point_label (e.g. "P.C.", "P.T.", "P.O.B.",
+   "P.V.C.", ...), and combined with the alignment name and station to build the Name, e.g.
+   "MyAlignment 145+98.32 (P.C.)". Different jurisdictions use
+   different naming systems for these key points -- register_referent_name_callback() lets a
+   caller override the default horizontal/vertical/cant labeling before calling this function; if
+   a callback is registered, its output is used here instead of the built-in labels. Referents are
+   nested to `rel_nests`, an IfcRelNests distinct from the layout's segment nest (found via
+   get_alignment_segment_nest) and from the alignment's stationing nest (found via
+   get_stationing_nest) -- key-point referents never belong in either of those.
+
+   :param layout: IfcAlignmentHorizontal, IfcAlignmentVertical, or IfcAlignmentCant
+   :param rel_nests: an existing IfcRelNests to (re)populate; its RelatingObject must be an
+       IfcAlignment (TypeError is raised otherwise), but need not be the IfcAlignment that
+       directly nests `layout` -- passing an ancestor's own IfcRelNests is supported
+       specifically so that a vertical/cant layout living under a child IfcAlignment (per CT
+       4.1.4.4.1.2, once a second vertical layout is added) can still have its key-point
+       referents named after and nested to the top-level parent alignment, matching how the
+       alignment's horizontal key points are named, rather than a generic "Child of X" name.
+       When `rel_nests` is given, `rel_nests.RelatingObject` -- not `layout`'s own direct
+       parent -- is used for both the created referents' Name and the returned IfcRelNests. If
+       omitted, a new IfcRelNests is always created and related to `layout`'s own direct
+       parent alignment -- there is no implicit search for or reuse of a previously created
+       nest. Callers who want to regenerate into an existing nest must pass it back in
+       explicitly via `rel_nests`.
+   :param clear: if True, deletes all IfcReferent currently in rel_nests.RelatedObjects (and their
+       Pset_Stationing) before regenerating. If False (default), new referents are appended to
+       whatever already exists -- no deduplication.
+   :return: the IfcRelNests, with RelatedObjects sorted ascending by Pset_Stationing.Station
+
+   Example:
+
+   .. code:: python
+
+       horizontal = ifcopenshell.api.alignment.get_horizontal_layout(alignment)
+       nest = ifcopenshell.api.alignment.update_key_point_referents(model, horizontal)
+
+   Example, with custom labels for a jurisdiction that doesn't use the built-in abbreviations:
+
+   .. code:: python
+
+       def my_horizontal_labels(prev_segment, segment):
+           if prev_segment is None:
+               return "Start"
+           if segment is None:
+               return "End"
+           return "Curve Point"  # a name representative of the prev_segment -> segment transition
+
+       ifcopenshell.api.alignment.register_referent_name_callback(horizontal=my_horizontal_labels)
+       horizontal = ifcopenshell.api.alignment.get_horizontal_layout(alignment)
+       nest = ifcopenshell.api.alignment.update_key_point_referents(model, horizontal)
+       # nest.RelatedObjects[0].Name ends with "(Start)" instead of the default "(P.O.B.)"
+
+

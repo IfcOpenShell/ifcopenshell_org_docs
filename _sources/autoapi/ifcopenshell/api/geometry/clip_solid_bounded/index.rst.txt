@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: clip_solid_bounded(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: Sequence[float], normal: Sequence[float], boundary_points: Sequence[Sequence[float]], boundary_position: Sequence[float] = (0.0, 0.0, 0.0), element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+.. py:function:: clip_solid_bounded(file: ifcopenshell.file, item: ifcopenshell.entity_instance, location: collections.abc.Sequence[float], normal: collections.abc.Sequence[float], boundary_points: collections.abc.Sequence[collections.abc.Sequence[float]], boundary_position: collections.abc.Sequence[float] = (0.0, 0.0, 0.0), element: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
 
    Clip a solid with a polygonally bounded half-space, returning an IfcBooleanClippingResult.
 

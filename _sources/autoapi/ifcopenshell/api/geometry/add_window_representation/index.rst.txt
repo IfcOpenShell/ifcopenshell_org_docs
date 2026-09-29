@@ -235,11 +235,6 @@ Module Contents
    `thickness` can be also defined just as 1 float value.
 
 
-.. py:function:: mm(x: float) -> float
-
-   mm to meters shortcut for readability
-
-
 .. py:function:: window_l_shape_check(lining_to_panel_offset_y_full: float, lining_depth: float, lining_to_panel_offset_x: list[float], lining_thickness: list[float]) -> bool
 
    `lining_thickness` and `lining_to_panel_offset_x` expected to be defined as a list,

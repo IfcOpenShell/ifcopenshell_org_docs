@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: create_from_csv(file: ifcopenshell.file, filepath: str) -> ifcopenshell.entity_instance
+.. py:function:: create_from_csv(file: ifcopenshell.file, filepath: str, start_station: Optional[float] = None) -> ifcopenshell.entity_instance
 
    Creates an alignment from PI data stored in a CSV file.
 
@@ -39,6 +39,8 @@ Module Contents
    The CSV file contains one horizontal alignment, zero, one, or more vertical alignments
 
    :param filepath: path the to CSV file
+   :param start_station: if given, the starting station value; a STATION IfcReferent is added at
+       distance along 0.0 once the geometry exists. If None (the default), no stationing referent is created.
    :return: IfcAlignment
 
 

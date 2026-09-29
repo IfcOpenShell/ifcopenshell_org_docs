@@ -9,7 +9,7 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: close_polyline(points: tuple[ifcopenshell.entity_instance, Ellipsis]) -> tuple[ifcopenshell.entity_instance, Ellipsis]
+   .. py:method:: close_polyline(points: tuple[ifcopenshell.entity_instance, ...]) -> tuple[ifcopenshell.entity_instance, ...]
 
 
    .. py:method:: create_plane(location: numpy.typing.NDArray, axis: numpy.typing.NDArray, ref_direction: numpy.typing.NDArray) -> ifcopenshell.entity_instance

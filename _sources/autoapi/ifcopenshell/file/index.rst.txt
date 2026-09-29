@@ -20,7 +20,7 @@ Module Contents
    .. py:attribute:: transaction
 
 
-.. py:class:: Transaction(ifc_file: file)
+.. py:class:: Transaction(ifc_file: ifcopenshell.file)
 
    .. py:method:: batch() -> None
 
@@ -72,7 +72,7 @@ Module Contents
 
 
    .. py:attribute:: file
-      :type:  file
+      :type:  ifcopenshell.file
 
 
    .. py:attribute:: is_batched
@@ -84,7 +84,7 @@ Module Contents
       :type:  list[TransactionOperation]
 
 
-.. py:class:: file(f: Optional[ifcopenshell.ifcopenshell_wrapper.file] = None, schema: Optional[ifcopenshell.util.schema.IFC_SCHEMA] = None, schema_version: Optional[tuple[int, int, int, int]] = None)
+.. py:class:: file_mixin
 
    Base class for containing IFC files.
 
@@ -100,44 +100,6 @@ Module Contents
        print(products[0].id(), products[0].GlobalId) # 122 2XQ$n5SLP5MBLyL442paFx
        print(products[0] == model[122] == model["2XQ$n5SLP5MBLyL442paFx"]) # True
 
-   Create a new blank IFC model
-
-   This IFC model does not have any entities in it yet. See the
-   ``create_entity`` function for how to create new entities. All data is
-   stored in memory. If you wish to write the IFC model to disk, see the
-   ``write`` function.
-
-   :param f: The underlying IfcOpenShell file object to be wrapped. This
-       is an internal implementation detail and should generally be left
-       as None by users.
-   :param schema: Which IFC schema to use, chosen from "IFC2X3", "IFC4",
-       or "IFC4X3". These refer to the ISO approved versions of IFC.
-       Defaults to "IFC4" if not specified, which is currently recommended
-       for all new projects.
-   :param schema_version: If you want to specify an exact version of IFC
-       that may not be an ISO approved version, use this argument instead
-       of ``schema``. IFC versions on technical.buildingsmart.org are
-       described using 4 integers representing the major, minor, addendum,
-       and corrigendum number. For example, (4, 0, 2, 1) refers to IFC4
-       ADD2 TC1, which is the official version approved by ISO when people
-       refer to "IFC4". Generally you should not use this argument unless
-       you are testing non-ISO IFC releases.
-
-   Example:
-
-   .. code:: python
-
-       # Create a new IFC4 model, create a wall, then save it to an IFC-SPF file.
-       model = ifcopenshell.file()
-       model.create_entity("IfcWall")
-       model.write("/path/to/model.ifc")
-
-       # Create a new IFC4X3 model
-       model = ifcopenshell.file(schema="IFC4X3")
-
-       # A poweruser testing out a particular version of IFC4X3
-       model = ifcopenshell.file(schema_version=(4, 3, 0, 1))
-
 
    .. py:method:: add(inst: ifcopenshell.entity_instance, _id: int = None) -> ifcopenshell.entity_instance
 
@@ -152,40 +114,24 @@ Module Contents
    .. py:method:: assign_header_from(other: ifcopenshell.file) -> None
 
 
-   .. py:method:: batch()
+   .. py:method:: batch() -> None
 
-      Low-level mechanism to speed up deletion of large subgraphs
+      Enable batch mode, a low-level mechanism to speed up deleting large subgraphs.
+
+      In batch mode ``remove(entity)`` marks the entity for deletion instead
+      of deleting it, and ``unbatch()`` deletes everything marked in one
+      operation. The difference from usual removal: normally, removing an
+      entity immediately edits it out of every entity that references it; in
+      batch mode a referencing entity that is itself marked is left alone,
+      so removing a face set and its thousands of faces does not rewrite the
+      face set's list once per face.
 
 
 
    .. py:method:: begin_transaction() -> None
 
 
-   .. py:method:: by_guid(guid: str) -> ifcopenshell.entity_instance
-
-      Return an IFC entity instance filtered by IFC GUID.
-
-      :param guid: GlobalId value in 22-character encoded form
-
-      :raises RuntimeError: If `guid` is not found.
-
-      :returns: An ifcopenshell.entity_instance
-
-
-
-   .. py:method:: by_id(id: int) -> ifcopenshell.entity_instance
-
-      Return an IFC entity instance filtered by IFC ID.
-
-      :param id: STEP numerical identifier
-
-      :raises RuntimeError: If `id` is not found.
-
-      :returns: An ifcopenshell.entity_instance
-
-
-
-   .. py:method:: by_type(type: str, include_subtypes=True) -> list[ifcopenshell.entity_instance]
+   .. py:method:: by_type(type: str, include_subtypes=True) -> tuple[ifcopenshell.entity_instance, ...]
 
       Return IFC objects filtered by IFC Type and wrapped with the entity_instance class.
 
@@ -235,18 +181,9 @@ Module Contents
    .. py:method:: end_transaction() -> None
 
 
-   .. py:method:: from_pointer(address: int) -> file
-      :staticmethod:
-
-
-
-   .. py:method:: from_string(s: str) -> file
-      :staticmethod:
-
-
-
    .. py:method:: get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate: Literal[False] = False, with_attribute_indices: bool = False) -> set[ifcopenshell.entity_instance]
-                  get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate: Literal[True], with_attribute_indices: bool = False) -> list[ifcopenshell.entity_instance]
+                  get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate: Literal[True], with_attribute_indices: Literal[False] = False) -> list[ifcopenshell.entity_instance]
+                  get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate: Literal[True], with_attribute_indices: Literal[True]) -> list[tuple[ifcopenshell.entity_instance, int]]
                   get_inverse(inst: ifcopenshell.entity_instance, allow_duplicate: bool, with_attribute_indices: bool = False) -> Union[list[ifcopenshell.entity_instance], set[ifcopenshell.entity_instance]]
 
       Return a list of entities that reference this entity
@@ -264,16 +201,7 @@ Module Contents
 
 
 
-   .. py:method:: get_total_inverses(inst: ifcopenshell.entity_instance) -> int
-
-      Returns the number of entities that reference this entity
-
-      This is equivalent to `len(model.get_inverse(element))`, but
-      significantly faster.
-
-      :param inst: The entity instance to get inverse relationships
-      :returns: The total number of references
-
+   .. py:method:: post_init(iden=None)
 
 
    .. py:method:: redo() -> None
@@ -297,7 +225,7 @@ Module Contents
    .. py:method:: to_string() -> str
 
 
-   .. py:method:: traverse(inst: ifcopenshell.entity_instance, max_levels: Optional[int] = None, breadth_first: bool = False) -> list[ifcopenshell.entity_instance]
+   .. py:method:: traverse(inst: ifcopenshell.entity_instance, max_levels: Optional[int] = None, breadth_first: bool = False) -> tuple[ifcopenshell.entity_instance, ...]
 
       Get a list of all referenced instances for a particular instance including itself
 
@@ -308,9 +236,9 @@ Module Contents
 
 
 
-   .. py:method:: unbatch()
+   .. py:method:: unbatch() -> None
 
-      Low-level mechanism to speed up deletion of large subgraphs
+      Exit batch mode, deleting everything marked since ``batch()``.
 
 
 
@@ -336,23 +264,10 @@ Module Contents
 
 
 
-   .. py:attribute:: future
-      :type:  list[Transaction]
-
-      Reversed chronological order - from newest to oldest.
+   .. py:property:: future
 
 
-
-   .. py:property:: header
-      :type: file_header
-
-
-
-   .. py:attribute:: history
-      :type:  list[Transaction]
-
-      Chronological order - from oldest to newest.
-
+   .. py:property:: history
 
 
    .. py:attribute:: history_size
@@ -361,20 +276,10 @@ Module Contents
 
 
 
-   .. py:property:: identifier
-      :type: tuple[int, int]
-
-
-      Pair of C++ file pointer address and creation time stamp to uniquely identify a file
-      over the life time of ifcopenshell module that should be mostly safe except in pathological
-      cases
-
-      Returns:
-          tuple[int, int]: Pair of C++ file pointer address and creation time stamp
-
-
-
    .. py:property:: mvd
+
+
+   .. py:attribute:: registry
 
 
    .. py:property:: schema
@@ -382,14 +287,6 @@ Module Contents
 
 
       General IFC schema version: IFC2X3, IFC4, IFC4X3.
-
-
-
-   .. py:property:: schema_identifier
-      :type: str
-
-
-      Full IFC schema version: IFC2X3_TC1, IFC4_ADD2, IFC4X3_ADD2, etc.
 
 
 
@@ -421,41 +318,11 @@ Module Contents
 
 
 
-   .. py:attribute:: transaction
-      :type:  Optional[Transaction]
-      :value: None
-
+   .. py:property:: transaction
 
 
    .. py:attribute:: units
-      :type:  dict[str, ifcopenshell.entity_instance.entity_instance]
-
-
-   .. py:attribute:: wrapped_data
-      :type:  ifcopenshell.ifcopenshell_wrapper.file
-
-
-.. py:class:: file_header(file, header_data)
-
-   .. py:attribute:: file
-
-
-   .. py:property:: file_description
-      :type: ifcopenshell.entity_instance.entity_instance
-
-
-
-   .. py:property:: file_name
-      :type: ifcopenshell.entity_instance.entity_instance
-
-
-
-   .. py:property:: file_schema
-      :type: ifcopenshell.entity_instance.entity_instance
-
-
-
-   .. py:attribute:: header_data
+      :type:  dict[str, ifcopenshell.entity_instance]
 
 
 .. py:class:: rocksdb_file_storage(file, prefix='')
@@ -512,26 +379,7 @@ Module Contents
 
 .. py:data:: HEADER_FIELDS
 
-.. py:data:: INVALID_SYNTAX
-
 .. py:data:: InverseReference
 
-.. py:data:: NO_HEADER
-
-.. py:data:: READ_ERROR
-
-.. py:data:: UNKNOWN
-
-.. py:data:: UNSUPPORTED_SCHEMA
-
 .. py:data:: binary_deserializers
-
-.. py:data:: file_dict
-   :type:  dict[int, tuple[weakref.ReferenceType[file], int]]
-
-   Mapping of internal IfcFile pointer address to existing ``ifcopenshell.file``
-   and the timestamp when it was created.
-
-   Needed only to quickly access related from ``entity_instance`` it's ``file``.
-
 

@@ -12,7 +12,7 @@ Module Contents
    Bases: :py:obj:`Facet`
 
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[collections.abc.Sequence[ifcopenshell.entity_instance]]) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
 
    .. py:attribute:: applicability_templates
@@ -40,7 +40,7 @@ Module Contents
    Bases: :py:obj:`Facet`
 
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[collections.abc.Sequence[ifcopenshell.entity_instance]]) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
 
    .. py:attribute:: applicability_templates
@@ -68,7 +68,7 @@ Module Contents
    Bases: :py:obj:`Facet`
 
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[collections.abc.Sequence[ifcopenshell.entity_instance]] = None) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
 
    .. py:attribute:: applicability_templates
@@ -96,7 +96,7 @@ Module Contents
    Bases: :py:obj:`Facet`
 
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[collections.abc.Sequence[ifcopenshell.entity_instance]]) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
 
    .. py:attribute:: applicability_templates
@@ -127,7 +127,7 @@ Module Contents
    .. py:method:: asdict(clause_type: str) -> dict[str, Any]
 
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[collections.abc.Sequence[ifcopenshell.entity_instance]]) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
 
    .. py:method:: get_parent(element)
@@ -161,7 +161,7 @@ Module Contents
    Bases: :py:obj:`Facet`
 
 
-   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[list[ifcopenshell.entity_instance]]) -> list[ifcopenshell.entity_instance]
+   .. py:method:: filter(ifc_file: ifcopenshell.file, elements: Optional[collections.abc.Sequence[ifcopenshell.entity_instance]]) -> collections.abc.Sequence[ifcopenshell.entity_instance]
 
 
    .. py:method:: get_properties(pset)

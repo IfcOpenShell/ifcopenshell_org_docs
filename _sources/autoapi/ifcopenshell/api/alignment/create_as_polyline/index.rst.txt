@@ -7,16 +7,22 @@
 Module Contents
 ---------------
 
-.. py:function:: create_as_polyline(file: ifcopenshell.file, name: str, points: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: float = 0.0) -> ifcopenshell.entity_instance
+.. py:function:: create_as_polyline(file: ifcopenshell.file, name: str, points: collections.abc.Sequence[ifcopenshell.entity_instance], start_station: Optional[float] = None) -> ifcopenshell.entity_instance
 
    Creates a new IfcAlignment with an IfcPolyline representation.
 
    The IfcAlignment is aggreated to IfcProject
 
+   If start_station is given, a STATION IfcReferent named "<alignment name> <station>"
+   (e.g. "MyAlignment 49+00.00") is added at distance along 0.0 - the same naming
+   convention update_key_point_referents() uses for its own referents, so every referent
+   nested under an alignment is identifiable by name alone. If None (the default), no
+   stationing referent is created.
+
    :param file:
    :param name: name assigned to IfcAlignment.Name
    :param points: sequence of points defining the polyline
-   :param start_station: station value at the start of the alignment
+   :param start_station: station value at the start of the alignment, or None for no stationing referent
    :return: Returns an IfcAlignment
 
 

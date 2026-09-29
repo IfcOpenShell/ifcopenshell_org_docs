@@ -7,7 +7,10 @@
 Module Contents
 ---------------
 
-.. py:class:: Patcher(file: None, logger: logging.Logger, filepath: str)
+.. py:class:: Patcher(file: ifcopenshell.file, logger: Union[logging.Logger, None] = None)
+
+   Bases: :py:obj:`ifcpatch.BasePatcher`
+
 
    
    Allow ArchiCAD IFC spaces to open as Revit rooms
@@ -33,33 +36,57 @@ Module Contents
    successfully.
 
    This patch is designed to only work on ArchiCAD IFC exports where the
-   only contents of the IFC is IFC space and `nothing else`. It also
-   requires you to run it using Blender, as the geometric modification
-   uses the Blender geometry engine.
-
-   `filepath` argument is required for this recipe, `file` argument is
-   ignored.
-
-   :param filepath: The filepath of the IFC model. This is required to
-       load into Bonsai.
-   :filter_glob filepath: *.ifc;*.ifczip;*.ifcxml
+   only contents of the IFC is IFC space and `nothing else`.
 
    Example:
 
    .. code:: python
 
-       ifcpatch.execute({"input": "input.ifc", "recipe": "FixArchiCADToRevitSpaces", "arguments": []})
+       ifcpatch.execute({"file": model, "recipe": "FixArchiCADToRevitSpaces", "arguments": []})
+
+
+   .. py:method:: convert_si_to_unit(value: T) -> T
+
+
+   .. py:method:: create_curve(ring: shapely.LinearRing) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: create_extrusion(footprint: shapely.Polygon, base_z: float, depth: float) -> ifcopenshell.entity_instance
+
+
+   .. py:method:: get_footprints(vertices: numpy.typing.NDArray[numpy.float64], faces: numpy.typing.NDArray[numpy.int32]) -> list[shapely.Polygon]
+
+      Flatten every downwards facing triangle into a set of 2D footprints
+
+      Unioning the downwards facing triangles (as opposed to only taking the
+      faces sitting at the bottom of the space) means that spaces which are
+      stepped or clipped from below still yield their full footprint, and
+      that any columns poking through the space become voids in that
+      footprint.
+
+
+
+   .. py:method:: get_storey_elevation(space: ifcopenshell.entity_instance) -> Union[float, None]
+
+      Get the absolute Z of the storey the space belongs to, in SI units
+
 
 
    .. py:method:: patch() -> None
 
 
-   .. py:attribute:: file
+   .. py:attribute:: builder
 
 
-   .. py:attribute:: filepath
+   .. py:attribute:: tolerance
+      :value: 1e-06
 
 
-   .. py:attribute:: logger
 
+   .. py:attribute:: unit_scale
+      :value: 1
+
+
+
+.. py:data:: T
 

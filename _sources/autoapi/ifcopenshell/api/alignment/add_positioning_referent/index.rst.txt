@@ -1,0 +1,29 @@
+:py:mod:`ifcopenshell.api.alignment.add_positioning_referent`
+=============================================================
+
+.. py:module:: ifcopenshell.api.alignment.add_positioning_referent
+
+
+Module Contents
+---------------
+
+.. py:function:: add_positioning_referent(file: ifcopenshell.file, name: str, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, positioned_product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+
+   Semantically defines the position of a product along an alignment by adding an IfcReferent to the alignment that defines the stationing system.
+
+   :param alignment: the alignment to receive the referent
+   :param distance_along: distance along the alignment basis curve
+   :param station: station value
+   :param name: name to assign to IfcReferent.Name, typically a stringized version of the station value
+   :param positioned_product: the product whose position is informed by the referent
+   :return: referent
+
+   Example:
+
+   .. code:: python
+
+       alignment = model.by_type("IfcAlignment")[0]
+       pier = model.by_type("IfcBridgePart")[0]
+       ifcopenshell.api.alignment.add_positioning_referent(model,name="Pier 1 Sta 1+00",alignment=alignment,distance_along=0.0,station=100.0,positioned_product=pier)
+
+

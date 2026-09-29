@@ -56,7 +56,7 @@ Module Contents
 
 
 .. py:data:: CARDINAL_POINT_VALUES
-   :type:  tuple[CardinalPointString, Ellipsis]
+   :type:  tuple[CardinalPointString, ...]
 
 .. py:data:: CardinalPoint
 

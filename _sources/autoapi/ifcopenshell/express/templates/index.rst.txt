@@ -25,16 +25,12 @@ Module Contents
    :value: '%(schema_name)s::%(class_name)s::%(class_name)s(%(arguments)s) { %(body)s }'
 
 
-.. py:data:: constructor_single_initlist
-   :value: '%(schema_name)s::%(class_name)s::%(class_name)s(%(arguments)s) :...
-
-
 .. py:data:: constructor_stmt
    :value: 'set_attribute_value(%(index)d, (%(name)s));'
 
 
 .. py:data:: constructor_stmt_array
-   :value: 'set_attribute_value(%(index)d, (%(name)s)->generalize());'
+   :value: 'set_attribute_value(%(index)d, cast_vector<express::base>(%(name)s));'
 
 
 .. py:data:: constructor_stmt_derived
@@ -42,11 +38,11 @@ Module Contents
 
 
 .. py:data:: constructor_stmt_enum
-   :value: 'set_attribute_value(%(index)d, (EnumerationReference(&%(type)s::Class(),(size_t)%(name)s)));'
+   :value: 'set_attribute_value(%(index)d, (enumeration_reference(&%(type)s::Class(),(size_t)%(name)s)));'
 
 
 .. py:data:: constructor_stmt_instance
-   :value: 'set_attribute_value(%(index)d, %(name)s ? %(name)s->as<IfcUtil::IfcBaseClass>() :...
+   :value: 'set_attribute_value(%(index)d, %(name)s);'
 
 
 .. py:data:: constructor_stmt_optional
@@ -71,13 +67,13 @@ Module Contents
    .. code-block:: python
 
       """%(documentation)s
-      class IFC_PARSE_API %(name)s : %(superclass)s {
+      class IFC_SCHEMA_API %(name)s : public %(superclass)s {
       public:
-      %(attributes)s    %(inverse)s    virtual const IfcParse::entity& declaration() const;
-          static const IfcParse::entity& Class();
-          %(name)s (IfcEntityInstanceData&& e);
-          %(name)s (%(constructor_arguments)s);
-          typedef aggregate_of< %(name)s > list;
+          using %(superclass)s::%(superclass_2)s;
+      
+      %(attributes)s    %(inverse)s
+          static const ifcopenshell::entity& Class();
+          %(name)s initialize(%(constructor_arguments)s);
       };
       """
 
@@ -129,10 +125,8 @@ Module Contents
       """// Function implementations for %(name)s
       %(attributes)s
       %(inverse)s
-      const IfcParse::entity& %(schema_name)s::%(name)s::declaration() const { return *((IfcParse::entity*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
-      const IfcParse::entity& %(schema_name)s::%(name)s::Class() { return *((IfcParse::entity*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
-      %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData&& e) : %(superclass)s { }
-      %(schema_name)s::%(name)s::%(name)s(%(constructor_arguments)s) : %(superclass_num_attrs)s { %(constructor_implementation)s; populate_derived(); }
+      const ifcopenshell::entity& %(schema_name)s::%(name)s::Class() { return *((ifcopenshell::entity*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
+      %(schema_name)s::%(name)s %(schema_name)s::%(name)s::initialize(%(constructor_arguments)s) { %(constructor_implementation)s; return *this; }
       """
 
    .. raw:: html
@@ -158,10 +152,10 @@ Module Contents
       #ifndef %(schema_name_upper)sENUM_H
       #define %(schema_name_upper)sENUM_H
       
-      #include "../ifcparse/ifc_parse_api.h"
+      #include "../../ifcparse/ifc_parse_api.h"
       
       #include <string>
-      #include <boost/optional.hpp>
+      #include <optional>
       
       #endif
       """
@@ -181,18 +175,18 @@ Module Contents
 
    .. code-block:: python
 
-      """class IFC_PARSE_API %(name)s : public IfcUtil::IfcBaseType {
-      %(documentation)s
+      """%(documentation)s
+      class IFC_SCHEMA_API %(name)s : public express::declared_type {
       public:
+          using express::declared_type::declared_type;
+      
           typedef enum {%(values)s} Value;
           static const char* ToString(Value v);
           static Value FromString(const std::string& s);
       
-          virtual const IfcParse::enumeration_type& declaration() const;
-          static const IfcParse::enumeration_type& Class();
-          %(name)s (IfcEntityInstanceData&& e);
-          %(name)s (Value v);
-          %(name)s (const std::string& v);
+          static const ifcopenshell::enumeration_type& Class();
+          %(name)s initialize(Value v);
+          %(name)s initialize(const std::string& v);
           operator Value() const;
       };
       """
@@ -236,20 +230,22 @@ Module Contents
    .. code-block:: python
 
       """
-      const IfcParse::enumeration_type& %(schema_name)s::%(name)s::declaration() const { return *((IfcParse::enumeration_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
-      const IfcParse::enumeration_type& %(schema_name)s::%(name)s::Class() { return *((IfcParse::enumeration_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
+      // const ifcopenshell::enumeration_type& %(schema_name)s::%(name)s::declaration() const { return *((ifcopenshell::enumeration_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
+      const ifcopenshell::enumeration_type& %(schema_name)s::%(name)s::Class() { return *((ifcopenshell::enumeration_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
       
-      %(schema_name)s::%(name)s::%(name)s(IfcEntityInstanceData&& e)
-          : IfcBaseType(std::move(e))
+      /*
+      %(schema_name)s::%(name)s::%(name)s(const std::weak_ptr<instance_data>& e)
+          : express::declared_type(e)
       {}
       
       %(schema_name)s::%(name)s::%(name)s(Value v) {
-          set_attribute_value(0, EnumerationReference(&declaration(), static_cast<size_t>(v)));
+          set_attribute_value(0, enumeration_reference(&Class(), static_cast<size_t>(v)));
       }
       
       %(schema_name)s::%(name)s::%(name)s(const std::string& v) {
-          set_attribute_value(0, EnumerationReference(&declaration(), declaration().lookup_enum_offset(v)));
+          set_attribute_value(0, enumeration_reference(&Class(), Class().lookup_enum_offset(v)));
       }
+      */
       
       const char* %(schema_name)s::%(name)s::ToString(Value v) {
           return %(schema_name)s::%(name)s::%(name)s::Class().lookup_enum_value((size_t)v);
@@ -260,7 +256,7 @@ Module Contents
       }
       
       %(schema_name)s::%(name)s::operator %(schema_name)s::%(name)s::Value() const {
-          return (%(schema_name)s::%(name)s::Value) ((EnumerationReference) get_attribute_value(0)).index();
+          return (%(schema_name)s::%(name)s::Value) ((enumeration_reference) get_attribute_value(0)).index();
       }
       """
 
@@ -279,7 +275,7 @@ Module Contents
 
 
 .. py:data:: get_attr_stmt_array
-   :value: '%(null_check)s aggregate_of_instance::ptr es = get_attribute_value(%(index)d); return es->as<...
+   :value: '%(null_check)s std::vector<express::base> es = get_attribute_value(%(index)d); return...
 
 
 .. py:data:: get_attr_stmt_entity
@@ -291,11 +287,11 @@ Module Contents
 
 
 .. py:data:: get_attr_stmt_nested_array
-   :value: '%(null_check)s aggregate_of_aggregate_of_instance::ptr es = get_attribute_value(%(index)d);...
+   :value: '%(null_check)s std::vector<std::vector<express::base>> es = get_attribute_value(%(index)d);...
 
 
 .. py:data:: get_inverse
-   :value: 'if (!file_) { return nullptr; } return file_->getInverse(id_,...
+   :value: 'return cast_vector<%(type)s>(file()->get_inverse(data()->id(),...
 
 
 .. py:data:: header
@@ -313,22 +309,25 @@ Module Contents
       
       #include <string>
       #include <vector>
+      #include <optional>
       
-      #include <boost/optional.hpp>
+      #include "../../ifcparse/ifc_parse_api.h"
       
-      #include "../ifcparse/ifc_parse_api.h"
+      #include "../../ifcparse/express.h"
+      #include "../../ifcparse/schema.h"
+      #include "../../ifcparse/exception.h"
+      #include "../../ifcparse/argument.h"
       
-      #include "../ifcparse/aggregate_of_instance.h"
-      #include "../ifcparse/IfcBaseClass.h"
-      #include "../ifcparse/IfcSchema.h"
-      #include "../ifcparse/IfcException.h"
-      #include "../ifcparse/Argument.h"
+      namespace ifcopenshell {
+      class file;
+      class spf_header;
+      } // namespace ifcopenshell
       
       struct %(schema_name)s {
       
-      IFC_PARSE_API static const IfcParse::schema_definition& get_schema();
+      IFC_SCHEMA_API static const ifcopenshell::schema_definition& get_schema();
       
-      IFC_PARSE_API static void clear_schema();
+      IFC_SCHEMA_API static void clear_schema();
       
       static const char* const Identifier;
       
@@ -359,16 +358,16 @@ Module Contents
    .. code-block:: python
 
       """
-      #include "../ifcparse/%(schema_name)s.h"
-      #include "../ifcparse/IfcSchema.h"
-      #include "../ifcparse/IfcException.h"
-      #include "../ifcparse/IfcFile.h"
+      #include "../../ifcparse/schemas/%(schema_name)s.h"
+      #include "../../ifcparse/schema.h"
+      #include "../../ifcparse/exception.h"
+      #include "../../ifcparse/file.h"
       
       #include <map>
       
       const char* const %(schema_name)s::Identifier = "%(schema_name_upper)s";
       
-      using namespace IfcParse;
+      using namespace ifcopenshell;
       
       // External definitions
       %(external_definitions)s
@@ -386,8 +385,12 @@ Module Contents
 
 
 
+.. py:data:: initialize_single_initlist
+   :value: '%(schema_name)s::%(class_name)s %(schema_name)s::%(class_name)s::initialize(%(arguments)s) {...
+
+
 .. py:data:: inverse_attr
-   :value: 'aggregate_of< %(entity)s >::ptr %(name)s() const; // INVERSE %(entity)s::%(attribute)s'
+   :value: 'std::vector< %(entity)s > %(name)s() const; // INVERSE %(entity)s::%(attribute)s'
 
 
 .. py:data:: inverse_implementation
@@ -403,11 +406,11 @@ Module Contents
 
 
 .. py:data:: list_list_type
-   :value: 'aggregate_of_aggregate_of< %(instance_type)s >::ptr'
+   :value: 'std::vector< std::vector< %(instance_type)s > >'
 
 
 .. py:data:: list_type
-   :value: 'aggregate_of< %(instance_type)s >::ptr'
+   :value: 'std::vector< %(instance_type)s >'
 
 
 .. py:data:: nested_array_type
@@ -434,6 +437,50 @@ Module Contents
    :value: '        case Type::%(name)s: return new %(name)s(e); break;'
 
 
+.. py:data:: select
+   :value: Multiline-String
+
+   .. raw:: html
+
+      <details><summary>Show Value</summary>
+
+   .. code-block:: python
+
+      """%(documentation)s
+      class IFC_SCHEMA_API %(name)s : public express::select {
+      public:
+          using express::select::select;
+      
+          static const ifcopenshell::select_type& Class();
+      %(template_items)s
+      %(cast_functions)s
+      };
+      """
+
+   .. raw:: html
+
+      </details>
+
+
+
+.. py:data:: select_cast_function
+   :value: Multiline-String
+
+   .. raw:: html
+
+      <details><summary>Show Value</summary>
+
+   .. code-block:: python
+
+      """    %(name)s(const %(item_name)s& c) : express::select(c) {};
+      """
+
+   .. raw:: html
+
+      </details>
+
+
+
 .. py:data:: select_function
    :value: Multiline-String
 
@@ -444,7 +491,7 @@ Module Contents
    .. code-block:: python
 
       """
-      const IfcParse::select_type& %(schema_name)s::%(name)s::Class() { return *((IfcParse::select_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
+      const ifcopenshell::select_type& %(schema_name)s::%(name)s::Class() { return *((ifcopenshell::select_type*)%(schema_name_upper)s_types[%(index_in_schema)d]); }
       """
 
    .. raw:: html
@@ -453,7 +500,7 @@ Module Contents
 
 
 
-.. py:data:: select_plain
+.. py:data:: select_list_item
    :value: Multiline-String
 
    .. raw:: html
@@ -462,31 +509,9 @@ Module Contents
 
    .. code-block:: python
 
-      """%(documentation)s
-      typedef IfcUtil::IfcBaseClass %(name)s;
-      """
-
-   .. raw:: html
-
-      </details>
-
-
-
-.. py:data:: select_virtual
-   :value: Multiline-String
-
-   .. raw:: html
-
-      <details><summary>Show Value</summary>
-
-   .. code-block:: python
-
-      """%(documentation)s
-      class IFC_PARSE_API %(name)s : public virtual IfcUtil::IfcBaseInterface {
-      public:
-          static const IfcParse::select_type& Class();
-          typedef aggregate_of< %(name)s > list;
-      };
+      """    // let's just use the as<>() from Base instead directly...
+          // template<class T, std::enable_if_t<std::is_same_v<T, %(item_name)s>, int> = 0>
+          // %(item_name)s as() const { return express::base::as<%(item_name)s>(); }
       """
 
    .. raw:: html
@@ -511,6 +536,10 @@ Module Contents
    :value: '%(check_optional_set_begin)sset_attribute_value(%(index)d,...
 
 
+.. py:data:: set_attr_stmt_nested_array
+   :value: '%(check_optional_set_begin)sset_attribute_value(%(index)d,...
+
+
 .. py:data:: simpletype
    :value: Multiline-String
 
@@ -521,12 +550,12 @@ Module Contents
    .. code-block:: python
 
       """%(documentation)s
-      class IFC_PARSE_API %(name)s : %(superclass)s {
+      class IFC_SCHEMA_API %(name)s : public %(superclass)s {
       public:
-          virtual const IfcParse::type_declaration& declaration() const;
-          static const IfcParse::type_declaration& Class();
-          explicit %(name)s (IfcEntityInstanceData&& e);
-          %(name)s (%(type)s v);
+          using %(superclass)s::%(superclass_2)s;
+      
+          static const ifcopenshell::type_declaration& Class();
+          %(name)s initialize(%(type)s v);
           operator %(type)s() const;
       };
       """
@@ -550,11 +579,11 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_cast_templated
-   :value: 'aggregate_of_instance::ptr es = get_attribute_value(0); return es->as< %(underlying_type)s >();'
+   :value: 'std::vector<express::base> es = get_attribute_value(0); return cast_vector<%(underlying_type)s>(es);'
 
 
 .. py:data:: simpletype_impl_class
-   :value: 'return *((IfcParse::type_declaration*)%(schema_name_upper)s_types[%(index_in_schema)d]);'
+   :value: 'return *((ifcopenshell::type_declaration*)%(schema_name_upper)s_types[%(index_in_schema)d]);'
 
 
 .. py:data:: simpletype_impl_comment
@@ -562,15 +591,15 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_constructor
-   :value: 'data_ = new IfcEntityInstanceData(%(schema_name_upper)s_types[%(index_in_schema)d]);...
+   :value: 'data_ = new const...
 
 
 .. py:data:: simpletype_impl_constructor_templated
-   :value: 'data_ = new IfcEntityInstanceData(%(schema_name_upper)s_types[%(index_in_schema)d]);...
+   :value: 'data_ = new const...
 
 
 .. py:data:: simpletype_impl_declaration
-   :value: 'return *((IfcParse::type_declaration*)%(schema_name_upper)s_types[%(index_in_schema)d]);'
+   :value: 'return *((ifcopenshell::type_declaration*)%(schema_name_upper)s_types[%(index_in_schema)d]);'
 
 
 .. py:data:: simpletype_impl_explicit_constructor
@@ -586,7 +615,7 @@ Module Contents
 
 
 .. py:data:: simpletype_impl_type
-   :value: 'return *((IfcParse::type_declaration*)%(schema_name_upper)s_types[%(index_in_schema)d]);'
+   :value: 'return *((ifcopenshell::type_declaration*)%(schema_name_upper)s_types[%(index_in_schema)d]);'
 
 
 .. py:data:: string_map_statement

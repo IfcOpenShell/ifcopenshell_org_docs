@@ -28,5 +28,5 @@ Module Contents
 .. py:data:: FLOW_DIRECTION
 
 .. py:data:: group_types
-   :type:  dict[str, tuple[str, Ellipsis]]
+   :type:  dict[str, tuple[str, ...]]
 

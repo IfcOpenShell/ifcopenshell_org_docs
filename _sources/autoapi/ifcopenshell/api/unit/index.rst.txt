@@ -35,7 +35,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: add_context_dependent_unit(file: ifcopenshell.file, unit_type: str = 'USERDEFINED', name: str = 'THINGAMAJIG', dimensions: tuple[int, int, int, int, int, int, int] = (0, 0, 0, 0, 0, 0, 0)) -> ifcopenshell.entity_instance
+.. py:function:: add_context_dependent_unit(file: ifcopenshell.file, unit_type: str = 'USERDEFINED', name: str = 'THINGAMAJIG', dimensions: ifcopenshell.util.unit.DimensionalExponents = (0, 0, 0, 0, 0, 0, 0)) -> ifcopenshell.entity_instance
 
    Add a new arbitrary unit that can only be interpreted in a project specific context
 
@@ -140,10 +140,10 @@ Package Contents
        time = ifcopenshell.api.unit.add_si_unit(model, unit_type="TIMEUNIT")
        #4=IfcSIUnit(*,.TIMEUNIT.,$,.SECOND.)
 
-       linear_velocity = ifcopenshell.api.unit.add_derived_unit(model, 'LINEARVELOCITY', None, {length : 1, time : -1})
+       linear_velocity = ifcopenshell.api.unit.add_derived_unit(model, 'LINEARVELOCITYUNIT', None, {length : 1, time : -1})
        #10=IfcDerivedUnitElement(#2, 1)
        #11=IfcDerivedUnitElement(#4, -1)
-       #12=IfcDerivedUnit((#10,#11),.LINEARVELOCITY.,$)
+       #12=IfcDerivedUnit((#10,#11),.LINEARVELOCITYUNIT.,$)
 
 
 
@@ -305,7 +305,7 @@ Package Contents
        unit = ifcopenshell.api.unit.add_context_dependent_unit(model, name="BOXES")
 
        # Uh, crates? Boxes? Whatever.
-       ifcopenshell.api.unit.edit_named_unit(model, unit=unit, attibutes={"Name": "CRATES"})
+       ifcopenshell.api.unit.edit_named_unit(model, unit=unit, attributes={"Name": "CRATES"})
 
 
 .. py:function:: remove_unit(file: ifcopenshell.file, unit: ifcopenshell.entity_instance) -> None

@@ -45,13 +45,16 @@ Module Contents
    .. py:method:: make_argument_entity(attr)
 
 
-   .. py:method:: make_argument_type(attr)
+   .. py:method:: make_argument_type(attr: ifcopenshell.express.nodes.Node | str) -> str
 
 
    .. py:method:: make_type_string(type)
 
 
    .. py:method:: simple_type_parent(type)
+
+
+   .. py:attribute:: cpp_to_argument_types
 
 
    .. py:attribute:: express_to_cpp_typemapping

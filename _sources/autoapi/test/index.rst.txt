@@ -18,6 +18,12 @@ Module Contents
    .. py:method:: test_changed_geometry()
 
 
+   .. py:method:: test_changed_predefined_type_is_caught_by_default()
+
+
+   .. py:method:: test_property_diff_exports_to_json()
+
+
    .. py:method:: test_remove_element()
 
 

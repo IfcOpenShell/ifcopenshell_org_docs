@@ -7,15 +7,27 @@
 Module Contents
 ---------------
 
-.. py:function:: add_stationing_referent(file: ifcopenshell.file, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, name: str, positioned_product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
+.. py:function:: add_stationing_referent(file: ifcopenshell.file, name: str, alignment: ifcopenshell.entity_instance, distance_along: float, station: float, incoming_station: Optional[float] = None, has_increasing_station: Optional[bool] = None, on_basis_curve: Optional[bool] = None) -> ifcopenshell.entity_instance
 
-   Adds an IfcReferent to the alignment with the Pset_Stationing property set.
+   Adds an IfcReferent to the alignment that defines the stationing system.
 
+   Call this once with ``distance_along=0.0`` to define the starting station, and again
+   for each station equation. If the alignment has no geometry yet, the referent is
+   placed with an IfcLocalPlacement at the global origin; once the basis curve has real
+   segments it is placed with an IfcLinearPlacement at ``distance_along`` on that curve.
+   create_representation() restates an origin-placed starting referent onto the curve
+   when geometry is added later.
+
+   :param name: name to assign to IfcReferent.Name, typically a stringized version of the station value
    :param alignment: the alignment to receive the referent
    :param distance_along: distance along the alignment basis curve
    :param station: station value
-   :param name: name to assign to IfcReferent.Name, typically a stringized version of the station value
-   :param positioned_product: the product whose position is informed by the referent
+   :param incoming_station: station value of the incoming segment, only set to specify a station equation
+   :param has_increasing_station: sets Pset_Stationing.HasIncreasingStation, which records the direction of
+       stationing for the referents nested after this one. Leave None (the default) or pass True for the
+       common case where station values increase with distance along; pass False on the starting referent
+       of a reverse-stationed alignment, where station values decrease as distance along increases.
+   :param on_basis_curve: whether the referent is positioned on the basis curve or the alignment curve, if None the function will default to the basis curve
    :return: referent
 
    Example:
@@ -23,6 +35,6 @@ Module Contents
    .. code:: python
 
        alignment = model.by_type("IfcAlignment")[0]
-       ifcopenshell.api.alignment.add_stationing_referent(model,alignment=alignment,distance_along=0.0,station=100.0)
+       ifcopenshell.api.alignment.add_stationing_referent(model,name="1+00.0",alignment=alignment,distance_along=0.0,station=100.0)
 
 

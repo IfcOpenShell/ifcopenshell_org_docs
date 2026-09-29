@@ -105,7 +105,7 @@ Module Contents
 
 
    .. py:attribute:: streamer
-      :type:  ifcopenshell.geom.ifcopenshell_wrapper.InstanceStreamer
+      :type:  ifcopenshell.geom.ifcopenshell_wrapper.instance_streamer
 
 
 .. py:class:: TransformDefaultDict(keyfunc=lambda x: x, default_factory=None)

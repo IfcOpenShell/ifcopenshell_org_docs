@@ -25,8 +25,10 @@ Module Contents
    can usually be solved through other means. Consult the bonsai Add-on
    documentation on dealing with large models for more details.
 
-   Warning: this optimise recipe is very, very slow. Please consider using
-   RecycleNonRootedElements instead.
+   Warning: this optimise recipe is slower than RecycleNonRootedElements,
+   as it performs a full, transitive fold instead of a single pass.
+   Consider RecycleNonRootedElements first if a quicker, partial
+   optimisation is acceptable.
 
    Example:
 

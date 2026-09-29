@@ -16,7 +16,7 @@ Module Contents
 
 
    .. py:attribute:: data
-      :type:  Union[ifcopenshell.ifcopenshell_wrapper.SerializedElement, ifcopenshell.ifcopenshell_wrapper.Serialization]
+      :type:  Union[ifcopenshell.ifcopenshell_wrapper.serialized_element, ifcopenshell.ifcopenshell_wrapper.serialization]
 
 
    .. py:attribute:: geometry
@@ -24,14 +24,14 @@ Module Contents
 
 
    .. py:attribute:: style_ids
-      :type:  tuple[int, Ellipsis]
+      :type:  tuple[int, ...]
 
 
    .. py:attribute:: styles
-      :type:  tuple[tuple[float, float, float, float], Ellipsis]
+      :type:  tuple[tuple[float, float, float, float], ...]
 
 
-.. py:function:: create_shape_from_serialization(brep_object: Union[ifcopenshell.ifcopenshell_wrapper.SerializedElement, ifcopenshell.ifcopenshell_wrapper.Serialization]) -> Union[shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
+.. py:function:: create_shape_from_serialization(brep_object: Union[ifcopenshell.ifcopenshell_wrapper.serialized_element, ifcopenshell.ifcopenshell_wrapper.serialization]) -> Union[shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
 
 .. py:function:: display_shape(shape, clr=None, viewer_handle=None)
 

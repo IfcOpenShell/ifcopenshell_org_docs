@@ -151,7 +151,7 @@ Package Contents
 
 
    .. py:attribute:: type
-      :type:  Union[str, list[str]]
+      :type:  NotRequired[Union[str, list[str]]]
 
 
 .. py:class:: PatcherDoc

@@ -75,48 +75,110 @@ Module Contents
 
 
 
-   .. py:attribute:: default_handler
-
-
-   .. py:attribute:: message_logged
-      :value: False
+   .. py:attribute:: count
+      :value: 0
 
 
 
 .. py:class:: json_logger
 
+   .. py:class:: State
+
+      Bases: :py:obj:`StateBase`
+
+
+      dict() -> new empty dictionary
+      dict(mapping) -> new dictionary initialized from a mapping object's
+          (key, value) pairs
+      dict(iterable) -> new dictionary initialized as if via:
+          d = {}
+          for k, v in iterable:
+              d[k] = v
+      dict(**kwargs) -> new dictionary initialized with the name=value pairs
+          in the keyword argument list.  For example:  dict(one=1, two=2)
+
+      Initialize self.  See help(type(self)) for accurate signature.
+
+
+
+   .. py:class:: StateBase
+
+      Bases: :py:obj:`TypedDict`
+
+
+      dict() -> new empty dictionary
+      dict(mapping) -> new dictionary initialized from a mapping object's
+          (key, value) pairs
+      dict(iterable) -> new dictionary initialized as if via:
+          d = {}
+          for k, v in iterable:
+              d[k] = v
+      dict(**kwargs) -> new dictionary initialized with the name=value pairs
+          in the keyword argument list.  For example:  dict(one=1, two=2)
+
+      Initialize self.  See help(type(self)) for accurate signature.
+
+
+      .. py:attribute:: attribute
+         :type:  NotRequired[str | None]
+
+
+      .. py:attribute:: instance
+         :type:  NotRequired[Any]
+
+
+      .. py:attribute:: type
+         :type:  NotRequired[str]
+
+
+
+   .. py:class:: Statement
+
+      Bases: :py:obj:`StateBase`
+
+
+      dict() -> new empty dictionary
+      dict(mapping) -> new dictionary initialized from a mapping object's
+          (key, value) pairs
+      dict(iterable) -> new dictionary initialized as if via:
+          d = {}
+          for k, v in iterable:
+              d[k] = v
+      dict(**kwargs) -> new dictionary initialized with the name=value pairs
+          in the keyword argument list.  For example:  dict(one=1, two=2)
+
+      Initialize self.  See help(type(self)) for accurate signature.
+
+
+      .. py:attribute:: level
+         :type:  str
+
+
+      .. py:attribute:: message
+         :type:  str
+
+
+
    .. py:method:: log(level, message, *args)
 
 
-   .. py:method:: set_state(key: str, value: Any)
+   .. py:method:: set_state(key: StateItem, value: Any) -> None
+
+
+   .. py:type:: StateItem
+      :canonical: Literal['attribute', 'instance', 'type']
+
 
 
    .. py:attribute:: state
+      :type:  json_logger.State
 
 
    .. py:attribute:: statements
-      :value: []
+      :type:  list[json_logger.Statement]
 
 
-
-.. py:class:: log_entry_type
-
-   Bases: :py:obj:`tuple`
-
-
-   .. py:attribute:: attribute
-
-
-   .. py:attribute:: instance
-
-
-   .. py:attribute:: level
-
-
-   .. py:attribute:: message
-
-
-.. py:function:: annotate_inst_attr_pos(inst: ifcopenshell.entity_instance, pos: Union[int, tuple[int, Ellipsis]], entity_str: str = '') -> str
+.. py:function:: annotate_inst_attr_pos(inst: ifcopenshell.entity_instance, pos: Union[int, tuple[int, ...]], entity_str: str = '') -> str
 
    Add a caret annotation to the entity string at the given attribute index.
 
@@ -138,7 +200,7 @@ Module Contents
 
 .. py:function:: format(val: Any) -> str
 
-.. py:function:: get_entity_attributes(schema: schema_definition, entity: str) -> tuple[entity_type, tuple[attribute, Ellipsis]]
+.. py:function:: get_entity_attributes(schema: schema_definition, entity: str) -> tuple[entity_type, tuple[attribute, ...]]
 
 .. py:function:: get_select_members(schema: schema_definition, ty: select_type) -> set[str]
 
@@ -151,7 +213,7 @@ Module Contents
    Recreate IFC header string representation, like FILE_NAME(...)
 
 
-.. py:function:: validate(f: Union[ifcopenshell.file, str], logger: Union[logging.Logger, json_logger], express_rules=False) -> None
+.. py:function:: validate(f: ifcopenshell.file | str | pathlib.Path, logger: logging.Logger | json_logger, express_rules: bool = False) -> None
 
    For an IFC population model `f` (or filepath to such a file) validate whether the entity attribute values are correctly supplied. As this
    is a function that is applied after a file has been parsed, certain types of errors in syntax, duplicate
@@ -193,6 +255,26 @@ Module Contents
 
 .. py:function:: validate_ifc_header(f: Union[ifcopenshell.file, ifcopenshell.simple_spf.file], logger: Union[logging.Logger, json_logger]) -> None
 
+.. py:data:: CARET_LINE_RE
+
+.. py:data:: COLOR_CYAN
+   :value: '\x1b[96m'
+
+
+.. py:data:: COLOR_RED
+   :value: '\x1b[1;91m'
+
+
+.. py:data:: COLOR_RESET
+   :value: '\x1b[0m'
+
+
+.. py:data:: COLOR_YELLOW
+   :value: '\x1b[93m'
+
+
+.. py:data:: INSTANCE_LINE_RE
+
 .. py:data:: aggregation_type
 
 .. py:data:: attribute
@@ -200,7 +282,7 @@ Module Contents
 .. py:data:: attribute_types
 
 .. py:data:: entity_attribute_map
-   :type:  dict[tuple[str, str], tuple[entity_type, tuple[attribute, Ellipsis]]]
+   :type:  dict[tuple[str, str], tuple[entity_type, tuple[attribute, ...]]]
 
 .. py:data:: entity_type
 

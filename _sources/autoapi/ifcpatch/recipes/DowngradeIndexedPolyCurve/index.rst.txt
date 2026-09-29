@@ -23,6 +23,9 @@ Module Contents
    an IFC4 model (IFC2X3 does not have this geometry type) to help
    compatibility in viewers like Navisworks.
 
+   Arc segments (``IfcArcIndex``) are approximated by a chord polyline
+   through ``ARC_SUBDIVISION`` evenly-spaced points along the arc.
+
    Example:
 
        ifcpatch.execute({"input": "input.ifc", "file": model, "recipe": "DowngradeIndexedPolyCurve", "arguments": []})
@@ -35,5 +38,9 @@ Module Contents
 
 
    .. py:attribute:: logger
+
+
+.. py:data:: ARC_SUBDIVISION
+   :value: 16
 
 

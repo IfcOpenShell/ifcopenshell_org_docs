@@ -54,7 +54,7 @@ Module Contents
        )
 
 
-   .. py:method:: add_geometry_row(geometry_id: str, geometry: ifcopenshell.ifcopenshell_wrapper.Triangulation) -> None
+   .. py:method:: add_geometry_row(geometry_id: str, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation) -> None
 
 
    .. py:method:: check_existing_ifc_database() -> None

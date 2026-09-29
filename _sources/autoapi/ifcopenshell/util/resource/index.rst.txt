@@ -41,5 +41,5 @@ Module Contents
 .. py:data:: PRODUCTIVITY_PSET_DATA
 
 .. py:data:: RESOURCES_TO_QUANTITIES
-   :type:  dict[str, tuple[str, Ellipsis]]
+   :type:  dict[str, tuple[str, ...]]
 

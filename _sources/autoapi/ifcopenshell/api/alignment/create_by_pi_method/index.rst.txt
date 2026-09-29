@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: create_by_pi_method(file: ifcopenshell.file, name: str, hpoints: collections.abc.Sequence[collections.abc.Sequence[float]], radii: collections.abc.Sequence[float], vpoints: collections.abc.Sequence[collections.abc.Sequence[float]] = None, lengths: collections.abc.Sequence[float] = None, start_station: float = 0.0) -> ifcopenshell.entity_instance
+.. py:function:: create_by_pi_method(file: ifcopenshell.file, name: str, hpoints: collections.abc.Sequence[collections.abc.Sequence[float]], radii: collections.abc.Sequence[float], vpoints: collections.abc.Sequence[collections.abc.Sequence[float]] = None, lengths: collections.abc.Sequence[float] = None, start_station: Optional[float] = None) -> ifcopenshell.entity_instance
 
    Create an alignment using the PI layout method for both horizontal and vertical alignments.
    If vpoints and lengths are omitted, only a horizontal alignment is created.
@@ -17,6 +17,9 @@ Module Contents
    :param radii: radii values to use for transition
    :param vpoints: (distance_along, Z_height) pairs denoting the location of the vertical PIs, including start and end.
    :param lengths: parabolic vertical curve horizontal length values to use for transition
+   :param start_station: if given, the starting station value. A STATION IfcReferent named
+       "<name> <station string>" is added at distance along 0.0 once the geometry exists. If None
+       (the default), no stationing referent is created and get_alignment_start_station() reports 0.0.
    :return: Returns an IfcAlignment
 
 

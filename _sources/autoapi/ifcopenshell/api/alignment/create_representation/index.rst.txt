@@ -13,8 +13,13 @@ Module Contents
    This function is intended to be used when a model has only the semantic definition of an alignment
    and you want to add the geometric representation.
 
-   If the alignments are complete, it is recommended that add_zero_length_segment is called after this method to ensure
-   the proper structure of the semantic and geometric definitions of the alignment
+   If the alignments are complete, it is recommended that add_zero_length_segment is called before this method to ensure
+   the proper structure of the semantic and geometric definitions of the alignment.
+
+   It is presumed that the alignment does not have any geometric representation. However, if the alignment has stationing defined,
+   the referent defining the stationing is not related to the alignment geometry (it can't be because the geometry doesn't exist yet).
+   When the geometric representation is created, the referent is updated to have an IfcLinearPlacement that references the basis curve geometry.
+   This function assumes the referent defines the stationing at the start of the alignment, and therefore sets the IfcLinearPlacement.RelativePlacement.Location.DistanceAlong to 0.0.
 
    :param alignment: The alignment to create the representation.
 

@@ -279,6 +279,18 @@ Module Contents
       :type:  list[ResultsEntity]
 
 
+   .. py:attribute:: has_omitted_failures
+      :type:  NotRequired[bool]
+
+
+   .. py:attribute:: has_omitted_passes
+      :type:  NotRequired[bool]
+
+
+   .. py:attribute:: instructions
+      :type:  NotRequired[str | None]
+
+
    .. py:attribute:: label
       :type:  str
 
@@ -307,8 +319,24 @@ Module Contents
       :type:  int
 
 
+   .. py:attribute:: total_failed_entities
+      :type:  NotRequired[int]
+
+
+   .. py:attribute:: total_omitted_failures
+      :type:  NotRequired[int]
+
+
+   .. py:attribute:: total_omitted_passes
+      :type:  NotRequired[int]
+
+
    .. py:attribute:: total_pass
       :type:  int
+
+
+   .. py:attribute:: total_passed_entities
+      :type:  NotRequired[int]
 
 
    .. py:attribute:: value
@@ -349,12 +377,24 @@ Module Contents
       :type:  str
 
 
+   .. py:attribute:: has_omitted_applicable
+      :type:  NotRequired[bool]
+
+
+   .. py:attribute:: has_requirements
+      :type:  NotRequired[bool]
+
+
    .. py:attribute:: instructions
       :type:  str
 
 
    .. py:attribute:: is_ifc_version
       :type:  bool
+
+
+   .. py:attribute:: is_prohibited
+      :type:  NotRequired[bool]
 
 
    .. py:attribute:: is_skipped
@@ -405,6 +445,199 @@ Module Contents
       :type:  int
 
 
+   .. py:attribute:: total_omitted_applicable
+      :type:  NotRequired[int]
+
+
+.. py:class:: Sqlite(ids: ifctester.ids.Ids)
+
+   Bases: :py:obj:`Reporter`
+
+
+   Stores audit results in a normalised SQLite database.
+
+   Where `Json` repeats every entity's attributes once per specification and
+   once more per requirement, entities are stored once in the `entity` table
+   and referenced by ID everywhere else. Only failures are stored: a passing
+   check is any applicable entity without a failure row, which the `passed`
+   view derives on demand.
+
+   This keeps reports for large models orders of magnitude smaller, and lets
+   consumers page through results with a query instead of parsing an entire
+   document. Note that `report` is a no-op: rows are written during `to_file`
+   so that no intermediate result tree is ever built.
+
+
+   .. py:method:: get_entity_row(element: ifcopenshell.entity_instance, type_id: Optional[int]) -> tuple
+
+
+   .. py:method:: get_reason_id(reason: str) -> int
+
+
+   .. py:method:: iter_entity_rows(elements: collections.abc.Iterable[ifcopenshell.entity_instance]) -> collections.abc.Iterator[tuple]
+
+      Yield rows for elements not yet written, and for the types they occur as.
+
+
+
+   .. py:method:: report() -> None
+
+      Results are written directly to the database in `to_file`, so that
+      no intermediate result tree is materialised in memory.
+
+
+
+   .. py:method:: to_file(filepath: str) -> None
+
+
+   .. py:method:: to_string() -> str
+      :abstractmethod:
+
+
+
+   .. py:method:: write_meta(db: sqlite3.Connection) -> None
+
+
+   .. py:method:: write_requirement(db: sqlite3.Connection, specification: ifctester.ids.Specification, specification_id: int, requirement: ifctester.facet.Facet, requirement_id: int) -> int
+
+      Write a requirement and its failures. Returns the number of passing checks.
+
+
+
+   .. py:method:: write_specification(db: sqlite3.Connection, specification: ifctester.ids.Specification, specification_id: int, requirement_id: int) -> int
+
+      Write a specification and its requirements. Returns the next free requirement ID.
+
+
+
+   .. py:attribute:: INDEXES
+      :value: Multiline-String
+
+      .. raw:: html
+
+         <details><summary>Show Value</summary>
+
+      .. code-block:: python
+
+         """
+                 CREATE INDEX idx_requirement_specification ON requirement(specification_id);
+                 CREATE INDEX idx_applicability_specification ON applicability(specification_id);
+                 CREATE INDEX idx_applicability_entity ON applicability(entity_id);
+                 CREATE INDEX idx_failure_requirement ON failure(requirement_id);
+                 CREATE INDEX idx_failure_entity ON failure(entity_id);
+             """
+
+      .. raw:: html
+
+         </details>
+
+
+
+
+   .. py:attribute:: SCHEMA
+      :value: Multiline-String
+
+      .. raw:: html
+
+         <details><summary>Show Value</summary>
+
+      .. code-block:: python
+
+         """
+                 CREATE TABLE meta (
+                     key TEXT PRIMARY KEY,
+                     value TEXT  -- All values are stored as text
+                 );
+         
+                 CREATE TABLE entity (
+                     id INTEGER PRIMARY KEY,  -- The IFC STEP ID
+                     global_id TEXT,
+                     class TEXT,
+                     predefined_type TEXT,
+                     name TEXT,
+                     description TEXT,
+                     tag TEXT,
+                     type_id INTEGER REFERENCES entity(id)
+                 );
+         
+                 CREATE TABLE specification (
+                     id INTEGER PRIMARY KEY,
+                     name TEXT,
+                     description TEXT,
+                     instructions TEXT,
+                     cardinality TEXT,
+                     applicability TEXT,  -- One human readable clause per line
+                     status INTEGER,  -- 1 pass, 0 fail, NULL untested
+                     is_ifc_version INTEGER,
+                     is_skipped INTEGER,
+                     total_applicable INTEGER,
+                     total_applicable_pass INTEGER,
+                     total_checks INTEGER,
+                     total_checks_pass INTEGER
+                 );
+         
+                 CREATE TABLE requirement (
+                     id INTEGER PRIMARY KEY,
+                     specification_id INTEGER REFERENCES specification(id),
+                     facet_type TEXT,
+                     label TEXT,
+                     value TEXT,
+                     description TEXT,
+                     instructions TEXT,
+                     metadata TEXT,  -- The facet as JSON
+                     status INTEGER,
+                     total_applicable INTEGER,
+                     total_pass INTEGER,
+                     total_fail INTEGER
+                 );
+         
+                 -- Failure reasons are interned, as the same reason typically applies
+                 -- to thousands of entities.
+                 CREATE TABLE reason (
+                     id INTEGER PRIMARY KEY,
+                     text TEXT
+                 );
+         
+                 CREATE TABLE applicability (
+                     specification_id INTEGER REFERENCES specification(id),
+                     entity_id INTEGER REFERENCES entity(id)
+                 );
+         
+                 CREATE TABLE failure (
+                     requirement_id INTEGER REFERENCES requirement(id),
+                     entity_id INTEGER REFERENCES entity(id),
+                     reason_id INTEGER REFERENCES reason(id)
+                 );
+         
+                 -- Passes are derived, not stored: an applicable entity with no failure.
+                 CREATE VIEW passed AS
+                 SELECT r.id AS requirement_id, a.entity_id AS entity_id
+                 FROM requirement r
+                 JOIN applicability a ON a.specification_id = r.specification_id
+                 LEFT JOIN failure f ON f.requirement_id = r.id AND f.entity_id = a.entity_id
+                 WHERE f.entity_id IS NULL;
+             """
+
+      .. raw:: html
+
+         </details>
+
+
+
+
+   .. py:attribute:: SCHEMA_VERSION
+      :value: 1
+
+
+
+   .. py:attribute:: entity_ids
+      :type:  set[int]
+
+
+   .. py:attribute:: reasons
+      :type:  dict[str, int]
+
+
 .. py:class:: Txt(ids: ifctester.ids.Ids)
 
    Bases: :py:obj:`Console`
@@ -422,6 +655,16 @@ Module Contents
    .. py:attribute:: text
       :value: ''
 
+
+
+.. py:function:: get_cardinality(specification: ifctester.ids.Specification) -> str
+
+.. py:function:: get_requirement_label_value(requirement: ifctester.facet.Facet) -> tuple[Optional[str], str]
+
+   Derive a human readable label and value for a requirement facet.
+
+   Facet attributes may hold a `Restriction` rather than a plain string, so
+   both are coerced to text. Only `PartOf.relation` may legitimately be None.
 
 
 .. py:data:: ResultsEntity

@@ -38,7 +38,11 @@ Module Contents
 
 
       Returns tuple of the format: (Unit, NominalValue)
-      NOTE: Unit fallbacks to None
+
+      NOTE: Unit is the module-level _NO_UNIT sentinel when no Unit was specified at all
+      (bare value, or a dict without a "Unit" key), so that callers can distinguish "leave
+      the existing Unit untouched" from an explicit `{"Unit": None, ...}` (clear the
+      existing Unit override, falling back to the project default).
 
 
 

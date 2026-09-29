@@ -7,9 +7,9 @@
 Module Contents
 ---------------
 
-.. py:class:: iterator(settings: iterator.__init__.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade')
+.. py:class:: iterator(settings: iterator.__init__.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None)
 
-   Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.Iterator`
+   Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.iterator`
 
 
    .. py:method:: get()
@@ -24,17 +24,52 @@ Module Contents
    .. py:attribute:: settings
 
 
+.. py:class:: kernel(settings: kernel.__init__.settings, file: kernel.__init__.file, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger: Optional[ifcopenshell.logger] = None)
+
+   A reusable geometry kernel bound to a (geometry library, file, settings) triple.
+
+   ``ifcopenshell.geom.create_shape`` constructs a new geometry kernel on every
+   call, which repeats the backend resolution (including plugin discovery for
+   hybrid kernels) and discards the mapping and conversion caches afterwards.
+   This class performs that construction once so that converting many products
+   one by one reuses the same kernel, mapping and caches, similar to what
+   ``ifcopenshell.geom.iterator`` does internally.
+
+   The kernel is bound at construction: the settings are copied and the file
+   reference is kept, so later changes to the settings object do not affect an
+   existing kernel and instances passed to :meth:`create_shape` must belong to
+   the bound file.
+
+   Example:
+
+   .. code:: python
+
+       settings = ifcopenshell.geom.settings()
+       k = ifcopenshell.geom.kernel(settings, ifc_file, geometry_library="hybrid-cgal-simple-opencascade")
+       for product in ifc_file.by_type("IfcProduct"):
+           if product.Representation:
+               shape = k.create_shape(product)
+
+
+   .. py:method:: create_shape(inst: ifcopenshell.entity_instance, repr: Optional[ifcopenshell.entity_instance] = None) -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
+
+      Identical to :func:`create_shape` but reuses this kernel across calls.
+
+      See :func:`create_shape` for the possible return types; the settings and
+      geometry library bound at construction are used for every call.
+
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: settings
+
+
+   .. py:attribute:: wrapped
+
+
 .. py:class:: missing_setting
-
-.. py:class:: serializer_settings(**kwargs)
-
-   Bases: :py:obj:`settings_mixin`, :py:obj:`ifcopenshell.ifcopenshell_wrapper.SerializerSettings`
-
-
-   Pythonic interface mixin to the settings modules and
-   to provide an additional setting to enable pythonOCC
-   when available
-
 
 .. py:class:: serializers
 
@@ -43,42 +78,12 @@ Module Contents
 
 
 
-   .. py:method:: obj(out_filename: Union[str, serializers], mtl_filename: Union[str, serializers], geometry_settings: serializers.obj.settings, settings: serializer_settings) -> ifcopenshell.ifcopenshell_wrapper.WaveFrontOBJSerializer
-      :staticmethod:
-
-
-
-   .. py:method:: svg(out_filename: Union[str, serializers], geometry_settings: serializers.svg.settings, settings: serializer_settings) -> ifcopenshell.ifcopenshell_wrapper.SvgSerializer
-      :staticmethod:
-
-
-
-   .. py:method:: ttl(out_filename: Union[str, serializers], geometry_settings: serializers.ttl.settings, settings: serializer_settings) -> ifcopenshell.ifcopenshell_wrapper.SvgSerializer
-      :staticmethod:
-
-
-
    .. py:attribute:: buffer
-
-
-   .. py:attribute:: collada
-
-
-   .. py:attribute:: gltf
-
-
-   .. py:attribute:: hdf5
-
-
-   .. py:attribute:: json
-
-
-   .. py:attribute:: xml
 
 
 .. py:class:: settings(**kwargs)
 
-   Bases: :py:obj:`settings_mixin`, :py:obj:`ifcopenshell.ifcopenshell_wrapper.Settings`
+   Bases: :py:obj:`settings_mixin`, :py:obj:`ifcopenshell.ifcopenshell_wrapper.settings`
 
 
    Pythonic interface mixin to the settings modules and
@@ -112,8 +117,7 @@ Module Contents
 
 
 
-   .. py:method:: get(k: SETTING) -> Any
-                  get(k: SERIALIZER_SETTING) -> Any
+   .. py:method:: get(k: str) -> Any
 
       Return value of the setting named `k`.
 
@@ -121,18 +125,17 @@ Module Contents
 
 
 
-   .. py:method:: name(k: str) -> Union[SETTING, SERIALIZER_SETTING]
+   .. py:method:: name(k: str) -> SETTING
       :staticmethod:
 
 
 
-   .. py:method:: rname(k: Union[SETTING, SERIALIZER_SETTING]) -> str
+   .. py:method:: rname(k: SETTING) -> str
       :staticmethod:
 
 
 
    .. py:method:: set(k: SETTING, v: Any) -> None
-                  set(k: SERIALIZER_SETTING, v: Any) -> None
 
       Set value of the setting named `k` to `v`.
 
@@ -140,11 +143,10 @@ Module Contents
 
 
 
-   .. py:method:: setting_names() -> tuple[SETTING, Ellipsis]
-                  setting_names() -> tuple[SERIALIZER_SETTING, Ellipsis]
+   .. py:method:: setting_names() -> tuple[str, ...]
 
 
-.. py:class:: tree(file: Optional[tree.__init__.file] = None, settings: Optional[tree.__init__.settings] = None)
+.. py:class:: tree(file: Optional[tree.__init__.file] = None, settings: Optional[tree.__init__.settings] = None, backend: str | None = 'opencascade.brep')
 
    Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.tree`
 
@@ -155,13 +157,13 @@ Module Contents
    .. py:method:: add_iterator(iterator: tree.add_iterator.iterator) -> None
 
 
-   .. py:method:: clash_clearance_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], clearance: float = 0.05, check_all: bool = False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, Ellipsis]
+   .. py:method:: clash_clearance_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance], clearance: float = 0.05, check_all: bool = False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, ...]
 
 
-   .. py:method:: clash_collision_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], allow_touching=False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, Ellipsis]
+   .. py:method:: clash_collision_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance], allow_touching=False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, ...]
 
 
-   .. py:method:: clash_intersection_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance.entity_instance], tolerance: float = 0.002, check_all: bool = True) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, Ellipsis]
+   .. py:method:: clash_intersection_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance], tolerance: float = 0.002, check_all: bool = True) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, ...]
 
 
    .. py:method:: get_clash_type(clash_type_i: int) -> ClashType
@@ -174,22 +176,25 @@ Module Contents
 
 
 
-   .. py:method:: select(value: Union[ifcopenshell.entity_instance.entity_instance, ifcopenshell.ifcopenshell_wrapper.BRepElement, tuple[float, float, float], OCC.Core.TopoDS.TopoDS_Shape], **kwargs) -> list[ifcopenshell.entity_instance.entity_instance]
+   .. py:method:: select(value: Union[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.native_element, tuple[float, float, float]], **kwargs) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: select_box(value, **kwargs) -> list[ifcopenshell.entity_instance.entity_instance]
+   .. py:method:: select_box(value, **kwargs) -> list[ifcopenshell.entity_instance]
 
 
-.. py:function:: consume_iterator(it: iterator, with_progress: Literal[False] = False) -> collections.abc.Generator[IteratorOutput, None, None]
-                 consume_iterator(it: iterator, with_progress: Literal[True]) -> collections.abc.Generator[tuple[int, IteratorOutput], None, None]
-                 consume_iterator(it: iterator, with_progress: bool) -> collections.abc.Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
+   .. py:method:: select_ray(origin: collections.abc.Sequence[float], direction: collections.abc.Sequence[float], length: float = 1000.0) -> ifcopenshell.ifcopenshell_wrapper.ray_intersection_results
 
-.. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance.entity_instance, repr: Optional[ifcopenshell.entity_instance.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.Transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
+
+.. py:function:: consume_iterator(it: iterator, with_progress: Literal[False] = False) -> collections.abc.Generator[IteratorOutput]
+                 consume_iterator(it: iterator, with_progress: Literal[True]) -> collections.abc.Generator[tuple[int, IteratorOutput]]
+                 consume_iterator(it: iterator, with_progress: bool) -> collections.abc.Generator[IteratorOutput | tuple[int, IteratorOutput]]
+
+.. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance, repr: Optional[ifcopenshell.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger: Optional[ifcopenshell.logger] = None) -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
 
    Returns a geometric interpretation of the IFC entity instance
 
-   Note that in Python, you must store a reference to the element returned by this function to prevent garbage
-   collection when you access its children. See #1124.
+   The returned element's ``geometry`` keeps a reference to its owning element, so accessing children
+   (e.g. ``create_shape(...).geometry.verts``) no longer requires holding onto the element. See #1124.
 
    :raises RuntimeError: If failed to process shape. You can turn detailed logging to get more details.
 
@@ -202,7 +207,7 @@ Module Contents
 
        - `inst` is IfcProfileDef and `repr` is None -> ShapeType
 
-       - `inst` is IfcPlacement / IfcObjectPlacement -> Transformation
+       - `inst` is IfcPlacement / IfcObjectPlacement -> transformation
 
        - `inst` is IfcTypeProduct and `repr` is None -> None
 
@@ -237,19 +242,21 @@ Module Contents
                    print("Shape creation failed")
 
 
-.. py:function:: iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: Literal[False] = False, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> collections.abc.Generator[IteratorOutput, None, None]
-                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: Literal[True] = True, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> collections.abc.Generator[tuple[int, IteratorOutput], None, None]
-                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance.entity_instance], list[str]]] = None, *, with_progress: bool = False, cache: Optional[str] = None, serializer_settings: Optional[iterate.serializer_settings] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade') -> collections.abc.Generator[Union[IteratorOutput, tuple[int, IteratorOutput]], None, None]
+.. py:function:: has_geometry_library(geometry_library: str) -> bool
+
+   Return whether a geometry kernel library can be loaded.
+
+
+.. py:function:: iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, *, with_progress: Literal[False] = False, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None) -> collections.abc.Generator[IteratorOutput]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, *, with_progress: Literal[True] = True, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None) -> collections.abc.Generator[tuple[int, IteratorOutput]]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, *, with_progress: bool = False, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None) -> collections.abc.Generator[IteratorOutput | tuple[int, IteratorOutput]]
 
    Get a geometry iterator for the provided file.
-
-   :param cache: .h5 cache filepath (might not exist, will be created).
-   :param serializer_settings: Settings for cache serializer. Required if `cache` is provided.
 
 
 .. py:function:: make_shape_function(fn)
 
-.. py:function:: map_shape(settings: map_shape.settings, inst: ifcopenshell.entity_instance.entity_instance) -> ifcopenshell.ifcopenshell_wrapper.item
+.. py:function:: map_shape(settings: map_shape.settings, inst: ifcopenshell.entity_instance) -> ifcopenshell.ifcopenshell_wrapper.item
 
    Returns an interpretation of the geometry encoded as per IfcOpenShell's taxonomy layer.
    In many cases this is somewhat equivalent to the raw IFC data (but schema-agnostic in C++), but
@@ -261,11 +268,9 @@ Module Contents
    (0.0, 0.0, 0.0)
 
 
-.. py:function:: transform_string(v: Union[str, serializers.buffer]) -> serializers.buffer
-
 .. py:function:: wrap_shape_creation(settings, shape)
 
-.. py:function:: wrap_shape_creation(settings: wrap_shape_creation.settings, shape: ifcopenshell.ifcopenshell_wrapper.Element)
+.. py:function:: wrap_shape_creation(settings: wrap_shape_creation.settings, shape: ifcopenshell.ifcopenshell_wrapper.element)
 
 .. py:data:: CLASH_TYPE_ITEMS
    :value: ('protrusion', 'pierce', 'collision', 'clearance')
@@ -277,8 +282,6 @@ Module Contents
 
 .. py:data:: IteratorOutput
 
-.. py:data:: SERIALIZER_SETTING
-
 .. py:data:: SETTING
 
 .. py:data:: ShapeElementType
@@ -286,8 +289,4 @@ Module Contents
 .. py:data:: ShapeType
 
 .. py:data:: T
-
-.. py:data:: serialise
-
-.. py:data:: tesselate
 

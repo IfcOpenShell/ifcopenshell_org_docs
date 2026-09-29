@@ -7,7 +7,7 @@
 Module Contents
 ---------------
 
-.. py:function:: add_context_dependent_unit(file: ifcopenshell.file, unit_type: str = 'USERDEFINED', name: str = 'THINGAMAJIG', dimensions: tuple[int, int, int, int, int, int, int] = (0, 0, 0, 0, 0, 0, 0)) -> ifcopenshell.entity_instance
+.. py:function:: add_context_dependent_unit(file: ifcopenshell.file, unit_type: str = 'USERDEFINED', name: str = 'THINGAMAJIG', dimensions: ifcopenshell.util.unit.DimensionalExponents = (0, 0, 0, 0, 0, 0, 0)) -> ifcopenshell.entity_instance
 
    Add a new arbitrary unit that can only be interpreted in a project specific context
 

@@ -30,7 +30,9 @@ Module Contents
        si_meters / unit_scale = ifc_project_length
 
    :param ifc_file: The IFC file.
-   :param unit_type: The type of SI unit, defaults to "LENGTHUNIT"
+   :param unit_type: The type of SI unit, defaults to "LENGTHUNIT". This may
+       also be an IfcDerivedUnitEnum value (e.g. "MASSDENSITYUNIT") to
+       support project units defined as an IfcDerivedUnit.
    :returns: The scale factor
 
 
@@ -93,6 +95,45 @@ Module Contents
    :returns: The formatted string, such as 1' - 5 1/2".
 
 
+.. py:function:: get_candidate_units(ifc_file: ifcopenshell.file, unit_type: str) -> list[ifcopenshell.entity_instance]
+
+   Get all units in the file usable as an override for `unit_type`.
+
+   Unlike :func:`get_project_unit`, this returns every matching unit defined
+   in the file (e.g. both an mm and an m IfcSIUnit might be present), not
+   just the one currently assigned as the project default.
+
+   IfcDerivedUnit is matched first by a literal `UnitType` match, then, as a
+   fallback, by dimensional analysis (:func:`identify_unit_dimensions`) --
+   that fallback only helps for the dimension families covered by
+   `named_dimensions` (the core `IfcUnitEnum` types); it won't match e.g.
+   `"MODULUSOFELASTICITYUNIT"` by dimension alone, only by literal `UnitType`.
+
+   :param ifc_file: The IFC file.
+   :param unit_type: The type of unit, taken from the list of IFC unit
+       types, such as "LENGTHUNIT", or an IfcDerivedUnitEnum value such as
+       "MODULUSOFELASTICITYUNIT".
+   :return: All matching IfcNamedUnit / IfcDerivedUnit entities in the file.
+
+
+.. py:function:: get_derived_unit_scale(unit: ifcopenshell.entity_instance) -> float
+
+   Get the scale factor to convert a value in an IfcDerivedUnit to SI units.
+
+   :param unit: The IfcDerivedUnit.
+   :returns: The scale factor.
+
+
+.. py:function:: get_derived_unit_symbol(unit: ifcopenshell.entity_instance) -> str
+
+   Compose a unit symbol for an IfcDerivedUnit from its elements.
+
+   E.g. a derived unit of NEWTON / SQUARE_METRE composes to "N/m2".
+
+   :param unit: The IfcDerivedUnit.
+   :return: The composed symbol.
+
+
 .. py:function:: get_full_unit_name(unit: ifcopenshell.entity_instance) -> str
 
 .. py:function:: get_measure_unit_type(measure_class: MEASURE_CLASS) -> str
@@ -112,7 +153,19 @@ Module Contents
    :return: The unit type, as an uppercase value of IfcUnitEnum.
 
 
-.. py:function:: get_named_dimensions(name)
+.. py:function:: get_named_dimensions(name: str) -> DimensionalExponents
+
+.. py:function:: get_named_unit_scale(unit: ifcopenshell.entity_instance) -> float
+
+   Get the scale factor to convert a value in a named unit to SI units.
+
+   Supports IfcSIUnit and IfcConversionBasedUnit (including chains of
+   conversion-based units). Does not support IfcDerivedUnit -- see
+   :func:`get_derived_unit_scale` for that.
+
+   :param unit: The IfcNamedUnit.
+   :returns: The scale factor.
+
 
 .. py:function:: get_prefix(text)
 
@@ -121,6 +174,10 @@ Module Contents
 .. py:function:: get_project_unit(ifc_file: ifcopenshell.file, unit_type: str, use_cache: bool = False) -> Union[ifcopenshell.entity_instance, None]
 
    Get the default project unit of a particular unit type
+
+   IfcDerivedUnit is matched first by a literal `UnitType` match, then, as a fallback, by
+   dimensional analysis (:func:`identify_unit_dimensions`), mirroring
+   :func:`get_candidate_units`.
 
    :param ifc_file: The IFC file.
    :param unit_type: The type of unit, taken from the list of IFC unit types,
@@ -166,13 +223,25 @@ Module Contents
        unit defined.
 
 
-.. py:function:: get_si_dimensions(name)
+.. py:function:: get_si_dimensions(name: str) -> DimensionalExponents
 
 .. py:function:: get_symbol_measure_class(symbol: Optional[str] = None) -> MEASURE_CLASS
 
 .. py:function:: get_symbol_quantity_class(symbol: Optional[str] = None) -> QUANTITY_CLASS
 
 .. py:function:: get_unit_assignment(ifc_file: ifcopenshell.file) -> Union[ifcopenshell.entity_instance, None]
+
+.. py:function:: get_unit_dimensions(unit: ifcopenshell.entity_instance) -> DimensionalExponents
+
+   Get the dimensional exponents of a unit, per IfcDimensionalExponents.
+
+   Supports IfcSIUnit, IfcConversionBasedUnit, IfcContextDependentUnit, and
+   IfcDerivedUnit (composed recursively from its elements).
+
+   :param unit: The unit to inspect.
+   :return: A 7-tuple of (Length, Mass, Time, ElectricCurrent,
+       ThermodynamicTemperature, AmountOfSubstance, LuminousIntensity).
+
 
 .. py:function:: get_unit_measure_class(unit_type: str) -> MEASURE_CLASS
 
@@ -199,11 +268,50 @@ Module Contents
    Can be used to provide units for `convert()`
 
 
+.. py:function:: get_unit_scale(unit: ifcopenshell.entity_instance) -> float
+
+   Get the scale factor to convert a value in `unit` to SI units.
+
+   Dispatches to :func:`get_derived_unit_scale` for IfcDerivedUnit, or
+   :func:`get_named_unit_scale` otherwise (IfcSIUnit / IfcConversionBasedUnit,
+   including chains).
+
+   :param unit: The unit to get the scale factor for.
+   :returns: The scale factor.
+
+
 .. py:function:: get_unit_symbol(unit: ifcopenshell.entity_instance) -> str
+
+.. py:function:: identify_unit_dimensions(unit: ifcopenshell.entity_instance) -> Union[str, None]
+
+   Identify which named IfcUnitEnum type a unit's dimensions correspond to.
+
+   This is mainly useful for an IfcDerivedUnit that has no named
+   IfcDerivedUnitEnum match for its measure type, allowing it to still be
+   recognised as, e.g., a pressure unit by dimensional analysis alone.
+
+   Note that dimensionless quantities (e.g. plane angle, solid angle, or a
+   genuinely unitless value) are dimensionally indistinguishable, so this
+   heuristically returns the first zero-dimension match rather than
+   disambiguating them.
+
+   :param unit: The unit to identify.
+   :return: An uppercase IfcUnitEnum value, or None if no named type shares
+       the same dimensions.
+
 
 .. py:function:: is_attr_type(content_type: ifcopenshell.ifcopenshell_wrapper.parameter_type, ifc_unit_type_name: str, include_select_types: bool = True) -> Union[ifcopenshell.ifcopenshell_wrapper.type_declaration, None]
 
 .. py:function:: iter_element_and_attributes_per_type(ifc_file: ifcopenshell.file, attr_type_name: str) -> collections.abc.Generator[tuple[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.attribute, Union[FloatOrSequenceOfFloats, ifcopenshell.entity_instance]], None, None]
+
+.. py:function:: mm_to_m(value: float) -> float
+
+   Convert a millimetre value to metres.
+
+
+.. py:type:: DimensionalExponents
+   :canonical: tuple[int, int, int, int, int, int, int]
+
 
 .. py:data:: FloatOrSequenceOfFloats
 
@@ -214,6 +322,7 @@ Module Contents
 .. py:data:: imperial_types
 
 .. py:data:: named_dimensions
+   :type:  dict[str, DimensionalExponents]
 
 .. py:data:: prefix_symbols
 
@@ -222,6 +331,7 @@ Module Contents
 .. py:data:: si_conversions
 
 .. py:data:: si_dimensions
+   :type:  dict[str, DimensionalExponents]
 
 .. py:data:: si_offsets
 

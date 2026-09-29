@@ -44,12 +44,6 @@ Module Contents
 
 
 
-   .. py:attribute:: cache
-      :type:  bool
-      :value: False
-
-
-
    .. py:attribute:: cells
       :type:  bool
       :value: True
@@ -205,7 +199,7 @@ Module Contents
    .. py:attribute:: value
 
 
-.. py:function:: main(settings: draw_settings, files: list[ifcopenshell.file], iterators: collections.abc.Sequence[ifcopenshell.geom.iterator] = (), merge_projection: bool = True, progress_function: collections.abc.Callable = DO_NOTHING)
+.. py:function:: main(settings: draw_settings, files: list[ifcopenshell.file], iterators: collections.abc.Sequence[ifcopenshell.geom.iterator] = (), merge_projection: bool = True, progress_function: collections.abc.Callable = DO_NOTHING, logger=None)
 
 .. py:data:: ARRANGE_POLYGON_SETTINGS
 

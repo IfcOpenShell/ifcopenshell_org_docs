@@ -7,228 +7,6 @@
 Module Contents
 ---------------
 
-.. py:class:: BRep(settings, entity, id, shapes)
-
-   Bases: :py:obj:`Representation`
-
-
-   .. py:method:: as_compound(force_meters=False)
-
-
-   .. py:method:: begin()
-
-
-   .. py:method:: calculate_projected_surface_area(ax, along_x, along_y, along_z)
-
-
-   .. py:method:: calculate_surface_area(arg2)
-
-
-   .. py:method:: calculate_volume(arg2)
-
-
-   .. py:method:: end()
-
-
-   .. py:method:: item(i)
-
-
-   .. py:method:: item_id(i)
-
-
-   .. py:method:: shapes()
-
-
-   .. py:method:: size()
-
-
-.. py:class:: BRepElement(id, parent_id, name, type, guid, context, trsf, geometry, product)
-
-   Bases: :py:obj:`Element`
-
-
-   .. py:method:: calculate_projected_surface_area(along_x, along_y, along_z)
-
-
-   .. py:method:: geometry_pointer()
-
-
-   .. py:property:: geometry
-      :type: BRep
-
-
-
-   .. py:property:: surface_area
-
-
-   .. py:property:: volume
-
-
-.. py:class:: ColladaSerializer(dae_filename, geometry_settings, settings)
-
-   Bases: :py:obj:`WriteOnlyGeometrySerializer`
-
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: isTesselated()
-
-
-   .. py:method:: object_id(o)
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: setFile(arg2)
-
-
-   .. py:method:: setUnitNameAndMagnitude(name, magnitude)
-
-
-   .. py:method:: write(*args)
-
-
-   .. py:method:: writeHeader()
-
-
-.. py:class:: ConversionResult(*args)
-
-   .. py:method:: ItemId()
-
-
-   .. py:method:: Placement()
-
-
-   .. py:method:: Shape()
-
-
-   .. py:method:: Style()
-
-
-   .. py:method:: StylePtr()
-
-
-   .. py:method:: append(trsf)
-
-
-   .. py:method:: apply_transform(unit_scale=1.0)
-
-
-   .. py:method:: hasStyle()
-
-
-   .. py:method:: prepend(trsf)
-
-
-   .. py:method:: setStyle(newStyle)
-
-
-.. py:class:: ConversionResultShape(*args, **kwargs)
-
-   .. py:method:: Serialize(place, arg3)
-
-
-   .. py:method:: Triangulate(*args)
-
-
-   .. py:method:: add(arg2)
-
-
-   .. py:method:: area()
-
-
-   .. py:method:: axis()
-
-
-   .. py:method:: bounding_box(*args)
-
-
-   .. py:method:: box()
-
-
-   .. py:method:: concat(arg2)
-
-
-   .. py:method:: convex_decomposition()
-
-
-   .. py:method:: convex_tag(b)
-
-
-   .. py:method:: edges()
-
-
-   .. py:method:: facets()
-
-
-   .. py:method:: halfspaces()
-
-
-   .. py:method:: intersect(arg2)
-
-
-   .. py:method:: is_manifold()
-
-
-   .. py:method:: length()
-
-
-   .. py:method:: map(*args)
-
-
-   .. py:method:: moved(arg2)
-
-
-   .. py:method:: num_edges()
-
-
-   .. py:method:: num_faces()
-
-
-   .. py:method:: num_vertices()
-
-
-   .. py:method:: plane_equation()
-
-
-   .. py:method:: position()
-
-
-   .. py:method:: serialize()
-
-
-   .. py:method:: serialize_obj()
-
-
-   .. py:method:: set_box(b)
-
-
-   .. py:method:: solid()
-
-
-   .. py:method:: solid_mt()
-
-
-   .. py:method:: subtract(arg2)
-
-
-   .. py:method:: surface_area_along_direction(tol, arg3, along_x, along_y, along_z)
-
-
-   .. py:method:: surface_genus()
-
-
-   .. py:method:: vertices()
-
-
-   .. py:method:: volume()
-
-
-   .. py:method:: wrap_in_compound()
-
-
 .. py:class:: DoubleArray3(*args)
 
    .. py:method:: back()
@@ -264,400 +42,39 @@ Module Contents
    .. py:method:: swap(v)
 
 
-.. py:class:: Element(settings, id, parent_id, name, type, guid, context, trsf, product)
+.. py:class:: DoubleArray3x2(*args)
 
-   .. py:method:: SetParents(newparents)
+   .. py:method:: back()
 
 
-   .. py:method:: parents()
+   .. py:method:: begin()
 
 
-   .. py:property:: context
-      :type: str
+   .. py:method:: empty()
 
 
-      Element's geometry context.
+   .. py:method:: end()
 
-      E.g 'Body':
 
+   .. py:method:: fill(u)
 
 
-   .. py:property:: guid
-      :type: str
+   .. py:method:: front()
 
 
-      Mirroring IfcRoot.GlobalId.
+   .. py:method:: iterator()
 
 
+   .. py:method:: rbegin()
 
-   .. py:property:: id
-      :type: int
 
+   .. py:method:: rend()
 
-      Element's STEP ID.
 
+   .. py:method:: size()
 
 
-   .. py:property:: name
-      :type: str
-
-
-      Mirroring IfcRoot.Name.
-
-
-
-   .. py:property:: parent_id
-      :type: int
-
-
-      Parent object STEP id.
-
-      E.g. IfcBuildingStorey that element's in.
-
-
-
-   .. py:property:: product
-      :type: entity_instance
-
-
-
-   .. py:property:: transformation
-      :type: Transformation
-
-
-
-   .. py:property:: transformation_buffer
-      :type: bytes
-
-
-
-   .. py:property:: type
-      :type: str
-
-
-      Element's IFC Class.
-
-      E.g. 'IfcWall'.
-
-
-
-   .. py:property:: unique_id
-      :type: str
-
-
-      Interal unique id for the element.
-
-      E.g. 'product-186f8dc2-070c-46e1-a65b-a435a043ba3e-body'.
-
-
-
-.. py:class:: GeometrySerializer(*args, **kwargs)
-
-   .. py:method:: geometry_settings(*args)
-
-
-   .. py:method:: isTesselated()
-
-
-   .. py:method:: object_id(o)
-
-
-   .. py:method:: read(*args)
-
-
-   .. py:method:: setUnitNameAndMagnitude(name, magnitude)
-
-
-   .. py:method:: settings(*args)
-
-
-   .. py:method:: write(*args)
-
-
-   .. py:attribute:: READ_BREP
-      :type:  Any
-
-
-   .. py:attribute:: READ_TRIANGULATION
-      :type:  Any
-
-
-.. py:class:: GltfSerializer(filename, geometry_settings, settings)
-
-   Bases: :py:obj:`WriteOnlyGeometrySerializer`
-
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: isTesselated()
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: setFile(arg2)
-
-
-   .. py:method:: setUnitNameAndMagnitude(arg2, arg3)
-
-
-   .. py:method:: write(*args)
-
-
-   .. py:method:: writeHeader()
-
-
-.. py:class:: HdfSerializer(hdf_filename, geometry_settings, settings, read_only=False)
-
-   Bases: :py:obj:`GeometrySerializer`
-
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: isTesselated()
-
-
-   .. py:method:: read(*args)
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: remove(guid: str) -> None
-
-
-   .. py:method:: setFile(arg2)
-
-
-   .. py:method:: setUnitNameAndMagnitude(arg2, arg3)
-
-
-   .. py:method:: write(*args)
-
-
-   .. py:method:: writeHeader()
-
-
-.. py:class:: IfcBaseEntity(*args, **kwargs)
-
-   Bases: :py:obj:`entity_instance`
-
-
-   .. py:method:: declaration()
-
-
-   .. py:method:: get(name)
-
-
-   .. py:method:: get_inverse(name)
-
-
-   .. py:method:: populate_derived()
-
-
-   .. py:method:: set_id(i)
-
-
-.. py:class:: IfcBaseType(*args, **kwargs)
-
-   Bases: :py:obj:`entity_instance`
-
-
-   .. py:method:: declaration()
-
-
-.. py:class:: IfcEntityInstanceData(*args, **kwargs)
-
-.. py:class:: IfcLateBoundEntity(decl, data)
-
-   Bases: :py:obj:`IfcBaseEntity`
-
-
-   .. py:method:: declaration()
-
-
-.. py:class:: IfcSpfHeader(*args)
-
-   IFC Header definition:
-   https://standards.buildingsmart.org/documents/Implementation/ImplementationGuide_IFCHeaderData_Version_1.0.2.pdf
-
-
-   .. py:method:: file(*args)
-
-
-   .. py:method:: file_description_py()
-
-
-   .. py:method:: file_name_py()
-
-
-   .. py:method:: file_schema_py()
-
-
-   .. py:method:: read()
-
-
-   .. py:method:: tryRead()
-
-
-   .. py:method:: write(out)
-
-
-.. py:class:: InstanceStreamer(*args)
-
-   .. py:method:: bypassTypes(type_names)
-
-
-   .. py:method:: bypassed_instances()
-
-
-   .. py:method:: hasSemicolon()
-
-
-   .. py:method:: inverses(*args)
-
-
-   .. py:method:: pushPage(page)
-
-
-   .. py:method:: readInstancePy(type_as_declaration_instance=False)
-
-
-   .. py:method:: references(*args)
-
-
-   .. py:method:: semicolonCount()
-
-
-   .. py:method:: status()
-
-
-   .. py:attribute:: coerce_attribute_count
-      :type:  bool
-
-
-.. py:class:: Iterator(*args)
-
-   .. py:method:: bounds_max()
-
-
-   .. py:method:: bounds_min()
-
-
-   .. py:method:: compute_bounds(with_geometry)
-
-
-   .. py:method:: create()
-
-
-   .. py:method:: file()
-
-
-   .. py:method:: filters(*args)
-
-
-   .. py:method:: get() -> Element
-
-      Get last processed element.
-
-
-
-   .. py:method:: getLog()
-
-
-   .. py:method:: get_native()
-
-
-   .. py:method:: get_object(id)
-
-
-   .. py:method:: get_task_items()
-
-
-   .. py:method:: get_task_products()
-
-
-   .. py:method:: had_error_processing_elements()
-
-
-   .. py:method:: initialize() -> bool
-
-      Return true if the iterator is initialized with any elements, false otherwise.
-
-
-
-   .. py:method:: next() -> Union[entity_instance, None]
-
-      Process next shape representation.
-
-      :return: Processed ``entity_instance`` or ``None`` if nothing is left to process.
-
-
-
-
-   .. py:method:: process_concurrently()
-
-
-   .. py:method:: process_finished_rep(rep)
-
-
-   .. py:method:: progress() -> int
-
-      Return current progress (0-100).
-
-      Updated after processing each representation.
-
-
-
-   .. py:method:: set_cache(cache: Union[GeometrySerializer, None]) -> None
-
-
-   .. py:method:: unit_magnitude()
-
-
-   .. py:method:: unit_name()
-
-
-   .. py:attribute:: initialization_outcome_
-      :type:  Any
-
-
-   .. py:attribute:: processed_
-      :type:  Any
-
-
-.. py:class:: JsonSerializer(*args)
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: setFile(arg2)
-
-
-   .. py:method:: writeHeader()
-
-
-   .. py:attribute:: JSON_DIALECT_CREOOX
-      :type:  Any
-
-
-.. py:class:: MakeVolume
-
-   .. py:attribute:: defaultvalue
-      :type:  Any
-
-
-   .. py:attribute:: description
-      :type:  Any
-
-
-   .. py:attribute:: name
-      :type:  Any
+   .. py:method:: swap(v)
 
 
 .. py:class:: OpaqueCoordinate_3(*args)
@@ -665,7 +82,16 @@ Module Contents
    .. py:method:: get(i)
 
 
+   .. py:method:: get_double(i)
+
+
    .. py:method:: set(i, n)
+
+
+   .. py:method:: size()
+
+
+   .. py:method:: to_double()
 
 
 .. py:class:: OpaqueCoordinate_4(*args)
@@ -673,36 +99,16 @@ Module Contents
    .. py:method:: get(i)
 
 
+   .. py:method:: get_double(i)
+
+
    .. py:method:: set(i, n)
 
 
-.. py:class:: OpaqueNumber(*args, **kwargs)
-
-   .. py:method:: clone()
+   .. py:method:: size()
 
 
    .. py:method:: to_double()
-
-
-   .. py:method:: to_string()
-
-
-.. py:class:: Representation(settings, entity, id)
-
-   .. py:method:: entity()
-
-
-   .. py:method:: settings()
-
-
-   .. py:property:: id
-      :type: str
-
-
-      Example: `2432-openings-2468`, where
-      - 2432 - mapped representation id
-      - 2468 - IfcRelVoidsElement
-
 
 
 .. py:class:: RocksDBPrefixIterator(storage, prefix)
@@ -724,6 +130,9 @@ Module Contents
    .. py:method:: finalize() -> None
 
 
+   .. py:method:: is_streaming() -> bool
+
+
    .. py:method:: ready() -> bool
 
 
@@ -731,249 +140,6 @@ Module Contents
 
 
    .. py:method:: writeHeader() -> None
-
-
-.. py:class:: Serialization(brep)
-
-   Bases: :py:obj:`Representation`
-
-
-   .. py:property:: brep_data
-
-
-   .. py:property:: surface_style_ids
-
-
-   .. py:property:: surface_styles
-
-
-.. py:class:: SerializedElement(shape_model)
-
-   Bases: :py:obj:`Element`
-
-
-   .. py:property:: geometry
-      :type: Serialization
-
-
-
-.. py:class:: SerializerSettings
-
-   .. py:method:: get_(name)
-
-
-   .. py:method:: get_type(name)
-
-
-   .. py:method:: set_(*args)
-
-
-   .. py:method:: setting_names()
-
-
-.. py:class:: Settings
-
-   .. py:method:: get_(name)
-
-
-   .. py:method:: get_type(name)
-
-
-   .. py:method:: set_(*args)
-
-
-   .. py:method:: setting_names()
-
-
-.. py:class:: SvgSerializer(out_filename, geometry_settings, settings)
-
-   Bases: :py:obj:`WriteOnlyGeometrySerializer`
-
-
-   .. py:method:: addDrawing(pos, dir, ref, name, include_projection)
-
-
-   .. py:method:: addSizeComponent(fi)
-
-
-   .. py:method:: addTextAnnotations(k)
-
-
-   .. py:method:: addXCoordinate(fi)
-
-
-   .. py:method:: addYCoordinate(fi)
-
-
-   .. py:method:: doWriteHeader()
-
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: getMirrorX()
-
-
-   .. py:method:: getMirrorY()
-
-
-   .. py:method:: getOnlyValid(b)
-
-
-   .. py:method:: getProfileThreshold()
-
-
-   .. py:method:: getSegmentProjection()
-
-
-   .. py:method:: getSubtractionSettings()
-
-
-   .. py:method:: getUnifyInputs()
-
-
-   .. py:method:: getUsePrefiltering()
-
-
-   .. py:method:: growBoundingBox(x, y)
-
-
-   .. py:method:: idElement(elem)
-
-
-   .. py:method:: isTesselated()
-
-
-   .. py:method:: nameElement(*args)
-
-
-   .. py:method:: object_id(storey, o)
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: resetScale()
-
-
-   .. py:method:: resize()
-
-
-   .. py:method:: setAlwaysProject(b)
-
-
-   .. py:method:: setAutoElevation(b)
-
-
-   .. py:method:: setAutoSection(b)
-
-
-   .. py:method:: setBoundingRectangle(width, height)
-
-
-   .. py:method:: setDrawDoorArcs(b)
-
-
-   .. py:method:: setDrawStoreyHeights(sh)
-
-
-   .. py:method:: setDrawingCenter(x, y)
-
-
-   .. py:method:: setElevationRef(s)
-
-
-   .. py:method:: setElevationRefGuid(s)
-
-
-   .. py:method:: setFile(f)
-
-
-   .. py:method:: setMirrorX(b)
-
-
-   .. py:method:: setMirrorY(b)
-
-
-   .. py:method:: setNoCSS(b)
-
-
-   .. py:method:: setOnlyValid(b)
-
-
-   .. py:method:: setPolygonal(b)
-
-
-   .. py:method:: setPrintSpaceAreas(b)
-
-
-   .. py:method:: setPrintSpaceNames(b)
-
-
-   .. py:method:: setProfileThreshold(i)
-
-
-   .. py:method:: setScale(s)
-
-
-   .. py:method:: setSectionHeight(h, storey=None)
-
-
-   .. py:method:: setSectionHeightsFromStoreys(offset=1.2)
-
-
-   .. py:method:: setSectionRef(s)
-
-
-   .. py:method:: setSegmentProjection(b)
-
-
-   .. py:method:: setSpaceNameTransform(v)
-
-
-   .. py:method:: setStoreyHeightLineLength(d)
-
-
-   .. py:method:: setSubtractionSettings(sbp)
-
-
-   .. py:method:: setUnifyInputs(b)
-
-
-   .. py:method:: setUnitNameAndMagnitude(arg2, arg3)
-
-
-   .. py:method:: setUseHlrPoly(b)
-
-
-   .. py:method:: setUseNamespace(b)
-
-
-   .. py:method:: setUsePrefiltering(b)
-
-
-   .. py:method:: setWithoutStoreys(b)
-
-
-   .. py:method:: start_path(*args)
-
-
-   .. py:method:: write(*args)
-
-
-   .. py:method:: writeHeader()
-
-
-   .. py:attribute:: SH_FULL
-      :type:  Any
-
-
-   .. py:attribute:: SH_LEFT
-      :type:  Any
-
-
-   .. py:attribute:: SH_NONE
-      :type:  Any
 
 
 .. py:class:: SwigPyIterator(*args, **kwargs)
@@ -1003,253 +169,6 @@ Module Contents
 
 
    .. py:method:: value()
-
-
-.. py:class:: Transformation(settings, matrix)
-
-   .. py:method:: data()
-
-
-   .. py:property:: matrix
-
-
-.. py:class:: Triangulation(*args)
-
-   Bases: :py:obj:`Representation`
-
-
-   .. py:method:: addEdge(item_id, style, i0, i1)
-
-
-   .. py:method:: addFace(*args)
-
-
-   .. py:method:: addNormal(X, Y, Z)
-
-
-   .. py:method:: addVertex(item_index, material_index, X, Y, Z)
-
-
-   .. py:method:: box_project_uvs(vertices, normals)
-      :staticmethod:
-
-
-
-   .. py:method:: empty(settings)
-      :staticmethod:
-
-
-
-   .. py:method:: registerEdge(item_id, i0, i1)
-
-
-   .. py:method:: registerEdgeCount(n1, n2, edgecount)
-
-
-   .. py:method:: resetWelds()
-
-
-   .. py:method:: uvs_ref()
-
-
-   .. py:property:: colors_buffer
-
-
-   .. py:property:: edges
-      :type: tuple[int, Ellipsis]
-
-
-
-   .. py:property:: edges_buffer
-      :type: bytes
-
-
-
-   .. py:property:: edges_item_ids
-      :type: tuple[int, Ellipsis]
-
-
-
-   .. py:property:: edges_item_ids_buffer
-      :type: bytes
-
-
-
-   .. py:property:: faces
-      :type: tuple[int, Ellipsis]
-
-
-
-   .. py:property:: faces_buffer
-      :type: bytes
-
-
-
-   .. py:property:: faces_tri
-      :type: tuple[int, Ellipsis]
-
-
-
-   .. py:property:: item_ids
-      :type: tuple[int, Ellipsis]
-
-
-
-   .. py:property:: item_ids_buffer
-      :type: bytes
-
-
-
-   .. py:property:: material_ids
-      :type: tuple[int, Ellipsis]
-
-
-
-   .. py:property:: material_ids_buffer
-      :type: bytes
-
-
-
-   .. py:property:: materials
-      :type: tuple[style, Ellipsis]
-
-
-
-   .. py:property:: normals
-
-
-   .. py:property:: normals_buffer
-      :type: bytes
-
-
-
-   .. py:property:: polyhedral_faces_with_holes
-
-
-   .. py:property:: polyhedral_faces_without_holes
-
-
-   .. py:property:: uvs
-
-
-   .. py:property:: verts
-      :type: tuple[float, Ellipsis]
-
-
-
-   .. py:property:: verts_buffer
-      :type: bytes
-
-
-
-.. py:class:: TriangulationElement(*args)
-
-   Bases: :py:obj:`Element`
-
-
-   .. py:method:: geometry_pointer()
-
-
-   .. py:property:: geometry
-      :type: Triangulation
-
-
-
-.. py:class:: TtlWktSerializer(filename, geometry_settings, settings)
-
-   Bases: :py:obj:`WriteOnlyGeometrySerializer`
-
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: isTesselated()
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: setFile(arg2)
-
-
-   .. py:method:: setUnitNameAndMagnitude(arg2, arg3)
-
-
-   .. py:method:: ttl_object_id(o, postfix=None)
-
-
-   .. py:method:: write(*args)
-
-
-   .. py:method:: writeHeader()
-
-
-.. py:class:: WaveFrontOBJSerializer(obj_filename, mtl_filename, geometry_settings, settings)
-
-   Bases: :py:obj:`WriteOnlyGeometrySerializer`
-
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: isTesselated()
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: setFile(arg2)
-
-
-   .. py:method:: setUnitNameAndMagnitude(arg2, arg3)
-
-
-   .. py:method:: write(*args)
-
-
-   .. py:method:: writeHeader()
-
-
-   .. py:method:: writeMaterial(style)
-
-
-.. py:class:: WriteOnlyGeometrySerializer(*args, **kwargs)
-
-   Bases: :py:obj:`GeometrySerializer`
-
-
-   .. py:method:: read(*args)
-
-
-.. py:class:: XmlSerializer(file, xml_filename)
-
-   .. py:method:: finalize()
-
-
-   .. py:method:: ready()
-
-
-   .. py:method:: setFile(arg2)
-
-
-   .. py:method:: writeHeader()
-
-
-.. py:class:: abstract_arrangement(*args, **kwargs)
-
-   .. py:method:: get_face_pairs()
-
-
-   .. py:method:: merge(edge_indices)
-
-
-   .. py:method:: num_edges()
-
-
-   .. py:method:: num_faces()
-
-
-   .. py:method:: write(polygons, progress)
 
 
 .. py:class:: aggregation_type(type_of_aggregation, bound1, bound2, type_of_element)
@@ -1289,6 +208,36 @@ Module Contents
 
    .. py:attribute:: set_type
       :type:  Any
+
+
+.. py:class:: arrange_polygon_settings
+
+   .. py:attribute:: debug_output
+      :type:  bool
+
+
+   .. py:attribute:: line_cleaning_algo
+      :type:  int
+
+
+   .. py:attribute:: outer_perimiter_algo
+      :type:  int
+
+
+   .. py:attribute:: perform_cleanup
+      :type:  bool
+
+
+   .. py:attribute:: polygon_offset_distance
+      :type:  float
+
+
+   .. py:attribute:: subdivision_factor
+      :type:  float
+
+
+   .. py:attribute:: topology_reconstruction_algo
+      :type:  int
 
 
 .. py:class:: attribute(name, type_of_attribute, optional)
@@ -1635,6 +584,142 @@ Module Contents
    .. py:method:: write(arg2)
 
 
+.. py:class:: conversion_result(*args)
+
+   .. py:method:: ItemId()
+
+
+   .. py:method:: append(trsf)
+
+
+   .. py:method:: apply_transform(unit_scale=1.0)
+
+
+   .. py:method:: hasStyle()
+
+
+   .. py:method:: placement()
+
+
+   .. py:method:: prepend(trsf)
+
+
+   .. py:method:: setStyle(newStyle)
+
+
+   .. py:method:: shape() -> conversion_result_shape
+
+
+   .. py:method:: style()
+
+
+   .. py:method:: style_ptr()
+
+
+.. py:class:: conversion_result_shape(*args, **kwargs)
+
+   .. py:method:: add(arg2)
+
+
+   .. py:method:: area()
+
+
+   .. py:method:: axis()
+
+
+   .. py:method:: backend_id() -> str
+
+
+   .. py:method:: bounding_box(*args)
+
+
+   .. py:method:: box()
+
+
+   .. py:method:: concat(arg2)
+
+
+   .. py:method:: convex_decomposition()
+
+
+   .. py:method:: convex_tag(b)
+
+
+   .. py:method:: edges()
+
+
+   .. py:method:: facets()
+
+
+   .. py:method:: halfspaces()
+
+
+   .. py:method:: intersect(arg2)
+
+
+   .. py:method:: is_manifold()
+
+
+   .. py:method:: length()
+
+
+   .. py:method:: map(*args)
+
+
+   .. py:method:: moved(arg2)
+
+
+   .. py:method:: num_edges()
+
+
+   .. py:method:: num_faces()
+
+
+   .. py:method:: num_vertices()
+
+
+   .. py:method:: plane_equation()
+
+
+   .. py:method:: position()
+
+
+   .. py:method:: serialize(*args: matrix4 | str) -> str | None
+
+
+   .. py:method:: serialize_obj()
+
+
+   .. py:method:: set_box(b)
+
+
+   .. py:method:: solid()
+
+
+   .. py:method:: solid_mt()
+
+
+   .. py:method:: subtract(arg2)
+
+
+   .. py:method:: surface_area_along_direction(tol, arg3, along_x, along_y, along_z)
+
+
+   .. py:method:: surface_genus()
+
+
+   .. py:method:: triangulate(*args)
+
+
+   .. py:method:: vertices()
+
+
+   .. py:method:: volume()
+
+
+   .. py:method:: wrap_in_compound()
+
+
 .. py:class:: curve(*args, **kwargs)
 
    Bases: :py:obj:`geom_item`
@@ -1710,16 +795,6 @@ Module Contents
    .. py:property:: components
 
 
-.. py:class:: drawing_meta
-
-   .. py:attribute:: matrix_3
-      :type:  Any
-
-
-   .. py:attribute:: pln_3d
-      :type:  Any
-
-
 .. py:class:: edge(*args)
 
    Bases: :py:obj:`trimmed_curve`
@@ -1732,6 +807,93 @@ Module Contents
 
 
    .. py:method:: kind()
+
+
+.. py:class:: element(settings, id, parent_id, name, type, guid, context, trsf, product)
+
+   .. py:method:: SetParents(newparents)
+
+
+   .. py:method:: parents()
+
+
+   .. py:property:: context
+      :type: str
+
+
+      Element's geometry context.
+
+      E.g 'Body':
+
+
+
+   .. py:property:: guid
+      :type: str
+
+
+      Mirroring IfcRoot.GlobalId.
+
+
+
+   .. py:property:: id
+      :type: int
+
+
+      Element's STEP ID.
+
+
+
+   .. py:property:: name
+      :type: str
+
+
+      Mirroring IfcRoot.Name.
+
+
+
+   .. py:property:: parent_id
+      :type: int
+
+
+      Parent object STEP id.
+
+      E.g. IfcBuildingStorey that element's in.
+
+
+
+   .. py:property:: product
+      :type: entity_instance
+
+
+
+   .. py:property:: transformation
+      :type: transformation
+
+
+
+   .. py:property:: transformation_buffer
+      :type: bytes
+
+
+
+   .. py:property:: type
+      :type: str
+
+
+      Element's IFC Class.
+
+      E.g. 'IfcWall'.
+
+
+
+   .. py:property:: unique_id
+      :type: str
+
+
+      Interal unique id for the element.
+
+      E.g. 'product-186f8dc2-070c-46e1-a65b-a435a043ba3e-body'.
+
 
 
 .. py:class:: ellipse(*args, **kwargs)
@@ -1764,13 +926,19 @@ Module Contents
    Bases: :py:obj:`declaration`
 
 
-   .. py:method:: all_attributes() -> tuple[attribute, Ellipsis]
+   .. py:method:: all_attributes() -> tuple[attribute, ...]
+
+      Get a tuple of attributes, including those inherited from supertypes.
 
 
-   .. py:method:: all_inverse_attributes() -> tuple[inverse_attribute, Ellipsis]
+
+   .. py:method:: all_inverse_attributes() -> tuple[inverse_attribute, ...]
+
+      Get a tuple of inverse attributes, including those inherited from supertypes.
 
 
-   .. py:method:: argument_types() -> tuple[str, Ellipsis]
+
+   .. py:method:: argument_types() -> tuple[str, ...]
 
       Get a tuple of types for each attribute in ``all_attributes()``.
 
@@ -1791,12 +959,21 @@ Module Contents
 
 
 
-   .. py:method:: attributes() -> tuple[attribute, Ellipsis]
+   .. py:method:: attributes() -> tuple[attribute, ...]
+
+      Get a tuple of direct attributes.
 
 
-   .. py:method:: derived() -> tuple[bool, Ellipsis]
+
+   .. py:method:: derived() -> tuple[bool, ...]
 
       Return a tuple of booleans indicating whether each direct attribute is derived.
+
+
+
+   .. py:method:: inverse_attributes() -> tuple[inverse_attribute, ...]
+
+      Get a tuple of direct inverse attributes.
 
 
 
@@ -1812,41 +989,76 @@ Module Contents
    .. py:method:: set_subtypes(subtypes)
 
 
-   .. py:method:: subtypes() -> tuple[entity, Ellipsis]
+   .. py:method:: subtypes() -> tuple[entity, ...]
 
 
    .. py:method:: supertype() -> Union[entity, None]
 
 
-.. py:class:: entity_instance(*args, **kwargs)
+.. py:class:: entity_instance(*args)
 
-   .. py:method:: data(*args)
-
-
-   .. py:method:: declaration() -> declaration
+   Bases: :py:obj:`ifcopenshell.entity_instance.entity_instance_mixin`
 
 
-   .. py:method:: file_pointer()
+   Represents an entity (wall, slab, property, etc) of an IFC model
 
-      Internal IfcFile pointer address.
+   An IFC model consists of entities. Examples of entities include walls,
+   slabs, doors and so on. Entities can also be non-physical things, like
+   properties, systems, construction tasks, colours, geometry, and more.
 
-      Same as ``file.file_pointer``).
+   Entities are defined through an **IFC Class**. There are hundreds of **IFC
+   Classes** defined as part of the ISO standard by the buildingSMART
+   International organisation. The **IFC Class** defines the attributes of an
+   entity, as well as the data types and whether or not an attribute is
+   mandatory or optional.
+
+   IfcOpenShell's API dynamically implements the IFC schema. You will not find
+   documentation about available **IFC Classes**, or what attributes they
+   have.  Please consult the buildingSMART official documentation or start
+   reading :doc:`/introduction/introduction_to_ifc`.
+
+   In addition to the Python methods you see documented here, an instantiated
+   entity_instance will have attributes defined by its IFC class. For example,
+   an entity instance which is an IfcWall class will have a ``Name``
+   attribute, and an IfcColourRgb will have a ``Red`` attribute. Please
+   consult the buildingSMART official documentation.
+
+   Example:
+
+   .. code:: python
+
+       model = ifcopenshell.open(file_path)
+       walls = model.by_type("IfcWall")
+       wall = walls[0]
+
+       print(wall) # #38=IFCWALL('2MEinnTPbCMwLOgceaQZFu',$,$,'My Wall',$,#52,#47,$,$);
+       print(wall.is_a()) # IfcWall
+
+       # Note: the `Name` attribute is dynamic, based on the IFC class.
+       print(wall.Name) # My Wall
+
+       # Attributes are ordered and may also be accessed via index.
+       print(wall[3]) # My Wall
+
+       print(wall.__class__) # <class 'ifcopenshell.entity_instance'>
 
 
-
-   .. py:method:: get_argument(*args)
-
-
-   .. py:method:: get_argument_index(a)
+   .. py:method:: attribute_name(i: int) -> str
 
 
-   .. py:method:: get_argument_name(i)
+   .. py:method:: attribute_type(*args: int | str) -> Literal['NULL', 'DERIVED', 'INT', 'BOOL', 'LOGICAL', 'DOUBLE', 'STRING', 'BINARY', 'ENUMERATION', 'ENTITY INSTANCE', 'EMPTY AGGREGATE', 'AGGREGATE OF INT', 'AGGREGATE OF DOUBLE', 'AGGREGATE OF STRING', 'AGGREGATE OF BINARY', 'AGGREGATE OF ENTITY INSTANCE', 'AGGREGATE OF EMPTY AGGREGATE', 'AGGREGATE OF AGGREGATE OF INT', 'AGGREGATE OF AGGREGATE OF DOUBLE', 'AGGREGATE OF AGGREGATE OF ENTITY INSTANCE', 'UNKNOWN']
 
 
-   .. py:method:: get_argument_type(i)
+   .. py:method:: file_pointer() -> int
 
 
-   .. py:method:: get_attribute_category(name: str) -> Literal[0, 1, 2]
+   .. py:method:: get_argument(*args: int | str) -> Any
+
+
+   .. py:method:: get_argument_index(a: str) -> int
+
+
+   .. py:method:: get_attribute_category(name: str) -> Literal[0, 1, 2, 3]
 
       Get attribute category id.
 
@@ -1854,19 +1066,17 @@ Module Contents
       - `0` - invalid attribute
       - `1` - forward attribute
       - `2` - inverse attributes
+      - `3` - derived attribute
 
 
 
-   .. py:method:: get_attribute_names()
+   .. py:method:: get_attribute_names() -> tuple[str, ...]
 
 
-   .. py:method:: get_attribute_value(index)
+   .. py:method:: get_attribute_value(attribute_index: int) -> Any
 
 
-   .. py:method:: get_inverse(a)
-
-
-   .. py:method:: get_inverse_attribute_names()
+   .. py:method:: get_inverse_attribute_names() -> tuple[str, ...]
 
 
    .. py:method:: id() -> int
@@ -1881,73 +1091,26 @@ Module Contents
    .. py:method:: is_a(*args)
 
 
-   .. py:method:: setArgumentAsAggregateOfAggregateOfDouble(i, v)
-
-
-   .. py:method:: setArgumentAsAggregateOfAggregateOfEntityInstance(i, v)
-
-
-   .. py:method:: setArgumentAsAggregateOfAggregateOfInt(i, v)
-
-
-   .. py:method:: setArgumentAsAggregateOfDouble(i, v)
-
-
-   .. py:method:: setArgumentAsAggregateOfEntityInstance(i, v)
-
-
-   .. py:method:: setArgumentAsAggregateOfInt(i, v)
-
-
-   .. py:method:: setArgumentAsAggregateOfString(i, v)
-
-
-   .. py:method:: setArgumentAsBool(i, v)
-
-
-   .. py:method:: setArgumentAsDouble(i, v)
-
-
-   .. py:method:: setArgumentAsEntityInstance(i, v)
-
-
-   .. py:method:: setArgumentAsInt(i, v)
-
-
-   .. py:method:: setArgumentAsLogical(i, v)
-
-
-   .. py:method:: setArgumentAsNull(i)
-
-
-   .. py:method:: setArgumentAsString(i, a)
-
-
    .. py:method:: set_attribute_value(*args)
 
 
-   .. py:method:: toString(arg2, upper=False)
+   .. py:method:: set_attribute_value_py(i: int, value: Any) -> None
 
 
-   .. py:method:: to_string(valid_spf=True)
+   .. py:method:: to_string(*args) -> str | None
 
 
-   .. py:method:: unset_attribute_value(i)
+   .. py:method:: unset_attribute_value(attribute_index: int) -> None
 
 
-   .. py:attribute:: file
-      :type:  ifcopenshell.file
-
-      Reference to IFC file to prevent it's garbage collection, if entity is still used.
+   .. py:property:: declaration
+      :type: declaration
 
 
 
-   .. py:attribute:: file_
-      :type:  Any
+   .. py:property:: file
+      :type: ifcopenshell.file
 
-
-   .. py:attribute:: id_
-      :type:  Any
 
 
 .. py:class:: enumeration_type(name, index_in_schema, enumeration_items)
@@ -1955,16 +1118,16 @@ Module Contents
    Bases: :py:obj:`declaration`
 
 
-   .. py:method:: argument_types() -> tuple[str, Ellipsis]
+   .. py:method:: argument_types() -> tuple[str, ...]
 
 
    .. py:method:: as_enumeration_type() -> enumeration_type
 
 
-   .. py:method:: enumeration_items() -> tuple[str, Ellipsis]
+   .. py:method:: enumeration_items() -> tuple[str, ...]
 
 
-   .. py:method:: lookup_enum_offset(string: str) -> int
+   .. py:method:: lookup_enum_offset(value_name: str) -> int
 
       Get index of the string in enum.
 
@@ -2027,69 +1190,61 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: file(*args)
+.. py:class:: file(schema: ifcopenshell.util.schema.IFC_SCHEMA | None = None, schema_identifier: str | None = None, schema_version: tuple[int, int, int, int] | None = None)
 
-   .. py:method:: FreshId()
-
-
-   .. py:method:: add(entity: entity_instance, id: int = -1) -> entity_instance
+   Bases: :py:obj:`ifcopenshell.file.file_mixin`
 
 
-   .. py:method:: addEntities(entities)
+   Base class for containing IFC files.
+
+   Class has instance methods for filtering by element Id, Type, etc.
+   Instantiated objects can be subscripted by Id or Guid
+
+   Example:
+
+   .. code:: python
+
+       model = ifcopenshell.open(file_path)
+       products = model.by_type("IfcProduct")
+       print(products[0].id(), products[0].GlobalId) # 122 2XQ$n5SLP5MBLyL442paFx
+       print(products[0] == model[122] == model["2XQ$n5SLP5MBLyL442paFx"]) # True
 
 
    .. py:method:: add_type_ref(new_entity)
 
 
-   .. py:method:: batch() -> None
-
-      Enable batch mode.
-
-      Batch mode:
-      1. Calling ``remove(entity)`` does not immediately remove the entity;
-         it marks it for deletion instead.
-      2. When you call ``unbatch()``, all marked entities are deleted in a single operation.
-
-      Difference from usual removal:
-      - In normal mode, removing an entity immediately traverses and removes all inverse references to it.
-      - In batch mode, inverse references are not updated per entity.
-        Instead, the entire inverse reference map is scanned during ``unbatch()``
-        to remove references to all deleted entities.
-
-      Batch deletion may be slower than immediate deletion, depending on the size of the inverse reference map.
+   .. py:method:: by_guid(global_id: str) -> entity_instance
 
 
-
-   .. py:method:: build_inverses()
-
-
-   .. py:method:: build_inverses_(arg2)
-
-
-   .. py:method:: by_guid(guid: str) -> entity_instance
-
-
-   .. py:method:: by_id(id: int) -> entity_instance
-
-
-   .. py:method:: by_type(*args)
-
-
-   .. py:method:: by_type_excl_subtypes(*args)
+   .. py:method:: by_id(instance_id: int) -> entity_instance
 
 
    .. py:method:: bypass_type(type_name: str) -> None
 
+      Skip loading instances of ``type_name``.
 
-   .. py:method:: create(decl)
 
 
-   .. py:method:: createTimestamp()
+   .. py:method:: create(*args) -> entity_instance
+
+
+   .. py:method:: create_timestamp() -> str
       :staticmethod:
 
 
 
-   .. py:method:: entity_names() -> tuple[int, Ellipsis]
+   .. py:method:: create_uninitialized(logger: file.create_uninitialized.logger | None = None) -> file
+      :staticmethod:
+
+
+      Construct a file with no schema/data yet, to be populated by a later call to ``initialize()``.
+
+      When file is uninitialized, the only two available methods during
+      this state are ``bypass_type()`` and ``initialize()``.
+
+
+
+   .. py:method:: entity_names() -> tuple[int, ...]
 
       Get a tuple of step ids present in the file.
 
@@ -2097,30 +1252,19 @@ Module Contents
 
    .. py:method:: file_pointer() -> int
 
-      Internal IfcFile pointer address.
 
-      Same as ``int(self.this)``.
-
+   .. py:method:: fresh_id() -> int
 
 
-   .. py:method:: getMaxId()
-
-
-   .. py:method:: getUnit(unit_type)
-
-
-   .. py:method:: get_inverse(e: entity_instance) -> tuple[entity_instance, Ellipsis]
-
-
-   .. py:method:: get_inverse_indices(*args: Union[entity_instance, int]) -> tuple[int, Ellipsis]
-
-      Get the attribute indices for each inverse from `get_inverse`, that reference the provided entity..
-
-      :param args: entity or it's id. Maximum 1 entity at the time.
+   .. py:method:: from_string(s: str) -> file
+      :staticmethod:
 
 
 
-   .. py:method:: get_inverses_by_declaration(instance_id: int, type: declaration, attribute_index: int) -> tuple[entity_instance, Ellipsis]
+   .. py:method:: get_inverse_indices_by_id(instance_id: int) -> tuple[int, ...]
+
+
+   .. py:method:: get_inverses_by_declaration(instance_id: int, declaration: file.get_inverses_by_declaration.declaration, attribute_index: int) -> tuple[entity_instance, ...]
 
       Get instance inverses of the particular type defined by ``declaration``.
 
@@ -2131,25 +1275,25 @@ Module Contents
 
 
 
-   .. py:method:: get_total_inverses(e: entity_instance) -> int
+   .. py:method:: get_max_id() -> int
 
 
-   .. py:method:: get_total_inverses_by_id(instance_id: int) -> int
+   .. py:method:: get_total_inverses(*args: entity_instance | int) -> int
 
 
-   .. py:method:: good()
-
-
-   .. py:method:: header(*args) -> IfcSpfHeader
-
-      Internal IfcSpfHeader instance, always prefer ``ifcopenshell.file.header`` instead.
-
+   .. py:method:: good() -> file_open_status
 
 
    .. py:method:: ifcroot_type() -> entity
 
 
-   .. py:method:: initialize(*args)
+   .. py:method:: initialize(*args: str) -> bool
+
+      Parse a file on a ``create_uninitialized()`` instance.
+
+      :param args: ``args[0]`` is a string path to the IFC file.
+      :return: Whether the file was read and parsed successfully. On failure, check ``good()`` for the specific reason.
+
 
 
    .. py:method:: key_value_store_iter(prefix)
@@ -2158,13 +1302,19 @@ Module Contents
    .. py:method:: key_value_store_query(key)
 
 
-   .. py:method:: process_deletion_inverse(inst)
+   .. py:method:: lazy_loading(*args: bool) -> bool
+
+      Get, or with an argument set, whether ``initialize()`` indexes the file with one pass and parses each instance's attributes on first access. Set before ``initialize()``.
+
+
+
+   .. py:method:: paged_reading(*args: bool) -> bool
+
+      Get, or with an argument set, whether ``initialize()`` reads the file through the paged reader instead of loading it whole. Set before ``initialize()``.
+
 
 
    .. py:method:: recalculate_id_counter()
-
-
-   .. py:method:: remove(entity: entity_instance) -> None
 
 
    .. py:method:: remove_type_ref(new_entity)
@@ -2179,17 +1329,7 @@ Module Contents
    .. py:method:: to_string()
 
 
-   .. py:method:: traverse(instance: entity_instance, max_level: int = -1) -> tuple[entity_instance, Ellipsis]
-      :staticmethod:
-
-
-
-   .. py:method:: traverse_breadth_first(instance: entity_instance, max_level: int = -1) -> tuple[entity_instance, Ellipsis]
-      :staticmethod:
-
-
-
-   .. py:method:: types() -> tuple[str, Ellipsis]
+   .. py:method:: types() -> tuple[str, ...]
 
       Return a tuple of classes present in the file.
 
@@ -2197,33 +1337,19 @@ Module Contents
 
 
 
-   .. py:method:: unbatch() -> None
-
-      Exit batch mode.
-
+   .. py:property:: header
+      :type: spf_header
 
 
-   .. py:method:: write(fn)
 
+   .. py:property:: schema_identifier
+      :type: str
 
-   .. py:attribute:: calculate_unit_factors
-      :type:  bool
-
-
-   .. py:attribute:: check_existance_before_adding
-      :type:  bool
-
-
-   .. py:attribute:: instantiate_typed_instances
-      :type:  bool
-
-
-   .. py:property:: schema
 
 
 .. py:class:: file_open_status(*args)
 
-   .. py:method:: value()
+   .. py:method:: value() -> int
 
 
    .. py:attribute:: INVALID_SYNTAX
@@ -2244,6 +1370,9 @@ Module Contents
 
    .. py:attribute:: UNKNOWN
       :type:  int
+
+      Only set on a file created via ``create_uninitialized()`` that hasn't had ``initialize()`` called yet.
+
 
 
    .. py:attribute:: UNSUPPORTED_SCHEMA
@@ -2332,14 +1461,9 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: geometry_conversion_result
+.. py:class:: geometry_conversion_result(*args: Self)
 
-   .. py:attribute:: breps
-      :type:  Any
-
-
-   .. py:attribute:: elements
-      :type:  Any
+   .. py:method:: is_parallel() -> bool
 
 
    .. py:attribute:: index
@@ -2359,6 +1483,54 @@ Module Contents
 
 
    .. py:attribute:: representation
+      :type:  Any
+
+
+.. py:class:: geometry_kernel(geometry_library, file, settings, logger=None)
+
+   .. py:method:: create_shape(*args)
+
+
+.. py:class:: geometry_serializer(*args, **kwargs)
+
+   .. py:method:: finalize()
+
+
+   .. py:method:: isTesselated()
+
+
+   .. py:method:: is_streaming() -> bool
+
+
+   .. py:method:: object_id(o)
+
+
+   .. py:method:: read(*args)
+
+
+   .. py:method:: ready()
+
+
+   .. py:method:: setFile(file: geometry_serializer.setFile.file) -> None
+
+
+   .. py:method:: setUnitNameAndMagnitude(name, magnitude)
+
+
+   .. py:method:: settings(*args) -> settings
+
+
+   .. py:method:: write(*args)
+
+
+   .. py:method:: writeHeader()
+
+
+   .. py:attribute:: READ_BREP
+      :type:  Any
+
+
+   .. py:attribute:: READ_TRIANGULATION
       :type:  Any
 
 
@@ -2390,11 +1562,54 @@ Module Contents
 
 .. py:class:: hash_functor
 
-.. py:class:: horizontal_plan_at_element
-
 .. py:class:: implicit_item(*args, **kwargs)
 
    Bases: :py:obj:`geom_item`
+
+
+.. py:class:: instance_streamer(*args)
+
+   .. py:method:: bypass_types(type_names)
+
+
+   .. py:method:: bypassed_instances()
+
+
+   .. py:method:: has_semicolon()
+
+
+   .. py:method:: header()
+
+
+   .. py:method:: inverses(*args)
+
+
+   .. py:method:: push_page(page_data)
+
+
+   .. py:method:: read_instance_py(type_as_declaration_instance=False)
+
+
+   .. py:method:: references(*args)
+
+
+   .. py:method:: resolve_references_in_place(value)
+
+
+   .. py:method:: schema()
+
+
+   .. py:method:: semicolon_count()
+
+
+   .. py:method:: status()
+
+
+   .. py:method:: yield_header_instances(enabled)
+
+
+   .. py:attribute:: coerce_attribute_count
+      :type:  bool
 
 
 .. py:class:: inverse_attribute(name, type_of_aggregation, bound1, bound2, entity_reference, attribute_reference)
@@ -2460,6 +1675,93 @@ Module Contents
 
 
    .. py:attribute:: orientation
+      :type:  Any
+
+
+.. py:class:: iterator(*args)
+
+   .. py:method:: bounds_max()
+
+
+   .. py:method:: bounds_min()
+
+
+   .. py:method:: compute_bounds(with_geometry)
+
+
+   .. py:method:: create()
+
+
+   .. py:method:: file()
+
+
+   .. py:method:: filters(*args)
+
+
+   .. py:method:: get() -> element
+
+      Get last processed element.
+
+
+
+   .. py:method:: getLog()
+
+
+   .. py:method:: get_native()
+
+
+   .. py:method:: get_object(id)
+
+
+   .. py:method:: get_task_items()
+
+
+   .. py:method:: get_task_products()
+
+
+   .. py:method:: had_error_processing_elements()
+
+
+   .. py:method:: initialize() -> bool
+
+      Return true if the iterator is initialized with any elements, false otherwise.
+
+
+
+   .. py:method:: next() -> Union[entity_instance, None]
+
+      Process next shape representation.
+
+      :return: Processed ``entity_instance`` or ``None`` if nothing is left to process.
+
+
+
+
+   .. py:method:: process_concurrently()
+
+
+   .. py:method:: process_finished_rep(rep, kernel=None)
+
+
+   .. py:method:: progress() -> int
+
+      Return current progress (0-100).
+
+      Updated after processing each representation.
+
+
+
+   .. py:method:: unit_magnitude()
+
+
+   .. py:method:: unit_name()
+
+
+   .. py:attribute:: initialization_outcome_
+      :type:  Any
+
+
+   .. py:attribute:: processed_
       :type:  Any
 
 
@@ -2538,6 +1840,134 @@ Module Contents
    .. py:property:: children
 
 
+.. py:class:: log_message(*args)
+
+   .. py:method:: to_dict()
+
+
+   .. py:method:: to_tuple()
+
+
+   .. py:attribute:: code
+      :type:  Any
+
+
+   .. py:attribute:: instance
+      :type:  Any
+
+
+   .. py:attribute:: message
+      :type:  Any
+
+
+   .. py:attribute:: product
+      :type:  Any
+
+
+   .. py:attribute:: severity
+      :type:  Any
+
+
+   .. py:property:: severity_string
+
+
+   .. py:attribute:: timestamp
+      :type:  Any
+
+
+.. py:class:: logger
+
+   .. py:method:: append(other)
+
+
+   .. py:method:: clear()
+
+
+   .. py:method:: count(code)
+
+
+   .. py:method:: error(*args)
+
+
+   .. py:method:: get_log()
+
+
+   .. py:method:: log_messages() -> tuple[log_message, ...]
+
+
+   .. py:method:: max_severity()
+
+
+   .. py:method:: message(*args)
+
+
+   .. py:method:: notice(*args)
+
+
+   .. py:method:: output_format(*args)
+
+
+   .. py:method:: print_performance_stats()
+
+
+   .. py:method:: print_performance_stats_on_element(*args)
+
+
+   .. py:method:: progress_bar(progress)
+
+
+   .. py:method:: root() -> logger
+      :staticmethod:
+
+
+
+   .. py:method:: set_output(*args)
+
+
+   .. py:method:: set_product(*args)
+
+
+   .. py:method:: status(message, new_line=True)
+
+
+   .. py:method:: verbosity(*args)
+
+
+   .. py:method:: warning(*args)
+
+
+   .. py:attribute:: FMT_INMEMORY
+      :type:  Literal[2]
+
+
+   .. py:attribute:: FMT_JSON
+      :type:  Literal[1]
+
+
+   .. py:attribute:: FMT_PLAIN
+      :type:  Literal[0]
+
+
+   .. py:attribute:: LOG_DEBUG
+      :type:  Literal[1]
+
+
+   .. py:attribute:: LOG_ERROR
+      :type:  Literal[4]
+
+
+   .. py:attribute:: LOG_NOTICE
+      :type:  Literal[2]
+
+
+   .. py:attribute:: LOG_PERF
+      :type:  Literal[0]
+
+
+   .. py:attribute:: LOG_WARNING
+      :type:  Literal[3]
+
+
 .. py:class:: loop
 
    .. py:method:: calc_hash()
@@ -2572,7 +2002,7 @@ Module Contents
       :type:  Any
 
 
-   .. py:attribute:: function_item
+   .. py:attribute:: fi
       :type:  Any
 
 
@@ -2647,6 +2077,60 @@ Module Contents
    .. py:method:: declared_type() -> declaration
 
 
+.. py:class:: native(settings, entity, id, shapes)
+
+   Bases: :py:obj:`representation`
+
+
+   .. py:method:: as_compound(force_meters=False)
+
+
+   .. py:method:: begin()
+
+
+   .. py:method:: calculate_projected_surface_area(ax, along_x, along_y, along_z)
+
+
+   .. py:method:: calculate_surface_area(arg2)
+
+
+   .. py:method:: calculate_volume(arg2)
+
+
+   .. py:method:: end()
+
+
+   .. py:method:: item(i)
+
+
+   .. py:method:: item_id(i)
+
+
+   .. py:method:: shapes()
+
+
+   .. py:method:: size()
+
+
+.. py:class:: native_element(*args: Unpack[tuple[int, int, str, str, str, str, matrix4, native, entity_instance]])
+
+   Bases: :py:obj:`element`
+
+
+   .. py:method:: calculate_projected_surface_area(along_x, along_y, along_z)
+
+
+   .. py:property:: geometry
+      :type: native
+
+
+
+   .. py:property:: surface_area
+
+
+   .. py:property:: volume
+
+
 .. py:class:: node(*args, **kwargs)
 
    Bases: :py:obj:`item`
@@ -2714,6 +2198,44 @@ Module Contents
 
 
    .. py:method:: start()
+
+
+.. py:class:: opaque_number
+
+   .. py:method:: abs()
+
+
+   .. py:method:: add(other)
+
+
+   .. py:method:: divide(other)
+
+
+   .. py:method:: empty()
+
+
+   .. py:method:: equals(other)
+
+
+   .. py:method:: less_than(other)
+
+
+   .. py:method:: multiply(other)
+
+
+   .. py:method:: negated()
+
+
+   .. py:method:: same_type(*args)
+
+
+   .. py:method:: subtract(other)
+
+
+   .. py:method:: to_double()
+
+
+   .. py:method:: to_string()
 
 
 .. py:class:: parameter_type
@@ -2905,6 +2427,24 @@ Module Contents
    .. py:method:: swap(v)
 
 
+.. py:class:: representation(settings, entity, id)
+
+   .. py:method:: entity()
+
+
+   .. py:method:: settings() -> settings
+
+
+   .. py:property:: id
+      :type: str
+
+
+      Example: `2432-openings-2468`, where
+      - 2432 - mapped representation id
+      - 2468 - IfcRelVoidsElement
+
+
+
 .. py:class:: revolve(m, basis, pnt, dir, a)
 
    Bases: :py:obj:`sweep`
@@ -2934,7 +2474,7 @@ Module Contents
    .. py:property:: matrix
 
 
-.. py:class:: schema_definition(name, declarations, factory)
+.. py:class:: schema_definition(name: str, declarations: collections.abc.Sequence[declaration])
 
    .. py:method:: declaration_by_name(*args: str) -> declaration
 
@@ -2943,28 +2483,25 @@ Module Contents
 
 
 
-   .. py:method:: declarations() -> tuple[declaration, Ellipsis]
+   .. py:method:: declarations() -> tuple[declaration, ...]
 
       :return: returned declarations are also upcasted, see ``declaration_by_name``.
 
 
 
-   .. py:method:: entities() -> tuple[entity, Ellipsis]
+   .. py:method:: entities() -> tuple[entity, ...]
 
 
-   .. py:method:: enumeration_types() -> tuple[enumeration_type, Ellipsis]
-
-
-   .. py:method:: instantiate(decl, data)
+   .. py:method:: enumeration_types() -> tuple[enumeration_type, ...]
 
 
    .. py:method:: name() -> str
 
 
-   .. py:method:: select_types() -> tuple[select_type, Ellipsis]
+   .. py:method:: select_types() -> tuple[select_type, ...]
 
 
-   .. py:method:: type_declarations() -> tuple[type_declaration, Ellipsis]
+   .. py:method:: type_declarations() -> tuple[type_declaration, ...]
 
 
 .. py:class:: select_type(name, index_in_schema, select_list)
@@ -2975,7 +2512,89 @@ Module Contents
    .. py:method:: as_select_type() -> select_type
 
 
-   .. py:method:: select_list() -> tuple[declaration, Ellipsis]
+   .. py:method:: select_list() -> tuple[declaration, ...]
+
+
+.. py:class:: serialization(native_geometry: native)
+
+   Bases: :py:obj:`representation`
+
+
+   .. py:property:: brep_data
+
+
+   .. py:property:: surface_style_ids
+
+
+   .. py:property:: surface_styles
+
+
+.. py:class:: serialized_element(*args: Unpack[tuple[native_element]])
+
+   Bases: :py:obj:`element`
+
+
+   .. py:property:: geometry
+      :type: serialization
+
+
+
+.. py:class:: settings
+
+   .. py:method:: get_(name)
+
+
+   .. py:method:: get_type(name)
+
+
+   .. py:method:: set_(*args)
+
+
+   .. py:method:: setting_names()
+
+
+   .. py:attribute:: CURVES
+      :type:  Literal[0]
+
+
+   .. py:attribute:: CURVES_SURFACES_AND_SOLIDS
+      :type:  Literal[2]
+
+
+   .. py:attribute:: MAXSTEPSIZE
+      :type:  Literal[0]
+
+
+   .. py:attribute:: MINSTEPS
+      :type:  Literal[1]
+
+
+   .. py:attribute:: NATIVE
+      :type:  Literal[1]
+
+
+   .. py:attribute:: POLYHEDRON_WITHOUT_HOLES
+      :type:  Literal[1]
+
+
+   .. py:attribute:: POLYHEDRON_WITH_HOLES
+      :type:  Literal[2]
+
+
+   .. py:attribute:: SERIALIZED
+      :type:  Literal[2]
+
+
+   .. py:attribute:: SURFACES_AND_SOLIDS
+      :type:  Literal[1]
+
+
+   .. py:attribute:: TRIANGLE_MESH
+      :type:  Literal[0]
+
+
+   .. py:attribute:: TRIANGULATED
+      :type:  Literal[0]
 
 
 .. py:class:: shell
@@ -3060,6 +2679,27 @@ Module Contents
 
 
    .. py:property:: matrix
+
+
+.. py:class:: spf_header(file: spf_header.__init__.file | None = None, logger: spf_header.__init__.logger | None = None)
+
+   IFC Header definition:
+   https://standards.buildingsmart.org/documents/Implementation/ImplementationGuide_IFCHeaderData_Version_1.0.2.pdf
+
+
+   .. py:property:: file_description
+      :type: entity_instance
+
+
+
+   .. py:property:: file_name
+      :type: entity_instance
+
+
+
+   .. py:property:: file_schema
+      :type: entity_instance
+
 
 
 .. py:class:: sphere
@@ -3670,58 +3310,202 @@ Module Contents
       :type:  Any
 
 
-.. py:class:: tree(*args)
+.. py:class:: transformation(settings, matrix)
 
-   .. py:method:: add_element(*args)
-
-
-   .. py:method:: add_file(*args)
+   .. py:method:: data()
 
 
-   .. py:method:: clash_clearance_many(set_a, set_b, clearance, check_all)
+   .. py:property:: matrix
 
 
-   .. py:method:: clash_collision_many(set_a, set_b, allow_touching)
+.. py:class:: tree(*args, **kwargs)
+
+   .. py:method:: add_element(element: tree.add_element.element | None) -> None
 
 
-   .. py:method:: clash_intersection_many(set_a, set_b, tolerance, check_all)
+   .. py:method:: add_file(*args) -> None
 
 
-   .. py:method:: distances()
+   .. py:method:: backend_id()
 
 
-   .. py:method:: enable_face_styles(*args)
+   .. py:method:: clash_clearance_many(set_a: collections.abc.Sequence[entity_instance], set_b: collections.abc.Sequence[entity_instance], clearance: float = 0.05, check_all: bool = False) -> clashes
 
 
-   .. py:method:: is_manifold(fs)
+   .. py:method:: clash_collision_many(set_a: collections.abc.Sequence[entity_instance], set_b: collections.abc.Sequence[entity_instance], allow_touching: bool = False) -> clashes
+
+
+   .. py:method:: clash_intersection_many(set_a: collections.abc.Sequence[entity_instance], set_b: collections.abc.Sequence[entity_instance], tolerance: float = 0.002, check_all: bool = True) -> clashes
+
+
+   .. py:method:: distances() -> tuple[float, ...]
+
+
+   .. py:method:: enable_face_styles(*args) -> bool | None
+
+
+   .. py:method:: is_manifold(faces: collections.abc.Sequence[int]) -> bool
       :staticmethod:
 
 
 
-   .. py:method:: protrusion_distances()
+   .. py:method:: protrusion_distances() -> tuple[float, ...]
 
 
-   .. py:method:: select(*args)
+   .. py:method:: select(*args) -> tuple[entity_instance, ...]
 
 
-   .. py:method:: select_box(*args)
+   .. py:method:: select_box(*args) -> tuple[entity_instance, ...]
 
 
-   .. py:method:: select_ray(p0, d, length=1000.0)
+   .. py:method:: select_ray(origin, direction, length=1000.0) -> ray_intersection_results
 
 
-   .. py:method:: styles()
+   .. py:method:: styles() -> collections.abc.Sequence[style]
 
 
-   .. py:method:: uint8_to_b64(uuids_array)
+.. py:class:: triangulation(*args)
+
+   Bases: :py:obj:`representation`
 
 
-   .. py:method:: vector_to_list(ps)
+   .. py:method:: addEdge(item_id, style, i0, i1)
+
+
+   .. py:method:: addFace(*args)
+
+
+   .. py:method:: addNormal(X, Y, Z)
+
+
+   .. py:method:: addVertex(item_index, material_index, X, Y, Z)
+
+
+   .. py:method:: box_project_uvs(vertices, normals)
       :staticmethod:
 
 
 
-   .. py:method:: write_h5()
+   .. py:method:: empty(settings)
+      :staticmethod:
+
+
+
+   .. py:method:: registerEdge(item_id, i0, i1)
+
+
+   .. py:method:: registerEdgeCount(n1, n2, edgecount)
+
+
+   .. py:method:: resetWelds()
+
+
+   .. py:method:: uvs_ref()
+
+
+   .. py:property:: colors_buffer
+
+
+   .. py:property:: edges
+      :type: tuple[int, ...]
+
+
+
+   .. py:property:: edges_buffer
+      :type: bytes
+
+
+
+   .. py:property:: edges_item_ids
+      :type: tuple[int, ...]
+
+
+
+   .. py:property:: edges_item_ids_buffer
+      :type: bytes
+
+
+
+   .. py:property:: faces
+      :type: tuple[int, ...]
+
+
+
+   .. py:property:: faces_buffer
+      :type: bytes
+
+
+
+   .. py:property:: faces_tri
+      :type: tuple[int, ...]
+
+
+
+   .. py:property:: item_ids
+      :type: tuple[int, ...]
+
+
+
+   .. py:property:: item_ids_buffer
+      :type: bytes
+
+
+
+   .. py:property:: material_ids
+      :type: tuple[int, ...]
+
+
+
+   .. py:property:: material_ids_buffer
+      :type: bytes
+
+
+
+   .. py:property:: materials
+      :type: tuple[style, ...]
+
+
+
+   .. py:property:: normals
+
+
+   .. py:property:: normals_buffer
+      :type: bytes
+
+
+
+   .. py:property:: polyhedral_faces_with_holes
+
+
+   .. py:property:: polyhedral_faces_without_holes
+
+
+   .. py:property:: uvs
+
+
+   .. py:property:: verts
+      :type: tuple[float, ...]
+
+
+
+   .. py:property:: verts_buffer
+      :type: bytes
+
+
+
+.. py:class:: triangulation_element(*args)
+
+   Bases: :py:obj:`element`
+
+
+   .. py:property:: geometry
+      :type: triangulation
+
+
+
+   .. py:property:: geometry_pointer
+      :type: triangulation
+
 
 
 .. py:class:: trimmed_curve(*args, **kwargs)
@@ -3770,17 +3554,27 @@ Module Contents
 
 .. py:class:: uninitialized_tag
 
-.. py:function:: arrange_polygons(polygons)
+.. py:class:: write_only_geometry_serializer(*args, **kwargs)
+
+   Bases: :py:obj:`geometry_serializer`
+
+
+   .. py:method:: read(*args)
+
+
+.. py:function:: arrange_polygons(settings: arrange_polygon_settings, polygons: collections.abc.Sequence[polygon_2], logger: arrange_polygons.logger | None = None) -> tuple[polygon_2, ...]
+
+.. py:function:: clear_plugin_search_paths() -> None
 
 .. py:function:: clear_schemas()
 
-.. py:function:: construct_iterator(geometry_library, settings, file, num_threads)
+.. py:function:: construct_iterator(geometry_library, settings, file, num_threads, logger=None)
 
-.. py:function:: construct_iterator_with_include_exclude(geometry_library, settings, file, elems, include, num_threads)
+.. py:function:: construct_iterator_with_include_exclude(geometry_library, settings, file, elems, include, num_threads, logger=None)
 
-.. py:function:: construct_iterator_with_include_exclude_globalid(geometry_library, settings, file, elems, include, num_threads)
+.. py:function:: construct_iterator_with_include_exclude_globalid(geometry_library, settings, file, elems, include, num_threads, logger=None)
 
-.. py:function:: construct_iterator_with_include_exclude_id(geometry_library, settings, file, elems, include, num_threads)
+.. py:function:: construct_iterator_with_include_exclude_id(geometry_library, settings, file, elems, include, num_threads, logger=None)
 
 .. py:function:: convert_loop_to_function_item(loop)
 
@@ -3788,17 +3582,30 @@ Module Contents
 
 .. py:function:: create_epeck(*args)
 
+.. py:function:: create_geometry_serializer(*args) -> geometry_serializer
+
 .. py:function:: create_shape(*args)
+
+.. py:function:: create_tree(backend_id: str) -> tree
+
+.. py:function:: decode_spf_string(value: str) -> str
+
+.. py:function:: encode_spf_string(value: str) -> str
 
 .. py:function:: flatten(deep)
 
-.. py:function:: get_feature(x)
+.. py:function:: get_feature(x: Literal['use_attribute_value_derived']) -> bool
 
-.. py:function:: get_info_cpp(v, include_identifier=True)
+   Get the current value of a named feature flag.
+
+
+.. py:function:: get_info_cpp(v: entity_instance, recursive: bool, include_identifier: bool) -> dict[str, Any]
 
 .. py:function:: get_log()
 
-.. py:function:: guess_file_type(fn)
+.. py:function:: get_plugin_search_paths() -> tuple[str, ...]
+
+.. py:function:: has_geometry_library(geometry_library: str) -> bool
 
 .. py:function:: helmert_curve_point(A0, A1, A2, s)
 
@@ -3808,33 +3615,40 @@ Module Contents
 
 .. py:function:: line_segments_to_polygons(s, eps, segments)
 
+.. py:function:: logger_or_root(logger: logger_or_root.logger | None) -> logger_or_root.logger
+
 .. py:function:: map_shape(settings, instance)
 
 .. py:function:: nary_union(sequence)
 
-.. py:function:: new_IfcBaseClass(schema_identifier: str, name: str) -> entity_instance
+.. py:function:: new_IfcBaseClass(file: new_IfcBaseClass.file, name: str) -> entity_instance
 
-.. py:function:: open(fn: str, readonly: bool = False) -> file
-
-.. py:function:: parse_ifcxml(filename)
+.. py:function:: open(fn: str, readonly: bool = False, logger=None) -> file
 
 .. py:function:: polygons_to_svg(*args)
 
-.. py:function:: read(data)
+.. py:function:: read(data: str) -> file
 
-.. py:function:: register_schema(arg1)
+.. py:function:: register_schema(schema: schema_definition) -> None
 
-.. py:function:: schema_by_name(arg1: str) -> schema_definition
+.. py:function:: schema_by_name(schema_name: str) -> schema_definition
 
-.. py:function:: schema_names() -> tuple[str, Ellipsis]
+.. py:function:: schema_names() -> tuple[str, ...]
 
-.. py:function:: serialise(schema_name, shape_str, advanced=True)
+.. py:function:: set_feature(x: Literal['use_attribute_value_derived'], v: bool) -> None
 
-.. py:function:: set_feature(x, v)
+   Set a named feature flag.
+
+   ``use_attribute_value_derived``: when enabled, attribute values supplied
+   as derived (``*``) are returned as instances of ``attribute_value_derived``
+   instead of being indistinguishable from NIL (``$``) values.
+
 
 .. py:function:: set_log_format_json()
 
 .. py:function:: set_log_format_text()
+
+.. py:function:: set_plugin_search_paths(paths: collections.abc.Sequence[str]) -> None
 
 .. py:function:: stream_from_string(data)
 
@@ -3844,16 +3658,11 @@ Module Contents
 
 .. py:function:: taxonomy_item_repr(i)
 
-.. py:function:: tesselate(schema_name, shape_str, d)
-
 .. py:function:: turn_off_detailed_logging() -> None
 
 .. py:function:: turn_on_detailed_logging() -> None
 
 .. py:function:: version() -> str
-
-.. py:data:: ALWAYS
-   :type:  Any
 
 .. py:data:: ATEND
    :type:  Any
@@ -3924,24 +3733,6 @@ Module Contents
 .. py:data:: FILTERED_CARTESIAN_QUOTIENT
    :type:  Any
 
-.. py:data:: FT_AUTODETECT
-   :type:  Any
-
-.. py:data:: FT_IFCSPF
-   :type:  Any
-
-.. py:data:: FT_IFCXML
-   :type:  Any
-
-.. py:data:: FT_IFCZIP
-   :type:  Any
-
-.. py:data:: FT_ROCKSDB
-   :type:  Any
-
-.. py:data:: FT_UNKNOWN
-   :type:  Any
-
 .. py:data:: FUNCTION_ITEM
    :type:  Any
 
@@ -3982,12 +3773,6 @@ Module Contents
    :type:  Any
 
 .. py:data:: OFFSET_FUNCTION
-   :type:  Any
-
-.. py:data:: ON_SLABS_AND_WALLS
-   :type:  Any
-
-.. py:data:: ON_SLABS_AT_FLOORPLANS
    :type:  Any
 
 .. py:data:: PIECEWISE_FUNCTION
