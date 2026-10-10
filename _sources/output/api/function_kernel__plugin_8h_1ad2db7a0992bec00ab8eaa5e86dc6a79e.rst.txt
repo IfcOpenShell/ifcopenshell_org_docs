@@ -1,0 +1,14 @@
+.. _exhale_function_kernel__plugin_8h_1ad2db7a0992bec00ab8eaa5e86dc6a79e:
+
+Function ifcopenshell::geom::kernels::kernel\_plugin\_registration\_symbol
+==========================================================================
+
+- Defined in :ref:`file_src_ifcgeom_kernel_plugin.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::kernels::kernel_plugin_registration_symbol()
+   :project: IfcOpenShell

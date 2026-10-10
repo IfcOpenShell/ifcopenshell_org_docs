@@ -7,29 +7,77 @@
 Module Contents
 ---------------
 
-.. py:function:: get_applicable_entities(ifc_type_class: str, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[str]
+.. py:class:: ApplicableOccurrence
 
-   Get applicable occurrence IFC classes for the type IFC class.
-
-   E.g. "IfcWindowType" -> ["IfcWindow"].
+   Bases: :py:obj:`NamedTuple`
 
 
-.. py:function:: get_applicable_types(ifc_class: str, schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[str]
-
-   Get applicable types IFC classes for the occurrence IFC class.
-
-   E.g. "IfcWindow" -> ["IfcWindowType"].
+   .. py:attribute:: ifc_class
+      :type:  str
 
 
-.. py:data:: cwd
+   .. py:attribute:: predefined_type
+      :type:  Union[str, None]
 
-.. py:data:: entity_to_type_map
-   :type:  dict[ifcopenshell.util.schema.IFC_SCHEMA, dict[str, list[str]]]
 
-.. py:data:: mapped_schemas
+.. py:function:: get_applicable_entities(ifc_type_class: Union[str, ifcopenshell.entity_instance], schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[ApplicableOccurrence]
 
-.. py:data:: schema_path
+   Get the occurrence classes that the type class may type.
 
-.. py:data:: type_to_entity_map
-   :type:  dict[ifcopenshell.util.schema.IFC_SCHEMA, dict[str, list[str]]]
+   E.g. "IfcWindowType" -> [ApplicableOccurrence("IfcWindow", None)]. The
+   first class is the primary pairing.
+
+   A type instance may be passed instead of a class name, in which case its
+   file's schema is used and its ApplicableOccurrence attribute narrows the
+   result to the classes it names, carrying their predefined types. The
+   attribute can never widen the schema's answer: classes the schema does
+   not allow are dropped, and if nothing it names is allowed it is ignored.
+
+
+.. py:function:: get_applicable_schema_types(schema: ifcopenshell.ifcopenshell_wrapper.schema_definition, declaration: ifcopenshell.ifcopenshell_wrapper.entity) -> list[str]
+
+   The type classes the schema lets type the occurrence class, most specific first.
+
+
+.. py:function:: get_applicable_types(ifc_class: Union[str, ifcopenshell.entity_instance], schema: ifcopenshell.util.schema.IFC_SCHEMA = 'IFC4') -> list[str]
+
+   Get the type classes that may type the occurrence class.
+
+   E.g. "IfcWindow" -> ["IfcWindowType"]. The first class is the primary
+   pairing. An occurrence instance may be passed instead of a class name, in
+   which case its file's schema is used.
+
+
+.. py:function:: get_correct_type_assigned_rules(schema_name: str) -> dict[str, str]
+
+   Map each occurrence class with a CorrectTypeAssigned rule to the type class it names.
+
+   The rules are read from their transpiled form in ifcopenshell.express.rules,
+   where the type class survives as a lowercased literal such as
+   'ifc4.ifcwalltype' in typeof(...).
+
+
+.. py:function:: get_same_named_types(schema: ifcopenshell.ifcopenshell_wrapper.schema_definition, name: str) -> list[ifcopenshell.ifcopenshell_wrapper.entity]
+
+   The type class declarations named after the occurrence class, abstract or not.
+
+
+.. py:function:: get_type_maps(schema_name: str) -> tuple[dict[str, list[str]], dict[str, list[str]]]
+
+   The occurrence to type map and its inverse for a schema, derived once and cached.
+
+
+.. py:function:: is_applicable(relating_type: ifcopenshell.entity_instance, occurrence: ifcopenshell.entity_instance) -> bool
+
+   Whether the type may type the occurrence, see :func:`get_applicable_entities`.
+
+
+.. py:function:: parse_applicable_occurrence(applicable_occurrence: str) -> list[ApplicableOccurrence]
+
+   Parse an IfcTypeObject.ApplicableOccurrence string.
+
+   The spec's convention is a comma separated list of occurrence classes,
+   each optionally followed by "/" and a predefined type, e.g.
+   "IfcWall/STANDARD, IfcWallStandardCase".
+
 

@@ -1,0 +1,14 @@
+.. _exhale_function_cgal__kernel_8h_1a47b6c9199fdbd120bcc9dbe6c7378937:
+
+Function ifcopenshell::geom::utils::create\_nef\_polyhedron(CGAL::Polyhedron\_3<kernel>&, logger&)
+==================================================================================================
+
+- Defined in :ref:`file_src_ifcgeom_kernels_cgal_cgal_kernel.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::utils::create_nef_polyhedron(CGAL::Polyhedron_3<kernel>&, logger&)
+   :project: IfcOpenShell

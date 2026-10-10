@@ -21,17 +21,17 @@
 .highlight .cpf { color: #7F848E } /* Comment.PreprocFile */
 .highlight .c1 { color: #7F848E } /* Comment.Single */
 .highlight .cs { color: #7F848E } /* Comment.Special */
-.highlight .gd { color: #ABB2BF } /* Generic.Deleted */
-.highlight .ge { color: #ABB2BF } /* Generic.Emph */
+.highlight .gd { color: #E06C75 } /* Generic.Deleted */
+.highlight .ge { color: #ABB2BF; font-style: italic } /* Generic.Emph */
 .highlight .ges { color: #ABB2BF } /* Generic.EmphStrong */
-.highlight .gr { color: #ABB2BF } /* Generic.Error */
-.highlight .gh { color: #ABB2BF } /* Generic.Heading */
-.highlight .gi { color: #ABB2BF } /* Generic.Inserted */
-.highlight .go { color: #ABB2BF } /* Generic.Output */
+.highlight .gr { color: #E06C75 } /* Generic.Error */
+.highlight .gh { color: #ABB2BF; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #98C379 } /* Generic.Inserted */
+.highlight .go { color: #E06C75 } /* Generic.Output */
 .highlight .gp { color: #ABB2BF } /* Generic.Prompt */
-.highlight .gs { color: #ABB2BF } /* Generic.Strong */
-.highlight .gu { color: #ABB2BF } /* Generic.Subheading */
-.highlight .gt { color: #ABB2BF } /* Generic.Traceback */
+.highlight .gs { color: #ABB2BF; font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #ABB2BF; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #E06C75 } /* Generic.Traceback */
 .highlight .kc { color: #E5C07B } /* Keyword.Constant */
 .highlight .kd { color: #C678DD } /* Keyword.Declaration */
 .highlight .kn { color: #C678DD } /* Keyword.Namespace */
@@ -107,17 +107,17 @@ body[data-theme="dark"] .highlight .cp { color: #7F848E } /* Comment.Preproc */
 body[data-theme="dark"] .highlight .cpf { color: #7F848E } /* Comment.PreprocFile */
 body[data-theme="dark"] .highlight .c1 { color: #7F848E } /* Comment.Single */
 body[data-theme="dark"] .highlight .cs { color: #7F848E } /* Comment.Special */
-body[data-theme="dark"] .highlight .gd { color: #ABB2BF } /* Generic.Deleted */
-body[data-theme="dark"] .highlight .ge { color: #ABB2BF } /* Generic.Emph */
+body[data-theme="dark"] .highlight .gd { color: #E06C75 } /* Generic.Deleted */
+body[data-theme="dark"] .highlight .ge { color: #ABB2BF; font-style: italic } /* Generic.Emph */
 body[data-theme="dark"] .highlight .ges { color: #ABB2BF } /* Generic.EmphStrong */
-body[data-theme="dark"] .highlight .gr { color: #ABB2BF } /* Generic.Error */
-body[data-theme="dark"] .highlight .gh { color: #ABB2BF } /* Generic.Heading */
-body[data-theme="dark"] .highlight .gi { color: #ABB2BF } /* Generic.Inserted */
-body[data-theme="dark"] .highlight .go { color: #ABB2BF } /* Generic.Output */
+body[data-theme="dark"] .highlight .gr { color: #E06C75 } /* Generic.Error */
+body[data-theme="dark"] .highlight .gh { color: #ABB2BF; font-weight: bold } /* Generic.Heading */
+body[data-theme="dark"] .highlight .gi { color: #98C379 } /* Generic.Inserted */
+body[data-theme="dark"] .highlight .go { color: #E06C75 } /* Generic.Output */
 body[data-theme="dark"] .highlight .gp { color: #ABB2BF } /* Generic.Prompt */
-body[data-theme="dark"] .highlight .gs { color: #ABB2BF } /* Generic.Strong */
-body[data-theme="dark"] .highlight .gu { color: #ABB2BF } /* Generic.Subheading */
-body[data-theme="dark"] .highlight .gt { color: #ABB2BF } /* Generic.Traceback */
+body[data-theme="dark"] .highlight .gs { color: #ABB2BF; font-weight: bold } /* Generic.Strong */
+body[data-theme="dark"] .highlight .gu { color: #ABB2BF; font-weight: bold } /* Generic.Subheading */
+body[data-theme="dark"] .highlight .gt { color: #E06C75 } /* Generic.Traceback */
 body[data-theme="dark"] .highlight .kc { color: #E5C07B } /* Keyword.Constant */
 body[data-theme="dark"] .highlight .kd { color: #C678DD } /* Keyword.Declaration */
 body[data-theme="dark"] .highlight .kn { color: #C678DD } /* Keyword.Namespace */
@@ -193,17 +193,17 @@ body:not([data-theme="light"]) .highlight .cp { color: #7F848E } /* Comment.Prep
 body:not([data-theme="light"]) .highlight .cpf { color: #7F848E } /* Comment.PreprocFile */
 body:not([data-theme="light"]) .highlight .c1 { color: #7F848E } /* Comment.Single */
 body:not([data-theme="light"]) .highlight .cs { color: #7F848E } /* Comment.Special */
-body:not([data-theme="light"]) .highlight .gd { color: #ABB2BF } /* Generic.Deleted */
-body:not([data-theme="light"]) .highlight .ge { color: #ABB2BF } /* Generic.Emph */
+body:not([data-theme="light"]) .highlight .gd { color: #E06C75 } /* Generic.Deleted */
+body:not([data-theme="light"]) .highlight .ge { color: #ABB2BF; font-style: italic } /* Generic.Emph */
 body:not([data-theme="light"]) .highlight .ges { color: #ABB2BF } /* Generic.EmphStrong */
-body:not([data-theme="light"]) .highlight .gr { color: #ABB2BF } /* Generic.Error */
-body:not([data-theme="light"]) .highlight .gh { color: #ABB2BF } /* Generic.Heading */
-body:not([data-theme="light"]) .highlight .gi { color: #ABB2BF } /* Generic.Inserted */
-body:not([data-theme="light"]) .highlight .go { color: #ABB2BF } /* Generic.Output */
+body:not([data-theme="light"]) .highlight .gr { color: #E06C75 } /* Generic.Error */
+body:not([data-theme="light"]) .highlight .gh { color: #ABB2BF; font-weight: bold } /* Generic.Heading */
+body:not([data-theme="light"]) .highlight .gi { color: #98C379 } /* Generic.Inserted */
+body:not([data-theme="light"]) .highlight .go { color: #E06C75 } /* Generic.Output */
 body:not([data-theme="light"]) .highlight .gp { color: #ABB2BF } /* Generic.Prompt */
-body:not([data-theme="light"]) .highlight .gs { color: #ABB2BF } /* Generic.Strong */
-body:not([data-theme="light"]) .highlight .gu { color: #ABB2BF } /* Generic.Subheading */
-body:not([data-theme="light"]) .highlight .gt { color: #ABB2BF } /* Generic.Traceback */
+body:not([data-theme="light"]) .highlight .gs { color: #ABB2BF; font-weight: bold } /* Generic.Strong */
+body:not([data-theme="light"]) .highlight .gu { color: #ABB2BF; font-weight: bold } /* Generic.Subheading */
+body:not([data-theme="light"]) .highlight .gt { color: #E06C75 } /* Generic.Traceback */
 body:not([data-theme="light"]) .highlight .kc { color: #E5C07B } /* Keyword.Constant */
 body:not([data-theme="light"]) .highlight .kd { color: #C678DD } /* Keyword.Declaration */
 body:not([data-theme="light"]) .highlight .kn { color: #C678DD } /* Keyword.Namespace */

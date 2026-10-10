@@ -9,31 +9,31 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: add_new_properties() -> list[ifcopenshell.entity_instance]
+   .. py:method:: add_new_properties(properties: dict[str, Any], pset_template: ifcopenshell.entity_instance | None, should_purge: bool) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: assign_new_properties(props: list[ifcopenshell.entity_instance]) -> None
+   .. py:method:: assign_new_properties(pset: ifcopenshell.entity_instance, props: list[ifcopenshell.entity_instance]) -> None
 
 
-   .. py:method:: cast_value_to_primary_measure_type(value, primary_measure_type)
+   .. py:method:: cast_value_to_primary_measure_type(value: Any, primary_measure_type: str) -> Any
 
 
-   .. py:method:: execute() -> None
+   .. py:method:: execute(pset: ifcopenshell.entity_instance, name: str | None, properties: dict[str, Any], pset_template: ifcopenshell.entity_instance | None, should_purge: bool) -> None
 
 
-   .. py:method:: get_primary_measure_type(name: str, old_value: Optional[ifcopenshell.entity_instance] = None, new_value: Optional[Union[ifcopenshell.entity_instance, str, float, bool, int]] = None) -> Union[str, None]
+   .. py:method:: get_primary_measure_type(name: str, pset_template: ifcopenshell.entity_instance | None, old_value: ifcopenshell.entity_instance | None = None, new_value: ifcopenshell.entity_instance | str | float | bool | int | None = None) -> str | None
 
 
-   .. py:method:: get_properties() -> list[ifcopenshell.entity_instance]
+   .. py:method:: get_properties(pset: ifcopenshell.entity_instance) -> list[ifcopenshell.entity_instance]
 
       Returns list of existing properties
 
 
 
-   .. py:method:: load_pset_template() -> None
+   .. py:method:: load_pset_template(pset: ifcopenshell.entity_instance, pset_template: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance | None
 
 
-   .. py:method:: unpack_unit_value(value_candidate)
+   .. py:method:: unpack_unit_value(value_candidate: Any) -> tuple[Any, Any]
       :staticmethod:
 
 
@@ -46,33 +46,29 @@ Module Contents
 
 
 
-   .. py:method:: update_existing_prop_enum(prop: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: update_existing_prop_enum(prop: ifcopenshell.entity_instance, properties: dict[str, Any], pset_template: ifcopenshell.entity_instance | None, should_purge: bool) -> ifcopenshell.entity_instance | None
 
       NOTE: Assumes the prop exists
 
 
 
-   .. py:method:: update_existing_prop_single_value(prop: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: update_existing_prop_single_value(prop: ifcopenshell.entity_instance, properties: dict[str, Any], pset_template: ifcopenshell.entity_instance | None, should_purge: bool) -> ifcopenshell.entity_instance | None
 
       NOTE: Assumes the prop exists
 
 
 
-   .. py:method:: update_existing_properties() -> list[ifcopenshell.entity_instance]
+   .. py:method:: update_existing_properties(pset: ifcopenshell.entity_instance, properties: dict[str, Any], pset_template: ifcopenshell.entity_instance | None, should_purge: bool) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: update_pset_name() -> None
+   .. py:method:: update_pset_name(pset: ifcopenshell.entity_instance, name: str | None) -> None
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: edit_pset(file: ifcopenshell.file, pset: ifcopenshell.entity_instance, name: Optional[str] = None, properties: Optional[dict[str, Any]] = None, pset_template: Optional[ifcopenshell.entity_instance] = None, should_purge: bool = True) -> None
+.. py:function:: edit_pset(file: ifcopenshell.file, pset: ifcopenshell.entity_instance, name: str | None = None, properties: dict[str, Any] | None = None, pset_template: ifcopenshell.entity_instance | None = None, should_purge: bool = True) -> None
 
    Edits a property set and its properties
 

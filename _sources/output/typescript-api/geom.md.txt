@@ -1,0 +1,1195 @@
+# geom
+
+## Classes
+
+(typescript-geom-iterator)=
+
+
+### Iterator
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:18](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L18)
+
+Synchronous native iterator. Load schema, mapping and kernel plugins before construction.
+
+#### Extends
+
+- `IfcOpenshellGeomIterator`
+
+#### Constructors
+
+(typescript-geom-constructor)=
+
+
+##### Constructor
+
+> **new Iterator**(`settings`, `file`, `options?`): [`Iterator`](#typescript-geom-iterator)
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L21)
+
+###### Parameters
+
+###### settings
+
+[`Settings`](#typescript-geom-settings-1)
+
+###### file
+
+[`File`](#typescript-core-file-1)
+
+###### options?
+
+[`IteratorOptions`](#typescript-geom-iteratoroptions) = `{}`
+
+###### Returns
+
+[`Iterator`](#typescript-geom-iterator)
+
+###### Overrides
+
+`IfcOpenshellGeomIterator.constructor`
+
+#### Properties
+
+(typescript-geom-ptr)=
+
+
+##### ptr
+
+> `readonly` **ptr**: `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:445
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.ptr`
+
+(typescript-geom-settings)=
+
+
+##### settings
+
+> `readonly` **settings**: [`Settings`](#typescript-geom-settings-1)
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L22)
+
+#### Methods
+
+(typescript-geom-asyncdispose)=
+
+
+##### \[asyncDispose\]()
+
+> **\[asyncDispose\]**(): `Promise`\<`void`\>
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:449
+
+###### Returns
+
+`Promise`\<`void`\>
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.[asyncDispose]`
+
+(typescript-geom-dispose)=
+
+
+##### \[dispose\]()
+
+> **\[dispose\]**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:448
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.[dispose]`
+
+(typescript-geom-boundsmax)=
+
+
+##### boundsMax()
+
+> **boundsMax**(): `IfcOpenshellGeomTaxonomyPoint3`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:450
+
+###### Returns
+
+`IfcOpenshellGeomTaxonomyPoint3`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.boundsMax`
+
+(typescript-geom-boundsmin)=
+
+
+##### boundsMin()
+
+> **boundsMin**(): `IfcOpenshellGeomTaxonomyPoint3`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:451
+
+###### Returns
+
+`IfcOpenshellGeomTaxonomyPoint3`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.boundsMin`
+
+(typescript-geom-computebounds)=
+
+
+##### computeBounds()
+
+> **computeBounds**(`with_geometry`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:452
+
+###### Parameters
+
+###### with\_geometry
+
+`boolean`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.computeBounds`
+
+(typescript-geom-create)=
+
+
+##### create()
+
+> **create**(): `IfcOpenshellInstance`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:453
+
+###### Returns
+
+`IfcOpenshellInstance`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.create`
+
+(typescript-geom-destroy)=
+
+
+##### destroy()
+
+> **destroy**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:446
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.destroy`
+
+(typescript-geom-dispose-1)=
+
+
+##### dispose()
+
+> **dispose**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:447
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.dispose`
+
+(typescript-geom-file)=
+
+
+##### file()
+
+> **file**(): `IfcOpenshellFile` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:454
+
+###### Returns
+
+`IfcOpenshellFile` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.file`
+
+(typescript-geom-get)=
+
+
+##### get()
+
+> **get**(): `IfcOpenshellGeomElement` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:455
+
+###### Returns
+
+`IfcOpenshellGeomElement` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.get`
+
+(typescript-geom-getasbrepelement)=
+
+
+##### getAsBrepElement()
+
+> **getAsBrepElement**(): `IfcOpenshellGeomBrepElement` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:456
+
+###### Returns
+
+`IfcOpenshellGeomBrepElement` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getAsBrepElement`
+
+(typescript-geom-getasserializedelement)=
+
+
+##### getAsSerializedElement()
+
+> **getAsSerializedElement**(): `IfcOpenshellGeomSerializedElement` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:457
+
+###### Returns
+
+`IfcOpenshellGeomSerializedElement` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getAsSerializedElement`
+
+(typescript-geom-getastriangulationelement)=
+
+
+##### getAsTriangulationElement()
+
+> **getAsTriangulationElement**(): `IfcOpenshellGeomTriangulationElement` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:458
+
+###### Returns
+
+`IfcOpenshellGeomTriangulationElement` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getAsTriangulationElement`
+
+(typescript-geom-getlog)=
+
+
+##### getLog()
+
+> **getLog**(): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:459
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getLog`
+
+(typescript-geom-getnative)=
+
+
+##### getNative()
+
+> **getNative**(): `IfcOpenshellGeomBrepElement` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:460
+
+###### Returns
+
+`IfcOpenshellGeomBrepElement` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getNative`
+
+(typescript-geom-getobject)=
+
+
+##### getObject()
+
+> **getObject**(`id`): `IfcOpenshellGeomElement` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:461
+
+###### Parameters
+
+###### id
+
+`number`
+
+###### Returns
+
+`IfcOpenshellGeomElement` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getObject`
+
+(typescript-geom-gettaskitems)=
+
+
+##### getTaskItems()
+
+> **getTaskItems**(): `IfcOpenshellGeomTaxonomyItem`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:462
+
+###### Returns
+
+`IfcOpenshellGeomTaxonomyItem`[]
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getTaskItems`
+
+(typescript-geom-gettaskproducts)=
+
+
+##### getTaskProducts()
+
+> **getTaskProducts**(): `IfcOpenshellInstance`[][]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:463
+
+###### Returns
+
+`IfcOpenshellInstance`[][]
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.getTaskProducts`
+
+(typescript-geom-haderrorprocessingelements)=
+
+
+##### hadErrorProcessingElements()
+
+> **hadErrorProcessingElements**(): `boolean`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:464
+
+###### Returns
+
+`boolean`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.hadErrorProcessingElements`
+
+(typescript-geom-initialize)=
+
+
+##### initialize()
+
+> **initialize**(): `boolean`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:465
+
+###### Returns
+
+`boolean`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.initialize`
+
+(typescript-geom-next)=
+
+
+##### next()
+
+> **next**(): `boolean`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:466
+
+###### Returns
+
+`boolean`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.next`
+
+(typescript-geom-progress)=
+
+
+##### progress()
+
+> **progress**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:467
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.progress`
+
+(typescript-geom-unitmagnitude)=
+
+
+##### unitMagnitude()
+
+> **unitMagnitude**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:468
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.unitMagnitude`
+
+(typescript-geom-unitname)=
+
+
+##### unitName()
+
+> **unitName**(): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:469
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellGeomIterator.unitName`
+
+***
+
+(typescript-geom-settings-1)=
+
+
+### Settings
+
+Defined in: [ifcopenshell-js/src/geom/settings.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L8)
+
+Owned wrapper for native geometry interpretation settings.
+
+#### Extends
+
+- `IfcOpenshellGeomSettings`
+
+#### Constructors
+
+(typescript-geom-constructor-1)=
+
+
+##### Constructor
+
+> **new Settings**(): [`Settings`](#typescript-geom-settings-1)
+
+Defined in: [ifcopenshell-js/src/geom/settings.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L9)
+
+###### Returns
+
+[`Settings`](#typescript-geom-settings-1)
+
+###### Overrides
+
+`IfcOpenshellGeomSettings.constructor`
+
+#### Properties
+
+(typescript-geom-ptr-1)=
+
+
+##### ptr
+
+> `readonly` **ptr**: `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:568
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.ptr`
+
+#### Methods
+
+(typescript-geom-destroy-1)=
+
+
+##### destroy()
+
+> **destroy**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:569
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.destroy`
+
+(typescript-geom-get-1)=
+
+
+##### get()
+
+> **get**(`name`): `string` \| `number` \| `boolean` \| `string`[] \| `number`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:589
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`string` \| `number` \| `boolean` \| `string`[] \| `number`[]
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.get`
+
+(typescript-geom-getbool)=
+
+
+##### getBool()
+
+> **getBool**(`name`): `boolean`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:570
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`boolean`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getBool`
+
+(typescript-geom-getdouble)=
+
+
+##### getDouble()
+
+> **getDouble**(`name`): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:571
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getDouble`
+
+(typescript-geom-getdoublelist)=
+
+
+##### getDoubleList()
+
+> **getDoubleList**(`name`): `number`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:572
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`[]
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getDoubleList`
+
+(typescript-geom-getint)=
+
+
+##### getInt()
+
+> **getInt**(`name`): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:573
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getInt`
+
+(typescript-geom-getintset)=
+
+
+##### getIntSet()
+
+> **getIntSet**(`name`): `number`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:574
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`[]
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getIntSet`
+
+(typescript-geom-getstring)=
+
+
+##### getString()
+
+> **getString**(`name`): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:575
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getString`
+
+(typescript-geom-getstringlist)=
+
+
+##### getStringList()
+
+> **getStringList**(`name`): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:576
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`string`[]
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getStringList`
+
+(typescript-geom-getstringset)=
+
+
+##### getStringSet()
+
+> **getStringSet**(`name`): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:577
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`string`[]
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getStringSet`
+
+(typescript-geom-gettype)=
+
+
+##### getType()
+
+> **getType**(`name`): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:578
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.getType`
+
+(typescript-geom-names)=
+
+
+##### names()
+
+> **names**(): `string`[]
+
+Defined in: [ifcopenshell-js/src/geom/settings.ts:17](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L17)
+
+###### Returns
+
+`string`[]
+
+(typescript-geom-set)=
+
+
+##### set()
+
+> **set**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:588
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`string` \| `number` \| `boolean` \| `string`[] \| `number`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.set`
+
+(typescript-geom-setbool)=
+
+
+##### setBool()
+
+> **setBool**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:579
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`boolean`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setBool`
+
+(typescript-geom-setdouble)=
+
+
+##### setDouble()
+
+> **setDouble**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:580
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`number`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setDouble`
+
+(typescript-geom-setdoublelist)=
+
+
+##### setDoubleList()
+
+> **setDoubleList**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:581
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`number`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setDoubleList`
+
+(typescript-geom-setint)=
+
+
+##### setInt()
+
+> **setInt**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:582
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`number`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setInt`
+
+(typescript-geom-setintset)=
+
+
+##### setIntSet()
+
+> **setIntSet**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:583
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`number`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setIntSet`
+
+(typescript-geom-setstring)=
+
+
+##### setString()
+
+> **setString**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:584
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`string`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setString`
+
+(typescript-geom-setstringlist)=
+
+
+##### setStringList()
+
+> **setStringList**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:585
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`string`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setStringList`
+
+(typescript-geom-setstringset)=
+
+
+##### setStringSet()
+
+> **setStringSet**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:586
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`string`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.setStringSet`
+
+(typescript-geom-settingnames)=
+
+
+##### settingNames()
+
+> **settingNames**(): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:587
+
+###### Returns
+
+`string`[]
+
+###### Inherited from
+
+`IfcOpenshellGeomSettings.settingNames`
+
+(typescript-geom-value)=
+
+
+##### value()
+
+> **value**(`name`): [`SettingInput`](#typescript-geom-settinginput)
+
+Defined in: [ifcopenshell-js/src/geom/settings.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L13)
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+[`SettingInput`](#typescript-geom-settinginput)
+
+## Interfaces
+
+(typescript-geom-iteratoroptions)=
+
+
+### IteratorOptions
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:10](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L10)
+
+Optional native iterator configuration.
+
+#### Properties
+
+(typescript-geom-exclude)=
+
+
+##### exclude?
+
+> `optional` **exclude?**: [`IteratorFilter`](#typescript-geom-iteratorfilter)
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L13)
+
+(typescript-geom-geometrylibrary)=
+
+
+##### geometryLibrary?
+
+> `optional` **geometryLibrary?**: `string`
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L14)
+
+(typescript-geom-include)=
+
+
+##### include?
+
+> `optional` **include?**: [`IteratorFilter`](#typescript-geom-iteratorfilter)
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:12](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L12)
+
+(typescript-geom-numthreads)=
+
+
+##### numThreads?
+
+> `optional` **numThreads?**: `number`
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:11](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L11)
+
+## Type Aliases
+
+(typescript-geom-iteratorfilter)=
+
+
+### IteratorFilter
+
+> **IteratorFilter** = `number`[] \| `string`[]
+
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L7)
+
+Entity ids or IFC type names, matching the native include/exclude filters.
+
+***
+
+(typescript-geom-settinginput)=
+
+
+### SettingInput
+
+> **SettingInput** = `boolean` \| `number` \| `string` \| `number`[] \| `string`[]
+
+Defined in: [ifcopenshell-js/src/geom/settings.ts:6](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L6)
+
+Value accepted by a geometry setting setter.
+
+## Functions
+
+(typescript-geom-createshape)=
+
+
+### createShape()
+
+> **createShape**(`settings`, `instance`, `representation?`, `geometryLibrary?`): `IfcOpenshellGeomElement` \| `null`
+
+Defined in: [ifcopenshell-js/src/geom/shape.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/shape.ts#L7)
+
+Create one shape. Load the schema mapping and geometry kernel beforehand.
+
+#### Parameters
+
+##### settings
+
+[`Settings`](#typescript-geom-settings-1)
+
+##### instance
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+##### representation?
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+##### geometryLibrary?
+
+`string` = `'opencascade'`
+
+#### Returns
+
+`IfcOpenshellGeomElement` \| `null`

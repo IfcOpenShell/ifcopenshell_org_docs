@@ -1,0 +1,14 @@
+.. _exhale_function_nef__to__halfspace__tree_8h_1a094ef3f03eeb6c266f759802da80707f:
+
+Template Function ifcopenshell::geom::triangulate\_nef\_facet
+=============================================================
+
+- Defined in :ref:`file_src_ifcgeom_kernels_cgal_nef_to_halfspace_tree.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::triangulate_nef_facet(typename CGAL::Nef_polyhedron_3<Kernel>::Halffacet_const_handle)
+   :project: IfcOpenShell

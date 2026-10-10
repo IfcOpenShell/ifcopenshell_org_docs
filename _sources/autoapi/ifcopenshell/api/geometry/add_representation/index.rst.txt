@@ -9,7 +9,7 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: convert_si_to_unit(co)
+   .. py:method:: convert_si_to_unit(co: SI_VALUE) -> SI_VALUE
 
 
    .. py:method:: create_annotation2d_representation() -> ifcopenshell.entity_instance
@@ -36,7 +36,7 @@ Module Contents
    .. py:method:: create_camera_pyramid_representation() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_cartesian_point(x: float, y: float, z: Optional[float] = None, is_model_coords: bool = True) -> ifcopenshell.entity_instance
+   .. py:method:: create_cartesian_point(x: float, y: float, z: float | None = None, is_model_coords: bool = True) -> ifcopenshell.entity_instance
 
       Create IfcCartesianPoint.
 
@@ -50,13 +50,13 @@ Module Contents
    .. py:method:: create_circle_extrusion_representation() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_cog_representation() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: create_cog_representation() -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: create_curve2d_representation() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_curve3d_representation() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: create_curve3d_representation() -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: create_curve_bounded_planes(is_2d: bool = False) -> list[ifcopenshell.entity_instance]
@@ -71,19 +71,19 @@ Module Contents
    .. py:method:: create_curves(should_exclude_faces: bool = False, is_2d: bool = False, ignore_non_loose_edges: bool = False) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: create_curves_from_curve(is_2d: bool = False, curve_object_data: Optional[bpy.types.Curve] = None) -> list[ifcopenshell.entity_instance]
+   .. py:method:: create_curves_from_curve(is_2d: bool = False, curve_object_data: bpy.types.Curve | None = None) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: create_curves_from_curve_ifc2x3(is_2d: bool = False, curve_object_data: Optional[bpy.types.Curve] = None) -> list[ifcopenshell.entity_instance]
+   .. py:method:: create_curves_from_curve_ifc2x3(is_2d: bool = False, curve_object_data: bpy.types.Curve | None = None) -> list[ifcopenshell.entity_instance]
 
 
    .. py:method:: create_curves_from_mesh(should_exclude_faces: bool = False, is_2d: bool = False) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: create_curves_from_mesh_ifc2x3(should_exclude_faces=False, is_2d=False) -> list[ifcopenshell.entity_instance]
+   .. py:method:: create_curves_from_mesh_ifc2x3(should_exclude_faces: bool = False, is_2d: bool = False) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: create_edge() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: create_edge() -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: create_faceted_brep() -> ifcopenshell.entity_instance
@@ -92,7 +92,7 @@ Module Contents
    .. py:method:: create_geometric_curve_set_representation(is_2d: bool = False) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_light_source() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: create_light_source() -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: create_light_source_positional() -> ifcopenshell.entity_instance
@@ -107,10 +107,10 @@ Module Contents
    .. py:method:: create_mesh_representation() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_model_representation() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: create_model_representation(ifc_representation_class: REPRESENTATION_CLASS | None) -> ifcopenshell.entity_instance | None
 
 
-   .. py:method:: create_plan_representation() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: create_plan_representation(ifc_representation_class: REPRESENTATION_CLASS | None) -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: create_plane(polygon: bpy.types.MeshPolygon) -> ifcopenshell.entity_instance
@@ -143,7 +143,7 @@ Module Contents
    .. py:method:: create_triangulated_face_set() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_variable_representation() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: create_variable_representation(ifc_representation_class: REPRESENTATION_CLASS | None) -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: create_vertex_point(point: mathutils.Vector) -> ifcopenshell.entity_instance
@@ -155,10 +155,10 @@ Module Contents
    .. py:method:: evaluate_geometry() -> None
 
 
-   .. py:method:: execute() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: execute(context: ifcopenshell.entity_instance, blender_object: bpy.types.Object, geometry: bpy.types.Mesh | bpy.types.Curve | bpy.types.Camera, coordinate_offset: numpy.typing.NDArray[numpy.float64] | None, total_items: int, unit_scale: float | None, should_force_faceted_brep: bool, should_force_triangulation: bool, ifc_representation_class: REPRESENTATION_CLASS | None, should_generate_uvs: bool, profile_set_usage: ifcopenshell.entity_instance | None, text_literal: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance | None
 
 
-   .. py:method:: get_spline_points(spline: bpy.types.Spline) -> list[Union[bpy.types.SplinePoint, bpy.types.BezierSplinePoint]]
+   .. py:method:: get_spline_points(spline: bpy.types.Spline) -> list[bpy.types.SplinePoint | bpy.types.BezierSplinePoint]
 
 
    .. py:method:: is_camera_landscape() -> bool
@@ -173,31 +173,15 @@ Module Contents
    .. py:method:: should_triangulate_face(face: bmesh.types.BMFace, threshold: float = EPSILON) -> bool
 
 
-   .. py:attribute:: blender_object
-      :type:  bpy.types.Object
-
-
-   .. py:attribute:: coordinate_offset
-      :type:  Union[numpy.typing.NDArray[numpy.float64], None]
-
-
    .. py:attribute:: file
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: geometry
-      :type:  Union[bpy.types.Mesh, bpy.types.Curve, bpy.types.Camera]
 
 
    .. py:attribute:: ifc_vertices
       :type:  list[ifcopenshell.entity_instance]
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: add_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, blender_object: bpy.types.Object, geometry: Union[bpy.types.Mesh, bpy.types.Curve], coordinate_offset: Optional[numpy.typing.NDArray[numpy.float64]] = None, total_items: int = 1, unit_scale: Optional[float] = None, should_force_faceted_brep: bool = False, should_force_triangulation: bool = False, should_generate_uvs: bool = False, ifc_representation_class: Optional[Literal['IfcExtrudedAreaSolid/IfcRectangleProfileDef', 'IfcExtrudedAreaSolid/IfcCircleProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryClosedProfileDef', 'IfcExtrudedAreaSolid/IfcArbitraryProfileDefWithVoids', 'IfcExtrudedAreaSolid/IfcMaterialProfileSetUsage', 'IfcGeometricCurveSet/IfcTextLiteral', 'IfcTextLiteral']] = None, profile_set_usage: Optional[ifcopenshell.entity_instance] = None, text_literal: Optional[ifcopenshell.entity_instance] = None) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: add_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, blender_object: bpy.types.Object, geometry: bpy.types.Mesh | bpy.types.Curve | bpy.types.Camera, coordinate_offset: numpy.typing.NDArray[numpy.float64] | None = None, total_items: int = 1, unit_scale: float | None = None, should_force_faceted_brep: bool = False, should_force_triangulation: bool = False, should_generate_uvs: bool = False, ifc_representation_class: REPRESENTATION_CLASS | None = None, profile_set_usage: ifcopenshell.entity_instance | None = None, text_literal: ifcopenshell.entity_instance | None = None) -> ifcopenshell.entity_instance | None
 
    Add an IfcShapeRepresentation.
 
@@ -220,6 +204,10 @@ Module Contents
 .. py:data:: EPSILON
    :value: 1e-06
 
+
+.. py:data:: REPRESENTATION_CLASS
+
+.. py:data:: SI_VALUE
 
 .. py:data:: X_AXIS
 

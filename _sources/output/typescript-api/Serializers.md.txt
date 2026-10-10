@@ -1,0 +1,209 @@
+# Serializers
+
+Serializer APIs for exporting IFC geometry and data.
+
+## Interfaces
+
+(typescript-serializers-exportoptions)=
+
+
+### ExportOptions
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:39](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L39)
+
+Geometry loading, serializer, cancellation, and progress options.
+
+#### Properties
+
+(typescript-serializers-kernel)=
+
+
+##### kernel?
+
+> `optional` **kernel?**: `string`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:41](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L41)
+
+Previously loaded geometry kernel. Defaults to `passthrough`.
+
+(typescript-serializers-numthreads)=
+
+
+##### numThreads?
+
+> `optional` **numThreads?**: `number`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:43](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L43)
+
+Number of native geometry iterator threads.
+
+(typescript-serializers-signal)=
+
+
+##### signal?
+
+> `optional` **signal?**: `AbortSignal`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:48](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L48)
+
+Abort the export between geometry elements. Checked between synchronous
+native calls; it cannot interrupt one native call already in progress.
+
+#### Methods
+
+(typescript-serializers-onprogress)=
+
+
+##### onProgress()?
+
+> `optional` **onProgress**(`progress`): `void`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:50](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L50)
+
+Receive write and completion progress events.
+
+###### Parameters
+
+###### progress
+
+[`OperationProgress`](#typescript-serializers-operationprogress)
+
+###### Returns
+
+`void`
+
+***
+
+(typescript-serializers-exportresult)=
+
+
+### ExportResult
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:31](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L31)
+
+Text buffers returned by a serializer; OBJ uses `secondary` for MTL data.
+
+#### Properties
+
+(typescript-serializers-primary)=
+
+
+##### primary
+
+> **primary**: `string`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:33](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L33)
+
+Primary serialized content.
+
+(typescript-serializers-secondary)=
+
+
+##### secondary
+
+> **secondary**: `string`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:35](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L35)
+
+Secondary content, used for the OBJ material file.
+
+***
+
+(typescript-serializers-operationprogress)=
+
+
+### OperationProgress
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:18](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L18)
+
+Serializer progress in native processing order.
+
+#### Properties
+
+(typescript-serializers-current)=
+
+
+##### current?
+
+> `optional` **current?**: `number`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L22)
+
+(typescript-serializers-message)=
+
+
+##### message
+
+> **message**: `string`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L20)
+
+(typescript-serializers-phase)=
+
+
+##### phase
+
+> **phase**: `string`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L19)
+
+(typescript-serializers-ratio)=
+
+
+##### ratio?
+
+> `optional` **ratio?**: `number`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L21)
+
+## Type Aliases
+
+(typescript-serializers-serializerformat)=
+
+
+### SerializerFormat
+
+> **SerializerFormat** = `"obj"` \| `"svg"` \| `"ttl"`
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:28](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L28)
+
+Formats supported by [exportToBuffer](#typescript-serializers-exporttobuffer).
+
+## Functions
+
+(typescript-serializers-exporttobuffer)=
+
+
+### exportToBuffer()
+
+> **exportToBuffer**(`file`, `geomSettings`, `format`, `options?`): `Promise`\<[`ExportResult`](#typescript-serializers-exportresult) \| `null`\>
+
+Defined in: [ifcopenshell-js/src/serializers/index.ts:60](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L60)
+
+Serialize the file into in-memory text buffers. Load kernel, mapping and serializer plugins first.
+
+OBJ returns its material data in `secondary`; SVG and TTL return an empty
+secondary buffer. The function returns `null` when the native iterator
+cannot initialize and throws when a serializer or geometry element fails.
+
+#### Parameters
+
+##### file
+
+[`File`](#typescript-core-file-1)
+
+##### geomSettings
+
+[`Settings`](#typescript-geom-settings-1)
+
+##### format
+
+[`SerializerFormat`](#typescript-serializers-serializerformat)
+
+##### options?
+
+[`ExportOptions`](#typescript-serializers-exportoptions) = `{}`
+
+#### Returns
+
+`Promise`\<[`ExportResult`](#typescript-serializers-exportresult) \| `null`\>

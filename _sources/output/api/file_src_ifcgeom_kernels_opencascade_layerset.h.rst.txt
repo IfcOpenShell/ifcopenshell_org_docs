@@ -1,0 +1,70 @@
+
+.. _file_src_ifcgeom_kernels_opencascade_layerset.h:
+
+File layerset.h
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom_kernels_opencascade>` (``src/ifcgeom/kernels/opencascade``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcgeom/kernels/opencascade/layerset.h``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcgeom_kernels_opencascade_layerset.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``../../conversion_result.h``
+
+- ``Geom_Surface.hxx``
+
+- ``TopoDS_Shape.hxx``
+
+- ``list``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ifcopenshell`
+
+- :ref:`namespace_ifcopenshell__geom`
+
+- :ref:`namespace_ifcopenshell__geom__util`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_layerset_8h_1afc86376c473777290cc490b548096879`
+
+- :ref:`exhale_function_layerset_8h_1af261035973af2e7895bceb5757764b6f`
+
+- :ref:`exhale_function_layerset_8h_1ae13698241eb5a9e5f1810229e5d65f3e`
+
+- :ref:`exhale_function_layerset_8h_1ab055c8f81d936a28cb143b97327ed843`
+

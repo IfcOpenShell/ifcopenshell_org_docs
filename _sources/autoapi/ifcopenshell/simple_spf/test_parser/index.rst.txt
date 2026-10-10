@@ -1,0 +1,49 @@
+:py:mod:`ifcopenshell.simple_spf.test_parser`
+=============================================
+
+.. py:module:: ifcopenshell.simple_spf.test_parser
+
+
+Module Contents
+---------------
+
+.. py:function:: create_context(fn)
+
+.. py:function:: run_cli(*args)
+
+.. py:function:: test_cli_invalid_file()
+
+.. py:function:: test_cli_json_output()
+
+.. py:function:: test_cli_valid_file()
+
+.. py:function:: test_file_mvd_attr()
+
+.. py:function:: test_file_with_tree(file)
+
+.. py:function:: test_file_without_tree(file)
+
+.. py:function:: test_header_entity_fields()
+
+.. py:function:: test_header_entity_fields_whole_file()
+
+.. py:function:: test_header_only_api()
+
+.. py:function:: test_invalid_headers_(filename)
+
+.. py:function:: test_multiple_duplicate_ids()
+
+.. py:function:: test_multiple_wrong_header_fields()
+
+.. py:function:: test_parse_features()
+
+.. py:function:: test_parse_valid_header()
+
+.. py:function:: test_valid_headers(filename)
+
+.. py:data:: MODULE_NAME
+
+.. py:data:: PARENT_DIR
+
+.. py:data:: REPO_DIR
+

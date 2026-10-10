@@ -1,0 +1,14 @@
+.. _exhale_function_taxonomy_8h_1a44f851b54cb91c128db58dc93bf8e021:
+
+Template Function ifcopenshell::geom::taxonomy::make
+====================================================
+
+- Defined in :ref:`file_src_ifcgeom_taxonomy.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::taxonomy::make(Args&&...)
+   :project: IfcOpenShell

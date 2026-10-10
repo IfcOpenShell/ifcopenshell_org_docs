@@ -9,18 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: edit_cost_value(data, parent=None)
+   .. py:method:: edit_cost_value(data: dict[str, Any], parent: ifcopenshell.entity_instance | None = None) -> None
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(cost_value: ifcopenshell.entity_instance, formula: str) -> None
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
 
 
 .. py:function:: edit_cost_value_formula(file: ifcopenshell.file, cost_value: ifcopenshell.entity_instance, formula: str) -> None

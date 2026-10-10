@@ -1,0 +1,14 @@
+.. _exhale_function_base__utils_8h_1af679e80a75c1ff8e6375cac9a5f64679:
+
+Function ifcopenshell::geom::util::intersect(const opencascade::handle<Geom\_Surface>&, const opencascade::handle<Geom\_Surface>&)
+==================================================================================================================================
+
+- Defined in :ref:`file_src_ifcgeom_kernels_opencascade_base_utils.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::util::intersect(const opencascade::handle<Geom_Surface>&, const opencascade::handle<Geom_Surface>&)
+   :project: IfcOpenShell

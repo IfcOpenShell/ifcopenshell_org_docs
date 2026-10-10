@@ -1,0 +1,22 @@
+.. _dir_src_ifcgeom_kernels_passthrough:
+
+
+Directory passthrough
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom_kernels>` (``src/ifcgeom/kernels``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``src/ifcgeom/kernels/passthrough``
+
+
+Files
+-----
+
+- :ref:`file_src_ifcgeom_kernels_passthrough_passthrough_conversion_result.h`
+- :ref:`file_src_ifcgeom_kernels_passthrough_passthrough_kernel.h`
+
+

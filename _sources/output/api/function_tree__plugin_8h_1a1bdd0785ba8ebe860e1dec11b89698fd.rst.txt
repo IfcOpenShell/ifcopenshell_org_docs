@@ -1,0 +1,14 @@
+.. _exhale_function_tree__plugin_8h_1a1bdd0785ba8ebe860e1dec11b89698fd:
+
+Function ifcopenshell::geom::trees::tree\_plugin\_registration\_symbol
+======================================================================
+
+- Defined in :ref:`file_src_ifcgeom_tree_plugin.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::trees::tree_plugin_registration_symbol()
+   :project: IfcOpenShell

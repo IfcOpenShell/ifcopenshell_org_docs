@@ -7,18 +7,44 @@
 Module Contents
 ---------------
 
+.. py:class:: UnitDict
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: is_metric
+      :type:  bool
+
+
+   .. py:attribute:: raw
+      :type:  str
+
+
 .. py:class:: Usecase
 
    .. py:method:: assign_units(unit_assignment: ifcopenshell.entity_instance, new_units: list[ifcopenshell.entity_instance]) -> None
 
 
-   .. py:method:: create_imperial_unit(unit_type: str, data: dict) -> ifcopenshell.entity_instance
+   .. py:method:: create_imperial_unit(unit_type: str, data: UnitDict) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_metric_unit(unit_type: str, data: dict) -> ifcopenshell.entity_instance
+   .. py:method:: create_metric_unit(unit_type: str, data: UnitDict) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(units: list[ifcopenshell.entity_instance] | None, length: UnitDict | None, area: UnitDict | None, volume: UnitDict | None) -> ifcopenshell.entity_instance
 
 
    .. py:method:: get_unit_assignment() -> ifcopenshell.entity_instance
@@ -28,11 +54,7 @@ Module Contents
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: assign_unit(file: ifcopenshell.file, units: Optional[list[ifcopenshell.entity_instance]] = None, length: Optional[dict] = None, area: Optional[dict] = None, volume: Optional[dict] = None) -> ifcopenshell.entity_instance
+.. py:function:: assign_unit(file: ifcopenshell.file, units: list[ifcopenshell.entity_instance] | None = None, length: UnitDict | None = None, area: UnitDict | None = None, volume: UnitDict | None = None) -> ifcopenshell.entity_instance
 
    Assign default project units
 
@@ -48,6 +70,12 @@ Module Contents
    :param units: A list of units to assign as project defaults. See
        ifcopenshell.api.unit.add_si_unit, unit.add_conversion_based_unit,
        and unit.add_monetary_unit for information on how to create units.
+   :param length: Only used if ``units`` is not provided. A dict like
+       ``{"is_metric": True, "raw": "MILLIMETERS"}`` to create the default
+       length unit. Imperial ``raw`` values are INCHES, FEET, MILES, or THOU.
+       Defaults to millimeters.
+   :param area: Same as ``length``, for the area unit. Defaults to square meters.
+   :param volume: Same as ``length``, for the volume unit. Defaults to cubic meters.
    :return: The IfcUnitAssignment element
 
    Example:

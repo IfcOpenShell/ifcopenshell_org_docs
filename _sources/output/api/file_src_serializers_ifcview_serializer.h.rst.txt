@@ -1,0 +1,55 @@
+
+.. _file_src_serializers_ifcview_serializer.h:
+
+File ifcview_serializer.h
+=========================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_serializers>` (``src/serializers``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/serializers/ifcview_serializer.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_serializers_ifcview_serializer.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``../ifcgeom/geometry_serializer.h``
+
+- ``../ifcviewer/IfcViewAssembler.h``
+
+- ``../ifcviewer/StreamedRecords.h``
+
+- ``cstdint``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_ifc_view_serializer`
+

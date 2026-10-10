@@ -1,0 +1,14 @@
+.. _exhale_function_function__item__evaluator_8h_1a14c7f7a1eb2392dbc01fff5fbe903e26:
+
+Function ifcopenshell::geom::helmert\_curve\_point
+==================================================
+
+- Defined in :ref:`file_src_ifcgeom_function_item_evaluator.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::helmert_curve_point(double, double, double, double)
+   :project: IfcOpenShell

@@ -13,7 +13,7 @@ documentation.
 
 All documentation is written in ReStructured Text and is available in the
 `IfcOpenShell docs directory
-<https://github.com/IfcOpenShell/IfcOpenShell/tree/v0.9.0/src/ifcopenshell-python/docs>`_.
+<https://github.com/IfcOpenShell/IfcOpenShell/tree/v0.9.0/docs>`_.
 You can press the edit button on the top right on any documentation page to
 quickly edit their content.
 
@@ -26,16 +26,13 @@ dependencies:
 
 .. code-block:: bash
 
-    pip install sphinx
-    pip install sphinx-autoapi
-    pip install sphinx-copybutton
-    pip install furo
+    cd /path/to/ifcopenshell/docs/
+    python -m pip install -r requirements.txt
 
 Now you can generate the documentation:
 
 .. code-block:: bash
 
-    cd /path/to/ifcopenshell/src/ifcopenshell-python/docs/
     make html
     cd _build/html
     python -m http.server
@@ -46,5 +43,5 @@ You will now have a local webserver running hosting the documentation.
    
    It may take some time to generate the API documentation. You can edit the
    `list of autoapi directories
-   <https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.9.0/src/ifcopenshell-python/docs/conf.py#L69>`_
+   <https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.9.0/docs/conf.py>`_
    to make this faster

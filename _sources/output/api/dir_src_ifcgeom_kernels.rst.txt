@@ -1,0 +1,29 @@
+.. _dir_src_ifcgeom_kernels:
+
+
+Directory kernels
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom>` (``src/ifcgeom``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``src/ifcgeom/kernels``
+
+Subdirectories
+--------------
+
+- :ref:`dir_src_ifcgeom_kernels_cgal`
+- :ref:`dir_src_ifcgeom_kernels_manifold`
+- :ref:`dir_src_ifcgeom_kernels_opencascade`
+- :ref:`dir_src_ifcgeom_kernels_passthrough`
+
+
+Files
+-----
+
+- :ref:`file_src_ifcgeom_kernels_ifc_geomlibrary_api.h`
+
+

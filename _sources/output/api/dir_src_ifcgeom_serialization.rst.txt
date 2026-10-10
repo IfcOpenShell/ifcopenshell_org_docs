@@ -1,0 +1,23 @@
+.. _dir_src_ifcgeom_serialization:
+
+
+Directory serialization
+=======================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom>` (``src/ifcgeom``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``src/ifcgeom/serialization``
+
+
+Files
+-----
+
+- :ref:`file_src_ifcgeom_serialization_ifc_geomserialization_api.h`
+- :ref:`file_src_ifcgeom_serialization_opencascade_geometry_ifc_writer_plugin.h`
+- :ref:`file_src_ifcgeom_serialization_serialization.h`
+
+

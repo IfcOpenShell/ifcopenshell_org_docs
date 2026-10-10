@@ -9,10 +9,10 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(shape_representation: ifcopenshell.entity_instance, styles: list[ifcopenshell.entity_instance], should_use_presentation_style_assignment: bool) -> None
 
 
-   .. py:method:: remove_styles(item)
+   .. py:method:: remove_styles(item: ifcopenshell.entity_instance, removed_styles: list[ifcopenshell.entity_instance]) -> None
 
       Removes styles from a styled item or a style assignment
       and purges item if doesn't have any styles after
@@ -21,10 +21,6 @@ Module Contents
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
 
 
 .. py:function:: unassign_representation_styles(file: ifcopenshell.file, shape_representation: ifcopenshell.entity_instance, styles: list[ifcopenshell.entity_instance], should_use_presentation_style_assignment: bool = False) -> None

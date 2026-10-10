@@ -1,0 +1,112 @@
+
+.. _file_src_ifcparse_hierarchy_helper.h:
+
+File hierarchy_helper.h
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcparse>` (``src/ifcparse``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcparse/hierarchy_helper.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcparse_hierarchy_helper.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``file.h`` (:ref:`file_src_ifcparse_file.h`)
+
+- ``global_id.h`` (:ref:`file_src_ifcparse_global_id.h`)
+
+- ``ifc_parse_api.h`` (:ref:`file_src_ifcparse_ifc_parse_api.h`)
+
+- ``logger.h`` (:ref:`file_src_ifcparse_logger.h`)
+
+- ``map`` (:ref:`file_src_ifcgeom_abstract_mapping.h`)
+
+- ``type_traits``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_ifcparse_alignment_helper.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ifcopenshell`
+
+- :ref:`namespace_ifcopenshell__hierarchy_detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structifcopenshell_1_1hierarchy__detail_1_1styled__item__accepts__presentation__style`
+
+- :ref:`exhale_struct_structifcopenshell_1_1hierarchy__detail_1_1styled__item__accepts__presentation__style_3_01_schem803cf51210f3f3f588400b6391e2647c`
+
+- :ref:`exhale_struct_structifcopenshell_1_1hierarchy__detail_1_1surface__style__type__selector`
+
+- :ref:`exhale_struct_structifcopenshell_1_1hierarchy__detail_1_1surface__style__type__selector_3_01_schema_00_01true_01_4`
+
+- :ref:`exhale_class_classhierarchy__helper`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_hierarchy__helper_8h_1a37325b9bf37cb0f8b3c2618f276cbee8`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1a62ea8e789259a25e7f24f0fc05279074`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1a01cfd1e9fe88cbd522e12965a61599ed`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1aa7785d033017ec0a0520e4143957c51a`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1a912ecc7f0878e01062e44a320e8071fa`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1ac25baaa12302d12501c24cf7b4a3419a`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1aeea526431b6dd623265790ccddf38739`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1a1af3a292ce176894c2794137d81c3125`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1adfd17d575a3bf3d8a05dd28c6f393d18`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1a390fb9af29bc30ab75e98fe2c78f5cb4`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_hierarchy__helper_8h_1ab313422829af4cac7758d3b5d1ea8bd3`
+

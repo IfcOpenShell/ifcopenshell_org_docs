@@ -7,47 +7,73 @@
 Module Contents
 ---------------
 
+.. py:class:: TextureDict
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:attribute:: uv_mode
+      :type:  NotRequired[Literal['UV', 'Generated', 'Camera']]
+
+
 .. py:class:: Usecase
 
-   .. py:method:: apply_uv_map_to_texture(texture)
+   .. py:method:: apply_uv_map_to_texture(texture: ifcopenshell.entity_instance) -> None
 
 
-   .. py:method:: create_surface_texture(node, mode)
+   .. py:method:: create_surface_texture(node: bpy.types.ShaderNodeTexImage, mode: Literal['DIFFUSE', 'EMISSIVE', 'METALLICROUGHNESS', 'NORMAL', 'OCCLUSION']) -> None
 
 
-   .. py:method:: detect_diffuse_map(bsdf)
+   .. py:method:: detect_diffuse_map(bsdf: bpy.types.Node) -> None
 
 
-   .. py:method:: detect_emissive_map(bsdf)
+   .. py:method:: detect_emissive_map(bsdf: bpy.types.Node) -> None
 
 
-   .. py:method:: detect_metallicroughness_map(bsdf)
+   .. py:method:: detect_metallicroughness_map(bsdf: bpy.types.Node) -> None
 
 
-   .. py:method:: detect_normal_map(bsdf)
+   .. py:method:: detect_normal_map(bsdf: bpy.types.Node) -> None
 
 
-   .. py:method:: detect_occlusion_map()
+   .. py:method:: detect_occlusion_map(material: bpy.types.Material) -> None
 
 
-   .. py:method:: detect_unlit_emissive_map(bsdf)
+   .. py:method:: detect_unlit_emissive_map(bsdf: bpy.types.Node) -> None
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(material: bpy.types.Material | None, textures: list[TextureDict], uv_maps: list[ifcopenshell.entity_instance]) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: process_texture_coordinates(node, texture)
+   .. py:method:: process_texture_coordinates(node: bpy.types.ShaderNodeTexImage, texture: ifcopenshell.entity_instance) -> None
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
+   .. py:attribute:: textures
+      :type:  list[ifcopenshell.entity_instance]
 
 
-.. py:function:: add_surface_textures(file: ifcopenshell.file, material: Optional[bpy.types.Material] = None, textures: Optional[list[dict]] = None, uv_maps: Optional[list[ifcopenshell.entity_instance]] = None) -> list[ifcopenshell.entity_instance]
+   .. py:attribute:: uv_maps
+      :type:  list[ifcopenshell.entity_instance]
+
+
+.. py:function:: add_surface_textures(file: ifcopenshell.file, material: bpy.types.Material | None = None, textures: list[TextureDict] | None = None, uv_maps: list[ifcopenshell.entity_instance] | None = None) -> list[ifcopenshell.entity_instance]
 
    Add surface texture based on a Blender material definition or texture data.
 

@@ -1,0 +1,14 @@
+.. _exhale_function_opencascade__geometry__ifc__writer__plugin_8h_1a99e33f631369d750af7ae3243e3ff68d:
+
+Function ifcopenshell::geom::opencascade\_geometry\_ifc\_writer\_plugin\_registration\_symbol
+=============================================================================================
+
+- Defined in :ref:`file_src_ifcgeom_serialization_opencascade_geometry_ifc_writer_plugin.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::opencascade_geometry_ifc_writer_plugin_registration_symbol()
+   :project: IfcOpenShell

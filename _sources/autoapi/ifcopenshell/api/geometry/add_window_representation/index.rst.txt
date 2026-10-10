@@ -13,15 +13,11 @@ Module Contents
                   convert_si_to_unit(value: numpy.ndarray) -> numpy.ndarray
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(context: ifcopenshell.entity_instance, unit_scale: float, overall_height: float | None, overall_width: float | None, panel_schema: list[list[int]], lining_properties: dict[str, Any], panel_properties: list[dict[str, Any]], part_of_product: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
 
 
 .. py:class:: WindowLiningProperties
@@ -30,7 +26,7 @@ Module Contents
 
 
    .. py:attribute:: FirstMullionOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -39,7 +35,7 @@ Module Contents
 
 
    .. py:attribute:: FirstTransomOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -48,7 +44,7 @@ Module Contents
 
 
    .. py:attribute:: LiningDepth
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -57,7 +53,7 @@ Module Contents
 
 
    .. py:attribute:: LiningOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -66,7 +62,7 @@ Module Contents
 
 
    .. py:attribute:: LiningThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -75,7 +71,7 @@ Module Contents
 
 
    .. py:attribute:: LiningToPanelOffsetX
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -84,7 +80,7 @@ Module Contents
 
 
    .. py:attribute:: LiningToPanelOffsetY
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -93,7 +89,7 @@ Module Contents
 
 
    .. py:attribute:: MullionThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -107,7 +103,7 @@ Module Contents
 
 
    .. py:attribute:: SecondMullionOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -120,7 +116,7 @@ Module Contents
 
 
    .. py:attribute:: SecondTransomOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -139,7 +135,7 @@ Module Contents
 
 
    .. py:attribute:: TransomThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -158,7 +154,7 @@ Module Contents
 
 
    .. py:attribute:: FrameDepth
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -167,7 +163,7 @@ Module Contents
 
 
    .. py:attribute:: FrameThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -203,7 +199,7 @@ Module Contents
 
 
 
-.. py:function:: add_window_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, partition_type: WINDOW_TYPE = 'SINGLE_PANEL', lining_properties: Optional[Union[WindowLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[list[Union[WindowPanelProperties, dict[str, Any]]]] = None, part_of_product: Optional[ifcopenshell.entity_instance] = None, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_window_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: float | None = None, overall_width: float | None = None, partition_type: WINDOW_TYPE = 'SINGLE_PANEL', lining_properties: WindowLiningProperties | dict[str, Any] | None = None, panel_properties: list[WindowPanelProperties | dict[str, Any]] | None = None, part_of_product: ifcopenshell.entity_instance | None = None, unit_scale: float | None = None) -> ifcopenshell.entity_instance
 
    units in usecase_settings expected to be in ifc project units
 
@@ -221,13 +217,13 @@ Module Contents
    :return: IfcShapeRepresentation for a window.
 
 
-.. py:function:: create_ifc_window(builder: ifcopenshell.util.shape_builder.ShapeBuilder, lining_size: numpy.ndarray, lining_thickness: list[float], lining_to_panel_offset_x: float, lining_to_panel_offset_y_full: float, frame_size: numpy.ndarray, frame_thickness: float, glass_thickness: float, position: numpy.ndarray, x_offsets: Optional[list[float]] = None) -> dict[str, list[ifcopenshell.entity_instance]]
+.. py:function:: create_ifc_window(builder: ifcopenshell.util.shape_builder.ShapeBuilder, lining_size: numpy.ndarray, lining_thickness: list[float], lining_to_panel_offset_x: float, lining_to_panel_offset_y_full: float, frame_size: numpy.ndarray, frame_thickness: float, glass_thickness: float, position: numpy.ndarray, x_offsets: list[float] | None = None) -> dict[str, list[ifcopenshell.entity_instance]]
 
    `lining_thickness` and `x_offsets` are expected to be defined as a list,
    similarly to `create_ifc_window_frame_simple` `thickness` argument
 
 
-.. py:function:: create_ifc_window_frame_simple(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: numpy.ndarray, thickness: Union[list[float], float], position: Optional[numpy.ndarray] = None) -> list[ifcopenshell.entity_instance]
+.. py:function:: create_ifc_window_frame_simple(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: numpy.ndarray, thickness: list[float] | float, position: numpy.ndarray | None = None) -> list[ifcopenshell.entity_instance]
 
    `thickness` of the profile is defined as list in the following order:
    `(LEFT, TOP, RIGHT, BOTTOM)`

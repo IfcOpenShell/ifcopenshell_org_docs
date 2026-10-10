@@ -1,0 +1,216 @@
+:py:mod:`ifcopenshell.mvd.sparql`
+=================================
+
+.. py:module:: ifcopenshell.mvd.sparql
+
+
+Module Contents
+---------------
+
+.. py:class:: builder
+
+   Bases: :py:obj:`object`
+
+
+   A helper class for dealing with SPARQL query statements
+
+
+   .. py:method:: append(*stmt)
+
+
+   .. py:method:: bind(di)
+
+
+   .. py:method:: x()
+
+
+   .. py:attribute:: prefixes
+
+
+   .. py:attribute:: statements
+      :value: []
+
+
+
+.. py:class:: convertor
+
+   Bases: :py:obj:`object`
+
+
+   .. py:method:: build_filter(self)
+      :staticmethod:
+
+
+
+   .. py:method:: concept_or_applicability(concept)
+      :staticmethod:
+
+
+      Convert the Template (SELECT ... WHERE {}) structure and TemplateRule (FILTER)
+
+      :param qtype: 0 or 1, 0 for a general query matching the applicableRootEntity
+      :return:
+
+
+
+   .. py:method:: convert(item, *args, **kwargs)
+      :staticmethod:
+
+
+
+   .. py:method:: root(rootEntity)
+      :staticmethod:
+
+
+
+   .. py:method:: template(template, bld=None, rootEntity=None)
+      :staticmethod:
+
+
+
+.. py:class:: executor
+
+   Bases: :py:obj:`object`
+
+
+   .. py:method:: run(CR, fn, ttlfn)
+      :staticmethod:
+
+
+      Generates SPARQL queries for the parsed MVD and executes on the building model
+
+      :param CR: A parsed concept root
+      :param fn: A filename used as the prefix to store generate SPARQL queries to disk
+      :param ttlfn: A filename for the LD representation of an IFC model
+      :return:
+
+
+
+.. py:class:: ifcOwl
+
+   Bases: :py:obj:`object`
+
+
+   Helper class with static function for dealing with ifcOwl attribute names
+
+
+   .. py:method:: get_names(e, c)
+      :staticmethod:
+
+
+      Returns inverse or forward attribute names for latebound entity definition
+
+      :param e: latebound entity definition
+      :param c: either 'all_attributes' or 'all_inverse_attributes'
+      :return: set of attribute names
+
+
+
+   .. py:method:: is_boxed(S, entity, attribute, predCount=0)
+      :staticmethod:
+
+
+      Returns whether the entity attribute should be boxed in ifcOwl. Which means
+      that there is an additional indirection.
+
+      inst:IfcRelDefinesByType_21937
+          ifcowl:globalId_IfcRoot      inst:IfcGloballyUniqueId_117684 ;
+
+      inst:IfcGloballyUniqueId_117684
+          rdf:type           ifcowl:IfcGloballyUniqueId ;
+          express:hasString  "2P9FPkykn0r8rCpmBxZH0w" .
+
+      :param S: schema definition (from decorator)
+      :param entity: entity name string
+      :param attribute: attribute name string
+      :param predCount: numeric identifier to postfix predicate identifier in case of SELECT types
+      :return: either a predicate from the express namespace or a variable postfixed with predCount
+
+
+
+   .. py:method:: is_inverse(S, entity, attribute)
+      :staticmethod:
+
+
+      When entity attribute is an INVERSE attribute, returns the opposite
+      forward entity and attribute name. Otherwise returns (False, False)
+
+      :param S:
+      :param entity:
+      :param attribute:
+      :return:
+
+
+
+   .. py:method:: is_select(S, decl_name)
+      :staticmethod:
+
+
+      Returns True when the declaration is a select type
+
+      :param S:
+      :param decl_name:
+      :return:
+
+
+
+   .. py:method:: name(S, entity, attribute)
+      :staticmethod:
+
+
+      Names the entity attribute according to ifcOwl
+
+      :param S:
+      :param entity:
+      :param attribute:
+      :return:
+
+
+
+   .. py:method:: supertypes(S, entity)
+      :staticmethod:
+
+
+      Yields ifcOwl subtypes for the supplied entity name
+
+      :param S: schema definition (from decorator)
+      :param entity: entity name string
+      :return:
+
+
+
+.. py:class:: rule_binding
+
+   Bases: :py:obj:`object`
+
+
+   Object for mapping rules to generated SPARQL variables
+
+
+.. py:function:: camel(s)
+
+   Camel case conversion function
+   :param s: str
+   :return: camel case formatted string
+
+
+.. py:function:: derive_prefix(ttlfn)
+
+.. py:function:: infer_subtypes(ttlfn)
+
+.. py:function:: withschema(fn)
+
+   Decorator that takes a function and adds an IFC latebound schema definition
+   in the first parameter. The schema identifier is looked up based on the
+   global ifcOwl prefix.
+
+   :param fn: input function
+   :return: decorated function
+
+
+.. py:data:: JENA_SPARQL
+
+.. py:data:: STANDARD_PREFIXES
+
+.. py:data:: noop
+

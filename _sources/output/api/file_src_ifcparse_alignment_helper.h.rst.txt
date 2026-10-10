@@ -1,0 +1,61 @@
+
+.. _file_src_ifcparse_alignment_helper.h:
+
+File alignment_helper.h
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcparse>` (``src/ifcparse``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcparse/alignment_helper.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcparse_alignment_helper.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``hierarchy_helper.h`` (:ref:`file_src_ifcparse_hierarchy_helper.h`)
+
+- ``ifc_parse_api.h`` (:ref:`file_src_ifcparse_ifc_parse_api.h`)
+
+- ``logger.h`` (:ref:`file_src_ifcparse_logger.h`)
+
+- ``schemas/Ifc4x3_add2.h``
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_alignment__helper_8h_1a60735d32c75c7ba91c8d0f710467f7d9`
+
+- :ref:`exhale_function_alignment__helper_8h_1af31f4ee336a68813dbf3f03bcdf5116d`
+
+- :ref:`exhale_function_alignment__helper_8h_1a3fa60c0bdbc9705a58fa60fb068ef6bc`
+
+- :ref:`exhale_function_alignment__helper_8h_1a62f6f12394d259ba2c779f38ecc54008`
+
+- :ref:`exhale_function_alignment__helper_8h_1acc4a2b694f5d17f7a1b596e8ef007ee1`
+
+- :ref:`exhale_function_alignment__helper_8h_1abe411398ca410fc6c49861fb8ee13522`
+

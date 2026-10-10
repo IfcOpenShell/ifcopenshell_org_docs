@@ -1,0 +1,14 @@
+.. _exhale_function_taxonomy_8h_1abde95aaa34bd889dc54938edb95602e0:
+
+Function ifcopenshell::geom::taxonomy::kind\_to\_string
+=======================================================
+
+- Defined in :ref:`file_src_ifcgeom_taxonomy.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::taxonomy::kind_to_string(kinds)
+   :project: IfcOpenShell

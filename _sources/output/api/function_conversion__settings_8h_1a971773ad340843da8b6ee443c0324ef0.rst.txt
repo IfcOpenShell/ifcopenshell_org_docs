@@ -1,0 +1,14 @@
+.. _exhale_function_conversion__settings_8h_1a971773ad340843da8b6ee443c0324ef0:
+
+Function std::operator>>(istream&, set<string>&)
+================================================
+
+- Defined in :ref:`file_src_ifcgeom_conversion_settings.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: std::operator>>(istream&, set<string>&)
+   :project: IfcOpenShell

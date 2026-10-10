@@ -1,0 +1,85 @@
+
+.. _file_src_ifcgeom_tree_registry.h:
+
+File tree_registry.h
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom>` (``src/ifcgeom``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcgeom/tree_registry.h``)
+--------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcgeom_tree_registry.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``../plugin/plugin.h``
+
+- ``functional``
+
+- ``map`` (:ref:`file_src_ifcgeom_abstract_mapping.h`)
+
+- ``memory``
+
+- ``string``
+
+- ``tree.h`` (:ref:`file_src_ifcgeom_kernels_opencascade_bvh_tree.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_ifcgeom_tree_plugin.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ifcopenshell`
+
+- :ref:`namespace_ifcopenshell__geom`
+
+- :ref:`namespace_ifcopenshell__geom__trees`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1trees_1_1tree__info`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1trees_1_1tree__registry_1_1entry`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1trees_1_1tree__registry`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_tree__registry_8h_1ade07267c7e1524ef84b2e24d4c764a19`
+
+- :ref:`exhale_function_tree__registry_8h_1abb5a2b635b99281c4411656bbb14b65e`
+

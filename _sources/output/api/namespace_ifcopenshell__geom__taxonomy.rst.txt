@@ -1,0 +1,186 @@
+
+.. _namespace_ifcopenshell__geom__taxonomy:
+
+Namespace ifcopenshell::geom::taxonomy
+======================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ifcopenshell__geom__taxonomy__@56`
+
+- :ref:`namespace_ifcopenshell__geom__taxonomy__impl`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1boolean__result`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1bspline__curve`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1bspline__surface`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1cant__function`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1cartesian__base`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1circle`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1collection`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1collection__base`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1colour`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1curve`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1curves`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1cylinder`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1direction3`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1edge`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1eigen__base`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1ellipse`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1equal__functor`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1extrusion`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1face`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1function__item`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1functor__item`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1geom__item`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1gradient__function`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1hash__functor`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1implicit__item`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1item`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1less__functor`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1line`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1loft`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1loop`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1matrix4`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1node`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1offset__curve`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1offset__function`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1piecewise__function`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1plane`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1point3`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1revolve`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1shell`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1solid`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1sphere`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1style`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1surface`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1surfaces`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1sweep`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1sweep__along__curve`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1torus`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1trimmed__curve`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1type__by__kind`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1upgrades`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1taxonomy_1_1curve__to__edge__upgrade`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1taxonomy_1_1curve__to__face__upgrade`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1taxonomy_1_1curve__to__loop__upgrade`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1taxonomy_1_1edge__to__loop__upgrade`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1taxonomy_1_1loop__to__face__upgrade`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1taxonomy_1_1loop__to__function__item__upgrade`
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1taxonomy_1_1topology__error`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_taxonomy_8h_1aecc61ecf411355b431422d52a382f0e6`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_taxonomy_8h_1abb8007d880eb612d7b655ed239273bb0`
+
+- :ref:`exhale_function_taxonomy_8h_1a09aa6a86bdb3fb230adb4b26ceda3f8c`
+
+- :ref:`exhale_function_taxonomy_8h_1a491d8648ba916edcf204494fec819278`
+
+- :ref:`exhale_function_taxonomy_8h_1a2c245a7ed2fd3b28b451f79145f86320`
+
+- :ref:`exhale_function_taxonomy_8h_1a4ca7e33bef441ef53b1a1368c8549699`
+
+- :ref:`exhale_function_taxonomy_8h_1a3dc3da5062842859f6f9a2c682d11e11`
+
+- :ref:`exhale_function_taxonomy_8h_1ae40574df3c740464f39236e47d72d6cf`
+
+- :ref:`exhale_function_taxonomy_8h_1abde95aaa34bd889dc54938edb95602e0`
+
+- :ref:`exhale_function_taxonomy_8h_1a89da4c1a020a201e0de30e1184c23347`
+
+- :ref:`exhale_function_taxonomy_8h_1a04e6b46c354b384ab6453b7a2b88282d`
+
+- :ref:`exhale_function_taxonomy_8h_1a8899503155c8b9c16a1717db3871ff7f`
+
+- :ref:`exhale_function_taxonomy_8h_1a44f851b54cb91c128db58dc93bf8e021`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_taxonomy_8h_1aea36969aa7c65c9d20610fed0af11298`
+
+- :ref:`exhale_typedef_taxonomy_8h_1a094214072625eacd3b3ab22c1a8f7438`

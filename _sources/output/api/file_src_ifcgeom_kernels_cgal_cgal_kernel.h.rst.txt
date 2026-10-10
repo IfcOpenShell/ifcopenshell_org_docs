@@ -1,0 +1,89 @@
+
+.. _file_src_ifcgeom_kernels_cgal_cgal_kernel.h:
+
+File cgal_kernel.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom_kernels_cgal>` (``src/ifcgeom/kernels/cgal``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcgeom/kernels/cgal/cgal_kernel.h``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcgeom_kernels_cgal_cgal_kernel.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``../../../ifcgeom/abstract_kernel.h``
+
+- ``../../../ifcgeom/element.h``
+
+- ``../../../ifcgeom/kernels/cgal/cgal_conversion_result.h``
+
+- ``../../../ifcgeom/kernels/ifc_geomlibrary_api.h``
+
+- ``../../../ifcparse/logger.h``
+
+- ``../../../ifcparse/macros.h``
+
+- ``CGAL/Polygon_2.h``
+
+- ``cmath``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ifcopenshell`
+
+- :ref:`namespace_ifcopenshell__geom`
+
+- :ref:`namespace_ifcopenshell__geom__kernels`
+
+- :ref:`namespace_ifcopenshell__geom__utils`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classifcopenshell_1_1geom_1_1kernels_1_1cgal__kernel`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_cgal__kernel_8h_1af5444db5973cb68872f3306feea482d7`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a55620ebd8e2aab6a4c227cdb636c5a0b`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a47b6c9199fdbd120bcc9dbe6c7378937`
+
+- :ref:`exhale_function_cgal__kernel_8h_1aa41ad70467c5d1cdf30d1b41e580ef9b`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a714e86c14698f282855966d39bbf376b`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a9596e220c86d5c5811fb5ee1e8fc9ff9`
+

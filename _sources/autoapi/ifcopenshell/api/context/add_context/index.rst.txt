@@ -9,24 +9,20 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: create_2d_origin()
+   .. py:method:: create_2d_origin() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_3d_origin()
+   .. py:method:: create_3d_origin() -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(context_type: ifcopenshell.util.representation.CONTEXT_TYPE | None, context_identifier: ifcopenshell.util.representation.REPRESENTATION_IDENTIFIER | None, target_view: ifcopenshell.util.representation.TARGET_VIEW | None, target_scale: float | None, parent: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: add_context(file: ifcopenshell.file, context_type: Optional[ifcopenshell.util.representation.CONTEXT_TYPE] = None, context_identifier: Optional[ifcopenshell.util.representation.REPRESENTATION_IDENTIFIER] = None, target_view: Optional[ifcopenshell.util.representation.TARGET_VIEW] = None, target_scale: Optional[float] = None, parent: Optional[ifcopenshell.entity_instance] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_context(file: ifcopenshell.file, context_type: ifcopenshell.util.representation.CONTEXT_TYPE | None = None, context_identifier: ifcopenshell.util.representation.REPRESENTATION_IDENTIFIER | None = None, target_view: ifcopenshell.util.representation.TARGET_VIEW | None = None, target_scale: float | None = None, parent: ifcopenshell.entity_instance | None = None) -> ifcopenshell.entity_instance
 
    Adds a new geometric representation context
 

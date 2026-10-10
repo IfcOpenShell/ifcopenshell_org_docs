@@ -9,22 +9,22 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: add_new_properties() -> list[ifcopenshell.entity_instance]
+   .. py:method:: add_new_properties(properties: dict[str, PROP_VALUE_TYPE], qto_template: ifcopenshell.entity_instance | None) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(qto: ifcopenshell.entity_instance, name: str | None, properties: dict[str, PROP_VALUE_TYPE], pset_template: ifcopenshell.entity_instance | None) -> None
 
 
-   .. py:method:: extend_qto_with_new_properties(new_properties: list[ifcopenshell.entity_instance]) -> None
+   .. py:method:: extend_qto_with_new_properties(qto: ifcopenshell.entity_instance, qto_idx: int, new_properties: list[ifcopenshell.entity_instance]) -> None
 
 
-   .. py:method:: get_canonical_property_type(name: str, value: Union[ifcopenshell.entity_instance, float, int]) -> str
+   .. py:method:: get_canonical_property_type(name: str, value: ifcopenshell.entity_instance | float | int, qto_template: ifcopenshell.entity_instance | None) -> str
 
 
-   .. py:method:: load_qto_template() -> None
+   .. py:method:: load_qto_template(qto: ifcopenshell.entity_instance, pset_template: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance | None
 
 
-   .. py:method:: unpack_unit_value(value_candidate)
+   .. py:method:: unpack_unit_value(value_candidate: Any) -> tuple[Any, Any]
       :staticmethod:
 
 
@@ -40,24 +40,20 @@ Module Contents
 
 
 
-   .. py:method:: update_existing_properties() -> None
+   .. py:method:: update_existing_properties(qto: ifcopenshell.entity_instance, qto_idx: int, properties: dict[str, PROP_VALUE_TYPE]) -> None
 
 
-   .. py:method:: update_existing_property(prop: ifcopenshell.entity_instance) -> None
+   .. py:method:: update_existing_property(prop: ifcopenshell.entity_instance, properties: dict[str, PROP_VALUE_TYPE]) -> None
 
 
-   .. py:method:: update_qto_name() -> None
+   .. py:method:: update_qto_name(qto: ifcopenshell.entity_instance, name: str | None) -> None
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: edit_qto(file: ifcopenshell.file, qto: ifcopenshell.entity_instance, name: Optional[str] = None, properties: Optional[dict[str, PROP_VALUE_TYPE]] = None, pset_template: Optional[ifcopenshell.entity_instance] = None) -> None
+.. py:function:: edit_qto(file: ifcopenshell.file, qto: ifcopenshell.entity_instance, name: str | None = None, properties: dict[str, PROP_VALUE_TYPE] | None = None, pset_template: ifcopenshell.entity_instance | None = None) -> None
 
    Edits a quantity set and its quantities
 
@@ -148,7 +144,7 @@ Module Contents
        ifcopenshell.api.pset.edit_qto(model, qto=qto, properties={"SomeLength": 12.3})
 
 
-.. py:function:: infer_property_type(name: str, value: Union[float, int]) -> str
+.. py:function:: infer_property_type(name: str, value: float | int) -> str
 
 .. py:data:: FLOAT_TYPE_KEYWORDS
    :value: (('Area', ('area',)), ('Volume', ('volume',)), ('Weight', ('weight', 'mass')), ('Length',...

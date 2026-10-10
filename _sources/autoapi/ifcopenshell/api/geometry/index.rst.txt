@@ -189,7 +189,7 @@ Package Contents
        created, the list will be empty.
 
 
-.. py:function:: add_door_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, operation_type: DOOR_TYPE = 'SINGLE_SWING_LEFT', lining_properties: Optional[Union[DoorLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[Union[DoorPanelProperties, dict[str, Any]]] = None, part_of_product: Optional[ifcopenshell.entity_instance] = None, unit_scale: Optional[float] = None) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: add_door_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: float | None = None, overall_width: float | None = None, operation_type: DOOR_TYPE = 'SINGLE_SWING_LEFT', lining_properties: DoorLiningProperties | dict[str, Any] | None = None, panel_properties: DoorPanelProperties | dict[str, Any] | None = None, part_of_product: ifcopenshell.entity_instance | None = None, unit_scale: float | None = None) -> ifcopenshell.entity_instance | None
 
    Add a geometric representation for a door.
 
@@ -357,7 +357,7 @@ Package Contents
            model, product=member, representation=rep)
 
 
-.. py:function:: add_wall_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, length: float = 1.0, height: float = 3.0, direction_sense: str = 'POSITIVE', offset: float = 0.0, thickness: float = 0.2, x_angle: float = 0.0, clippings: Optional[list[Union[ifcopenshell.util.data.Clipping, dict[str, Any]]]] = None, booleans: Optional[list[ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_wall_representation(file: ifcopenshell.file, context: ifcopenshell.entity_instance, length: float = 1.0, height: float = 3.0, direction_sense: str = 'POSITIVE', offset: float = 0.0, thickness: float = 0.2, x_angle: float = 0.0, clippings: list[ifcopenshell.util.data.Clipping | dict[str, Any]] | None = None, booleans: list[ifcopenshell.entity_instance] | None = None) -> ifcopenshell.entity_instance
 
    Add a geometric representation for a wall.
 
@@ -376,7 +376,7 @@ Package Contents
    :return: IfcShapeRepresentation.
 
 
-.. py:function:: add_window_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, partition_type: WINDOW_TYPE = 'SINGLE_PANEL', lining_properties: Optional[Union[WindowLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[list[Union[WindowPanelProperties, dict[str, Any]]]] = None, part_of_product: Optional[ifcopenshell.entity_instance] = None, unit_scale: Optional[float] = None) -> ifcopenshell.entity_instance
+.. py:function:: add_window_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: float | None = None, overall_width: float | None = None, partition_type: WINDOW_TYPE = 'SINGLE_PANEL', lining_properties: WindowLiningProperties | dict[str, Any] | None = None, panel_properties: list[WindowPanelProperties | dict[str, Any]] | None = None, part_of_product: ifcopenshell.entity_instance | None = None, unit_scale: float | None = None) -> ifcopenshell.entity_instance
 
    units in usecase_settings expected to be in ifc project units
 
@@ -586,7 +586,7 @@ Package Contents
    `relating_element` (connected from) and `related_element` (connected to)
 
 
-.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
+.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: NPArrayOfFloats | None = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
 
    Changes the object placement matrix of an element
 

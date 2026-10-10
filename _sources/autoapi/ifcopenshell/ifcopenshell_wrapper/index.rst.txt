@@ -2112,7 +2112,7 @@ Module Contents
    .. py:method:: size()
 
 
-.. py:class:: native_element(*args: Unpack[tuple[int, int, str, str, str, str, matrix4, native, entity_instance]])
+.. py:class:: native_element(*args: *tuple[int, int, str, str, str, str, matrix4, native, entity_instance])
 
    Bases: :py:obj:`element`
 
@@ -2529,7 +2529,7 @@ Module Contents
    .. py:property:: surface_styles
 
 
-.. py:class:: serialized_element(*args: Unpack[tuple[native_element]])
+.. py:class:: serialized_element(*args: *tuple[native_element])
 
    Bases: :py:obj:`element`
 

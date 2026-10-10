@@ -1,0 +1,111 @@
+:py:mod:`ifcopenshell.mvd`
+==========================
+
+.. py:module:: ifcopenshell.mvd
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   mvd/index.rst
+   mvdxml_expression/index.rst
+   sparql/index.rst
+
+
+Package Contents
+----------------
+
+.. py:class:: concept_or_applicability(root, c)
+
+   Bases: :py:obj:`object`
+
+
+   Representation of either a mvdXML Concept or the Applicability node. Basically a structure
+   for the hierarchical TemplateRule
+
+
+   .. py:method:: rules()
+
+
+   .. py:method:: template(id=None, visited=None)
+
+
+   .. py:attribute:: concept_node
+
+
+   .. py:attribute:: root
+
+
+.. py:class:: concept_root(dom, root)
+
+   Bases: :py:obj:`object`
+
+
+   .. py:method:: applicability()
+
+
+   .. py:method:: concepts()
+
+
+   .. py:method:: parse(fn)
+      :staticmethod:
+
+
+
+   .. py:attribute:: entity
+      :value: ''
+
+
+
+   .. py:attribute:: name
+
+
+.. py:class:: rule(tag, attribute, nodes, bind=None, optional=False)
+
+   Bases: :py:obj:`object`
+
+
+   A class for representing an mvdXML EntityRule or AttributeRule
+
+
+   .. py:method:: to_string(indent=0)
+
+
+   .. py:attribute:: optional
+      :value: False
+
+
+
+.. py:class:: template(concept, root, constraints=None, rules=None, parent=None)
+
+   Bases: :py:obj:`object`
+
+
+   Representation of an mvdXML template
+
+
+   .. py:method:: bind(constraints)
+
+
+   .. py:method:: parse(visited=None)
+
+
+   .. py:method:: parse_rule(root, visited=None)
+
+
+   .. py:method:: traverse(fn, root=None, with_parents=False)
+
+
+   .. py:attribute:: entity
+      :value: ''
+
+
+
+   .. py:attribute:: rules
+      :value: []
+
+
+

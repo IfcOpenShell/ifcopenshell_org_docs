@@ -1,0 +1,73 @@
+
+.. _file_src_ifcgeom_mapping_plugin.h:
+
+File mapping_plugin.h
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom>` (``src/ifcgeom``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcgeom/mapping_plugin.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcgeom_mapping_plugin.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``../ifcgeom/abstract_mapping.h``
+
+- ``filesystem``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ifcopenshell`
+
+- :ref:`namespace_ifcopenshell__geom`
+
+- :ref:`namespace_ifcopenshell__geom__impl`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_mapping__plugin_8h_1a4b4adb9b13b1bbd43867d89924c5a947`
+
+- :ref:`exhale_function_mapping__plugin_8h_1a7c3622c6f9f0dd3710da04b0b8d89666`
+
+- :ref:`exhale_function_mapping__plugin_8h_1ae8b9fb0401c68b0fc5d67a4a50a0269c`
+
+- :ref:`exhale_function_mapping__plugin_8h_1a37cf9a272b9005a0a30a0b71ed6ac5e6`
+
+- :ref:`exhale_function_mapping__plugin_8h_1ab24a80f959f1da33c3133205614f7758`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_mapping__plugin_8h_1a1333127f9bb62c08158629fa60d2ed19`
+

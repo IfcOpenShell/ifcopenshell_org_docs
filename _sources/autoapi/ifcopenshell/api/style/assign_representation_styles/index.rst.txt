@@ -9,10 +9,10 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: execute()
+   .. py:method:: execute(shape_representation: ifcopenshell.entity_instance, styles: list[ifcopenshell.entity_instance], replace_previous_same_type_style: bool, should_use_presentation_style_assignment: bool) -> list[ifcopenshell.entity_instance]
 
 
-   .. py:method:: remove_same_type_styles(style_item, current_style_type: str, remove_item: bool) -> None
+   .. py:method:: remove_same_type_styles(style_item: ifcopenshell.entity_instance, current_style_type: str, remove_item: bool) -> None
 
 
    .. py:attribute:: file
@@ -21,10 +21,6 @@ Module Contents
 
    .. py:attribute:: results
       :type:  list[ifcopenshell.entity_instance]
-
-
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
 
 
 .. py:function:: assign_representation_styles(file: ifcopenshell.file, shape_representation: ifcopenshell.entity_instance, styles: list[ifcopenshell.entity_instance], replace_previous_same_type_style: bool = True, should_use_presentation_style_assignment: bool = False) -> list[ifcopenshell.entity_instance]

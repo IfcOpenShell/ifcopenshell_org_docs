@@ -1,0 +1,19 @@
+.. _exhale_struct_structmap__transformer_1_1back__storage__fallback:
+
+Struct map_transformer::back_storage_fallback
+=============================================
+
+- Defined in :ref:`file_src_ifcparse_map_transformer.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classmap__transformer`.
+
+
+Struct Documentation
+--------------------
+
+
+See :ref:`exhale_class_classmap__transformer` for this nested type's documentation.

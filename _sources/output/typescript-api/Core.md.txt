@@ -1,0 +1,4575 @@
+# Core
+
+Core `ifcopenshell` API.
+
+## Classes
+
+(typescript-core-entityinstance)=
+
+
+### EntityInstance
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:27](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L27)
+
+IFC entity instance with attribute conveniences.
+
+#### Extends
+
+- `IfcOpenshellInstance`
+
+#### Constructors
+
+(typescript-core-constructor)=
+
+
+##### Constructor
+
+> **new EntityInstance**(`handle`): [`EntityInstance`](#typescript-core-entityinstance)
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:28](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L28)
+
+###### Parameters
+
+###### handle
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### Overrides
+
+`IfcOpenshellInstance.constructor`
+
+#### Properties
+
+(typescript-core-ptr)=
+
+
+##### ptr
+
+> `readonly` **ptr**: `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:361
+
+###### Inherited from
+
+`IfcOpenshellInstance.ptr`
+
+#### Methods
+
+(typescript-core-attributecategory)=
+
+
+##### attributeCategory()
+
+> **attributeCategory**(`name`): `number`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:127](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L127)
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`
+
+(typescript-core-attributeindex)=
+
+
+##### attributeIndex()
+
+> **attributeIndex**(`name`): `number`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:114](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L114)
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`
+
+(typescript-core-attributename)=
+
+
+##### attributeName()
+
+> **attributeName**(`index`): `string`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:118](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L118)
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### Returns
+
+`string`
+
+(typescript-core-attributes)=
+
+
+##### attributes()
+
+> **attributes**(): `string`[]
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:53](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L53)
+
+###### Returns
+
+`string`[]
+
+(typescript-core-attributetype)=
+
+
+##### attributeType()
+
+> **attributeType**(`nameOrIndex`): `string`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:122](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L122)
+
+###### Parameters
+
+###### nameOrIndex
+
+`string` \| `number`
+
+###### Returns
+
+`string`
+
+(typescript-core-classname)=
+
+
+##### className()
+
+> **className**(`with_schema`): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:363
+
+###### Parameters
+
+###### with\_schema
+
+`boolean`
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellInstance.className`
+
+(typescript-core-declaration)=
+
+
+##### declaration()
+
+> **declaration**(): `IfcOpenshellDeclaration`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:364
+
+###### Returns
+
+`IfcOpenshellDeclaration`
+
+###### Inherited from
+
+`IfcOpenshellInstance.declaration`
+
+(typescript-core-destroy)=
+
+
+##### destroy()
+
+> **destroy**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:362
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.destroy`
+
+(typescript-core-entries)=
+
+
+##### entries()
+
+> **entries**(): \[`string`, [`AttributeValueType`](#typescript-core-attributevaluetype)\][]
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L57)
+
+###### Returns
+
+\[`string`, [`AttributeValueType`](#typescript-core-attributevaluetype)\][]
+
+(typescript-core-file)=
+
+
+##### file()
+
+> **file**(): `IfcOpenshellFile` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:365
+
+###### Returns
+
+`IfcOpenshellFile` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellInstance.file`
+
+(typescript-core-filepointer)=
+
+
+##### filePointer()
+
+> **filePointer**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:366
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellInstance.filePointer`
+
+(typescript-core-get)=
+
+
+##### get()
+
+> **get**(`nameOrIndex`): [`AttributeValueType`](#typescript-core-attributevaluetype)
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:42](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L42)
+
+###### Parameters
+
+###### nameOrIndex
+
+`string` \| `number`
+
+###### Returns
+
+[`AttributeValueType`](#typescript-core-attributevaluetype)
+
+(typescript-core-getargument)=
+
+
+##### getArgument()
+
+> **getArgument**(`attribute_index`): `AttributeValueType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:367
+
+###### Parameters
+
+###### attribute\_index
+
+`number`
+
+###### Returns
+
+`AttributeValueType`
+
+###### Inherited from
+
+`IfcOpenshellInstance.getArgument`
+
+(typescript-core-getargumentbyname)=
+
+
+##### getArgumentByName()
+
+> **getArgumentByName**(`name`): `AttributeValueType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:368
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`AttributeValueType`
+
+###### Inherited from
+
+`IfcOpenshellInstance.getArgumentByName`
+
+(typescript-core-getargumentindex)=
+
+
+##### getArgumentIndex()
+
+> **getArgumentIndex**(`name`): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:369
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellInstance.getArgumentIndex`
+
+(typescript-core-getargumentname)=
+
+
+##### getArgumentName()
+
+> **getArgumentName**(`index`): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:370
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellInstance.getArgumentName`
+
+(typescript-core-getargumenttype)=
+
+
+##### getArgumentType()
+
+> **getArgumentType**(`index`): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:371
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellInstance.getArgumentType`
+
+(typescript-core-getattributecategory)=
+
+
+##### getAttributeCategory()
+
+> **getAttributeCategory**(`name`): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:372
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellInstance.getAttributeCategory`
+
+(typescript-core-getattributenames)=
+
+
+##### getAttributeNames()
+
+> **getAttributeNames**(): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:373
+
+###### Returns
+
+`string`[]
+
+###### Inherited from
+
+`IfcOpenshellInstance.getAttributeNames`
+
+(typescript-core-getattributevalue)=
+
+
+##### getAttributeValue()
+
+> **getAttributeValue**(`index`): `AttributeValueType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:374
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### Returns
+
+`AttributeValueType`
+
+###### Inherited from
+
+`IfcOpenshellInstance.getAttributeValue`
+
+(typescript-core-getinfo)=
+
+
+##### getInfo()
+
+###### Call Signature
+
+> **getInfo**(`options?`): [`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:66](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L66)
+
+Return the entity id, type, and decoded forward attributes.
+
+With `recursive`, referenced entities are expanded as well.
+
+###### Parameters
+
+###### options?
+
+[`GetInfoOptions`](#typescript-core-getinfooptions)\<[`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)\<`never`\>\>
+
+###### Returns
+
+[`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)
+
+###### Call Signature
+
+> **getInfo**\<`T`\>(`options`): `T`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:67](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L67)
+
+Return the entity id, type, and decoded forward attributes.
+
+With `recursive`, referenced entities are expanded as well.
+
+###### Type Parameters
+
+###### T
+
+`T`
+
+###### Parameters
+
+###### options
+
+`Omit`\<[`GetInfoOptions`](#typescript-core-getinfooptions)\<`T`\>, `"returnType"`\> & `object`
+
+###### Returns
+
+`T`
+
+(typescript-core-getinverse)=
+
+
+##### getInverse()
+
+> **getInverse**(`name`): `IfcOpenshellInstance`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:375
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`IfcOpenshellInstance`[]
+
+###### Inherited from
+
+`IfcOpenshellInstance.getInverse`
+
+(typescript-core-getinverseattributebyname)=
+
+
+##### getInverseAttributeByName()
+
+> **getInverseAttributeByName**(`name`): `IfcOpenshellInstance`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:376
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`IfcOpenshellInstance`[]
+
+###### Inherited from
+
+`IfcOpenshellInstance.getInverseAttributeByName`
+
+(typescript-core-getinverseattributenames)=
+
+
+##### getInverseAttributeNames()
+
+> **getInverseAttributeNames**(): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:377
+
+###### Returns
+
+`string`[]
+
+###### Inherited from
+
+`IfcOpenshellInstance.getInverseAttributeNames`
+
+(typescript-core-id)=
+
+
+##### id()
+
+> **id**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:378
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellInstance.id`
+
+(typescript-core-identity)=
+
+
+##### identity()
+
+> **identity**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:379
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellInstance.identity`
+
+(typescript-core-inverse)=
+
+
+##### inverse()
+
+> **inverse**(`name`): [`EntityInstance`](#typescript-core-entityinstance)[]
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:110](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L110)
+
+Return entities referenced by the named inverse attribute.
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)[]
+
+(typescript-core-inverseattributes)=
+
+
+##### inverseAttributes()
+
+> **inverseAttributes**(): `string`[]
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:105](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L105)
+
+###### Returns
+
+`string`[]
+
+(typescript-core-isa)=
+
+
+##### isA()
+
+###### Call Signature
+
+> **isA**(`name`): `boolean`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:34](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L34)
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`boolean`
+
+###### Overrides
+
+`IfcOpenshellInstance.isA`
+
+###### Call Signature
+
+> **isA**(`withSchema?`): `string`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:35](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L35)
+
+###### Parameters
+
+###### withSchema?
+
+`boolean`
+
+###### Returns
+
+`string`
+
+###### Overrides
+
+`IfcOpenshellInstance.isA`
+
+(typescript-core-set)=
+
+
+##### set()
+
+> **set**(`nameOrIndex`, `value`): `void`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:131](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L131)
+
+###### Parameters
+
+###### nameOrIndex
+
+`string` \| `number`
+
+###### value
+
+[`AttributeValueType`](#typescript-core-attributevaluetype)
+
+###### Returns
+
+`void`
+
+(typescript-core-setargument)=
+
+
+##### setArgument()
+
+> **setArgument**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:400
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`AttributeValueType`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgument`
+
+(typescript-core-setargumentasaggregateofaggregateofentityinstance)=
+
+
+##### setArgumentAsAggregateOfAggregateOfEntityInstance()
+
+> **setArgumentAsAggregateOfAggregateOfEntityInstance**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:381
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`[][]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentAsAggregateOfAggregateOfEntityInstance`
+
+(typescript-core-setargumentbool)=
+
+
+##### setArgumentBool()
+
+> **setArgumentBool**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:382
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`boolean`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentBool`
+
+(typescript-core-setargumentdouble)=
+
+
+##### setArgumentDouble()
+
+> **setArgumentDouble**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:383
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentDouble`
+
+(typescript-core-setargumentdoublelist)=
+
+
+##### setArgumentDoubleList()
+
+> **setArgumentDoubleList**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:384
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentDoubleList`
+
+(typescript-core-setargumentdoublelistlist)=
+
+
+##### setArgumentDoubleListList()
+
+> **setArgumentDoubleListList**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:385
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`[][]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentDoubleListList`
+
+(typescript-core-setargumentenumeration)=
+
+
+##### setArgumentEnumeration()
+
+> **setArgumentEnumeration**(`index`, `enumeration`, `enumeration_index`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:386
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### enumeration
+
+`IfcOpenshellEnumeration`
+
+###### enumeration\_index
+
+`number`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentEnumeration`
+
+(typescript-core-setargumentenumerationbyname)=
+
+
+##### setArgumentEnumerationByName()
+
+> **setArgumentEnumerationByName**(`index`, `value`): `boolean`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:387
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`string`
+
+###### Returns
+
+`boolean`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentEnumerationByName`
+
+(typescript-core-setargumentinstance)=
+
+
+##### setArgumentInstance()
+
+> **setArgumentInstance**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:388
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentInstance`
+
+(typescript-core-setargumentinstancelist)=
+
+
+##### setArgumentInstanceList()
+
+> **setArgumentInstanceList**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:389
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`IfcOpenshellInstance`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentInstanceList`
+
+(typescript-core-setargumentint32)=
+
+
+##### setArgumentInt32()
+
+> **setArgumentInt32**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:390
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentInt32`
+
+(typescript-core-setargumentint32list)=
+
+
+##### setArgumentInt32List()
+
+> **setArgumentInt32List**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:391
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentInt32List`
+
+(typescript-core-setargumentint32listlist)=
+
+
+##### setArgumentInt32ListList()
+
+> **setArgumentInt32ListList**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:392
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`[][]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentInt32ListList`
+
+(typescript-core-setargumentlogical)=
+
+
+##### setArgumentLogical()
+
+> **setArgumentLogical**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:393
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`number`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentLogical`
+
+(typescript-core-setargumentstring)=
+
+
+##### setArgumentString()
+
+> **setArgumentString**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:394
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`string`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentString`
+
+(typescript-core-setargumentstringlist)=
+
+
+##### setArgumentStringList()
+
+> **setArgumentStringList**(`index`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:395
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### value
+
+`string`[]
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setArgumentStringList`
+
+(typescript-core-setattributevalue)=
+
+
+##### setAttributeValue()
+
+> **setAttributeValue**(`name`, `value`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:396
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### value
+
+`AttributeValueType`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.setAttributeValue`
+
+(typescript-core-tostring)=
+
+
+##### toString()
+
+> **toString**(`valid_spf`): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:397
+
+###### Parameters
+
+###### valid\_spf
+
+`boolean`
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellInstance.toString`
+
+(typescript-core-unsetargument)=
+
+
+##### unsetArgument()
+
+> **unsetArgument**(`index`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:398
+
+###### Parameters
+
+###### index
+
+`number`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.unsetArgument`
+
+(typescript-core-unsetattributevalue)=
+
+
+##### unsetAttributeValue()
+
+> **unsetAttributeValue**(`name`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:399
+
+###### Parameters
+
+###### name
+
+`string`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellInstance.unsetAttributeValue`
+
+***
+
+(typescript-core-file-1)=
+
+
+### File
+
+Defined in: [ifcopenshell-js/src/file.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L20)
+
+High-level wrapper for an IFC file and its entity graph.
+
+#### Extends
+
+- `IfcOpenshellFile`
+
+#### Constructors
+
+(typescript-core-constructor-1)=
+
+
+##### Constructor
+
+> **new File**(`schemaOrHandle?`): [`File`](#typescript-core-file-1)
+
+Defined in: [ifcopenshell-js/src/file.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L22)
+
+Create an empty file, or take ownership of an existing native file handle.
+
+###### Parameters
+
+###### schemaOrHandle?
+
+`string` \| `IfcOpenshellFile`
+
+###### Returns
+
+[`File`](#typescript-core-file-1)
+
+###### Overrides
+
+`IfcOpenshellFile.constructor`
+
+#### Properties
+
+(typescript-core-byguid)=
+
+
+##### byGuid
+
+> **byGuid**: (`guid`) => [`EntityInstance`](#typescript-core-entityinstance)
+
+Defined in: [ifcopenshell-js/src/file.ts:62](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L62)
+
+###### Parameters
+
+###### guid
+
+`string`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### Overrides
+
+`IfcOpenshellFile.byGuid`
+
+(typescript-core-byid)=
+
+
+##### byId
+
+> **byId**: (`id`) => [`EntityInstance`](#typescript-core-entityinstance)
+
+Defined in: [ifcopenshell-js/src/file.ts:61](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L61)
+
+###### Parameters
+
+###### id
+
+`number`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### Overrides
+
+`IfcOpenshellFile.byId`
+
+(typescript-core-bytype)=
+
+
+##### byType
+
+> **byType**: (`typeName`) => [`EntityInstance`](#typescript-core-entityinstance)[]
+
+Defined in: [ifcopenshell-js/src/file.ts:63](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L63)
+
+###### Parameters
+
+###### typeName
+
+`string`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)[]
+
+###### Overrides
+
+`IfcOpenshellFile.byType`
+
+(typescript-core-bytypeexclsubtypes)=
+
+
+##### byTypeExclSubtypes
+
+> **byTypeExclSubtypes**: (`typeName`) => [`EntityInstance`](#typescript-core-entityinstance)[]
+
+Defined in: [ifcopenshell-js/src/file.ts:64](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L64)
+
+###### Parameters
+
+###### typeName
+
+`string`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)[]
+
+###### Overrides
+
+`IfcOpenshellFile.byTypeExclSubtypes`
+
+(typescript-core-ptr-1)=
+
+
+##### ptr
+
+> `readonly` **ptr**: `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:212
+
+###### Inherited from
+
+`IfcOpenshellFile.ptr`
+
+(typescript-core-traverse)=
+
+
+##### traverse
+
+> **traverse**: (`entity`, `maxDepth`) => [`EntityInstance`](#typescript-core-entityinstance)[]
+
+Defined in: [ifcopenshell-js/src/file.ts:65](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L65)
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### maxDepth
+
+`number`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)[]
+
+###### Overrides
+
+`IfcOpenshellFile.traverse`
+
+(typescript-core-traversebreadthfirst)=
+
+
+##### traverseBreadthFirst
+
+> **traverseBreadthFirst**: (`entity`, `maxDepth`) => [`EntityInstance`](#typescript-core-entityinstance)[]
+
+Defined in: [ifcopenshell-js/src/file.ts:66](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L66)
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### maxDepth
+
+`number`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)[]
+
+###### Overrides
+
+`IfcOpenshellFile.traverseBreadthFirst`
+
+#### Accessors
+
+(typescript-core-entitycount)=
+
+
+##### entityCount
+
+###### Get Signature
+
+> **get** **entityCount**(): `number`
+
+Defined in: [ifcopenshell-js/src/file.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L57)
+
+###### Returns
+
+`number`
+
+(typescript-core-ids)=
+
+
+##### ids
+
+###### Get Signature
+
+> **get** **ids**(): `number`[]
+
+Defined in: [ifcopenshell-js/src/file.ts:52](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L52)
+
+###### Returns
+
+`number`[]
+
+(typescript-core-maxid)=
+
+
+##### maxId
+
+###### Get Signature
+
+> **get** **maxId**(): `number`
+
+Defined in: [ifcopenshell-js/src/file.ts:48](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L48)
+
+###### Returns
+
+`number`
+
+#### Methods
+
+(typescript-core-asyncdispose)=
+
+
+##### \[asyncDispose\]()
+
+> **\[asyncDispose\]**(): `Promise`\<`void`\>
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:216
+
+###### Returns
+
+`Promise`\<`void`\>
+
+###### Inherited from
+
+`IfcOpenshellFile.[asyncDispose]`
+
+(typescript-core-dispose)=
+
+
+##### \[dispose\]()
+
+> **\[dispose\]**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:215
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.[dispose]`
+
+(typescript-core-add)=
+
+
+##### add()
+
+> **add**(`entity`, `instanceId?`): [`EntityInstance`](#typescript-core-entityinstance)
+
+Defined in: [ifcopenshell-js/src/file.ts:87](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L87)
+
+Add an entity, assigning a new id unless `instanceId` is given explicitly.
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### instanceId?
+
+`number` = `-1`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### Overrides
+
+`IfcOpenshellFile.add`
+
+(typescript-core-addentity)=
+
+
+##### addEntity()
+
+> **addEntity**(`instance`, `id`): `IfcOpenshellInstance`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:218
+
+###### Parameters
+
+###### instance
+
+`IfcOpenshellInstance`
+
+###### id
+
+`number`
+
+###### Returns
+
+`IfcOpenshellInstance`
+
+###### Inherited from
+
+`IfcOpenshellFile.addEntity`
+
+(typescript-core-addtyperef)=
+
+
+##### addTypeRef()
+
+> **addTypeRef**(`new_entity`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:219
+
+###### Parameters
+
+###### new\_entity
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.addTypeRef`
+
+(typescript-core-batch)=
+
+
+##### batch()
+
+> **batch**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:220
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.batch`
+
+(typescript-core-buildinverses)=
+
+
+##### buildInverses()
+
+###### Call Signature
+
+> **buildInverses**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:221
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.buildInverses`
+
+###### Call Signature
+
+> **buildInverses**(`entity`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:222
+
+###### Parameters
+
+###### entity
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.buildInverses`
+
+(typescript-core-bypasstype)=
+
+
+##### bypassType()
+
+> **bypassType**(`type_name`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:227
+
+###### Parameters
+
+###### type\_name
+
+`string`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.bypassType`
+
+(typescript-core-create)=
+
+
+##### create()
+
+> **create**(`ifcClass`, `attributes?`): [`EntityInstance`](#typescript-core-entityinstance)
+
+Defined in: [ifcopenshell-js/src/file.ts:69](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L69)
+
+Create an entity with any of its IFC attributes, using their schema names.
+
+###### Parameters
+
+###### ifcClass
+
+`string`
+
+###### attributes?
+
+`Record`\<`string`, [`AttributeValueType`](#typescript-core-attributevaluetype)\> = `{}`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+(typescript-core-createbydeclaration)=
+
+
+##### createByDeclaration()
+
+> **createByDeclaration**(`declaration`, `instance_id`): `IfcOpenshellInstance`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:228
+
+###### Parameters
+
+###### declaration
+
+`IfcOpenshellDeclaration`
+
+###### instance\_id
+
+`number`
+
+###### Returns
+
+`IfcOpenshellInstance`
+
+###### Inherited from
+
+`IfcOpenshellFile.createByDeclaration`
+
+(typescript-core-createentitybyname)=
+
+
+##### createEntityByName()
+
+> **createEntityByName**(`type_name`): `IfcOpenshellInstance`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:229
+
+###### Parameters
+
+###### type\_name
+
+`string`
+
+###### Returns
+
+`IfcOpenshellInstance`
+
+###### Inherited from
+
+`IfcOpenshellFile.createEntityByName`
+
+(typescript-core-createentitybynamewithid)=
+
+
+##### createEntityByNameWithId()
+
+> **createEntityByNameWithId**(`type_name`, `id`): `IfcOpenshellInstance`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:230
+
+###### Parameters
+
+###### type\_name
+
+`string`
+
+###### id
+
+`number`
+
+###### Returns
+
+`IfcOpenshellInstance`
+
+###### Inherited from
+
+`IfcOpenshellFile.createEntityByNameWithId`
+
+(typescript-core-createtimestamp)=
+
+
+##### createTimestamp()
+
+> **createTimestamp**(): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:231
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellFile.createTimestamp`
+
+(typescript-core-destroy-1)=
+
+
+##### destroy()
+
+> **destroy**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:213
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.destroy`
+
+(typescript-core-dispose-1)=
+
+
+##### dispose()
+
+> **dispose**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:214
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.dispose`
+
+(typescript-core-entitynames)=
+
+
+##### entityNames()
+
+> **entityNames**(): `number`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:232
+
+###### Returns
+
+`number`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.entityNames`
+
+(typescript-core-filepointer-1)=
+
+
+##### filePointer()
+
+> **filePointer**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:233
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.filePointer`
+
+(typescript-core-freshid)=
+
+
+##### freshId()
+
+> **freshId**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:234
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.freshId`
+
+(typescript-core-getinverse-1)=
+
+
+##### getInverse()
+
+###### Call Signature
+
+> **getInverse**(`entity`, `options`): `Set`\<[`EntityInstance`](#typescript-core-entityinstance)\>
+
+Defined in: [ifcopenshell-js/src/file.ts:93](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L93)
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### options
+
+###### allowDuplicate?
+
+`false`
+
+###### withAttributeIndices?
+
+`false`
+
+###### Returns
+
+`Set`\<[`EntityInstance`](#typescript-core-entityinstance)\>
+
+###### Call Signature
+
+> **getInverse**(`entity`, `options`): \[[`EntityInstance`](#typescript-core-entityinstance), `number`\][]
+
+Defined in: [ifcopenshell-js/src/file.ts:94](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L94)
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### options
+
+###### allowDuplicate
+
+`true`
+
+###### withAttributeIndices
+
+`true`
+
+###### Returns
+
+\[[`EntityInstance`](#typescript-core-entityinstance), `number`\][]
+
+###### Call Signature
+
+> **getInverse**(`entity`, `options`): [`EntityInstance`](#typescript-core-entityinstance)[]
+
+Defined in: [ifcopenshell-js/src/file.ts:95](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L95)
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### options
+
+###### allowDuplicate
+
+`true`
+
+###### withAttributeIndices?
+
+`false`
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)[]
+
+###### Call Signature
+
+> **getInverse**(`entity`): `Set`\<[`EntityInstance`](#typescript-core-entityinstance)\>
+
+Defined in: [ifcopenshell-js/src/file.ts:96](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L96)
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### Returns
+
+`Set`\<[`EntityInstance`](#typescript-core-entityinstance)\>
+
+###### Call Signature
+
+> **getInverse**(`entity`, `options`): [`EntityInstance`](#typescript-core-entityinstance)[] \| `Set`\<[`EntityInstance`](#typescript-core-entityinstance)\> \| \[[`EntityInstance`](#typescript-core-entityinstance), `number`\][]
+
+Defined in: [ifcopenshell-js/src/file.ts:97](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L97)
+
+###### Parameters
+
+###### entity
+
+[`EntityInstance`](#typescript-core-entityinstance)
+
+###### options
+
+[`GetInverseOptions`](#typescript-core-getinverseoptions)
+
+###### Returns
+
+[`EntityInstance`](#typescript-core-entityinstance)[] \| `Set`\<[`EntityInstance`](#typescript-core-entityinstance)\> \| \[[`EntityInstance`](#typescript-core-entityinstance), `number`\][]
+
+(typescript-core-getinverseindices)=
+
+
+##### getInverseIndices()
+
+> **getInverseIndices**(`instance`): `number`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:236
+
+###### Parameters
+
+###### instance
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`number`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.getInverseIndices`
+
+(typescript-core-getinverseindicesbyid)=
+
+
+##### getInverseIndicesById()
+
+> **getInverseIndicesById**(`instance_id`): `number`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:237
+
+###### Parameters
+
+###### instance\_id
+
+`number`
+
+###### Returns
+
+`number`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.getInverseIndicesById`
+
+(typescript-core-getinverselist)=
+
+
+##### getInverseList()
+
+> **getInverseList**(`instance`): `IfcOpenshellInstance`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:235
+
+###### Parameters
+
+###### instance
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`IfcOpenshellInstance`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.getInverseList`
+
+(typescript-core-getinversesbydeclaration)=
+
+
+##### getInversesByDeclaration()
+
+> **getInversesByDeclaration**(`instance_id`, `declaration`, `attribute_index`): `IfcOpenshellInstance`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:238
+
+###### Parameters
+
+###### instance\_id
+
+`number`
+
+###### declaration
+
+`IfcOpenshellDeclaration`
+
+###### attribute\_index
+
+`number`
+
+###### Returns
+
+`IfcOpenshellInstance`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.getInversesByDeclaration`
+
+(typescript-core-getmaxid)=
+
+
+##### getMaxId()
+
+> **getMaxId**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:239
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.getMaxId`
+
+(typescript-core-gettotalinverses)=
+
+
+##### getTotalInverses()
+
+> **getTotalInverses**(`instance`): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:240
+
+###### Parameters
+
+###### instance
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.getTotalInverses`
+
+(typescript-core-gettotalinversesbyid)=
+
+
+##### getTotalInversesById()
+
+> **getTotalInversesById**(`instance_id`): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:241
+
+###### Parameters
+
+###### instance\_id
+
+`number`
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.getTotalInversesById`
+
+(typescript-core-getunit)=
+
+
+##### getUnit()
+
+> **getUnit**(`unit_type`): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:242
+
+###### Parameters
+
+###### unit\_type
+
+`string`
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.getUnit`
+
+(typescript-core-good)=
+
+
+##### good()
+
+> **good**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:243
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.good`
+
+(typescript-core-header)=
+
+
+##### header()
+
+> **header**(): `IfcOpenshellHeader` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:244
+
+###### Returns
+
+`IfcOpenshellHeader` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellFile.header`
+
+(typescript-core-headerfiledescription)=
+
+
+##### headerFileDescription()
+
+> **headerFileDescription**(): `IfcOpenshellInstance` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:245
+
+###### Returns
+
+`IfcOpenshellInstance` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellFile.headerFileDescription`
+
+(typescript-core-headerfilename)=
+
+
+##### headerFileName()
+
+> **headerFileName**(): `IfcOpenshellInstance` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:246
+
+###### Returns
+
+`IfcOpenshellInstance` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellFile.headerFileName`
+
+(typescript-core-headerfileschema)=
+
+
+##### headerFileSchema()
+
+> **headerFileSchema**(): `IfcOpenshellInstance` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:247
+
+###### Returns
+
+`IfcOpenshellInstance` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellFile.headerFileSchema`
+
+(typescript-core-ifcroottype)=
+
+
+##### ifcrootType()
+
+> **ifcrootType**(): `IfcOpenshellDeclaration` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:248
+
+###### Returns
+
+`IfcOpenshellDeclaration` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellFile.ifcrootType`
+
+(typescript-core-initialize)=
+
+
+##### initialize()
+
+> **initialize**(`path`, `type`, `read_only`): `boolean`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:249
+
+###### Parameters
+
+###### path
+
+`string`
+
+###### type
+
+`filetype`
+
+###### read\_only
+
+`boolean`
+
+###### Returns
+
+`boolean`
+
+###### Inherited from
+
+`IfcOpenshellFile.initialize`
+
+(typescript-core-instancesbyreference)=
+
+
+##### instancesByReference()
+
+> **instancesByReference**(`reference_id`): `IfcOpenshellInstance`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:250
+
+###### Parameters
+
+###### reference\_id
+
+`number`
+
+###### Returns
+
+`IfcOpenshellInstance`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.instancesByReference`
+
+(typescript-core-keyvaluestoreiter)=
+
+
+##### keyValueStoreIter()
+
+> **keyValueStoreIter**(`prefix`): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:251
+
+###### Parameters
+
+###### prefix
+
+`string`
+
+###### Returns
+
+`string`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.keyValueStoreIter`
+
+(typescript-core-keyvaluestorequery)=
+
+
+##### keyValueStoreQuery()
+
+> **keyValueStoreQuery**(`key`): `number`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:252
+
+###### Parameters
+
+###### key
+
+`string`
+
+###### Returns
+
+`number`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.keyValueStoreQuery`
+
+(typescript-core-processdeletioninverse)=
+
+
+##### processDeletionInverse()
+
+> **processDeletionInverse**(`entity`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:253
+
+###### Parameters
+
+###### entity
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.processDeletionInverse`
+
+(typescript-core-recalculateidcounter)=
+
+
+##### recalculateIdCounter()
+
+> **recalculateIdCounter**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:254
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.recalculateIdCounter`
+
+(typescript-core-remove)=
+
+
+##### remove()
+
+> **remove**(`entity`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:255
+
+###### Parameters
+
+###### entity
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.remove`
+
+(typescript-core-removetyperef)=
+
+
+##### removeTypeRef()
+
+> **removeTypeRef**(`new_entity`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:256
+
+###### Parameters
+
+###### new\_entity
+
+`IfcOpenshellInstance`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.removeTypeRef`
+
+(typescript-core-resetidentitycache)=
+
+
+##### resetIdentityCache()
+
+> **resetIdentityCache**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:257
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.resetIdentityCache`
+
+(typescript-core-schema)=
+
+
+##### schema()
+
+> **schema**(): `string`
+
+Defined in: [ifcopenshell-js/src/file.ts:82](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L82)
+
+General IFC schema version, without addendum or technical corrigendum suffixes.
+
+###### Returns
+
+`string`
+
+(typescript-core-schemadefinition)=
+
+
+##### schemaDefinition()
+
+> **schemaDefinition**(): `IfcOpenshellSchema` \| `null`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:258
+
+###### Returns
+
+`IfcOpenshellSchema` \| `null`
+
+###### Inherited from
+
+`IfcOpenshellFile.schemaDefinition`
+
+(typescript-core-schemaidentifier)=
+
+
+##### schemaIdentifier()
+
+> **schemaIdentifier**(): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:259
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellFile.schemaIdentifier`
+
+(typescript-core-storagemode)=
+
+
+##### storageMode()
+
+> **storageMode**(): `number`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:260
+
+###### Returns
+
+`number`
+
+###### Inherited from
+
+`IfcOpenshellFile.storageMode`
+
+(typescript-core-tostring-1)=
+
+
+##### toString()
+
+> **toString**(): `string`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:261
+
+###### Returns
+
+`string`
+
+###### Inherited from
+
+`IfcOpenshellFile.toString`
+
+(typescript-core-types)=
+
+
+##### types()
+
+> **types**(): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:264
+
+###### Returns
+
+`string`[]
+
+###### Inherited from
+
+`IfcOpenshellFile.types`
+
+(typescript-core-unbatch)=
+
+
+##### unbatch()
+
+> **unbatch**(): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:265
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.unbatch`
+
+(typescript-core-write)=
+
+
+##### write()
+
+> **write**(`path`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:266
+
+###### Parameters
+
+###### path
+
+`string`
+
+###### Returns
+
+`void`
+
+###### Inherited from
+
+`IfcOpenshellFile.write`
+
+(typescript-core-open)=
+
+
+##### open()
+
+> `static` **open**(`bytes`, `filename?`, `options?`): [`File`](#typescript-core-file-1)
+
+Defined in: [ifcopenshell-js/src/file.ts:31](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L31)
+
+Open IFC STEP bytes and retain ownership of the native file.
+
+###### Parameters
+
+###### bytes
+
+`ArrayBuffer` \| `Uint8Array`\<`ArrayBufferLike`\>
+
+###### filename?
+
+`string`
+
+###### options?
+
+[`OpenOptions`](#typescript-core-openoptions) = `{}`
+
+###### Returns
+
+[`File`](#typescript-core-file-1)
+
+***
+
+(typescript-core-ifcopenshellerror)=
+
+
+### IfcOpenShellError
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:22
+
+Kinds and codes are stable identifiers. Message is diagnostic only.
+
+#### Extends
+
+- `Error`
+
+#### Constructors
+
+(typescript-core-constructor-2)=
+
+
+##### Constructor
+
+> **new IfcOpenShellError**(`message`, `cause?`): [`IfcOpenShellError`](#typescript-core-ifcopenshellerror)
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:25
+
+###### Parameters
+
+###### message
+
+`string`
+
+###### cause?
+
+`unknown`
+
+###### Returns
+
+[`IfcOpenShellError`](#typescript-core-ifcopenshellerror)
+
+###### Overrides
+
+`Error.constructor`
+
+##### Constructor
+
+> **new IfcOpenShellError**(`kind`, `code`, `message`, `cause?`): [`IfcOpenShellError`](#typescript-core-ifcopenshellerror)
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:26
+
+###### Parameters
+
+###### kind
+
+[`IfcOpenShellErrorKind`](#typescript-core-ifcopenshellerrorkind-1)
+
+###### code
+
+[`IfcOpenShellErrorCode`](#typescript-core-ifcopenshellerrorcode-1)
+
+###### message
+
+`string`
+
+###### cause?
+
+`unknown`
+
+###### Returns
+
+[`IfcOpenShellError`](#typescript-core-ifcopenshellerror)
+
+###### Overrides
+
+`Error.constructor`
+
+#### Properties
+
+(typescript-core-code)=
+
+
+##### code
+
+> `readonly` **code**: [`IfcOpenShellErrorCode`](#typescript-core-ifcopenshellerrorcode-1)
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:24
+
+(typescript-core-kind)=
+
+
+##### kind
+
+> `readonly` **kind**: [`IfcOpenShellErrorKind`](#typescript-core-ifcopenshellerrorkind-1)
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:23
+
+## Interfaces
+
+(typescript-core-emscriptenfs)=
+
+
+### EmscriptenFS
+
+Defined in: [ifcopenshell-js/src/types.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L15)
+
+Subset of the Emscripten MEMFS filesystem API exposed by the underlying
+WASM runtime. Used by higher-level wrappers (for example the SVG/TTL
+serializers) to read, write, and delete files inside the virtual
+filesystem that the C++ layer writes to.
+
+#### Methods
+
+(typescript-core-analyzepath)=
+
+
+##### analyzePath()
+
+> **analyzePath**(`path`): `object`
+
+Defined in: [ifcopenshell-js/src/types.ts:38](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L38)
+
+Return whether a path exists in MEMFS.
+
+###### Parameters
+
+###### path
+
+`string`
+
+###### Returns
+
+`object`
+
+###### exists
+
+> **exists**: `boolean`
+
+###### object?
+
+> `optional` **object?**: `object`
+
+(typescript-core-readfile)=
+
+
+##### readFile()
+
+> **readFile**(`path`, `opts?`): `string` \| `Uint8Array`\<`ArrayBufferLike`\>
+
+Defined in: [ifcopenshell-js/src/types.ts:34](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L34)
+
+Read a virtual filesystem file.
+
+When `opts.encoding === 'utf8'` the file is decoded to a string;
+otherwise a `Uint8Array` of the raw bytes is returned.
+
+###### Parameters
+
+###### path
+
+`string`
+
+###### opts?
+
+###### encoding?
+
+`string`
+
+###### flags?
+
+`string`
+
+###### Returns
+
+`string` \| `Uint8Array`\<`ArrayBufferLike`\>
+
+(typescript-core-unlink)=
+
+
+##### unlink()
+
+> **unlink**(`path`): `void`
+
+Defined in: [ifcopenshell-js/src/types.ts:36](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L36)
+
+Delete a virtual filesystem entry.
+
+###### Parameters
+
+###### path
+
+`string`
+
+###### Returns
+
+`void`
+
+(typescript-core-writefile)=
+
+
+##### writeFile()
+
+> **writeFile**(`path`, `data`, `opts?`): `void`
+
+Defined in: [ifcopenshell-js/src/types.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L23)
+
+Write data to a virtual filesystem path.
+
+###### Parameters
+
+###### path
+
+`string`
+
+Destination path inside MEMFS.
+
+###### data
+
+`string` \| `ArrayBuffer` \| `ArrayBufferView`\<`ArrayBufferLike`\>
+
+String or byte view to write.
+
+###### opts?
+
+Optional flags (e.g. `{ flags: 'w' }`).
+
+###### flags?
+
+`string`
+
+###### Returns
+
+`void`
+
+***
+
+(typescript-core-entityinstanceinfo)=
+
+
+### EntityInstanceInfo
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L13)
+
+Flat dictionary returned by `EntityInstance.getInfo()`.
+
+#### Type Parameters
+
+##### T
+
+`T` = `never`
+
+#### Indexable
+
+> \[`attribute`: `string`\]: [`EntityInfoValue`](#typescript-core-entityinfovalue)\<`T`\> \| `undefined`
+
+#### Properties
+
+(typescript-core-id-1)=
+
+
+##### id?
+
+> `optional` **id?**: `number`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L14)
+
+(typescript-core-type)=
+
+
+##### type
+
+> **type**: `string`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L15)
+
+***
+
+(typescript-core-getinfooptions)=
+
+
+### GetInfoOptions
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L19)
+
+#### Type Parameters
+
+##### T
+
+`T` = [`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)
+
+#### Properties
+
+(typescript-core-ignore)=
+
+
+##### ignore?
+
+> `optional` **ignore?**: readonly `string`[]
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L22)
+
+(typescript-core-includeidentifier)=
+
+
+##### includeIdentifier?
+
+> `optional` **includeIdentifier?**: `boolean`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L20)
+
+(typescript-core-recursive)=
+
+
+##### recursive?
+
+> `optional` **recursive?**: `boolean`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L21)
+
+(typescript-core-returntype)=
+
+
+##### returnType?
+
+> `optional` **returnType?**: (`info`) => `T`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L23)
+
+###### Parameters
+
+###### info
+
+[`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)\<`unknown`\>
+
+###### Returns
+
+`T`
+
+***
+
+(typescript-core-getinverseoptions)=
+
+
+### GetInverseOptions
+
+Defined in: [ifcopenshell-js/src/file.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L14)
+
+#### Properties
+
+(typescript-core-allowduplicate)=
+
+
+##### allowDuplicate?
+
+> `optional` **allowDuplicate?**: `boolean`
+
+Defined in: [ifcopenshell-js/src/file.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L15)
+
+(typescript-core-withattributeindices)=
+
+
+##### withAttributeIndices?
+
+> `optional` **withAttributeIndices?**: `boolean`
+
+Defined in: [ifcopenshell-js/src/file.ts:16](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L16)
+
+***
+
+(typescript-core-ifcopenshell)=
+
+
+### IfcOpenShell
+
+Defined in: [ifcopenshell-js/src/init.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L21)
+
+Initialized IfcOpenShell runtime and its ergonomic low-level API.
+
+#### Properties
+
+(typescript-core-fs)=
+
+
+##### fs
+
+> `readonly` **fs**: [`EmscriptenFS`](#typescript-core-emscriptenfs) \| `null`
+
+Defined in: [ifcopenshell-js/src/init.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L23)
+
+(typescript-core-raw)=
+
+
+##### raw
+
+> `readonly` **raw**: [`IfcOpenshellModule`](#typescript-core-ifcopenshellmodule)
+
+Defined in: [ifcopenshell-js/src/init.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L22)
+
+#### Methods
+
+(typescript-core-loadedplugins)=
+
+
+##### loadedPlugins()
+
+> **loadedPlugins**(): `string`[]
+
+Defined in: [ifcopenshell-js/src/init.ts:25](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L25)
+
+###### Returns
+
+`string`[]
+
+(typescript-core-loadplugin)=
+
+
+##### loadPlugin()
+
+> **loadPlugin**(`kind`, `id`): `Promise`\<`void`\>
+
+Defined in: [ifcopenshell-js/src/init.ts:24](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L24)
+
+###### Parameters
+
+###### kind
+
+[`PluginKind`](#typescript-core-pluginkind)
+
+###### id
+
+`string`
+
+###### Returns
+
+`Promise`\<`void`\>
+
+***
+
+(typescript-core-ifcopenshellmodule)=
+
+
+### IfcOpenshellModule
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1154
+
+#### Properties
+
+(typescript-core-geom)=
+
+
+##### geom
+
+> **geom**: `IfcOpenshellGeomModule`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1225
+
+(typescript-core-ifcopenshellaggregationtype)=
+
+
+##### IfcOpenshellAggregationType
+
+> **IfcOpenshellAggregationType**: *typeof* `IfcOpenshellAggregationType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1155
+
+(typescript-core-ifcopenshellattribute)=
+
+
+##### IfcOpenshellAttribute
+
+> **IfcOpenshellAttribute**: *typeof* `IfcOpenshellAttribute`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1156
+
+(typescript-core-ifcopenshelldeclaration)=
+
+
+##### IfcOpenshellDeclaration
+
+> **IfcOpenshellDeclaration**: *typeof* `IfcOpenshellDeclaration`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1157
+
+(typescript-core-ifcopenshellentity)=
+
+
+##### IfcOpenshellEntity
+
+> **IfcOpenshellEntity**: *typeof* `IfcOpenshellEntity`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1158
+
+(typescript-core-ifcopenshellenumeration)=
+
+
+##### IfcOpenshellEnumeration
+
+> **IfcOpenshellEnumeration**: *typeof* `IfcOpenshellEnumeration`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1159
+
+(typescript-core-ifcopenshellfile)=
+
+
+##### IfcOpenshellFile
+
+> **IfcOpenshellFile**: *typeof* `IfcOpenshellFile`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1163
+
+(typescript-core-ifcopenshellfiledescription)=
+
+
+##### IfcOpenshellFileDescription
+
+> **IfcOpenshellFileDescription**: *typeof* `IfcOpenshellFileDescription`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1160
+
+(typescript-core-ifcopenshellfilename)=
+
+
+##### IfcOpenshellFileName
+
+> **IfcOpenshellFileName**: *typeof* `IfcOpenshellFileName`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1161
+
+(typescript-core-ifcopenshellfileschema)=
+
+
+##### IfcOpenshellFileSchema
+
+> **IfcOpenshellFileSchema**: *typeof* `IfcOpenshellFileSchema`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1162
+
+(typescript-core-ifcopenshellgeombrepelement)=
+
+
+##### IfcOpenshellGeomBrepElement
+
+> **IfcOpenshellGeomBrepElement**: *typeof* `IfcOpenshellGeomBrepElement`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1164
+
+(typescript-core-ifcopenshellgeombreprepresentation)=
+
+
+##### IfcOpenshellGeomBrepRepresentation
+
+> **IfcOpenshellGeomBrepRepresentation**: *typeof* `IfcOpenshellGeomBrepRepresentation`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1165
+
+(typescript-core-ifcopenshellgeombuffer)=
+
+
+##### IfcOpenshellGeomBuffer
+
+> **IfcOpenshellGeomBuffer**: *typeof* `IfcOpenshellGeomBuffer`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1166
+
+(typescript-core-ifcopenshellgeomconversionresultshape)=
+
+
+##### IfcOpenshellGeomConversionResultShape
+
+> **IfcOpenshellGeomConversionResultShape**: *typeof* `IfcOpenshellGeomConversionResultShape`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1167
+
+(typescript-core-ifcopenshellgeomelement)=
+
+
+##### IfcOpenshellGeomElement
+
+> **IfcOpenshellGeomElement**: *typeof* `IfcOpenshellGeomElement`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1168
+
+(typescript-core-ifcopenshellgeomfunctionitemevaluator)=
+
+
+##### IfcOpenshellGeomFunctionItemEvaluator
+
+> **IfcOpenshellGeomFunctionItemEvaluator**: *typeof* `IfcOpenshellGeomFunctionItemEvaluator`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1169
+
+(typescript-core-ifcopenshellgeomgeometryserializer)=
+
+
+##### IfcOpenshellGeomGeometrySerializer
+
+> **IfcOpenshellGeomGeometrySerializer**: *typeof* `IfcOpenshellGeomGeometrySerializer`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1170
+
+(typescript-core-ifcopenshellgeomiterator)=
+
+
+##### IfcOpenshellGeomIterator
+
+> **IfcOpenshellGeomIterator**: *typeof* `IfcOpenshellGeomIterator`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1171
+
+(typescript-core-ifcopenshellgeomopaquenumber)=
+
+
+##### IfcOpenshellGeomOpaqueNumber
+
+> **IfcOpenshellGeomOpaqueNumber**: *typeof* `IfcOpenshellGeomOpaqueNumber`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1172
+
+(typescript-core-ifcopenshellgeomserialization)=
+
+
+##### IfcOpenshellGeomSerialization
+
+> **IfcOpenshellGeomSerialization**: *typeof* `IfcOpenshellGeomSerialization`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1173
+
+(typescript-core-ifcopenshellgeomserializedelement)=
+
+
+##### IfcOpenshellGeomSerializedElement
+
+> **IfcOpenshellGeomSerializedElement**: *typeof* `IfcOpenshellGeomSerializedElement`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1174
+
+(typescript-core-ifcopenshellgeomserializer)=
+
+
+##### IfcOpenshellGeomSerializer
+
+> **IfcOpenshellGeomSerializer**: *typeof* `IfcOpenshellGeomSerializer`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1175
+
+(typescript-core-ifcopenshellgeomsettings)=
+
+
+##### IfcOpenshellGeomSettings
+
+> **IfcOpenshellGeomSettings**: *typeof* `IfcOpenshellGeomSettings`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1176
+
+(typescript-core-ifcopenshellgeomsvgfillpolygon)=
+
+
+##### IfcOpenshellGeomSvgfillPolygon
+
+> **IfcOpenshellGeomSvgfillPolygon**: *typeof* `IfcOpenshellGeomSvgfillPolygon`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1177
+
+(typescript-core-ifcopenshellgeomtaxonomybooleanresult)=
+
+
+##### IfcOpenshellGeomTaxonomyBooleanResult
+
+> **IfcOpenshellGeomTaxonomyBooleanResult**: *typeof* `IfcOpenshellGeomTaxonomyBooleanResult`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1178
+
+(typescript-core-ifcopenshellgeomtaxonomybsplinecurve)=
+
+
+##### IfcOpenshellGeomTaxonomyBsplineCurve
+
+> **IfcOpenshellGeomTaxonomyBsplineCurve**: *typeof* `IfcOpenshellGeomTaxonomyBsplineCurve`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1179
+
+(typescript-core-ifcopenshellgeomtaxonomybsplinesurface)=
+
+
+##### IfcOpenshellGeomTaxonomyBsplineSurface
+
+> **IfcOpenshellGeomTaxonomyBsplineSurface**: *typeof* `IfcOpenshellGeomTaxonomyBsplineSurface`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1180
+
+(typescript-core-ifcopenshellgeomtaxonomycircle)=
+
+
+##### IfcOpenshellGeomTaxonomyCircle
+
+> **IfcOpenshellGeomTaxonomyCircle**: *typeof* `IfcOpenshellGeomTaxonomyCircle`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1181
+
+(typescript-core-ifcopenshellgeomtaxonomycollection)=
+
+
+##### IfcOpenshellGeomTaxonomyCollection
+
+> **IfcOpenshellGeomTaxonomyCollection**: *typeof* `IfcOpenshellGeomTaxonomyCollection`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1182
+
+(typescript-core-ifcopenshellgeomtaxonomycolour)=
+
+
+##### IfcOpenshellGeomTaxonomyColour
+
+> **IfcOpenshellGeomTaxonomyColour**: *typeof* `IfcOpenshellGeomTaxonomyColour`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1183
+
+(typescript-core-ifcopenshellgeomtaxonomycylinder)=
+
+
+##### IfcOpenshellGeomTaxonomyCylinder
+
+> **IfcOpenshellGeomTaxonomyCylinder**: *typeof* `IfcOpenshellGeomTaxonomyCylinder`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1184
+
+(typescript-core-ifcopenshellgeomtaxonomydirection3)=
+
+
+##### IfcOpenshellGeomTaxonomyDirection3
+
+> **IfcOpenshellGeomTaxonomyDirection3**: *typeof* `IfcOpenshellGeomTaxonomyDirection3`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1185
+
+(typescript-core-ifcopenshellgeomtaxonomyedge)=
+
+
+##### IfcOpenshellGeomTaxonomyEdge
+
+> **IfcOpenshellGeomTaxonomyEdge**: *typeof* `IfcOpenshellGeomTaxonomyEdge`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1186
+
+(typescript-core-ifcopenshellgeomtaxonomyellipse)=
+
+
+##### IfcOpenshellGeomTaxonomyEllipse
+
+> **IfcOpenshellGeomTaxonomyEllipse**: *typeof* `IfcOpenshellGeomTaxonomyEllipse`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1187
+
+(typescript-core-ifcopenshellgeomtaxonomyextrusion)=
+
+
+##### IfcOpenshellGeomTaxonomyExtrusion
+
+> **IfcOpenshellGeomTaxonomyExtrusion**: *typeof* `IfcOpenshellGeomTaxonomyExtrusion`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1188
+
+(typescript-core-ifcopenshellgeomtaxonomyface)=
+
+
+##### IfcOpenshellGeomTaxonomyFace
+
+> **IfcOpenshellGeomTaxonomyFace**: *typeof* `IfcOpenshellGeomTaxonomyFace`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1189
+
+(typescript-core-ifcopenshellgeomtaxonomyitem)=
+
+
+##### IfcOpenshellGeomTaxonomyItem
+
+> **IfcOpenshellGeomTaxonomyItem**: *typeof* `IfcOpenshellGeomTaxonomyItem`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1190
+
+(typescript-core-ifcopenshellgeomtaxonomyline)=
+
+
+##### IfcOpenshellGeomTaxonomyLine
+
+> **IfcOpenshellGeomTaxonomyLine**: *typeof* `IfcOpenshellGeomTaxonomyLine`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1191
+
+(typescript-core-ifcopenshellgeomtaxonomyloft)=
+
+
+##### IfcOpenshellGeomTaxonomyLoft
+
+> **IfcOpenshellGeomTaxonomyLoft**: *typeof* `IfcOpenshellGeomTaxonomyLoft`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1192
+
+(typescript-core-ifcopenshellgeomtaxonomyloop)=
+
+
+##### IfcOpenshellGeomTaxonomyLoop
+
+> **IfcOpenshellGeomTaxonomyLoop**: *typeof* `IfcOpenshellGeomTaxonomyLoop`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1193
+
+(typescript-core-ifcopenshellgeomtaxonomymatrix4)=
+
+
+##### IfcOpenshellGeomTaxonomyMatrix4
+
+> **IfcOpenshellGeomTaxonomyMatrix4**: *typeof* `IfcOpenshellGeomTaxonomyMatrix4`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1194
+
+(typescript-core-ifcopenshellgeomtaxonomynode)=
+
+
+##### IfcOpenshellGeomTaxonomyNode
+
+> **IfcOpenshellGeomTaxonomyNode**: *typeof* `IfcOpenshellGeomTaxonomyNode`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1195
+
+(typescript-core-ifcopenshellgeomtaxonomyoffsetcurve)=
+
+
+##### IfcOpenshellGeomTaxonomyOffsetCurve
+
+> **IfcOpenshellGeomTaxonomyOffsetCurve**: *typeof* `IfcOpenshellGeomTaxonomyOffsetCurve`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1196
+
+(typescript-core-ifcopenshellgeomtaxonomyplane)=
+
+
+##### IfcOpenshellGeomTaxonomyPlane
+
+> **IfcOpenshellGeomTaxonomyPlane**: *typeof* `IfcOpenshellGeomTaxonomyPlane`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1197
+
+(typescript-core-ifcopenshellgeomtaxonomypoint3)=
+
+
+##### IfcOpenshellGeomTaxonomyPoint3
+
+> **IfcOpenshellGeomTaxonomyPoint3**: *typeof* `IfcOpenshellGeomTaxonomyPoint3`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1198
+
+(typescript-core-ifcopenshellgeomtaxonomyrevolve)=
+
+
+##### IfcOpenshellGeomTaxonomyRevolve
+
+> **IfcOpenshellGeomTaxonomyRevolve**: *typeof* `IfcOpenshellGeomTaxonomyRevolve`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1199
+
+(typescript-core-ifcopenshellgeomtaxonomyshell)=
+
+
+##### IfcOpenshellGeomTaxonomyShell
+
+> **IfcOpenshellGeomTaxonomyShell**: *typeof* `IfcOpenshellGeomTaxonomyShell`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1200
+
+(typescript-core-ifcopenshellgeomtaxonomysolid)=
+
+
+##### IfcOpenshellGeomTaxonomySolid
+
+> **IfcOpenshellGeomTaxonomySolid**: *typeof* `IfcOpenshellGeomTaxonomySolid`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1201
+
+(typescript-core-ifcopenshellgeomtaxonomysphere)=
+
+
+##### IfcOpenshellGeomTaxonomySphere
+
+> **IfcOpenshellGeomTaxonomySphere**: *typeof* `IfcOpenshellGeomTaxonomySphere`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1202
+
+(typescript-core-ifcopenshellgeomtaxonomystyle)=
+
+
+##### IfcOpenshellGeomTaxonomyStyle
+
+> **IfcOpenshellGeomTaxonomyStyle**: *typeof* `IfcOpenshellGeomTaxonomyStyle`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1203
+
+(typescript-core-ifcopenshellgeomtaxonomysweepalongcurve)=
+
+
+##### IfcOpenshellGeomTaxonomySweepAlongCurve
+
+> **IfcOpenshellGeomTaxonomySweepAlongCurve**: *typeof* `IfcOpenshellGeomTaxonomySweepAlongCurve`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1204
+
+(typescript-core-ifcopenshellgeomtaxonomytorus)=
+
+
+##### IfcOpenshellGeomTaxonomyTorus
+
+> **IfcOpenshellGeomTaxonomyTorus**: *typeof* `IfcOpenshellGeomTaxonomyTorus`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1205
+
+(typescript-core-ifcopenshellgeomtransformation)=
+
+
+##### IfcOpenshellGeomTransformation
+
+> **IfcOpenshellGeomTransformation**: *typeof* `IfcOpenshellGeomTransformation`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1206
+
+(typescript-core-ifcopenshellgeomtree)=
+
+
+##### IfcOpenshellGeomTree
+
+> **IfcOpenshellGeomTree**: *typeof* `IfcOpenshellGeomTree`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1211
+
+(typescript-core-ifcopenshellgeomtreeclash)=
+
+
+##### IfcOpenshellGeomTreeClash
+
+> **IfcOpenshellGeomTreeClash**: *typeof* `IfcOpenshellGeomTreeClash`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1208
+
+(typescript-core-ifcopenshellgeomtreeclashlist)=
+
+
+##### IfcOpenshellGeomTreeClashList
+
+> **IfcOpenshellGeomTreeClashList**: *typeof* `IfcOpenshellGeomTreeClashList`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1207
+
+(typescript-core-ifcopenshellgeomtreerayintersection)=
+
+
+##### IfcOpenshellGeomTreeRayIntersection
+
+> **IfcOpenshellGeomTreeRayIntersection**: *typeof* `IfcOpenshellGeomTreeRayIntersection`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1210
+
+(typescript-core-ifcopenshellgeomtreerayintersectionlist)=
+
+
+##### IfcOpenshellGeomTreeRayIntersectionList
+
+> **IfcOpenshellGeomTreeRayIntersectionList**: *typeof* `IfcOpenshellGeomTreeRayIntersectionList`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1209
+
+(typescript-core-ifcopenshellgeomtriangulation)=
+
+
+##### IfcOpenshellGeomTriangulation
+
+> **IfcOpenshellGeomTriangulation**: *typeof* `IfcOpenshellGeomTriangulation`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1213
+
+(typescript-core-ifcopenshellgeomtriangulationelement)=
+
+
+##### IfcOpenshellGeomTriangulationElement
+
+> **IfcOpenshellGeomTriangulationElement**: *typeof* `IfcOpenshellGeomTriangulationElement`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1212
+
+(typescript-core-ifcopenshellheader)=
+
+
+##### IfcOpenshellHeader
+
+> **IfcOpenshellHeader**: *typeof* `IfcOpenshellHeader`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1214
+
+(typescript-core-ifcopenshellinstance)=
+
+
+##### IfcOpenshellInstance
+
+> **IfcOpenshellInstance**: *typeof* `IfcOpenshellInstance`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1216
+
+(typescript-core-ifcopenshellinstancestreamer)=
+
+
+##### IfcOpenshellInstanceStreamer
+
+> **IfcOpenshellInstanceStreamer**: *typeof* `IfcOpenshellInstanceStreamer`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1215
+
+(typescript-core-ifcopenshellinverseattribute)=
+
+
+##### IfcOpenshellInverseAttribute
+
+> **IfcOpenshellInverseAttribute**: *typeof* `IfcOpenshellInverseAttribute`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1217
+
+(typescript-core-ifcopenshellnamedtype)=
+
+
+##### IfcOpenshellNamedType
+
+> **IfcOpenshellNamedType**: *typeof* `IfcOpenshellNamedType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1218
+
+(typescript-core-ifcopenshellparametertype)=
+
+
+##### IfcOpenshellParameterType
+
+> **IfcOpenshellParameterType**: *typeof* `IfcOpenshellParameterType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1219
+
+(typescript-core-ifcopenshellparseinstancelist)=
+
+
+##### IfcOpenshellParseInstanceList
+
+> **IfcOpenshellParseInstanceList**: *typeof* `IfcOpenshellParseInstanceList`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1220
+
+(typescript-core-ifcopenshellschema)=
+
+
+##### IfcOpenshellSchema
+
+> **IfcOpenshellSchema**: *typeof* `IfcOpenshellSchema`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1221
+
+(typescript-core-ifcopenshellselecttype)=
+
+
+##### IfcOpenshellSelectType
+
+> **IfcOpenshellSelectType**: *typeof* `IfcOpenshellSelectType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1222
+
+(typescript-core-ifcopenshellsimpletype)=
+
+
+##### IfcOpenshellSimpleType
+
+> **IfcOpenshellSimpleType**: *typeof* `IfcOpenshellSimpleType`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1223
+
+(typescript-core-ifcopenshelltypedeclaration)=
+
+
+##### IfcOpenshellTypeDeclaration
+
+> **IfcOpenshellTypeDeclaration**: *typeof* `IfcOpenshellTypeDeclaration`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1224
+
+(typescript-core-parse)=
+
+
+##### parse
+
+> **parse**: `IfcOpenshellParseModule`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1226
+
+#### Methods
+
+(typescript-core-loadedplugins-1)=
+
+
+##### loadedPlugins()
+
+> **loadedPlugins**(): `string`[]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1228
+
+###### Returns
+
+`string`[]
+
+(typescript-core-loadplugin-1)=
+
+
+##### loadPlugin()
+
+> **loadPlugin**(`kind`, `id`): `Promise`\<`void`\>
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1227
+
+###### Parameters
+
+###### kind
+
+`"schema"` \| `"kernel"` \| `"mapping"` \| `"tree"` \| `"document"` \| `"geometry_serializer"`
+
+###### id
+
+`string`
+
+###### Returns
+
+`Promise`\<`void`\>
+
+(typescript-core-setinstancefactory)=
+
+
+##### setInstanceFactory()
+
+> **setInstanceFactory**(`factory`): `void`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1229
+
+###### Parameters
+
+###### factory
+
+(`handle`) => `IfcOpenshellInstance`
+
+###### Returns
+
+`void`
+
+***
+
+(typescript-core-initoptions)=
+
+
+### InitOptions
+
+Defined in: [ifcopenshell-js/src/types.ts:125](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L125)
+
+Options for [init](#typescript-core-init).
+
+#### Properties
+
+(typescript-core-pluginloader)=
+
+
+##### pluginLoader?
+
+> `optional` **pluginLoader?**: [`PluginLoader`](#typescript-core-pluginloader-2)
+
+Defined in: [ifcopenshell-js/src/types.ts:129](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L129)
+
+Custom plugin loader override. Defaults to the loader supplied by the asset descriptor.
+
+(typescript-core-wasmassets)=
+
+
+##### wasmAssets?
+
+> `optional` **wasmAssets?**: [`WasmAssets`](#typescript-core-wasmassets-1)
+
+Defined in: [ifcopenshell-js/src/types.ts:127](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L127)
+
+WASM asset configuration.
+
+***
+
+(typescript-core-openoptions)=
+
+
+### OpenOptions
+
+Defined in: [ifcopenshell-js/src/file.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L7)
+
+Options controlling IFC byte-stream loading.
+
+#### Properties
+
+(typescript-core-readonly)=
+
+
+##### readonly?
+
+> `optional` **readonly?**: `boolean`
+
+Defined in: [ifcopenshell-js/src/file.ts:11](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L11)
+
+Open the native file in read-only mode when supported.
+
+(typescript-core-signal)=
+
+
+##### signal?
+
+> `optional` **signal?**: `AbortSignal`
+
+Defined in: [ifcopenshell-js/src/file.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L9)
+
+Abort opening before native parsing begins.
+
+***
+
+(typescript-core-pluginentry)=
+
+
+### PluginEntry
+
+Defined in: [ifcopenshell-js/src/types.ts:45](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L45)
+
+A single entry in the plugin manifest, describing a loadable side module.
+
+#### Properties
+
+(typescript-core-depends)=
+
+
+##### depends?
+
+> `optional` **depends?**: `string`[]
+
+Defined in: [ifcopenshell-js/src/types.ts:49](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L49)
+
+Plugin keys this entry depends on, e.g. `["kernel:occt"]`.
+
+(typescript-core-wasm)=
+
+
+##### wasm
+
+> **wasm**: `string`
+
+Defined in: [ifcopenshell-js/src/types.ts:47](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L47)
+
+Relative path to the `.wasm` side module (resolved against `pluginBaseUrl`).
+
+***
+
+(typescript-core-pluginmanifest)=
+
+
+### PluginManifest
+
+Defined in: [ifcopenshell-js/src/types.ts:53](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L53)
+
+The full plugin manifest (content of `ifcopenshell_plugins.json`).
+
+#### Properties
+
+(typescript-core-document)=
+
+
+##### document?
+
+> `optional` **document?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L57)
+
+(typescript-core-geometry_serializer)=
+
+
+##### geometry\_serializer?
+
+> `optional` **geometry\_serializer?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:58](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L58)
+
+(typescript-core-kernel)=
+
+
+##### kernel?
+
+> `optional` **kernel?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:55](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L55)
+
+(typescript-core-mapping)=
+
+
+##### mapping?
+
+> `optional` **mapping?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:56](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L56)
+
+(typescript-core-schema-1)=
+
+
+##### schema?
+
+> `optional` **schema?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:54](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L54)
+
+(typescript-core-tree)=
+
+
+##### tree?
+
+> `optional` **tree?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:59](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L59)
+
+***
+
+(typescript-core-wasmassets-1)=
+
+
+### WasmAssets
+
+Defined in: [ifcopenshell-js/src/types.ts:101](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L101)
+
+Configuration for locating the WASM build artifacts.
+
+#### Properties
+
+(typescript-core-apimoduleurl)=
+
+
+##### apiModuleUrl?
+
+> `optional` **apiModuleUrl?**: `string`
+
+Defined in: [ifcopenshell-js/src/types.ts:116](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L116)
+
+URL or module specifier for the generated `ifcopenshell_api.mjs`.
+Required when `createIfcOpenshellModule` is not provided.
+
+(typescript-core-createifcopenshellmodule)=
+
+
+##### createIfcOpenshellModule?
+
+> `optional` **createIfcOpenshellModule?**: [`IfcOpenshellApiFactory`](#typescript-core-ifcopenshellapifactory)
+
+Defined in: [ifcopenshell-js/src/types.ts:121](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L121)
+
+Generated API factory. Bundler-friendly wasm packages should provide this
+so app bundles do not need runtime string imports for `ifcopenshell_api.mjs`.
+
+(typescript-core-initmodule)=
+
+
+##### initModule
+
+> **initModule**: [`EmscriptenModuleFactory`](#typescript-core-emscriptenmodulefactory)
+
+Defined in: [ifcopenshell-js/src/types.ts:103](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L103)
+
+The Emscripten module factory (default export of `ifcopenshell_wasm.mjs`).
+
+(typescript-core-manifest)=
+
+
+##### manifest
+
+> **manifest**: [`PluginManifest`](#typescript-core-pluginmanifest)
+
+Defined in: [ifcopenshell-js/src/types.ts:109](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L109)
+
+Parsed content of `ifcopenshell_plugins.json`.
+
+(typescript-core-pluginbaseurl)=
+
+
+##### pluginBaseUrl
+
+> **pluginBaseUrl**: `string`
+
+Defined in: [ifcopenshell-js/src/types.ts:107](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L107)
+
+Base URL for resolving plugin `.wasm` paths from the manifest.
+
+(typescript-core-pluginloader-1)=
+
+
+##### pluginLoader?
+
+> `optional` **pluginLoader?**: [`PluginLoader`](#typescript-core-pluginloader-2)
+
+Defined in: [ifcopenshell-js/src/types.ts:111](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L111)
+
+Environment-appropriate loader for plugin WASM files.
+
+(typescript-core-wasmurl)=
+
+
+##### wasmUrl
+
+> **wasmUrl**: `string`
+
+Defined in: [ifcopenshell-js/src/types.ts:105](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L105)
+
+URL or path to `ifcopenshell_wasm.wasm`.
+
+## Type Aliases
+
+(typescript-core-attributevaluetype)=
+
+
+### AttributeValueType
+
+> **AttributeValueType** = `NativeAttributeValueType`\<[`EntityInstance`](#typescript-core-entityinstance)\>
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L8)
+
+Values decoded by the native WASM attribute typemap.
+
+***
+
+(typescript-core-emscriptenmodulefactory)=
+
+
+### EmscriptenModuleFactory
+
+> **EmscriptenModuleFactory** = (`options?`) => `Promise`\<`object`\>
+
+Defined in: [ifcopenshell-js/src/types.ts:76](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L76)
+
+Emscripten module factory — the default export of `ifcopenshell_wasm.mjs`.
+
+#### Parameters
+
+##### options?
+
+[`EmscriptenOptions`](#typescript-core-emscriptenoptions)
+
+#### Returns
+
+`Promise`\<`object`\>
+
+***
+
+(typescript-core-emscriptenoption)=
+
+
+### EmscriptenOption
+
+> **EmscriptenOption** = `null` \| `boolean` \| `number` \| `string` \| [`EmscriptenOption`](#typescript-core-emscriptenoption)[] \| \{\[`key`: `string`\]: [`EmscriptenOption`](#typescript-core-emscriptenoption); \} \| ((`path`, `prefix`) => `string`)
+
+Defined in: [ifcopenshell-js/src/types.ts:63](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L63)
+
+Recursive value accepted by an Emscripten module factory.
+
+***
+
+(typescript-core-emscriptenoptions)=
+
+
+### EmscriptenOptions
+
+> **EmscriptenOptions** = `Record`\<`string`, [`EmscriptenOption`](#typescript-core-emscriptenoption)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:73](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L73)
+
+Emscripten module factory option map.
+
+***
+
+(typescript-core-entityinfovalue)=
+
+
+### EntityInfoValue
+
+> **EntityInfoValue**\<`T`\> = `null` \| `boolean` \| `number` \| `bigint` \| `string` \| [`EntityInstance`](#typescript-core-entityinstance) \| [`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)\<`T`\> \| `T` \| [`EntityInfoValue`](#typescript-core-entityinfovalue)\<`T`\>[]
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:10](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L10)
+
+#### Type Parameters
+
+##### T
+
+`T` = `never`
+
+***
+
+(typescript-core-ifcopenshellapifactory)=
+
+
+### IfcOpenshellApiFactory
+
+> **IfcOpenshellApiFactory** = (`initModule`, `wasmUrl?`, `opts?`) => `Promise`\<[`IfcOpenshellModule`](#typescript-core-ifcopenshellmodule)\>
+
+Defined in: [ifcopenshell-js/src/types.ts:79](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L79)
+
+Generated API factory exported by `ifcopenshell_api.mjs`.
+
+#### Parameters
+
+##### initModule
+
+[`EmscriptenModuleFactory`](#typescript-core-emscriptenmodulefactory)
+
+##### wasmUrl?
+
+`string`
+
+##### opts?
+
+###### pluginBaseUrl?
+
+`string`
+
+###### pluginLoader?
+
+[`PluginLoader`](#typescript-core-pluginloader-2)
+
+###### pluginManifest?
+
+`Record`\<`string`, `Record`\<`string`, \{ `depends?`: `string`[]; `wasm`: `string`; \}\>\>
+
+#### Returns
+
+`Promise`\<[`IfcOpenshellModule`](#typescript-core-ifcopenshellmodule)\>
+
+***
+
+(typescript-core-ifcopenshellerrorcode-1)=
+
+
+### IfcOpenShellErrorCode
+
+> **IfcOpenShellErrorCode** = *typeof* [`IfcOpenShellErrorCode`](#typescript-core-ifcopenshellerrorcode-2)\[keyof *typeof* [`IfcOpenShellErrorCode`](#typescript-core-ifcopenshellerrorcode-2)\]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:13
+
+***
+
+(typescript-core-ifcopenshellerrorkind-1)=
+
+
+### IfcOpenShellErrorKind
+
+> **IfcOpenShellErrorKind** = *typeof* [`IfcOpenShellErrorKind`](#typescript-core-ifcopenshellerrorkind-2)\[keyof *typeof* [`IfcOpenShellErrorKind`](#typescript-core-ifcopenshellerrorkind-2)\]
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:5
+
+***
+
+(typescript-core-pluginkind)=
+
+
+### PluginKind
+
+> **PluginKind** = `"schema"` \| `"kernel"` \| `"mapping"` \| `"tree"` \| `"document"` \| `"geometry_serializer"`
+
+Defined in: [ifcopenshell-js/src/types.ts:42](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L42)
+
+Identifiers for the plugin kinds supported by the WASM loader.
+
+***
+
+(typescript-core-pluginloader-2)=
+
+
+### PluginLoader
+
+> **PluginLoader** = (`url`, `plugin`) => `Promise`\<`Uint8Array` \| `ArrayBuffer` \| `ArrayBufferView`\> \| `Uint8Array` \| `ArrayBuffer` \| `ArrayBufferView`
+
+Defined in: [ifcopenshell-js/src/types.ts:95](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L95)
+
+Custom plugin loader function.
+
+Override this to change how plugin `.wasm` bytes are fetched.
+The default loader uses `fetch()` in the browser and is filesystem-backed in Node.
+
+#### Parameters
+
+##### url
+
+`string`
+
+##### plugin
+
+###### entry
+
+[`PluginEntry`](#typescript-core-pluginentry)
+
+###### id
+
+`string`
+
+###### kind
+
+`string`
+
+#### Returns
+
+`Promise`\<`Uint8Array` \| `ArrayBuffer` \| `ArrayBufferView`\> \| `Uint8Array` \| `ArrayBuffer` \| `ArrayBufferView`
+
+***
+
+(typescript-core-ptr-2)=
+
+
+### Ptr
+
+> **Ptr** = `number`
+
+Defined in: [ifcopenshell-js/src/types.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L7)
+
+Raw pointer address in WASM linear memory.
+
+## Variables
+
+(typescript-core-ifcopenshell-1)=
+
+
+### ifcopenshell
+
+> **ifcopenshell**: [`IfcOpenshellModule`](#typescript-core-ifcopenshellmodule)
+
+Defined in: [ifcopenshell-js/src/init.ts:64](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L64)
+
+Native module, available after awaiting init().
+
+***
+
+(typescript-core-ifcopenshellerrorcode-2)=
+
+
+### IfcOpenShellErrorCode
+
+> `const` **IfcOpenShellErrorCode**: `object`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:13
+
+#### Type Declaration
+
+(typescript-core-domain_error)=
+
+
+##### DOMAIN\_ERROR
+
+> `readonly` **DOMAIN\_ERROR**: `3`
+
+(typescript-core-invalid_argument)=
+
+
+##### INVALID\_ARGUMENT
+
+> `readonly` **INVALID\_ARGUMENT**: `2`
+
+(typescript-core-none)=
+
+
+##### NONE
+
+> `readonly` **NONE**: `0`
+
+(typescript-core-operation_cancelled)=
+
+
+##### OPERATION\_CANCELLED
+
+> `readonly` **OPERATION\_CANCELLED**: `4`
+
+(typescript-core-unspecified)=
+
+
+##### UNSPECIFIED
+
+> `readonly` **UNSPECIFIED**: `1`
+
+***
+
+(typescript-core-ifcopenshellerrorkind-2)=
+
+
+### IfcOpenShellErrorKind
+
+> `const` **IfcOpenShellErrorKind**: `object`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:5
+
+#### Type Declaration
+
+(typescript-core-cancelled)=
+
+
+##### CANCELLED
+
+> `readonly` **CANCELLED**: `4`
+
+(typescript-core-none-1)=
+
+
+##### NONE
+
+> `readonly` **NONE**: `0`
+
+(typescript-core-runtime)=
+
+
+##### RUNTIME
+
+> `readonly` **RUNTIME**: `1`
+
+(typescript-core-type-1)=
+
+
+##### TYPE
+
+> `readonly` **TYPE**: `3`
+
+(typescript-core-value)=
+
+
+##### VALUE
+
+> `readonly` **VALUE**: `2`
+
+## Functions
+
+(typescript-core-aborterror)=
+
+
+### abortError()
+
+> **abortError**(`message?`, `cause?`): [`IfcOpenShellError`](#typescript-core-ifcopenshellerror)
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:28
+
+#### Parameters
+
+##### message?
+
+`string`
+
+##### cause?
+
+`unknown`
+
+#### Returns
+
+[`IfcOpenShellError`](#typescript-core-ifcopenshellerror)
+
+***
+
+(typescript-core-init)=
+
+
+### init()
+
+> **init**(`options?`): `Promise`\<[`IfcOpenShell`](#typescript-core-ifcopenshell)\>
+
+Defined in: [ifcopenshell-js/src/init.ts:45](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L45)
+
+Initialize the packaged or explicitly configured WASM runtime.
+
+Plugins are loaded lazily through [IfcOpenShell.loadPlugin](#typescript-core-loadplugin).
+File and Iterator support explicit disposal; other handles use GC cleanup.
+
+#### Parameters
+
+##### options?
+
+[`InitOptions`](#typescript-core-initoptions) = `{}`
+
+Asset locations and optional plugin-loader overrides.
+
+#### Returns
+
+`Promise`\<[`IfcOpenShell`](#typescript-core-ifcopenshell)\>
+
+An initialized, frozen runtime facade.
+
+***
+
+(typescript-core-isifcopenshellaborterror)=
+
+
+### isIfcOpenShellAbortError()
+
+> **isIfcOpenShellAbortError**(`error`): `error is IfcOpenShellError`
+
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:29
+
+#### Parameters
+
+##### error
+
+`unknown`
+
+#### Returns
+
+`error is IfcOpenShellError`
+
+***
+
+(typescript-core-open-1)=
+
+
+### open()
+
+> **open**(`bytes`, `filename?`, `options?`): [`File`](#typescript-core-file-1)
+
+Defined in: [ifcopenshell-js/src/file.ts:157](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L157)
+
+Parse IFC bytes after explicitly loading their schema plugin.
+
+#### Parameters
+
+##### bytes
+
+`ArrayBuffer` \| `Uint8Array`\<`ArrayBufferLike`\>
+
+##### filename?
+
+`string`
+
+##### options?
+
+[`OpenOptions`](#typescript-core-openoptions)
+
+#### Returns
+
+[`File`](#typescript-core-file-1)
+
+***
+
+(typescript-core-schemabyname)=
+
+
+### schemaByName()
+
+> **schemaByName**(`name`): `IfcOpenshellSchema` \| `null`
+
+Defined in: [ifcopenshell-js/src/init.ts:66](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L66)
+
+Retrieve the loaded schema declaration by its full identifier.
+
+#### Parameters
+
+##### name
+
+`string`
+
+#### Returns
+
+`IfcOpenshellSchema` \| `null`
+
+## References
+
+(typescript-core-exportoptions)=
+
+
+### ExportOptions
+
+Re-exports [ExportOptions](#typescript-serializers-exportoptions)
+
+***
+
+(typescript-core-exportresult)=
+
+
+### ExportResult
+
+Re-exports [ExportResult](#typescript-serializers-exportresult)
+
+***
+
+(typescript-core-exporttobuffer)=
+
+
+### exportToBuffer
+
+Re-exports [exportToBuffer](#typescript-serializers-exporttobuffer)
+
+***
+
+(typescript-core-operationprogress)=
+
+
+### OperationProgress
+
+Re-exports [OperationProgress](#typescript-serializers-operationprogress)
+
+***
+
+(typescript-core-serializerformat)=
+
+
+### SerializerFormat
+
+Re-exports [SerializerFormat](#typescript-serializers-serializerformat)
+
+***
+
+(typescript-core-util)=
+
+
+### util
+
+Renames and re-exports [Utilities](Utilities.md)

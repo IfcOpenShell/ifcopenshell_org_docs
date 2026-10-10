@@ -1,0 +1,8 @@
+# ifcopenshell v0.1.0
+
+## Modules
+
+- [Core](Core.md)
+- [geom](geom.md)
+- [Serializers](Serializers.md)
+- [Utilities](Utilities.md)

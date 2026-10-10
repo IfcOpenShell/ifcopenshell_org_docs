@@ -1,0 +1,14 @@
+.. _exhale_function_kernel__registry_8h_1a7a40ac75feaecc3da4664303bb0e9814:
+
+Function ifcopenshell::geom::kernels::kernel\_registry\_instance
+================================================================
+
+- Defined in :ref:`file_src_ifcgeom_kernel_registry.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::kernels::kernel_registry_instance()
+   :project: IfcOpenShell

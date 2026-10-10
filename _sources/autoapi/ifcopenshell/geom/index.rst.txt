@@ -33,6 +33,321 @@ Submodules
 Package Contents
 ----------------
 
+.. py:class:: iterator(settings: iterator.__init__.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None)
+
+   Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.iterator`
+
+
+   .. py:method:: get()
+
+      Get last processed element.
+
+
+
+   .. py:method:: get_task_products()
+
+
+   .. py:attribute:: settings
+
+
+.. py:class:: kernel(settings: kernel.__init__.settings, file: kernel.__init__.file, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger: Optional[ifcopenshell.logger] = None)
+
+   A reusable geometry kernel bound to a (geometry library, file, settings) triple.
+
+   ``ifcopenshell.geom.create_shape`` constructs a new geometry kernel on every
+   call, which repeats the backend resolution (including plugin discovery for
+   hybrid kernels) and discards the mapping and conversion caches afterwards.
+   This class performs that construction once so that converting many products
+   one by one reuses the same kernel, mapping and caches, similar to what
+   ``ifcopenshell.geom.iterator`` does internally.
+
+   The kernel is bound at construction: the settings are copied and the file
+   reference is kept, so later changes to the settings object do not affect an
+   existing kernel and instances passed to :meth:`create_shape` must belong to
+   the bound file.
+
+   Example:
+
+   .. code:: python
+
+       settings = ifcopenshell.geom.settings()
+       k = ifcopenshell.geom.kernel(settings, ifc_file, geometry_library="hybrid-cgal-simple-opencascade")
+       for product in ifc_file.by_type("IfcProduct"):
+           if product.Representation:
+               shape = k.create_shape(product)
+
+
+   .. py:method:: create_shape(inst: ifcopenshell.entity_instance, repr: Optional[ifcopenshell.entity_instance] = None) -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
+
+      Identical to :func:`create_shape` but reuses this kernel across calls.
+
+      See :func:`create_shape` for the possible return types; the settings and
+      geometry library bound at construction are used for every call.
+
+
+
+   .. py:attribute:: file
+
+
+   .. py:attribute:: settings
+
+
+   .. py:attribute:: wrapped
+
+
+.. py:class:: missing_setting
+
+.. py:class:: serializers
+
+   .. py:method:: guess_from_extension(filepath: str)
+      :classmethod:
+
+
+
+   .. py:attribute:: buffer
+
+
+.. py:class:: settings(**kwargs)
+
+   Bases: :py:obj:`settings_mixin`, :py:obj:`ifcopenshell.ifcopenshell_wrapper.settings`
+
+
+   Pythonic interface mixin to the settings modules and
+   to provide an additional setting to enable pythonOCC
+   when available
+
+
+   .. py:attribute:: use_python_opencascade
+      :value: False
+
+
+
+.. py:class:: settings_mixin(**kwargs)
+
+   Pythonic interface mixin to the settings modules and
+   to provide an additional setting to enable pythonOCC
+   when available
+
+
+   .. py:method:: apply_namespace(namespace) -> None
+
+      Accepts an argparse.Namespace object, enumerates over the values in this namespace and
+      writes them to the settings when available
+
+
+
+   .. py:method:: build_parser(parser) -> None
+
+      Accepts an argparse.ArgumentParser object, enumerates the settings in this container and
+      adds argument parser rules for each.
+
+
+
+   .. py:method:: get(k: str) -> Any
+
+      Return value of the setting named `k`.
+
+      :raises RuntimeError: If there is no setting with name `k`.
+
+
+
+   .. py:method:: name(k: str) -> SETTING
+      :staticmethod:
+
+
+
+   .. py:method:: rname(k: SETTING) -> str
+      :staticmethod:
+
+
+
+   .. py:method:: set(k: SETTING, v: Any) -> None
+
+      Set value of the setting named `k` to `v`.
+
+      :raises RuntimeError: If there is no setting with name `k`.
+
+
+
+   .. py:method:: setting_names() -> tuple[str, ...]
+
+
+.. py:class:: tree(file: Optional[tree.__init__.file] = None, settings: Optional[tree.__init__.settings] = None, backend: str | None = 'opencascade.brep')
+
+   Bases: :py:obj:`ifcopenshell.ifcopenshell_wrapper.tree`
+
+
+   .. py:method:: add_file(file: tree.add_file.file, settings: tree.add_file.settings) -> None
+
+
+   .. py:method:: add_iterator(iterator: tree.add_iterator.iterator) -> None
+
+
+   .. py:method:: clash_clearance_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance], clearance: float = 0.05, check_all: bool = False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, ...]
+
+
+   .. py:method:: clash_collision_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance], allow_touching=False) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, ...]
+
+
+   .. py:method:: clash_intersection_many(set_a: collections.abc.Iterable[ifcopenshell.entity_instance], set_b: collections.abc.Iterable[ifcopenshell.entity_instance], tolerance: float = 0.002, check_all: bool = True) -> tuple[ifcopenshell.ifcopenshell_wrapper.clash, ...]
+
+
+   .. py:method:: get_clash_type(clash_type_i: int) -> ClashType
+      :staticmethod:
+
+
+      Convert clash type index to a readable string format.
+
+      :param clash_type_i: Type index that comes from ``clash.clash_type``.
+
+
+
+   .. py:method:: select(value: Union[ifcopenshell.entity_instance, ifcopenshell.ifcopenshell_wrapper.native_element, tuple[float, float, float]], **kwargs) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: select_box(value, **kwargs) -> list[ifcopenshell.entity_instance]
+
+
+   .. py:method:: select_ray(origin: collections.abc.Sequence[float], direction: collections.abc.Sequence[float], length: float = 1000.0) -> ifcopenshell.ifcopenshell_wrapper.ray_intersection_results
+
+
+.. py:function:: consume_iterator(it: iterator, with_progress: Literal[False] = False) -> collections.abc.Generator[IteratorOutput]
+                 consume_iterator(it: iterator, with_progress: Literal[True]) -> collections.abc.Generator[tuple[int, IteratorOutput]]
+                 consume_iterator(it: iterator, with_progress: bool) -> collections.abc.Generator[IteratorOutput | tuple[int, IteratorOutput]]
+
+.. py:function:: create_shape(settings: create_shape.settings, inst: ifcopenshell.entity_instance, repr: Optional[ifcopenshell.entity_instance] = None, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger: Optional[ifcopenshell.logger] = None) -> Union[ShapeType, ShapeElementType, ifcopenshell.ifcopenshell_wrapper.transformation, ifcopenshell.geom.occ_utils.shape_tuple, OCC.Core.TopoDS.TopoDS_Shape]
+
+   Returns a geometric interpretation of the IFC entity instance
+
+   The returned element's ``geometry`` keeps a reference to its owning element, so accessing children
+   (e.g. ``create_shape(...).geometry.verts``) no longer requires holding onto the element. See #1124.
+
+   :raises RuntimeError: If failed to process shape. You can turn detailed logging to get more details.
+
+   :return:
+       - `inst` is IfcProduct and `repr` provided / None -> ShapeElementType
+
+       - `inst` is IfcRepresentation and `repr` is None -> ShapeType
+
+       - `inst` is IfcRepresentationItem and `repr` is None -> ShapeType
+
+       - `inst` is IfcProfileDef and `repr` is None -> ShapeType
+
+       - `inst` is IfcPlacement / IfcObjectPlacement -> transformation
+
+       - `inst` is IfcTypeProduct and `repr` is None -> None
+
+       - `inst` is IfcTypeProduct and `repr` is provided -> RuntimeError
+       (for IfcTypeProducts provide just IfcRepresentation as `inst`).
+
+
+       If 'use-python-opencascade' is enabled in settings then
+
+       - instead of ShapeElementType it returns shape_tuple, 
+
+       - instead of ShapeType it returns TopoDS.TopoDS_Shape.
+
+   Example:
+
+   .. code:: python
+
+       settings = ifcopenshell.geom.settings()
+       settings.set("use-python-opencascade", True)
+
+       ifc_file = ifcopenshell.open(file_path)
+       products = ifc_file.by_type("IfcProduct")
+
+       for i, product in enumerate(products):
+           if product.Representation is not None:
+               try:
+                   created_shape = geom.create_shape(settings, inst=product)
+                   shape = created_shape.geometry # see #1124
+                   shape_gpXYZ = shape.Location().Transformation().TranslationPart() # These are methods of the TopoDS_Shape class from pythonOCC
+                   print(shape_gpXYZ.X(), shape_gpXYZ.Y(), shape_gpXYZ.Z()) # These are methods of the gpXYZ class from pythonOCC
+               except:
+                   print("Shape creation failed")
+
+
+.. py:function:: has_geometry_library(geometry_library: str) -> bool
+
+   Return whether a geometry kernel library can be loaded.
+
+
+.. py:function:: iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, *, with_progress: Literal[False] = False, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None) -> collections.abc.Generator[IteratorOutput]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, *, with_progress: Literal[True] = True, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None) -> collections.abc.Generator[tuple[int, IteratorOutput]]
+                 iterate(settings: iterate.settings, file_or_filename: Union[ifcopenshell.file, str], num_threads: int = 1, include: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, exclude: Optional[Union[list[ifcopenshell.entity_instance], list[str]]] = None, *, with_progress: bool = False, geometry_library: GEOMETRY_LIBRARY = 'opencascade', logger=None) -> collections.abc.Generator[IteratorOutput | tuple[int, IteratorOutput]]
+
+   Get a geometry iterator for the provided file.
+
+
+.. py:function:: make_shape_function(fn)
+
+.. py:function:: map_shape(settings: map_shape.settings, inst: ifcopenshell.entity_instance) -> ifcopenshell.ifcopenshell_wrapper.item
+
+   Returns an interpretation of the geometry encoded as per IfcOpenShell's taxonomy layer.
+   In many cases this is somewhat equivalent to the raw IFC data (but schema-agnostic in C++), but
+   in other cases such as IfcParameterizedProfileDef the returned item is the equivalent
+   of an explicit composite curve.
+
+   >>> point = ifc_file.by_type('IfcCartesianPoint')[0]
+   >>> ifcopenshell.geom.map_shape(ifcopenshell.geom.settings(), point).components
+   (0.0, 0.0, 0.0)
+
+
+.. py:function:: open(path: Union[os.PathLike, str], format: SupportedFormat = None, *, should_stream: Literal[False] = False, logger: Optional[open.logger] = None) -> Union[ifcopenshell_wrapper.file, sql.sqlite]
+                 open(path: Union[os.PathLike, str], format: SupportedFormat = None, *, should_stream: Literal[True], logger: Optional[open.logger] = None) -> stream.stream
+                 open(path: Union[os.PathLike, str], format: SupportedFormat = None, *, should_stream: bool = False, readonly: bool = False, logger: Optional[open.logger] = None) -> Union[ifcopenshell_wrapper.file, sql.sqlite, stream.stream]
+
+   Loads an IFC dataset from a filepath
+
+   :param should_stream: Whether to open the file in streaming mode. Could be useful
+       for reading large files.
+   :param logger: Logger that receives native parser messages.
+   :param lazy: Index the file with one quick pass and parse each instance's
+       attributes only when they are first read. Opening is then faster and
+       memory stays proportional to what is accessed; reading every attribute
+       of every instance costs about the same as a normal open, spread over
+       the reads. Falls back to a normal open if the file uses syntax the
+       index pass does not handle.
+
+   You can specify a file format. If no format is given, it is guessed from
+   its extension.
+
+   You can then filter by element ID, class, etc, and subscript by id or guid.
+
+   Example:
+
+   .. code:: python
+
+       model = ifcopenshell.open("/path/to/model.ifc")
+       model = ifcopenshell.open("/path/to/model.ifcXML")
+       model = ifcopenshell.open("/path/to/model.any_extension", ".ifc")
+
+       products = model.by_type("IfcProduct")
+       print(products[0].id(), products[0].GlobalId) # 122 2XQ$n5SLP5MBLyL442paFx
+       print(products[0] == model[122] == model["2XQ$n5SLP5MBLyL442paFx"]) # True
+
+
+.. py:function:: wrap_shape_creation(settings: wrap_shape_creation.settings, shape: ifcopenshell.ifcopenshell_wrapper.element)
+
+.. py:data:: CLASH_TYPE_ITEMS
+   :value: ('protrusion', 'pierce', 'collision', 'clearance')
+
+
+.. py:data:: ClashType
+
+.. py:data:: GEOMETRY_LIBRARY
+
+.. py:data:: IteratorOutput
+
+.. py:data:: SETTING
+
+.. py:data:: ShapeElementType
+
+.. py:data:: ShapeType
+
+.. py:data:: T
+
 .. py:data:: has_occ
    :value: True
 

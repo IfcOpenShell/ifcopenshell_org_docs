@@ -1,0 +1,89 @@
+:py:mod:`ifcopenshell.simple_spf.parser.transformer`
+====================================================
+
+.. py:module:: ifcopenshell.simple_spf.parser.transformer
+
+
+Module Contents
+---------------
+
+.. py:class:: IfcType(ifctype, value)
+
+   .. py:attribute:: ifctype
+
+
+   .. py:attribute:: value
+
+
+.. py:class:: T
+
+   Bases: :py:obj:`lark.Transformer`
+
+
+   .. py:method:: enumeration(s)
+
+
+   .. py:method:: id(s)
+
+
+   .. py:method:: keyword(s)
+
+
+   .. py:method:: omitted_parameter(s)
+
+
+   .. py:method:: parameter(s)
+
+
+   .. py:method:: string(s)
+
+
+   .. py:method:: typed_parameter(s)
+
+
+   .. py:method:: untyped_parameter(s)
+
+
+   .. py:attribute:: INT
+
+
+   .. py:attribute:: NONE
+
+
+   .. py:attribute:: REAL
+
+
+   .. py:attribute:: STAR
+
+
+   .. py:attribute:: list
+
+
+   .. py:attribute:: parameter_list
+
+
+   .. py:attribute:: subsuper_record
+
+
+.. py:class:: entity_instance
+
+   .. py:attribute:: attributes
+      :type:  tuple
+
+
+   .. py:attribute:: id
+      :type:  int
+
+
+   .. py:attribute:: lines
+      :type:  tuple
+
+
+   .. py:attribute:: type
+      :type:  str
+
+
+.. py:function:: create_step_entity(entity_tree)
+
+.. py:function:: make_header_ent(ast)
+

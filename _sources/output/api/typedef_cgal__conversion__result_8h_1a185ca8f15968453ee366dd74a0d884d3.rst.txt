@@ -1,0 +1,14 @@
+.. _exhale_typedef_cgal__conversion__result_8h_1a185ca8f15968453ee366dd74a0d884d3:
+
+Typedef cgal_face_descriptor
+============================
+
+- Defined in :ref:`file_src_ifcgeom_kernels_cgal_cgal_conversion_result.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: cgal_face_descriptor
+   :project: IfcOpenShell

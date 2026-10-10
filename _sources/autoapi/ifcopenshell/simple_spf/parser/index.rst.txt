@@ -1,0 +1,20 @@
+:py:mod:`ifcopenshell.simple_spf.parser`
+========================================
+
+.. py:module:: ifcopenshell.simple_spf.parser
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   errors/index.rst
+   file/index.rst
+   grammar/index.rst
+   mvd_info/index.rst
+   parse/index.rst
+   transformer/index.rst
+
+

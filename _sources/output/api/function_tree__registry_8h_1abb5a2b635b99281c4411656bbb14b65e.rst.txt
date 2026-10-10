@@ -1,0 +1,14 @@
+.. _exhale_function_tree__registry_8h_1abb5a2b635b99281c4411656bbb14b65e:
+
+Function ifcopenshell::geom::trees::tree\_registry\_instance
+============================================================
+
+- Defined in :ref:`file_src_ifcgeom_tree_registry.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::trees::tree_registry_instance()
+   :project: IfcOpenShell

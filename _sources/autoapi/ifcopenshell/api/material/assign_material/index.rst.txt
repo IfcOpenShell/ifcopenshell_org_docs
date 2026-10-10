@@ -9,22 +9,22 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: assign_ifc_material() -> ifcopenshell.entity_instance
+   .. py:method:: assign_ifc_material(material: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance
 
 
    .. py:method:: create_layer_set_usage(material_set: ifcopenshell.entity_instance, layer_set_direction: str, products: list[ifcopenshell.entity_instance]) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: create_material_association(relating_material: ifcopenshell.entity_instance, products: Optional[list[ifcopenshell.entity_instance]] = None) -> ifcopenshell.entity_instance
+   .. py:method:: create_material_association(relating_material: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance] | None = None) -> ifcopenshell.entity_instance
 
 
    .. py:method:: create_profile_set_usage(material_set: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(products: list[ifcopenshell.entity_instance], type: ifcopenshell.util.element.MATERIAL_TYPE, material: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance | list[ifcopenshell.entity_instance] | None
 
 
-   .. py:method:: get_rel_associates_material(material: ifcopenshell.entity_instance) -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: get_rel_associates_material(material: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: update_representation_profile(material_set: ifcopenshell.entity_instance, products: list[ifcopenshell.entity_instance]) -> None
@@ -34,11 +34,11 @@ Module Contents
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
+   .. py:attribute:: products
+      :type:  set[ifcopenshell.entity_instance]
 
 
-.. py:function:: assign_material(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], type: ifcopenshell.util.element.MATERIAL_TYPE = 'IfcMaterial', material: Optional[ifcopenshell.entity_instance] = None) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance], None]
+.. py:function:: assign_material(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], type: ifcopenshell.util.element.MATERIAL_TYPE = 'IfcMaterial', material: ifcopenshell.entity_instance | None = None) -> ifcopenshell.entity_instance | list[ifcopenshell.entity_instance] | None
 
    Assigns a material to the list of products
 

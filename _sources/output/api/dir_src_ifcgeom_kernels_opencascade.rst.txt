@@ -1,0 +1,32 @@
+.. _dir_src_ifcgeom_kernels_opencascade:
+
+
+Directory opencascade
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom_kernels>` (``src/ifcgeom/kernels``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``src/ifcgeom/kernels/opencascade``
+
+
+Files
+-----
+
+- :ref:`file_src_ifcgeom_kernels_opencascade_base_utils.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_boolean_utils.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_bvh_tree.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_clash_utils.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_face_definition.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_layerset.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_opencascade_conversion_result.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_opencascade_kernel.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_sweep_utils.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_ub_tree.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_wire_builder.h`
+- :ref:`file_src_ifcgeom_kernels_opencascade_wire_utils.h`
+
+

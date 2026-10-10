@@ -1,0 +1,52 @@
+.. _dir_src_ifcgeom:
+
+
+Directory ifcgeom
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``src/ifcgeom``
+
+Subdirectories
+--------------
+
+- :ref:`dir_src_ifcgeom_kernels`
+- :ref:`dir_src_ifcgeom_mapping`
+- :ref:`dir_src_ifcgeom_serialization`
+
+
+Files
+-----
+
+- :ref:`file_src_ifcgeom_abstract_kernel.h`
+- :ref:`file_src_ifcgeom_abstract_mapping.h`
+- :ref:`file_src_ifcgeom_conversion_result.h`
+- :ref:`file_src_ifcgeom_conversion_settings.h`
+- :ref:`file_src_ifcgeom_converter.h`
+- :ref:`file_src_ifcgeom_element.h`
+- :ref:`file_src_ifcgeom_empty.h`
+- :ref:`file_src_ifcgeom_filter.h`
+- :ref:`file_src_ifcgeom_function_item_evaluator.h`
+- :ref:`file_src_ifcgeom_geometry_serializer.h`
+- :ref:`file_src_ifcgeom_hybrid_kernel.h`
+- :ref:`file_src_ifcgeom_ifc_geom_api.h`
+- :ref:`file_src_ifcgeom_infra_sweep_helper.h`
+- :ref:`file_src_ifcgeom_iterator.h`
+- :ref:`file_src_ifcgeom_kernel_plugin.h`
+- :ref:`file_src_ifcgeom_kernel_registry.h`
+- :ref:`file_src_ifcgeom_mapping_plugin.h`
+- :ref:`file_src_ifcgeom_profile_helper.h`
+- :ref:`file_src_ifcgeom_render_styles.h`
+- :ref:`file_src_ifcgeom_representation.h`
+- :ref:`file_src_ifcgeom_serializer.h`
+- :ref:`file_src_ifcgeom_taxonomy.h`
+- :ref:`file_src_ifcgeom_tree.h`
+- :ref:`file_src_ifcgeom_tree_plugin.h`
+- :ref:`file_src_ifcgeom_tree_registry.h`
+
+

@@ -9,16 +9,16 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: add_from_identification()
+   .. py:method:: add_from_identification(identification: str | None, name: str | None, classification: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: add_from_library() -> ifcopenshell.entity_instance
+   .. py:method:: add_from_library(library_reference: ifcopenshell.entity_instance, classification: ifcopenshell.entity_instance | None, is_lightweight: bool) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(products: list[ifcopenshell.entity_instance], reference: ifcopenshell.entity_instance | None, identification: str | None, name: str | None, classification: ifcopenshell.entity_instance | None, is_lightweight: bool) -> ifcopenshell.entity_instance | None
 
 
-   .. py:method:: get_existing_reference(identification: Optional[str] = None) -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: get_existing_reference(identification: str | None = None) -> ifcopenshell.entity_instance | None
 
 
    .. py:method:: update_relationships(reference: ifcopenshell.entity_instance) -> None
@@ -28,11 +28,15 @@ Module Contents
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
+   .. py:attribute:: non_rooted_products
+      :type:  set[ifcopenshell.entity_instance]
 
 
-.. py:function:: add_reference(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], reference: Optional[ifcopenshell.entity_instance] = None, identification: Optional[str] = None, name: Optional[str] = None, classification: Optional[ifcopenshell.entity_instance] = None, is_lightweight=True) -> Union[ifcopenshell.entity_instance, None]
+   .. py:attribute:: rooted_products
+      :type:  set[ifcopenshell.entity_instance]
+
+
+.. py:function:: add_reference(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], reference: ifcopenshell.entity_instance | None = None, identification: str | None = None, name: str | None = None, classification: ifcopenshell.entity_instance | None = None, is_lightweight: bool = True) -> ifcopenshell.entity_instance | None
 
    Adds a new classification reference and assigns it to the list of products
 

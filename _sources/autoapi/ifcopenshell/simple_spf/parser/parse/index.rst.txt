@@ -1,0 +1,25 @@
+:py:mod:`ifcopenshell.simple_spf.parser.parse`
+==============================================
+
+.. py:module:: ifcopenshell.simple_spf.parser.parse
+
+
+Module Contents
+---------------
+
+.. py:class:: ParseResult
+
+   .. py:attribute:: entities
+      :type:  dict[int, list[ifcopenshell.simple_spf.parser.transformer.entity_instance]]
+
+
+   .. py:attribute:: header
+      :type:  dict
+
+
+.. py:function:: parse(*, filename=None, filecontent=None, with_progress=False, with_tree=True, only_header=False) -> ParseResult
+
+.. py:function:: process_tree(filecontent, file_tree, with_progress, error_collector)
+
+.. py:function:: validate_header_fields(header, error_collector, only_header=False)
+

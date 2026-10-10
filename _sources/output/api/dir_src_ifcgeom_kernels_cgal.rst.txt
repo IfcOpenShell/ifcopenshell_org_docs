@@ -1,0 +1,23 @@
+.. _dir_src_ifcgeom_kernels_cgal:
+
+
+Directory cgal
+==============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom_kernels>` (``src/ifcgeom/kernels``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``src/ifcgeom/kernels/cgal``
+
+
+Files
+-----
+
+- :ref:`file_src_ifcgeom_kernels_cgal_cgal_conversion_result.h`
+- :ref:`file_src_ifcgeom_kernels_cgal_cgal_kernel.h`
+- :ref:`file_src_ifcgeom_kernels_cgal_nef_to_halfspace_tree.h`
+
+

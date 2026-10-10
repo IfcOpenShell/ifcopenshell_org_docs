@@ -1,0 +1,47 @@
+.. _dir_src_ifcparse:
+
+
+Directory ifcparse
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``src/ifcparse``
+
+
+Files
+-----
+
+- :ref:`file_src_ifcparse_alignment_helper.h`
+- :ref:`file_src_ifcparse_argument.h`
+- :ref:`file_src_ifcparse_argument_type.h`
+- :ref:`file_src_ifcparse_character_decoder.h`
+- :ref:`file_src_ifcparse_exception.h`
+- :ref:`file_src_ifcparse_express.h`
+- :ref:`file_src_ifcparse_file.h`
+- :ref:`file_src_ifcparse_file_open_status.h`
+- :ref:`file_src_ifcparse_file_reader.h`
+- :ref:`file_src_ifcparse_global_id.h`
+- :ref:`file_src_ifcparse_hierarchy_helper.h`
+- :ref:`file_src_ifcparse_ifc_parse_api.h`
+- :ref:`file_src_ifcparse_instance_data.h`
+- :ref:`file_src_ifcparse_logger.h`
+- :ref:`file_src_ifcparse_macros.h`
+- :ref:`file_src_ifcparse_map_transformer.h`
+- :ref:`file_src_ifcparse_map_variant.h`
+- :ref:`file_src_ifcparse_parse.h`
+- :ref:`file_src_ifcparse_rocksdb_map_adapter.h`
+- :ref:`file_src_ifcparse_rocksdb_set_view.h`
+- :ref:`file_src_ifcparse_schema.h`
+- :ref:`file_src_ifcparse_set_to_map_transformer.h`
+- :ref:`file_src_ifcparse_si_prefix.h`
+- :ref:`file_src_ifcparse_spf_header.h`
+- :ref:`file_src_ifcparse_storage.h`
+- :ref:`file_src_ifcparse_utils.h`
+- :ref:`file_src_ifcparse_variant_array.h`
+
+

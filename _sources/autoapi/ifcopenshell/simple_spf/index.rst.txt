@@ -1,0 +1,25 @@
+:py:mod:`ifcopenshell.simple_spf`
+=================================
+
+.. py:module:: ifcopenshell.simple_spf
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   parser/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   ifcgraph/index.rst
+   test_parser/index.rst
+
+

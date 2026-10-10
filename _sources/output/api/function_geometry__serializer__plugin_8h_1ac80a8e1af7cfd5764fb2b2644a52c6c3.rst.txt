@@ -1,0 +1,14 @@
+.. _exhale_function_geometry__serializer__plugin_8h_1ac80a8e1af7cfd5764fb2b2644a52c6c3:
+
+Function ifcopenshell::serializers::geometry\_serializer\_registry\_instance
+============================================================================
+
+- Defined in :ref:`file_src_serializers_geometry_serializer_plugin.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::serializers::geometry_serializer_registry_instance()
+   :project: IfcOpenShell

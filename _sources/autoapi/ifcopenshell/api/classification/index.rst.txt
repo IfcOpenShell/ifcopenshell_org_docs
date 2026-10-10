@@ -88,7 +88,7 @@ Package Contents
            classification=classification)
 
 
-.. py:function:: add_reference(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], reference: Optional[ifcopenshell.entity_instance] = None, identification: Optional[str] = None, name: Optional[str] = None, classification: Optional[ifcopenshell.entity_instance] = None, is_lightweight=True) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: add_reference(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], reference: ifcopenshell.entity_instance | None = None, identification: str | None = None, name: str | None = None, classification: ifcopenshell.entity_instance | None = None, is_lightweight: bool = True) -> ifcopenshell.entity_instance | None
 
    Adds a new classification reference and assigns it to the list of products
 

@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8h_1a6b344e4e40dc6c894a76fe5656ef18a1:
+
+Function operator<<
+===================
+
+- Defined in :ref:`file_src_ifcparse_parse.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: operator<<(std::ostream&, const ifcopenshell::file&)
+   :project: IfcOpenShell

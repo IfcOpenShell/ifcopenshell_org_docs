@@ -1,0 +1,113 @@
+:py:mod:`ifcopenshell.mvd.mvd`
+==============================
+
+.. py:module:: ifcopenshell.mvd.mvd
+
+
+Module Contents
+---------------
+
+.. py:function:: correct_for_export(all_data)
+
+   Process the data for spreadsheet export.
+
+
+.. py:function:: export_to_csv(csv_name, concepts, all_data)
+
+   Export data towards CSV spreadsheet format.
+
+   :param csv_name: Name of the file outputted file.
+   :param concepts: List of mvdXML Concept instances.
+   :param all_data: Data extracted.
+
+
+.. py:function:: export_to_xlsx(xlsx_name, concepts, all_data)
+
+   Export data towards XLSX spreadsheet format.
+
+   :param xlsx_name: Name of the outputted file.
+   :param concepts: List of mvdXML Concept instances.
+   :param all_data: Data extracted.
+
+
+
+.. py:function:: extract_data(mvd_node, ifc_data)
+
+   Recursively traverses mvdXML Concept tree structure.
+   This tree is made of different mvdXML Rule nodes: AttributesRule
+   and EntityRule.
+
+   :param mvd_node: an mvdXML Concept
+   :param ifc_data: an IFC instance or an IFC value
+
+
+
+
+.. py:function:: format_data_from_nodes(recurse_output)
+
+   Enable to format data collected such that the value to be exported is extracted.
+
+   :param recurse_output: Data extracted from the recursive function
+
+
+
+.. py:function:: get_data(mvd_concept, ifc_file, spreadsheet_export=True)
+
+   Use the majority of all the other functions to return the data
+   queried by the mvdXML file in python format.
+
+   :param mvd_concept: mvdXML Concept instance.
+   :param ifc_file: IFC file from any schema.
+   :param spreadsheet_export: The spreadsheet export is carried out when set to True.
+
+
+
+
+
+.. py:function:: get_data_from_mvd(entities, tree, filtering=False)
+
+    Apply the recursive function on the entities to return
+    the values extracted.
+
+   :param entities: IFC instances to be processed.
+   :param tree: mvdXML Concept instance tree root.
+   :param filtering: Indicates whether the mvdXML tree is an applicability.
+
+    
+
+
+.. py:function:: get_non_respecting_entities(file, verification_matrix)
+
+.. py:function:: get_respecting_entities(file, verification_matrix)
+
+.. py:function:: is_applicability(concept)
+
+   Check whether the Concept created has a filtering purpose.
+   Actually, MvdXML has a specific Applicability node.
+
+   :param concept: mvdXML Concept object
+
+
+.. py:function:: merge_dictionaries(dicts)
+
+.. py:function:: open_mvd(filename)
+
+   Open an mvdXML file.
+
+   :param filename: Path of the mvdXML file.
+   :return: mvdXML Concept instance.
+
+
+.. py:function:: validate_data(concept, data)
+
+.. py:function:: visualize(file, not_respecting_entities)
+
+   Visualize the instances of the entity type targeted by the mvdXML ConceptRoot.
+   At display, a color differentiation is made between the entities which comply with
+   mvdXML requirements and the ones which don't.
+
+   :param file: IFC file from any schema.
+   :param not_respecting_entities: Entities which don't comply with mvdXML requirements.
+
+
+

@@ -441,7 +441,7 @@ Package Contents
        ifcopenshell.api.material.assign_material(model, products=[beam_type], material=material_set)
 
 
-.. py:function:: assign_material(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], type: ifcopenshell.util.element.MATERIAL_TYPE = 'IfcMaterial', material: Optional[ifcopenshell.entity_instance] = None) -> Union[ifcopenshell.entity_instance, list[ifcopenshell.entity_instance], None]
+.. py:function:: assign_material(file: ifcopenshell.file, products: list[ifcopenshell.entity_instance], type: ifcopenshell.util.element.MATERIAL_TYPE = 'IfcMaterial', material: ifcopenshell.entity_instance | None = None) -> ifcopenshell.entity_instance | list[ifcopenshell.entity_instance] | None
 
    Assigns a material to the list of products
 

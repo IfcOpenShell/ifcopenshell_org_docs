@@ -1,0 +1,77 @@
+
+.. _file_src_ifcparse_map_variant.h:
+
+File map_variant.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcparse>` (``src/ifcparse``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcparse/map_variant.h``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcparse_map_variant.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``array`` (:ref:`file_src_ifcparse_variant_array.h`)
+
+- ``cstddef``
+
+- ``cstring``
+
+- ``iostream``
+
+- ``map`` (:ref:`file_src_ifcgeom_abstract_mapping.h`)
+
+- ``string``
+
+- ``tuple``
+
+- ``utility``
+
+- ``variant`` (:ref:`file_src_ifcparse_map_variant.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_src_ifcparse_storage.h`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structvariant__map_1_1is__char__array`
+
+- :ref:`exhale_struct_structvariant__map_1_1is__char__array_3_01std_1_1array_3_01char_00_01_n_01_4_01_4`
+
+- :ref:`exhale_struct_structvariant__map_1_1public__key`
+
+- :ref:`exhale_struct_structvariant__map_1_1public__key_3_01std_1_1array_3_01char_00_01_n_01_4_01_4`
+
+- :ref:`exhale_class_classvariant__map`
+
+- :ref:`exhale_class_classvariant__map_1_1iterator`
+

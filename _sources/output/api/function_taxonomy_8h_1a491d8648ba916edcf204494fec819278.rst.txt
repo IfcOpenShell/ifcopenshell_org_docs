@@ -1,0 +1,14 @@
+.. _exhale_function_taxonomy_8h_1a491d8648ba916edcf204494fec819278:
+
+Function ifcopenshell::geom::taxonomy::curve\_to\_edge\_upgrade\_impl
+=====================================================================
+
+- Defined in :ref:`file_src_ifcgeom_taxonomy.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::taxonomy::curve_to_edge_upgrade_impl(ptr)
+   :project: IfcOpenShell

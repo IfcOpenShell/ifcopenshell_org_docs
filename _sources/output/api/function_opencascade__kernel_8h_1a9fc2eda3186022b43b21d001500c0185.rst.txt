@@ -1,0 +1,14 @@
+.. _exhale_function_opencascade__kernel_8h_1a9fc2eda3186022b43b21d001500c0185:
+
+Function ifcopenshell::geom::tesselate\_\_Schema
+================================================
+
+- Defined in :ref:`file_src_ifcgeom_kernels_opencascade_opencascade_kernel.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::tesselate__Schema(const TopoDS_Shape&, double)
+   :project: IfcOpenShell

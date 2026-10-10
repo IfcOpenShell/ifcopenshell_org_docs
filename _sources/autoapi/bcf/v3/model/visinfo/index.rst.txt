@@ -33,7 +33,7 @@ Module Contents
       :type:  Direction
 
 
-.. py:class:: BitmapFormat(*args, **kwds)
+.. py:class:: BitmapFormat
 
    Bases: :py:obj:`enum.Enum`
 

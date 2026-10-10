@@ -1,0 +1,17 @@
+.. _exhale_struct_structifcopenshell_1_1pack__element:
+
+Template Struct pack_element
+============================
+
+- Defined in :ref:`file_src_ifcparse_instance_data.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ifcopenshell::pack_element
+   :project: IfcOpenShell
+   :members:
+   :protected-members:
+   :undoc-members:

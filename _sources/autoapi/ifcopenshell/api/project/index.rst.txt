@@ -31,7 +31,7 @@ Submodules
 Package Contents
 ----------------
 
-.. py:function:: append_asset(file: ifcopenshell.file, library: ifcopenshell.file, element: ifcopenshell.entity_instance, reuse_identities: Optional[dict[int, ifcopenshell.entity_instance]] = None, assume_asset_uniqueness_by_name: bool = True) -> ifcopenshell.entity_instance
+.. py:function:: append_asset(file: ifcopenshell.file, library: ifcopenshell.file, element: ifcopenshell.entity_instance, reuse_identities: dict[int, ifcopenshell.entity_instance] | None = None, assume_asset_uniqueness_by_name: bool = True) -> ifcopenshell.entity_instance
 
    Appends an asset from a library into the active project
 

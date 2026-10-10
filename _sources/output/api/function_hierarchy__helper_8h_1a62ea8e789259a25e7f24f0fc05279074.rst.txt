@@ -1,0 +1,14 @@
+.. _exhale_function_hierarchy__helper_8h_1a62ea8e789259a25e7f24f0fc05279074:
+
+Function ifcopenshell::hierarchy\_detail::children\_attribute\_name
+===================================================================
+
+- Defined in :ref:`file_src_ifcparse_hierarchy_helper.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::hierarchy_detail::children_attribute_name(const ifcopenshell::declaration&)
+   :project: IfcOpenShell

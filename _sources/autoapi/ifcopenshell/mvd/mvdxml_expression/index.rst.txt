@@ -1,0 +1,32 @@
+:py:mod:`ifcopenshell.mvd.mvdxml_expression`
+============================================
+
+.. py:module:: ifcopenshell.mvd.mvdxml_expression
+
+
+Module Contents
+---------------
+
+.. py:class:: node(args)
+
+   Bases: :py:obj:`object`
+
+
+.. py:function:: parse(exprs)
+
+.. py:data:: bool_op
+
+.. py:data:: bool_value
+
+.. py:data:: grammar
+
+.. py:data:: quoted
+
+.. py:data:: ref_val
+
+.. py:data:: rhs
+
+.. py:data:: stmt
+
+.. py:data:: word
+

@@ -1,0 +1,73 @@
+:py:mod:`ifcopenshell.simple_spf.ifcgraph`
+==========================================
+
+.. py:module:: ifcopenshell.simple_spf.ifcgraph
+
+
+Module Contents
+---------------
+
+.. py:class:: IfcEntity(data)
+
+   .. py:attribute:: id
+
+
+   .. py:attribute:: ifctype
+
+
+.. py:function:: get_cmap(n, name='hsv')
+
+   Returns a function that maps each index in 0, 1, ..., n-1 to a distinct
+   RGB color; the keyword argument name must be a standard mpl colormap name.
+
+
+.. py:data:: G
+
+.. py:data:: blue_patch
+
+.. py:data:: c_map
+
+.. py:data:: cmap
+
+.. py:data:: cmap
+
+.. py:data:: color_map
+   :value: []
+
+
+.. py:data:: colors
+   :value: []
+
+
+.. py:data:: colors
+
+.. py:data:: cols
+   :value: []
+
+
+.. py:data:: elarge
+
+.. py:data:: i
+   :value: 0
+
+
+.. py:data:: ifctypes
+
+.. py:data:: nc
+
+.. py:data:: nodes
+
+.. py:data:: patches
+   :value: []
+
+
+.. py:data:: pos
+
+.. py:data:: red_patch
+
+.. py:data:: t
+
+.. py:data:: type_color_mapping
+
+.. py:data:: types_color
+

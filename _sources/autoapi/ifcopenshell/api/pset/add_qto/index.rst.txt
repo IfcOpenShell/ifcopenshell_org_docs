@@ -9,18 +9,14 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: create_qto()
+   .. py:method:: create_qto(name: str) -> ifcopenshell.entity_instance
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(product: ifcopenshell.entity_instance, name: str) -> ifcopenshell.entity_instance
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
-
-
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
 
 
 .. py:function:: add_qto(file: ifcopenshell.file, product: ifcopenshell.entity_instance, name: str) -> ifcopenshell.entity_instance
@@ -57,6 +53,7 @@ Module Contents
        like "Qto_WallBaseQuantities". If you create your own, you must not
        use that prefix. It is recommended to use your own prefix tailored
        to your project, company, or local government requirement.
+   :raises ValueError: If `product` class doesn't support adding a qto.
    :return: The newly created IfcElementQuantity
 
    Example:

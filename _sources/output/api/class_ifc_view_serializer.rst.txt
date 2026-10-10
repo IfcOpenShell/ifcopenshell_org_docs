@@ -1,0 +1,26 @@
+.. _exhale_class_class_ifc_view_serializer:
+
+Class IfcViewSerializer
+=======================
+
+- Defined in :ref:`file_src_serializers_ifcview_serializer.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ifcopenshell::geom::write_only_geometry_serializer`` (:ref:`exhale_class_classifcopenshell_1_1geom_1_1write__only__geometry__serializer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: IfcViewSerializer
+   :project: IfcOpenShell
+   :members:
+   :protected-members:
+   :undoc-members:

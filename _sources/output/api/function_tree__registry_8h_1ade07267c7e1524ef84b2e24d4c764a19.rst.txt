@@ -1,0 +1,14 @@
+.. _exhale_function_tree__registry_8h_1ade07267c7e1524ef84b2e24d4c764a19:
+
+Function ifcopenshell::geom::trees::construct
+=============================================
+
+- Defined in :ref:`file_src_ifcgeom_tree_registry.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::trees::construct(const std::string&)
+   :project: IfcOpenShell

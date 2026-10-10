@@ -13,7 +13,7 @@ Module Contents
 
 
    .. py:attribute:: CasingDepth
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -26,7 +26,7 @@ Module Contents
 
 
    .. py:attribute:: CasingThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -35,7 +35,7 @@ Module Contents
 
 
    .. py:attribute:: LiningDepth
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -44,7 +44,7 @@ Module Contents
 
 
    .. py:attribute:: LiningOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -53,7 +53,7 @@ Module Contents
 
 
    .. py:attribute:: LiningThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -62,7 +62,7 @@ Module Contents
 
 
    .. py:attribute:: LiningToPanelOffsetX
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -71,7 +71,7 @@ Module Contents
 
 
    .. py:attribute:: LiningToPanelOffsetY
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -89,7 +89,7 @@ Module Contents
 
 
    .. py:attribute:: ThresholdDepth
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -98,7 +98,7 @@ Module Contents
 
 
    .. py:attribute:: ThresholdOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -107,7 +107,7 @@ Module Contents
 
 
    .. py:attribute:: ThresholdThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -116,7 +116,7 @@ Module Contents
 
 
    .. py:attribute:: TransomOffset
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -128,7 +128,7 @@ Module Contents
 
 
    .. py:attribute:: TransomThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -142,7 +142,7 @@ Module Contents
 
 
    .. py:attribute:: FrameDepth
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -151,7 +151,7 @@ Module Contents
 
 
    .. py:attribute:: FrameThickness
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -160,7 +160,7 @@ Module Contents
 
 
    .. py:attribute:: PanelDepth
-      :type:  Optional[float]
+      :type:  float | None
       :value: None
 
 
@@ -211,18 +211,14 @@ Module Contents
                   convert_si_to_unit(value: numpy.ndarray) -> numpy.ndarray
 
 
-   .. py:method:: execute() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: execute(context: ifcopenshell.entity_instance, unit_scale: float, overall_height: float | None, overall_width: float | None, operation_type: DOOR_TYPE, lining_properties: dict[str, Any], panel_properties: dict[str, Any], part_of_product: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance | None
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
-
-
-.. py:function:: add_door_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: Optional[float] = None, overall_width: Optional[float] = None, operation_type: DOOR_TYPE = 'SINGLE_SWING_LEFT', lining_properties: Optional[Union[DoorLiningProperties, dict[str, Any]]] = None, panel_properties: Optional[Union[DoorPanelProperties, dict[str, Any]]] = None, part_of_product: Optional[ifcopenshell.entity_instance] = None, unit_scale: Optional[float] = None) -> Union[ifcopenshell.entity_instance, None]
+.. py:function:: add_door_representation(file: ifcopenshell.file, *, context: ifcopenshell.entity_instance, overall_height: float | None = None, overall_width: float | None = None, operation_type: DOOR_TYPE = 'SINGLE_SWING_LEFT', lining_properties: DoorLiningProperties | dict[str, Any] | None = None, panel_properties: DoorPanelProperties | dict[str, Any] | None = None, part_of_product: ifcopenshell.entity_instance | None = None, unit_scale: float | None = None) -> ifcopenshell.entity_instance | None
 
    Add a geometric representation for a door.
 
@@ -242,9 +238,9 @@ Module Contents
    :return: IfcShapeRepresentation for a door.
 
 
-.. py:function:: create_ifc_box(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: numpy.ndarray, position: Optional[numpy.ndarray] = None) -> ifcopenshell.entity_instance
+.. py:function:: create_ifc_box(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: numpy.ndarray, position: numpy.ndarray | None = None) -> ifcopenshell.entity_instance
 
-.. py:function:: create_ifc_door_lining(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: numpy.ndarray, thickness: Union[list[float], float], position: Optional[numpy.ndarray] = None) -> ifcopenshell.entity_instance
+.. py:function:: create_ifc_door_lining(builder: ifcopenshell.util.shape_builder.ShapeBuilder, size: numpy.ndarray, thickness: list[float] | float, position: numpy.ndarray | None = None) -> ifcopenshell.entity_instance
 
    `thickness` of the profile is defined as list in the following order: `(SIDE, TOP)`
 

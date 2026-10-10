@@ -1,0 +1,14 @@
+.. _exhale_function_logger_8h_1a3fb9b720949e4301b2a25ed555857dab:
+
+Function ifcopenshell::logger\_or\_root
+=======================================
+
+- Defined in :ref:`file_src_ifcparse_logger.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::logger_or_root(logger *)
+   :project: IfcOpenShell

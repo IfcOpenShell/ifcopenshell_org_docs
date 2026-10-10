@@ -1,0 +1,30 @@
+
+.. _namespace_ifcopenshell__geom__utils:
+
+Namespace ifcopenshell::geom::utils
+===================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_cgal__kernel_8h_1af5444db5973cb68872f3306feea482d7`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a55620ebd8e2aab6a4c227cdb636c5a0b`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a47b6c9199fdbd120bcc9dbe6c7378937`
+
+- :ref:`exhale_function_cgal__kernel_8h_1aa41ad70467c5d1cdf30d1b41e580ef9b`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a714e86c14698f282855966d39bbf376b`
+
+- :ref:`exhale_function_cgal__kernel_8h_1a9596e220c86d5c5811fb5ee1e8fc9ff9`

@@ -1,0 +1,14 @@
+.. _exhale_function_document__serializer__plugin_8h_1acaaccf2739f1c8942cc0b6de64bb0fb1:
+
+Function ifcopenshell::serializers::document\_serializer\_plugin\_registration\_symbol
+======================================================================================
+
+- Defined in :ref:`file_src_serializers_document_serializer_plugin.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::serializers::document_serializer_plugin_registration_symbol()
+   :project: IfcOpenShell

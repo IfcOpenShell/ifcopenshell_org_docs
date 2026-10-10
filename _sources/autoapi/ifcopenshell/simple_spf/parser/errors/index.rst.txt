@@ -1,0 +1,123 @@
+:py:mod:`ifcopenshell.simple_spf.parser.errors`
+===============================================
+
+.. py:module:: ifcopenshell.simple_spf.parser.errors
+
+
+Module Contents
+---------------
+
+.. py:exception:: CollectedValidationErrors(errors)
+
+   Bases: :py:obj:`_ValidationError`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:method:: asdict(with_message=True)
+
+
+   .. py:attribute:: errors
+
+
+.. py:exception:: DuplicateNameError(filecontent, name, linenumbers)
+
+   Bases: :py:obj:`_ValidationError`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:method:: asdict(with_message=True)
+
+
+   .. py:attribute:: filecontent
+
+
+   .. py:attribute:: linenumbers
+
+
+   .. py:attribute:: name
+
+
+.. py:exception:: HeaderFieldError(field, found_len, expected_len)
+
+   Bases: :py:obj:`_ValidationError`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:method:: asdict(with_message=True)
+
+
+   .. py:attribute:: expected_len
+
+
+   .. py:attribute:: field
+
+
+   .. py:attribute:: found_len
+
+
+.. py:exception:: InvalidNameError(filecontent, name, linenumbers)
+
+   Bases: :py:obj:`_ValidationError`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:method:: asdict(with_message=True)
+
+
+   .. py:attribute:: filecontent
+
+
+   .. py:attribute:: linenumbers
+
+
+   .. py:attribute:: name
+
+
+.. py:exception:: SyntaxError(filecontent, exception)
+
+   Bases: :py:obj:`_ValidationError`
+
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+   .. py:method:: asdict(with_message=True)
+
+
+   .. py:attribute:: exception
+
+
+   .. py:attribute:: filecontent
+
+
+.. py:class:: ErrorCollector
+
+   .. py:method:: add(error)
+
+
+   .. py:method:: raise_if_any()
+
+
+   .. py:attribute:: errors
+      :value: []
+
+
+

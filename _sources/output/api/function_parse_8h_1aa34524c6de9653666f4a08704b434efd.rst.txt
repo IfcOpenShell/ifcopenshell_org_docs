@@ -1,0 +1,14 @@
+.. _exhale_function_parse_8h_1aa34524c6de9653666f4a08704b434efd:
+
+Function ifcopenshell::traverse\_breadth\_first
+===============================================
+
+- Defined in :ref:`file_src_ifcparse_parse.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::traverse_breadth_first(const express::base&, int)
+   :project: IfcOpenShell

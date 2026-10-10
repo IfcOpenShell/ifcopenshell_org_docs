@@ -53,6 +53,8 @@ Subpackages
    api/index.rst
    express/index.rst
    geom/index.rst
+   mvd/index.rst
+   simple_spf/index.rst
    util/index.rst
 
 

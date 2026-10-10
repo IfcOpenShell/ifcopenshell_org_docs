@@ -9,7 +9,7 @@ Module Contents
 
 .. py:class:: Usecase
 
-   .. py:method:: convert_matrix_to_si(matrix: NPArrayOfFloats)
+   .. py:method:: convert_matrix_to_si(matrix: NPArrayOfFloats) -> None
 
 
    .. py:method:: convert_si_to_unit(co: NPArrayOfFloats) -> NPArrayOfFloats
@@ -18,27 +18,31 @@ Module Contents
    .. py:method:: convert_unit_to_si(co: NPArrayOfFloats) -> NPArrayOfFloats
 
 
-   .. py:method:: execute()
+   .. py:method:: execute(product: ifcopenshell.entity_instance, matrix: NPArrayOfFloats, is_si: bool, should_transform_children: bool) -> ifcopenshell.entity_instance | None
 
 
-   .. py:method:: get_children_settings(placement: Union[ifcopenshell.entity_instance, None]) -> list[dict]
+   .. py:method:: get_children(placement: ifcopenshell.entity_instance | None) -> list[ChildPlacement]
 
 
-   .. py:method:: get_placement_rel_to() -> Union[ifcopenshell.entity_instance, None]
+   .. py:method:: get_placement_rel_to(product: ifcopenshell.entity_instance) -> ifcopenshell.entity_instance | None
 
 
-   .. py:method:: get_relative_placement(placement_rel_to: Union[ifcopenshell.entity_instance, None]) -> ifcopenshell.entity_instance
+   .. py:method:: get_relative_placement(matrix: NPArrayOfFloats, placement_rel_to: ifcopenshell.entity_instance | None) -> ifcopenshell.entity_instance
+
+
+   .. py:attribute:: builder
+      :type:  ifcopenshell.util.shape_builder.ShapeBuilder
 
 
    .. py:attribute:: file
       :type:  ifcopenshell.file
 
 
-   .. py:attribute:: settings
-      :type:  dict[str, Any]
+   .. py:attribute:: unit_scale
+      :type:  float
 
 
-.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: Optional[NPArrayOfFloats] = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
+.. py:function:: edit_object_placement(file: ifcopenshell.file, product: ifcopenshell.entity_instance, matrix: NPArrayOfFloats | None = None, is_si: bool = True, should_transform_children: bool = False) -> ifcopenshell.entity_instance
 
    Changes the object placement matrix of an element
 
@@ -62,6 +66,8 @@ Module Contents
        to compensate for the parent move.
    :return: The new or updated IfcLocalPlacement entity
 
+
+.. py:data:: ChildPlacement
 
 .. py:data:: NPArrayOfFloats
 

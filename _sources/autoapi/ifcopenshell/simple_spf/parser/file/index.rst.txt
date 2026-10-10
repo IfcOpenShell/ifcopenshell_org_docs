@@ -1,0 +1,71 @@
+:py:mod:`ifcopenshell.simple_spf.parser.file`
+=============================================
+
+.. py:module:: ifcopenshell.simple_spf.parser.file
+
+
+Module Contents
+---------------
+
+.. py:class:: file(result: ifcopenshell.simple_spf.parser.parse.ParseResult)
+
+   A somewhat compatible interface (but very limited) to ifcopenshell.file
+
+
+   .. py:method:: by_id(id: int) -> ifcopenshell.simple_spf.parser.transformer.entity_instance
+
+      Return an IFC entity instance filtered by IFC ID.
+
+      :param id: STEP numerical identifier
+      :type id: int
+
+      :raises RuntimeError: If `id` is not found or multiple definitions exist for `id`.
+
+      :rtype: entity_instance
+
+
+
+   .. py:method:: by_type(type: str) -> list[ifcopenshell.simple_spf.parser.transformer.entity_instance]
+
+      Return IFC objects filtered by IFC Type and wrapped with the entity_instance class.
+      :rtype: list[entity_instance]
+
+
+
+   .. py:attribute:: data_
+
+
+   .. py:property:: header
+
+
+   .. py:attribute:: header_
+
+
+   .. py:property:: mvd
+
+
+   .. py:property:: schema
+      :type: str
+
+
+      General IFC schema version: IFC2X3, IFC4, IFC4X3.
+
+
+
+   .. py:property:: schema_identifier
+      :type: str
+
+
+
+   .. py:property:: schema_version
+      :type: tuple[int, int, int, int]
+
+
+      Numeric representation of the full IFC schema version.
+
+      E.g. IFC4X3_ADD2 is represented as (4, 3, 2, 0).
+
+
+
+.. py:function:: open(fn, only_header=False) -> file
+

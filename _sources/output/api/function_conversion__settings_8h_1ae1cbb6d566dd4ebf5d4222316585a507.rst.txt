@@ -1,0 +1,14 @@
+.. _exhale_function_conversion__settings_8h_1ae1cbb6d566dd4ebf5d4222316585a507:
+
+Function ifcopenshell::geom::settings\_detail::operator>>(std::istream&, IteratorOutputOptions&)
+================================================================================================
+
+- Defined in :ref:`file_src_ifcgeom_conversion_settings.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::settings_detail::operator>>(std::istream&, IteratorOutputOptions&)
+   :project: IfcOpenShell

@@ -10,7 +10,9 @@ Let's learn IfcOpenShell!
 
    introduction
    ifcopenshell
+   ifcopenshell-cpp
    ifcopenshell-python
+   ifcopenshell-js
    ifcconvert
    ifcviewer
    bonsai
@@ -46,6 +48,7 @@ Let's learn IfcOpenShell!
    :maxdepth: 1
    :caption: API:
 
-   C++ API Reference <https://ifcopenshell.github.io/docs/rst_files/library_root.html>
+   C++ API Reference <cpp-api>
    Python API Reference <autoapi/index>
+   TypeScript API Reference <typescript-api>
    indices
