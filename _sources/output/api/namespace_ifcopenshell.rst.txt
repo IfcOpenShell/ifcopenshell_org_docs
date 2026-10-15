@@ -170,9 +170,9 @@ Functions
 
 - :ref:`exhale_function_character__decoder_8h_1ae0ec258350946b4a8f487c2179b3668c`
 
-- :ref:`exhale_function_character__decoder_8h_1a69e8e68ba0bb027732e43bcefb0616f2`
-
 - :ref:`exhale_function_character__decoder_8h_1aacb036a44fc72837346c54e676806cd4`
+
+- :ref:`exhale_function_character__decoder_8h_1a69e8e68ba0bb027732e43bcefb0616f2`
 
 - :ref:`exhale_function_parse_8h_1aa903c330c7742f5e5a005605b9529a5d`
 

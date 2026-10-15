@@ -728,6 +728,9 @@ Module Contents
    .. py:method:: print_impl(o, classname, indent=0)
 
 
+   .. py:method:: to_polygon(*args)
+
+
 .. py:class:: cylinder
 
    Bases: :py:obj:`surface`
@@ -1827,10 +1830,22 @@ Module Contents
    .. py:method:: clone_()
 
 
+   .. py:method:: is_polygonal()
+
+
    .. py:method:: kind()
 
 
+   .. py:method:: make_compatible_sections(arg2)
+
+
+   .. py:method:: make_polygonal_sections(arg2)
+
+
    .. py:method:: print_impl(o, indent)
+
+
+   .. py:method:: to_polyhedron()
 
 
    .. py:attribute:: axis
@@ -1989,6 +2004,9 @@ Module Contents
 
 
    .. py:method:: remove_linear_edge_curves()
+
+
+   .. py:method:: to_polygon(arg2)
 
 
    .. py:property:: children
@@ -2559,14 +2577,6 @@ Module Contents
 
    .. py:attribute:: CURVES_SURFACES_AND_SOLIDS
       :type:  Literal[2]
-
-
-   .. py:attribute:: MAXSTEPSIZE
-      :type:  Literal[0]
-
-
-   .. py:attribute:: MINSTEPS
-      :type:  Literal[1]
 
 
    .. py:attribute:: NATIVE
@@ -3273,6 +3283,9 @@ Module Contents
    .. py:method:: kind()
 
 
+   .. py:method:: to_polyhedron(arg2)
+
+
    .. py:attribute:: curve
       :type:  Any
 
@@ -3313,6 +3326,12 @@ Module Contents
 .. py:class:: transformation(settings, matrix)
 
    .. py:method:: data()
+
+
+   .. py:method:: settings() -> settings
+
+
+   .. py:method:: si_data()
 
 
    .. py:property:: matrix
@@ -3480,6 +3499,11 @@ Module Contents
    .. py:property:: polyhedral_faces_without_holes
 
 
+   .. py:property:: rebase_offset
+      :type: tuple[float, float, float]
+
+
+
    .. py:property:: uvs
 
 
@@ -3516,6 +3540,9 @@ Module Contents
    .. py:method:: reverse()
 
 
+   .. py:method:: to_polygon(arg2)
+
+
    .. py:attribute:: basis
       :type:  Any
 
@@ -3525,6 +3552,10 @@ Module Contents
 
 
    .. py:attribute:: end
+      :type:  Any
+
+
+   .. py:attribute:: polygon_segments
       :type:  Any
 
 
@@ -3752,12 +3783,6 @@ Module Contents
    :type:  Any
 
 .. py:data:: MATRIX4
-   :type:  Any
-
-.. py:data:: MAXSTEPSIZE
-   :type:  Any
-
-.. py:data:: MINSTEPS
    :type:  Any
 
 .. py:data:: NATIVE

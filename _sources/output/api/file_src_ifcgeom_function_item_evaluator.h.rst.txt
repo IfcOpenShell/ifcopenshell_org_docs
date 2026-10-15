@@ -52,6 +52,8 @@ Classes
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1fn__evaluator`
 
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1sampled__section`
+
 - :ref:`exhale_class_classifcopenshell_1_1geom_1_1function__item__evaluator`
 
 
@@ -61,5 +63,14 @@ Functions
 
 - :ref:`exhale_function_function__item__evaluator_8h_1ae2ba363dfd722b9a6761e808656b1eb9`
 
+- :ref:`exhale_function_function__item__evaluator_8h_1a719a3f1141272e8c73f14bb5b7b9a638`
+
 - :ref:`exhale_function_function__item__evaluator_8h_1a14c7f7a1eb2392dbc01fff5fbe903e26`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_function__item__evaluator_8h_1a54ef54857f3a6b2048512f4a9db92608`
 

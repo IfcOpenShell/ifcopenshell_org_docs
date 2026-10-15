@@ -1,0 +1,14 @@
+.. _exhale_define_logger_8h_1a6f1d87cabf644b88a2f3a9ed50b14a02:
+
+Define PERF
+===========
+
+- Defined in :ref:`file_src_ifcparse_logger.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PERF
+   :project: IfcOpenShell

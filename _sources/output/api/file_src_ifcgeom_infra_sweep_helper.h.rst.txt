@@ -63,3 +63,5 @@ Functions
 
 - :ref:`exhale_function_infra__sweep__helper_8h_1ac0b1629f4ffc108774544e1e7054cee9`
 
+- :ref:`exhale_function_infra__sweep__helper_8h_1a52b502f012b2a14562a468639813c08c`
+

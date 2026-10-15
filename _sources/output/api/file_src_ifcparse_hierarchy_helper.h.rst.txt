@@ -30,7 +30,7 @@ Includes
 --------
 
 
-- ``file.h`` (:ref:`file_src_ifcparse_file.h`)
+- ``file.h`` (:ref:`file_src_ifcgeom_kernels_cgal_cgal_profile.h`)
 
 - ``global_id.h`` (:ref:`file_src_ifcparse_global_id.h`)
 
@@ -95,13 +95,13 @@ Functions
 
 - :ref:`exhale_function_hierarchy__helper_8h_1ac25baaa12302d12501c24cf7b4a3419a`
 
-- :ref:`exhale_function_hierarchy__helper_8h_1aeea526431b6dd623265790ccddf38739`
-
-- :ref:`exhale_function_hierarchy__helper_8h_1a1af3a292ce176894c2794137d81c3125`
-
 - :ref:`exhale_function_hierarchy__helper_8h_1adfd17d575a3bf3d8a05dd28c6f393d18`
 
 - :ref:`exhale_function_hierarchy__helper_8h_1a390fb9af29bc30ab75e98fe2c78f5cb4`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1aeea526431b6dd623265790ccddf38739`
+
+- :ref:`exhale_function_hierarchy__helper_8h_1a1af3a292ce176894c2794137d81c3125`
 
 
 Typedefs

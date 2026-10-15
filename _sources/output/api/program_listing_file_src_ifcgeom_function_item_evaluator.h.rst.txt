@@ -23,6 +23,17 @@ Program Listing for File function_item_evaluator.h
        return ifcopenshell::geom::taxonomy::dcast<taxonomy::function_item>(loop);
    }
    
+   #ifndef SWIG
+   struct sampled_section {
+       Eigen::Vector3d origin;
+       std::vector<std::vector<Eigen::Vector3d>> loops;
+   };
+   
+   using section_function = std::function<sampled_section(double)>;
+   
+   IFC_GEOM_API std::vector<double> deflection_samples(std::vector<double> boundaries, const section_function& section_at, double linear_deflection, double angular_deflection, double tolerance);
+   #endif
+   
    struct IFC_GEOM_API fn_evaluator {
        fn_evaluator(const ifcopenshell::geom::settings& settings, ifcopenshell::logger& logger = ifcopenshell::logger::root()) : settings_(settings), logger_(logger) {
        }
@@ -35,6 +46,9 @@ Program Listing for File function_item_evaluator.h
        virtual double start() const = 0;
        virtual double end() const = 0;
        double length() const { return end() - start(); }
+   #ifndef SWIG
+       virtual std::vector<double> boundaries() const = 0;
+   #endif
    
        ifcopenshell::geom::settings settings_;
    
@@ -49,6 +63,10 @@ Program Listing for File function_item_evaluator.h
        ~function_item_evaluator();
    
        std::vector<double> evaluation_points() const;
+   
+   #ifndef SWIG
+       std::vector<double> boundaries() const;
+   #endif
    
        std::vector<double> evaluation_points(double ustart, double uend, unsigned nsteps) const;
    

@@ -87,7 +87,7 @@ Module Contents
    since it's possible that geometry will have elements with and without faces.
 
 
-.. py:function:: get_element_bbox_centroid(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_element_bbox_centroid(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation, is_si: bool = True) -> numpy.typing.NDArray[numpy.float64]
 
    Calculates the element's bounding box centroid
 
@@ -96,10 +96,13 @@ Module Contents
 
    :param element: The element occurrence
    :param geometry: Geometry output calculated by IfcOpenShell
+   :param is_si: Whether the geometry is in SI metres (the default kernel
+       output) or in the file's length unit (the ``convert-back-units``
+       setting). The placement is applied in the same unit.
    :return: A tuple representing the XYZ centroid
 
 
-.. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation) -> float
+.. py:function:: get_element_bottom_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation, is_si: bool = True) -> float
 
    Gets the lowest global Z ordinate of the element
 
@@ -108,10 +111,11 @@ Module Contents
 
    :param element: The element occurrence
    :param geometry: Geometry output calculated by IfcOpenShell
+   :param is_si: Whether the geometry is in SI metres, see :func:`get_element_vertices`
    :return: The Z value
 
 
-.. py:function:: get_element_top_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation) -> float
+.. py:function:: get_element_top_elevation(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation, is_si: bool = True) -> float
 
    Gets the highest global Z ordinate of the element
 
@@ -120,10 +124,11 @@ Module Contents
 
    :param element: The element occurrence
    :param geometry: Geometry output calculated by IfcOpenShell
+   :param is_si: Whether the geometry is in SI metres, see :func:`get_element_vertices`
    :return: The Z value
 
 
-.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation) -> numpy.typing.NDArray[numpy.float64]
+.. py:function:: get_element_vertices(element: ifcopenshell.entity_instance, geometry: ifcopenshell.ifcopenshell_wrapper.triangulation, is_si: bool = True) -> numpy.typing.NDArray[numpy.float64]
 
    Get the element's vertices as a numpy array
 
@@ -134,6 +139,9 @@ Module Contents
 
    :param element: The element occurrence
    :param geometry: Geometry output calculated by IfcOpenShell
+   :param is_si: Whether the geometry is in SI metres (the default kernel
+       output) or in the file's length unit (the ``convert-back-units``
+       setting). The placement is applied in the same unit.
    :return: A numpy array listing all the vertices. Each vertex is a numpy array with XYZ coordinates.
 
 

@@ -120,5 +120,5 @@ Defines
 
 - :ref:`exhale_define_logger_8h_1a0cbd6b3be5098803d58885b9a95fd4da`
 
-- :ref:`exhale_define_logger_8h_1a5838bc4dee627a21157427703e89c1da`
+- :ref:`exhale_define_logger_8h_1a6f1d87cabf644b88a2f3a9ed50b14a02`
 

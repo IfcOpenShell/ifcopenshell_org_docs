@@ -27,8 +27,6 @@ Classes
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01int_01_4`
 
-- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01settings__detail_1_1_function_step_method_01_4`
-
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01settings__detail_1_1_iterator_output_options_01_4`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01settings__detail_1_1_output_dimensionality_types_01_4`

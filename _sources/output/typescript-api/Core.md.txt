@@ -9,13 +9,24 @@ Core `ifcopenshell` API.
 
 ### EntityInstance
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:27](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L27)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:34](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L34)
 
-IFC entity instance with attribute conveniences.
+IFC entity instance.
+
+Schema attributes are properties, as in Python: `wall.Name`,
+`wall.Name = 'W1'`, and inverse attributes such as `wall.Decomposes`.
+Unknown attributes throw instead of reading `undefined` or adding a property.
+`get` and `set` remain for index access and computed names.
 
 #### Extends
 
 - `IfcOpenshellInstance`
+
+#### Indexable
+
+> \[`ifcAttribute`: `Capitalize`\<`string`\>\]: `any`
+
+Schema attribute or inverse, such as `Name` or `Decomposes`.
 
 #### Constructors
 
@@ -26,7 +37,7 @@ IFC entity instance with attribute conveniences.
 
 > **new EntityInstance**(`handle`): [`EntityInstance`](#typescript-core-entityinstance)
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:28](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L28)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:42](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L42)
 
 ###### Parameters
 
@@ -57,6 +68,17 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:361
 
 `IfcOpenshellInstance.ptr`
 
+(typescript-core-wrappedvalue)=
+
+
+##### wrappedValue
+
+> **wrappedValue**: `any`
+
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:40](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L40)
+
+Value of a defined-type wrapper such as `IfcLabel`.
+
 #### Methods
 
 (typescript-core-attributecategory)=
@@ -66,7 +88,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:361
 
 > **attributeCategory**(`name`): `number`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:127](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L127)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:142](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L142)
 
 ###### Parameters
 
@@ -85,7 +107,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:127](https://github.com/Ifc
 
 > **attributeIndex**(`name`): `number`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:114](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L114)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:129](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L129)
 
 ###### Parameters
 
@@ -104,7 +126,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:114](https://github.com/Ifc
 
 > **attributeName**(`index`): `string`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:118](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L118)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:133](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L133)
 
 ###### Parameters
 
@@ -123,7 +145,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:118](https://github.com/Ifc
 
 > **attributes**(): `string`[]
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:53](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L53)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:68](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L68)
 
 ###### Returns
 
@@ -136,7 +158,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:53](https://github.com/IfcO
 
 > **attributeType**(`nameOrIndex`): `string`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:122](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L122)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:137](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L137)
 
 ###### Parameters
 
@@ -212,7 +234,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:362
 
 > **entries**(): \[`string`, [`AttributeValueType`](#typescript-core-attributevaluetype)\][]
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L57)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:72](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L72)
 
 ###### Returns
 
@@ -259,7 +281,9 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:366
 
 > **get**(`nameOrIndex`): [`AttributeValueType`](#typescript-core-attributevaluetype)
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:42](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L42)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L57)
+
+Read an attribute by name or index. Prefer `entity.Name`.
 
 ###### Parameters
 
@@ -458,7 +482,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:374
 
 > **getInfo**(`options?`): [`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:66](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L66)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:81](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L81)
 
 Return the entity id, type, and decoded forward attributes.
 
@@ -478,7 +502,7 @@ With `recursive`, referenced entities are expanded as well.
 
 > **getInfo**\<`T`\>(`options`): `T`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:67](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L67)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:82](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L82)
 
 Return the entity id, type, and decoded forward attributes.
 
@@ -604,7 +628,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:379
 
 > **inverse**(`name`): [`EntityInstance`](#typescript-core-entityinstance)[]
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:110](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L110)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:125](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L125)
 
 Return entities referenced by the named inverse attribute.
 
@@ -625,7 +649,7 @@ Return entities referenced by the named inverse attribute.
 
 > **inverseAttributes**(): `string`[]
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:105](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L105)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:120](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L120)
 
 ###### Returns
 
@@ -640,7 +664,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:105](https://github.com/Ifc
 
 > **isA**(`name`): `boolean`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:34](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L34)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:48](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L48)
 
 ###### Parameters
 
@@ -660,7 +684,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:34](https://github.com/IfcO
 
 > **isA**(`withSchema?`): `string`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:35](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L35)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:49](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L49)
 
 ###### Parameters
 
@@ -683,7 +707,9 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:35](https://github.com/IfcO
 
 > **set**(`nameOrIndex`, `value`): `void`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:131](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L131)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:147](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L147)
+
+Set an attribute by name or index. Prefer `entity.Name = value`.
 
 ###### Parameters
 
@@ -1238,7 +1264,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:399
 
 ### File
 
-Defined in: [ifcopenshell-js/src/file.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L20)
+Defined in: [ifcopenshell-js/src/file.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L20)
 
 High-level wrapper for an IFC file and its entity graph.
 
@@ -1255,7 +1281,7 @@ High-level wrapper for an IFC file and its entity graph.
 
 > **new File**(`schemaOrHandle?`): [`File`](#typescript-core-file-1)
 
-Defined in: [ifcopenshell-js/src/file.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L22)
+Defined in: [ifcopenshell-js/src/file.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L22)
 
 Create an empty file, or take ownership of an existing native file handle.
 
@@ -1282,7 +1308,7 @@ Create an empty file, or take ownership of an existing native file handle.
 
 > **byGuid**: (`guid`) => [`EntityInstance`](#typescript-core-entityinstance)
 
-Defined in: [ifcopenshell-js/src/file.ts:62](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L62)
+Defined in: [ifcopenshell-js/src/file.ts:62](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L62)
 
 ###### Parameters
 
@@ -1305,7 +1331,7 @@ Defined in: [ifcopenshell-js/src/file.ts:62](https://github.com/IfcOpenShell/Ifc
 
 > **byId**: (`id`) => [`EntityInstance`](#typescript-core-entityinstance)
 
-Defined in: [ifcopenshell-js/src/file.ts:61](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L61)
+Defined in: [ifcopenshell-js/src/file.ts:61](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L61)
 
 ###### Parameters
 
@@ -1328,7 +1354,7 @@ Defined in: [ifcopenshell-js/src/file.ts:61](https://github.com/IfcOpenShell/Ifc
 
 > **byType**: (`typeName`) => [`EntityInstance`](#typescript-core-entityinstance)[]
 
-Defined in: [ifcopenshell-js/src/file.ts:63](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L63)
+Defined in: [ifcopenshell-js/src/file.ts:63](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L63)
 
 ###### Parameters
 
@@ -1351,7 +1377,7 @@ Defined in: [ifcopenshell-js/src/file.ts:63](https://github.com/IfcOpenShell/Ifc
 
 > **byTypeExclSubtypes**: (`typeName`) => [`EntityInstance`](#typescript-core-entityinstance)[]
 
-Defined in: [ifcopenshell-js/src/file.ts:64](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L64)
+Defined in: [ifcopenshell-js/src/file.ts:64](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L64)
 
 ###### Parameters
 
@@ -1387,7 +1413,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:212
 
 > **traverse**: (`entity`, `maxDepth`) => [`EntityInstance`](#typescript-core-entityinstance)[]
 
-Defined in: [ifcopenshell-js/src/file.ts:65](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L65)
+Defined in: [ifcopenshell-js/src/file.ts:65](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L65)
 
 ###### Parameters
 
@@ -1414,7 +1440,7 @@ Defined in: [ifcopenshell-js/src/file.ts:65](https://github.com/IfcOpenShell/Ifc
 
 > **traverseBreadthFirst**: (`entity`, `maxDepth`) => [`EntityInstance`](#typescript-core-entityinstance)[]
 
-Defined in: [ifcopenshell-js/src/file.ts:66](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L66)
+Defined in: [ifcopenshell-js/src/file.ts:66](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L66)
 
 ###### Parameters
 
@@ -1445,7 +1471,7 @@ Defined in: [ifcopenshell-js/src/file.ts:66](https://github.com/IfcOpenShell/Ifc
 
 > **get** **entityCount**(): `number`
 
-Defined in: [ifcopenshell-js/src/file.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L57)
+Defined in: [ifcopenshell-js/src/file.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L57)
 
 ###### Returns
 
@@ -1460,7 +1486,7 @@ Defined in: [ifcopenshell-js/src/file.ts:57](https://github.com/IfcOpenShell/Ifc
 
 > **get** **ids**(): `number`[]
 
-Defined in: [ifcopenshell-js/src/file.ts:52](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L52)
+Defined in: [ifcopenshell-js/src/file.ts:52](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L52)
 
 ###### Returns
 
@@ -1475,7 +1501,7 @@ Defined in: [ifcopenshell-js/src/file.ts:52](https://github.com/IfcOpenShell/Ifc
 
 > **get** **maxId**(): `number`
 
-Defined in: [ifcopenshell-js/src/file.ts:48](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L48)
+Defined in: [ifcopenshell-js/src/file.ts:48](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L48)
 
 ###### Returns
 
@@ -1524,7 +1550,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:215
 
 > **add**(`entity`, `instanceId?`): [`EntityInstance`](#typescript-core-entityinstance)
 
-Defined in: [ifcopenshell-js/src/file.ts:87](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L87)
+Defined in: [ifcopenshell-js/src/file.ts:87](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L87)
 
 Add an entity, assigning a new id unless `instanceId` is given explicitly.
 
@@ -1682,7 +1708,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:227
 
 > **create**(`ifcClass`, `attributes?`): [`EntityInstance`](#typescript-core-entityinstance)
 
-Defined in: [ifcopenshell-js/src/file.ts:69](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L69)
+Defined in: [ifcopenshell-js/src/file.ts:69](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L69)
 
 Create an entity with any of its IFC attributes, using their schema names.
 
@@ -1888,7 +1914,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:234
 
 > **getInverse**(`entity`, `options`): `Set`\<[`EntityInstance`](#typescript-core-entityinstance)\>
 
-Defined in: [ifcopenshell-js/src/file.ts:93](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L93)
+Defined in: [ifcopenshell-js/src/file.ts:93](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L93)
 
 ###### Parameters
 
@@ -1914,7 +1940,7 @@ Defined in: [ifcopenshell-js/src/file.ts:93](https://github.com/IfcOpenShell/Ifc
 
 > **getInverse**(`entity`, `options`): \[[`EntityInstance`](#typescript-core-entityinstance), `number`\][]
 
-Defined in: [ifcopenshell-js/src/file.ts:94](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L94)
+Defined in: [ifcopenshell-js/src/file.ts:94](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L94)
 
 ###### Parameters
 
@@ -1940,7 +1966,7 @@ Defined in: [ifcopenshell-js/src/file.ts:94](https://github.com/IfcOpenShell/Ifc
 
 > **getInverse**(`entity`, `options`): [`EntityInstance`](#typescript-core-entityinstance)[]
 
-Defined in: [ifcopenshell-js/src/file.ts:95](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L95)
+Defined in: [ifcopenshell-js/src/file.ts:95](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L95)
 
 ###### Parameters
 
@@ -1966,7 +1992,7 @@ Defined in: [ifcopenshell-js/src/file.ts:95](https://github.com/IfcOpenShell/Ifc
 
 > **getInverse**(`entity`): `Set`\<[`EntityInstance`](#typescript-core-entityinstance)\>
 
-Defined in: [ifcopenshell-js/src/file.ts:96](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L96)
+Defined in: [ifcopenshell-js/src/file.ts:96](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L96)
 
 ###### Parameters
 
@@ -1982,7 +2008,7 @@ Defined in: [ifcopenshell-js/src/file.ts:96](https://github.com/IfcOpenShell/Ifc
 
 > **getInverse**(`entity`, `options`): [`EntityInstance`](#typescript-core-entityinstance)[] \| `Set`\<[`EntityInstance`](#typescript-core-entityinstance)\> \| \[[`EntityInstance`](#typescript-core-entityinstance), `number`\][]
 
-Defined in: [ifcopenshell-js/src/file.ts:97](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L97)
+Defined in: [ifcopenshell-js/src/file.ts:97](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L97)
 
 ###### Parameters
 
@@ -2496,7 +2522,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:257
 
 > **schema**(): `string`
 
-Defined in: [ifcopenshell-js/src/file.ts:82](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L82)
+Defined in: [ifcopenshell-js/src/file.ts:82](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L82)
 
 General IFC schema version, without addendum or technical corrigendum suffixes.
 
@@ -2636,7 +2662,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:266
 
 > `static` **open**(`bytes`, `filename?`, `options?`): [`File`](#typescript-core-file-1)
 
-Defined in: [ifcopenshell-js/src/file.ts:31](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L31)
+Defined in: [ifcopenshell-js/src/file.ts:31](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L31)
 
 Open IFC STEP bytes and retain ownership of the native file.
 
@@ -2761,7 +2787,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:23
 
 ### EmscriptenFS
 
-Defined in: [ifcopenshell-js/src/types.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L15)
+Defined in: [ifcopenshell-js/src/types.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L15)
 
 Subset of the Emscripten MEMFS filesystem API exposed by the underlying
 WASM runtime. Used by higher-level wrappers (for example the SVG/TTL
@@ -2777,7 +2803,7 @@ filesystem that the C++ layer writes to.
 
 > **analyzePath**(`path`): `object`
 
-Defined in: [ifcopenshell-js/src/types.ts:38](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L38)
+Defined in: [ifcopenshell-js/src/types.ts:38](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L38)
 
 Return whether a path exists in MEMFS.
 
@@ -2806,7 +2832,7 @@ Return whether a path exists in MEMFS.
 
 > **readFile**(`path`, `opts?`): `string` \| `Uint8Array`\<`ArrayBufferLike`\>
 
-Defined in: [ifcopenshell-js/src/types.ts:34](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L34)
+Defined in: [ifcopenshell-js/src/types.ts:34](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L34)
 
 Read a virtual filesystem file.
 
@@ -2840,7 +2866,7 @@ otherwise a `Uint8Array` of the raw bytes is returned.
 
 > **unlink**(`path`): `void`
 
-Defined in: [ifcopenshell-js/src/types.ts:36](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L36)
+Defined in: [ifcopenshell-js/src/types.ts:36](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L36)
 
 Delete a virtual filesystem entry.
 
@@ -2861,7 +2887,7 @@ Delete a virtual filesystem entry.
 
 > **writeFile**(`path`, `data`, `opts?`): `void`
 
-Defined in: [ifcopenshell-js/src/types.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L23)
+Defined in: [ifcopenshell-js/src/types.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L23)
 
 Write data to a virtual filesystem path.
 
@@ -2898,7 +2924,7 @@ Optional flags (e.g. `{ flags: 'w' }`).
 
 ### EntityInstanceInfo
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L13)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L13)
 
 Flat dictionary returned by `EntityInstance.getInfo()`.
 
@@ -2921,7 +2947,7 @@ Flat dictionary returned by `EntityInstance.getInfo()`.
 
 > `optional` **id?**: `number`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L14)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L14)
 
 (typescript-core-type)=
 
@@ -2930,7 +2956,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:14](https://github.com/IfcO
 
 > **type**: `string`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L15)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L15)
 
 ***
 
@@ -2939,7 +2965,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:15](https://github.com/IfcO
 
 ### GetInfoOptions
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L19)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L19)
 
 #### Type Parameters
 
@@ -2956,7 +2982,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:19](https://github.com/IfcO
 
 > `optional` **ignore?**: readonly `string`[]
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L22)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L22)
 
 (typescript-core-includeidentifier)=
 
@@ -2965,7 +2991,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:22](https://github.com/IfcO
 
 > `optional` **includeIdentifier?**: `boolean`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L20)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L20)
 
 (typescript-core-recursive)=
 
@@ -2974,7 +3000,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:20](https://github.com/IfcO
 
 > `optional` **recursive?**: `boolean`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L21)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L21)
 
 (typescript-core-returntype)=
 
@@ -2983,7 +3009,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:21](https://github.com/IfcO
 
 > `optional` **returnType?**: (`info`) => `T`
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L23)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L23)
 
 ###### Parameters
 
@@ -3002,7 +3028,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:23](https://github.com/IfcO
 
 ### GetInverseOptions
 
-Defined in: [ifcopenshell-js/src/file.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L14)
+Defined in: [ifcopenshell-js/src/file.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L14)
 
 #### Properties
 
@@ -3013,7 +3039,7 @@ Defined in: [ifcopenshell-js/src/file.ts:14](https://github.com/IfcOpenShell/Ifc
 
 > `optional` **allowDuplicate?**: `boolean`
 
-Defined in: [ifcopenshell-js/src/file.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L15)
+Defined in: [ifcopenshell-js/src/file.ts:15](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L15)
 
 (typescript-core-withattributeindices)=
 
@@ -3022,7 +3048,7 @@ Defined in: [ifcopenshell-js/src/file.ts:15](https://github.com/IfcOpenShell/Ifc
 
 > `optional` **withAttributeIndices?**: `boolean`
 
-Defined in: [ifcopenshell-js/src/file.ts:16](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L16)
+Defined in: [ifcopenshell-js/src/file.ts:16](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L16)
 
 ***
 
@@ -3031,7 +3057,7 @@ Defined in: [ifcopenshell-js/src/file.ts:16](https://github.com/IfcOpenShell/Ifc
 
 ### IfcOpenShell
 
-Defined in: [ifcopenshell-js/src/init.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L21)
+Defined in: [ifcopenshell-js/src/init.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L20)
 
 Initialized IfcOpenShell runtime and its ergonomic low-level API.
 
@@ -3044,7 +3070,7 @@ Initialized IfcOpenShell runtime and its ergonomic low-level API.
 
 > `readonly` **fs**: [`EmscriptenFS`](#typescript-core-emscriptenfs) \| `null`
 
-Defined in: [ifcopenshell-js/src/init.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L23)
+Defined in: [ifcopenshell-js/src/init.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L22)
 
 (typescript-core-raw)=
 
@@ -3053,7 +3079,7 @@ Defined in: [ifcopenshell-js/src/init.ts:23](https://github.com/IfcOpenShell/Ifc
 
 > `readonly` **raw**: [`IfcOpenshellModule`](#typescript-core-ifcopenshellmodule)
 
-Defined in: [ifcopenshell-js/src/init.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L22)
+Defined in: [ifcopenshell-js/src/init.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L21)
 
 #### Methods
 
@@ -3064,7 +3090,7 @@ Defined in: [ifcopenshell-js/src/init.ts:22](https://github.com/IfcOpenShell/Ifc
 
 > **loadedPlugins**(): `string`[]
 
-Defined in: [ifcopenshell-js/src/init.ts:25](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L25)
+Defined in: [ifcopenshell-js/src/init.ts:24](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L24)
 
 ###### Returns
 
@@ -3077,7 +3103,7 @@ Defined in: [ifcopenshell-js/src/init.ts:25](https://github.com/IfcOpenShell/Ifc
 
 > **loadPlugin**(`kind`, `id`): `Promise`\<`void`\>
 
-Defined in: [ifcopenshell-js/src/init.ts:24](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L24)
+Defined in: [ifcopenshell-js/src/init.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L23)
 
 ###### Parameters
 
@@ -3100,7 +3126,7 @@ Defined in: [ifcopenshell-js/src/init.ts:24](https://github.com/IfcOpenShell/Ifc
 
 ### IfcOpenshellModule
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1154
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1155
 
 #### Properties
 
@@ -3111,7 +3137,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1154
 
 > **geom**: `IfcOpenshellGeomModule`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1225
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1226
 
 (typescript-core-ifcopenshellaggregationtype)=
 
@@ -3120,7 +3146,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1225
 
 > **IfcOpenshellAggregationType**: *typeof* `IfcOpenshellAggregationType`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1155
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1156
 
 (typescript-core-ifcopenshellattribute)=
 
@@ -3129,7 +3155,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1155
 
 > **IfcOpenshellAttribute**: *typeof* `IfcOpenshellAttribute`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1156
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1157
 
 (typescript-core-ifcopenshelldeclaration)=
 
@@ -3138,7 +3164,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1156
 
 > **IfcOpenshellDeclaration**: *typeof* `IfcOpenshellDeclaration`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1157
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1158
 
 (typescript-core-ifcopenshellentity)=
 
@@ -3147,7 +3173,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1157
 
 > **IfcOpenshellEntity**: *typeof* `IfcOpenshellEntity`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1158
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1159
 
 (typescript-core-ifcopenshellenumeration)=
 
@@ -3156,7 +3182,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1158
 
 > **IfcOpenshellEnumeration**: *typeof* `IfcOpenshellEnumeration`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1159
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1160
 
 (typescript-core-ifcopenshellfile)=
 
@@ -3165,7 +3191,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1159
 
 > **IfcOpenshellFile**: *typeof* `IfcOpenshellFile`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1163
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1164
 
 (typescript-core-ifcopenshellfiledescription)=
 
@@ -3174,7 +3200,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1163
 
 > **IfcOpenshellFileDescription**: *typeof* `IfcOpenshellFileDescription`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1160
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1161
 
 (typescript-core-ifcopenshellfilename)=
 
@@ -3183,7 +3209,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1160
 
 > **IfcOpenshellFileName**: *typeof* `IfcOpenshellFileName`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1161
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1162
 
 (typescript-core-ifcopenshellfileschema)=
 
@@ -3192,7 +3218,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1161
 
 > **IfcOpenshellFileSchema**: *typeof* `IfcOpenshellFileSchema`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1162
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1163
 
 (typescript-core-ifcopenshellgeombrepelement)=
 
@@ -3201,7 +3227,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1162
 
 > **IfcOpenshellGeomBrepElement**: *typeof* `IfcOpenshellGeomBrepElement`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1164
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1165
 
 (typescript-core-ifcopenshellgeombreprepresentation)=
 
@@ -3210,7 +3236,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1164
 
 > **IfcOpenshellGeomBrepRepresentation**: *typeof* `IfcOpenshellGeomBrepRepresentation`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1165
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1166
 
 (typescript-core-ifcopenshellgeombuffer)=
 
@@ -3219,7 +3245,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1165
 
 > **IfcOpenshellGeomBuffer**: *typeof* `IfcOpenshellGeomBuffer`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1166
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1167
 
 (typescript-core-ifcopenshellgeomconversionresultshape)=
 
@@ -3228,7 +3254,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1166
 
 > **IfcOpenshellGeomConversionResultShape**: *typeof* `IfcOpenshellGeomConversionResultShape`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1167
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1168
 
 (typescript-core-ifcopenshellgeomelement)=
 
@@ -3237,7 +3263,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1167
 
 > **IfcOpenshellGeomElement**: *typeof* `IfcOpenshellGeomElement`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1168
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1169
 
 (typescript-core-ifcopenshellgeomfunctionitemevaluator)=
 
@@ -3246,7 +3272,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1168
 
 > **IfcOpenshellGeomFunctionItemEvaluator**: *typeof* `IfcOpenshellGeomFunctionItemEvaluator`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1169
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1170
 
 (typescript-core-ifcopenshellgeomgeometryserializer)=
 
@@ -3255,7 +3281,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1169
 
 > **IfcOpenshellGeomGeometrySerializer**: *typeof* `IfcOpenshellGeomGeometrySerializer`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1170
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1171
 
 (typescript-core-ifcopenshellgeomiterator)=
 
@@ -3264,7 +3290,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1170
 
 > **IfcOpenshellGeomIterator**: *typeof* `IfcOpenshellGeomIterator`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1171
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1172
 
 (typescript-core-ifcopenshellgeomopaquenumber)=
 
@@ -3273,7 +3299,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1171
 
 > **IfcOpenshellGeomOpaqueNumber**: *typeof* `IfcOpenshellGeomOpaqueNumber`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1172
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1173
 
 (typescript-core-ifcopenshellgeomserialization)=
 
@@ -3282,7 +3308,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1172
 
 > **IfcOpenshellGeomSerialization**: *typeof* `IfcOpenshellGeomSerialization`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1173
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1174
 
 (typescript-core-ifcopenshellgeomserializedelement)=
 
@@ -3291,7 +3317,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1173
 
 > **IfcOpenshellGeomSerializedElement**: *typeof* `IfcOpenshellGeomSerializedElement`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1174
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1175
 
 (typescript-core-ifcopenshellgeomserializer)=
 
@@ -3300,7 +3326,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1174
 
 > **IfcOpenshellGeomSerializer**: *typeof* `IfcOpenshellGeomSerializer`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1175
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1176
 
 (typescript-core-ifcopenshellgeomsettings)=
 
@@ -3309,7 +3335,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1175
 
 > **IfcOpenshellGeomSettings**: *typeof* `IfcOpenshellGeomSettings`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1176
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1177
 
 (typescript-core-ifcopenshellgeomsvgfillpolygon)=
 
@@ -3318,7 +3344,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1176
 
 > **IfcOpenshellGeomSvgfillPolygon**: *typeof* `IfcOpenshellGeomSvgfillPolygon`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1177
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1178
 
 (typescript-core-ifcopenshellgeomtaxonomybooleanresult)=
 
@@ -3327,7 +3353,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1177
 
 > **IfcOpenshellGeomTaxonomyBooleanResult**: *typeof* `IfcOpenshellGeomTaxonomyBooleanResult`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1178
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1179
 
 (typescript-core-ifcopenshellgeomtaxonomybsplinecurve)=
 
@@ -3336,7 +3362,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1178
 
 > **IfcOpenshellGeomTaxonomyBsplineCurve**: *typeof* `IfcOpenshellGeomTaxonomyBsplineCurve`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1179
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1180
 
 (typescript-core-ifcopenshellgeomtaxonomybsplinesurface)=
 
@@ -3345,7 +3371,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1179
 
 > **IfcOpenshellGeomTaxonomyBsplineSurface**: *typeof* `IfcOpenshellGeomTaxonomyBsplineSurface`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1180
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1181
 
 (typescript-core-ifcopenshellgeomtaxonomycircle)=
 
@@ -3354,7 +3380,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1180
 
 > **IfcOpenshellGeomTaxonomyCircle**: *typeof* `IfcOpenshellGeomTaxonomyCircle`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1181
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1182
 
 (typescript-core-ifcopenshellgeomtaxonomycollection)=
 
@@ -3363,7 +3389,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1181
 
 > **IfcOpenshellGeomTaxonomyCollection**: *typeof* `IfcOpenshellGeomTaxonomyCollection`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1182
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1183
 
 (typescript-core-ifcopenshellgeomtaxonomycolour)=
 
@@ -3372,7 +3398,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1182
 
 > **IfcOpenshellGeomTaxonomyColour**: *typeof* `IfcOpenshellGeomTaxonomyColour`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1183
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1184
 
 (typescript-core-ifcopenshellgeomtaxonomycylinder)=
 
@@ -3381,7 +3407,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1183
 
 > **IfcOpenshellGeomTaxonomyCylinder**: *typeof* `IfcOpenshellGeomTaxonomyCylinder`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1184
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1185
 
 (typescript-core-ifcopenshellgeomtaxonomydirection3)=
 
@@ -3390,7 +3416,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1184
 
 > **IfcOpenshellGeomTaxonomyDirection3**: *typeof* `IfcOpenshellGeomTaxonomyDirection3`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1185
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1186
 
 (typescript-core-ifcopenshellgeomtaxonomyedge)=
 
@@ -3399,7 +3425,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1185
 
 > **IfcOpenshellGeomTaxonomyEdge**: *typeof* `IfcOpenshellGeomTaxonomyEdge`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1186
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1187
 
 (typescript-core-ifcopenshellgeomtaxonomyellipse)=
 
@@ -3408,7 +3434,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1186
 
 > **IfcOpenshellGeomTaxonomyEllipse**: *typeof* `IfcOpenshellGeomTaxonomyEllipse`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1187
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1188
 
 (typescript-core-ifcopenshellgeomtaxonomyextrusion)=
 
@@ -3417,7 +3443,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1187
 
 > **IfcOpenshellGeomTaxonomyExtrusion**: *typeof* `IfcOpenshellGeomTaxonomyExtrusion`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1188
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1189
 
 (typescript-core-ifcopenshellgeomtaxonomyface)=
 
@@ -3426,7 +3452,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1188
 
 > **IfcOpenshellGeomTaxonomyFace**: *typeof* `IfcOpenshellGeomTaxonomyFace`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1189
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1190
 
 (typescript-core-ifcopenshellgeomtaxonomyitem)=
 
@@ -3435,7 +3461,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1189
 
 > **IfcOpenshellGeomTaxonomyItem**: *typeof* `IfcOpenshellGeomTaxonomyItem`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1190
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1191
 
 (typescript-core-ifcopenshellgeomtaxonomyline)=
 
@@ -3444,7 +3470,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1190
 
 > **IfcOpenshellGeomTaxonomyLine**: *typeof* `IfcOpenshellGeomTaxonomyLine`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1191
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1192
 
 (typescript-core-ifcopenshellgeomtaxonomyloft)=
 
@@ -3453,7 +3479,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1191
 
 > **IfcOpenshellGeomTaxonomyLoft**: *typeof* `IfcOpenshellGeomTaxonomyLoft`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1192
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1193
 
 (typescript-core-ifcopenshellgeomtaxonomyloop)=
 
@@ -3462,7 +3488,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1192
 
 > **IfcOpenshellGeomTaxonomyLoop**: *typeof* `IfcOpenshellGeomTaxonomyLoop`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1193
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1194
 
 (typescript-core-ifcopenshellgeomtaxonomymatrix4)=
 
@@ -3471,7 +3497,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1193
 
 > **IfcOpenshellGeomTaxonomyMatrix4**: *typeof* `IfcOpenshellGeomTaxonomyMatrix4`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1194
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1195
 
 (typescript-core-ifcopenshellgeomtaxonomynode)=
 
@@ -3480,7 +3506,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1194
 
 > **IfcOpenshellGeomTaxonomyNode**: *typeof* `IfcOpenshellGeomTaxonomyNode`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1195
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1196
 
 (typescript-core-ifcopenshellgeomtaxonomyoffsetcurve)=
 
@@ -3489,7 +3515,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1195
 
 > **IfcOpenshellGeomTaxonomyOffsetCurve**: *typeof* `IfcOpenshellGeomTaxonomyOffsetCurve`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1196
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1197
 
 (typescript-core-ifcopenshellgeomtaxonomyplane)=
 
@@ -3498,7 +3524,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1196
 
 > **IfcOpenshellGeomTaxonomyPlane**: *typeof* `IfcOpenshellGeomTaxonomyPlane`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1197
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1198
 
 (typescript-core-ifcopenshellgeomtaxonomypoint3)=
 
@@ -3507,7 +3533,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1197
 
 > **IfcOpenshellGeomTaxonomyPoint3**: *typeof* `IfcOpenshellGeomTaxonomyPoint3`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1198
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1199
 
 (typescript-core-ifcopenshellgeomtaxonomyrevolve)=
 
@@ -3516,7 +3542,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1198
 
 > **IfcOpenshellGeomTaxonomyRevolve**: *typeof* `IfcOpenshellGeomTaxonomyRevolve`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1199
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1200
 
 (typescript-core-ifcopenshellgeomtaxonomyshell)=
 
@@ -3525,7 +3551,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1199
 
 > **IfcOpenshellGeomTaxonomyShell**: *typeof* `IfcOpenshellGeomTaxonomyShell`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1200
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1201
 
 (typescript-core-ifcopenshellgeomtaxonomysolid)=
 
@@ -3534,7 +3560,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1200
 
 > **IfcOpenshellGeomTaxonomySolid**: *typeof* `IfcOpenshellGeomTaxonomySolid`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1201
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1202
 
 (typescript-core-ifcopenshellgeomtaxonomysphere)=
 
@@ -3543,7 +3569,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1201
 
 > **IfcOpenshellGeomTaxonomySphere**: *typeof* `IfcOpenshellGeomTaxonomySphere`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1202
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1203
 
 (typescript-core-ifcopenshellgeomtaxonomystyle)=
 
@@ -3552,7 +3578,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1202
 
 > **IfcOpenshellGeomTaxonomyStyle**: *typeof* `IfcOpenshellGeomTaxonomyStyle`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1203
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1204
 
 (typescript-core-ifcopenshellgeomtaxonomysweepalongcurve)=
 
@@ -3561,7 +3587,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1203
 
 > **IfcOpenshellGeomTaxonomySweepAlongCurve**: *typeof* `IfcOpenshellGeomTaxonomySweepAlongCurve`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1204
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1205
 
 (typescript-core-ifcopenshellgeomtaxonomytorus)=
 
@@ -3570,7 +3596,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1204
 
 > **IfcOpenshellGeomTaxonomyTorus**: *typeof* `IfcOpenshellGeomTaxonomyTorus`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1205
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1206
 
 (typescript-core-ifcopenshellgeomtransformation)=
 
@@ -3579,7 +3605,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1205
 
 > **IfcOpenshellGeomTransformation**: *typeof* `IfcOpenshellGeomTransformation`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1206
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1207
 
 (typescript-core-ifcopenshellgeomtree)=
 
@@ -3588,7 +3614,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1206
 
 > **IfcOpenshellGeomTree**: *typeof* `IfcOpenshellGeomTree`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1211
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1212
 
 (typescript-core-ifcopenshellgeomtreeclash)=
 
@@ -3597,7 +3623,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1211
 
 > **IfcOpenshellGeomTreeClash**: *typeof* `IfcOpenshellGeomTreeClash`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1208
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1209
 
 (typescript-core-ifcopenshellgeomtreeclashlist)=
 
@@ -3606,7 +3632,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1208
 
 > **IfcOpenshellGeomTreeClashList**: *typeof* `IfcOpenshellGeomTreeClashList`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1207
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1208
 
 (typescript-core-ifcopenshellgeomtreerayintersection)=
 
@@ -3615,7 +3641,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1207
 
 > **IfcOpenshellGeomTreeRayIntersection**: *typeof* `IfcOpenshellGeomTreeRayIntersection`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1210
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1211
 
 (typescript-core-ifcopenshellgeomtreerayintersectionlist)=
 
@@ -3624,7 +3650,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1210
 
 > **IfcOpenshellGeomTreeRayIntersectionList**: *typeof* `IfcOpenshellGeomTreeRayIntersectionList`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1209
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1210
 
 (typescript-core-ifcopenshellgeomtriangulation)=
 
@@ -3633,7 +3659,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1209
 
 > **IfcOpenshellGeomTriangulation**: *typeof* `IfcOpenshellGeomTriangulation`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1213
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1214
 
 (typescript-core-ifcopenshellgeomtriangulationelement)=
 
@@ -3642,7 +3668,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1213
 
 > **IfcOpenshellGeomTriangulationElement**: *typeof* `IfcOpenshellGeomTriangulationElement`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1212
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1213
 
 (typescript-core-ifcopenshellheader)=
 
@@ -3651,7 +3677,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1212
 
 > **IfcOpenshellHeader**: *typeof* `IfcOpenshellHeader`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1214
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1215
 
 (typescript-core-ifcopenshellinstance)=
 
@@ -3660,7 +3686,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1214
 
 > **IfcOpenshellInstance**: *typeof* `IfcOpenshellInstance`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1216
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1217
 
 (typescript-core-ifcopenshellinstancestreamer)=
 
@@ -3669,7 +3695,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1216
 
 > **IfcOpenshellInstanceStreamer**: *typeof* `IfcOpenshellInstanceStreamer`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1215
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1216
 
 (typescript-core-ifcopenshellinverseattribute)=
 
@@ -3678,7 +3704,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1215
 
 > **IfcOpenshellInverseAttribute**: *typeof* `IfcOpenshellInverseAttribute`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1217
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1218
 
 (typescript-core-ifcopenshellnamedtype)=
 
@@ -3687,7 +3713,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1217
 
 > **IfcOpenshellNamedType**: *typeof* `IfcOpenshellNamedType`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1218
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1219
 
 (typescript-core-ifcopenshellparametertype)=
 
@@ -3696,7 +3722,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1218
 
 > **IfcOpenshellParameterType**: *typeof* `IfcOpenshellParameterType`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1219
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1220
 
 (typescript-core-ifcopenshellparseinstancelist)=
 
@@ -3705,7 +3731,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1219
 
 > **IfcOpenshellParseInstanceList**: *typeof* `IfcOpenshellParseInstanceList`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1220
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1221
 
 (typescript-core-ifcopenshellschema)=
 
@@ -3714,7 +3740,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1220
 
 > **IfcOpenshellSchema**: *typeof* `IfcOpenshellSchema`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1221
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1222
 
 (typescript-core-ifcopenshellselecttype)=
 
@@ -3723,7 +3749,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1221
 
 > **IfcOpenshellSelectType**: *typeof* `IfcOpenshellSelectType`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1222
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1223
 
 (typescript-core-ifcopenshellsimpletype)=
 
@@ -3732,7 +3758,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1222
 
 > **IfcOpenshellSimpleType**: *typeof* `IfcOpenshellSimpleType`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1223
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1224
 
 (typescript-core-ifcopenshelltypedeclaration)=
 
@@ -3741,7 +3767,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1223
 
 > **IfcOpenshellTypeDeclaration**: *typeof* `IfcOpenshellTypeDeclaration`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1224
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1225
 
 (typescript-core-parse)=
 
@@ -3750,7 +3776,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1224
 
 > **parse**: `IfcOpenshellParseModule`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1226
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1227
 
 #### Methods
 
@@ -3761,7 +3787,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1226
 
 > **loadedPlugins**(): `string`[]
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1228
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1229
 
 ###### Returns
 
@@ -3774,7 +3800,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1228
 
 > **loadPlugin**(`kind`, `id`): `Promise`\<`void`\>
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1227
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1228
 
 ###### Parameters
 
@@ -3797,7 +3823,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1227
 
 > **setInstanceFactory**(`factory`): `void`
 
-Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1229
+Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1230
 
 ###### Parameters
 
@@ -3816,7 +3842,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:1229
 
 ### InitOptions
 
-Defined in: [ifcopenshell-js/src/types.ts:125](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L125)
+Defined in: [ifcopenshell-js/src/types.ts:125](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L125)
 
 Options for [init](#typescript-core-init).
 
@@ -3829,7 +3855,7 @@ Options for [init](#typescript-core-init).
 
 > `optional` **pluginLoader?**: [`PluginLoader`](#typescript-core-pluginloader-2)
 
-Defined in: [ifcopenshell-js/src/types.ts:129](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L129)
+Defined in: [ifcopenshell-js/src/types.ts:129](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L129)
 
 Custom plugin loader override. Defaults to the loader supplied by the asset descriptor.
 
@@ -3840,7 +3866,7 @@ Custom plugin loader override. Defaults to the loader supplied by the asset desc
 
 > `optional` **wasmAssets?**: [`WasmAssets`](#typescript-core-wasmassets-1)
 
-Defined in: [ifcopenshell-js/src/types.ts:127](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L127)
+Defined in: [ifcopenshell-js/src/types.ts:127](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L127)
 
 WASM asset configuration.
 
@@ -3851,7 +3877,7 @@ WASM asset configuration.
 
 ### OpenOptions
 
-Defined in: [ifcopenshell-js/src/file.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L7)
+Defined in: [ifcopenshell-js/src/file.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L7)
 
 Options controlling IFC byte-stream loading.
 
@@ -3864,7 +3890,7 @@ Options controlling IFC byte-stream loading.
 
 > `optional` **readonly?**: `boolean`
 
-Defined in: [ifcopenshell-js/src/file.ts:11](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L11)
+Defined in: [ifcopenshell-js/src/file.ts:11](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L11)
 
 Open the native file in read-only mode when supported.
 
@@ -3875,7 +3901,7 @@ Open the native file in read-only mode when supported.
 
 > `optional` **signal?**: `AbortSignal`
 
-Defined in: [ifcopenshell-js/src/file.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L9)
+Defined in: [ifcopenshell-js/src/file.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L9)
 
 Abort opening before native parsing begins.
 
@@ -3886,7 +3912,7 @@ Abort opening before native parsing begins.
 
 ### PluginEntry
 
-Defined in: [ifcopenshell-js/src/types.ts:45](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L45)
+Defined in: [ifcopenshell-js/src/types.ts:45](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L45)
 
 A single entry in the plugin manifest, describing a loadable side module.
 
@@ -3899,7 +3925,7 @@ A single entry in the plugin manifest, describing a loadable side module.
 
 > `optional` **depends?**: `string`[]
 
-Defined in: [ifcopenshell-js/src/types.ts:49](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L49)
+Defined in: [ifcopenshell-js/src/types.ts:49](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L49)
 
 Plugin keys this entry depends on, e.g. `["kernel:occt"]`.
 
@@ -3910,7 +3936,7 @@ Plugin keys this entry depends on, e.g. `["kernel:occt"]`.
 
 > **wasm**: `string`
 
-Defined in: [ifcopenshell-js/src/types.ts:47](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L47)
+Defined in: [ifcopenshell-js/src/types.ts:47](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L47)
 
 Relative path to the `.wasm` side module (resolved against `pluginBaseUrl`).
 
@@ -3921,7 +3947,7 @@ Relative path to the `.wasm` side module (resolved against `pluginBaseUrl`).
 
 ### PluginManifest
 
-Defined in: [ifcopenshell-js/src/types.ts:53](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L53)
+Defined in: [ifcopenshell-js/src/types.ts:53](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L53)
 
 The full plugin manifest (content of `ifcopenshell_plugins.json`).
 
@@ -3934,7 +3960,7 @@ The full plugin manifest (content of `ifcopenshell_plugins.json`).
 
 > `optional` **document?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L57)
+Defined in: [ifcopenshell-js/src/types.ts:57](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L57)
 
 (typescript-core-geometry_serializer)=
 
@@ -3943,7 +3969,7 @@ Defined in: [ifcopenshell-js/src/types.ts:57](https://github.com/IfcOpenShell/If
 
 > `optional` **geometry\_serializer?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:58](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L58)
+Defined in: [ifcopenshell-js/src/types.ts:58](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L58)
 
 (typescript-core-kernel)=
 
@@ -3952,7 +3978,7 @@ Defined in: [ifcopenshell-js/src/types.ts:58](https://github.com/IfcOpenShell/If
 
 > `optional` **kernel?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:55](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L55)
+Defined in: [ifcopenshell-js/src/types.ts:55](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L55)
 
 (typescript-core-mapping)=
 
@@ -3961,7 +3987,7 @@ Defined in: [ifcopenshell-js/src/types.ts:55](https://github.com/IfcOpenShell/If
 
 > `optional` **mapping?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:56](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L56)
+Defined in: [ifcopenshell-js/src/types.ts:56](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L56)
 
 (typescript-core-schema-1)=
 
@@ -3970,7 +3996,7 @@ Defined in: [ifcopenshell-js/src/types.ts:56](https://github.com/IfcOpenShell/If
 
 > `optional` **schema?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:54](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L54)
+Defined in: [ifcopenshell-js/src/types.ts:54](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L54)
 
 (typescript-core-tree)=
 
@@ -3979,7 +4005,7 @@ Defined in: [ifcopenshell-js/src/types.ts:54](https://github.com/IfcOpenShell/If
 
 > `optional` **tree?**: `Record`\<`string`, [`PluginEntry`](#typescript-core-pluginentry)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:59](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L59)
+Defined in: [ifcopenshell-js/src/types.ts:59](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L59)
 
 ***
 
@@ -3988,7 +4014,7 @@ Defined in: [ifcopenshell-js/src/types.ts:59](https://github.com/IfcOpenShell/If
 
 ### WasmAssets
 
-Defined in: [ifcopenshell-js/src/types.ts:101](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L101)
+Defined in: [ifcopenshell-js/src/types.ts:101](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L101)
 
 Configuration for locating the WASM build artifacts.
 
@@ -4001,7 +4027,7 @@ Configuration for locating the WASM build artifacts.
 
 > `optional` **apiModuleUrl?**: `string`
 
-Defined in: [ifcopenshell-js/src/types.ts:116](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L116)
+Defined in: [ifcopenshell-js/src/types.ts:116](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L116)
 
 URL or module specifier for the generated `ifcopenshell_api.mjs`.
 Required when `createIfcOpenshellModule` is not provided.
@@ -4013,7 +4039,7 @@ Required when `createIfcOpenshellModule` is not provided.
 
 > `optional` **createIfcOpenshellModule?**: [`IfcOpenshellApiFactory`](#typescript-core-ifcopenshellapifactory)
 
-Defined in: [ifcopenshell-js/src/types.ts:121](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L121)
+Defined in: [ifcopenshell-js/src/types.ts:121](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L121)
 
 Generated API factory. Bundler-friendly wasm packages should provide this
 so app bundles do not need runtime string imports for `ifcopenshell_api.mjs`.
@@ -4025,7 +4051,7 @@ so app bundles do not need runtime string imports for `ifcopenshell_api.mjs`.
 
 > **initModule**: [`EmscriptenModuleFactory`](#typescript-core-emscriptenmodulefactory)
 
-Defined in: [ifcopenshell-js/src/types.ts:103](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L103)
+Defined in: [ifcopenshell-js/src/types.ts:103](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L103)
 
 The Emscripten module factory (default export of `ifcopenshell_wasm.mjs`).
 
@@ -4036,7 +4062,7 @@ The Emscripten module factory (default export of `ifcopenshell_wasm.mjs`).
 
 > **manifest**: [`PluginManifest`](#typescript-core-pluginmanifest)
 
-Defined in: [ifcopenshell-js/src/types.ts:109](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L109)
+Defined in: [ifcopenshell-js/src/types.ts:109](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L109)
 
 Parsed content of `ifcopenshell_plugins.json`.
 
@@ -4047,7 +4073,7 @@ Parsed content of `ifcopenshell_plugins.json`.
 
 > **pluginBaseUrl**: `string`
 
-Defined in: [ifcopenshell-js/src/types.ts:107](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L107)
+Defined in: [ifcopenshell-js/src/types.ts:107](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L107)
 
 Base URL for resolving plugin `.wasm` paths from the manifest.
 
@@ -4058,7 +4084,7 @@ Base URL for resolving plugin `.wasm` paths from the manifest.
 
 > `optional` **pluginLoader?**: [`PluginLoader`](#typescript-core-pluginloader-2)
 
-Defined in: [ifcopenshell-js/src/types.ts:111](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L111)
+Defined in: [ifcopenshell-js/src/types.ts:111](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L111)
 
 Environment-appropriate loader for plugin WASM files.
 
@@ -4069,7 +4095,7 @@ Environment-appropriate loader for plugin WASM files.
 
 > **wasmUrl**: `string`
 
-Defined in: [ifcopenshell-js/src/types.ts:105](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L105)
+Defined in: [ifcopenshell-js/src/types.ts:105](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L105)
 
 URL or path to `ifcopenshell_wasm.wasm`.
 
@@ -4082,7 +4108,7 @@ URL or path to `ifcopenshell_wasm.wasm`.
 
 > **AttributeValueType** = `NativeAttributeValueType`\<[`EntityInstance`](#typescript-core-entityinstance)\>
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L8)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L8)
 
 Values decoded by the native WASM attribute typemap.
 
@@ -4095,7 +4121,7 @@ Values decoded by the native WASM attribute typemap.
 
 > **EmscriptenModuleFactory** = (`options?`) => `Promise`\<`object`\>
 
-Defined in: [ifcopenshell-js/src/types.ts:76](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L76)
+Defined in: [ifcopenshell-js/src/types.ts:76](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L76)
 
 Emscripten module factory — the default export of `ifcopenshell_wasm.mjs`.
 
@@ -4118,7 +4144,7 @@ Emscripten module factory — the default export of `ifcopenshell_wasm.mjs`.
 
 > **EmscriptenOption** = `null` \| `boolean` \| `number` \| `string` \| [`EmscriptenOption`](#typescript-core-emscriptenoption)[] \| \{\[`key`: `string`\]: [`EmscriptenOption`](#typescript-core-emscriptenoption); \} \| ((`path`, `prefix`) => `string`)
 
-Defined in: [ifcopenshell-js/src/types.ts:63](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L63)
+Defined in: [ifcopenshell-js/src/types.ts:63](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L63)
 
 Recursive value accepted by an Emscripten module factory.
 
@@ -4131,7 +4157,7 @@ Recursive value accepted by an Emscripten module factory.
 
 > **EmscriptenOptions** = `Record`\<`string`, [`EmscriptenOption`](#typescript-core-emscriptenoption)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:73](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L73)
+Defined in: [ifcopenshell-js/src/types.ts:73](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L73)
 
 Emscripten module factory option map.
 
@@ -4144,7 +4170,7 @@ Emscripten module factory option map.
 
 > **EntityInfoValue**\<`T`\> = `null` \| `boolean` \| `number` \| `bigint` \| `string` \| [`EntityInstance`](#typescript-core-entityinstance) \| [`EntityInstanceInfo`](#typescript-core-entityinstanceinfo)\<`T`\> \| `T` \| [`EntityInfoValue`](#typescript-core-entityinfovalue)\<`T`\>[]
 
-Defined in: [ifcopenshell-js/src/entity\_instance.ts:10](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/entity_instance.ts#L10)
+Defined in: [ifcopenshell-js/src/entity\_instance.ts:10](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/entity_instance.ts#L10)
 
 #### Type Parameters
 
@@ -4161,7 +4187,7 @@ Defined in: [ifcopenshell-js/src/entity\_instance.ts:10](https://github.com/IfcO
 
 > **IfcOpenshellApiFactory** = (`initModule`, `wasmUrl?`, `opts?`) => `Promise`\<[`IfcOpenshellModule`](#typescript-core-ifcopenshellmodule)\>
 
-Defined in: [ifcopenshell-js/src/types.ts:79](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L79)
+Defined in: [ifcopenshell-js/src/types.ts:79](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L79)
 
 Generated API factory exported by `ifcopenshell_api.mjs`.
 
@@ -4224,7 +4250,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:5
 
 > **PluginKind** = `"schema"` \| `"kernel"` \| `"mapping"` \| `"tree"` \| `"document"` \| `"geometry_serializer"`
 
-Defined in: [ifcopenshell-js/src/types.ts:42](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L42)
+Defined in: [ifcopenshell-js/src/types.ts:42](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L42)
 
 Identifiers for the plugin kinds supported by the WASM loader.
 
@@ -4237,7 +4263,7 @@ Identifiers for the plugin kinds supported by the WASM loader.
 
 > **PluginLoader** = (`url`, `plugin`) => `Promise`\<`Uint8Array` \| `ArrayBuffer` \| `ArrayBufferView`\> \| `Uint8Array` \| `ArrayBuffer` \| `ArrayBufferView`
 
-Defined in: [ifcopenshell-js/src/types.ts:95](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L95)
+Defined in: [ifcopenshell-js/src/types.ts:95](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L95)
 
 Custom plugin loader function.
 
@@ -4277,7 +4303,7 @@ The default loader uses `fetch()` in the browser and is filesystem-backed in Nod
 
 > **Ptr** = `number`
 
-Defined in: [ifcopenshell-js/src/types.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/types.ts#L7)
+Defined in: [ifcopenshell-js/src/types.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/types.ts#L7)
 
 Raw pointer address in WASM linear memory.
 
@@ -4290,7 +4316,7 @@ Raw pointer address in WASM linear memory.
 
 > **ifcopenshell**: [`IfcOpenshellModule`](#typescript-core-ifcopenshellmodule)
 
-Defined in: [ifcopenshell-js/src/init.ts:64](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L64)
+Defined in: [ifcopenshell-js/src/init.ts:63](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L63)
 
 Native module, available after awaiting init().
 
@@ -4424,7 +4450,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:28
 
 > **init**(`options?`): `Promise`\<[`IfcOpenShell`](#typescript-core-ifcopenshell)\>
 
-Defined in: [ifcopenshell-js/src/init.ts:45](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L45)
+Defined in: [ifcopenshell-js/src/init.ts:44](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L44)
 
 Initialize the packaged or explicitly configured WASM runtime.
 
@@ -4475,7 +4501,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:29
 
 > **open**(`bytes`, `filename?`, `options?`): [`File`](#typescript-core-file-1)
 
-Defined in: [ifcopenshell-js/src/file.ts:157](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/file.ts#L157)
+Defined in: [ifcopenshell-js/src/file.ts:157](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/file.ts#L157)
 
 Parse IFC bytes after explicitly loading their schema plugin.
 
@@ -4506,7 +4532,7 @@ Parse IFC bytes after explicitly loading their schema plugin.
 
 > **schemaByName**(`name`): `IfcOpenshellSchema` \| `null`
 
-Defined in: [ifcopenshell-js/src/init.ts:66](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/init.ts#L66)
+Defined in: [ifcopenshell-js/src/init.ts:65](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/init.ts#L65)
 
 Retrieve the loaded schema declaration by its full identifier.
 

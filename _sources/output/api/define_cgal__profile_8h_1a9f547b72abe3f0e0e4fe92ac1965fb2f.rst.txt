@@ -1,0 +1,14 @@
+.. _exhale_define_cgal__profile_8h_1a9f547b72abe3f0e0e4fe92ac1965fb2f:
+
+Define IFOPSH_CGAL_PROFILE_SCOPE
+================================
+
+- Defined in :ref:`file_src_ifcgeom_kernels_cgal_cgal_profile.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: IFOPSH_CGAL_PROFILE_SCOPE
+   :project: IfcOpenShell

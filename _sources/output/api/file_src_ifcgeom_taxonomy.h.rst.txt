@@ -170,6 +170,8 @@ Classes
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1item`
 
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1lambda__span__function`
+
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1less__functor`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1line`
@@ -197,6 +199,10 @@ Classes
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1shell`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1solid`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1span__function`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1span__info`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1taxonomy_1_1sphere`
 
@@ -240,6 +246,10 @@ Enums
 - :ref:`exhale_enum_taxonomy_8h_1aea927900c5d5ddf852cce25503f6be39`
 
 - :ref:`exhale_enum_taxonomy_8h_1aecc61ecf411355b431422d52a382f0e6`
+
+- :ref:`exhale_enum_taxonomy_8h_1ad87bb12e1295087faf814f6a2fe18af5`
+
+- :ref:`exhale_enum_taxonomy_8h_1a03cc1ae5f98a663708157a3e5c2c4f63`
 
 
 Functions

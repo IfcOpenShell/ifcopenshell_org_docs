@@ -1,0 +1,14 @@
+.. _exhale_typedef_function__item__evaluator_8h_1a54ef54857f3a6b2048512f4a9db92608:
+
+Typedef ifcopenshell::geom::section_function
+============================================
+
+- Defined in :ref:`file_src_ifcgeom_function_item_evaluator.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ifcopenshell::geom::section_function
+   :project: IfcOpenShell

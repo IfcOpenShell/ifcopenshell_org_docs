@@ -54,9 +54,9 @@ Included By
 -----------
 
 
-- :ref:`file_src_ifcgeom_converter.h`
-
 - :ref:`file_src_ifcgeom_geometry_serializer.h`
+
+- :ref:`file_src_ifcgeom_converter.h`
 
 - :ref:`file_src_ifcgeom_iterator.h`
 

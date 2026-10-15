@@ -7,7 +7,7 @@
 
 ### Iterator
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:18](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L18)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:18](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L18)
 
 Synchronous native iterator. Load schema, mapping and kernel plugins before construction.
 
@@ -24,7 +24,7 @@ Synchronous native iterator. Load schema, mapping and kernel plugins before cons
 
 > **new Iterator**(`settings`, `file`, `options?`): [`Iterator`](#typescript-geom-iterator)
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L21)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L21)
 
 ###### Parameters
 
@@ -70,7 +70,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:445
 
 > `readonly` **settings**: [`Settings`](#typescript-geom-settings-1)
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L22)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L22)
 
 #### Methods
 
@@ -501,7 +501,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:469
 
 ### Settings
 
-Defined in: [ifcopenshell-js/src/geom/settings.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L8)
+Defined in: [ifcopenshell-js/src/geom/settings.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/settings.ts#L8)
 
 Owned wrapper for native geometry interpretation settings.
 
@@ -518,7 +518,7 @@ Owned wrapper for native geometry interpretation settings.
 
 > **new Settings**(): [`Settings`](#typescript-geom-settings-1)
 
-Defined in: [ifcopenshell-js/src/geom/settings.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L9)
+Defined in: [ifcopenshell-js/src/geom/settings.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/settings.ts#L9)
 
 ###### Returns
 
@@ -799,7 +799,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:578
 
 > **names**(): `string`[]
 
-Defined in: [ifcopenshell-js/src/geom/settings.ts:17](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L17)
+Defined in: [ifcopenshell-js/src/geom/settings.ts:17](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/settings.ts#L17)
 
 ###### Returns
 
@@ -1072,7 +1072,7 @@ Defined in: ifcopenshell-wasm/wasm/ifcopenshell\_api.d.ts:587
 
 > **value**(`name`): [`SettingInput`](#typescript-geom-settinginput)
 
-Defined in: [ifcopenshell-js/src/geom/settings.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L13)
+Defined in: [ifcopenshell-js/src/geom/settings.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/settings.ts#L13)
 
 ###### Parameters
 
@@ -1091,7 +1091,7 @@ Defined in: [ifcopenshell-js/src/geom/settings.ts:13](https://github.com/IfcOpen
 
 ### IteratorOptions
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:10](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L10)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:10](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L10)
 
 Optional native iterator configuration.
 
@@ -1104,7 +1104,7 @@ Optional native iterator configuration.
 
 > `optional` **exclude?**: [`IteratorFilter`](#typescript-geom-iteratorfilter)
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L13)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:13](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L13)
 
 (typescript-geom-geometrylibrary)=
 
@@ -1113,7 +1113,7 @@ Defined in: [ifcopenshell-js/src/geom/iterator.ts:13](https://github.com/IfcOpen
 
 > `optional` **geometryLibrary?**: `string`
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L14)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:14](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L14)
 
 (typescript-geom-include)=
 
@@ -1122,7 +1122,7 @@ Defined in: [ifcopenshell-js/src/geom/iterator.ts:14](https://github.com/IfcOpen
 
 > `optional` **include?**: [`IteratorFilter`](#typescript-geom-iteratorfilter)
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:12](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L12)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:12](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L12)
 
 (typescript-geom-numthreads)=
 
@@ -1131,7 +1131,7 @@ Defined in: [ifcopenshell-js/src/geom/iterator.ts:12](https://github.com/IfcOpen
 
 > `optional` **numThreads?**: `number`
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:11](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L11)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:11](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L11)
 
 ## Type Aliases
 
@@ -1142,7 +1142,7 @@ Defined in: [ifcopenshell-js/src/geom/iterator.ts:11](https://github.com/IfcOpen
 
 > **IteratorFilter** = `number`[] \| `string`[]
 
-Defined in: [ifcopenshell-js/src/geom/iterator.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/iterator.ts#L7)
+Defined in: [ifcopenshell-js/src/geom/iterator.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/iterator.ts#L7)
 
 Entity ids or IFC type names, matching the native include/exclude filters.
 
@@ -1155,7 +1155,7 @@ Entity ids or IFC type names, matching the native include/exclude filters.
 
 > **SettingInput** = `boolean` \| `number` \| `string` \| `number`[] \| `string`[]
 
-Defined in: [ifcopenshell-js/src/geom/settings.ts:6](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/settings.ts#L6)
+Defined in: [ifcopenshell-js/src/geom/settings.ts:6](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/settings.ts#L6)
 
 Value accepted by a geometry setting setter.
 
@@ -1168,7 +1168,7 @@ Value accepted by a geometry setting setter.
 
 > **createShape**(`settings`, `instance`, `representation?`, `geometryLibrary?`): `IfcOpenshellGeomElement` \| `null`
 
-Defined in: [ifcopenshell-js/src/geom/shape.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/geom/shape.ts#L7)
+Defined in: [ifcopenshell-js/src/geom/shape.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/geom/shape.ts#L7)
 
 Create one shape. Load the schema mapping and geometry kernel beforehand.
 

@@ -1,0 +1,14 @@
+.. _exhale_function_infra__sweep__helper_8h_1a52b502f012b2a14562a468639813c08c:
+
+Function ifcopenshell::geom::section\_points
+============================================
+
+- Defined in :ref:`file_src_ifcgeom_infra_sweep_helper.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::section_points(const taxonomy::geom_item::ptr&)
+   :project: IfcOpenShell

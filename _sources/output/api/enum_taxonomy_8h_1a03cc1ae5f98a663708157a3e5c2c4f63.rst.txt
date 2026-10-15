@@ -1,0 +1,14 @@
+.. _exhale_enum_taxonomy_8h_1a03cc1ae5f98a663708157a3e5c2c4f63:
+
+Enum span_layout
+================
+
+- Defined in :ref:`file_src_ifcgeom_taxonomy.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ifcopenshell::geom::taxonomy::span_layout
+   :project: IfcOpenShell

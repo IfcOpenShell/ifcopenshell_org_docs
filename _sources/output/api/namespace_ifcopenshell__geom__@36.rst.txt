@@ -1,0 +1,13 @@
+
+.. _namespace_ifcopenshell__geom__@36:
+
+Namespace ifcopenshell::geom::@36
+=================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+

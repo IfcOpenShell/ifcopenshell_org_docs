@@ -125,6 +125,11 @@ Files
 .. toctree::
    :maxdepth: 5
 
+   file_src_ifcgeom_kernels_cgal_cgal_profile.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
    file_src_ifcparse_character_decoder.h.rst
 
 .. toctree::

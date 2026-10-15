@@ -9,7 +9,7 @@ Utility APIs for inspecting IFC entities and working with colors.
 
 ### AttributeEntry
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L4)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L4)
 
 #### Properties
 
@@ -20,7 +20,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenSh
 
 > **name**: `string`
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L4)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L4)
 
 (typescript-utilities-value)=
 
@@ -29,7 +29,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenSh
 
 > **value**: `string`
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L4)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L4)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:4](https://github.com/IfcOpenSh
 
 ### EntityInspection
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:5](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L5)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:5](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L5)
 
 #### Properties
 
@@ -49,7 +49,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:5](https://github.com/IfcOpenSh
 
 > **attributes**: [`AttributeEntry`](#typescript-utilities-attributeentry)[]
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L9)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:9](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L9)
 
 (typescript-utilities-guid)=
 
@@ -58,7 +58,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:9](https://github.com/IfcOpenSh
 
 > **guid**: `string` \| `null`
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L8)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:8](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L8)
 
 (typescript-utilities-id)=
 
@@ -67,7 +67,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:8](https://github.com/IfcOpenSh
 
 > **id**: `number`
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:6](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L6)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:6](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L6)
 
 (typescript-utilities-type)=
 
@@ -76,7 +76,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:6](https://github.com/IfcOpenSh
 
 > **type**: `string`
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L7)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:7](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L7)
 
 ## Type Aliases
 
@@ -87,7 +87,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:7](https://github.com/IfcOpenSh
 
 > **RGB** = \[`number`, `number`, `number`\]
 
-Defined in: [ifcopenshell-js/src/util/color.ts:3](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/color.ts#L3)
+Defined in: [ifcopenshell-js/src/util/color.ts:3](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/color.ts#L3)
 
 RGB triplet with components normalized to the `[0, 1]` range.
 
@@ -100,7 +100,7 @@ RGB triplet with components normalized to the `[0, 1]` range.
 
 > **formatAttributeValue**(`value`): `string`
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:12](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L12)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:12](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L12)
 
 #### Parameters
 
@@ -121,7 +121,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:12](https://github.com/IfcOpenS
 
 > **hashColor**(`input`): [`RGB`](#typescript-utilities-rgb)
 
-Defined in: [ifcopenshell-js/src/util/color.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/color.ts#L23)
+Defined in: [ifcopenshell-js/src/util/color.ts:23](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/color.ts#L23)
 
 Generate a deterministic RGB color from a string hash.
 
@@ -156,7 +156,7 @@ A deterministic `[r, g, b]` triplet in `[0, 1]`.
 
 > **inspectEntity**(`file`, `id`): `Promise`\<[`EntityInspection`](#typescript-utilities-entityinspection) \| `null`\>
 
-Defined in: [ifcopenshell-js/src/util/inspect.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/inspect.ts#L19)
+Defined in: [ifcopenshell-js/src/util/inspect.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/inspect.ts#L19)
 
 #### Parameters
 
@@ -181,7 +181,7 @@ Defined in: [ifcopenshell-js/src/util/inspect.ts:19](https://github.com/IfcOpenS
 
 > **meshColor**(`type`, `materialIds`, `colors`): [`RGB`](#typescript-utilities-rgb)
 
-Defined in: [ifcopenshell-js/src/util/color.ts:50](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/util/color.ts#L50)
+Defined in: [ifcopenshell-js/src/util/color.ts:50](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/util/color.ts#L50)
 
 Resolve the display color for a mesh, preferring material colors
 defined on the IFC representation over a type-based hash color.

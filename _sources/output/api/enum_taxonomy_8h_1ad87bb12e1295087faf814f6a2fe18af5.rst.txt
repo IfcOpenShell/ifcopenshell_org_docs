@@ -1,0 +1,14 @@
+.. _exhale_enum_taxonomy_8h_1ad87bb12e1295087faf814f6a2fe18af5:
+
+Enum span_curve
+===============
+
+- Defined in :ref:`file_src_ifcgeom_taxonomy.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ifcopenshell::geom::taxonomy::span_curve
+   :project: IfcOpenShell

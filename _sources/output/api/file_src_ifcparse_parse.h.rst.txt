@@ -106,9 +106,9 @@ Functions
 
 - :ref:`exhale_function_parse_8h_1a0f60fc05b29447348de10360cd61e081`
 
-- :ref:`exhale_function_parse_8h_1a96595b46830df02e6f74708b7fe7ff40`
-
 - :ref:`exhale_function_parse_8h_1a0c045b00f7bc25422aaad0696e225588`
+
+- :ref:`exhale_function_parse_8h_1a96595b46830df02e6f74708b7fe7ff40`
 
 - :ref:`exhale_function_parse_8h_1ad9e7adce42f6551675f043d06e97109b`
 

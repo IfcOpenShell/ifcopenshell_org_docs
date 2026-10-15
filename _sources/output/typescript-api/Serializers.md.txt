@@ -9,7 +9,7 @@ Serializer APIs for exporting IFC geometry and data.
 
 ### ExportOptions
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:39](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L39)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:39](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L39)
 
 Geometry loading, serializer, cancellation, and progress options.
 
@@ -22,7 +22,7 @@ Geometry loading, serializer, cancellation, and progress options.
 
 > `optional` **kernel?**: `string`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:41](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L41)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:41](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L41)
 
 Previously loaded geometry kernel. Defaults to `passthrough`.
 
@@ -33,7 +33,7 @@ Previously loaded geometry kernel. Defaults to `passthrough`.
 
 > `optional` **numThreads?**: `number`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:43](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L43)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:43](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L43)
 
 Number of native geometry iterator threads.
 
@@ -44,7 +44,7 @@ Number of native geometry iterator threads.
 
 > `optional` **signal?**: `AbortSignal`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:48](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L48)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:48](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L48)
 
 Abort the export between geometry elements. Checked between synchronous
 native calls; it cannot interrupt one native call already in progress.
@@ -58,7 +58,7 @@ native calls; it cannot interrupt one native call already in progress.
 
 > `optional` **onProgress**(`progress`): `void`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:50](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L50)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:50](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L50)
 
 Receive write and completion progress events.
 
@@ -79,7 +79,7 @@ Receive write and completion progress events.
 
 ### ExportResult
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:31](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L31)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:31](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L31)
 
 Text buffers returned by a serializer; OBJ uses `secondary` for MTL data.
 
@@ -92,7 +92,7 @@ Text buffers returned by a serializer; OBJ uses `secondary` for MTL data.
 
 > **primary**: `string`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:33](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L33)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:33](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L33)
 
 Primary serialized content.
 
@@ -103,7 +103,7 @@ Primary serialized content.
 
 > **secondary**: `string`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:35](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L35)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:35](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L35)
 
 Secondary content, used for the OBJ material file.
 
@@ -114,7 +114,7 @@ Secondary content, used for the OBJ material file.
 
 ### OperationProgress
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:18](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L18)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:18](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L18)
 
 Serializer progress in native processing order.
 
@@ -127,7 +127,7 @@ Serializer progress in native processing order.
 
 > `optional` **current?**: `number`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L22)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:22](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L22)
 
 (typescript-serializers-message)=
 
@@ -136,7 +136,7 @@ Defined in: [ifcopenshell-js/src/serializers/index.ts:22](https://github.com/Ifc
 
 > **message**: `string`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L20)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:20](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L20)
 
 (typescript-serializers-phase)=
 
@@ -145,7 +145,7 @@ Defined in: [ifcopenshell-js/src/serializers/index.ts:20](https://github.com/Ifc
 
 > **phase**: `string`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L19)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:19](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L19)
 
 (typescript-serializers-ratio)=
 
@@ -154,7 +154,7 @@ Defined in: [ifcopenshell-js/src/serializers/index.ts:19](https://github.com/Ifc
 
 > `optional` **ratio?**: `number`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L21)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:21](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L21)
 
 ## Type Aliases
 
@@ -165,7 +165,7 @@ Defined in: [ifcopenshell-js/src/serializers/index.ts:21](https://github.com/Ifc
 
 > **SerializerFormat** = `"obj"` \| `"svg"` \| `"ttl"`
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:28](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L28)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:28](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L28)
 
 Formats supported by [exportToBuffer](#typescript-serializers-exporttobuffer).
 
@@ -178,7 +178,7 @@ Formats supported by [exportToBuffer](#typescript-serializers-exporttobuffer).
 
 > **exportToBuffer**(`file`, `geomSettings`, `format`, `options?`): `Promise`\<[`ExportResult`](#typescript-serializers-exportresult) \| `null`\>
 
-Defined in: [ifcopenshell-js/src/serializers/index.ts:60](https://github.com/IfcOpenShell/IfcOpenShell/blob/c62d54a74ee67133d12f103a16831f0c510fbb91/src/ts/ifcopenshell-js/src/serializers/index.ts#L60)
+Defined in: [ifcopenshell-js/src/serializers/index.ts:60](https://github.com/IfcOpenShell/IfcOpenShell/blob/403f8ceb78e3921cb183b935d885684aa2efd532/src/ts/ifcopenshell-js/src/serializers/index.ts#L60)
 
 Serialize the file into in-memory text buffers. Load kernel, mapping and serializer plugins first.
 

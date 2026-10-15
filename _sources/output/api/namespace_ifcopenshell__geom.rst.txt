@@ -17,7 +17,7 @@ Namespaces
 ----------
 
 
-- :ref:`namespace_ifcopenshell__geom__@34`
+- :ref:`namespace_ifcopenshell__geom__@36`
 
 - :ref:`namespace_ifcopenshell__geom__impl`
 
@@ -101,6 +101,8 @@ Classes
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1ray`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1ray__intersection__result`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1sampled__section`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1segment__collector`
 
@@ -226,6 +228,8 @@ Functions
 
 - :ref:`exhale_function_nef__to__halfspace__tree_8h_1afdf9462deb462071a2fc5774158f2e06`
 
+- :ref:`exhale_function_function__item__evaluator_8h_1a719a3f1141272e8c73f14bb5b7b9a638`
+
 - :ref:`exhale_function_clash__utils_8h_1a19a992d93152d3315804c7335faec9d0`
 
 - :ref:`exhale_function_nef__to__halfspace__tree_8h_1a91ad981d1720b8220b5ed7487b4d6e1c`
@@ -280,6 +284,8 @@ Functions
 
 - :ref:`exhale_function_profile__helper_8h_1a40f513958c76195f31f9e0127690e013`
 
+- :ref:`exhale_function_infra__sweep__helper_8h_1a52b502f012b2a14562a468639813c08c`
+
 - :ref:`exhale_function_serialization_8h_1ae48bb4d0ef583008e7fbd1d8ca699bac`
 
 - :ref:`exhale_function_serialization_8h_1a7526ba15347f72c353bf3327258f6cdb`
@@ -319,13 +325,15 @@ Typedefs
 
 - :ref:`exhale_typedef_abstract__mapping_8h_1a65aac35d731dc63939c30648bec8054d`
 
-- :ref:`exhale_typedef_conversion__settings_8h_1a6aa182a8d0f936d52c9d0ac0142b9fb8`
+- :ref:`exhale_typedef_conversion__settings_8h_1ab66d32b58658be0ccdf18104fb779c97`
 
 - :ref:`exhale_typedef_nef__to__halfspace__tree_8h_1a1d20f1dedc8e5ac7a2f4086a76fb4c86`
 
 - :ref:`exhale_typedef_nef__to__halfspace__tree_8h_1abd559649454663417169e56ee29e633f`
 
 - :ref:`exhale_typedef_opencascade__geometry__ifc__writer__plugin_8h_1ae6d77ef85457f159173558acb60afea0`
+
+- :ref:`exhale_typedef_function__item__evaluator_8h_1a54ef54857f3a6b2048512f4a9db92608`
 
 - :ref:`exhale_typedef_tree_8h_1a99e78a64daa273f605a74fba8b8a6eb2`
 

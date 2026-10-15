@@ -1,0 +1,39 @@
+
+.. _file_src_ifcgeom_kernels_cgal_cgal_profile.h:
+
+File cgal_profile.h
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_ifcgeom_kernels_cgal>` (``src/ifcgeom/kernels/cgal``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/ifcgeom/kernels/cgal/cgal_profile.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_ifcgeom_kernels_cgal_cgal_profile.h.rst
+
+
+
+
+
+
+
+
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_cgal__profile_8h_1a9f547b72abe3f0e0e4fe92ac1965fb2f`
+

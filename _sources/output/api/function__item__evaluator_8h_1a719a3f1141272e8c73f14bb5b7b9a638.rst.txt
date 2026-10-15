@@ -1,0 +1,14 @@
+.. _exhale_function_function__item__evaluator_8h_1a719a3f1141272e8c73f14bb5b7b9a638:
+
+Function ifcopenshell::geom::deflection\_samples
+================================================
+
+- Defined in :ref:`file_src_ifcgeom_function_item_evaluator.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ifcopenshell::geom::deflection_samples(std::vector<double>, const section_function&, double, double, double)
+   :project: IfcOpenShell

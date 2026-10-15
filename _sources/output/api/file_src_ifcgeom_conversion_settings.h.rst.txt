@@ -110,8 +110,6 @@ Classes
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01int_01_4`
 
-- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01settings__detail_1_1_function_step_method_01_4`
-
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01settings__detail_1_1_iterator_output_options_01_4`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1impl_1_1readable__name_3_01settings__detail_1_1_output_dimensionality_types_01_4`
@@ -176,10 +174,6 @@ Classes
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_force_space_transparency`
 
-- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_function_step_param`
-
-- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_function_step_type`
-
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_generate_uvs`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_has_default`
@@ -193,6 +187,8 @@ Classes
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_layerset_first`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_length_unit`
+
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_loft_use_ruled_surfaces`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_make_volume`
 
@@ -330,6 +326,8 @@ Classes
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_validate_quantities`
 
+- :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_vertex_rebase_distance`
+
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_weld_vertices`
 
 - :ref:`exhale_struct_structifcopenshell_1_1geom_1_1settings__detail_1_1_wkt_use_section`
@@ -349,8 +347,6 @@ Enums
 -----
 
 
-- :ref:`exhale_enum_conversion__settings_8h_1a744b91e201d758818a926a8caea5eb20`
-
 - :ref:`exhale_enum_conversion__settings_8h_1a4d7565d5b246c46d59f2c61466fef49e`
 
 - :ref:`exhale_enum_conversion__settings_8h_1a9945aac6aeda8f479e77cdf43ffd54ac`
@@ -362,24 +358,22 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_conversion__settings_8h_1af9bb77012f9ffa655c8e0d12f4034403`
+- :ref:`exhale_function_conversion__settings_8h_1ae1cbb6d566dd4ebf5d4222316585a507`
 
 - :ref:`exhale_function_conversion__settings_8h_1a169433ed8b942d73a013a54e9906d2df`
 
-- :ref:`exhale_function_conversion__settings_8h_1a4dfb99c6d4501cd5d1904373e94906df`
+- :ref:`exhale_function_conversion__settings_8h_1af9bb77012f9ffa655c8e0d12f4034403`
 
-- :ref:`exhale_function_conversion__settings_8h_1ae1cbb6d566dd4ebf5d4222316585a507`
+- :ref:`exhale_function_conversion__settings_8h_1ac09be7a465a09836c25fb50cf7d45287`
 
 - :ref:`exhale_function_conversion__settings_8h_1a784e2d60392950b0b7fbddfafdec35ea`
 
 - :ref:`exhale_function_conversion__settings_8h_1a971773ad340843da8b6ee443c0324ef0`
-
-- :ref:`exhale_function_conversion__settings_8h_1ac09be7a465a09836c25fb50cf7d45287`
 
 
 Typedefs
 --------
 
 
-- :ref:`exhale_typedef_conversion__settings_8h_1a6aa182a8d0f936d52c9d0ac0142b9fb8`
+- :ref:`exhale_typedef_conversion__settings_8h_1ab66d32b58658be0ccdf18104fb779c97`
 
